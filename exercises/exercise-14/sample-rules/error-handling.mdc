@@ -1,0 +1,12 @@
+---
+description: "Error handling requirements"
+globs: "**/*.c"
+alwaysApply: true
+---
+
+Always check return values for error conditions:
+
+- Check if pointers are NULL before using them
+- Validate user input before processing
+- Handle edge cases (empty arrays, zero values)
+- Print meaningful error messages

@@ -1,0 +1,16 @@
+---
+description: "Basic coding standards for C programming"
+globs: "**/*.c"
+alwaysApply: true
+---
+
+## Coding Standards
+
+Follow these standards when writing or modifying C code:
+
+1. Use 4 spaces for indentation (not tabs)
+2. Add comments before every function explaining what it does
+3. Use descriptive variable names (not single letters except loop counters)
+4. Always check for NULL pointers before dereferencing
+5. Use `//` for single-line comments, `/* */` for multi-line
+6. Keep functions under 30 lines when possible
