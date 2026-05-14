@@ -8,7 +8,7 @@
 
 **Setup:** Any code project (continue with `calculator.c` from previous exercises)
 
-**This folder:** Open `exercises/exercise-16/` in Cursor. It already contains a `sample-skills/` folder with four ready-to-use `SKILL.md` files (`code-reviewer`, `doc-generator`, `test-generator`, `bug-hunter`) you can copy into your own project's `.cursor/skills/` directory.
+**This folder:** Open `core-exercises/exercise-16/` in Cursor. It already contains a `sample-skills/` folder with four ready-to-use `SKILL.md` files (`code-reviewer`, `doc-generator`, `test-generator`, `bug-hunter`) you can copy into your own project's `.cursor/skills/` directory.
 
 ---
 
@@ -108,7 +108,7 @@ Format your response as:
 - 1-2 sentences on the most important change
 ```
 
-A ready-to-copy version of this file lives at `exercises/exercise-16/sample-skills/code-reviewer/SKILL.md`.
+A ready-to-copy version of this file lives at `core-exercises/exercise-16/sample-skills/code-reviewer/SKILL.md`.
 
 ---
 
@@ -157,7 +157,7 @@ def function_name(param1, param2):
 - Include return value description
 ```
 
-Ready-to-copy version: `exercises/exercise-16/sample-skills/doc-generator/SKILL.md`.
+Ready-to-copy version: `core-exercises/exercise-16/sample-skills/doc-generator/SKILL.md`.
 
 ### Skill 2: Test Generator
 
@@ -206,7 +206,7 @@ def test_function_name():
 - Each test should be independent
 ```
 
-Ready-to-copy version: `exercises/exercise-16/sample-skills/test-generator/SKILL.md`.
+Ready-to-copy version: `core-exercises/exercise-16/sample-skills/test-generator/SKILL.md`.
 
 ### Skill 3: Bug Hunter
 
@@ -242,7 +242,7 @@ You are a bug hunting specialist. Your goal is to find the root cause of issues.
 - **Verification:** [how to test the fix]
 ```
 
-Ready-to-copy version: `exercises/exercise-16/sample-skills/bug-hunter/SKILL.md`.
+Ready-to-copy version: `core-exercises/exercise-16/sample-skills/bug-hunter/SKILL.md`.
 
 ---
 

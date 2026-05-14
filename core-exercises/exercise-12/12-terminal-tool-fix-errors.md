@@ -8,7 +8,7 @@
 
 **Setup:** A project with an intentionally broken code file (use the sample below)
 
-**This folder:** Open `exercises/exercise-12/` in Cursor. It already contains `broken_calculator.c` (C version) and `broken_calculator.py` (Python alternative) so you can run the exercise as-is.
+**This folder:** Open `core-exercises/exercise-12/` in Cursor. It already contains `broken_calculator.c` (C version) and `broken_calculator.py` (Python alternative) so you can run the exercise as-is.
 
 ---
 

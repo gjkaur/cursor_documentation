@@ -1,10 +1,10 @@
 ---
-description: Do not create or maintain exercises/cursor-training-exercises-index.md
+description: Do not create or maintain core-exercises/cursor-training-exercises-index.md
 alwaysApply: true
 ---
 
 # Exercises index file
 
-Do **not** create, recreate, update, or “fix” **`exercises/cursor-training-exercises-index.md`**. That path is intentionally absent from this repo.
+Do **not** create, recreate, update, or “fix” **`core-exercises/cursor-training-exercises-index.md`**. That path is intentionally absent from this repo.
 
-When exercise order or links are needed, refer to the **`exercise-N/`** folders and their markdown files under `exercises/` directly. Do not replace this with a new index file of the same role unless the user explicitly asks for a differently named file.
+When exercise order or links are needed, refer to the **`exercise-N/`** folders and their markdown files under `core-exercises/` directly. Do not replace this with a new index file of the same role unless the user explicitly asks for a differently named file.

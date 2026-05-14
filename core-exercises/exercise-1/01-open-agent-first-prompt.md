@@ -28,7 +28,7 @@ You can use **any codebase** you have access to. If you don't have one, create a
 
 ### Sample File: `calculator.c`
 
-A ready-to-use copy is included in this folder as [`calculator.c`](calculator.c). Open the `exercise-1` folder (under `exercises` in this repo) in Cursor and work from there.
+A ready-to-use copy is included in this folder as [`calculator.c`](calculator.c). Open the `exercise-1` folder (under `core-exercises` in this repo) in Cursor and work from there.
 
 ```c
 #include <stdio.h>

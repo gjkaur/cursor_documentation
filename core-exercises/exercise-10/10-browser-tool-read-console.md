@@ -8,7 +8,7 @@
 
 **Setup:** No code files needed. Cursor open, internet connection required.
 
-**This folder:** Open `exercises/exercise-10/` in Cursor. This directory only contains this guide; no `calculator.c` is required.
+**This folder:** Open `core-exercises/exercise-10/` in Cursor. This directory only contains this guide; no `calculator.c` is required.
 
 ---
 

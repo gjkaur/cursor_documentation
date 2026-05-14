@@ -8,7 +8,7 @@
 
 **Setup:** Any code project (continue with `calculator.c` from previous exercises)
 
-**This folder:** Open **`exercises/exercise-5/`** in Cursor. A matching [`calculator.c`](calculator.c) is in this directory so you can work self-contained, or keep using [`../exercise-1/calculator.c`](../exercise-1/calculator.c).
+**This folder:** Open **`core-exercises/exercise-5/`** in Cursor. A matching [`calculator.c`](calculator.c) is in this directory so you can work self-contained, or keep using [`../exercise-1/calculator.c`](../exercise-1/calculator.c).
 
 ---
 

@@ -8,7 +8,7 @@
 
 **Setup:** No code files needed for this exercise. Just Cursor open.
 
-**This folder:** Open `exercises/exercise-9/` in Cursor. This directory only contains this guide; no `calculator.c` is required.
+**This folder:** Open `core-exercises/exercise-9/` in Cursor. This directory only contains this guide; no `calculator.c` is required.
 
 ---
 

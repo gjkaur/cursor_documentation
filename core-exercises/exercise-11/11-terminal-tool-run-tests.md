@@ -8,7 +8,7 @@
 
 **Setup:** A project with test files (use the sample test file provided below)
 
-**This folder:** Open `exercises/exercise-11/` in Cursor. It already contains `test_calculator.c`, `run_tests.bat` (Windows), and `run_tests.sh` (Mac/Linux) so you can run the exercise as-is.
+**This folder:** Open `core-exercises/exercise-11/` in Cursor. It already contains `test_calculator.c`, `run_tests.bat` (Windows), and `run_tests.sh` (Mac/Linux) so you can run the exercise as-is.
 
 ---
 

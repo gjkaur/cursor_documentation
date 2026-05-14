@@ -8,7 +8,7 @@
 
 **Setup:** Any code project (continue with `calculator.c` from previous exercises)
 
-**This folder:** Open `exercises/exercise-14/` in Cursor. It already contains a `sample-rules/` folder with three ready-to-use `.mdc` files (`coding-standards.mdc`, `naming-conventions.mdc`, `error-handling.mdc`) you can copy into your own project's `.cursor/rules/` directory.
+**This folder:** Open `core-exercises/exercise-14/` in Cursor. It already contains a `sample-rules/` folder with three ready-to-use `.mdc` files (`coding-standards.mdc`, `naming-conventions.mdc`, `error-handling.mdc`) you can copy into your own project's `.cursor/rules/` directory.
 
 ---
 
@@ -87,7 +87,7 @@ Follow these standards when writing or modifying C code:
 6. Keep functions under 30 lines when possible
 ```
 
-> Tip: A ready-made copy of this file is available at `exercises/exercise-14/sample-rules/coding-standards.mdc` in this repo.
+> Tip: A ready-made copy of this file is available at `core-exercises/exercise-14/sample-rules/coding-standards.mdc` in this repo.
 
 ### Step 3: Save the File
 

@@ -8,7 +8,7 @@
 
 **Setup:** Any code project with at least 2–3 files (continue with `calculator.c` and add a second file)
 
-**This folder:** Open `exercises/exercise-6/` in Cursor. This directory includes [`calculator.c`](calculator.c), [`math_utils.h`](math_utils.h), and [`math_utils.c`](math_utils.c) so you can practice file @mentions without extra setup.
+**This folder:** Open `core-exercises/exercise-6/` in Cursor. This directory includes [`calculator.c`](calculator.c), [`math_utils.h`](math_utils.h), and [`math_utils.c`](math_utils.c) so you can practice file @mentions without extra setup.
 
 ---
 
@@ -114,7 +114,7 @@ int is_in_range(int n, int min, int max) {
 }
 ```
 
-> **Note:** In this repo, `math_utils.h` and `math_utils.c` are already in `exercises/exercise-6/`. If you are using your own project, add these files there (or equivalent) so @mentions have multiple targets.
+> **Note:** In this repo, `math_utils.h` and `math_utils.c` are already in `core-exercises/exercise-6/`. If you are using your own project, add these files there (or equivalent) so @mentions have multiple targets.
 
 ---
 
