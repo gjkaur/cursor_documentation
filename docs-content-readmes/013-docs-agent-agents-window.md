@@ -268,4 +268,3 @@ Week 5+: Run multiple cloud agents, manage from phone
 3. **Remote management** – Check progress from your phone
 4. **Worktrees** – Isolated environments for each task
 
-Would you like me to explain any of these features in more detail, or walk through a specific example of using multiple parallel agents?

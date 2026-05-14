@@ -281,4 +281,3 @@ Small changes can have big bugs. Let Agent Review check everything.
 
 **The best part:** It works 24/7, never gets tired, and is always consistent. Your human teammates will thank you for sending them cleaner code.
 
-Would you like me to explain how to set up custom rules in `BUGBOT.md`, or move on to another document?

@@ -231,4 +231,3 @@ Try this exact workflow with a simple project:
 
 **You just did real AI-assisted coding!**
 
-Would you like me to explain any specific step in more detail, or help you come up with a practice project to try this on?

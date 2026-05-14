@@ -224,4 +224,3 @@ So if you see "Background Agents" in older documentation, that's the same thing!
 
 **Security note:** Cloud agents run in isolated environments. Your code is processed in the cloud, so be mindful of sensitive data.
 
-Would you like me to explain any specific Cloud Agent feature in more detail, or move on to another document?

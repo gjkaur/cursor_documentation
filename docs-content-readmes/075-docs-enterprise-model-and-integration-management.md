@@ -256,4 +256,3 @@ Prevent Cursor from accessing specific repositories.
 
 **For integrations:** Slack, GitHub, GitLab, and Linear integrations are available for all plans with proper permission management.
 
-Would you like me to explain any specific control or integration in more detail?

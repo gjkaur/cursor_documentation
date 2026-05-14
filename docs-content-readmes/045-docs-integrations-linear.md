@@ -288,4 +288,3 @@ Issue created → Assigned to Cursor → Agent works → PR created → Issue up
 4. **Follow-up instructions** – `@Cursor` in comments to guide running agents
 5. **Triage rules** – Automate assignment based on conditions
 
-Would you like me to explain any specific Linear integration feature in more detail?

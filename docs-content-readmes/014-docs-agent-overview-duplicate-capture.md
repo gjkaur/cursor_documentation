@@ -113,4 +113,3 @@ Cursor's AI assistant that can **independently complete complex coding tasks**, 
 
 **The Agent is Cursor's autonomous AI worker that can read, write, search, and execute commands to complete coding tasks for you.**
 
-Would you like me to explain any specific part of the Agent Overview in more detail, or would you like to move on to another document?

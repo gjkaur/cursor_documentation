@@ -261,4 +261,3 @@ agent -p "review these changes" --output-format text
 
 **Pro tip:** Use Plan Mode (`Shift+Tab`) for complex tasks – it asks clarifying questions before coding. Use Ask Mode (`/ask`) when you just want to explore code without changes.
 
-Would you like me to explain any specific CLI feature in more detail?

@@ -256,4 +256,3 @@ Every agent run is tracked in the dashboard.
 3. **MCP integrations** – Send findings to Slack, Jira, etc.
 4. **No individual impact** – Team-level billing
 
-Would you like me to explain any specific part of Security Review in more detail?

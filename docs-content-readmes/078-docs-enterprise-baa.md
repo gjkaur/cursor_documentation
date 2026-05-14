@@ -189,4 +189,3 @@ Before using Cursor with PHI:
 - Eligible Services list (HIPAA Guide)
 - Eligible Models list (HIPAA Guide)
 
-Would you like me to explain any specific HIPAA compliance topic in more detail?

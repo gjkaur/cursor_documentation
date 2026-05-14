@@ -222,4 +222,3 @@ Save **20%** by switching from monthly to yearly:
 
 **For team admins:** Understand the role differences to assign the right access levels. Use domain matching and SSO for easier onboarding.
 
-Would you like me to explain any specific team management feature in more detail?

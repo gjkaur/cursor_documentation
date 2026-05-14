@@ -252,4 +252,3 @@ The documentation lists these FAQs (full answers not shown):
 
 **Always remember:** Review what you're sharing for sensitive information, and users must confirm before anything runs.
 
-Would you like me to explain any specific deeplink type in more detail?

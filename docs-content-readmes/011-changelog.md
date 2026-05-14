@@ -6,6 +6,141 @@ Let me break down the major updates from these recent releases.
 
 ---
 
+## Release: May 13, 2026 – Development Environments for Cloud Agents 🌐
+
+### What's New?
+
+> *"To take engineering tasks from start to finish, agents need a development environment similar to the setup on your laptop: cloned repositories, installed dependencies, credentials for internal toolchains, and access to build systems."*
+
+Cloud agents now run inside **full development environments** – not just bare-bones sandboxes. They have everything a real developer would have on their laptop: cloned repos, installed packages, credentials, and access to build systems.
+
+| Before | After |
+|--------|-------|
+| Agents ran in basic environments | Full development environments |
+| Limited dependencies | Cloned repos, installed packages, credentials |
+| Manual setup per agent | Configure once, reuse across sessions |
+
+> *"This makes it easier for teams to run fleets of parallelized agents that handle tasks from end-to-end, inside development environments you fully control."*
+
+**Why this matters for beginners:** Cloud agents can now do real engineering tasks – not just isolated code snippets. They have the same tools and access your team has.
+
+---
+
+### 1. Multi-Repo Environments 📦
+
+> *"Cloud agents and automations now support multi-repo environments, building off our work on multi-root workspaces."*
+
+| Feature | What It Means |
+|---------|---------------|
+| **Multiple repositories** | One environment with all repos an agent needs |
+| **Re-use across sessions** | Configure once, use many times |
+
+**Why this matters:** Real projects often span multiple repos (frontend, backend, shared libs). Now an agent can work across all of them.
+
+---
+
+### 2. Environment Configuration as Code 🐳
+
+> *"To make it easier to change, debug, and review environment definitions, we have improved Dockerfile-based configuration."*
+
+You define your environment in a Dockerfile (treated like code), so it can be version-controlled, reviewed, and reused.
+
+| Improvement | Benefit |
+|-------------|---------|
+| **Build secrets** | Securely access private package registries |
+| **Layer caching** | Only rebuilds changed layers |
+| **70% faster builds** | Cache hits dramatically speed up builds |
+
+> *"Build secrets are scoped to the build step and aren't passed to the running agent's environment."*
+
+**Why this matters:** Faster build times and secure access to private packages – without leaking credentials to the running agent.
+
+---
+
+### 3. Improved Agent-Led Environment Setup 🤖
+
+> *"As Cursor configures your environment, it will ask you questions, flag missing credentials, and validate that your environment is set up properly."*
+
+| Feature | What It Does |
+|---------|--------------|
+| **Asks questions** | Clarifies missing information |
+| **Flags missing credentials** | Tells you what's needed |
+| **Validates setup** | Ensures environment works |
+| **Shows environment version** | Always know what's running |
+| **Fallback base image** | If config fails, uses base image with warning |
+
+> *"If your environment configuration fails, it will default to a base image with clear warning signs so that your cloud agents can keep running instead of immediately failing."*
+
+**Why this matters:** Setup is interactive and resilient. Even if something goes wrong, the agent can still run while you fix the config.
+
+---
+
+### 4. Environment Governance and Security Controls 🔒
+
+| Feature | Benefit |
+|---------|---------|
+| **Version history** | Review and roll back environments |
+| **Restrict rollback permissions** | Admins can limit who can roll back |
+| **Audit log** | Track all environment actions |
+| **Scoped egress and secrets** | Secrets for one environment not accessible from others |
+
+> *"An audit log captures every action team members take on environments, giving security teams full visibility into who changed what."*
+
+**Why this matters for admins:** Full visibility and control. You can see who did what, roll back bad changes, and keep secrets isolated to specific environments.
+
+---
+
+## Release: May 11, 2026 – Cursor in Microsoft Teams 💬
+
+### What's New?
+
+> *"Cursor is now available in Microsoft Teams. Mention @Cursor in any Teams channel to delegate a task to a cloud agent or pull information from Cursor into Teams."*
+
+| Platform | Now Supported |
+|----------|---------------|
+| Slack | ✅ Already supported |
+| Microsoft Teams | ✅ Now supported |
+
+### How It Works:
+
+| Step | What Happens |
+|------|--------------|
+| 1 | Mention `@Cursor` in any Teams channel |
+| 2 | Cursor picks the right repository and model |
+| 3 | Agent reads entire thread for context |
+| 4 | Implements solution |
+| 5 | Creates PR for team to review |
+
+> *"Get started by installing the integration in the Cursor dashboard."*
+
+**Why this matters for beginners:** If your company uses Microsoft Teams, you can now ask Cursor for help right inside a chat – without switching apps. Just `@Cursor` and describe what you need.
+
+---
+
+## Release: May 11, 2026 – Bugbot Effort Levels 🐛
+
+### What is Bugbot?
+
+Bugbot is Cursor's automated code reviewer. It reads your PRs and flags potential bugs before a human reviewer sees them.
+
+### What's New?
+
+> *"Teams admins and Individual plan users can now customize the effort level Bugbot uses for its PR reviews."*
+
+### Three Configurations:
+
+| Effort Level | What It Does |
+|--------------|--------------|
+| **Default** | Same as today – optimized for efficiency and speed |
+| **High** | Spends more time reasoning – more expensive, takes longer, may find more bugs |
+| **Custom** | Describe in natural language when to use default vs. high effort |
+
+> *"Customers must be on usage-based billing for Bugbot to customize effort levels."*
+
+**Why this matters for beginners:** You can now trade speed for thoroughness. Quick PRs? Use Default. Critical security PRs? Crank it to High.
+
+---
+
 ## Release: May 7, 2026 (Version 3.3)
 
 ### 1. PR Review (Pull Request Review) 🎯
@@ -47,17 +182,80 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 **Why this matters for beginners:** Less waiting = faster results. If you give Cursor a plan with independent tasks, it will finish much quicker.
 
+> *"Click 'Build in Parallel' to have it identify independent parts of your plan and run them simultaneously using async subagents. Cursor will keep dependent steps in order when needed."*
+
 ---
 
-### 3. Context Usage Breakdown 📊
+### 3. Split Changes into PRs ✂️
 
-**New feature:** You can now see a breakdown of what's taking up space in your AI's "context" (the memory/space the AI uses to understand your code).
+> *"When multitasking in Cursor, you can now use a built-in quick action to split changes into PRs."*
+
+Instead of one giant PR with 30 file changes, Cursor can split your work into smaller, logical PRs that are much easier to review.
+
+| Feature | What It Does |
+|---------|--------------|
+| **Identifies logical slices** | Uses chat context to find natural splits |
+| **Default independent PRs** | Creates separate PRs unless dependencies required |
+| **Backup snapshot** | Creates safety backup before splitting |
+| **Split plan** | Proposes plan for your approval |
+
+**Why this matters for beginners:** Reviewers love small PRs. They're faster to review, less risky to merge, and easier to roll back if needed.
+
+---
+
+### 4. Pin Skills as Quick Actions 📌
+
+> *"You can now pin your most commonly used skills as quick-action pills for faster access."*
+
+| Before | After |
+|--------|-------|
+| Type `/skill-name` each time | Click pinned quick-action pill |
+
+**Why this matters:** If you use the same skills over and over (like running tests, formatting code, or generating commits), pin them and skip the typing.
+
+---
+
+### Improvements (May 7)
+
+| Improvement | Description |
+|-------------|-------------|
+| **Explore subagent control** | Choose specific model, inherit parent, or disable |
+| **General model names** | Use `model: opus` – always uses newest Opus |
+| **/multitask in editor** | Run async subagents to parallelize requests |
+| **Better undo grouping** | Undo/redo feels more natural during edits |
+| **Improved long-chat handling** | Less jumpiness, fewer surprises |
+| **MCP connection improvements** | More predictable, explicit stale token cleanup |
+
+### Bug Fixes (May 7)
+
+| Fix | Description |
+|-----|-------------|
+| Terminal interaction bugs | Fixed editing shortcut issues, approval/overlay edge cases |
+| Slash menu regressions | Fixed input-approval issues |
+| MCP auth edge cases | Fixed transient 401 handling, stale credential behavior |
+| Multi-repo environment | Fixed selection and cache issues |
+| Cloud agent timing | Fixed hydration edge cases that degraded reliability |
+
+---
+
+## Release: May 6, 2026 – Context Usage Breakdown 📊
+
+### What's New?
+
+> *"You can now see a breakdown of your agent's context usage. Use these stats to diagnose context issues and improve your setup across rules, skills, MCPs, and subagents."*
+
+You can now see a breakdown of what's taking up space in your AI's "context" (the memory/space the AI uses to understand your code).
 
 **What you can see:**
-- Rules (custom instructions you've given Cursor)
-- Skills (specialized abilities you've enabled)
-- MCPs (connections to other tools)
-- Subagents (smaller AI helpers)
+
+| What You Can See |
+|------------------|
+| Rules usage (custom instructions you've given Cursor) |
+| Skills usage (specialized abilities you've enabled) |
+| MCPs usage (connections to other tools) |
+| Subagents usage (smaller AI helpers) |
+
+> *"Use these stats to diagnose context issues and improve your setup."*
 
 **Why this matters for beginners:** If Cursor seems slow or confused, you can check what's filling up its context. Too many rules or skills might be overwhelming it. Now you can diagnose and fix it.
 
@@ -65,7 +263,7 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 ## Release: May 4, 2026
 
-### 4. Model Controls for Enterprise Admins 🛡️
+### 1. Model Controls for Enterprise Admins 🛡️
 
 **This is mainly for company administrators** (not individual users).
 
@@ -84,7 +282,7 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 ---
 
-### 5. Soft Spend Limits and Intelligent Alerts 💰
+### 2. Soft Spend Limits and Intelligent Alerts 💰
 
 **What's new:** Instead of hard limits (which block users completely), admins can now set **soft limits** with alerts.
 
@@ -102,7 +300,7 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 ---
 
-### 6. Updated Usage Analytics Tab 📈
+### 3. Updated Usage Analytics Tab 📈
 
 **What admins can now see:**
 
@@ -115,7 +313,7 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 ---
 
-### 7. Team Marketplace Updates 🛒
+### 4. Team Marketplace Updates 🛒
 
 **What's new:** Admins can create a team marketplace without connecting a repository first.
 
@@ -131,12 +329,37 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 ---
 
+## Summary of May 2026 Updates
+
+| Date | Feature | What It Does |
+|------|---------|--------------|
+| May 13 | **Dev environments** | Full environments for cloud agents (multi-repo, config as code, governance) |
+| May 11 | **Microsoft Teams** | `@Cursor` in Teams channels |
+| May 11 | **Bugbot effort levels** | Customize review depth (Default, High, Custom) |
+| May 7 | **PR Review** | Complete PR workflow inside Cursor |
+| May 7 | **Build in parallel** | Execute plan tasks simultaneously |
+| May 7 | **Split PRs** | Split changes into logical PRs |
+| May 7 | **Pin skills** | Quick-access skill pills |
+| May 6 | **Context breakdown** | See what's using context space |
+| May 4 | **Model controls** | Admins block/allow specific models |
+| May 4 | **Spend alerts** | Get warnings before hitting budget |
+| May 4 | **Usage analytics** | See who used what |
+| May 4 | **Team marketplace** | Control which plugins are available |
+
+---
+
 ## Summary of What's New (For Beginners)
 
 | Feature | What it does | Who cares? |
 |---------|--------------|-------------|
+| **Dev environments** | Cloud agents get a full laptop-like setup | Teams running cloud agents |
+| **Multi-repo** | One environment spans all your repos | Teams with multiple repos |
+| **Microsoft Teams** | `@Cursor` works in Teams channels | Teams using MS Teams |
+| **Bugbot effort levels** | Trade speed for thoroughness | Teams using Bugbot |
 | **PR Review** | Review code without leaving Cursor | Team developers |
 | **Parallel execution** | Does multiple tasks at once | Everyone (faster!) |
+| **Split PRs** | Smaller, easier-to-review PRs | Code reviewers |
+| **Pin skills** | One-click access to common skills | Power users |
 | **Context breakdown** | See what's using AI memory | Power users, debugging |
 | **Model controls** | Block/allow certain AI models | Admins |
 | **Spend alerts** | Get warnings before hitting budget | Teams with budgets |
@@ -145,9 +368,23 @@ Cursor can now do all 3 at once. **Your changes happen faster.**
 
 ---
 
+## Key Takeaways for Engineers
+
+| Update | Why It Matters |
+|--------|----------------|
+| **Dev environments** | Agents can have full setup like your laptop |
+| **Multi-repo** | Agents can work across multiple repos |
+| **Teams integration** | Use Cursor from Microsoft Teams |
+| **Bugbot effort** | Control review depth vs. cost |
+| **Parallel builds** | Faster execution of plans |
+| **Split PRs** | Easier code review |
+| **Context breakdown** | Debug context issues |
+
+---
+
 ## For a Beginner: What Matters Most
 
-The two features most relevant to you as a beginner are:
+The features most relevant to you as a beginner are:
 
 ### 1. Parallel Execution ⚡
 Your plans will execute faster. If you give Cursor a list of independent tasks, it will tackle them simultaneously. Less waiting!
@@ -157,6 +394,9 @@ If Cursor ever seems lost or confused, you can check what's filling up its conte
 
 ### 3. Spend Alerts (if on a team) 💰
 If you're on a company team, you'll get friendly warnings before you hit your spending limit. No more sudden blocks!
+
+### 4. Microsoft Teams Integration 💬
+If your company uses Teams, just `@Cursor` in any channel to delegate a task or ask a question. No app switching needed.
 
 ---
 
@@ -196,16 +436,34 @@ The PDF and PNG files you shared show **different content**:
 
 ---
 
+## The Bottom Line
+
+**Cursor's May 2026 updates focus on three main areas: better cloud agent environments (multi-repo, config as code, security), more integrations (Microsoft Teams), and improved workflows (parallel execution, PR review, context visibility).**
+
+**For your engineers:**
+- Cloud agents can now have full development environments
+- Use `@Cursor` in Microsoft Teams (in addition to Slack)
+- Customize Bugbot effort for deeper reviews
+- Build plans in parallel for faster execution
+- Split changes into logical PRs for easier review
+- See context usage breakdown to debug issues
+
+---
+
 ## Final Summary for Beginners
 
 The **changelog** is Cursor's way of telling users: *"Hey, we added these cool new things!"*
 
 **Key takeaways:**
+- **Dev Environments** = Cloud agents get a full laptop-like setup (multi-repo, secrets, audit logs)
+- **Microsoft Teams** = `@Cursor` works in Teams channels (just like Slack)
+- **Bugbot Effort Levels** = Trade speed for thoroughness on PR reviews
 - **PR Review** = Review code inside Cursor (no more switching to GitHub)
 - **Parallel Plans** = Faster execution (Cursor does multiple tasks at once)
+- **Split PRs** = Smaller, easier-to-review changes
+- **Pin Skills** = One-click access to your favorite skills
 - **Context Breakdown** = See what's using AI memory (helps with debugging)
 - **Spend Alerts** = Get warnings before hitting budget (no surprise blocks)
 
-**For a beginner:** The most exciting feature is **parallel execution** – your AI assistant will work faster when you give it independent tasks. The context breakdown is also helpful if you run into issues.
+**For a beginner:** The most exciting features are **parallel execution** and **split PRs** – your AI assistant works faster and produces smaller, reviewable PRs. The context breakdown is also helpful if you run into issues.
 
-Would you like me to explain any of these features in more detail, or help you understand how to use them in practice?

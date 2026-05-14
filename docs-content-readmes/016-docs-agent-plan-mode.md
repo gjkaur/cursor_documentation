@@ -338,4 +338,3 @@ If the first build is wrong, revert and refine the plan. Don't try to fix throug
 
 **Get the plan right, and the code will be right.**
 
-Would you like me to explain how Plan Mode differs from the "Plan" feature in the Quickstart guide, or move on to another document?

@@ -82,7 +82,3 @@ alwaysApply: true
 
 ---
 
-Would you like me to:
-1. Explain a specific aspect of Rules in more detail?
-2. Move on to another document?
-3. Help you write a specific rule for your use case?

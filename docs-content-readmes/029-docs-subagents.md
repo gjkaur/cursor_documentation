@@ -410,4 +410,3 @@ Agent includes all custom subagents in its available tools. You can see which su
 
 **Start simple:** Create one subagent for a task you do repeatedly (like "audit security" or "run tests"). Add more as you identify clear, distinct use cases.
 
-Would you like me to explain how to create a specific subagent for your use case, or move on to another document?

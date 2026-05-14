@@ -144,4 +144,3 @@ Once your GitLab integration is connected, configure the features that use it:
 3. Connect → Install → **Sync Repos** → Configure features
 4. Then enable Bugbot and/or Cloud Agents
 
-Would you like me to explain any specific part of the GitLab integration in more detail?

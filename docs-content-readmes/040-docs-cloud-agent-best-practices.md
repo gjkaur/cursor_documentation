@@ -181,5 +181,3 @@ Create **custom tools** that:
 2. Giving access to needed secrets and services
 3. Creating simple, reliable tools
 4. Documenting debugging and testing steps
-
-Would you like me to explain any specific best practice in more detail?

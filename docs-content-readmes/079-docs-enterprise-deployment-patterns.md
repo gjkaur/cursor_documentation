@@ -424,4 +424,3 @@ Find your team ID by clicking on your team name from `https://cursor.com/dashboa
 
 **For IT teams:** The reference configuration files are included with Cursor. Delete unused policies to avoid unintentionally restrictive defaults.
 
-Would you like me to explain any specific deployment pattern in more detail?

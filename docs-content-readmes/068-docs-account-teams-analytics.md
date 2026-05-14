@@ -267,4 +267,3 @@ Shows which versions of the Cursor editor your team is using.
 
 **For team admins:** Use these analytics to understand adoption patterns, identify power users, and make data-driven decisions about AI tooling.
 
-Would you like me to explain any specific analytics feature in more detail?

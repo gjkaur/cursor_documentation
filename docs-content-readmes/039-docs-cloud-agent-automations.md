@@ -366,4 +366,3 @@ Prompts define what the agent should do. Write them the same way you would write
 3. **Team Owned** – Runs under team service account, no individual impact
 4. **Webhook triggers** – Connect to any internal system
 
-Would you like me to explain any specific part of Automations in more detail?

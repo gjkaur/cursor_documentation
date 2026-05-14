@@ -331,4 +331,3 @@ If you're an admin, you can control sandbox behavior for your entire team:
 
 **The most important safety feature:** You are always in control. Nothing runs without your permission unless you configure it otherwise.
 
-Would you like me to explain any specific part of the sandbox configuration in more detail, or move on to another document?

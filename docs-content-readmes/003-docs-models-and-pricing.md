@@ -267,4 +267,3 @@ A: Cache saves money. If the AI reuses information from a previous request, you 
 
 **Remember:** You can always upgrade or downgrade. Start small and scale up.
 
-Would you like me to explain any specific pricing detail, or help you calculate estimated costs for your specific use case?

@@ -184,4 +184,3 @@ Once your GitHub integration is connected, configure the features that use it:
 4. IP allow list support available (contact hi@cursor.com)
 5. Once connected, enable Bugbot and Cloud Agents
 
-Would you like me to explain any specific part of the GitHub integration in more detail?

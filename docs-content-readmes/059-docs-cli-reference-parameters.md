@@ -275,4 +275,3 @@ agent --worktree "Run tests"
 
 **Pro tip:** Always check `agent --help` or `agent <command> --help` for the most up-to-date options.
 
-Would you like me to explain any specific parameter or command in more detail?

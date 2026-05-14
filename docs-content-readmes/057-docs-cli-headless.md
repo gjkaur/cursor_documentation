@@ -317,4 +317,3 @@ When you include file paths in your prompt:
 
 **Pro tip:** Always set `CURSOR_API_KEY` as an environment variable in your CI/CD environment. Never hardcode API keys in scripts.
 
-Would you like me to explain any specific headless CLI feature in more detail?

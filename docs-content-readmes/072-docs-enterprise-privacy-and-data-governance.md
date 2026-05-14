@@ -222,4 +222,3 @@ For enhanced security control, enterprise customers can use **Customer Managed E
 
 **The bottom line:** Your code is protected at every stage – through one-way embeddings, ZDR agreements, encryption, and optional controls.
 
-Would you like me to explain any specific privacy or data governance topic in more detail?

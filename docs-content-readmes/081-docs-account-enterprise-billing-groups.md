@@ -149,4 +149,3 @@ Admins can create billing groups by clicking **Create Group**. After naming the 
 - Budget tracking across projects
 - Programmatic management via Admin API
 
-Would you like me to explain any specific billing group feature in more detail?

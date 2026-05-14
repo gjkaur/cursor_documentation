@@ -266,4 +266,3 @@ Simple one-line fixes?
 
 **The always-on thinking is a killer feature** – you get better reasoning without having to remember to enable it.
 
-Would you like me to compare Grok 4.3 with Grok 4.20, or explain more about how "thinking mode" works across different models?

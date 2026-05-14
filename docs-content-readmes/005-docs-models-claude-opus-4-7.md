@@ -323,4 +323,3 @@ Since Max Mode doesn't cost extra with Opus, take advantage of the full 1M conte
 - **Claude 4.6 Sonnet** = Staff Developer 👩‍💻 (balanced, reliable)
 - **Claude 4.7 Opus** = Principal Architect 👨‍🏫 (expensive, exceptional)
 
-Would you like me to compare Opus with another specific model, or explain anything else about the Claude family of models?

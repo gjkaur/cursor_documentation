@@ -220,4 +220,3 @@ Or just type in the chat: *"Switch to Claude 4.6 Sonnet"* – Cursor understands
 
 **Most developers find Claude 4.6 Sonnet is the perfect daily driver.** It's like a reliable car – not the cheapest, not the fanciest, but gets the job done well every day.
 
-Would you like me to compare Sonnet 4.6 with another specific model, or explain anything else about how models work in Cursor?

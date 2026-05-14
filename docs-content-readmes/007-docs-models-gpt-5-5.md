@@ -279,4 +279,3 @@ Are you working with huge files (>272k tokens)?
 
 **The persistence feature is real and valuable.** If you find other models giving up on complex tasks, GPT-5.5 is your answer.
 
-Would you like me to compare GPT-5.5 with Claude Opus in more detail, or explain the token efficiency claim about GPT-5.4?

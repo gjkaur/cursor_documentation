@@ -224,4 +224,3 @@ Example billing items:
 
 **For team admins:** The dashboard gives you full control over your team's Cursor experience – manage access, control costs, and ensure security compliance.
 
-Would you like me to explain any specific dashboard feature in more detail?

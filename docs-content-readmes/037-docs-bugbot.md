@@ -417,4 +417,3 @@ If Bugbot isn't working:
 3. **Nested BUGBOT.md** – Project-specific rules that automatically apply to relevant files
 4. **Admin API** – Programmatically manage repos and user access
 
-Would you like me to explain any specific part of Bugbot in more detail?

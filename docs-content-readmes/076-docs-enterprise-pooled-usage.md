@@ -159,4 +159,3 @@ Admins can configure:
 - You want a single committed budget rather than per-user allocations
 - You need team-wide spend controls that scale with team size
 
-Would you like me to explain any specific pooled usage feature in more detail?

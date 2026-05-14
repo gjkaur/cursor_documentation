@@ -335,4 +335,3 @@ Help the Agent understand what **should** happen versus what **is** happening.
 
 **The result:** Instead of trying 5 wrong fixes over 30 minutes, Debug Mode finds the right fix in 5 minutes.
 
-Would you like me to explain any specific step in more detail, or move on to another document?

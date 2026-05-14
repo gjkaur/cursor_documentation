@@ -120,4 +120,3 @@ You type: *"Add a dark mode toggle"* – Cursor writes the code, explains where 
 
 The documentation is telling you: *"This tool can do all these amazing things – now go try it!"*
 
-Would you like me to explain any specific part in more detail? For example, how context limits work, or what each model is best for?

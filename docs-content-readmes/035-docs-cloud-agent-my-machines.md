@@ -343,4 +343,3 @@ This checks:
 
 **The best part:** No firewall changes needed. The worker opens an outbound connection, so you don't need to configure inbound ports or VPNs.
 
-Would you like me to explain any specific part of My Machines in more detail?

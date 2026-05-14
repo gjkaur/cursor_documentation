@@ -263,4 +263,3 @@ Do you need to work with images or designs?
 
 **If you build websites, apps, or anything visual – try Gemini. You'll be amazed at how well it turns designs into code.**
 
-Would you like me to compare Gemini with GPT-5.5 or Claude Opus, or explain more about how image processing works in practice?

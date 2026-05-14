@@ -167,4 +167,3 @@ User logged in to Cursor (auto-created if new)
 
 **For team admins:** This is the recommended way to manage team access, especially for larger organizations. Users auto-join when they first sign in via SSO.
 
-Would you like me to explain any specific SSO configuration step in more detail?

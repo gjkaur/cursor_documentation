@@ -164,4 +164,3 @@ When you open the commit view, you see:
 - File blame view (right-click → Cursor Blame)
 - Commit view (full breakdown)
 
-Would you like me to explain any specific Cursor Blame feature in more detail?

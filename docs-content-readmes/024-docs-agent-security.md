@@ -273,4 +273,3 @@ Include:
 
 **For beginners:** Trust the defaults. Don't change security settings until you fully understand the risks. When in doubt, approve manually.
 
-Would you like me to explain any specific security feature in more detail, or move on to another document?

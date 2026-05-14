@@ -332,4 +332,3 @@ Use the **model picker dropdown** at the top of the chat input, or press `Ctrl +
 
 **The best prompt is specific, provides context, and clearly states what you want.**
 
-Would you like me to explain any specific @mention type in more detail, or move on to another document?

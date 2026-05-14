@@ -190,4 +190,3 @@ Cursor provides provider-specific setup instructions for:
 
 **For enterprise IT teams:** SCIM eliminates manual user management and ensures access is always up to date with your HR/IDP system.
 
-Would you like me to explain any specific SCIM setup step in more detail?

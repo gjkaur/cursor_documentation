@@ -349,4 +349,3 @@ Cursor requests these Slack permissions:
 
 **Disclaimer:** *"Cursor can make mistakes. Please double-check code and responses."*
 
-Would you like me to explain any specific Slack integration feature in more detail?

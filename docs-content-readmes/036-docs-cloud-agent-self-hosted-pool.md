@@ -410,4 +410,3 @@ Exposes endpoints:
 
 **For beginners:** This is not something you need to worry about. Your organization's infrastructure team would set this up.
 
-Would you like me to explain any specific part of Self-Hosted Pool in more detail?

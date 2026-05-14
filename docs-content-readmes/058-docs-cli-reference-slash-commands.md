@@ -242,4 +242,3 @@ agent
 
 **Pro tip:** Type `/help <command>` for detailed help on a specific command (e.g., `/help /model`).
 
-Would you like me to explain any specific slash command in more detail?

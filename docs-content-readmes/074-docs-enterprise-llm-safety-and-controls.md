@@ -414,4 +414,3 @@ Model Context Protocol (MCP) servers let agents access external data sources:
 
 **For enterprise security teams:** Hooks are your most powerful tool for enforcing custom policies. Combine them with terminal restrictions, file protection, and DLP integration for comprehensive coverage.
 
-Would you like me to explain any specific safety control in more detail?

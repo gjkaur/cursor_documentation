@@ -340,4 +340,3 @@ For enterprise customers, admins can restrict which sites the agent can automati
 3. **Session persistence** – Stays logged in between sessions
 4. **Design to code** – Convert screenshots into working code
 
-Would you like me to explain any specific browser capability in more detail, or move on to another document?

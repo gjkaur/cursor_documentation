@@ -371,4 +371,3 @@ When installing MCP servers, follow these security practices:
 
 **Security reminder:** MCP servers can execute code on your behalf. Only install from trusted sources. Use approval mode by default.
 
-Would you like me to explain how to build a simple MCP server, or move on to another document?

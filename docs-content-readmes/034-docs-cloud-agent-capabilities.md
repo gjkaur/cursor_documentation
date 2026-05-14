@@ -251,4 +251,3 @@ Here's how all these capabilities work together:
 
 **Security note:** HTTP MCPs are recommended over stdio for better security (agent never sees credentials). All sensitive configs are encrypted at rest.
 
-Would you like me to explain any specific capability in more detail?

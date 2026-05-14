@@ -245,4 +245,3 @@ You can select a model using the `/model` slash command in the CLI:
 
 **Remember:** Only permissions can be set at the project level. All other settings are global only.
 
-Would you like me to explain any specific configuration option in more detail?

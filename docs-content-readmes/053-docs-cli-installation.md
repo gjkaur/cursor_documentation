@@ -157,4 +157,3 @@ agent update
 
 **The CLI works alongside (or instead of) the desktop app – same account, same billing, same models.**
 
-Would you like me to explain any other CLI commands or features?

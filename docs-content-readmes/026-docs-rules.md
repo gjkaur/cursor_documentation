@@ -398,4 +398,3 @@ alwaysApply: false
 
 **The most powerful feature:** Team Rules + enforcement. Your entire organization can have consistent AI guidance that developers cannot accidentally disable.
 
-Would you like me to explain how to write effective rule content, or move on to another document?

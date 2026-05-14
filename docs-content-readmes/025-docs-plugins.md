@@ -341,4 +341,3 @@ The documentation lists these FAQs:
 
 **The plugin ecosystem is growing.** As more developers create plugins, Cursor becomes more powerful and customizable.
 
-Would you like me to explain how to create a specific type of plugin (like a rule or skill), or move on to another document?

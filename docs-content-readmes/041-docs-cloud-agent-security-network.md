@@ -302,4 +302,3 @@ For git hosts specifically, Cursor supports a **git egress proxy** that routes a
 
 **Most important warning:** Auto-running commands introduces data exfiltration risk. Use network restrictions to limit blast radius if prompt injection occurs.
 
-Would you like me to explain any specific security feature in more detail?

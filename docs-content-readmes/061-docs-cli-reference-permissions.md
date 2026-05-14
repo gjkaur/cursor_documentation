@@ -204,4 +204,3 @@ Create a `cli.json` or `cli-config.json` file:
 
 **Remember:** Deny rules take precedence over allow rules. Always put sensitive patterns in `deny`.
 
-Would you like me to explain any specific permission pattern in more detail?

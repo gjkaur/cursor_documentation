@@ -427,4 +427,3 @@ export HTTPS_PROXY=http://localhost:1054/
 
 **Security note:** Always use the Secrets tab for sensitive data. Never hardcode secrets in your Dockerfile or environment.json. Use redacted secrets for extra protection.
 
-Would you like me to explain any specific part of Cloud Agent setup in more detail?

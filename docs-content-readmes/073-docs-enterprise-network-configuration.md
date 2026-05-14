@@ -258,4 +258,3 @@ If you experience connection issues:
 
 **For IT/network teams:** The key is streaming support. If your proxy buffers responses, Cursor's real-time agent experience will be broken. Work with your network team to disable buffering for Cursor domains or implement proper streaming passthrough.
 
-Would you like me to explain any specific network configuration topic in more detail?

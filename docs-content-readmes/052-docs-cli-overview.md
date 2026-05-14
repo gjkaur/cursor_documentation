@@ -294,4 +294,3 @@ Continue exactly where you left off.
 
 **The CLI + desktop app share the same account, models, and billing – use whichever fits your workflow.**
 
-Would you like me to explain any specific CLI command or feature in more detail?

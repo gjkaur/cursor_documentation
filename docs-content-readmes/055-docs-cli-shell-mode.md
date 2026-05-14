@@ -232,4 +232,3 @@ drwxr-xr-x  12 user  staff   384 May 9 10:00 .
 
 **Pro tip:** Use `cd <dir> && <command>` to run commands in other directories since `cd` doesn't persist between commands.
 
-Would you like me to explain any other CLI feature?

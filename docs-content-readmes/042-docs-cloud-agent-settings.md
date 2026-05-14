@@ -180,4 +180,3 @@ This is a **critical security consideration**:
 
 **Most important warning:** Team follow-ups create security risks. A less privileged user could direct a more privileged user's agent to expose secrets or perform unauthorized actions.
 
-Would you like me to explain any specific setting in more detail?

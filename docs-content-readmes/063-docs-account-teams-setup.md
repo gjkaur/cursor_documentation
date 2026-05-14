@@ -126,4 +126,3 @@ SSO (Single Sign-On) allows team members to log in using your organization's ide
 
 **For admin setup:** Start with step 1 above, then configure additional settings in your team dashboard.
 
-Would you like me to explain any specific part of the Teams setup in more detail?

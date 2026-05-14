@@ -334,4 +334,3 @@ The documentation lists these FAQs (though answers aren't shown in your file):
 
 **The most powerful insight:** You don't need to know where things are. Just ask Agent to find them. It will search by exact name OR meaning and show you what's relevant.
 
-Would you like me to explain regex patterns for Instant Grep, or move on to another document?

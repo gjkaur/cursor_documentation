@@ -242,4 +242,3 @@ To centrally manage workspace trust, configure the `WorkspaceTrustEnabled` polic
 
 **For security teams:** These controls ensure only authorized users with compliant devices can access Cursor, and only trusted extensions can run.
 
-Would you like me to explain any specific identity control in more detail?

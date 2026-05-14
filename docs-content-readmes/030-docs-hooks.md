@@ -429,4 +429,3 @@ There is a **Hooks tab in Cursor Settings** to debug configured and executed hoo
 3. `sessionStart` – Inject context automatically at session start
 4. `afterFileEdit` – Run formatters after Agent writes code
 
-Would you like me to explain a specific hook event in more detail, or help you write a hook script for a specific use case?

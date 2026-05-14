@@ -206,4 +206,3 @@ Total cost: $200 (seats) + $50 (overage) = **$250/month**
 
 **For larger teams:** Contact `enterprise@cursor.com` for volume discounts and Enterprise plan details.
 
-Would you like me to explain any specific pricing detail in more detail?

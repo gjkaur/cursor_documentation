@@ -230,4 +230,3 @@ Archiving a service account:
 
 **For enterprise teams:** Service accounts are essential for building reliable, secure automations that don't depend on individual developers' accounts.
 
-Would you like me to explain any specific service account feature in more detail?

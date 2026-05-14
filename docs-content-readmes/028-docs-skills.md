@@ -481,4 +481,3 @@ disable-model-invocation: true
 
 **When you're ready to create your first skill:** Start with a task you do repeatedly (like "deploy to staging") and write a simple `SKILL.md` with step-by-step instructions. It's easier than you think!
 
-Would you like me to explain how to create a specific skill, or move on to another document?

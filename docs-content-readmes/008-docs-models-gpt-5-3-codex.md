@@ -291,4 +291,3 @@ Need image processing?
 
 **This is the smart developer's choice.** 🧠💰
 
-Would you like me to compare the "high reasoning" variant in more detail, or explain how Codex compares to Composer 2 (Cursor's own model)?

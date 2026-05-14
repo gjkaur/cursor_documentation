@@ -485,4 +485,3 @@ Any editor with extension support can implement an ACP client:
 
 **Neovim users:** The avante.nvim configuration example shows exactly how to set it up. Run `agent login` once, then configure the plugin.
 
-Would you like me to explain any specific aspect of ACP in more detail?

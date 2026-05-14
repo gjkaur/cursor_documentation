@@ -607,4 +607,3 @@ curl -u YOUR_API_KEY: 'https://api.cursor.com/v1/agents/bc-.../artifacts/downloa
 
 **For beginners:** You don't need this. But if you're building integrations, the API is powerful – you can create agents, stream their responses, download artifacts, and manage the full lifecycle programmatically.
 
-Would you like me to explain any specific API endpoint in more detail?

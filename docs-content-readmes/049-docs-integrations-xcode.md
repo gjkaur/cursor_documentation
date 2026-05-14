@@ -240,4 +240,3 @@ agent "Add unit tests for the NetworkManager class"
 3. Keep Xcode open with your project
 4. Start coding in Cursor – the agent does the rest
 
-Would you like me to explain any specific Xcode tool or capability in more detail?

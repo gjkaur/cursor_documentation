@@ -249,4 +249,3 @@ Day 3: 1,201 requests
 3. **Iteration** – Tell Cursor to fix the layout instead of editing by hand
 4. **Skills** – Create reusable canvas templates for your team
 
-Would you like me to explain how to create custom canvas skills, or move on to another document?

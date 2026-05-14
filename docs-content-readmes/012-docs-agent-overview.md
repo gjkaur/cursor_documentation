@@ -277,4 +277,3 @@ A: Yes, it can run `git commit`, `git push`, etc. through terminal commands.
 
 **The keyboard shortcuts matter:** `Enter` to queue, `Ctrl+Enter` to interrupt. Learn these and you'll work much faster.
 
-Would you like me to explain any specific tool in more detail, or walk through a complete example of using the Agent from start to finish?

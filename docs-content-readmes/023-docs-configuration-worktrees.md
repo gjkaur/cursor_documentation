@@ -435,4 +435,3 @@ You're not sure which model is best for a complex task.
 
 **The most powerful feature:** `/best-of-n` – let different models compete, then pick the winner. It's like having a coding competition between AI models!
 
-Would you like me to explain the difference between Agents Window and Editor Window worktrees in more detail, or move on to another document?

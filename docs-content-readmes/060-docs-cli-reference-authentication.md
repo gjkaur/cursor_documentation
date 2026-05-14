@@ -159,4 +159,3 @@ This logs you out and removes locally stored credentials.
 
 **Remember:** Keep your API key secret – never commit it to version control.
 
-Would you like me to explain any other authentication topic?

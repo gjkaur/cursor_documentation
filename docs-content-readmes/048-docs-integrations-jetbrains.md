@@ -186,4 +186,3 @@ No additional cost beyond your existing Cursor plan.
 
 **No additional cost** – uses your existing Cursor subscription.
 
-Would you like me to explain any specific part of the JetBrains integration in more detail?

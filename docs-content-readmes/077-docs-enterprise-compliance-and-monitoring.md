@@ -278,4 +278,3 @@ If you discover a security vulnerability in Cursor, report it through our respon
 
 **Important:** Audit logs do NOT capture agent responses or generated code. Use hooks for that.
 
-Would you like me to explain any specific compliance or monitoring feature in more detail?

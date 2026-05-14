@@ -282,4 +282,3 @@ Is this a simple one-line fix?
 
 **Seriously, start with Composer 2.** You'll save money and probably get better results because it's optimized for Cursor.
 
-Would you like me to compare Composer 2 specifically with GPT-5.3 Codex, or explain how "self-summarization during training" makes it better at long tasks?
