@@ -219,7 +219,7 @@ Goal: customize agents to the team and codebase (Module 1, lessons 010 – 013) 
 | 11:50 – 12:00 | Exercise 24 + 25 (demo): Cloud Agent from Slack + Artifacts | [`core-exercises/exercise-24/`](core-exercises/exercise-24/), [`core-exercises/exercise-25/`](core-exercises/exercise-25/) |
 | 12:00 – 1:00 | **Lunch** | |
 | 1:00 – 2:00 | Open lab / Q&A | |
-| 2:00 – 2:30 | Wrap-up & certificates | |
+| 2:00 – 2:30 | Wrap-up | |
 
 **Conceptual reading anchors (Module 1):** 010 Developing Features, 011 Finding and Fixing Bugs, 012 Reviewing and Testing Code, 013 Customizing Agents.
 
@@ -279,7 +279,7 @@ Goal: complete the Enterprise admin/reporting surface and capstone-level reporti
 | 11:05 – 11:15 | Exercise 18: Granular AI Change Metrics | [`api-exercises/exercise-18/`](api-exercises/exercise-18/) |
 | 11:15 – 11:25 | Exercise 19 (demo): Commit Details (Alpha) | [`api-exercises/exercise-19/`](api-exercises/exercise-19/) |
 | 11:25 – 11:50 | Exercise 23 (demo / take-home): Build a Complete Dashboard | [`api-exercises/exercise-23/`](api-exercises/exercise-23/) |
-| 11:50 – 12:00 | Wrap-up & certificates | |
+| 11:50 – 12:00 | Wrap-up | |
 | 12:00 – 1:00 | **Lunch** | |
 | 1:00 – 2:30 | Open lab / capstone work | |
 
