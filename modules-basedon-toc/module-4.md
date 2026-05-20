@@ -1,6 +1,6 @@
 # Module 4: Customizing Cursor for Your Team
 
-## Cursor Training Program — Day 1
+## Cursor Training Program — Day 1 (Hands-On + Walkthrough)
 
 ---
 
@@ -10,8 +10,8 @@
 |--------|---------|
 | **Duration** | ~60 minutes |
 | **Format** | Hands-on exercise + walkthrough |
-| **Prerequisites** | Completion of Modules 1-3, Cursor installed |
-| **Module Goal** | Learn to customize Cursor for team workflows using Rules, Skills, MCP, Hooks, and Subagents |
+| **Prerequisites** | Modules 1-3 completed, team repository access, Cursor installed |
+| **Module Goal** | Customize Cursor for team workflows with rules, skills, MCP, and subagents |
 
 ---
 
@@ -19,230 +19,756 @@
 
 By the end of this module, participants will be able to:
 
-- Create Rules to encode team coding standards and guardrails
-- Use AGENTS.md for lightweight project instructions
-- Build reusable Skills for specialized workflows
-- Understand MCP, Hooks, and Slash workflows for team automation
-- Explain how Subagents can delegate specialized work
+- Create Rules that encode team conventions and guardrails
+- Write Repository Instructions for lightweight project guidance
+- Build and invoke reusable Skills for specialized workflows
+- Connect external tools via MCP and create slash workflows
+- Understand when and how to use Subagents for delegation
 
 ---
 
 ## Lesson 4.1: Creating a Rule
 
-### Concept (10 minutes)
+### Concept (8 minutes)
 
-> *"Rules are markdown files stored in `.cursor/rules/` that the agent sees at the start of every conversation. Think of them as always-included instructions that shape how the agent works with your code."*
+> *"Encoding team conventions, build commands, and guardrails. Rules are persistent instructions that the agent follows for every interaction in a project."*
 
-**What Rules Are Good For:**
+### What Are Rules?
 
-| Use Case | Example |
-|----------|---------|
-| Build/test commands | "Use `npm run test` for tests" |
-| Code conventions | "Use ES modules, not CommonJS" |
-| Pointers to examples | "See `Button.tsx` for component structure" |
-| Guardrails | "Don't modify files in `dist/`" |
+Rules are Markdown files (`.cursor/rules/*.mdc`) that contain persistent instructions the agent automatically applies.
 
-**What to Avoid in Rules:**
+**Types of Rules:**
 
-| Don't | Why |
-|-------|-----|
-| Copy entire style guides | Use a linter instead |
-| Document every command | Agent already knows common tools |
-| Over-engineer | Rules are included in every conversation |
-| Ignore team sharing | Check rules into git |
+| Rule Type | Scope | When Applied | Example |
+|-----------|-------|--------------|---------|
+| **Global** | All projects | Always | "Use American English spelling" |
+| **Project** | Specific repo | When opening that project | "Run `make test` before suggesting changes" |
+| **File pattern** | Matching files | When editing those files | "For `*.py` files, use type hints" |
+| **User** | Your account | Always across all projects | "Explain like I'm a junior developer" |
 
-> *"A good rule file is short, specific, and points to examples rather than copying them."*
+### Rule Structure
 
-### Rule File Structure
-
-```yaml
+```markdown
 ---
-description: "Brief description of what this rule does"
-globs: "**/*.c"  # Optional: only apply to certain files
-alwaysApply: true  # Apply to every conversation
+description: Brief description of what this rule does
+globs: *.py, src/**/*.js  # Optional: file patterns
+alwaysApply: true          # Apply without asking
 ---
 
-Your rule content goes here.
-Write instructions for the Agent in plain English.
+# Rule Title
+
+## Instructions for the Agent
+
+Write your instructions here in natural language.
+
+## Examples
+
+Good: ...
+Bad: ...
+
+## Checklist (optional)
+
+- [ ] Check this
+- [ ] Verify that
 ```
 
-### Hands-On Exercise (10 minutes)
+### Hands-On Exercise (12 minutes)
 
-**Step 1:** Create the rules directory:
+**Step 1:** Create the `.cursor` directory
 
 ```bash
 mkdir -p .cursor/rules
 ```
 
-**Step 2:** Create `.cursor/rules/coding-standards.mdc`:
+**Step 2:** Create a team coding standards rule
 
-```yaml
+Create file `.cursor/rules/coding-standards.mdc`:
+
+```markdown
 ---
-description: "Basic coding standards for C programming"
-globs: "**/*.c"
+description: Team coding standards and conventions
+globs: **/*.{js,ts,py}
 alwaysApply: true
 ---
 
-## Coding Standards
+# Team Coding Standards
 
-Follow these standards when writing or modifying C code:
+## Python Standards (for .py files)
 
-1. Use 4 spaces for indentation (not tabs)
-2. Add comments before every function explaining what it does
-3. Use descriptive variable names (not single letters except loop counters)
-4. Always check for NULL pointers before dereferencing
-5. Keep functions under 30 lines when possible
+- Use type hints for all function parameters and returns
+- Maximum line length: 88 characters (Black formatter)
+- Docstrings: Google style format
+- Error handling: Use specific exception types, never bare `except:`
+
+## JavaScript/TypeScript Standards (for .js/.ts files)
+
+- Use `const` over `let`, avoid `var`
+- Prefer arrow functions for callbacks
+- Use optional chaining (`?.`) and nullish coalescing (`??`)
+- Export named exports over default exports when possible
+
+## General Rules for All Code
+
+- No commented-out code in commits
+- No `console.log` in production code (use proper logging)
+- Add JSDoc/docstring for public functions
+- Keep functions under 50 lines when possible
+
+## Example: Good Python Function
+
+```python
+def calculate_total(prices: list[float], tax_rate: float = 0.0) -> float:
+    """Calculate total price including tax.
+    
+    Args:
+        prices: List of item prices
+        tax_rate: Tax rate as decimal (default 0.0)
+    
+    Returns:
+        Total including tax
+    """
+    subtotal = sum(prices)
+    return subtotal * (1 + tax_rate)
 ```
 
-**Step 3:** Save the file
+## Example: Bad Python Function (Avoid)
 
-**Step 4:** Ask the Agent:
+```python
+def calc(prices, tax):  # No type hints
+    total = 0
+    for p in prices:
+        total = total + p  # Could use sum()
+    # Missing docstring
+    return total + (total * tax)
+```
+```
 
-> *"Write a function that calculates the average of an array of integers"*
+**Step 3:** Create a build/test rule
 
-**Step 5:** Verify the Agent followed the rule (comments before function, 4 spaces, descriptive names)
+Create file `.cursor/rules/build-and-test.mdc`:
+
+```markdown
+---
+description: Build and test commands for this project
+globs: **/*
+alwaysApply: true
+---
+
+# Build & Test Commands
+
+## Before making changes
+
+Always check the current state:
+```bash
+git status
+git diff
+```
+
+## After making changes
+
+1. Run the test suite:
+```bash
+make test
+# or
+pytest
+# or
+npm test
+```
+
+2. Run the linter:
+```bash
+make lint
+```
+
+3. If tests fail, fix them before proposing changes.
+
+## Build commands
+
+- Development: `make dev`
+- Production build: `make build`
+- Database migrations: `make migrate`
+
+## Rule for the Agent
+
+Do NOT suggest changes that:
+- Would break the test suite
+- Require external API keys not documented
+- Would change database schema without a migration
+```
+
+**Step 4:** Create a security guardrail rule
+
+Create file `.cursor/rules/security.mdc`:
+
+```markdown
+---
+description: Security guardrails for code changes
+globs: **/*
+alwaysApply: true
+---
+
+# Security Guardrails
+
+## Never Suggest
+
+- Hardcoded secrets, API keys, or passwords
+- Using `eval()` or `exec()` on user input
+- SQL string concatenation (use parameters)
+- Disabling SSL verification
+- `pickle` on untrusted data
+
+## Always Include
+
+- Input validation for all user-provided data
+- Rate limiting for public endpoints
+- HTTPS for external requests
+- Proper error messages (no stack traces to users)
+
+## Sensitive Patterns to Flag
+
+If you see any of these, warn the user:
+- `exec()` or `eval()` with user input
+- `password` or `secret` in variable names
+- Commented-out code with credentials
+
+## Example: SQL Injection (Bad)
+
+```python
+# NEVER DO THIS
+query = f"SELECT * FROM users WHERE email = '{email}'"
+```
+
+## Example: Parameterized Query (Good)
+
+```python
+# ALWAYS DO THIS
+query = "SELECT * FROM users WHERE email = ?"
+cursor.execute(query, (email,))
+```
+```
+
+**Step 5:** Test that rules are applied
+
+Open the Agent and ask:
+
+```
+Based on the project rules, what are the coding standards I should follow?
+What are the security guardrails?
+```
+
+**Step 6:** Create a file-specific rule
+
+Create `.cursor/rules/react-components.mdc`:
+
+```markdown
+---
+description: React component best practices
+globs: **/*.jsx, **/*.tsx
+alwaysApply: true
+---
+
+# React Component Rules
+
+## Component Structure
+
+1. Imports (React, third-party, local)
+2. Types/props definition
+3. Component function
+4. Hooks (useState, useEffect, etc.)
+5. Event handlers
+6. JSX return
+7. Export
+
+## Naming
+
+- Components: PascalCase (`UserProfile`)
+- Hooks: usePascalCase (`useAuth`)
+- Event handlers: handlePascalCase (`handleSubmit`)
+- Props: camelCase (`isActive`, `onClick`)
+
+## Performance
+
+- Use `React.memo` for expensive components
+- Use `useCallback` for functions passed to memoized children
+- Use `useMemo` for expensive calculations
+
+## Accessibility (a11y)
+
+- All interactive elements must be keyboard accessible
+- Include `alt` text for images
+- Use semantic HTML (button, nav, main)
+- Include `aria-label` when needed
+
+## Example Component
+
+```tsx
+import React, { useState, useCallback } from 'react';
+
+interface ButtonProps {
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
+export const Button: React.FC<ButtonProps> = React.memo(({
+  label,
+  onClick,
+  disabled = false
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const handleClick = useCallback(() => {
+    if (!disabled) onClick();
+  }, [disabled, onClick]);
+  
+  return (
+    <button
+      onClick={handleClick}
+      disabled={disabled}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      aria-disabled={disabled}
+    >
+      {label}
+    </button>
+  );
+});
+```
+```
 
 **Success Criteria:**
 - [ ] Created `.cursor/rules/` directory
-- [ ] Created a rule file with frontmatter
-- [ ] Agent followed the rule when writing code
+- [ ] Created coding standards rule
+- [ ] Created build/test rule
+- [ ] Created security guardrail rule
+- [ ] Verified rules are being applied
 
 ---
 
-## Lesson 4.2: Repository Instructions (AGENTS.md)
+## Lesson 4.2: Repository Instructions
 
 ### Concept (5 minutes)
 
-> *"AGENTS.md is a simple markdown file that provides project-level instructions. No YAML, no special formatting – just plain markdown. The Agent reads it automatically."*
+> *"Lightweight project-level guidance. Repository Instructions are simpler than Rules – they live in a single file and provide high-level project context."*
 
-**AGENTS.md vs. Rules (.mdc):**
+### Rules vs. Repository Instructions
 
-| Feature | AGENTS.md | Rules (.mdc) |
-|---------|-----------|--------------|
-| Format | Plain markdown | YAML frontmatter + markdown |
-| Complexity | Simple | More powerful |
-| File location | Project root | `.cursor/rules/` |
-| Glob patterns | ❌ No | ✅ Yes |
-| Best for | Simple project instructions | Complex, file-specific rules |
+| Aspect | Rules | Repository Instructions |
+|--------|-------|------------------------|
+| **Location** | `.cursor/rules/*.mdc` | `.cursor/repository-instructions.md` |
+| **Complexity** | Multiple files, scoped | Single file, global |
+| **Granularity** | Per-file patterns | Entire repository |
+| **Use case** | Detailed standards | High-level project overview |
+| **When to use** | Coding standards, security | Project purpose, architecture |
 
-### Hands-On Exercise (5 minutes)
-
-**Step 1:** Create `AGENTS.md` in your project root:
+### Repository Instructions Structure
 
 ```markdown
-# Project Instructions
+# Repository Instructions for [Project Name]
 
-## Coding Standards
-- Use snake_case for variable names
-- Add comments to all functions
-- Keep functions under 20 lines
+## Project Purpose
+[One paragraph describing what this project does]
 
-## Build Instructions
-- Run `make` to build
-- Run `make test` to test
+## Key Technologies
+- Backend: Python 3.11 + FastAPI
+- Frontend: React 18 + TypeScript
+- Database: PostgreSQL
+- Cache: Redis
+
+## Architecture Overview
+[2-3 sentences about high-level structure]
+
+## Important Conventions
+- Use environment variables for configuration
+- All API endpoints must have OpenAPI docs
+- Tests go in `tests/` mirroring source structure
+
+## Common Tasks
+- Running locally: `make dev`
+- Running tests: `make test`
+- Building: `make build`
+
+## External Dependencies
+- [List key APIs or services the project interacts with]
+
+## Contact
+- On-call: #team-name on Slack
+- Docs: link-to-internal-wiki
 ```
 
-**Step 2:** Ask the Agent:
+### Hands-On Exercise (8 minutes)
 
-> *"Create a variable to store the user's age"*
+**Step 1:** Create repository instructions
 
-**Step 3:** Verify the Agent used snake_case (`user_age` not `userAge`)
+Create file `.cursor/repository-instructions.md`:
+
+```markdown
+# Repository Instructions for Task Manager API
+
+## Project Purpose
+REST API for a team task management system. Users can create tasks, assign them, track status, and generate reports.
+
+## Key Technologies
+- Backend: Python 3.11 + FastAPI
+- Database: PostgreSQL 15
+- ORM: SQLAlchemy 2.0
+- Authentication: JWT
+- Testing: pytest + factory_boy
+
+## Architecture Overview
+```
+src/
+├── api/         # Route handlers
+├── models/      # SQLAlchemy models
+├── schemas/     # Pydantic schemas
+├── services/    # Business logic
+├── repositories/# Database operations
+└── utils/       # Helpers
+```
+
+## Important Conventions
+- Use dependency injection for services
+- All database queries must be in repositories, never in api handlers
+- Use async/await throughout
+- Type hints required for all functions
+
+## Authentication
+- JWT tokens in `Authorization: Bearer <token>` header
+- Token expires in 24 hours
+- Refresh token endpoint at `/auth/refresh`
+
+## Common Tasks
+- Run dev server: `uvicorn src.main:app --reload`
+- Run tests: `pytest -v`
+- Run migrations: `alembic upgrade head`
+- Format code: `black src/ tests/`
+- Lint: `ruff check src/`
+
+## Environment Variables Required
+- `DATABASE_URL`: PostgreSQL connection string
+- `JWT_SECRET_KEY`: 32+ characters
+- `REDIS_URL`: For rate limiting (optional)
+
+## Testing
+- Unit tests: `tests/unit/`
+- Integration tests: `tests/integration/`
+- Mock external APIs using pytest-mock
+
+## CI/CD
+- PRs require passing tests and linting
+- Main branch deploys automatically to staging
+- Tags with `v*` deploy to production
+```
+
+**Step 2:** Verify the agent can access repository instructions
+
+Ask the Agent:
+
+```
+What are the key technologies used in this project?
+How do I run the tests?
+```
+
+**Step 3:** Update instructions as your project evolves
+
+```markdown
+# Add to repository instructions when:
+- New team members join → add contact info
+- Architecture changes → update structure
+- New dependencies → add to list
+- Common issues discovered → add troubleshooting section
+```
 
 **Success Criteria:**
-- [ ] Created `AGENTS.md` in project root
-- [ ] Agent followed at least one instruction
+- [ ] Created `.cursor/repository-instructions.md`
+- [ ] Included project purpose, tech stack, architecture
+- [ ] Added common commands and conventions
+- [ ] Verified agent can access the instructions
 
 ---
 
 ## Lesson 4.3: Creating and Invoking a Skill
 
-### Concept (10 minutes)
+### Concept (8 minutes)
 
-> *"Skills are reusable workflows that teach the agent how to perform specific tasks. Unlike rules, skills are loaded dynamically – the agent decides when to use them based on the task at hand."*
+> *"Building and using a reusable specialized workflow. Skills are like macros or scripts for the agent – a set of instructions that can be invoked by name to perform a specific task."*
 
-**Rules vs. Skills:**
+### What Is a Skill?
 
-| Aspect | Rules | Skills |
-|--------|-------|--------|
-| When loaded | Every conversation | Only when relevant |
-| Purpose | Always-on conventions | Specialized workflows |
-| Context cost | Always uses space | Only uses full context when invoked |
-| Best for | What the agent should always know | What the agent can do when asked |
+A Skill is a reusable, specialized workflow that the agent can load and follow. Think of it as a "prompt template with memory."
 
-### Skill File Structure
+**Skill Structure:**
 
 ```
 .cursor/skills/
-└── skill-name/
-    └── SKILL.md
+├── skill-name/
+│   ├── SKILL.md          # Main instructions (required)
+│   ├── scripts/          # Optional helper scripts
+│   ├── references/       # Optional reference docs
+│   └── templates/        # Optional output templates
 ```
 
-**SKILL.md format:**
+**When to Create a Skill:**
 
-```yaml
----
-name: skill-name
-description: What this skill does and when to use it
----
+| Use Case | Example Skill |
+|----------|---------------|
+| Frequent task | "PR Review" – review PRs with team checklist |
+| Complex workflow | "Onboarding" – set up new dev environment |
+| Domain-specific | "Security Audit" – check for vulnerabilities |
+| Documentation | "Generate API Docs" – create OpenAPI spec |
 
-# Skill Title
+### Hands-On Exercise (12 minutes)
 
-Step-by-step instructions for the agent...
-```
-
-### Hands-On Exercise (10 minutes)
-
-**Step 1:** Create the skills directory:
+**Step 1:** Create the skills directory
 
 ```bash
-mkdir -p .cursor/skills/code-reviewer
+mkdir -p .cursor/skills
 ```
 
-**Step 2:** Create `.cursor/skills/code-reviewer/SKILL.md`:
+**Step 2:** Create a PR Review skill
 
-```yaml
+Create file `.cursor/skills/pr-review/SKILL.md`:
+
+```markdown
 ---
-name: code-reviewer
-description: Reviews code for quality, bugs, and style issues. Use after writing or modifying code.
+name: pr-review
+description: Review a pull request for code quality, security, and team standards
 ---
 
-# Code Reviewer Skill
+# PR Review Skill
 
-## Step 1: Understand the Code
-- Read the file(s) being reviewed
-- Identify the purpose of each function
+You are an expert code reviewer. When invoked with a PR number or branch name, you will:
 
-## Step 2: Check for Issues
-- Missing error handling
-- Off-by-one errors
-- NULL pointer dereferences
-- Magic numbers (use constants instead)
+## Step 1: Understand the Changes
 
-## Step 3: Style and Readability
-- Are variable names descriptive?
-- Is there appropriate comments?
-- Is the indentation consistent?
-
-## Step 4: Provide Feedback
-
-### Critical Issues (Must Fix)
-- [Issue description with location]
-
-### Suggestions (Should Consider)
-- [Suggestion with explanation]
-
-### Nice to Have (Optional)
-- [Minor improvement idea]
+Fetch the PR diff using git:
+```bash
+git fetch origin pull/{PR_NUMBER}/head
+git diff main...FETCH_HEAD
 ```
 
-**Step 3:** Invoke the skill:
+## Step 2: Review Categories
 
-> *"Use the code-reviewer skill to review the main function"*
+Check each category and report findings:
+
+### Code Quality
+- [ ] No commented-out code
+- [ ] No debugging statements (console.log, print)
+- [ ] Functions are under 50 lines where reasonable
+- [ ] No duplicate code (DRY principle)
+
+### Security
+- [ ] No hardcoded secrets
+- [ ] Input validation present
+- [ ] SQL queries parameterized
+- [ ] No eval() or similar dangerous functions
+
+### Testing
+- [ ] New code has tests
+- [ ] Existing tests pass (check CI)
+- [ ] Edge cases covered
+
+### Documentation
+- [ ] Public APIs have docstrings/JSDoc
+- [ ] README updated if needed
+- [ ] Complex logic has comments
+
+### Style (per team standards)
+- [ ] Follows project formatting
+- [ ] Variable names are descriptive
+- [ ] Consistent with codebase
+
+## Step 3: Output Format
+
+```markdown
+## PR Review: [PR Title]
+
+### Summary
+[2-3 sentence overview of changes]
+
+### Issues Found
+
+🔴 **Critical (must fix)**
+- [Issue] - [Location] - [Why] - [Suggestion]
+
+🟡 **Warning (should fix)**
+- [Issue] - [Location] - [Suggestion]
+
+🟢 **Suggestion (consider)**
+- [Suggestion] - [Why it would help]
+
+### What's Working Well
+- [Positive observation 1]
+- [Positive observation 2]
+
+### Verdict
+[APPROVE / REQUEST CHANGES / COMMENT]
+```
+
+## Example
+
+User: "Review PR #42"
+
+Agent: [Runs through steps above, produces formatted review]
+```
+
+**Step 3:** Create a Security Audit skill
+
+Create file `.cursor/skills/security-audit/SKILL.md`:
+
+```markdown
+---
+name: security-audit
+description: Perform a security audit on a file or directory
+---
+
+# Security Audit Skill
+
+You are a security expert. When invoked with a file path, you will:
+
+## Step 1: Scan for Vulnerabilities
+
+Check for these patterns:
+
+### High Severity (Critical)
+- Hardcoded secrets: `password=`, `api_key=`, `secret=`
+- SQL injection: string concatenation in queries
+- Command injection: `os.system(user_input)`
+- eval/exec on user input
+
+### Medium Severity (Important)
+- No input validation on user data
+- Weak cryptography (md5, sha1)
+- Missing CSRF protection
+- Insecure deserialization (pickle, yaml.load)
+
+### Low Severity (Nice to fix)
+- Debug endpoints left enabled
+- Verbose error messages exposing internals
+- Outdated dependency versions
+
+## Step 2: Produce Report
+
+```markdown
+## Security Audit: [File Path]
+
+### Critical Issues (Fix Immediately)
+[Detailed description + line number + fix suggestion]
+
+### Important Issues (Fix Soon)
+[Detailed description + fix suggestion]
+
+### Low Risk (Consider)
+[Observations + recommendations]
+
+### Secure Patterns Found
+[Positive findings worth noting]
+
+### Overall Risk Rating
+[CRITICAL / HIGH / MEDIUM / LOW / PASS]
+```
+
+## Step 3: Suggest Remediation
+
+For each critical/important issue, provide:
+- Why it's dangerous (CWE reference if applicable)
+- Example of vulnerable code
+- Example of fixed code
+```
+
+**Step 4:** Invoke a skill
+
+```
+# In the Agent, invoke the PR review skill
+/pr-review PR #42
+
+# Or with a branch name
+/pr-review feature/payment-integration
+```
+
+**Step 5:** List available skills
+
+```
+What skills are available in this project?
+```
+
+**Step 6:** Create a simple "Onboarding" skill
+
+Create file `.cursor/skills/onboarding/SKILL.md`:
+
+```markdown
+---
+name: onboarding
+description: Generate a developer onboarding checklist for this project
+---
+
+# Onboarding Skill
+
+You will generate a developer onboarding checklist based on the repository instructions and project structure.
+
+## Step 1: Analyze Project
+
+From the repository instructions and codebase, identify:
+- Required tools (Python version, Node version, etc.)
+- Dependencies (pip install, npm install commands)
+- Database setup (migrations, seed data)
+- Environment variables needed
+- First-time setup commands
+
+## Step 2: Generate Checklist
+
+```markdown
+# Developer Onboarding: [Project Name]
+
+## Prerequisites (Install these first)
+- [ ] Python 3.11+
+- [ ] PostgreSQL 15
+- [ ] Git
+
+## Initial Setup
+```bash
+git clone [url]
+cd [project]
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env
+# Edit .env with your values
+```
+
+## Database Setup
+```bash
+createdb [db_name]
+alembic upgrade head
+python scripts/seed_data.py
+```
+
+## Verify Installation
+```bash
+pytest
+make dev
+# Should see "Server running on http://localhost:8000"
+```
+
+## Next Steps
+- Read the Architecture section in repository instructions
+- Run through the tutorial in /docs/tutorial.md
+- Join #project-name on Slack
+```
+
+## Step 3: Offer to Customize
+
+After generating, ask:
+- "Should I add any project-specific steps?"
+- "Would you like me to create a setup script?"
+```
 
 **Success Criteria:**
-- [ ] Created skill directory and `SKILL.md`
-- [ ] Skill has name and description in frontmatter
-- [ ] Successfully invoked the skill
+- [ ] Created skills directory
+- [ ] Built PR Review skill
+- [ ] Built Security Audit skill
+- [ ] Invoked a skill using slash command
+- [ ] Listed available skills
 
 ---
 
@@ -250,178 +776,346 @@ description: Reviews code for quality, bugs, and style issues. Use after writing
 
 ### Concept (10 minutes)
 
-> *"MCP (Model Context Protocol) lets the agent connect to external tools. Hooks let you run custom scripts before/after agent actions. Slash workflows are reusable commands your team can run."*
+> *"Connecting external tools and shipping team commands. MCP (Model Context Protocol) lets you plug in external servers that provide tools, data, or actions to the agent."*
 
-### MCP (Model Context Protocol)
+### What Is MCP?
 
-**What MCP does:** Universal standard for connecting tools to AI models.
+MCP is a protocol that standardizes how AI agents discover and use external tools. It's like a USB port for AI – plug in any MCP-compatible server and the agent can use its capabilities.
 
-| Integration | What Agent Can Do |
-|-------------|-------------------|
-| GitHub | List repos, create PRs, read issues |
-| Slack | Read messages, post updates |
-| Sentry | Look up error details |
-| Databases | Query data directly |
-| Figma | Pull design tokens |
+**MCP Architecture:**
 
-**MCP Configuration (`~/.cursor/mcp.json`):**
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      MCP OVERVIEW                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Cursor Agent ←─MCP Protocol─→ MCP Server                   │
+│                                      │                       │
+│                                      ├─→ GitHub API         │
+│                                      ├─→ Jira API           │
+│                                      ├─→ Slack API          │
+│                                      ├─→ Internal Database  │
+│                                      └─→ Custom Tools       │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### What You Can Do with MCP
+
+| MCP Server | Capabilities |
+|------------|--------------|
+| **GitHub MCP** | Create PRs, comment on issues, fetch reviews |
+| **Slack MCP** | Send messages, read channels, react to threads |
+| **Jira MCP** | Create tickets, update status, add comments |
+| **Filesystem MCP** | Read/write files outside project |
+| **Database MCP** | Query databases, run migrations |
+| **Custom MCP** | Your own internal tools |
+
+### Hooks
+
+Hooks are scripts that run at specific points in the agent's workflow.
+
+**Hook Types:**
+
+| Hook | When It Runs | Use Case |
+|------|--------------|----------|
+| `pre-tool-use` | Before agent calls a tool | Validate permissions, log |
+| `post-tool-use` | After tool returns | Transform results, audit |
+| `pre-prompt` | Before sending to model | Inject context, redact secrets |
+| `post-response` | After agent responds | Format output, log conversations |
+
+### Slash Workflows
+
+Slash workflows are team commands that combine MCP tools, hooks, and prompts into one-click actions.
+
+**Example Slash Commands:**
+
+| Command | What It Does |
+|---------|--------------|
+| `/onboard @newdev` | Run onboarding skill, create GitHub issue, send Slack message |
+| `/deploy staging` | Run tests, build, deploy to staging, notify team |
+| `/bug-report` | Analyze error, create GitHub issue, assign to on-call |
+| `/docs-update` | Review doc changes, build docs, deploy |
+
+### Walkthrough: Setting Up an MCP Server (Demonstration)
+
+**Step 1:** Install an MCP server (example: GitHub MCP)
+
+```bash
+npm install -g @cursor/mcp-github
+```
+
+**Step 2:** Configure MCP in Cursor
+
+Create or edit `~/.cursor/mcp.json`:
 
 ```json
 {
   "mcpServers": {
     "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "command": "cursor-mcp-github",
+      "args": ["--token", "${GITHUB_TOKEN}"],
       "env": {
-        "GITHUB_TOKEN": "${env:GITHUB_TOKEN}"
+        "GITHUB_TOKEN": "your-token-here"
       }
+    },
+    "slack": {
+      "command": "cursor-mcp-slack",
+      "args": ["--token", "${SLACK_TOKEN}"]
     }
   }
 }
 ```
 
-### Hooks
+**Step 3:** Use MCP tools in Agent
 
-> *"Hooks let you run custom scripts before or after agent actions – like a security guard checking each action."*
+```
+# With GitHub MCP enabled
+Create a PR from my feature/payment branch and request review from @alice
 
-| Hook Point | Purpose |
-|------------|---------|
-| Before prompt submission | Scan for sensitive data |
-| Before file reading | Block access to secrets |
-| After code generation | Check for vulnerabilities |
-| Before terminal execution | Block dangerous commands |
-
-### Slash Workflows
-
-> *"Slash commands are reusable workflows your team can run with `/command-name`."*
-
-**Example `/pr` skill:**
-
-```yaml
----
-description: Create a pull request for the current changes.
----
-1. Look at staged and unstaged changes with `git diff`
-2. Write a clear commit message
-3. Commit and push to current branch
-4. Use `gh pr create` to open a pull request
-5. Return the PR URL
+# With Slack MCP
+Send a message to #deploys channel saying "Deployment starting"
 ```
 
-### Demonstration (5 minutes)
+**Walkthrough: Creating a Slash Command (Demonstration)**
 
-**Instructor demonstrates:**
+Create file `.cursor/commands/deploy.md`:
 
-1. Opening MCP settings in Cursor
-2. Showing an example `mcp.json` configuration
-3. Showing where hooks are configured
-4. Creating a simple slash command
+```markdown
+---
+name: deploy
+description: Deploy to staging environment
+arguments: 
+  - name: environment
+    required: true
+    description: staging or production
+---
 
-**Discussion:** How could your team use these features?
+# Deploy Workflow
 
-| Feature | Team Use Case |
-|---------|---------------|
-| MCP | Connect to internal tools |
-| Hooks | Security scanning, compliance |
-| Slash commands | Standardize team workflows |
+You will deploy to {{environment}} by following these steps:
+
+## Pre-deploy Checks
+1. Run `make test` – all tests must pass
+2. Run `make lint` – no linting errors
+3. Check `git status` – working directory clean
+
+## Deploy Steps
+For staging:
+```bash
+git push origin main
+kubectl set image deployment/app app=$IMAGE
+```
+
+For production:
+```bash
+# Requires approval
+git tag v$(date +%Y%m%d-%H%M)
+git push --tags
+./scripts/deploy-prod.sh
+```
+
+## Post-deploy
+1. Verify health endpoint: `curl https://{{environment}}.app/health`
+2. Run smoke tests: `make smoke-test-{{environment}}`
+3. Notify team via Slack (if MCP available)
+
+## Safety Rules
+- Never deploy to production without --force flag confirmation
+- Always verify database migrations are backward compatible
+- Rollback plan: `./scripts/rollback.sh {{environment}}`
+```
+
+**Using the slash command:**
+
+```
+/deploy staging
+```
+
+**Success Criteria (Walkthrough):**
+- [ ] Understood MCP concept and architecture
+- [ ] Saw example MCP configuration
+- [ ] Understood hook types and use cases
+- [ ] Saw slash command example
+- [ ] Understood how to create team commands
 
 ---
 
 ## Lesson 4.5: Subagents (Walkthrough)
 
-### Concept (5 minutes)
+### Concept (6 minutes)
 
-> *"Subagents are specialized AI assistants that the main agent can delegate to. Each subagent has its own context window, so long-running tasks don't clutter the main conversation."*
+> *"A brief look at delegating specialized work to focused sub-agents. Subagents are separate agent instances that handle specific tasks and report back."*
 
-### Built-in Subagents
+### What Are Subagents?
 
-| Subagent | Purpose |
-|----------|---------|
-| **Explore** | Searches and analyzes codebases |
-| **Bash** | Runs series of shell commands |
-| **Browser** | Controls browser via MCP |
+Subagents are independent agent instances that you can spawn to handle specialized tasks. They operate with their own context, tools, and instructions, then return results to the main agent.
 
-### Custom Subagent Example
+**Subagent Architecture:**
 
-**File:** `.cursor/agents/verifier.md`
-
-```yaml
----
-name: verifier
-description: Validates completed work. Use after tasks are marked done.
-readonly: true
----
-
-You are a skeptical validator. Your job is to verify that work claimed as complete actually works.
-
-When invoked:
-1. Identify what was claimed to be completed
-2. Check that implementation exists and is functional
-3. Look for edge cases that may have been missed
-4. Report what was verified and what was incomplete
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    SUBAGENT ARCHITECTURE                     │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Main Agent                                                  │
+│      │                                                       │
+│      ├──→ Subagent: Security Scanner                        │
+│      │       └──→ Returns: "2 critical issues found"        │
+│      │                                                       │
+│      ├──→ Subagent: Documentation Generator                  │
+│      │       └──→ Returns: "Updated README.md"              │
+│      │                                                       │
+│      └──→ Subagent: Test Writer                             │
+│              └──→ Returns: "Added 5 test cases"             │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ### When to Use Subagents
 
-| Use Case | Why |
-|----------|-----|
-| Long research tasks | Don't bloat main context |
-| Parallel exploration | Run multiple searches simultaneously |
-| Verification | Double-check work independently |
-| Specialized expertise | Custom prompts per domain |
+| Scenario | Why Subagent | Example |
+|----------|--------------|---------|
+| **Parallel work** | Multiple tasks simultaneously | Scan security AND generate docs |
+| **Isolation** | Separate context to avoid confusion | Analyze large file independently |
+| **Specialization** | Different prompts/instructions | Security expert vs. UI designer |
+| **Sandboxing** | Limit tool access | Read-only subagent for unknown code |
 
-### Demonstration (5 minutes)
+### Subagent vs. Tool vs. Skill
 
-**Instructor demonstrates:**
+| Concept | Best for |
+|---------|----------|
+| **Tool** | Single action (read file, run command) |
+| **Skill** | Multi-step workflow, same context |
+| **Subagent** | Parallel, isolated, specialized work |
 
-1. Creating a simple subagent
-2. Invoking it from the main agent
-3. Showing how results return to main conversation
+### Walkthrough: Subagent in Action (Demonstration)
+
+**Scenario:** You ask the main agent to "Review the entire codebase for security issues and generate API documentation"
+
+**Without subagents (one agent does both):**
+- Context gets mixed
+- Security focus may distract from docs
+- Slower (sequential)
+
+**With subagents (parallel):**
+```
+Main Agent: I'll spawn two subagents to work in parallel.
+
+→ Subagent 1 (Security Expert): 
+   - Context: Security rules from .cursor/rules/security.mdc
+   - Task: Scan all files for vulnerabilities
+   - Tool access: Read-only
+
+→ Subagent 2 (Doc Writer):
+   - Context: API structure and doc standards
+   - Task: Generate OpenAPI spec
+   - Tool access: Read + write to docs/
+
+[Both work simultaneously]
+
+Results:
+- Subagent 1: Found 3 critical issues
+- Subagent 2: Generated openapi.yaml
+
+Main Agent combines: "Here's the security report and API docs."
+```
+
+**How to invoke subagents (Cursor interface):**
+
+```
+# In the Agent, you can request subagents:
+Spawn a security subagent to audit src/auth/ independently.
+Meanwhile, I'll work on the frontend.
+
+# Or use the UI:
+Click "New Subagent" button in the Agent panel
+Select template: Security Scanner
+Assign task: "Audit all database queries for injection vulnerabilities"
+```
+
+**Built-in Subagent Templates (Cursor Enterprise):**
+
+| Template | Purpose |
+|----------|---------|
+| Security Scanner | Vulnerability detection |
+| Test Generator | Create unit/integration tests |
+| Documentation Writer | Generate API docs, READMEs |
+| Code Reviewer | PR review with different focus |
+| Performance Analyzer | Find bottlenecks |
+
+**Success Criteria (Walkthrough):**
+- [ ] Understood subagent concept
+- [ ] Saw when to use vs. regular agent
+- [ ] Understood parallel execution benefit
+- [ ] Recognized subagent templates
 
 ---
 
 ## Module Summary
 
-| Lesson | Topic | Format |
-|--------|-------|--------|
-| 4.1 | Creating a Rule | Hands-on |
-| 4.2 | AGENTS.md | Hands-on |
-| 4.3 | Creating and Invoking a Skill | Hands-on |
-| 4.4 | MCP, Hooks, and Slash Workflows | Walkthrough |
-| 4.5 | Subagents | Walkthrough |
+| Lesson | Topic | Time | Key Output |
+|--------|-------|------|------------|
+| 4.1 | Creating a Rule | 12 min | `.cursor/rules/*.mdc` files |
+| 4.2 | Repository Instructions | 8 min | `.cursor/repository-instructions.md` |
+| 4.3 | Creating Skills | 12 min | `.cursor/skills/*/SKILL.md` |
+| 4.4 | MCP & Slash Commands | 10 min | MCP config, slash commands |
+| 4.5 | Subagents | 6 min | Understanding of delegation |
 
 ---
 
 ## Quick Reference Card
 
-| Concept | Location | Purpose |
-|---------|----------|---------|
-| Rules | `.cursor/rules/` | Always-on instructions |
-| AGENTS.md | Project root | Simple project instructions |
-| Skills | `.cursor/skills/` | Reusable workflows |
-| MCP config | `.cursor/mcp.json` | External tool connections |
-| Hooks | `.cursor/hooks.json` | Scripts before/after actions |
-| Subagents | `.cursor/agents/` | Specialized assistants |
+```
+┌─────────────────────────────────────────────────────────────┐
+│              CUSTOMIZATION QUICK REFERENCE                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  RULES (.cursor/rules/*.mdc)                                │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Coding standards, security, build commands        │   │
+│  │ • Applied automatically to matching files           │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  REPOSITORY INSTRUCTIONS                                    │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • .cursor/repository-instructions.md                │   │
+│  │ • High-level project overview                       │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  SKILLS (.cursor/skills/*/SKILL.md)                         │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Reusable workflows                                 │   │
+│  │ • Invoke with /skill-name                           │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  MCP (~/.cursor/mcp.json)                                   │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Connect external tools (GitHub, Slack, Jira)      │   │
+│  │ • Agent gains new capabilities                      │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  SLASH COMMANDS (.cursor/commands/*.md)                     │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Team shortcuts: /deploy, /onboard, /triage        │   │
+│  │ • Combine MCP tools, hooks, skills                  │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  SUBAGENTS                                                  │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Parallel, isolated execution                      │   │
+│  │ • Specialized per task                              │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## Best Practices Summary
+## Transition to Module 5
 
-| Practice | Why |
-|----------|-----|
-| Start with minimal rules | Add only when you see repeated mistakes |
-| Keep rules short and specific | Rules are included in every conversation |
-| Check rules into git | Whole team benefits |
-| Use skills for complex workflows | Loaded only when needed |
-| Use subagents for parallel work | Keep main context clean |
-
----
-
-## Transition to Day 2
-
-> *"You've now mastered the Cursor editor, Agent tools, and customization. Tomorrow, we'll move to automation and integration – CLI, Cloud Agents, and the Cursor APIs."*
+> *"Now that you've customized Cursor for your team, Module 5 will cover Model Configuration – selecting the right models, managing API keys, and optimizing cost vs. quality."*
 
 ---
 
 *End of Module 4*
-*End of Day 1*

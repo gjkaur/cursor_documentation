@@ -1,6 +1,6 @@
 # Module 5: Cursor CLI and Local Automation
 
-## Cursor Training Program — Day 2
+## Cursor Training Program — Day 1 (Hands-On)
 
 ---
 
@@ -10,8 +10,8 @@
 |--------|---------|
 | **Duration** | ~60 minutes |
 | **Format** | Hands-on exercise |
-| **Prerequisites** | Cursor CLI installed, API key generated |
-| **Module Goal** | Master the Cursor CLI for interactive sessions, scripting, and CI/CD automation |
+| **Prerequisites** | Cursor CLI installed, terminal access, Modules 1-4 completed |
+| **Module Goal** | Master the Cursor CLI for terminal-based AI workflows and automation |
 
 ---
 
@@ -19,383 +19,594 @@
 
 By the end of this module, participants will be able to:
 
-- Use the Cursor CLI in interactive mode for terminal-based conversations
-- Run one-shot commands for scripting and automation
-- Hand off local sessions to Cloud Agents using `&`
-- List and resume previous sessions
-- Use headless mode for CI/CD pipelines
+- Use the Cursor CLI in interactive mode for real-time AI collaboration
+- Run one-shot CLI commands for scripting and CI/CD integration
+- Hand off local sessions to Cloud Agents for remote execution
+- List, resume, and manage concurrent sessions effectively
 
 ---
 
 ## Lesson 5.1: Interactive CLI
 
-### Concept (5 minutes)
+### Concept (8 minutes)
 
-> *"The Cursor CLI gives you the same Agent power – right from your terminal. Perfect for quick questions, remote development (SSH into a server), and terminal-first workflows."*
+> *"Using Cursor from the terminal. The Cursor CLI brings AI-powered coding directly to your command line, eliminating the need to switch between terminal and editor."* 
 
-**Installation (if not already done):**
+### What Is the Cursor CLI?
 
-| Platform | Command |
-|----------|---------|
-| macOS, Linux, WSL | `curl https://cursor.com/install -fsS \| bash` |
-| Windows PowerShell | `irm 'https://cursor.com/install?win32=true' \| iex` |
+The Cursor CLI is a terminal-based interface to Cursor's AI agent. It allows you to:
 
-**Verify installation:**
+- Start AI sessions directly from your terminal
+- Get code assistance without leaving your workflow
+- Automate coding tasks with scripts
+- Integrate AI into existing CLI tools
+
+**Primary Command:** `agent` (formerly `cursor-agent`, now the main entry point) 
+
+### Interactive Mode Commands
+
+Once in an interactive session, these slash commands are available: 
+
+| Command | Purpose |
+|---------|---------|
+| `/model` | Switch between AI models interactively |
+| `/compress` | Summarize conversation, free up context window |
+| `/rules` | Create and edit rules directly from CLI |
+| `/commands` | Create and modify custom commands |
+| `/mcp enable/disable` | Manage MCP servers |
+| `/usage` | View Cursor usage stats |
+| `/about` | View environment and CLI configuration |
+| `/resume` | View and resume previous sessions |
+
+### Hands-On Exercise (12 minutes)
+
+**Step 1:** Start an interactive session
+
 ```bash
-agent --version
-```
-
-**Authentication:**
-```bash
-agent login
-# Or set API key
-export CURSOR_API_KEY=your_api_key_here
-```
-
-### Hands-On Exercise (10 minutes)
-
-**Step 1:** Start interactive mode:
-
-```bash
+# Basic interactive mode
 agent
+
+# Start with an initial prompt
+agent "Help me understand the current codebase structure"
 ```
 
-**Step 2:** Ask a question:
+**Step 2:** Navigate the interactive session
+
+Once inside the session:
+- Type your prompts naturally
+- Use `Shift+Enter` to insert a new line without submitting 
+- Press `Enter` to submit your prompt
+- Use `Ctrl+D` twice to exit 
+
+**Step 3:** Switch models during a session
 
 ```
-> What files are in this directory?
+# Inside the interactive session
+/model
+
+# Or list all available models
+agent --list-models
 ```
 
-**Step 3:** Ask a follow-up (Agent remembers context):
+**Step 4:** Use Ask Mode (read-only) from CLI
 
-```
-> Explain what the main file does
-```
+```bash
+# Ask Mode - explores code without making changes
+agent --mode=ask "What does this project's main function do?"
 
-**Step 4:** Try CLI commands:
-
-```
-> /help
+# Or using slash command inside session
+/ask
 ```
 
-**Step 5:** Exit:
+**Step 5:** Use Plan Mode from CLI
 
-```
-> /quit
+```bash
+# Plan Mode - design before implementation
+agent --mode=plan "Add user authentication to this API"
+
+# The agent will ask clarifying questions before writing code
 ```
 
-**Expected Outcome:** The Agent responds to both questions, maintaining context between them.
+**Step 6:** Configure your CLI status line
+
+The status line shows useful information like current model, directory, git branch, and context usage. 
+
+```bash
+# Interactive setup for status line
+npx -y cursor-statusline
+
+# After setup, your terminal prompt shows:
+# [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]
+```
+
+**Step 7:** Set up terminal key bindings
+
+```bash
+# For better Shift+Enter support in your terminal
+agent /setup-terminal
+```
 
 **Success Criteria:**
-- [ ] CLI started successfully
-- [ ] Asked a question and got response
-- [ ] Asked follow-up (context maintained)
-- [ ] Used `/help` to see commands
-- [ ] Exited with `/quit`
+- [ ] Started interactive `agent` session
+- [ ] Switched models using `/model`
+- [ ] Used Ask Mode and Plan Mode from CLI
+- [ ] Configured status line display
+- [ ] Exited session gracefully
 
 ---
 
-## Lesson 5.2: One-Shot CLI (Non-Interactive)
+## Lesson 5.2: One-Shot CLI
 
-### Concept (5 minutes)
+### Concept (8 minutes)
 
-> *"One-shot mode (`-p` or `--print`) runs a single prompt and exits – perfect for scripts, CI/CD pipelines, and automation."*
+> *"Scripting and CI-friendly invocation. One-shot commands let you run a single AI task and exit – perfect for automation, CI/CD pipelines, and batch operations."* 
 
-| Interactive Mode | One-Shot Mode |
-|------------------|---------------|
-| Multiple turns | Single turn |
-| Human at keyboard | Scriptable |
-| Manual approval | Auto-approve with `--force` |
-| Best for exploration | Best for automation |
-
-**Basic syntax:**
-```bash
-agent -p "your prompt here"
-```
-
-### Hands-On Exercise (10 minutes)
-
-**Step 1:** Run a simple one-shot command:
+### One-Shot Command Structure
 
 ```bash
-agent -p "What is the purpose of a main function in C?"
+# Basic one-shot
+agent "your prompt here"
+
+# With mode specified
+agent --mode=ask "question about code"
+
+# With specific model
+agent --model claude-4.5-sonnet "task description"
+
+# Non-interactive (no prompts, just output)
+agent --non-interactive "run this task"
 ```
 
-**Step 2:** With file modification (use `--force` to actually write):
+### Use Cases for One-Shot CLI
+
+| Use Case | Example |
+|----------|---------|
+| **Code generation** | `agent "Create a React component for a login form"` |
+| **Documentation** | `agent "Generate JSDoc comments for src/api.js"` |
+| **CI/CD tasks** | `agent "Review this PR diff for security issues"` |
+| **Batch processing** | Loop through files with `agent` commands |
+| **Pre-commit hooks** | `agent --mode=ask "Check for console.log statements"` |
+
+### Hands-On Exercise (12 minutes)
+
+**Step 1:** Run basic one-shot commands
 
 ```bash
-agent -p --force "Add a comment at the top of the main file"
+# Simple question
+agent "What is the difference between let and const in JavaScript?"
+
+# Code generation
+agent "Write a bash function that checks if a port is in use"
+
+# Code explanation
+agent --mode=ask "Explain the git rebase command with examples"
 ```
 
-**Step 3:** With JSON output for parsing:
+**Step 2:** Specify models in one-shot mode
 
 ```bash
-agent -p "What is 2+2?" --output-format json
+# Use a cheaper model for simple tasks
+agent --model gpt-5-mini "What does this command do: `ls -la | grep .txt`"
+
+# Use a more powerful model for complex tasks
+agent --model claude-4.5-opus "Design a database schema for a task management system"
 ```
 
-**Step 4:** With a specific model:
+**Step 3:** Create a scriptable code reviewer
 
-```bash
-agent -p --model gpt-5-mini "Explain this codebase briefly"
-```
-
-**Step 5:** Create a simple script:
+Create `bin/ai-review.sh`:
 
 ```bash
 #!/bin/bash
-# review.sh
-agent -p --force "Review the code in src/ for security issues" --output-format text
+# AI code review for staged files
+
+STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ')
+
+agent --mode=ask "Review these staged files for common issues:
+Files: $STAGED_FILES
+
+Check for:
+1. Debugging statements (console.log, print, debugger)
+2. Unused variables or imports
+3. Potential security issues
+4. Missing error handling
+
+Report only issues found, be concise."
+```
+
+**Step 4:** Batch process multiple files
+
+```bash
+# Generate summaries for all Python files
+for file in src/**/*.py; do
+    echo "=== $file ==="
+    agent --mode=ask --non-interactive "Summarize what this Python file does in one sentence: $(cat $file | head -50)"
+    echo ""
+done
+```
+
+**Step 5:** Integrate with git hooks
+
+Create `.git/hooks/pre-commit`:
+
+```bash
+#!/bin/bash
+# Pre-commit hook that checks for common issues
+
+echo "🔍 Running AI pre-commit check..."
+
+# Get the diff of staged changes
+DIFF=$(git diff --cached)
+
+# Ask agent to review
+agent --mode=ask --non-interactive "Review this git diff for issues:
+$DIFF
+
+Check for:
+- Debugging statements
+- Secret keys or passwords
+- Merge conflict markers
+- TODO comments (should be tracked as issues)
+
+If issues found, start response with '❌ ISSUES FOUND'. Otherwise '✅ OK'."
+
+# If issues found, exit with error
+if [ $? -eq 1 ]; then
+    echo "Commit blocked. Fix issues or commit with --no-verify"
+    exit 1
+fi
+```
+
+**Step 6:** Create a CI/CD task script
+
+```bash
+# Run in GitHub Actions or similar
+agent --non-interactive "Examine the test output below and identify which tests failed and why:
+
+$(cat test-output.log)
+
+Provide a brief summary and suggest fixes for the first 3 failures."
 ```
 
 **Success Criteria:**
-- [ ] Ran `agent -p` successfully
-- [ ] Used `--force` to modify a file
-- [ ] Used `--output-format json`
-- [ ] Created a simple automation script
+- [ ] Ran basic one-shot commands
+- [ ] Specified different models for different tasks
+- [ ] Created a scriptable code reviewer
+- [ ] Integrated CLI into pre-commit hook (optional)
+- [ ] Understood CI/CD use cases
 
 ---
 
 ## Lesson 5.3: Cloud Handoff
 
-### Concept (5 minutes)
+### Concept (8 minutes)
 
-> *"Prepend `&` to any message to send the task to a Cloud Agent. Close your laptop – it keeps running."*
+> *"Moving a local session to the cloud. Cloud Handoff lets you push a local agent session to run remotely, freeing up your machine while the agent continues working."* 
 
-| Local Agent | Cloud Agent |
-|-------------|-------------|
-| Runs on your machine | Runs in Cursor's cloud |
-| Stops when you close terminal | Continues 24/7 |
-| One at a time | Many in parallel |
+### What Is Cloud Handoff?
 
-**Syntax:**
+Cloud Handoff allows you to:
+- Send a local conversation to a Cloud Agent
+- Continue the session from web or mobile (`cursor.com/agents`)
+- Let the agent run long tasks while you're away
+- Resume the session later from any device 
+
+### How to Use Cloud Handoff
+
 ```
-& your prompt here
+┌─────────────────────────────────────────────────────────────┐
+│                    CLOUD HANDOFF FLOW                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Local Terminal                    Cloud                     │
+│  ┌─────────────┐                  ┌─────────────┐           │
+│  │ agent       │  ──& prompt──→   │ Cloud Agent │           │
+│  │ (interactive│                  │ (runs async)│           │
+│  │ session)    │  ←──result────   │             │           │
+│  └─────────────┘                  └─────────────┘           │
+│                                          │                   │
+│                                          ↓                   │
+│                                   cursor.com/agents         │
+│                                   (web/mobile access)       │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
+
+**The `&` Prefix:** Prepend any message with `&` to send it to the cloud. 
 
 ### Hands-On Exercise (10 minutes)
 
-**Step 1:** Start interactive CLI:
+**Step 1:** Start a local session and hand off to cloud
 
 ```bash
+# Start a local interactive session
 agent
+
+# Inside the session, prefix your message with &
+& "Analyze the entire codebase and create a dependency graph. This will take a while - run it in the cloud."
 ```
 
-**Step 2:** Hand off a task:
+**Step 2:** Verify the handoff
 
+After sending with `&`, you'll see:
 ```
-& Add a README.md file to the repository
-```
-
-**Expected response:**
-```
-🔄 Handing off to Cloud Agent...
-✅ Agent started: ca_abc123
-📊 Monitor: https://cursor.com/agents/ca_abc123
+🚀 Handing off to Cloud Agent...
+✅ Session running at: https://cursor.com/agents/[agent-id]
 ```
 
-**Step 3:** Check the dashboard at `cursor.com/agents`
-
-**Step 4:** (Optional) Check status from CLI:
+**Step 3:** Check cloud agent status
 
 ```bash
-agent --resume ca_abc123
+# Access via browser
+open https://cursor.com/agents
+
+# Or continue from CLI (but cloud runs independently)
 ```
+
+**Step 4:** Push an existing local conversation
+
+```bash
+# If you have an ongoing local session and need to leave
+# Prefix your next message with & to transfer the whole context
+& "Continue this conversation in the cloud. I need to log off."
+```
+
+**Step 5:** Use cloud handoff for long-running tasks
+
+```bash
+# Example: Large refactoring task
+agent "& Refactor the entire authentication module to use JWT instead of sessions. Update all tests and documentation."
+
+# The cloud agent will continue running after you close terminal
+```
+
+**Step 6:** Resume cloud session later
+
+```bash
+# List cloud agents you have running
+# Then resume by ID
+agent --resume [agent-id-from-cloud]
+```
+
+**Best Practices for Cloud Handoff:**
+
+| When to Use | When Not to Use |
+|-------------|-----------------|
+| Long-running tasks (>5 min) | Quick questions |
+| When you need to close laptop | Interactive debugging |
+| Overnight batch processing | Tasks needing terminal access |
+| Parallel work streams | Security-sensitive code (local only) |
 
 **Success Criteria:**
-- [ ] Handed off task with `&` prefix
-- [ ] Received Agent ID
-- [ ] Verified agent appears in dashboard
+- [ ] Sent message with `&` prefix
+- [ ] Verified cloud agent started
+- [ ] Accessed cloud agent via web
+- [ ] Understood when to use cloud handoff
 
 ---
 
 ## Lesson 5.4: Listing and Resuming Sessions
 
-### Concept (5 minutes)
+### Concept (8 minutes)
 
-> *"Every conversation is saved as a session. You can list, resume, and continue sessions – perfect for picking up where you left off."*
+> *"Managing concurrent work. The Cursor CLI allows you to have multiple simultaneous sessions, list them, and resume any previous session."* 
+
+### Session Management Commands
 
 | Command | Purpose |
 |---------|---------|
-| `agent ls` | List all sessions |
-| `agent --continue` | Resume most recent session |
-| `agent resume` | Same as `--continue` |
-| `agent --resume <id>` | Resume specific session |
-| `/resume` (in interactive) | Resume most recent |
+| `/resume` | List all previous sessions and resume one |
+| `agent --resume [id]` | Resume a specific session by ID |
+| `agent --list` | List available sessions (alternative) |
 
-### Hands-On Exercise (10 minutes)
+**Note:** `/list` has been replaced by `/resume` in newer versions. 
 
-**Step 1:** Create a session (if not already):
+### Session Identification
 
-```bash
-agent
-> Remember that we need to add error handling to the main function
-> /quit
-```
-
-**Step 2:** List sessions:
+By default, sessions are identified by UUID. To make sessions recognizable: 
 
 ```bash
-agent ls
+# Name your session with the first message
+agent "Just say one word: auth-refactor"
+
+# The session will be named "auth-refactor Agent" or similar
 ```
 
-**Expected output:**
-```
-ID                  | DATE           | MESSAGES
-2025-01-15-10-30-45 | Jan 15 10:30   | 4
-```
+### Hands-On Exercise (12 minutes)
 
-**Step 3:** Resume most recent:
+**Step 1:** Create multiple named sessions
 
 ```bash
-agent --continue
+# Session 1: Frontend work
+agent "Just say one word: frontend-cleanup"
+
+# In the session, start your real work
+# Then exit with Ctrl+D twice
+
+# Session 2: Database optimization
+agent "Just say one word: db-optimization"
+
+# Do database work
+# Exit
+
+# Session 3: Documentation
+agent "Just say one word: docs-update"
 ```
 
-**Step 4:** Verify the Agent remembers the previous conversation:
-
-```
-> What did we discuss about the main function?
-```
-
-**Step 5:** Resume specific session (replace with actual ID):
+**Step 2:** List all sessions
 
 ```bash
-agent --resume 2025-01-15-10-30-45
+# Inside any agent session
+/resume
+
+# This shows:
+# 1. frontend-cleanup Agent (2 hours ago)
+# 2. db-optimization Agent (1 hour ago)
+# 3. docs-update Agent (30 minutes ago)
 ```
 
-**Success Criteria:**
-- [ ] Ran `agent ls` successfully
-- [ ] Used `agent --continue` to resume
-- [ ] Agent remembered previous context
-- [ ] Used `agent --resume` with specific ID
+**Step 3:** Resume a specific session
 
----
+```bash
+# Using the UUID (from /resume list)
+agent --resume abc123-def456-ghi789
 
-## Lesson 5.5: Headless Mode for CI/CD
+# Or use the interactive selector from /resume
+```
 
-### Concept (5 minutes)
+**Step 4:** Work with multiple concurrent sessions
 
-> *"Headless mode (`-p` with `--force`) is designed for CI/CD pipelines – no prompts, full automation."*
+```bash
+# Terminal 1
+agent --resume frontend-cleanup
 
-**Important Warning:**
-> *"Cursor has full write access in non-interactive mode."*
+# Terminal 2 (different tab/window)
+agent --resume db-optimization
 
-**Use Cases:**
-- Automated code reviews in CI
-- Batch refactoring across many files
-- Generating documentation
-- Running security scans
+# Each session maintains its own context independently
+```
 
-### Hands-On Exercise (10 minutes)
+**Step 5:** Session context management
 
-**Step 1:** Create a CI script `ci-review.sh`:
+```bash
+# Check current context usage in session
+/compress
+
+# This summarizes the conversation and frees up context window
+# Useful for long sessions approaching token limits
+```
+
+**Step 6:** Export and share session output
+
+```bash
+# Inside session, you can request export
+agent --mode=ask "Summarize everything we've discussed in this session and format as markdown"
+```
+
+**Step 7:** Script to list and manage sessions
+
+Create `bin/cursor-sessions.sh`:
 
 ```bash
 #!/bin/bash
-# ci-review.sh - Run automated code review in CI
+# List and manage Cursor CLI sessions
 
-export CURSOR_API_KEY=${CURSOR_API_KEY}
+echo "📋 Active Cursor Sessions"
+echo "========================"
 
-echo "🔍 Running automated code review..."
+# Method 1: Use agent's built-in resume list
+# (This requires entering agent - can be automated with expect)
 
-agent -p --force --output-format json \
-  "Review all changed files for security issues. Output findings as JSON." \
-  > review_results.json
+# Method 2: Manual tracking
+SESSION_DIR="$HOME/.cursor/sessions"
 
-if [ $? -eq 0 ]; then
-  echo "✅ Review completed"
-  cat review_results.json | jq '.'
-else
-  echo "❌ Review failed"
-  exit 1
+if [ -d "$SESSION_DIR" ]; then
+    for session in "$SESSION_DIR"/*; do
+        if [ -f "$session/metadata" ]; then
+            NAME=$(grep "name" "$session/metadata" | cut -d= -f2)
+            ID=$(basename "$session")
+            echo "  $NAME: $ID"
+        fi
+    done
 fi
+
+echo ""
+echo "Resume with: agent --resume <id>"
 ```
 
-**Step 2:** Run the script:
+**Session Management Best Practices:**
 
-```bash
-chmod +x ci-review.sh
-./ci-review.sh
 ```
-
-**Step 3:** Create a batch processing script:
-
-```bash
-#!/bin/bash
-# batch-process.sh - Process multiple files
-
-for file in src/*.c; do
-  echo "Processing $file..."
-  agent -p --force "Add header comment to $file"
-done
-```
-
-**Step 4:** (Optional) GitHub Actions example:
-
-```yaml
-name: AI Code Review
-on: [pull_request]
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run Cursor review
-        env:
-          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
-        run: |
-          agent -p --force "Review PR changes for security issues" --output-format json
+┌─────────────────────────────────────────────────────────────┐
+│              SESSION MANAGEMENT TIPS                         │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  NAMING CONVENTIONS:                                        │
+│  • Use descriptive first messages: "Just say one word: X"   │
+│  • Format: [area]-[task] (e.g., "api-auth-fix")            │
+│  • Include date for long-running sessions                   │
+│                                                              │
+│  CONTEXT MANAGEMENT:                                        │
+│  • Use /compress on long sessions                           │
+│  • Consider cloud handoff for very long tasks               │
+│  • Export summaries periodically                            │
+│                                                              │
+│  CLEANUP:                                                   │
+│  • Sessions persist indefinitely                            │
+│  • No automatic cleanup                                     │
+│  • Manually complete or discard finished sessions           │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 **Success Criteria:**
-- [ ] Created CI script
-- [ ] Script ran successfully
-- [ ] JSON output parsed correctly
-- [ ] (Optional) Created GitHub Actions workflow
+- [ ] Created multiple named sessions
+- [ ] Listed sessions using `/resume`
+- [ ] Resumed a previous session
+- [ ] Used `/compress` for context management
+- [ ] Understood session persistence behavior
 
 ---
 
 ## Module Summary
 
-| Lesson | Key Skill | Time |
-|--------|-----------|------|
-| 5.1 | Interactive CLI | 10 min |
-| 5.2 | One-Shot CLI | 10 min |
-| 5.3 | Cloud Handoff | 10 min |
-| 5.4 | Listing and Resuming Sessions | 10 min |
-| 5.5 | Headless Mode for CI/CD | 10 min |
+| Lesson | Topic | Time | Key Skill |
+|--------|-------|------|-----------|
+| 5.1 | Interactive CLI | 12 min | Real-time terminal AI |
+| 5.2 | One-Shot CLI | 12 min | Scripting & automation |
+| 5.3 | Cloud Handoff | 10 min | Remote/long-running tasks |
+| 5.4 | Session Management | 12 min | Concurrent work handling |
 
 ---
 
 ## Quick Reference Card
 
-| Command | Purpose |
-|---------|---------|
-| `agent` | Start interactive session |
-| `agent -p "prompt"` | One-shot command |
-| `agent --force` | Actually modify files |
-| `agent --output-format json` | JSON output for scripts |
-| `& prompt` | Cloud handoff (in interactive) |
-| `agent ls` | List sessions |
-| `agent --continue` | Resume most recent |
-| `agent --resume <id>` | Resume specific session |
-| `agent --model <model>` | Specify model |
-
----
-
-## Common Pitfalls to Avoid
-
-| Pitfall | Solution |
-|---------|----------|
-| Forgetting `--force` | Changes won't be written without it |
-| No API key in CI | Set `CURSOR_API_KEY` environment variable |
-| Interactive mode in script | Use `-p` for non-interactive |
-| Losing session context | Use `agent --continue` to resume |
+```
+┌─────────────────────────────────────────────────────────────┐
+│                 CURSOR CLI QUICK REFERENCE                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  BASIC COMMANDS:                                            │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ agent                    Start interactive session   │   │
+│  │ agent "prompt"           One-shot command            │   │
+│  │ agent --mode=ask         Read-only mode              │   │
+│  │ agent --mode=plan        Plan before code            │   │
+│  │ agent --model <name>     Specify model               │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  SESSION COMMANDS (inside interactive):                     │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ /model                  Switch AI model              │   │
+│  │ /compress               Summarize, free context      │   │
+│  │ /rules                  Edit rules                   │   │
+│  │ /commands               Edit custom commands         │   │
+│  │ /mcp enable/disable     Manage MCP servers           │   │
+│  │ /resume                 List/resume sessions         │   │
+│  │ /usage                  View usage stats             │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  CLOUD HANDOFF:                                             │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ & "message"              Send to cloud               │   │
+│  │ cursor.com/agents        Web access                  │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+│  KEYBOARD SHORTCUTS:                                        │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ Shift+Enter             New line (not submit)        │   │
+│  │ Ctrl+D (twice)          Exit session                 │   │
+│  │ Ctrl+J                  Alternative line break       │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## Transition to Module 6
 
-> *"Now that you can automate Cursor from the CLI, let's look at Cloud Agents – running agents in the cloud that work even when your laptop is off."*
+> *"Now that you've mastered terminal-based AI workflows, Module 6 will cover Custom Prompts and Commands – creating reusable prompts, command templates, and team workflows."*
 
 ---
 

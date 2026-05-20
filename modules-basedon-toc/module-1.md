@@ -1,6 +1,6 @@
 # Module 1: Mental Models for AI-Assisted Development
 
-## Cursor Training Program — Day 1
+## Cursor Training Program — Day 1 (Foundations)
 
 ---
 
@@ -9,9 +9,9 @@
 | Aspect | Details |
 |--------|---------|
 | **Duration** | ~60 minutes |
-| **Format** | Concept block (no hands-on exercises) |
-| **Prerequisites** | None |
-| **Module Goal** | Build correct mental models for how AI works, why it behaves unpredictably, and how to use it effectively as an engineering tool |
+| **Format** | Concept block (foundational theory) |
+| **Prerequisites** | None – this is the starting point |
+| **Module Goal** | Build accurate mental models of how AI coding assistants work, their limitations, and how to use them effectively |
 
 ---
 
@@ -19,397 +19,777 @@
 
 By the end of this module, participants will be able to:
 
-- Explain why AI model outputs are probabilistic, not deterministic
-- Identify hallucinations in AI-generated code and responses
-- Understand how tokens work and how pricing is calculated
-- Describe what context is and why it's the most important skill in AI-assisted development
-- Explain how tool calling and MCP extend AI capabilities
-- Define what an agent is and how it changes the developer's role
+- Explain why AI outputs are probabilistic, not deterministic
+- Identify and mitigate hallucinations in coding contexts
+- Understand token-based pricing and cost optimization
+- Master context as the single most valuable AI skill
+- Distinguish between tool calling, MCP, and autonomous agents
+- Define the developer's evolving role with AI agents
 
 ---
 
 ## Lesson 1.1: How AI Models Work
 
-### The Core Mental Model
+### Concept (12 minutes)
 
-> *"Think of AI models like super intelligent, general purpose API endpoints. Just like you would integrate Stripe for payments or Twilio for messages, you can call an AI model to solve a variety of tasks."*
+> *"Why AI outputs are probabilistic and what determines them. Unlike traditional software that gives the same output for the same input, AI models generate responses based on probability distributions."*
 
-**The biggest difference:** You are not guaranteed to get the same results every time.
+### The Core Mental Model: Next-Token Prediction
 
-### Deterministic vs. Probabilistic
+At its simplest, an AI model (LLM) is a **next-token prediction engine**. Given a sequence of tokens (words, code characters), it predicts what comes next.
 
-| Traditional Software (Deterministic) | AI Models (Probabilistic) |
-|--------------------------------------|---------------------------|
-| Given same input → same output | Given same input → different possible outputs |
-| Explicitly programmed | Learned from training data |
-| Predictable results | Results vary |
-| Example: `add(2,3)` always returns `5` | Example: "What is 2+3?" → "5", "Five", "The sum is 5" |
+```
+Input: "def calculate_sum(a, b):"
+Model thinks: "What's most likely next?"
+Probabilities:
+  - "return" → 85%
+  - "print" → 8%
+  - "pass" → 4%
+  - "for" → 2%
+  - Other → 1%
+```
 
-> *"There are many different paths the model might take given the same input."*
+**Why this matters for developers:**
+
+| Traditional Code | AI Model |
+|----------------|----------|
+| Deterministic (same input → same output) | Probabilistic (same input → different outputs possible) |
+| You control the logic | You influence, but don't control |
+| Errors are bugs | Errors are features of probability |
+| Predictable behavior | Needs management via parameters |
 
 ### What Determines AI Output?
 
-AI models predict the next chunk of text based on two things:
-
-| Factor | Description | Example |
-|--------|-------------|---------|
-| **Training Data** | Information the model was trained on | All code, documentation, and text on the internet |
-| **Prompt** | What you provide as input | "Write a function to sort an array" |
-
 ```
-AI Output = f(Training Data + Prompt)
+┌─────────────────────────────────────────────────────────────┐
+│                    Factors That Shape Output                 │
+├─────────────────────────────────────────────────────────────┤
+│  1. Training Data      → What the model "learned"           │
+│  2. Prompt             → Your instruction (most influent)   │
+│  3. Temperature        → Randomness level (0 = deterministic)│
+│  4. Top-p / Top-k      → Token selection pool size          │
+│  5. System Prompt      → Persistent behavioral guidelines   │
+│  6. Context Window     → What the model can "see"           │
+│  7. Model Architecture → Different models, different biases │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### Key Insight for Engineers
+### Key Parameters You Control
 
-> *"The first piece of your AI mental model is to never assume you are guaranteed to get the same answer every time."*
+| Parameter | What It Does | Code Example | Best For |
+|-----------|--------------|--------------|----------|
+| **Temperature** | Controls randomness (0 = deterministic, 1 = creative) | `temperature: 0.2` | Bug fixes (low), brainstorming (high) |
+| **Top-p** | Nucleus sampling – limits token pool | `top_p: 0.9` | Balanced responses |
+| **Max Tokens** | Limits response length | `max_tokens: 4000` | Controlling cost |
 
-**Implications for daily work:**
-- Always review AI-generated code before accepting
-- Same prompt may yield different results on different days
-- Model updates can change behavior
+### Practical Example: Temperature Impact
+
+```python
+# Same prompt, different temperature
+prompt = "Write a function to reverse a string"
+
+# Temperature 0.1 (very deterministic)
+output = """def reverse_string(s):
+    return s[::-1]"""
+
+# Temperature 0.7 (balanced)
+output = """def reverse_string(s):
+    # Handle edge cases
+    if not s:
+        return s
+    return s[::-1]"""
+
+# Temperature 1.2 (creative, potentially unstable)
+output = """def flip_the_text(text):
+    # Let's do something unusual
+    result = ""
+    for char in reversed(text):
+        result += char
+    return result
+    # Alternative: use list comprehension? etc."""
+```
+
+### The Training Gap
+
+Models are frozen at their training cutoff date. They don't know:
+
+- Code written after their training date
+- Your company's internal APIs
+- Your specific architecture decisions
+- Recent library updates (unless in context)
+
+**Implication:** You must provide this information in the prompt or context.
+
+### Key Takeaways
+
+1. **Treat AI as probabilistic collaborator** – not deterministic tool
+2. **Lower temperature = more predictable** code (use 0.1-0.3 for production)
+3. **Higher temperature = more creative** (use 0.7-1.0 for brainstorming)
+4. **Models don't "know"** – they predict based on patterns
+5. **You influence, but never fully control** – always review outputs
 
 ---
 
 ## Lesson 1.2: Hallucinations
 
-### What Is Hallucination?
+### Concept (10 minutes)
 
-> *"Hallucination is when an AI model confidently generates information that seems plausible but is actually incorrect. It's like when someone tries to bluff their way through a conversation about a topic they don't really know."*
+> *"Why models invent things and how to spot it in coding contexts. Hallucinations are confident-sounding outputs that are factually wrong, made up, or don't exist."*
 
-| Not Hallucination | Hallucination |
-|-------------------|---------------|
-| "I don't know" | "Here's a detailed (but wrong) answer" |
-| Admits uncertainty | Confidently wrong |
+### What Hallucinations Look Like in Code
 
-### Why Do Models Hallucinate?
+| Type | Example | How to Spot |
+|------|---------|--------------|
+| **Fake APIs** | `import nonexistent_library` | Check docs; import fails |
+| **Wrong parameters** | `sorted(list, reverse=True)` instead of `reverse=True` | Type checking |
+| **Invented methods** | `list.reverse_in_place()` | Know the standard library |
+| **Confident nonsense** | "This is the standard way to..." | Cross-reference |
+| **Outdated syntax** | Old Python 2 style | Know version differences |
 
-> *"When an AI model doesn't know something, it doesn't always say 'I don't know.' Instead, it generates what seems most likely based on patterns it has seen."*
+### Why Models Hallucinate
 
-### Common Coding Hallucinations
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  Root Causes of Hallucination                │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Training Data Gaps     → Model "guesses" when uncertain    │
+│  Probability Pressure   → Must output SOMETHING             │
+│  Pattern Overfitting    → Sees patterns that don't exist    │
+│  No True/False Circuit  → Models don't have truth checking  │
+│  Confidence Calibration → Sounds confident when wrong       │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
-| Type | Example |
-|------|---------|
-| **Invented API methods** | `df.remove_outliers(threshold=3)` — pandas doesn't have this |
-| **Wrong imports** | `import { debounce } from "react"` — debounce is from lodash |
-| **Invalid configuration** | `"browser": true` in package.json — not a valid field |
-| **Mixed syntax** | React syntax in a Vue project |
+### The "Confident Wrong" Problem
 
-### The Knowledge Cutoff
+Most dangerous hallucination: the model sounds **completely confident** while being **completely wrong**.
 
-> *"AI models are trained up until a date called the 'knowledge cutoff.' Models may suggest incorrect solutions if you ask about libraries created after this date."*
+```python
+# Example hallucination
+User: "How do I use the requests library to make async calls?"
 
-### The Verification Mindset
+# Hallucinated response (confident, wrong)
+"""
+The requests library has built-in async support. Use:
 
-> *"The key to working effectively with AI is developing a verification mindset. Every suggestion is a starting point, not a final answer."*
+import requests.async as async_requests
+response = await async_requests.get('https://api.example.com')
+"""
 
-| Without Verification | With Verification |
-|---------------------|-------------------|
-| Copy/paste → doesn't work → frustration | Verify in docs → test → refine → works |
+# Reality: requests library does NOT have async support.
+# Correct answer: Use httpx or aiohttp
+```
 
-### How to Spot Hallucinations
+### Hallucination Mitigation Strategies
 
-| Red Flag | What to Check |
-|----------|---------------|
-| Method seems plausible but unfamiliar | Check official documentation |
-| Import from unexpected package | Verify package exports that method |
-| Configuration looks "almost right" | Check config schema |
-| Library created after knowledge cutoff | Be extra skeptical |
+| Strategy | How It Works | Example |
+|----------|--------------|---------|
+| **Grounding** | Provide source material | Paste library docs into context |
+| **Verification** | Ask for citations | "Which line of the docs shows this?" |
+| **Constrained decoding** | Limit possible outputs | Use JSON mode, regex patterns |
+| **Self-consistency** | Ask multiple times, compare | Run same prompt 3x, take majority |
+| **Low temperature** | Reduce randomness | `temperature: 0.1` |
+| **Tool use** | Let model search/lookup | Enable web search for docs |
+
+### Hallucination Detection Checklist for Code
+
+```markdown
+Before accepting AI-generated code, verify:
+
+□ Do the imported libraries exist? (pip install / npm install check)
+□ Are function signatures correct? (check official docs)
+□ Does the syntax match my language version?
+□ Are there obvious logic errors?
+□ Would this code actually run?
+□ Have I seen this pattern before?
+□ Does the model cite specific sources I can verify?
+```
+
+### The Developer's Mindset
+
+> *"Trust, but verify – especially when the AI sounds most confident."*
+
+- Hallucinations decrease with better prompts and context
+- They never fully disappear
+- You are the human-in-the-loop responsible for verification
+- Experience helps you "smell" potential hallucinations
+
+### Key Takeaways
+
+1. **Hallucinations are inevitable** – plan for them
+2. **Low temperature reduces** but doesn't eliminate hallucinations
+3. **Provide source material** to ground responses
+4. **Verify imports and APIs** – the most common hallucination type
+5. **Confidence ≠ correctness** – models sound convincing when wrong
+6. **Build verification into workflow** – don't trust blindly
 
 ---
 
 ## Lesson 1.3: Tokens and Pricing
 
-### What Are Tokens?
+### Concept (10 minutes)
 
-> *"Tokens are like the 'words' that AI models actually understand. But they're not quite the same as the words you and I would use."*
+> *"What you actually pay for and how to keep costs predictable. Every API call has a cost – understanding tokens helps you control spending."*
 
-| Human Understanding | AI Understanding |
-|--------------------|------------------|
-| "hello" = 1 word | "hello" = 1 token |
-| "understanding" = 1 word | "understanding" = 3 tokens (under + stand + ing) |
-| "I'm" = 1 word (contraction) | "I'm" = 2 tokens (I + 'm) |
+### What Is a Token?
 
-### Why Tokens Matter (2 Reasons)
+A token is the atomic unit of processing for LLMs. Not a word, not a character – somewhere in between.
 
-| Reason | Explanation |
-|--------|-------------|
-| **Pricing** | You pay per token, not per word or character |
-| **Speed** | Models measured by TPS (Tokens Per Second) |
+| Language | Example | Token Count | Approximate |
+|----------|---------|-------------|-------------|
+| English | "Hello world" | 2 tokens | ~0.75 words/token |
+| English | "Congratulations" | 1 token | Longer words can be 1 token |
+| Code | `function calculateTotal()` | ~5 tokens | ~2-4 chars/token for code |
+| Chinese | "你好世界" | 4-8 tokens | More tokens per character |
 
-### Two Types of Tokens
+**Why tokens matter:**
+- You pay per token (input + output)
+- Context windows are measured in tokens
+- Token limits determine how much code the AI can "see"
 
-| Token Type | What It Includes | Cost |
-|------------|------------------|------|
-| **Input Tokens** | Your prompt + previous conversation | Lower cost (baseline) |
-| **Output Tokens** | Everything the model generates | 2-4x more expensive |
+### Token Pricing: Input vs Output
 
-> *"Output tokens typically cost 2-4x more than input tokens, because generating new content requires more computational work than just processing what you sent."*
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Token Pricing Asymmetry                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│   INPUT TOKENS (cheaper)    OUTPUT TOKENS (2-5x more)      │
+│   • Your prompt             • AI's response                 │
+│   • Code context            • Generated code                │
+│   • Retrieved documents     • Explanations                  │
+│                                                              │
+│   Why output costs more:                                    │
+│   • Generation is harder than reading                      │
+│   • Output is new computation                               │
+│   • Models allocate more resources to generation           │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
-### Streaming Responses
+### Real Pricing Examples (from Module 8 chat)
 
-> *"AI models generate tokens one at a time, in sequence. They predict the next token, then use that prediction to help predict the next token after that."*
+| Model | Input (per 1M) | Output (per 1M) | Output/Input Ratio |
+|-------|---------------|----------------|-------------------|
+| GPT-5 Mini | $0.25 | $2.00 | 8x |
+| Claude 4.5 Haiku | $1.00 | $5.00 | 5x |
+| GPT-5.3 Codex | $1.75 | $14.00 | 8x |
+| Gemini 3.1 Pro | $2.00 | $12.00 | 6x |
+| Claude 4.6 Sonnet | $3.00 | $15.00 | 5x |
+| Claude 4.7 Opus | $5.00 | $25.00 | 5x |
+| GPT-5.5 | $5.00 | $30.00 | 6x |
 
-| Without Streaming | With Streaming |
-|------------------|----------------|
-| Wait for entire response | See tokens as they're generated |
-| Can't interrupt | Can stop model if it goes off track |
+### What 1 Million Tokons Looks Like
 
-### Pricing Examples (Cursor)
+| Content Type | Approximate Amount |
+|--------------|-------------------|
+| Plain English text | ~750,000 words (~1,500 pages) |
+| Python code | ~250,000-500,000 lines |
+| Average conversation | 5-10 sessions |
+| Full codebase | Small to medium project |
 
-| Model | Input (per 1M tokens) | Output (per 1M tokens) |
-|-------|----------------------|----------------------|
-| GPT-5 Mini | $0.25 | $2.00 |
-| Composer 2 | $0.50 | $2.50 |
-| GPT-5.3 Codex | $1.75 | $14.00 |
-| Claude 4.6 Sonnet | $3.00 | $15.00 |
-| Claude 4.7 Opus | $5.00 | $25.00 |
+### Cost Calculation Example
 
-### Practical Tips for Engineers
+```python
+# Calculate cost for a coding session
+prompt_tokens = 5000   # Your instructions + some context
+output_tokens = 2000   # AI's response
 
-| Tip | Why |
-|-----|-----|
-| Be concise in prompts | Fewer input tokens = lower cost |
-| Request concise responses | Fewer output tokens = lower cost |
-| Use caching when possible | Reuse repeated context |
-| Interrupt off-track responses | Save tokens by stopping early |
+model = "claude-4.6-sonnet"
+input_price = 3.00     # per 1M tokens
+output_price = 15.00   # per 1M tokens
+
+input_cost = (prompt_tokens / 1_000_000) * input_price
+output_cost = (output_tokens / 1_000_000) * output_price
+total_cost = input_cost + output_cost
+
+print(f"Session cost: ${total_cost:.4f}")  # ~$0.045 (4.5 cents)
+```
+
+### Cost Optimization Strategies
+
+| Strategy | How It Works | Impact |
+|----------|--------------|--------|
+| **Use cheaper models** | Mini/Haiku for simple tasks | 5-20x cost reduction |
+| **Reduce context** | Only send relevant code | 2-5x reduction |
+| **Cache responses** | Reuse common answers | Variable |
+| **Batch operations** | Combine multiple tasks | 30-50% reduction |
+| **Monitor usage** | Track spending per user | Prevents surprises |
+| **Set limits** | Monthly spending caps | Budget protection |
+
+### Real-World Cost Bounds
+
+| Usage Level | Monthly Cost | What You Can Do |
+|-------------|--------------|-----------------|
+| Light | $10-20 | Occasional questions, small fixes |
+| Medium | $50-100 | Daily coding, regular agent use |
+| Heavy | $200-500 | Full-time AI assistance, multiple agents |
+| Enterprise | $1000+ | Team usage, automation, CI/CD |
+
+### The Cache Effect (Important!)
+
+Models can cache frequently used content. When you reuse cached content:
+
+- Cache Write: Cost to initially store
+- Cache Read: **Much cheaper** than fresh input
+
+```python
+# First request (pays full input price)
+# Second request with same context (pays cache read price)
+# Cache read can be 80-95% cheaper than fresh input!
+```
+
+### Key Takeaways
+
+1. **Tokens ≠ words** – code uses more tokens per character
+2. **Output costs more** than input (often 5-8x more)
+3. **Cheaper models exist** – use right model for task
+4. **Context length = cost** – only send what's necessary
+5. **Caching saves money** – reuse context when possible
+6. **Monitor spending** – costs add up surprisingly fast
 
 ---
 
 ## Lesson 1.4: Context
 
-### The Big Insight
+### Concept (12 minutes)
 
-> *"You might think to improve the model output you need to write better prompts. But it's missing the bigger point: working with AI models is all about managing the context you provide them."*
+> *"Managing what the model sees – the single most valuable AI skill. Context determines everything about the quality of AI responses."*
 
 ### What Is Context?
 
-**Context is the AI's working memory** — everything it can "see" and "remember" when generating a response.
-
-| Context Includes | Description |
-|-----------------|-------------|
-| System prompt | Instructions from tool creator |
-| User messages | Your prompts and questions |
-| Model outputs | Previous AI responses |
-| Attached files | Code files, documentation |
-| Tool outputs | Terminal errors, linter results |
-| Conversation history | All previous turns |
-
-### System vs. User Prompts
-
-| Prompt Type | Who Sets It | Purpose |
-|-------------|-------------|---------|
-| **System Prompt** | Tool creator (e.g., Cursor) | Inject instructions or style |
-| **User Prompt** | You | Give directions to the model |
-
-### Context Window Growth
+Context = all the information the model has access to when generating a response.
 
 ```
-Start: [System Prompt]
-Turn 1: [User] + [AI Response]
-Turn 2: [User] + [AI Response]
-Turn 3: [User] + [AI Response]
-...
-Context gets longer and longer
+┌─────────────────────────────────────────────────────────────┐
+│                    What Goes Into Context                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+ │  System Prompt      → "You are a helpful coding assistant"  │
+│  User Prompt        → "Fix this bug: ..."                   │
+│  Code Files         → Current file, related files           │
+│  Conversation       → Previous exchanges                    │
+│  Retrieved Docs     → Library documentation, examples       │
+│  Tool Outputs       → Results from search, file reads       │
+│  Constraints        → "Only use standard library"           │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### Context Limits
+### The Context Window Limit
 
-Every AI model has a **context limit** — maximum tokens it can process.
+Every model has a maximum context size (in tokens).
 
-| Model | Context Limit |
-|-------|---------------|
-| Smaller models | 200K tokens |
-| Larger models (Max Mode) | 1M tokens |
+| Model | Context Window | Pages of Text | Lines of Code |
+|-------|---------------|---------------|---------------|
+| Claude 4 Haiku | 200k | ~150 | ~50,000 |
+| Claude 4 Sonnet | 200k | ~150 | ~50,000 |
+| Claude 4 Opus | 200k | ~150 | ~50,000 |
+| GPT-5 Mini | 272k | ~200 | ~70,000 |
+| GPT-5.3 Codex | 272k | ~200 | ~70,000 |
 
-### What Happens at the Limit
+**What happens when you exceed context?**
+- Oldest content gets truncated ("forgotten")
+- Model loses earlier parts of conversation
+- Critical information may be dropped
 
-| Consequence | Description |
-|-------------|-------------|
-| Can't accept more messages | Conversation stops |
-| Old messages forgotten | Model loses earlier context |
-| Need compression | Summarize to stay under limit |
+### The Single Most Valuable AI Skill: Context Engineering
 
-> *"Just like if you were having a conversation with a human, there's only so much context you can keep in your brain at one time."*
+> *"The quality of AI output is directly proportional to the quality of context you provide."*
+
+**Context Engineering = Knowing what to put in, what to leave out, and how to structure it.**
+
+### Context Checklist Before Every AI Interaction
+
+```markdown
+□ What problem am I trying to solve?
+□ What files/code does the model need to see?
+□ What would a human need to know to help me?
+□ What information can I safely leave out?
+□ Is my context under the token limit?
+□ Have I included relevant error messages?
+□ Have I specified constraints (libraries, version, style)?
+```
+
+### Good vs Bad Context Examples
+
+**BAD Context (vague):**
+```
+"Fix this bug: my code doesn't work"
+```
+
+**GOOD Context:**
+```
+"I have a Python function that should sort a list of dictionaries by
+a specific key, but it's raising a KeyError. Here's the code:
+
+def sort_by_key(data, key):
+    return sorted(data, key=lambda x: x[key])
+
+And here's the input causing the error:
+data = [{'name': 'Alice'}, {'age': 30}]  # Second dict has no 'name'
+
+I'm using Python 3.11. Expected behavior: skip dicts without the key.
+```
+
+### Context Prioritization Pyramid
+
+```
+                    ┌─────────────┐
+                    │  Critical   │  MUST include
+                    │  (must have)│  (~10-20% of context)
+                  ┌┴─────────────┴┐
+                  │   Important   │  Should include
+                  │ (should have) │  (~20-30% of context)
+                ┌┴───────────────┴┐
+                │     Helpful     │  Nice to have
+                │   (could have)  │  (~30-40% of context)
+              ┌┴─────────────────┴┐
+              │    Low Value       │  Omit if possible
+              │   (can omit)       │  (~remaining)
+              └───────────────────┘
+```
+
+### Context Window Management Strategies
+
+| Strategy | How It Works | When to Use |
+|----------|--------------|-------------|
+| **Summarization** | Compress earlier conversation | Long sessions |
+| **Selective inclusion** | Only relevant files | Large codebases |
+| **Chunking** | Split across multiple calls | Exceeding limit |
+| **Hierarchical** | Summaries + details on demand | Complex projects |
+| **Vector retrieval** | Semantic search for relevant context | Very large codebases |
+
+### The Lost in the Middle Problem
+
+Research shows models pay **most attention to the beginning and end** of context, and **less to the middle**.
+
+```
+Context Position Attention:
+├─────────────────────────────────────────────────────────┤
+│ BEGINNING  ████████████████████████████████  (high)    │
+│ MIDDLE     ████████                           (low)     │
+│ END        ████████████████████████████████  (high)    │
+└─────────────────────────────────────────────────────────┘
+```
+
+**Implication:** Put critical information at the beginning OR end, not the middle.
+
+### Key Takeaways
+
+1. **Context is the single most valuable AI skill** – master it
+2. **Quality in = quality out** – garbage context = garbage response
+3. **Know your context limits** – 200k tokens is large but finite
+4. **Prioritize what you include** – put critical info first or last
+5. **The model forgets** – once context is truncated, information is lost
+6. **Structure matters** – clear, organized context yields better results
 
 ---
 
 ## Lesson 1.5: Tool Calling and MCP
 
+### Concept (8 minutes)
+
+> *"How models take real actions through external tools. Tool calling transforms AI from a text predictor into an action-taker."*
+
 ### What Is Tool Calling?
 
-> *"Tool calling is giving AI models the ability to call other APIs themselves. It's as if the AI model can learn new skills."*
+Tool calling (also called function calling) allows the AI to request execution of external functions. The AI doesn't execute code – it outputs a structured request that YOUR system executes.
 
-| Without Tool Calling | With Tool Calling |
-|---------------------|-------------------|
-| Model only generates text | Model can take actions |
-| Limited to provided context | Can fetch real-time information |
-| Cannot interact with external systems | Can read files, search web, run commands |
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Tool Calling Flow                         │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  User: "What's the weather in Tokyo?"                       │
+│                    ↓                                         │
+│  AI decides: need weather data                              │
+│                    ↓                                         │
+│  AI outputs: tool_call {                                    │
+│    name: "get_weather",                                      │
+│    arguments: {"city": "Tokyo"}                             │
+│  }                                                           │
+│                    ↓                                         │
+│  Your system executes get_weather("Tokyo")                  │
+│                    ↓                                         │
+│  Result returned to AI                                      │
+│                    ↓                                         │
+│  AI: "The weather in Tokyo is 22°C and sunny"               │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
-### The Cooking Analogy
+### Common Tool Types in Development
 
-| Without Tool Calling | With Tool Calling |
-|---------------------|-------------------|
-| Can't see what's in the fridge | Friend sends photo of fridge → better advice |
-| Can't taste the food | Friend describes taste → adjust seasoning |
+| Tool | Purpose | Example |
+|------|---------|---------|
+| **read_file** | Read code files | "Show me the auth module" |
+| **edit_file** | Modify code | "Add error handling to line 42" |
+| **search_code** | Find patterns | "Find all uses of this function" |
+| **run_terminal** | Execute commands | "Run the tests" |
+| **web_search** | Find documentation | "Look up pandas DataFrame API" |
+| **browser** | Browse web pages | "Open the PR and review it" |
+| **git** | Version control | "Create a branch and commit" |
 
-### How Tool Calling Works
+### Tool Calling vs. Autonomous Action
 
-| Step | What Happens |
-|------|--------------|
-| 1 | Model recognizes it needs additional capabilities |
-| 2 | Model formats JSON specifying which tool to use |
-| 3 | Application runs that tool and returns results |
-| 4 | Model incorporates results into context and continues |
-
-### The Three Components of Every Tool
-
-| Component | Description | Example |
-|-----------|-------------|---------|
-| **Name** | Identifies the tool | `read_file` |
-| **Description** | Tells model when/how to use it | "Read the contents of a file" |
-| **Parameters** | Inputs the tool needs | `{"filepath": "src/main.c"}` |
-
-### Why Tools Matter for Coding
-
-| Tool Capability | What It Does |
-|-----------------|--------------|
-| Read and write files | Modify your codebase |
-| Search through code | Find relevant functions or patterns |
-| Run shell commands | Test code, install packages |
-| Access documentation | Get current information |
-| Check for errors | Run linters or tests |
-
-> *"Without tools, the AI model would be limited to only the information you explicitly provide. With tools, it can actively explore and interact with your codebase."*
-
-### The Cost of Tools
-
-| Token Type | What It Includes |
-|------------|------------------|
-| **Tool definitions (input)** | Added to every request (hundreds of tokens) |
-| **Tool results (output)** | Varies based on what the tool returns |
+| Aspect | Tool Calling | Autonomous Action |
+|--------|--------------|-------------------|
+| **Who decides** | AI requests, you approve | AI decides and executes |
+| **Safety** | High (human in loop) | Lower (needs trust) |
+| **Speed** | Slower (requires approval) | Fast |
+| **Use case** | Production, important changes | Sandbox, trusted environments |
 
 ### MCP (Model Context Protocol)
 
-> *"MCP is a universal standard for connecting tools to AI models. Just like USB became a standard for connecting devices to computers, MCP aims to be a standard for connecting tools to AI models."*
+> *"MCP is a standardized way for AI models to discover and use tools. Think of it as USB-C for AI – one protocol that works across different tools."*
 
-| Integration | What Agent Can Do |
-|-------------|-------------------|
-| Figma | Pull design tokens, component specs |
-| Linear | View and manage issues |
-| Sentry | Look up error details |
-| Databases | Query data directly |
-| Slack | Read messages, post updates |
+**Without MCP:** Each tool needs custom integration
+**With MCP:** Tools advertise their capabilities; AI discovers them dynamically
+
+```
+MCP Architecture:
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│   AI Model   │ ←→ │   MCP Host   │ ←→ │   Tools      │
+│  (Claude,    │     │  (Cursor,    │     │  (Files,     │
+│   GPT, etc)  │     │   Claude,    │     │   Terminal,  │
+│              │     │   etc)       │     │   Web, etc)  │
+└──────────────┘     └──────────────┘     └──────────────┘
+```
+
+### Why MCP Matters for Developers
+
+| Benefit | Explanation |
+|---------|-------------|
+| **Interoperability** | Same tools work across different AI models |
+| **Discoverability** | AI can learn what tools are available |
+| **Standardization** | One protocol, not dozens of custom APIs |
+| **Extensibility** | Add new tools without changing AI logic |
+
+### Tool Calling Best Practices
+
+```python
+# 1. Define clear tool schemas
+tool = {
+    "name": "read_file",
+    "description": "Read contents of a file",
+    "parameters": {
+        "path": {"type": "string", "description": "File path"},
+        "lines": {"type": "integer", "description": "Lines to read (optional)"}
+    }
+}
+
+# 2. Validate tool calls before execution
+def validate_tool_call(tool_call):
+    allowed_tools = ["read_file", "search_code", "run_tests"]
+    if tool_call["name"] not in allowed_tools:
+        return False, "Tool not allowed"
+    # Validate parameters
+    return True, "OK"
+
+# 3. Set timeouts
+# Tool execution should have limits (e.g., 30 seconds)
+
+# 4. Log all tool calls
+# For audit and debugging
+```
+
+### Safety Guidelines
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  Tool Calling Safety Rules                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  1. Always validate tool names against allowlist            │
+│  2. Sanitize all parameters                                 │
+│  3. Set execution timeouts                                  │
+│  4. Require human approval for destructive actions          │
+│  5. Log every tool call for audit                           │
+│  6. Run tools in sandboxed environment                      │
+│  7. Never auto-execute file writes or deletions             │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Key Takeaways
+
+1. **Tool calling = AI requests actions** – doesn't execute them directly
+2. **You control execution** – safety is your responsibility
+3. **MCP standardizes tool integration** – one protocol for all tools
+4. **Always validate** tool calls before execution
+5. **Destructive actions need approval** – never auto-run
+6. **Log everything** – tool calls are audit trail gold
 
 ---
 
 ## Lesson 1.6: Agents
 
-### What Is an Agent?
+### Concept (8 minutes)
 
-> *"At its core, an agent is simply tools in a loop."*
+> *"What an agent is and how it changes the developer's role. Agents are AI systems that can pursue goals, make decisions, and take actions – not just respond to prompts."*
 
-| Without Agent | With Agent |
-|---------------|------------|
-| You give turn-by-turn directions | You give the destination |
-| You plan each step | Agent figures out the plan |
-| You execute each action | Agent executes autonomously |
+### Agent vs. Chatbot: The Critical Distinction
 
-> *"It's the difference between giving someone turn-by-turn directions versus just telling them the destination and letting them use GPS."*
+| Aspect | Chatbot | Agent |
+|--------|---------|-------|
+| **Interaction** | Single turn or simple back-and-forth | Multi-step, goal-oriented |
+| **Control** | User drives each step | Agent plans and executes |
+| **Memory** | Limited to conversation | Can maintain state across steps |
+| **Actions** | None (text only) | Can call tools, modify files |
+| **Autonomy** | None | Goal-directed autonomy |
+| **Example** | "Explain this code" | "Fix all bugs in this repository" |
 
-### How an Agent Works (Example)
+### The Agent Loop
 
-**Request:** "Add a dark mode toggle to my settings page."
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      Agent Loop                              │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│    ┌──────────┐                                             │
+│    │  GOAL    │  "Add dark mode to the entire app"         │
+│    └────┬─────┘                                             │
+│         ↓                                                   │
+│    ┌──────────┐                                             │
+│    │  PLAN    │  Break goal into steps                      │
+│    └────┬─────┘                                             │
+│         ↓                                                   │
+│    ┌──────────┐     ┌──────────┐                            │
+│    │  ACT     │ ←→  │  OBSERVE │  (Tool call → result)     │
+│    └────┬─────┘     └──────────┘                            │
+│         ↓                                                   │
+│    ┌──────────┐                                             │
+│    │  THINK   │  Evaluate progress, adjust plan            │
+│    └────┬─────┘                                             │
+│         ↓                                                   │
+│    ┌──────────┐                                             │
+│    │  REPEAT  │  Until goal achieved or blocked            │
+│    └──────────┘                                             │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
-| Step | Action | Tool Used |
-|------|--------|-----------|
-| 1 | Search codebase for settings page | Semantic search |
-| 2 | Read relevant files | Read files |
-| 3 | Create a plan | Planning |
-| 4 | Add state variable | Edit file |
-| 5 | Create new CSS classes | Edit file |
-| 6 | Implement toggle component | Edit file |
-| 7 | Run tests to verify | Run command |
-| 8 | Fix any errors | Self-correct |
+### Levels of Agent Autonomy
 
-### Agents Change Your Role
+| Level | Name | Description | Example |
+|-------|------|-------------|---------|
+| **L1** | Assistant | Responds, but needs step-by-step guidance | Basic chatbot |
+| **L2** | Tool-caller | Can request tools, human approves | Cursor Agent with approval |
+| **L3** | Planner | Makes plans, executes with supervision | Auto-code review |
+| **L4** | Autonomous | Self-directed, minimal supervision | CI/CD agent |
+| **L5** | Full Agent | Complete task ownership, escalation only | Enterprise automation |
 
-| Traditional Role | Agent-Era Role |
-|------------------|----------------|
-| Task doer | Task manager |
-| Implementer | Architect and reviewer |
-| Writes all code | Delegates and verifies |
+### How Agents Change the Developer's Role
 
-> *"This is a large shift because it turns you into a task manager instead of a task doer. You can have multiple agents working on different parts of your codebase simultaneously."*
+**Traditional Development:**
+```
+Developer writes every line of code → tests → deploys
+```
 
-### What Agents Are Good At
+**Agent-Assisted Development:**
+```
+Developer defines intent → Agent executes → Developer reviews → Agent iterates
+```
 
-| Task Type | Example |
-|-----------|---------|
-| Clear objectives | "Add a login button" |
-| Established patterns | Refactoring with consistent style |
-| Adding tests | Write tests for existing code |
-| Updating documentation | Generate API docs |
+**Role Evolution:**
 
-### What Agents Struggle With
+| Old Role | New Role |
+|----------|----------|
+| Code writer | Intent specifier |
+| Debugger | Quality reviewer |
+| Implementation | Orchestration |
+| Manual testing | Acceptance testing |
+| Problem solver | Problem framer |
 
-| Task Type | Why It's Hard |
-|-----------|---------------|
-| Complex debugging | Requires deep system understanding |
-| Pixel-perfect designs | Visual precision, subjective |
-| New libraries | Not in training data |
+### The Developer's New Skillset
 
-### The Reality of Working with Agents
+```
+┌─────────────────────────────────────────────────────────────┐
+│              Skills for Agent-Assisted Development           │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  HIGH VALUE (new skills to develop):                        │
+│  • Prompt engineering / intent specification                │
+│  • Context management                                        │
+│  • Agent output review & verification                       │
+│  • Orchestrating multiple agents                            │
+│  • Setting boundaries and constraints                       │
+│                                                              │
+│  LOWER VALUE (agents handle):                               │
+│  • Boilerplate code writing                                 │
+│  • Simple refactoring                                       │
+│  • Documentation generation                                 │
+│  • Test generation                                          │
+│  • Basic debugging                                          │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
-> *"Think of agents like fast junior developers who need clear direction, who also can easily forget things, so they require oversight."*
+### When to Use Agents (and When Not To)
 
-| Behavior | Description |
-|----------|-------------|
-| Get stuck in loops | Repeat same failing approach |
-| Forget context | Need reminders of constraints |
-| Make unintended changes | May be too enthusiastic |
-| Need verification | You're still responsible |
+**✅ GOOD for agents:**
+- Large, multi-step tasks
+- Repetitive patterns
+- Well-defined with clear success criteria
+- Low-risk changes
+- Documentation updates
 
-### The Art of Delegation
+**❌ BAD for agents:**
+- Security-critical systems
+- Unrecoverable actions
+- Poorly defined goals
+- Real-time requirements
+- High-cost of failure
 
-> *"Working effectively with agents is about learning what to delegate and when."*
+### Key Takeaways
 
-| Stage | Approach |
-|-------|----------|
-| Beginner | Small, well-defined tasks |
-| Intermediate | Larger chunks with checkpoints |
-| Advanced | Complex workflows with verification |
+1. **Agents pursue goals** – not just respond to prompts
+2. **The developer's role shifts** – from writer to director
+3. **Agent autonomy is a spectrum** – choose appropriate level
+4. **New skills required** – intent specification, context management, output verification
+5. **Not everything should be agentic** – choose tasks wisely
+6. **Human in the loop** remains critical for quality and safety
 
 ---
 
 ## Module Summary
 
-| Lesson | Key Takeaway |
-|--------|--------------|
-| 1.1 How AI Models Work | AI is probabilistic, not deterministic — same input can yield different outputs |
-| 1.2 Hallucinations | AI confidently generates incorrect information — always verify |
-| 1.3 Tokens and Pricing | Output tokens cost 2-4x more than input tokens |
-| 1.4 Context | Managing what the AI "sees" is the most important skill |
-| 1.5 Tool Calling and MCP | Tools let AI take real actions; MCP is the universal standard |
-| 1.6 Agents | Tools in a loop — you become a task manager, not a task doer |
+| Lesson | Topic | Key Insight |
+|--------|-------|-------------|
+| 1.1 | How AI Models Work | Probabilistic, not deterministic – manage with temperature |
+| 1.2 | Hallucinations | Models invent confidently – always verify |
+| 1.3 | Tokens and Pricing | Output costs more – optimize context, use cheaper models |
+| 1.4 | Context | Single most valuable skill – quality in = quality out |
+| 1.5 | Tool Calling & MCP | AI requests actions, you control execution |
+| 1.6 | Agents | Goal-directed action – changes developer role |
 
 ---
 
-## Discussion Questions
+## Key Mental Models Reference Card
 
-1. Think of a time when an AI tool gave you a confidently wrong answer. What happened? How could you have caught it?
-
-2. Your team wants to adopt AI coding assistants. What mental models would you share with them first?
-
-3. How might your daily workflow change if you had multiple agents working in parallel?
-
-4. What are the risks of accepting AI-generated code without verification? How would you mitigate them?
+```
+┌─────────────────────────────────────────────────────────────┐
+│                 MENTAL MODELS QUICK REFERENCE                │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  "AI is probabilistic"     → Lower temperature for control  │
+│  "Trust but verify"        → Always review outputs          │
+│  "You pay for tokens"      → Monitor usage, use cheap models│
+│  "Context is king"         → Quality in = quality out       │
+│  "Tools need gates"        → Validate, approve, log         │
+│  "You direct, AI executes" → Your role is orchestrator      │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## Transition to Module 2
 
-> *"Now that we understand how AI models work, their limitations, and the mental models for working with them effectively, let's put these concepts into practice. In Module 2, we'll open Cursor and start using the Agent to understand and modify real code."*
+> *"Now that you understand how AI models think, what they cost, and how agents work, we'll move to Module 2: Prompt Patterns – practical techniques for getting the best results from these systems."*
 
 ---
 

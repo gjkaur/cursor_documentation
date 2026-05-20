@@ -1,6 +1,6 @@
 # Module 2: Cursor Editor Essentials
 
-## Cursor Training Program — Day 1
+## Cursor Training Program — Day 1 (Hands-On)
 
 ---
 
@@ -10,8 +10,8 @@
 |--------|---------|
 | **Duration** | ~90 minutes |
 | **Format** | Hands-on exercise |
-| **Prerequisites** | Cursor installed and signed in, a Git repository (sample provided if needed) |
-| **Module Goal** | Build fluency with core Cursor editor features: codebase understanding, making safe changes, Plan Mode, model selection, @mentions, checkpoints, and terminal integration |
+| **Prerequisites** | Module 1 completed, Cursor installed, Git repository access |
+| **Module Goal** | Master the core workflows of AI-assisted coding in Cursor |
 
 ---
 
@@ -19,50 +19,111 @@
 
 By the end of this module, participants will be able to:
 
-- Use the Agent to understand an unfamiliar codebase in minutes
-- Get targeted explanations of specific files and functions using @mentions
-- Make safe, reviewable changes and understand diffs
-- Use Plan Mode to design changes before implementing them
-- Compare different models and choose the right one for the task
-- Use checkpoints as a safety net for experimental changes
-- Let the Agent run terminal commands and react to output
+- Orient an AI agent to an unfamiliar codebase
+- Get targeted explanations of specific files or symbols
+- Make safe, reviewable changes using diff review
+- Design complex changes with Plan Mode
+- Compare models to choose the right one for each task
+- Use @mentions for precise context control
+- Navigate checkpoints as a safety net
+- Let agents run terminal commands and react to output
 
 ---
 
 ## Lesson 2.1: Codebase Understanding
 
-### Concept (5 minutes)
+### Concept (8 minutes)
 
-> *"One of the most important jobs of a software engineer is building a mental map of a codebase. With coding agents, you can describe what you're looking for in natural language and let the agent find it for you."*
+> *"Orient an agent to an unfamiliar repository. The single most powerful feature: dropping an agent into a codebase you've never seen and getting a coherent explanation of how it works."*
 
-**The Agent can:**
-- Read your entire project structure
-- Identify entry points and key modules
-- Trace data flow through the system
-- Find where specific functionality is implemented
+**The Problem:** Opening a new codebase is overwhelming. Where do you start? What's the entry point? How do things connect?
 
-### Hands-On Exercise (10 minutes)
+**The Cursor Solution:** Ask the agent to explain the codebase. It reads files, traces connections, and returns a roadmap.
 
-**Setup:** Open any codebase (participants can use their own or download the sample provided).
+### Hands-On Exercise (12 minutes)
 
-**Step 1:** Open the Agent (`Ctrl+I` or `Cmd+I` on Mac)
+**Step 1:** Open an unfamiliar repository in Cursor
 
-**Step 2:** Copy and paste this prompt:
+```bash
+# Clone a sample project if you don't have one
+git clone https://github.com/facebookresearch/detectron2
+cd detectron2
+cursor .
+```
 
-> *"Explain this codebase in 3-5 sentences. What is the main purpose? Where is the entry point (where does execution start)? List 2-3 key functions and what they do."*
+**Step 2:** Open the Agent (`Cmd+I` or `Ctrl+I`)
 
-**Step 3:** Press Enter and read the response
+**Step 3:** Ask for codebase orientation:
 
-**Step 4:** Ask a follow-up:
+```
+Explain this codebase to me as if I'm a new team member.
 
-> *"What are the main dependencies and what do they do?"*
+Specifically tell me:
+1. What is the main purpose of this project?
+2. What are the entry points (main scripts, CLI, API)?
+3. What are the key modules and how do they relate?
+4. What are the main dependencies?
+5. What files should I read first to understand the architecture?
+```
 
-**Expected Outcome:** The participant gets a clear mental map of the project structure.
+**Step 4:** Ask follow-up questions based on the response:
+
+```
+Based on what you just told me, trace the flow of data from input
+to output. What functions get called in order?
+```
+
+**Step 5:** Ask for a visual overview (the agent can create diagrams):
+
+```
+Create an ASCII diagram showing the module relationships in this codebase.
+```
+
+**Expected Agent Output:**
+```
+📁 PROJECT: detectron2 (Facebook AI Research)
+
+PURPOSE:
+Object detection and segmentation library built on PyTorch.
+
+ENTRY POINTS:
+• train_net.py - Main training script
+• demo.py - Inference demo
+• Tools/*.py - Various utility scripts
+
+KEY MODULES:
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  config/    │ ←→  │  model_zoo  │ ←→  │  engine/    │
+│ (configs)   │     │ (pretrained)│     │ (training)  │
+└─────────────┘     └─────────────┘     └─────────────┘
+      ↓                    ↓                    ↓
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  structures │     │  modeling/  │     │  data/      │
+│ (boxes,masks)│ ←→ │ (architectures)│ ←→ │ (datasets) │
+└─────────────┘     └─────────────┘     └─────────────┘
+
+FIRST FILES TO READ:
+1. README.md - Project overview
+2. detectron2/config/defaults.py - Configuration structure
+3. detectron2/engine/defaults.py - Training loop
+4. tools/train_net.py - Entry point example
+
+DATA FLOW:
+Config → build_model() → DataLoader → Training Loop → Loss → Backprop
+```
+
+**Pro Tip:** Save the agent's explanation as a project note:
+
+```
+Save this explanation as .cursor/project-overview.md so future
+team members can read it.
+```
 
 **Success Criteria:**
-- [ ] Agent responded to the prompt
-- [ ] Response identified the entry point
-- [ ] Response listed at least 2 key functions
+- [ ] Agent described project purpose
+- [ ] Agent identified entry points
+- [ ] Agent listed key modules
+- [ ] Agent suggested first files to read
 
 ---
 
@@ -70,34 +131,51 @@ By the end of this module, participants will be able to:
 
 ### Concept (5 minutes)
 
-> *"The most precise way to get information from the agent is to point it at exactly what you want to talk about. Use @mentions to tell the agent which file or symbol to focus on."*
+> *"Targeted code explanations using precise context. Don't make the agent read the whole codebase when you just need to understand one function."*
 
-**Why @mentions matter:**
+### Hands-On Exercise (8 minutes)
 
-| Without @mention | With @mention |
-|------------------|---------------|
-| Agent searches entire codebase | Agent reads exact file you specify |
-| May miss the right file | Always references correct file |
-| Response may be about wrong code | Response is about code you care about |
+**Step 1:** Open a specific file in your project
 
-### Hands-On Exercise (10 minutes)
+**Step 2:** Select a function or class you want explained
 
-**Step 1:** Type `@` in the Agent chat and select a file from your project (e.g., `main.c`, `app.py`, `index.js`)
+**Step 3:** Use the Agent with precise context:
 
-**Step 2:** Complete your prompt:
+```
+Explain the function I have selected. For each major section,
+tell me:
+- What it does
+- Why it's designed that way (trade-offs)
+- Potential edge cases or bugs
+- How it could be improved
+```
 
-> *`@filename` "Explain what this file does. List all functions and what each one does."*
+**Step 4:** Ask for a concrete example:
 
-**Step 3:** Compare with a question without @mention:
+```
+Give me a concrete example of inputs and outputs for this function.
+Show me what happens in the normal case and one edge case.
+```
 
-> *"What does the main function do?"* (without @mention)
+**Step 5:** Ask about dependencies:
 
-**Discussion:** Which response was more accurate and specific?
+```
+What other functions does this call? What calls this function?
+Trace the call chain two levels in each direction.
+```
+
+**Alternative: Inline explanation with CMD+L**
+
+```bash
+# Shortcut: Select code, press Cmd+L (or Ctrl+L)
+# The agent will explain the selected code in the chat panel
+```
 
 **Success Criteria:**
-- [ ] Used @mention to select a file
-- [ ] Agent correctly identified the file
-- [ ] Agent listed functions from the file
+- [ ] Selected specific code
+- [ ] Agent explained the selection
+- [ ] Agent provided input/output examples
+- [ ] Agent traced call dependencies
 
 ---
 
@@ -105,47 +183,70 @@ By the end of this module, participants will be able to:
 
 ### Concept (5 minutes)
 
-> *"You are always in control. The Agent shows you exactly what it will change (the diff), and you decide whether to accept it. Checkpoints let you undo anything instantly."*
+> *"Diff review and approval workflow. Before AI changes your code, you need to see exactly what will change and approve it."*
 
-**Diff Review:**
+**The Workflow:**
+1. Ask agent to propose a change
+2. Review the diff (what's added/removed)
+3. Accept or reject changes
+4. Test after acceptance
 
-| Symbol | Meaning |
-|--------|---------|
-| `+` (green) | Line being ADDED |
-| `-` (red) | Line being REMOVED |
+### Hands-On Exercise (8 minutes)
 
-**Safe vs. Unsafe Changes:**
+**Step 1:** Ask the agent to make a small, safe change:
 
-| Safe Changes ✅ | Unsafe Changes ❌ |
-|-----------------|------------------|
-| Adding comments | Deleting entire functions |
-| Changing print messages | Modifying core logic |
-| Adding whitespace/formatting | Changing function signatures |
-| Adding input validation | Removing error handling |
+```
+Change the welcome message in index.html from "Hello World"
+to "Welcome to My App"
+```
 
-### Hands-On Exercise (10 minutes)
+**Step 2:** Watch the agent generate the diff:
 
-**Step 1:** Ask the Agent:
+```
+The agent shows:
+📝 Changes to index.html:
 
-> *"Add a comment at the top of the main file that says: 'Last updated: [today's date]'"*
+  <h1>- Hello World</h1>
+  <h1>+ Welcome to My App</h1>
 
-**Step 2:** Review the diff (green = added, red = removed)
+Accept? [Yes] [No] [Edit]
+```
 
-**Step 3:** Approve the change
+**Step 3:** Review the diff carefully
 
-**Step 4:** Open the file to verify
+**Key questions to ask yourself:**
+- Are the changes only what I asked for?
+- Are there unexpected additions or deletions?
+- Does the syntax look correct?
+- Will this break anything else?
 
-**Step 5:** Ask the Agent to make a slightly larger change:
+**Step 4:** Accept the change
 
-> *"Add a welcome message at the start of the main function"*
+**Step 5:** Test the change manually
 
-**Step 6:** Review the diff again
+```bash
+# For web changes: open in browser
+open index.html
+
+# For Python: run the script
+python script.py
+
+# For React: check dev server
+npm start
+```
+
+**Step 6:** If something is wrong, reject and ask for correction:
+
+```
+That change didn't work. The button disappeared.
+Please explain what happened and suggest a fix.
+```
 
 **Success Criteria:**
 - [ ] Agent proposed a change
-- [ ] You reviewed the diff
-- [ ] You approved the change
-- [ ] Change appears in the file
+- [ ] Reviewed diff before accepting
+- [ ] Accepted only after verification
+- [ ] Tested the change
 
 ---
 
@@ -153,41 +254,90 @@ By the end of this module, participants will be able to:
 
 ### Concept (5 minutes)
 
-> *"Plan Mode is like measuring twice and cutting once. Use it when you want to think through a change before the agent writes any code."*
-
-| Normal Agent Mode | Plan Mode |
-|-------------------|-----------|
-| Starts coding immediately | Plans first, codes second |
-| You hope it's right | You approve the plan first |
-| Hard to fix if wrong | Easy to edit the plan |
+> *"Designing complex changes before implementation. Plan Mode makes the agent create a detailed plan BEFORE writing any code – perfect for multi-file changes, refactoring, or when you're unsure of the approach."*
 
 **When to use Plan Mode:**
+- Changing multiple files
 - Adding a new feature
-- Changes affect multiple files
-- You're not 100% sure how to implement it
-- Someone needs to review the approach first
+- Refactoring existing code
+- You're not 100% sure of the best approach
+- The change is risky or hard to undo
 
-### Hands-On Exercise (10 minutes)
+### Hands-On Exercise (8 minutes)
 
-**Step 1:** Press `Shift+Tab` to switch to Plan Mode
+**Step 1:** Enable Plan Mode
 
-**Step 2:** Ask:
+```bash
+# Press Shift+Tab in the Agent input
+# The input border changes color to indicate Plan Mode
+```
 
-> *"Plan adding a simple print statement that says 'Hello from Cursor!' at the start of the main function. Don't write code yet."*
+**Step 2:** Describe a complex change:
 
-**Step 3:** Answer any clarifying questions the Agent asks
+```
+Add user authentication to this web app.
 
-**Step 4:** Review the generated plan
+Requirements:
+- Email/password login
+- Session management
+- Protected routes (dashboard, settings)
+- Logout functionality
+- "Remember me" option
 
-**Step 5:** Type "Build it" to execute the plan
+Don't write code yet – just give me a plan.
+```
 
-**Discussion:** How was this different from asking the agent to just "do it"?
+**Step 3:** Review the agent's plan
+
+**A good plan includes:**
+```
+📋 IMPLEMENTATION PLAN
+
+Step 1: Create User Model
+- File: models/user.js
+- Fields: email (unique), passwordHash, createdAt, lastLoginAt
+
+Step 2: Set up Authentication Routes
+- File: routes/auth.js
+- Endpoints: POST /login, POST /logout, POST /register, GET /me
+
+Step 3: Create Session Management
+- File: middleware/session.js
+- Using: express-session with Redis store
+
+Step 4: Add Protected Route Middleware
+- File: middleware/auth.js
+- Function: requireAuth
+
+Step 5: Update Frontend
+- Files: pages/login.html, pages/dashboard.html
+- Add: login form, logout button, redirect logic
+
+Step 6: Environment Variables
+- Add to .env: SESSION_SECRET, REDIS_URL
+
+Questions for you:
+1. Should I use JWT or server-side sessions?
+2. Do you have an existing user database?
+3. Should I include email verification?
+
+Ready to proceed? [Yes] [No] [Modify Plan]
+```
+
+**Step 4:** Answer questions and approve the plan
+
+```
+Use JWT for simplicity. No existing database yet – use SQLite for now.
+Skip email verification for this version. Proceed.
+```
+
+**Step 5:** Watch the agent execute the plan step by step
 
 **Success Criteria:**
-- [ ] Switched to Plan Mode
+- [ ] Enabled Plan Mode (Shift+Tab)
+- [ ] Agent created structured plan
 - [ ] Agent asked clarifying questions
-- [ ] Agent created a plan
-- [ ] You approved and built the plan
+- [ ] Approved plan before code was written
 
 ---
 
@@ -195,188 +345,392 @@ By the end of this module, participants will be able to:
 
 ### Concept (5 minutes)
 
-> *"Different models have different strengths. Choose based on task complexity: cheap/fast models for simple questions, expensive/smart models for complex problems."*
+> *"Choosing the right model for the task. Different models have different strengths, costs, and speeds. Learn to pick the right tool for the job."*
 
-| Model | Best For | Cost |
-|-------|----------|------|
-| GPT-5 Mini | Simple questions, quick answers | $ |
-| Composer 2 | Everyday coding (best value) | $$ |
-| GPT-5.3 Codex | Coding specialized | $$ |
-| Claude 4.6 Sonnet | Balanced daily driver | $$$ |
-| Claude 4.7 Opus | Maximum quality | $$$$ |
+**Model Selection Guide:**
 
-### Hands-On Exercise (10 minutes)
+| Task Type | Recommended Model | Why |
+|-----------|-------------------|-----|
+| Typo fixes, simple edits | GPT-5 Mini | Cheap, fast, good enough |
+| Daily coding, bug fixes | GPT-5.3 Codex or Claude Sonnet | Best value, high quality |
+| Complex logic, architecture | Claude Opus or GPT-5.5 | Smartest, but expensive |
+| Frontend/visual work | Gemini 3.1 Pro | Can see images |
+| Fast, simple questions | Claude Haiku | Fastest responses |
 
-**Step 1:** Switch to GPT-5 Mini: `/model gpt-5-mini`
+### Hands-On Exercise (8 minutes)
 
-**Step 2:** Ask: *"Explain the most complex function in this codebase"*
+**Step 1:** Ask the same question to two different models
 
-**Step 3:** Note the response speed and quality
+First, set the model selector to Claude Sonnet:
 
-**Step 4:** Switch to Claude 4.6 Sonnet: `/model claude-4.6-sonnet`
+```
+Explain what a closure is in JavaScript with a practical example.
+```
 
-**Step 5:** Ask the **exact same question**
+**Step 2:** Copy the response
 
-**Step 6:** Compare speed and quality
+**Step 3:** Switch the model to GPT-5 Mini
 
-**Discussion:** When would you use each model?
+```
+Explain what a closure is in JavaScript with a practical example.
+```
 
-| Model | Speed | Quality | When to Use |
-|-------|-------|---------|-------------|
-| GPT-5 Mini | | | |
-| Claude Sonnet | | | |
+**Step 4:** Compare the responses
+
+| Comparison Point | Claude Sonnet | GPT-5 Mini |
+|-----------------|---------------|------------|
+| Length of response | | |
+| Code example quality | | |
+| Explanation clarity | | |
+| Speed | | |
+
+**Step 5:** Run a cost comparison
+
+```bash
+# Check token usage after each request
+# Cursor shows token count at bottom of chat
+```
+
+**Step 6:** Create a personal decision matrix
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              MY MODEL DECISION MATRIX                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  If task is...                    Use model...              │
+│                                                              │
+│  Typos / text changes            → GPT-5 Mini               │
+│  Quick question                  → Claude Haiku             │
+│  Daily coding (me)               → GPT-5.3 Codex            │
+│  Complex debugging               → Claude Sonnet            │
+│  Architecture design             → Claude Opus              │
+│  UI/frontend from image          → Gemini Pro               │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 **Success Criteria:**
-- [ ] Switched between two models
-- [ ] Noticed speed difference
-- [ ] Noticed quality difference
+- [ ] Asked same question to two models
+- [ ] Compared response quality and speed
+- [ ] Created personal model selection guide
 
 ---
 
 ## Lesson 2.6: Precise Context with @mentions
 
-### Concept (3 minutes)
+### Concept (5 minutes)
 
-> *"@mentions are like pointing at code and saying 'Look here!' Use them whenever you want the agent to focus on specific files, functions, or folders."*
+> *"Pointing the agent at exact files, symbols, branches, and past chats. @mentions are the precision tool for context – like laser-targeting instead of spraying the whole codebase."*
 
-| @mention Type | Syntax | Use Case |
-|---------------|--------|----------|
-| File | `@filename.c` | Specific file |
-| Folder | `@src/` | All files in a folder |
-| Terminals | `@Terminals` | Include terminal output |
-| Git commit | `@Commit` | Review uncommitted changes |
-| Branch diff | `@Branch (Diff with Main)` | Compare branch changes |
+**What You Can @mention:**
 
-### Hands-On Exercise (10 minutes)
+| @mention | What It Does | Example |
+|----------|--------------|---------|
+| `@filename` | Include specific file | `@auth.py` |
+| `@symbol` | Include function/class | `@UserModel` |
+| `@branch` | Reference git branch | `@main` |
+| `@chat` | Reference past conversation | `@previous-chat` |
+| `@folder` | Reference entire directory | `@/src/utils` |
+| `@web` | Search the web | `@web pandas DataFrame` |
 
-**Step 1:** Ask without @mention:
+### Hands-On Exercise (8 minutes)
 
-> *"Find the error handling in this codebase"*
+**Step 1:** Use `@filename` to point at specific file
 
-**Step 2:** Now use @mention with a specific file:
+```
+@database.py What are the security vulnerabilities in this database connection?
+```
 
-> *`@[safety_file]` "Find all error handling in this specific file"*
+**Step 2:** Use `@symbol` to reference a specific function
 
-**Step 3:** Try multiple @mentions:
+```
+@calculate_total This function is returning NaN sometimes. Why?
+```
 
-> *`@file1.c` `@file2.h` "How do these two files work together?"*
+**Step 3:** Use multiple @mentions
 
-**Discussion:** How did the responses differ?
+```
+@auth.py @UserModel @login_handler Review the authentication flow.
+Are there any race conditions or timing attacks?
+```
+
+**Step 4:** Use `@branch` to reference different branch
+
+```
+Compare @main and @feature/payment branches.
+What are the key differences in the payment handling code?
+```
+
+**Step 5:** Use `@chat` to refer to previous conversation
+
+```
+@chat(authentication-discussion) Based on that discussion,
+implement the fix we agreed on.
+```
+
+**Step 6:** Use `@folder` for directory-level context
+
+```
+@src/components Find all components that don't have loading states.
+```
+
+**Step 7:** Use `@web` for external documentation
+
+```
+@web React 19 useTransition hook How do I use it?
+```
+
+**Pro Tips:**
+- Start typing `@` and Cursor will auto-suggest available mentions
+- You can @mention multiple items in one message
+- @mentions work in both Agent and Chat modes
 
 **Success Criteria:**
-- [ ] Used @mention with a file
-- [ ] Noticed difference with/without @mention
-- [ ] Used multiple @mentions
+- [ ] Used `@filename` to target specific file
+- [ ] Used `@symbol` to target function/class
+- [ ] Used multiple @mentions together
+- [ ] Used `@web` for external search
 
 ---
 
 ## Lesson 2.7: Checkpoints
 
-### Concept (3 minutes)
+### Concept (4 minutes)
 
-> *"Checkpoints are automatic snapshots taken before the agent makes significant changes. They're your 'undo' button – click any checkpoint to restore all files to that state."*
+> *"A safety net for experimental changes. Checkpoints let you save the state of your conversation and code changes, then revert if something goes wrong."*
 
-| Checkpoints | Git |
-|-------------|-----|
-| Automatic | Manual commits |
-| Per-agent action | Per logical change |
-| Temporary safety net | Permanent history |
-| One-click restore | Multiple commands |
+**What Checkpoints Save:**
+- Code changes made by the agent
+- Conversation history
+- File states
 
-### Hands-On Exercise (10 minutes)
+**When to Create Checkpoints:**
+- Before starting a complex change
+- At natural milestones (e.g., after Step 2 of 5)
+- When you're about to try something risky
+- Before letting the agent run terminal commands
 
-**Step 1:** Make a small change and note the checkpoint appears
+### Hands-On Exercise (4 minutes)
 
-**Step 2:** Make a second change
+**Step 1:** Before making a change, create a checkpoint
 
-**Step 3:** Make a third (riskier) change
+```bash
+# Click the checkpoint icon in the Agent panel
+# Or use keyboard shortcut (Cmd+Shift+S or Ctrl+Shift+S)
+```
 
-**Step 4:** Click the **first** checkpoint in the chat timeline
+**Step 2:** Name your checkpoint descriptively
 
-**Step 5:** Click "Preview" to see what the file looked like
+```
+Checkpoint name: "Before auth refactor - safe point"
+```
 
-**Step 6:** Click "Restore" to revert all files
+**Step 3:** Let the agent make changes
 
-**Verification:** All three changes are gone
+```
+Add input validation to all form handlers.
+```
+
+**Step 4:** If something goes wrong, revert to checkpoint
+
+```bash
+# Click the checkpoint icon again
+# Select "Restore to checkpoint"
+# Choose which checkpoint to restore
+```
+
+**Step 5:** View checkpoint history
+
+```bash
+# In Agent panel, click the clock icon
+# Shows all checkpoints with timestamps and names
+```
+
+**Checkpoint Best Practices:**
+- Create checkpoints every 5-10 minutes during complex work
+- Use descriptive names, not "checkpoint1"
+- Test the restored state before continuing
+- Clean up old checkpoints periodically
 
 **Success Criteria:**
-- [ ] Observed checkpoint creation
-- [ ] Previewed a previous state
-- [ ] Restored to a checkpoint
-- [ ] Files reverted correctly
+- [ ] Created a checkpoint
+- [ ] Made changes after checkpoint
+- [ ] Restored to checkpoint
+- [ ] Verified restoration worked
 
 ---
 
 ## Lesson 2.8: Terminal Integration
 
-### Concept (3 minutes)
+### Concept (5 minutes)
 
-> *"The Agent can run any terminal command you approve. This means it can compile your code, run your tests, check git status, install dependencies, and more."*
+> *"Letting the agent run and react to terminal commands. The agent can execute commands, see output, and use that output to make decisions."*
 
-**Command Approval Flow:**
+**What the Agent Can Do:**
+- Run shell commands
+- See stdout, stderr, exit codes
+- React to command output
+- Install dependencies
+- Run tests
+- Start/stop services
+
+**Safety Features:**
+- You approve each command before execution
+- Commands appear in terminal for you to see
+- You can reject dangerous commands
+
+### Hands-On Exercise (8 minutes)
+
+**Step 1:** Ask the agent to check the environment
 
 ```
-Agent proposes command → You see it → y/Enter to run, a to always allow, n to deny
+Run `python --version` and tell me what Python version we're using.
 ```
 
-### Hands-On Exercise (10 minutes)
+**Step 2:** Approve the command when prompted
 
-**Step 1:** Ask the Agent:
+**Step 3:** Ask the agent to run tests and fix failures
 
-> *"Run `ls -la` (Mac/Linux) or `dir` (Windows) and tell me what files you see"*
+```
+Run the test suite. If any tests fail, fix them.
+Show me what you're changing.
+```
 
-**Step 2:** Approve the command
+**Step 4:** Watch the agent execute sequentially:
 
-**Step 3:** Review the output
+```
+Agent: I'll run the tests first.
+→ Executing: pytest tests/
+→ Output: 7 passed, 2 failed
 
-**Step 4:** Ask:
+Agent: Two tests failed. Let me look at them.
 
-> *"Run `pwd` (or `cd`) to show me the current directory path"*
+→ Reading: tests/test_auth.py
 
-**Step 5:** Ask the Agent to compile and run (if you have a code file):
+Agent: The login test is failing because the timeout is too short.
+I'll increase it from 5 to 10 seconds.
 
-> *"Compile and run the main file"*
+→ Editing: tests/test_auth.py
+
+Agent: Now I'll rerun the tests.
+→ Executing: pytest tests/test_auth.py
+→ Output: All tests passed
+
+Agent: All tests are now passing.
+```
+
+**Step 5:** Ask the agent to install a dependency
+
+```
+Install the 'requests' library if it's not already installed.
+```
+
+**Step 6:** Ask for a complex terminal workflow
+
+```
+Run these commands in order:
+1. git checkout main
+2. git pull
+3. git checkout -b feature/analytics
+4. Create a new file called analytics.py
+5. Run flake8 to check for style issues
+6. Fix any style issues found
+
+Confirm before each command that might affect the repo.
+```
+
+**Important Terminal Safety Rules:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              TERMINAL COMMAND SAFETY RULES                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ALWAYS approve before running:                             │
+│  • rm, delete, unlink (file deletion)                       │
+│  • sudo, su (privilege escalation)                          │
+│  • git push --force (destructive git)                       │
+│  • Any command touching production                          │
+│                                                              │
+│  REVIEW carefully before approving:                         │
+│  • npm install / pip install (new dependencies)             │
+│  • git commands (branch changes)                            │
+│  • docker commands (container management)                   │
+│                                                              │
+│  SAFE to auto-approve (configure in settings):              │
+│  • python --version, node -v (version checks)               │
+│  • ls, pwd, cat (read-only commands)                        │
+│  • pytest, npm test (running tests)                         │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 **Success Criteria:**
-- [ ] Agent proposed a command
-- [ ] You approved the command
-- [ ] Output appeared in chat
-- [ ] Agent commented on the output
+- [ ] Agent ran version check command
+- [ ] Agent ran tests and reacted to output
+- [ ] Agent installed dependency
+- [ ] Agent executed multi-step terminal workflow
+- [ ] Understood safety rules for terminal commands
 
 ---
 
 ## Module Summary
 
-| Lesson | Key Skill | Time |
-|--------|-----------|------|
-| 2.1 | Codebase Understanding | 10 min |
-| 2.2 | Explaining a Specific File | 10 min |
-| 2.3 | Making a Safe Change | 10 min |
-| 2.4 | Plan Mode | 10 min |
-| 2.5 | Comparing Two Models | 10 min |
-| 2.6 | @mentions | 10 min |
-| 2.7 | Checkpoints | 10 min |
-| 2.8 | Terminal Integration | 10 min |
+| Lesson | Topic | Time | Key Skill |
+|--------|-------|------|-----------|
+| 2.1 | Codebase Understanding | 12 min | Orient to new repo |
+| 2.2 | Explaining Files/Symbols | 8 min | Targeted explanations |
+| 2.3 | Safe Reviewable Changes | 8 min | Diff review workflow |
+| 2.4 | Plan Mode | 8 min | Design before code |
+| 2.5 | Comparing Models | 8 min | Model selection |
+| 2.6 | @mentions | 8 min | Precise context |
+| 2.7 | Checkpoints | 4 min | Safety net |
+| 2.8 | Terminal Integration | 8 min | Command execution |
 
 ---
 
 ## Quick Reference Card
 
-| Action | Shortcut / Command |
-|--------|-------------------|
-| Open Agent | `Ctrl+I` (Mac: `Cmd+I`) |
-| Plan Mode | `Shift+Tab` |
-| Switch model | `/model model-name` |
-| @mention | `@filename` |
-| Checkpoints | Click in chat timeline |
-| Approve command | `y` or `Enter` |
-| Deny command | `n` |
+```
+┌─────────────────────────────────────────────────────────────┐
+│              CURSOR EDITOR QUICK REFERENCE                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  SHORTCUTS:                                                 │
+│  Cmd/Ctrl + I     → Open Agent                              │
+│  Cmd/Ctrl + L     → Explain selected code                   │
+│  Shift + Tab      → Toggle Plan Mode                        │
+│  Cmd/Ctrl + Shift + S → Create checkpoint                   │
+│                                                              │
+│  @MENTIONS:                                                 │
+│  @filename        → Include specific file                   │
+│  @symbol          → Include function/class                  │
+│  @branch          → Reference git branch                    │
+│  @chat            → Reference past conversation             │
+│  @web             → Search the web                          │
+│                                                              │
+│  SAFE CHANGE WORKFLOW:                                      │
+│  1. Ask for change                                          │
+│  2. Review diff                                             │
+│  3. Accept or reject                                        │
+│  4. Test                                                    │
+│                                                              │
+│  PLAN MODE WORKFLOW:                                        │
+│  1. Shift+Tab to enable                                     │
+│  2. Describe complex change                                 │
+│  3. Review plan                                             │
+│  4. Answer questions                                        │
+│  5. Approve → Agent executes                                │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## Transition to Module 3
 
-> *"Now that you're comfortable with the core editor features, let's dive deeper into the Agent's tools – the browser, terminal, and search – and understand when to use Ask Mode vs. Agent Mode."*
+> *"Now that you've mastered the essential Cursor workflows, Module 3 will cover Multi-Model Configuration – using different models for different tasks, managing API keys, and optimizing cost vs. quality."*
 
 ---
 
