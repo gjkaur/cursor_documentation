@@ -65,7 +65,7 @@ Probabilities:
 │                    Factors That Shape Output                 │
 ├─────────────────────────────────────────────────────────────┤
 │  1. Training Data      → What the model "learned"           │
-│  2. Prompt             → Your instruction (most influent)   │
+│  2. Prompt             → Your instruction (most influential)│
 │  3. Temperature        → Randomness level (0 = deterministic)│
 │  4. Top-p / Top-k      → Token selection pool size          │
 │  5. System Prompt      → Persistent behavioral guidelines   │
@@ -119,14 +119,6 @@ Models are frozen at their training cutoff date. They don't know:
 - Recent library updates (unless in context)
 
 **Implication:** You must provide this information in the prompt or context.
-
-### Key Takeaways
-
-1. **Treat AI as probabilistic collaborator** – not deterministic tool
-2. **Lower temperature = more predictable** code (use 0.1-0.3 for production)
-3. **Higher temperature = more creative** (use 0.7-1.0 for brainstorming)
-4. **Models don't "know"** – they predict based on patterns
-5. **You influence, but never fully control** – always review outputs
 
 ---
 
@@ -216,15 +208,6 @@ Before accepting AI-generated code, verify:
 - You are the human-in-the-loop responsible for verification
 - Experience helps you "smell" potential hallucinations
 
-### Key Takeaways
-
-1. **Hallucinations are inevitable** – plan for them
-2. **Low temperature reduces** but doesn't eliminate hallucinations
-3. **Provide source material** to ground responses
-4. **Verify imports and APIs** – the most common hallucination type
-5. **Confidence ≠ correctness** – models sound convincing when wrong
-6. **Build verification into workflow** – don't trust blindly
-
 ---
 
 ## Lesson 1.3: Tokens and Pricing
@@ -251,23 +234,7 @@ A token is the atomic unit of processing for LLMs. Not a word, not a character �
 
 ### Token Pricing: Input vs Output
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Token Pricing Asymmetry                   │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│   INPUT TOKENS (cheaper)    OUTPUT TOKENS (2-5x more)      │
-│   • Your prompt             • AI's response                 │
-│   • Code context            • Generated code                │
-│   • Retrieved documents     • Explanations                  │
-│                                                              │
-│   Why output costs more:                                    │
-│   • Generation is harder than reading                      │
-│   • Output is new computation                               │
-│   • Models allocate more resources to generation           │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+**Input tokens** (your prompt, code context, retrieved docs) cost less than **output tokens** (generated code and explanations), often by 5–8×, because generation is more compute-intensive than reading.
 
 ### Real Pricing Examples (from Module 8 chat)
 
@@ -281,7 +248,7 @@ A token is the atomic unit of processing for LLMs. Not a word, not a character �
 | Claude 4.7 Opus | $5.00 | $25.00 | 5x |
 | GPT-5.5 | $5.00 | $30.00 | 6x |
 
-### What 1 Million Tokons Looks Like
+### What 1 Million Tokens Looks Like
 
 | Content Type | Approximate Amount |
 |--------------|-------------------|
@@ -341,15 +308,6 @@ Models can cache frequently used content. When you reuse cached content:
 # Cache read can be 80-95% cheaper than fresh input!
 ```
 
-### Key Takeaways
-
-1. **Tokens ≠ words** – code uses more tokens per character
-2. **Output costs more** than input (often 5-8x more)
-3. **Cheaper models exist** – use right model for task
-4. **Context length = cost** – only send what's necessary
-5. **Caching saves money** – reuse context when possible
-6. **Monitor spending** – costs add up surprisingly fast
-
 ---
 
 ## Lesson 1.4: Context
@@ -367,7 +325,7 @@ Context = all the information the model has access to when generating a response
 │                    What Goes Into Context                    │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
- │  System Prompt      → "You are a helpful coding assistant"  │
+│  System Prompt      → "You are a helpful coding assistant"  │
 │  User Prompt        → "Fix this bug: ..."                   │
 │  Code Files         → Current file, related files           │
 │  Conversation       → Previous exchanges                    │
@@ -384,22 +342,15 @@ Every model has a maximum context size (in tokens).
 
 | Model | Context Window | Pages of Text | Lines of Code |
 |-------|---------------|---------------|---------------|
-| Claude 4 Haiku | 200k | ~150 | ~50,000 |
-| Claude 4 Sonnet | 200k | ~150 | ~50,000 |
-| Claude 4 Opus | 200k | ~150 | ~50,000 |
-| GPT-5 Mini | 272k | ~200 | ~70,000 |
-| GPT-5.3 Codex | 272k | ~200 | ~70,000 |
+| Claude 4 (Haiku / Sonnet / Opus) | 200k | ~150 | ~50,000 |
+| GPT-5 Mini / GPT-5.3 Codex | 272k | ~200 | ~70,000 |
 
 **What happens when you exceed context?**
 - Oldest content gets truncated ("forgotten")
 - Model loses earlier parts of conversation
 - Critical information may be dropped
 
-### The Single Most Valuable AI Skill: Context Engineering
-
-> *"The quality of AI output is directly proportional to the quality of context you provide."*
-
-**Context Engineering = Knowing what to put in, what to leave out, and how to structure it.**
+**Context engineering** = knowing what to put in, what to leave out, and how to structure it.
 
 ### Context Checklist Before Every AI Interaction
 
@@ -477,15 +428,6 @@ Context Position Attention:
 
 **Implication:** Put critical information at the beginning OR end, not the middle.
 
-### Key Takeaways
-
-1. **Context is the single most valuable AI skill** – master it
-2. **Quality in = quality out** – garbage context = garbage response
-3. **Know your context limits** – 200k tokens is large but finite
-4. **Prioritize what you include** – put critical info first or last
-5. **The model forgets** – once context is truncated, information is lost
-6. **Structure matters** – clear, organized context yields better results
-
 ---
 
 ## Lesson 1.5: Tool Calling and MCP
@@ -532,15 +474,6 @@ Tool calling (also called function calling) allows the AI to request execution o
 | **web_search** | Find documentation | "Look up pandas DataFrame API" |
 | **browser** | Browse web pages | "Open the PR and review it" |
 | **git** | Version control | "Create a branch and commit" |
-
-### Tool Calling vs. Autonomous Action
-
-| Aspect | Tool Calling | Autonomous Action |
-|--------|--------------|-------------------|
-| **Who decides** | AI requests, you approve | AI decides and executes |
-| **Safety** | High (human in loop) | Lower (needs trust) |
-| **Speed** | Slower (requires approval) | Fast |
-| **Use case** | Production, important changes | Sandbox, trusted environments |
 
 ### MCP (Model Context Protocol)
 
@@ -593,35 +526,8 @@ def validate_tool_call(tool_call):
 # Tool execution should have limits (e.g., 30 seconds)
 
 # 4. Log all tool calls
-# For audit and debugging
+# 5. Require human approval for destructive actions; never auto-run writes/deletes
 ```
-
-### Safety Guidelines
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  Tool Calling Safety Rules                   │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  1. Always validate tool names against allowlist            │
-│  2. Sanitize all parameters                                 │
-│  3. Set execution timeouts                                  │
-│  4. Require human approval for destructive actions          │
-│  5. Log every tool call for audit                           │
-│  6. Run tools in sandboxed environment                      │
-│  7. Never auto-execute file writes or deletions             │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Key Takeaways
-
-1. **Tool calling = AI requests actions** – doesn't execute them directly
-2. **You control execution** – safety is your responsibility
-3. **MCP standardizes tool integration** – one protocol for all tools
-4. **Always validate** tool calls before execution
-5. **Destructive actions need approval** – never auto-run
-6. **Log everything** – tool calls are audit trail gold
 
 ---
 
@@ -704,30 +610,6 @@ Developer defines intent → Agent executes → Developer reviews → Agent iter
 | Manual testing | Acceptance testing |
 | Problem solver | Problem framer |
 
-### The Developer's New Skillset
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│              Skills for Agent-Assisted Development           │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  HIGH VALUE (new skills to develop):                        │
-│  • Prompt engineering / intent specification                │
-│  • Context management                                        │
-│  • Agent output review & verification                       │
-│  • Orchestrating multiple agents                            │
-│  • Setting boundaries and constraints                       │
-│                                                              │
-│  LOWER VALUE (agents handle):                               │
-│  • Boilerplate code writing                                 │
-│  • Simple refactoring                                       │
-│  • Documentation generation                                 │
-│  • Test generation                                          │
-│  • Basic debugging                                          │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
-
 ### When to Use Agents (and When Not To)
 
 **✅ GOOD for agents:**
@@ -744,15 +626,6 @@ Developer defines intent → Agent executes → Developer reviews → Agent iter
 - Real-time requirements
 - High-cost of failure
 
-### Key Takeaways
-
-1. **Agents pursue goals** – not just respond to prompts
-2. **The developer's role shifts** – from writer to director
-3. **Agent autonomy is a spectrum** – choose appropriate level
-4. **New skills required** – intent specification, context management, output verification
-5. **Not everything should be agentic** – choose tasks wisely
-6. **Human in the loop** remains critical for quality and safety
-
 ---
 
 ## Module Summary
@@ -765,25 +638,6 @@ Developer defines intent → Agent executes → Developer reviews → Agent iter
 | 1.4 | Context | Single most valuable skill – quality in = quality out |
 | 1.5 | Tool Calling & MCP | AI requests actions, you control execution |
 | 1.6 | Agents | Goal-directed action – changes developer role |
-
----
-
-## Key Mental Models Reference Card
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                 MENTAL MODELS QUICK REFERENCE                │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  "AI is probabilistic"     → Lower temperature for control  │
-│  "Trust but verify"        → Always review outputs          │
-│  "You pay for tokens"      → Monitor usage, use cheap models│
-│  "Context is king"         → Quality in = quality out       │
-│  "Tools need gates"        → Validate, approve, log         │
-│  "You direct, AI executes" → Your role is orchestrator      │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
 
 ---
 
