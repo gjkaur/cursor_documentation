@@ -1340,6 +1340,70 @@ def _absorb_inline_monospace_shapes(slide) -> None:
             _convert_shape_to_body_text(shape)
 
 
+def _same_text_line(first, second, tolerance: int | None = None) -> bool:
+    if tolerance is None:
+        tolerance = int(Pt(MIN_BODY_FONT_PT * BODY_LINE_SPACING * 0.65).emu)
+    return abs(int(first.top) - int(second.top)) <= tolerance
+
+
+def _replace_shape_text(shape, text: str) -> None:
+    if not shape.has_text_frame:
+        return
+    frame = shape.text_frame
+    frame.clear()
+    paragraph = frame.paragraphs[0]
+    _apply_body_paragraph_spacing(paragraph)
+    run = paragraph.add_run()
+    run.text = text
+    run.font.name = BODY_FONT
+    run.font.size = Pt(MIN_BODY_FONT_PT)
+    run.font.color.rgb = BODY_BLACK
+
+
+def _coalesce_same_line_body_fragments(slide) -> None:
+    """Merge LibreOffice inline-backtick fragments that land on one horizontal line."""
+    shapes = _mergeable_body_shapes(slide)
+    if len(shapes) < 2:
+        return
+
+    ordered = sorted(shapes, key=lambda shape: (int(shape.top), int(shape.left)))
+    groups: list[list] = []
+    current = [ordered[0]]
+    for shape in ordered[1:]:
+        previous = current[-1]
+        prev_right = int(previous.left) + int(previous.width)
+        same_line = _same_text_line(previous, shape)
+        adjacent = int(shape.left) <= prev_right + int(Emu(450000))
+        if same_line and adjacent:
+            current.append(shape)
+        else:
+            groups.append(current)
+            current = [shape]
+    groups.append(current)
+
+    for group in groups:
+        if len(group) < 2:
+            continue
+        group.sort(key=lambda shape: int(shape.left))
+        combined_parts: list[str] = []
+        for index, shape in enumerate(group):
+            text = _shape_text(shape)
+            if not text:
+                continue
+            if index > 0 and combined_parts:
+                previous = combined_parts[-1]
+                if not previous.endswith((" ", "\n")) and not text.startswith(
+                    (",", ".", ";", ":", ")", "—", "·", "?", "!")
+                ):
+                    combined_parts.append(" ")
+            combined_parts.append(text)
+        combined = "".join(combined_parts).strip()
+        if not combined:
+            continue
+        _replace_shape_text(group[0], combined)
+        _remove_shapes(group[1:])
+
+
 def _should_skip_body_merge(slide) -> bool:
     return (
         _is_course_title_slide(slide)
@@ -2828,9 +2892,11 @@ def clean_pptx(
         md_slides = split_marp_slides(source_md.read_text(encoding="utf-8"))
         for slide in prs.slides:
             _absorb_inline_monospace_shapes(slide)
+            _coalesce_same_line_body_fragments(slide)
         body_groups_merged = merge_body_textboxes(prs, md_slides=md_slides)
         for slide in prs.slides:
             _absorb_inline_monospace_shapes(slide)
+            _coalesce_same_line_body_fragments(slide)
         body_groups_merged += merge_body_textboxes(prs, md_slides=md_slides)
         fix_presentation_layout(prs, source_md=source_md)
         _normalize_presentation_formatting(prs)

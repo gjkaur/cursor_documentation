@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 4 — Customizing Cursor for Your Team'
+footer: 'Cursor Training Program · Day 1'
+---
+
 <!-- _class: lead -->
 
 # Customizing Cursor for Your Team
@@ -201,7 +209,7 @@ What are the security guardrails?
 
 Create `.cursor/repository-instructions.md`:
 
-```
+```text
 Project: Task Manager API (FastAPI + PostgreSQL + JWT)
 
 Architecture: api/ → services/ → repositories/ → models/
@@ -210,6 +218,7 @@ Conventions: dependency injection, async/await, type hints required
 Run dev:  uvicorn src.main:app --reload
 Run tests: pytest -v
 Migrations: alembic upgrade head
+
 ```
 ---
 
@@ -251,13 +260,14 @@ How do I run the tests?
 
 A reusable, specialized workflow the agent loads and follows — a **"prompt template with memory."**
 
-```
+```text
 .cursor/skills/
 ├── skill-name/
 │   ├── SKILL.md          # Main instructions (required)
 │   ├── scripts/          # Optional helper scripts
 │   ├── references/       # Optional reference docs
 │   └── templates/        # Optional output templates
+
 ```
 
 | Use Case | Example Skill |
@@ -346,12 +356,13 @@ What skills are available in this project?
 
 MCP standardizes how AI agents discover and use external tools — **"USB port for AI."**
 
-```
+```text
 Cursor Agent ←─MCP Protocol─→ MCP Server
                                   ├─→ GitHub API
                                   ├─→ Slack API
                                   ├─→ Jira API
                                   └─→ Custom Tools
+
 ```
 
 | MCP Server | Capabilities |
@@ -411,13 +422,14 @@ Send a message to #deploys: "Deployment starting"
 
 Create `.cursor/commands/deploy.md`:
 
-```
+```text
 name: deploy  |  arguments: environment (staging | production)
 
 Pre-deploy: make test → make lint → git status clean
 Deploy staging: git push origin main → kubectl set image
 Deploy production: git tag → deploy-prod.sh (requires approval)
 Post-deploy: health check → smoke tests → Slack notify
+
 ```
 
 Usage: `/deploy staging`
@@ -438,11 +450,12 @@ Usage: `/deploy staging`
 
 Independent agent instances for specialized tasks — own context, tools, and instructions — then report back to the main agent.
 
-```
+```text
 Main Agent
   ├──→ Subagent: Security Scanner → "2 critical issues found"
   ├──→ Subagent: Documentation Generator → "Updated README.md"
   └──→ Subagent: Test Writer → "Added 5 test cases"
+
 ```
 ---
 
@@ -501,13 +514,14 @@ Meanwhile, I'll work on the frontend.
 
 ## Quick Reference Card
 
-```
+```text
 RULES          → .cursor/rules/*.mdc (standards, security, build)
 REPO INSTR.    → .cursor/repository-instructions.md (project overview)
 SKILLS         → .cursor/skills/*/SKILL.md (invoke with /skill-name)
 MCP            → ~/.cursor/mcp.json (GitHub, Slack, Jira, custom)
 SLASH CMDS     → .cursor/commands/*.md (/deploy, /onboard, /triage)
 SUBAGENTS      → Parallel, isolated, specialized execution
+
 ```
 ---
 

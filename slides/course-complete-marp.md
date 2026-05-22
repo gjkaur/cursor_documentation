@@ -1,25 +1,10 @@
 ---
 marp: true
-theme: gaia
+theme: flat-gaia
 paginate: true
 header: 'Cursor Training Program — Complete Course'
 footer: 'Springpeople · Cursor Training'
-style: |
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
-  ul { font-size: 1em; }
+---
 
 ---
 
@@ -162,23 +147,27 @@ Probabilities:
 | Errors are bugs | Errors are features of probability |
 | Predictable behavior | Needs management via parameters |
 
+---
+
+## Traditional vs. AI — Implication
+
 **Implication:** Never trust a single run as ground truth.
 
 ---
 
 ## What Determines AI Output?
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                    Factors That Shape Output                 │
 ├─────────────────────────────────────────────────────────────┤
 │  1. Training Data      → What the model "learned"           │
-│  2. Prompt             → Your instruction (most influential)│
-│  3. Temperature        → Randomness level (0 = deterministic)│
+│  2. Prompt             → Your instruction (most influential) │
+│  3. Temperature        → Randomness level (0=deterministic)  │
 │  4. Top-p / Top-k      → Token selection pool size          │
 │  5. System Prompt      → Persistent behavioral guidelines   │
 │  6. Context Window     → What the model can "see"           │
-│  7. Model Architecture → Different models, different biases │
+│  7. Model Architecture → Different models, different biases  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -191,6 +180,10 @@ Probabilities:
 | **Temperature** | Randomness (0 = deterministic, 1 = creative) | Bug fixes (low), brainstorming (high) |
 | **Top-p** | Nucleus sampling – limits token pool | Balanced responses |
 | **Max Tokens** | Limits response length | Controlling cost |
+
+---
+
+## Key Parameters — Example Values
 
 ```python
 temperature: 0.2   # focused
@@ -265,9 +258,9 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 ## Why Models Hallucinate
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│                  Root Causes of Hallucination                │
+│                  Root Causes of Hallucination               │
 ├─────────────────────────────────────────────────────────────┤
 │  Training Data Gaps     → Model "guesses" when uncertain    │
 │  Probability Pressure   → Must output SOMETHING             │
@@ -343,8 +336,6 @@ Before accepting AI-generated code, verify:
 
 ## What Is a Token?
 
-A token is the atomic unit of processing for LLMs — not a word, not a character.
-
 | Language | Example | Token Count |
 |----------|---------|-------------|
 | English | "Hello world" | 2 tokens (~0.75 words/token) |
@@ -352,7 +343,13 @@ A token is the atomic unit of processing for LLMs — not a word, not a characte
 | Code | `function calculateTotal()` | ~5 tokens (~2–4 chars/token) |
 | Chinese | "你好世界" | 4–8 tokens |
 
-**Why tokens matter:** You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see"
+---
+
+## Why Tokens Matter
+
+A token is the atomic unit of processing for LLMs — not a word, not a character.
+
+You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see"
 
 ---
 
@@ -460,17 +457,17 @@ Context discipline = cost discipline.
 
 Context = all the information the model has access to when generating a response.
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│                    What Goes Into Context                    │
+│                    What Goes Into Context                   │
 ├─────────────────────────────────────────────────────────────┤
 │  System Prompt   → "You are a helpful coding assistant"     │
-│  User Prompt     → "Fix this bug: ..."                        │
-│  Code Files      → Current file, related files                │
-│  Conversation    → Previous exchanges                         │
+│  User Prompt     → "Fix this bug: ..."                      │
+│  Code Files      → Current file, related files              │
+│  Conversation    → Previous exchanges                       │
 │  Retrieved Docs  → Library documentation, examples          │
-│  Tool Outputs    → Results from search, file reads            │
-│  Constraints     → "Only use standard library"                │
+│  Tool Outputs    → Results from search, file reads          │
+│  Constraints     → "Only use standard library"              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -482,6 +479,10 @@ Context = all the information the model has access to when generating a response
 |-------|---------------:|--------------:|--------------:|
 | Claude 4 (Haiku / Sonnet / Opus) | 200k | ~150 | ~50,000 |
 | GPT-5 Mini / GPT-5.3 Codex | 272k | ~200 | ~70,000 |
+
+---
+
+## Context Window — What Happens When Full
 
 **When you exceed context:** Oldest content gets truncated · Critical information may be dropped
 
@@ -503,12 +504,16 @@ Before every AI interaction, ask:
 
 ---
 
-## Good vs. Bad Context
+## Good vs. Bad Context — Bad Example
 
 **BAD (vague):**
 ```
 "Fix this bug: my code doesn't work"
 ```
+
+---
+
+## Good vs. Bad Context — Good Example
 
 **GOOD (specific):**
 ```
@@ -522,7 +527,7 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 ## Context Prioritization Pyramid
 
-```
+```text
                     ┌─────────────┐
                     │  Critical   │  MUST include (~10–20%)
                   ┌┴─────────────┴┐
@@ -532,6 +537,7 @@ Using Python 3.11. Expected: skip dicts without the key.
               ┌┴─────────────────┴┐
               │    Low Value        │  Omit if possible
               └───────────────────┘
+
 ```
 
 ---
@@ -552,11 +558,11 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 Models pay **most attention to the beginning and end** of context, and **less to the middle**.
 
-```
+```text
 Context Position Attention:
 ├─────────────────────────────────────────────────────────┤
 │ BEGINNING  ████████████████████████████████  (high)    │
-│ MIDDLE     ████████                           (low)     │
+│ MIDDLE     ████████                           (low)    │
 │ END        ████████████████████████████████  (high)    │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -581,13 +587,14 @@ Tool calling (function calling) lets the AI request execution of external functi
 
 The AI **doesn't execute code** — it outputs a structured request that **your system** executes.
 
-```
+```text
 User: "What's the weather in Tokyo?"
   → AI decides: need weather data
   → AI outputs: tool_call { name: "get_weather", args: { city: "Tokyo" } }
   → Your system executes get_weather("Tokyo")
   → Result returned to AI
   → AI: "The weather in Tokyo is 22°C and sunny"
+
 ```
 
 ---
@@ -614,13 +621,13 @@ User: "What's the weather in Tokyo?"
 
 **With MCP:** Tools advertise their capabilities; AI discovers them dynamically
 
-```
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   AI Model   │ ←→ │   MCP Host   │ ←→ │   Tools      │
-│  (Claude,    │     │  (Cursor,    │     │  (Files,     │
-│   GPT, etc)  │     │   etc)       │     │   Terminal,  │
-└──────────────┘     └──────────────┘     │   Web, etc)  │
-                                          └──────────────┘
+```text
+┌──────────────┐       ┌──────────────┐       ┌──────────────┐
+│   AI Model   │  ←→   │   MCP Host   │  ←→   │    Tools     │
+│  (Claude,    │       │  (Cursor,    │       │  (Files,     │
+│   GPT, etc.) │       │   etc.)      │       │   Terminal,  │
+└──────────────┘       └──────────────┘       │   Web, etc.) │
+                                              └──────────────┘
 ```
 
 ---
@@ -671,26 +678,31 @@ User: "What's the weather in Tokyo?"
 
 ## The Agent Loop
 
-```
-    ┌──────────┐
-    │  GOAL    │  "Add dark mode to the entire app"
-    └────┬─────┘
-         ↓
-    ┌──────────┐
-    │  PLAN    │  Break goal into steps
-    └────┬─────┘
-         ↓
-    ┌──────────┐     ┌──────────┐
-    │  ACT     │ ←→  │  OBSERVE │  (Tool call → result)
-    └────┬─────┘     └──────────┘
-         ↓
-    ┌──────────┐
-    │  THINK   │  Evaluate progress, adjust plan
-    └────┬─────┘
-         ↓
-    ┌──────────┐
-    │  REPEAT  │  Until goal achieved or blocked
-    └──────────┘
+---
+
+## The Agent Loop — Diagram
+
+```text
+         ┌─────────────────────────────────────┐
+         │ GOAL: Add dark mode to entire app   │
+         └──────────────────┬──────────────────┘
+                            ↓
+         ┌─────────────────────────────────────┐
+         │ PLAN: Break goal into steps         │
+         └──────────────────┬──────────────────┘
+                            ↓
+    ┌─────────────┐                    ┌──────────────────────┐
+    │ ACT         │  ←──────────────→  │ OBSERVE              │
+    │ Run tools   │                    │ Tool call → result   │
+    └──────┬──────┘                    └──────────────────────┘
+           ↓
+         ┌─────────────────────────────────────┐
+         │ THINK: Evaluate progress, adjust    │
+         └──────────────────┬──────────────────┘
+                            ↓
+         ┌─────────────────────────────────────┐
+         │ REPEAT: Until goal done or blocked  │
+         └─────────────────────────────────────┘
 ```
 
 ---
@@ -715,9 +727,14 @@ Developer writes every line → tests → deploys
 ```
 
 **Agent-Assisted:**
-```
+```text
 Developer defines intent → Agent executes → Developer reviews → Agent iterates
+
 ```
+
+---
+
+## Developer Role Shift
 
 | Old Role | New Role |
 |----------|----------|
@@ -830,50 +847,23 @@ By the end of this module, participants will be able to:
 
 ---
 
-## Windows Exercise Environment
-
-All exercises in this module assume **Windows 10/11** with Cursor installed.
-
-| Terminal | Use when | Open in Cursor |
-|----------|----------|----------------|
-| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
-| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
-| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
-| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
-
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
-
-**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
-
----
-
 ## Exercise 2.1 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Agent commands → **PowerShell** ``Ctrl+` ``
+**Step 1:** Open an unfamiliar repository in Cursor
 
+Use **PowerShell**, **Git Bash**, or **CMD** in Cursor's integrated terminal (Ctrl+`):
 
-**Step 1:** Open an unfamiliar repository in Cursor — **Terminal:** **PowerShell** (``Ctrl+` ``)
-
-1. Open terminal in Cursor (**Terminal → New Terminal** → profile **PowerShell**)
-2. Clone the sample repo and open it in Cursor:
-
-```powershell
+```bash
 git clone https://github.com/facebookresearch/detectron2
 cd detectron2
 cursor .
 ```
 
----
-
-## Exercise 2.1 — Steps 1–2 (Part 2)
-
-**Step 2:** Open the Agent — **Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent in editor)
+**Step 2:** Open the Agent (Ctrl+I on Windows/Linux · Cmd+I on Mac)
 
 ---
 
 ## Exercise 2.1 — Step 3: Orientation Prompt
-
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 ```
 Explain this codebase to me as if I'm a new team member.
@@ -888,13 +878,9 @@ Specifically tell me:
 
 ---
 
-## Exercise 2.1 — Steps 4–5
-
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
+## Exercise 2.1 — Step 4: Trace Data Flow
 
 **Step 4:** Follow up — trace data flow:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Based on what you just told me, trace the flow of data from input
@@ -903,10 +889,9 @@ to output. What functions get called in order?
 
 ---
 
-## Exercise 2.1 — Steps 4–5 (Part 2)
+## Exercise 2.1 — Step 5: Visual Overview
 
 **Step 5:** Ask for a visual overview:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Create an ASCII diagram showing the module relationships in this codebase.
@@ -916,7 +901,7 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ## Expected Agent Output (Sample)
 
-```
+```text
 PURPOSE: Object detection and segmentation library (PyTorch)
 
 ENTRY POINTS:
@@ -930,11 +915,12 @@ structures ←→ modeling/ ←→ data/
 
 DATA FLOW:
 Config → build_model() → DataLoader → Training Loop → Loss → Backprop
+
 ```
 
 ---
 
-## Pro Tip & Success Criteria
+## Pro Tip — Save the Overview
 
 **Pro Tip:** Save the agent's explanation as a project note:
 
@@ -942,6 +928,10 @@ Config → build_model() → DataLoader → Training Loop → Loss → Backprop
 Save this explanation as .cursor/project-overview.md so future
 team members can read it.
 ```
+
+---
+
+## Exercise 2.1 — Success Criteria
 
 **Success Criteria:**
 - Agent described project purpose
@@ -970,21 +960,11 @@ Use **precise context** — select a function or class, then ask focused questio
 
 ## Exercise 2.2 — Steps 1–3
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
 **Step 1:** Open a specific file in your project
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 **Step 2:** Select a function or class you want explained
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
-
----
-
-## Exercise 2.2 — Steps 1–3 (Part 2)
 
 **Step 3:** Use the Agent with precise context:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Explain the function I have selected. For each major section, tell me:
@@ -996,13 +976,9 @@ Explain the function I have selected. For each major section, tell me:
 
 ---
 
-## Exercise 2.2 — Steps 4–5
-
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
+## Exercise 2.2 — Step 4: Example I/O
 
 **Step 4:** Ask for a concrete example:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Give me a concrete example of inputs and outputs for this function.
@@ -1011,10 +987,9 @@ Show me what happens in the normal case and one edge case.
 
 ---
 
-## Exercise 2.2 — Steps 4–5 (Part 2)
+## Exercise 2.2 — Step 5: Dependencies
 
 **Step 5:** Ask about dependencies:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 What other functions does this call? What calls this function?
@@ -1059,23 +1034,14 @@ Trace the call chain two levels in each direction.
 
 ## Exercise 2.3 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
 **Step 1:** Ask for a small, safe change:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Change the welcome message in index.html from "Hello World"
 to "Welcome to My App"
 ```
 
----
-
-## Exercise 2.3 — Steps 1–2 (Part 2)
-
 **Step 2:** Watch the agent generate the diff:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 📝 Changes to index.html:
@@ -1090,8 +1056,6 @@ Accept? [Yes] [No] [Edit]
 
 ## Exercise 2.3 — Review Questions
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
-
 Before accepting, ask yourself:
 
 - Are the changes **only** what I asked for?
@@ -1100,19 +1064,26 @@ Before accepting, ask yourself:
 - Will this break anything else?
 
 **Step 4:** Accept · **Step 5:** Test manually
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+
+---
+
+## Exercise 2.3 — Test After Accept
 
 ```bash
-open index.html          # web
-python script.py         # Python
-npm start                # React
+# Windows (PowerShell)
+start index.html          # web
+python script.py          # Python
+npm start                 # React
+
+# Mac
+open index.html
+python script.py
+npm start
 ```
 
 ---
 
 ## Exercise 2.3 — If Something Goes Wrong
-
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 ```
 That change didn't work. The button disappeared.
@@ -1147,17 +1118,20 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 ---
 
-## Exercise 2.4 — Enable Plan Mode
+## Exercise 2.4 — Step 1: Enable Plan Mode
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+**Step 1:** Enable Plan Mode (Shift+Tab in the Agent input):
 
 ```bash
 # Press Shift+Tab in the Agent input
 # The input border changes color to indicate Plan Mode
 ```
 
+---
+
+## Exercise 2.4 — Step 2: Describe Change
+
 **Step 2:** Describe a complex change:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 Add user authentication to this web app.
@@ -1172,7 +1146,9 @@ Don't write code yet – just give me a plan.
 
 ---
 
-## What a Good Plan Looks Like
+## Exercise 2.4 — Step 3: Review the Plan
+
+**Step 3:** Review the agent's plan — a good plan includes:
 
 ```
 📋 IMPLEMENTATION PLAN
@@ -1196,27 +1172,24 @@ Ready to proceed? [Yes] [No] [Modify Plan]
 
 ## Exercise 2.4 — Approve & Execute
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
 **Step 4:** Answer questions and approve:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Use JWT for simplicity. No existing database yet – use SQLite for now.
 Skip email verification for this version. Proceed.
 ```
 
+**Step 5:** Watch the agent execute the plan step by step
+
 ---
 
-## Exercise 2.4 — Approve & Execute (Part 2)
-
-**Step 5:** Watch the agent execute the plan step by step
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+## Exercise 2.4 — Success Criteria
 
 **Success Criteria:**
-- Enabled Plan Mode (Shift+Tab) · Agent created structured plan
-- Agent asked clarifying questions · Approved plan before code was written
+- Enabled Plan Mode (Shift+Tab)
+- Agent created structured plan
+- Agent asked clarifying questions
+- Approved plan before code was written
 
 ---
 
@@ -1244,32 +1217,21 @@ Skip email verification for this version. Proceed.
 
 ## Exercise 2.5 — Compare Two Models
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
 **Step 1:** Set model to Claude Sonnet, ask:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Explain what a closure is in JavaScript with a practical example.
 ```
 
----
-
-## Exercise 2.5 — Compare Two Models (Part 2)
-
 **Step 2:** Copy the response
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Step 3:** Switch to GPT-5 Mini — ask the **same question**
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
+**Step 4:** Compare responses side by side
 
 ---
 
-## Exercise 2.5 — Compare Two Models (Part 3)
-
-**Step 4:** Compare responses
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+## Exercise 2.5 — Comparison Table
 
 | Comparison Point | Claude Sonnet | GPT-5 Mini |
 |-----------------|---------------|------------|
@@ -1282,20 +1244,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 ## Exercise 2.5 — Cost & Decision Matrix
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
 **Step 5:** Check token usage at bottom of chat after each request
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
-
----
-
-## Exercise 2.5 — Cost & Decision Matrix (Part 2)
 
 **Step 6:** Create a personal decision matrix:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
-```
+```text
 If task is...                    Use model...
   Typos / text changes           → GPT-5 Mini
   Quick question                 → Claude Haiku
@@ -1303,7 +1256,17 @@ If task is...                    Use model...
   Complex debugging              → Claude Sonnet
   Architecture design            → Claude Opus
   UI/frontend from image         → Gemini Pro
+
 ```
+
+---
+
+## Exercise 2.5 — Success Criteria
+
+**Success Criteria:**
+- Same question to two models
+- Compared quality and speed
+- Created personal model-selection guide
 
 ---
 
@@ -1332,24 +1295,15 @@ If task is...                    Use model...
 
 ---
 
-## Exercise 2.6 — @filename & @symbol
+## Exercise 2.6 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
-**Step 1:** Target a specific file:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Step 1:** Use @filename to point at a specific file:
 
 ```
 @database.py What are the security vulnerabilities in this database connection?
 ```
 
----
-
-## Exercise 2.6 — @filename & @symbol (Part 2)
-
-**Step 2:** Target a specific function:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Step 2:** Use @symbol to reference a specific function:
 
 ```
 @calculate_total This function is returning NaN sometimes. Why?
@@ -1357,10 +1311,9 @@ If task is...                    Use model...
 
 ---
 
-## Exercise 2.6 — @filename & @symbol (Part 3)
+## Exercise 2.6 — Step 3: Multiple @mentions
 
 **Step 3:** Combine multiple @mentions:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 @auth.py @UserModel @login_handler Review the authentication flow.
@@ -1369,23 +1322,37 @@ Are there any race conditions or timing attacks?
 
 ---
 
-## Exercise 2.6 — @branch, @chat, @folder, @web
+## Exercise 2.6 — Step 4: @branch
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 4:** Use @branch to reference a different branch:
 
 ```
 Compare @main and @feature/payment branches.
 What are the key differences in the payment handling code?
 ```
 
+---
+
+## Exercise 2.6 — Step 5: @chat
+
+**Step 5:** Use @chat to refer to a previous conversation:
+
 ```
 @chat(authentication-discussion) Based on that discussion,
 implement the fix we agreed on.
 ```
 
+---
+
+## Exercise 2.6 — Steps 6–7: @folder & @web
+
+**Step 6:** Use @folder for directory-level context:
+
 ```
 @src/components Find all components that don't have loading states.
 ```
+
+**Step 7:** Use @web for external documentation:
 
 ```
 @web React 19 useTransition hook How do I use it?
@@ -1395,12 +1362,19 @@ implement the fix we agreed on.
 
 ## @mention Pro Tips
 
-- Start typing `@` — Cursor auto-suggests available mentions
+- Start typing **@** — Cursor auto-suggests available mentions
 - You can @mention **multiple items** in one message
 - @mentions work in both **Agent** and **Chat** modes
 
+---
+
+## Exercise 2.6 — Success Criteria
+
 **Success Criteria:**
-- Used `@filename`, `@symbol`, multiple @mentions, and `@web`
+- Used @filename to target a specific file
+- Used @symbol to target a function or class
+- Used multiple @mentions together
+- Used @web for external search
 
 ---
 
@@ -1428,30 +1402,20 @@ implement the fix we agreed on.
 
 ## Exercise 2.7 — Create & Restore
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
-
-
 **Step 1:** Create a checkpoint before making a change
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```bash
 # Click checkpoint icon in Agent panel
-# Or: Cmd+Shift+S / Ctrl+Shift+S
+# Windows/Linux: Ctrl+Shift+S · Mac: Cmd+Shift+S
 ```
 
 ---
 
-## Exercise 2.7 — Create & Restore (Part 2)
+## Exercise 2.7 — Steps 2–3
 
 **Step 2:** Name it descriptively: `"Before auth refactor - safe point"`
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
-
----
-
-## Exercise 2.7 — Create & Restore (Part 3)
 
 **Step 3:** Let the agent make changes:
-**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```
 Add input validation to all form handlers.
@@ -1459,13 +1423,11 @@ Add input validation to all form handlers.
 
 ---
 
-## Exercise 2.7 — Create & Restore (Part 4)
+## Exercise 2.7 — Steps 4–5
 
 **Step 4:** If something goes wrong → **Restore to checkpoint**
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 **Step 5:** View history via the clock icon in Agent panel
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ---
 
@@ -1506,29 +1468,15 @@ Add input validation to all form handlers.
 
 ## Exercise 2.8 — Steps 1–3
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
-
 **Step 1:** Check the environment:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run `python --version` and tell me what Python version we're using.
 ```
 
----
-
-## Exercise 2.8 — Steps 1–3 (Part 2)
-
 **Step 2:** Approve the command when prompted
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
-
----
-
-## Exercise 2.8 — Steps 1–3 (Part 3)
 
 **Step 3:** Run tests and fix failures:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run the test suite. If any tests fail, fix them.
@@ -1539,9 +1487,7 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Agent Terminal Loop
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Agent commands → **PowerShell** ``Ctrl+` ``
-
-```
+```text
 Agent: I'll run the tests first.
 → Executing: pytest tests/
 → Output: 7 passed, 2 failed
@@ -1554,17 +1500,14 @@ Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
 
 → Executing: pytest tests/test_auth.py
 → Output: All tests passed
+
 ```
 
 ---
 
-## Exercise 2.8 — More Commands
-
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
-
+## Exercise 2.8 — Step 5: Install Dependency
 
 **Step 5:** Install a dependency:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Install the 'requests' library if it's not already installed.
@@ -1572,10 +1515,9 @@ Install the 'requests' library if it's not already installed.
 
 ---
 
-## Exercise 2.8 — More Commands (Part 2)
+## Exercise 2.8 — Step 6: Multi-Step Workflow
 
 **Step 6:** Multi-step workflow:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run these commands in order:
@@ -1619,7 +1561,7 @@ Confirm before each command that might affect the repo.
 
 ## Quick Reference Card
 
-```
+```text
 SHORTCUTS:
   Cmd/Ctrl + I          → Open Agent
   Cmd/Ctrl + L          → Explain selected code
@@ -1630,6 +1572,7 @@ SHORTCUTS:
 
 SAFE CHANGE:  Ask → Review diff → Accept/reject → Test
 PLAN MODE:    Shift+Tab → Describe → Review plan → Approve → Execute
+
 ```
 
 ---
@@ -1733,7 +1676,7 @@ By the end of this module, participants will be able to:
 
 ## The Mode Continuum
 
-```
+```text
 READ-ONLY ←─────────────────────────────────────→ FULL ACTION
      │                                              │
      ▼                                              ▼
@@ -1918,7 +1861,7 @@ Are there any errors or warnings? If so, what are they?
 
 ## Expected Agent Actions
 
-```
+```text
 → browser_navigate(url="http://localhost:8000")
 → browser_snapshot() — page structure captured
 → browser_console_messages()
@@ -1926,6 +1869,7 @@ Are there any errors or warnings? If so, what are they?
    [ERROR] Failed to load resource: /api/data 404
 
 Agent: Found a deprecated API warning and a 404 on /api/data
+
 ```
 
 ---
@@ -1991,13 +1935,14 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ## Terminal Tool Flow
 
-```
+```text
 User: "Run the tests and fix any failures"
   → Agent: Execute "pytest tests/"
   → Result: Exit code 1, "2 failed, 5 passed"
   → Agent: Reads failures, fixes code
   → Agent: Reruns tests
   → Agent: "All tests passed."
+
 ```
 
 ---
@@ -2069,10 +2014,11 @@ I found a bug where the app crashes when input is empty.
 3. Finally, fix the bug and verify it works
 ```
 
-```
+```text
 → python app.py → IndexError: list index out of range (line 23)
 → Agent adds guard condition
 → python app.py --test-empty-input → "No data provided"
+
 ```
 
 ---
@@ -2283,7 +2229,7 @@ Ignore: [Style, formatting]
 
 ## Quick Reference Card
 
-```
+```text
 MODES:
   ASK MODE    → Read-only | Questions, learning
   AGENT MODE  → Full tools | Implementation, debugging
@@ -2297,6 +2243,7 @@ TOOLS:
 PROMPTING:
   • Be specific  • Define boundaries  • Plan first for complex tasks
   • Specify output format  • Define success criteria
+
 ```
 
 ---
@@ -2524,7 +2471,7 @@ What are the security guardrails?
 
 Create `.cursor/repository-instructions.md`:
 
-```
+```text
 Project: Task Manager API (FastAPI + PostgreSQL + JWT)
 
 Architecture: api/ → services/ → repositories/ → models/
@@ -2533,6 +2480,7 @@ Conventions: dependency injection, async/await, type hints required
 Run dev:  uvicorn src.main:app --reload
 Run tests: pytest -v
 Migrations: alembic upgrade head
+
 ```
 
 ---
@@ -2578,13 +2526,14 @@ How do I run the tests?
 
 A reusable, specialized workflow the agent loads and follows — a **"prompt template with memory."**
 
-```
+```text
 .cursor/skills/
 ├── skill-name/
 │   ├── SKILL.md          # Main instructions (required)
 │   ├── scripts/          # Optional helper scripts
 │   ├── references/       # Optional reference docs
 │   └── templates/        # Optional output templates
+
 ```
 
 | Use Case | Example Skill |
@@ -2680,12 +2629,13 @@ What skills are available in this project?
 
 MCP standardizes how AI agents discover and use external tools — **"USB port for AI."**
 
-```
+```text
 Cursor Agent ←─MCP Protocol─→ MCP Server
                                   ├─→ GitHub API
                                   ├─→ Slack API
                                   ├─→ Jira API
                                   └─→ Custom Tools
+
 ```
 
 | MCP Server | Capabilities |
@@ -2748,13 +2698,14 @@ Send a message to #deploys: "Deployment starting"
 
 Create `.cursor/commands/deploy.md`:
 
-```
+```text
 name: deploy  |  arguments: environment (staging | production)
 
 Pre-deploy: make test → make lint → git status clean
 Deploy staging: git push origin main → kubectl set image
 Deploy production: git tag → deploy-prod.sh (requires approval)
 Post-deploy: health check → smoke tests → Slack notify
+
 ```
 
 Usage: `/deploy staging`
@@ -2777,11 +2728,12 @@ Usage: `/deploy staging`
 
 Independent agent instances for specialized tasks — own context, tools, and instructions — then report back to the main agent.
 
-```
+```text
 Main Agent
   ├──→ Subagent: Security Scanner → "2 critical issues found"
   ├──→ Subagent: Documentation Generator → "Updated README.md"
   └──→ Subagent: Test Writer → "Added 5 test cases"
+
 ```
 
 ---
@@ -2845,13 +2797,14 @@ Meanwhile, I'll work on the frontend.
 
 ## Quick Reference Card
 
-```
+```text
 RULES          → .cursor/rules/*.mdc (standards, security, build)
 REPO INSTR.    → .cursor/repository-instructions.md (project overview)
 SKILLS         → .cursor/skills/*/SKILL.md (invoke with /skill-name)
 MCP            → ~/.cursor/mcp.json (GitHub, Slack, Jira, custom)
 SLASH CMDS     → .cursor/commands/*.md (/deploy, /onboard, /triage)
 SUBAGENTS      → Parallel, isolated, specialized execution
+
 ```
 
 ---
@@ -3183,15 +3136,15 @@ Send a local conversation to a Cloud Agent:
 
 ## Cloud Handoff Flow
 
-```
-Local Terminal                    Cloud
-┌─────────────┐                  ┌─────────────┐
-│ agent       │  ──& prompt──→   │ Cloud Agent │
-│ (interactive│                  │ (runs async)│
-│ session)    │  ←──result────   │             │
-└─────────────┘                  └─────────────┘
-                                        ↓
-                                 cursor.com/agents
+```text
+Local Terminal                         Cloud
+┌─────────────────┐                  ┌─────────────────┐
+│ agent           │  ──& prompt──→   │ Cloud Agent     │
+│ (interactive    │                  │ (runs async)    │
+│  session)       │  ←──result────   │                 │
+└─────────────────┘                  └─────────────────┘
+                                           ↓
+                                    cursor.com/agents
 ```
 
 ---
@@ -3795,7 +3748,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ## Messaging Integration Architecture
 
-```
+```text
 Slack/Discord/Teams
   │  "/cursor review PR #42"
   ↓
@@ -3893,7 +3846,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 ## Quick Reference Card
 
-```
+```text
 UI ACCESS:
   Cursor Editor: View → Cloud Agents
   Web: https://cursor.com/agents
@@ -3906,6 +3859,7 @@ MESSAGING:
   /cursor [prompt] in Slack
   !cursor [prompt] in Discord
   Webhook POST to trigger endpoint
+
 ```
 
 ---
@@ -4277,13 +4231,14 @@ ETags are unique identifiers for API response versions.
 
 ## ETag Flow
 
-```
+```text
 Request 1: GET /v1/analytics/usage
   → 200 OK, ETag: "abc123", Body: { ... data ... }
 
 Request 2: GET with If-None-Match: "abc123"
   → 304 Not Modified (unchanged) OR
   → 200 OK, ETag: "def456" (updated data)
+
 ```
 
 ---
@@ -4427,7 +4382,7 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 ## Quick Reference Card
 
-```
+```text
 BASE URL: https://api.cursor.com/v1
 
 AUTH:  -u "api_key:" (curl)  |  Bearer token  |  OpenAI SDK base_url
@@ -4441,6 +4396,7 @@ ENDPOINTS:
 
 ERRORS:  429/5xx → retry with backoff  |  4xx → fix request
 CACHE:   If-None-Match → handle 304 Not Modified
+
 ```
 
 ---
@@ -4942,7 +4898,7 @@ Combine everything into `automated_workflow.py`:
 
 ## Workflow Architecture
 
-```
+```text
 create_agent() → wait (webhook OR polling) → download_artifacts()
        ↑                    ↑
   Flask webhook server   completion_event.set()
@@ -5422,7 +5378,7 @@ def anonymize_email(email):
 
 ## Demo: Intent Analysis
 
-```
+```text
 🎯 CONVERSATION INTENT ANALYSIS
   debug              ████████████ 35.2%
   refactor           ████████ 22.1%
@@ -5430,6 +5386,7 @@ def anonymize_email(email):
   test               ████ 11.5%
   feature            ███ 8.9%
   understand         ██ 5.5%
+
 ```
 
 ---
@@ -5470,13 +5427,14 @@ def anonymize_email(email):
 
 ## Demo: SafeRemovalDemo Workflow
 
-```
+```text
 Step 1: find_user(email) → user_id
 Step 2: audit_resources() → agents, runs
 Step 3: deactivate() → status: inactive
 Step 4: transfer_resources(new_owner_email)
 Step 5: hard_delete() → permanent (rare)
 → generate_audit_report()
+
 ```
 
 **Bulk deactivation:** find users inactive 90+ days → review → notify → deactivate
@@ -5502,7 +5460,7 @@ Step 5: hard_delete() → permanent (rare)
 
 ## Quick Reference Card
 
-```
+```text
 ENDPOINTS:
   GET   /admin/members                    List members
   GET   /admin/analytics/usage/daily      Daily usage
@@ -5513,6 +5471,7 @@ ENDPOINTS:
 
 LEADERBOARDS:  Anonymize · positive metrics · opt-in · role context
 REMOVAL:       Audit → Deactivate → Transfer → Log → Confirm delete
+
 ```
 
 ---

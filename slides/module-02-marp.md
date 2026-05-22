@@ -1,25 +1,9 @@
 ---
 marp: true
-theme: gaia
+theme: flat-gaia
 paginate: true
 header: 'Module 2 — Cursor Editor Essentials'
 footer: 'Cursor Training Program · Day 1'
-style: |
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.5625em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  p, li { font-size: 0.625em; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
 ---
 
 <!-- _class: lead -->
@@ -147,7 +131,7 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ## Expected Agent Output (Sample)
 
-```
+```text
 PURPOSE: Object detection and segmentation library (PyTorch)
 
 ENTRY POINTS:
@@ -161,6 +145,7 @@ structures ←→ modeling/ ←→ data/
 
 DATA FLOW:
 Config → build_model() → DataLoader → Training Loop → Loss → Backprop
+
 ```
 
 ---
@@ -363,7 +348,9 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 ---
 
-## Exercise 2.4 — Enable Plan Mode
+## Exercise 2.4 — Step 1: Enable Plan Mode
+
+**Step 1:** Enable Plan Mode (Shift+Tab in the Agent input):
 
 ```bash
 # Press Shift+Tab in the Agent input
@@ -389,7 +376,9 @@ Don't write code yet – just give me a plan.
 
 ---
 
-## What a Good Plan Looks Like
+## Exercise 2.4 — Step 3: Review the Plan
+
+**Step 3:** Review the agent's plan — a good plan includes:
 
 ```
 📋 IMPLEMENTATION PLAN
@@ -422,9 +411,15 @@ Skip email verification for this version. Proceed.
 
 **Step 5:** Watch the agent execute the plan step by step
 
+---
+
+## Exercise 2.4 — Success Criteria
+
 **Success Criteria:**
-- Enabled Plan Mode (Shift+Tab) · Agent created structured plan
-- Agent asked clarifying questions · Approved plan before code was written
+- Enabled Plan Mode (Shift+Tab)
+- Agent created structured plan
+- Agent asked clarifying questions
+- Approved plan before code was written
 
 ---
 
@@ -483,7 +478,7 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 6:** Create a personal decision matrix:
 
-```
+```text
 If task is...                    Use model...
   Typos / text changes           → GPT-5 Mini
   Quick question                 → Claude Haiku
@@ -491,9 +486,17 @@ If task is...                    Use model...
   Complex debugging              → Claude Sonnet
   Architecture design            → Claude Opus
   UI/frontend from image         → Gemini Pro
+
 ```
 
-**Success Criteria:** Same question to two models · Compared quality/speed · Created personal guide
+---
+
+## Exercise 2.5 — Success Criteria
+
+**Success Criteria:**
+- Same question to two models
+- Compared quality and speed
+- Created personal model-selection guide
 
 ---
 
@@ -524,13 +527,13 @@ If task is...                    Use model...
 
 ## Exercise 2.6 — Steps 1–2
 
-**Step 1:** Target a specific file:
+**Step 1:** Use @filename to point at a specific file:
 
 ```
 @database.py What are the security vulnerabilities in this database connection?
 ```
 
-**Step 2:** Target a specific function:
+**Step 2:** Use @symbol to reference a specific function:
 
 ```
 @calculate_total This function is returning NaN sometimes. Why?
@@ -549,12 +552,20 @@ Are there any race conditions or timing attacks?
 
 ---
 
-## Exercise 2.6 — @branch & @chat
+## Exercise 2.6 — Step 4: @branch
+
+**Step 4:** Use @branch to reference a different branch:
 
 ```
 Compare @main and @feature/payment branches.
 What are the key differences in the payment handling code?
 ```
+
+---
+
+## Exercise 2.6 — Step 5: @chat
+
+**Step 5:** Use @chat to refer to a previous conversation:
 
 ```
 @chat(authentication-discussion) Based on that discussion,
@@ -563,11 +574,15 @@ implement the fix we agreed on.
 
 ---
 
-## Exercise 2.6 — @folder & @web
+## Exercise 2.6 — Steps 6–7: @folder & @web
+
+**Step 6:** Use @folder for directory-level context:
 
 ```
 @src/components Find all components that don't have loading states.
 ```
+
+**Step 7:** Use @web for external documentation:
 
 ```
 @web React 19 useTransition hook How do I use it?
@@ -577,7 +592,7 @@ implement the fix we agreed on.
 
 ## @mention Pro Tips
 
-- Start typing `@` — Cursor auto-suggests available mentions
+- Start typing **@** — Cursor auto-suggests available mentions
 - You can @mention **multiple items** in one message
 - @mentions work in both **Agent** and **Chat** modes
 
@@ -586,7 +601,10 @@ implement the fix we agreed on.
 ## Exercise 2.6 — Success Criteria
 
 **Success Criteria:**
-- Used `@filename`, `@symbol`, multiple @mentions, and `@web`
+- Used @filename to target a specific file
+- Used @symbol to target a function or class
+- Used multiple @mentions together
+- Used @web for external search
 
 ---
 
@@ -699,7 +717,7 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Agent Terminal Loop
 
-```
+```text
 Agent: I'll run the tests first.
 → Executing: pytest tests/
 → Output: 7 passed, 2 failed
@@ -712,6 +730,7 @@ Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
 
 → Executing: pytest tests/test_auth.py
 → Output: All tests passed
+
 ```
 
 ---
@@ -772,7 +791,7 @@ Confirm before each command that might affect the repo.
 
 ## Quick Reference Card
 
-```
+```text
 SHORTCUTS:
   Cmd/Ctrl + I          → Open Agent
   Cmd/Ctrl + L          → Explain selected code
@@ -783,6 +802,7 @@ SHORTCUTS:
 
 SAFE CHANGE:  Ask → Review diff → Accept/reject → Test
 PLAN MODE:    Shift+Tab → Describe → Review plan → Approve → Execute
+
 ```
 
 ---

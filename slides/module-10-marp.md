@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 10 — AI Code Tracking and Reporting'
+footer: 'Cursor Training Program · Day 2'
+---
+
 <!-- _class: lead -->
 
 # AI Code Tracking and Reporting

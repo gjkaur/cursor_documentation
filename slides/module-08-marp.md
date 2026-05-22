@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 8 — Cloud Agents API and Webhooks'
+footer: 'Cursor Training Program · Day 2'
+---
+
 <!-- _class: lead -->
 
 # Cloud Agents API and Webhooks
@@ -456,7 +464,7 @@ Combine everything into `automated_workflow.py`:
 
 ## Workflow Architecture
 
-```
+```text
 create_agent() → wait (webhook OR polling) → download_artifacts()
        ↑                    ↑
   Flask webhook server   completion_event.set()

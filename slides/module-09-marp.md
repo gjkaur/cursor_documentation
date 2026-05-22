@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 9 — Admin and Analytics APIs'
+footer: 'Cursor Training Program · Day 2'
+---
+
 <!-- _class: lead -->
 
 # Admin and Analytics APIs
@@ -374,7 +382,7 @@ def anonymize_email(email):
 
 ## Demo: Intent Analysis
 
-```
+```text
 🎯 CONVERSATION INTENT ANALYSIS
   debug              ████████████ 35.2%
   refactor           ████████ 22.1%
@@ -382,6 +390,7 @@ def anonymize_email(email):
   test               ████ 11.5%
   feature            ███ 8.9%
   understand         ██ 5.5%
+
 ```
 ---
 
@@ -418,13 +427,14 @@ def anonymize_email(email):
 
 ## Demo: SafeRemovalDemo Workflow
 
-```
+```text
 Step 1: find_user(email) → user_id
 Step 2: audit_resources() → agents, runs
 Step 3: deactivate() → status: inactive
 Step 4: transfer_resources(new_owner_email)
 Step 5: hard_delete() → permanent (rare)
 → generate_audit_report()
+
 ```
 
 **Bulk deactivation:** find users inactive 90+ days → review → notify → deactivate
@@ -448,7 +458,7 @@ Step 5: hard_delete() → permanent (rare)
 
 ## Quick Reference Card
 
-```
+```text
 ENDPOINTS:
   GET   /admin/members                    List members
   GET   /admin/analytics/usage/daily      Daily usage
@@ -459,6 +469,7 @@ ENDPOINTS:
 
 LEADERBOARDS:  Anonymize · positive metrics · opt-in · role context
 REMOVAL:       Audit → Deactivate → Transfer → Log → Confirm delete
+
 ```
 ---
 

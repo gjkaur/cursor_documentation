@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 7 — Cursor API Foundations'
+footer: 'Cursor Training Program · Day 2'
+---
+
 <!-- _class: lead -->
 
 # Cursor API Foundations
@@ -333,13 +341,14 @@ ETags are unique identifiers for API response versions.
 
 ## ETag Flow
 
-```
+```text
 Request 1: GET /v1/analytics/usage
   → 200 OK, ETag: "abc123", Body: { ... data ... }
 
 Request 2: GET with If-None-Match: "abc123"
   → 304 Not Modified (unchanged) OR
   → 200 OK, ETag: "def456" (updated data)
+
 ```
 ---
 
@@ -472,7 +481,7 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 ## Quick Reference Card
 
-```
+```text
 BASE URL: https://api.cursor.com/v1
 
 AUTH:  -u "api_key:" (curl)  |  Bearer token  |  OpenAI SDK base_url
@@ -486,6 +495,7 @@ ENDPOINTS:
 
 ERRORS:  429/5xx → retry with backoff  |  4xx → fix request
 CACHE:   If-None-Match → handle 304 Not Modified
+
 ```
 ---
 

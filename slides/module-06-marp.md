@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 6 — Cloud Agents in the UI'
+footer: 'Cursor Training Program · Day 2'
+---
+
 <!-- _class: lead -->
 
 # Cloud Agents in the UI
@@ -329,7 +337,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ## Messaging Integration Architecture
 
-```
+```text
 Slack/Discord/Teams
   │  "/cursor review PR #42"
   ↓
@@ -421,7 +429,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 ## Quick Reference Card
 
-```
+```text
 UI ACCESS:
   Cursor Editor: View → Cloud Agents
   Web: https://cursor.com/agents
@@ -434,6 +442,7 @@ MESSAGING:
   /cursor [prompt] in Slack
   !cursor [prompt] in Discord
   Webhook POST to trigger endpoint
+
 ```
 ---
 

@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 5 — Cursor CLI and Local Automation'
+footer: 'Cursor Training Program · Day 1'
+---
+
 <!-- _class: lead -->
 
 # Cursor CLI and Local Automation
@@ -297,15 +305,15 @@ Send a local conversation to a Cloud Agent:
 
 ## Cloud Handoff Flow
 
-```
-Local Terminal                    Cloud
-┌─────────────┐                  ┌─────────────┐
-│ agent       │  ──& prompt──→   │ Cloud Agent │
-│ (interactive│                  │ (runs async)│
-│ session)    │  ←──result────   │             │
-└─────────────┘                  └─────────────┘
-                                        ↓
-                                 cursor.com/agents
+```text
+Local Terminal                         Cloud
+┌─────────────────┐                  ┌─────────────────┐
+│ agent           │  ──& prompt──→   │ Cloud Agent     │
+│ (interactive    │                  │ (runs async)    │
+│  session)       │  ←──result────   │                 │
+└─────────────────┘                  └─────────────────┘
+                                           ↓
+                                    cursor.com/agents
 ```
 ---
 

@@ -1,3 +1,11 @@
+---
+marp: true
+theme: flat-gaia
+paginate: true
+header: 'Module 3 — Agent Modes and Tools'
+footer: 'Cursor Training Program · Day 1'
+---
+
 <!-- _class: lead -->
 
 # Agent Modes and Tools
@@ -86,7 +94,7 @@ By the end of this module, participants will be able to:
 
 ## The Mode Continuum
 
-```
+```text
 READ-ONLY ←─────────────────────────────────────→ FULL ACTION
      │                                              │
      ▼                                              ▼
@@ -257,7 +265,7 @@ Are there any errors or warnings? If so, what are they?
 
 ## Expected Agent Actions
 
-```
+```text
 → browser_navigate(url="http://localhost:8000")
 → browser_snapshot() — page structure captured
 → browser_console_messages()
@@ -265,6 +273,7 @@ Are there any errors or warnings? If so, what are they?
    [ERROR] Failed to load resource: /api/data 404
 
 Agent: Found a deprecated API warning and a 404 on /api/data
+
 ```
 ---
 
@@ -324,13 +333,14 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ## Terminal Tool Flow
 
-```
+```text
 User: "Run the tests and fix any failures"
   → Agent: Execute "pytest tests/"
   → Result: Exit code 1, "2 failed, 5 passed"
   → Agent: Reads failures, fixes code
   → Agent: Reruns tests
   → Agent: "All tests passed."
+
 ```
 ---
 
@@ -397,10 +407,11 @@ I found a bug where the app crashes when input is empty.
 3. Finally, fix the bug and verify it works
 ```
 
-```
+```text
 → python app.py → IndexError: list index out of range (line 23)
 → Agent adds guard condition
 → python app.py --test-empty-input → "No data provided"
+
 ```
 ---
 
@@ -597,7 +608,7 @@ Ignore: [Style, formatting]
 
 ## Quick Reference Card
 
-```
+```text
 MODES:
   ASK MODE    → Read-only | Questions, learning
   AGENT MODE  → Full tools | Implementation, debugging
@@ -611,6 +622,7 @@ TOOLS:
 PROMPTING:
   • Be specific  • Define boundaries  • Plan first for complex tasks
   • Specify output format  • Define success criteria
+
 ```
 ---
 

@@ -25,32 +25,13 @@ MODULES = [
     (10, "AI Code Tracking and Reporting", "Day 2", "Hands-On + Take-Home", "~20 min"),
 ]
 
-COURSE_STYLE = """\
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
-  ul { font-size: 1em; }
-"""
-
-FRONTMATTER = f"""---
+FRONTMATTER = """---
 marp: true
-theme: gaia
+theme: flat-gaia
 paginate: true
 header: 'Cursor Training Program — Complete Course'
 footer: 'Springpeople · Cursor Training'
-style: |
-{COURSE_STYLE}"""
+---"""
 
 
 def _strip_frontmatter(markdown: str) -> str:
