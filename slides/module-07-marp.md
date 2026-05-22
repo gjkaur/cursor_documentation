@@ -5,14 +5,21 @@ paginate: true
 header: 'Module 7 — Cursor API Foundations'
 footer: 'Cursor Training Program · Day 2'
 style: |
-  section { font-size: 26px; }
-  section.lead h1 { text-align: center; }
-  section.lead h2 { text-align: center; font-weight: 400; }
-  table { font-size: 0.72em; margin: 0 auto; }
-  pre { font-size: 0.65em; }
-  blockquote { font-size: 0.9em; border-left: 4px solid #0366d6; }
-  h2 { color: #0366d6; }
-  ul { font-size: 0.95em; }
+  section { font-size: 32px; color: #000000; background: #ffffff; }
+  section.lead { background: #ffffff; }
+  section.lead h1 { text-align: center; color: #cc0000; }
+  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
+  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
+  th { background: #ffebeb; color: #cc0000; }
+  td { background: #f7f7f7; }
+  tr:nth-child(even) td { background: #ffffff; }
+  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
+  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
+  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
+  h1, h2, h3, strong { color: #cc0000; }
+  header { color: #cc0000; }
+  footer { color: #000000; }
+  ul { font-size: 1em; }
 ---
 
 <!-- _class: lead -->
