@@ -6,16 +6,47 @@ section {
   background: #ffffff;
   color: #000000;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 32px;
+  font-size: 22px;
+  line-height: 1.5;
+  color-scheme: light;
 }
 
 section.lead {
   background: #ffffff;
+  color: #000000;
 }
 
-h1,
-h2,
-h3,
+section.lead h1 {
+  text-align: center;
+  color: #cc0000;
+}
+
+section.lead h2 {
+  text-align: center;
+  font-weight: 400;
+  color: #cc0000;
+}
+
+section.lead p,
+section.lead em {
+  color: #000000;
+}
+
+h1 {
+  font-size: 2.4em;
+  color: #cc0000;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #cc0000;
+}
+
+h3 {
+  font-size: 1.4em;
+  color: #cc0000;
+}
+
 strong {
   color: #cc0000;
 }
@@ -28,29 +59,38 @@ footer {
   color: #000000;
 }
 
+p,
+li,
+em {
+  font-size: 22px;
+  line-height: 1.5;
+  color: #000000;
+}
+
 blockquote {
+  font-size: 22px;
+  line-height: 1.5;
   border-left: 4px solid #cc0000;
   color: #000000;
 }
 
-table,
-pre,
-p,
-li {
-  color: #000000;
-}
-
 table {
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 auto;
+  color: #000000;
   border-collapse: collapse;
 }
 
-th {
+th,
+table thead th {
   background: #ffebeb;
   color: #cc0000;
 }
 
 td {
   background: #f7f7f7;
+  color: #000000;
 }
 
 tr:nth-child(even) td {
@@ -58,16 +98,40 @@ tr:nth-child(even) td {
 }
 
 pre {
+  font-size: 20px;
+  line-height: 1;
+  color: #1a1a1a;
   background: #f4f4f4;
   border: 1px solid #d0d0d0;
   border-radius: 6px;
-  padding: 0.5em 0.75em;
+  padding: 0.35em 0.75em;
   font-family: Consolas, 'Courier New', monospace;
-  font-size: 0.72em;
+  margin-top: 0.4em;
+}
+
+pre code {
   color: #1a1a1a;
+  background: transparent;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 1em;
+  line-height: 1;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  white-space: pre;
+  tab-size: 2;
+}
+
+pre code.language-text,
+pre code.language-ascii,
+pre code.language-diagram {
+  font-size: 18px;
+  line-height: 1;
 }
 
 code {
+  color: #1a1a1a;
   background: #f4f4f4;
   font-family: Consolas, 'Courier New', monospace;
   font-size: 0.9em;

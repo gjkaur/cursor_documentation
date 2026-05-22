@@ -1,25 +1,9 @@
 ---
 marp: true
-theme: gaia
+theme: flat-gaia
 paginate: true
 header: 'Module 2 — Cursor Editor Essentials'
 footer: 'Cursor Training Program · Day 1'
-style: |
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
-  ul { font-size: 1em; }
 ---
 
 <!-- _class: lead -->
@@ -97,13 +81,15 @@ By the end of this module, participants will be able to:
 
 **Step 1:** Open an unfamiliar repository in Cursor
 
+Use **PowerShell**, **Git Bash**, or **CMD** in Cursor's integrated terminal (Ctrl+`):
+
 ```bash
 git clone https://github.com/facebookresearch/detectron2
 cd detectron2
 cursor .
 ```
 
-**Step 2:** Open the Agent (`Cmd+I` or `Ctrl+I`)
+**Step 2:** Open the Agent (Ctrl+I on Windows/Linux · Cmd+I on Mac)
 
 ---
 
@@ -122,7 +108,7 @@ Specifically tell me:
 
 ---
 
-## Exercise 2.1 — Steps 4–5
+## Exercise 2.1 — Step 4: Trace Data Flow
 
 **Step 4:** Follow up — trace data flow:
 
@@ -130,6 +116,10 @@ Specifically tell me:
 Based on what you just told me, trace the flow of data from input
 to output. What functions get called in order?
 ```
+
+---
+
+## Exercise 2.1 — Step 5: Visual Overview
 
 **Step 5:** Ask for a visual overview:
 
@@ -141,7 +131,7 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ## Expected Agent Output (Sample)
 
-```
+```text
 PURPOSE: Object detection and segmentation library (PyTorch)
 
 ENTRY POINTS:
@@ -155,11 +145,12 @@ structures ←→ modeling/ ←→ data/
 
 DATA FLOW:
 Config → build_model() → DataLoader → Training Loop → Loss → Backprop
+
 ```
 
 ---
 
-## Pro Tip & Success Criteria
+## Pro Tip — Save the Overview
 
 **Pro Tip:** Save the agent's explanation as a project note:
 
@@ -167,6 +158,10 @@ Config → build_model() → DataLoader → Training Loop → Loss → Backprop
 Save this explanation as .cursor/project-overview.md so future
 team members can read it.
 ```
+
+---
+
+## Exercise 2.1 — Success Criteria
 
 **Success Criteria:**
 - Agent described project purpose
@@ -211,7 +206,7 @@ Explain the function I have selected. For each major section, tell me:
 
 ---
 
-## Exercise 2.2 — Steps 4–5
+## Exercise 2.2 — Step 4: Example I/O
 
 **Step 4:** Ask for a concrete example:
 
@@ -219,6 +214,10 @@ Explain the function I have selected. For each major section, tell me:
 Give me a concrete example of inputs and outputs for this function.
 Show me what happens in the normal case and one edge case.
 ```
+
+---
+
+## Exercise 2.2 — Step 5: Dependencies
 
 **Step 5:** Ask about dependencies:
 
@@ -296,10 +295,20 @@ Before accepting, ask yourself:
 
 **Step 4:** Accept · **Step 5:** Test manually
 
+---
+
+## Exercise 2.3 — Test After Accept
+
 ```bash
-open index.html          # web
-python script.py         # Python
-npm start                # React
+# Windows (PowerShell)
+start index.html          # web
+python script.py          # Python
+npm start                 # React
+
+# Mac
+open index.html
+python script.py
+npm start
 ```
 
 ---
@@ -339,12 +348,18 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 ---
 
-## Exercise 2.4 — Enable Plan Mode
+## Exercise 2.4 — Step 1: Enable Plan Mode
+
+**Step 1:** Enable Plan Mode (Shift+Tab in the Agent input):
 
 ```bash
 # Press Shift+Tab in the Agent input
 # The input border changes color to indicate Plan Mode
 ```
+
+---
+
+## Exercise 2.4 — Step 2: Describe Change
 
 **Step 2:** Describe a complex change:
 
@@ -361,7 +376,9 @@ Don't write code yet – just give me a plan.
 
 ---
 
-## What a Good Plan Looks Like
+## Exercise 2.4 — Step 3: Review the Plan
+
+**Step 3:** Review the agent's plan — a good plan includes:
 
 ```
 📋 IMPLEMENTATION PLAN
@@ -394,9 +411,15 @@ Skip email verification for this version. Proceed.
 
 **Step 5:** Watch the agent execute the plan step by step
 
+---
+
+## Exercise 2.4 — Success Criteria
+
 **Success Criteria:**
-- Enabled Plan Mode (Shift+Tab) · Agent created structured plan
-- Agent asked clarifying questions · Approved plan before code was written
+- Enabled Plan Mode (Shift+Tab)
+- Agent created structured plan
+- Agent asked clarifying questions
+- Approved plan before code was written
 
 ---
 
@@ -434,7 +457,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 3:** Switch to GPT-5 Mini — ask the **same question**
 
-**Step 4:** Compare responses
+**Step 4:** Compare responses side by side
+
+---
+
+## Exercise 2.5 — Comparison Table
 
 | Comparison Point | Claude Sonnet | GPT-5 Mini |
 |-----------------|---------------|------------|
@@ -451,7 +478,7 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 6:** Create a personal decision matrix:
 
-```
+```text
 If task is...                    Use model...
   Typos / text changes           → GPT-5 Mini
   Quick question                 → Claude Haiku
@@ -459,9 +486,17 @@ If task is...                    Use model...
   Complex debugging              → Claude Sonnet
   Architecture design            → Claude Opus
   UI/frontend from image         → Gemini Pro
+
 ```
 
-**Success Criteria:** Same question to two models · Compared quality/speed · Created personal guide
+---
+
+## Exercise 2.5 — Success Criteria
+
+**Success Criteria:**
+- Same question to two models
+- Compared quality and speed
+- Created personal model-selection guide
 
 ---
 
@@ -490,19 +525,23 @@ If task is...                    Use model...
 
 ---
 
-## Exercise 2.6 — @filename & @symbol
+## Exercise 2.6 — Steps 1–2
 
-**Step 1:** Target a specific file:
+**Step 1:** Use @filename to point at a specific file:
 
 ```
 @database.py What are the security vulnerabilities in this database connection?
 ```
 
-**Step 2:** Target a specific function:
+**Step 2:** Use @symbol to reference a specific function:
 
 ```
 @calculate_total This function is returning NaN sometimes. Why?
 ```
+
+---
+
+## Exercise 2.6 — Step 3: Multiple @mentions
 
 **Step 3:** Combine multiple @mentions:
 
@@ -513,21 +552,37 @@ Are there any race conditions or timing attacks?
 
 ---
 
-## Exercise 2.6 — @branch, @chat, @folder, @web
+## Exercise 2.6 — Step 4: @branch
+
+**Step 4:** Use @branch to reference a different branch:
 
 ```
 Compare @main and @feature/payment branches.
 What are the key differences in the payment handling code?
 ```
 
+---
+
+## Exercise 2.6 — Step 5: @chat
+
+**Step 5:** Use @chat to refer to a previous conversation:
+
 ```
 @chat(authentication-discussion) Based on that discussion,
 implement the fix we agreed on.
 ```
 
+---
+
+## Exercise 2.6 — Steps 6–7: @folder & @web
+
+**Step 6:** Use @folder for directory-level context:
+
 ```
 @src/components Find all components that don't have loading states.
 ```
+
+**Step 7:** Use @web for external documentation:
 
 ```
 @web React 19 useTransition hook How do I use it?
@@ -537,12 +592,19 @@ implement the fix we agreed on.
 
 ## @mention Pro Tips
 
-- Start typing `@` — Cursor auto-suggests available mentions
+- Start typing **@** — Cursor auto-suggests available mentions
 - You can @mention **multiple items** in one message
 - @mentions work in both **Agent** and **Chat** modes
 
+---
+
+## Exercise 2.6 — Success Criteria
+
 **Success Criteria:**
-- Used `@filename`, `@symbol`, multiple @mentions, and `@web`
+- Used @filename to target a specific file
+- Used @symbol to target a function or class
+- Used multiple @mentions together
+- Used @web for external search
 
 ---
 
@@ -574,8 +636,12 @@ implement the fix we agreed on.
 
 ```bash
 # Click checkpoint icon in Agent panel
-# Or: Cmd+Shift+S / Ctrl+Shift+S
+# Windows/Linux: Ctrl+Shift+S · Mac: Cmd+Shift+S
 ```
+
+---
+
+## Exercise 2.7 — Steps 2–3
 
 **Step 2:** Name it descriptively: `"Before auth refactor - safe point"`
 
@@ -584,6 +650,10 @@ implement the fix we agreed on.
 ```
 Add input validation to all form handlers.
 ```
+
+---
+
+## Exercise 2.7 — Steps 4–5
 
 **Step 4:** If something goes wrong → **Restore to checkpoint**
 
@@ -647,7 +717,7 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Agent Terminal Loop
 
-```
+```text
 Agent: I'll run the tests first.
 → Executing: pytest tests/
 → Output: 7 passed, 2 failed
@@ -660,17 +730,22 @@ Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
 
 → Executing: pytest tests/test_auth.py
 → Output: All tests passed
+
 ```
 
 ---
 
-## Exercise 2.8 — More Commands
+## Exercise 2.8 — Step 5: Install Dependency
 
 **Step 5:** Install a dependency:
 
 ```
 Install the 'requests' library if it's not already installed.
 ```
+
+---
+
+## Exercise 2.8 — Step 6: Multi-Step Workflow
 
 **Step 6:** Multi-step workflow:
 
@@ -716,7 +791,7 @@ Confirm before each command that might affect the repo.
 
 ## Quick Reference Card
 
-```
+```text
 SHORTCUTS:
   Cmd/Ctrl + I          → Open Agent
   Cmd/Ctrl + L          → Explain selected code
@@ -727,6 +802,7 @@ SHORTCUTS:
 
 SAFE CHANGE:  Ask → Review diff → Accept/reject → Test
 PLAN MODE:    Shift+Tab → Describe → Review plan → Approve → Execute
+
 ```
 
 ---

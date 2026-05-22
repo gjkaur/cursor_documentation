@@ -1,25 +1,9 @@
 ---
 marp: true
-theme: gaia
+theme: flat-gaia
 paginate: true
 header: 'Module 10 — AI Code Tracking and Reporting'
 footer: 'Cursor Training Program · Day 2'
-style: |
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
-  ul { font-size: 1em; }
 ---
 
 <!-- _class: lead -->
@@ -29,7 +13,6 @@ style: |
 ## Module 10 · Day 2 (Hands-On + Take-Home Project)
 
 Cursor Training Program · ~20 min + take-home
-
 ---
 
 ## Module Overview
@@ -40,7 +23,6 @@ Cursor Training Program · ~20 min + take-home
 | **Format** | Hands-on exercise + take-home project |
 | **Prerequisites** | Admin API key, Git repository access, Modules 8–9 completed |
 | **Module Goal** | Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards |
-
 ---
 
 ## Learning Objectives
@@ -51,7 +33,6 @@ By the end of this module, participants will be able to:
 - Stream metrics to BI tools via CSV export
 - Access granular AI change events for compliance
 - Build a complete reporting dashboard combining all data sources
-
 ---
 
 ## Agenda
@@ -62,7 +43,6 @@ By the end of this module, participants will be able to:
 | 10.2 | Bulk Export via CSV Streaming | 7 min |
 | 10.3 | Granular AI Change Events | 7 min |
 | 10.4 | Reporting Dashboard Architecture | 4 min + take-home |
-
 ---
 
 <!-- _class: lead -->
@@ -72,7 +52,6 @@ By the end of this module, participants will be able to:
 ## AI Commit Metrics
 
 *Concept · 3 min · Exercise · 5 min*
-
 ---
 
 ## Key Endpoint
@@ -85,10 +64,27 @@ By the end of this module, participants will be able to:
 - Commit-level attribution · Per-developer breakdown
 
 > *"The 'ROI of AI' metric — how much code was AI-generated vs. human-written."*
+---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 ---
 
 ## Exercise 10.1 — Fetch Metrics
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 END=$(date +%Y-%m-%d)
@@ -99,9 +95,12 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   | jq '.'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 ---
 
 ## Exercise 10.1 — AI Contribution %
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
@@ -114,9 +113,12 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
     }'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 ---
 
 ## Exercise 10.1 — ROI Analysis
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Python `calculate_ai_roi()`:
 
@@ -130,7 +132,6 @@ AI usage cost → Net ROI
 `contributor_breakdown()` — AI %, AI lines, commits per developer
 
 **Success Criteria:** Retrieved metrics · calculated AI % · generated ROI analysis
-
 ---
 
 <!-- _class: lead -->
@@ -140,7 +141,6 @@ AI usage cost → Net ROI
 ## Bulk Export via CSV Streaming
 
 *Concept · 3 min · Exercise · 4 min*
-
 ---
 
 ## Key Endpoint
@@ -150,10 +150,11 @@ AI usage cost → Net ROI
 > *"Wire metrics into BI tools (Tableau, PowerBI, Looker, Metabase) without timeouts."*
 
 **Export types:** `commits` · `events` · `usage`
-
 ---
 
 ## Exercise 10.2 — Stream to File
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 curl -N -u "$CURSOR_ADMIN_API_KEY:" \
@@ -163,9 +164,12 @@ curl -N -u "$CURSOR_ADMIN_API_KEY:" \
 head -10 cursor_commits_export.csv
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 ---
 
 ## Exercise 10.2 — BI Integration
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 Python `stream_to_dataframe()` → pandas DataFrame:
 
@@ -179,7 +183,6 @@ export_for_bi():
 Upload to Metabase, PowerBI, or Tableau via CSV import
 
 **Success Criteria:** Streamed CSV · loaded into DataFrame · created BI-ready files
-
 ---
 
 <!-- _class: lead -->
@@ -189,7 +192,6 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 ## Granular AI Change Events
 
 *Concept · 3 min · Exercise · 4 min*
-
 ---
 
 ## Key Endpoint
@@ -201,10 +203,11 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 - User, accepted/rejected status
 
 > *"Essential for SOC2, ISO, and internal audits."*
-
 ---
 
 ## Exercise 10.3 — Query Events
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
@@ -212,11 +215,14 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   | jq '.events[] | {user: .user.email, file: .filePath, model: .modelId, accepted: .accepted}'
 ```
 
-Acceptance rate by model: group events → total vs. accepted per model
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+Acceptance rate by model: group events → total vs. accepted per model
 ---
 
 ## Exercise 10.3 — Compliance Report
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 `generate_compliance_report()` for last 90 days:
 
@@ -226,7 +232,6 @@ Acceptance rate by model: group events → total vs. accepted per model
   - timestamp, user_email, model_id, file_path, line_start, line_end, accepted
 
 **Success Criteria:** Retrieved events · calculated acceptance rates · compliance export
-
 ---
 
 <!-- _class: lead -->
@@ -236,7 +241,6 @@ Acceptance rate by model: group events → total vs. accepted per model
 ## Reporting Dashboard Architecture
 
 *Concept · 4 min · Take-Home Project*
-
 ---
 
 ## Dashboard Components
@@ -248,7 +252,6 @@ Acceptance rate by model: group events → total vs. accepted per model
 | Model Performance | Events API | Acceptance rates, efficiency |
 | Team Activity | Members API | Onboarding, licensing |
 | Compliance | Events + Audit | Audit trail, security |
-
 ---
 
 ## Take-Home: Streamlit Dashboard
@@ -261,7 +264,6 @@ Run with: `streamlit run cursor_dashboard.py`
 3. **AI Code Impact** — AI vs human bar chart + acceptance by model
 4. **Team Management** — member table
 5. **Compliance Export** — download events CSV
-
 ---
 
 ## Project Deliverables
@@ -274,7 +276,6 @@ Run with: `streamlit run cursor_dashboard.py`
 | **Export script** | Automated CSV export for compliance |
 
 **Bonus:** cost alerts · spend limit UI · model A/B comparison · cloud deployment
-
 ---
 
 ## Module Summary
@@ -285,7 +286,6 @@ Run with: `streamlit run cursor_dashboard.py`
 | 10.2 | Bulk Export via CSV | BI integration |
 | 10.3 | Granular Change Events | Compliance reporting |
 | 10.4 | Dashboard Architecture | Complete dashboard |
-
 ---
 
 ## Quick Reference Card
@@ -304,7 +304,6 @@ KEY METRICS:
 
 DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
 ```
-
 ---
 
 <!-- _class: lead -->
