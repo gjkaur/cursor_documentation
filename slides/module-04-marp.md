@@ -1,27 +1,3 @@
----
-marp: true
-theme: gaia
-paginate: true
-header: 'Module 4 — Customizing Cursor for Your Team'
-footer: 'Cursor Training Program · Day 1'
-style: |
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
-  ul { font-size: 1em; }
----
-
 <!-- _class: lead -->
 
 # Customizing Cursor for Your Team
@@ -29,7 +5,6 @@ style: |
 ## Module 4 · Day 1 (Hands-On + Walkthrough)
 
 Cursor Training Program · ~60 min
-
 ---
 
 ## Module Overview
@@ -40,7 +15,6 @@ Cursor Training Program · ~60 min
 | **Format** | Hands-on exercise + walkthrough |
 | **Prerequisites** | Modules 1–3 completed, team repository access, Cursor installed |
 | **Module Goal** | Customize Cursor for team workflows with rules, skills, MCP, and subagents |
-
 ---
 
 ## Learning Objectives
@@ -52,7 +26,6 @@ By the end of this module, participants will be able to:
 - Build and invoke reusable Skills for specialized workflows
 - Connect external tools via MCP and create slash workflows
 - Understand when and how to use Subagents for delegation
-
 ---
 
 ## Agenda
@@ -64,7 +37,6 @@ By the end of this module, participants will be able to:
 | 4.3 | Creating and Invoking a Skill | 20 min |
 | 4.4 | MCP, Hooks, and Slash Workflows | 10 min |
 | 4.5 | Subagents | 6 min |
-
 ---
 
 <!-- _class: lead -->
@@ -74,7 +46,6 @@ By the end of this module, participants will be able to:
 ## Creating a Rule
 
 *Concept · 8 min · Exercise · 12 min*
-
 ---
 
 ## What Are Rules?
@@ -87,13 +58,13 @@ Rules are Markdown files (`.cursor/rules/*.mdc`) with persistent instructions th
 | **Project** | Specific repo | When opening that project | "Run `make test` before suggesting changes" |
 | **File pattern** | Matching files | When editing those files | "For `*.py` files, use type hints" |
 | **User** | Your account | Always across all projects | "Explain like I'm a junior developer" |
-
 ---
 
 ## Rule Structure
 
 ```markdown
 ---
+
 description: Brief description of what this rule does
 globs: *.py, src/**/*.js
 alwaysApply: true
@@ -107,10 +78,27 @@ Write your instructions here in natural language.
 ## Examples
 Good: ...  Bad: ...
 ```
+---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 ---
 
 ## Exercise 4.1 — Step 1: Setup
+
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
 ```bash
 mkdir -p .cursor/rules
@@ -125,10 +113,11 @@ Python: type hints, Black (88 chars), Google docstrings
 JS/TS: const over let, arrow functions, optional chaining
 General: no commented-out code, no console.log in prod
 ```
-
 ---
 
 ## Exercise 4.1 — Build & Test Rule
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Create `.cursor/rules/build-and-test.mdc`:
 
@@ -145,25 +134,31 @@ Never: hardcoded secrets, eval() on user input, SQL concatenation
 Always: input validation, rate limiting, HTTPS, safe error messages
 Flag: exec/eval with user input, password/secret in variable names
 ```
-
 ---
 
 ## Exercise 4.1 — Test & File-Specific Rules
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 5:** Verify rules are applied:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Based on the project rules, what are the coding standards I should follow?
 What are the security guardrails?
 ```
+---
+
+## Exercise 4.1 — Test & File-Specific Rules (Part 2)
 
 **Step 6:** Create `.cursor/rules/react-components.mdc` for `**/*.jsx, **/*.tsx`:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 - Component structure, naming (PascalCase, handleSubmit)
 - Performance: React.memo, useCallback, useMemo
 - Accessibility: keyboard nav, alt text, semantic HTML
 
 **Success Criteria:** Created rules directory · coding, build, security rules · verified application
-
 ---
 
 <!-- _class: lead -->
@@ -173,7 +168,6 @@ What are the security guardrails?
 ## Repository Instructions
 
 *Concept · 5 min · Exercise · 8 min*
-
 ---
 
 ## Rules vs. Repository Instructions
@@ -184,7 +178,6 @@ What are the security guardrails?
 | **Complexity** | Multiple files, scoped | Single file, global |
 | **Granularity** | Per-file patterns | Entire repository |
 | **Use case** | Detailed standards | High-level project overview |
-
 ---
 
 ## Repository Instructions Structure
@@ -200,10 +193,11 @@ What are the security guardrails?
 ## External Dependencies
 ## Contact
 ```
-
 ---
 
 ## Exercise 4.2 — Create Instructions
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Create `.cursor/repository-instructions.md`:
 
@@ -217,25 +211,31 @@ Run dev:  uvicorn src.main:app --reload
 Run tests: pytest -v
 Migrations: alembic upgrade head
 ```
-
 ---
 
 ## Exercise 4.2 — Verify & Maintain
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 2:** Ask the Agent:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 What are the key technologies used in this project?
 How do I run the tests?
 ```
+---
+
+## Exercise 4.2 — Verify & Maintain (Part 2)
 
 **Step 3:** Update instructions when:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 - New team members join → add contact info
 - Architecture changes → update structure
 - New dependencies or common issues discovered
 
 **Success Criteria:** Created instructions · included purpose, stack, commands · verified agent access
-
 ---
 
 <!-- _class: lead -->
@@ -245,7 +245,6 @@ How do I run the tests?
 ## Creating and Invoking a Skill
 
 *Concept · 8 min · Exercise · 12 min*
-
 ---
 
 ## What Is a Skill?
@@ -267,10 +266,11 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 | Complex workflow | "Onboarding" |
 | Domain-specific | "Security Audit" |
 | Documentation | "Generate API Docs" |
-
 ---
 
 ## Exercise 4.3 — PR Review Skill
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Create `.cursor/skills/pr-review/SKILL.md`:
 
@@ -283,10 +283,11 @@ Step 2: Review — code quality, security, testing, docs, style
 Step 3: Output formatted review with Critical / Warning / Suggestion
 Verdict: APPROVE / REQUEST CHANGES / COMMENT
 ```
-
 ---
 
 ## Exercise 4.3 — Security Audit Skill
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Create `.cursor/skills/security-audit/SKILL.md`:
 
@@ -298,28 +299,38 @@ Scan for:
 
 Output: report with line numbers, fix suggestions, overall risk rating
 ```
-
 ---
 
 ## Exercise 4.3 — Invoke Skills
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 4:** Invoke via slash command:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 /pr-review PR #42
 /pr-review feature/payment-integration
 ```
+---
+
+## Exercise 4.3 — Invoke Skills (Part 2)
 
 **Step 5:** List available skills:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 What skills are available in this project?
 ```
+---
+
+## Exercise 4.3 — Invoke Skills (Part 3)
 
 **Step 6:** Create **Onboarding** skill — generates setup checklist from repo instructions
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Success Criteria:** Created skills · built PR Review + Security Audit · invoked via slash command
-
 ---
 
 <!-- _class: lead -->
@@ -329,7 +340,6 @@ What skills are available in this project?
 ## MCP, Hooks, and Slash Workflows
 
 *Concept · 10 min · Walkthrough*
-
 ---
 
 ## What Is MCP?
@@ -350,7 +360,6 @@ Cursor Agent ←─MCP Protocol─→ MCP Server
 | **Slack** | Send messages, read channels |
 | **Jira** | Create tickets, update status |
 | **Database** | Query databases, run migrations |
-
 ---
 
 ## Hooks & Slash Workflows
@@ -371,7 +380,6 @@ Cursor Agent ←─MCP Protocol─→ MCP Server
 | `/onboard @newdev` | Onboarding skill + GitHub issue + Slack message |
 | `/deploy staging` | Tests → build → deploy → notify team |
 | `/bug-report` | Analyze error → create issue → assign on-call |
-
 ---
 
 ## Walkthrough: MCP Configuration
@@ -397,7 +405,6 @@ Create `~/.cursor/mcp.json`:
 Create a PR from feature/payment and request review from @alice
 Send a message to #deploys: "Deployment starting"
 ```
-
 ---
 
 ## Walkthrough: Slash Command Example
@@ -416,7 +423,6 @@ Post-deploy: health check → smoke tests → Slack notify
 Usage: `/deploy staging`
 
 **Success Criteria:** Understood MCP, hooks, slash commands · saw configuration examples
-
 ---
 
 <!-- _class: lead -->
@@ -426,7 +432,6 @@ Usage: `/deploy staging`
 ## Subagents
 
 *Concept · 6 min · Walkthrough*
-
 ---
 
 ## What Are Subagents?
@@ -439,7 +444,6 @@ Main Agent
   ├──→ Subagent: Documentation Generator → "Updated README.md"
   └──→ Subagent: Test Writer → "Added 5 test cases"
 ```
-
 ---
 
 ## When to Use Subagents
@@ -450,7 +454,6 @@ Main Agent
 | **Isolation** | Separate context | Analyze large file independently |
 | **Specialization** | Different instructions | Security expert vs. UI designer |
 | **Sandboxing** | Limit tool access | Read-only subagent for unknown code |
-
 ---
 
 ## Subagent vs. Tool vs. Skill
@@ -460,7 +463,6 @@ Main Agent
 | **Tool** | Single action (read file, run command) |
 | **Skill** | Multi-step workflow, same context |
 | **Subagent** | Parallel, isolated, specialized work |
-
 ---
 
 ## Walkthrough: Subagents in Action
@@ -484,7 +486,6 @@ Meanwhile, I'll work on the frontend.
 ```
 
 **Success Criteria:** Understood concept · parallel execution · recognized templates
-
 ---
 
 ## Module Summary
@@ -496,7 +497,6 @@ Meanwhile, I'll work on the frontend.
 | 4.3 | Creating Skills | `.cursor/skills/*/SKILL.md` |
 | 4.4 | MCP & Slash Commands | MCP config, slash commands |
 | 4.5 | Subagents | Understanding of delegation |
-
 ---
 
 ## Quick Reference Card
@@ -509,7 +509,6 @@ MCP            → ~/.cursor/mcp.json (GitHub, Slack, Jira, custom)
 SLASH CMDS     → .cursor/commands/*.md (/deploy, /onboard, /triage)
 SUBAGENTS      → Parallel, isolated, specialized execution
 ```
-
 ---
 
 <!-- _class: lead -->

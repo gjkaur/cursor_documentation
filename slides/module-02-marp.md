@@ -9,7 +9,8 @@ style: |
   section.lead { background: #ffffff; }
   section.lead h1 { text-align: center; color: #cc0000; }
   section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
+  table { font-size: 0.5625em; margin: 0 auto; color: #000000; border-collapse: collapse; }
+  p, li { font-size: 0.625em; }
   th { background: #ffebeb; color: #cc0000; }
   td { background: #f7f7f7; }
   tr:nth-child(even) td { background: #ffffff; }
@@ -19,7 +20,6 @@ style: |
   h1, h2, h3, strong { color: #cc0000; }
   header { color: #cc0000; }
   footer { color: #000000; }
-  ul { font-size: 1em; }
 ---
 
 <!-- _class: lead -->
@@ -97,13 +97,15 @@ By the end of this module, participants will be able to:
 
 **Step 1:** Open an unfamiliar repository in Cursor
 
+Use **PowerShell**, **Git Bash**, or **CMD** in Cursor's integrated terminal (Ctrl+`):
+
 ```bash
 git clone https://github.com/facebookresearch/detectron2
 cd detectron2
 cursor .
 ```
 
-**Step 2:** Open the Agent (`Cmd+I` or `Ctrl+I`)
+**Step 2:** Open the Agent (Ctrl+I on Windows/Linux · Cmd+I on Mac)
 
 ---
 
@@ -122,7 +124,7 @@ Specifically tell me:
 
 ---
 
-## Exercise 2.1 — Steps 4–5
+## Exercise 2.1 — Step 4: Trace Data Flow
 
 **Step 4:** Follow up — trace data flow:
 
@@ -130,6 +132,10 @@ Specifically tell me:
 Based on what you just told me, trace the flow of data from input
 to output. What functions get called in order?
 ```
+
+---
+
+## Exercise 2.1 — Step 5: Visual Overview
 
 **Step 5:** Ask for a visual overview:
 
@@ -159,7 +165,7 @@ Config → build_model() → DataLoader → Training Loop → Loss → Backprop
 
 ---
 
-## Pro Tip & Success Criteria
+## Pro Tip — Save the Overview
 
 **Pro Tip:** Save the agent's explanation as a project note:
 
@@ -167,6 +173,10 @@ Config → build_model() → DataLoader → Training Loop → Loss → Backprop
 Save this explanation as .cursor/project-overview.md so future
 team members can read it.
 ```
+
+---
+
+## Exercise 2.1 — Success Criteria
 
 **Success Criteria:**
 - Agent described project purpose
@@ -211,7 +221,7 @@ Explain the function I have selected. For each major section, tell me:
 
 ---
 
-## Exercise 2.2 — Steps 4–5
+## Exercise 2.2 — Step 4: Example I/O
 
 **Step 4:** Ask for a concrete example:
 
@@ -219,6 +229,10 @@ Explain the function I have selected. For each major section, tell me:
 Give me a concrete example of inputs and outputs for this function.
 Show me what happens in the normal case and one edge case.
 ```
+
+---
+
+## Exercise 2.2 — Step 5: Dependencies
 
 **Step 5:** Ask about dependencies:
 
@@ -296,10 +310,20 @@ Before accepting, ask yourself:
 
 **Step 4:** Accept · **Step 5:** Test manually
 
+---
+
+## Exercise 2.3 — Test After Accept
+
 ```bash
-open index.html          # web
-python script.py         # Python
-npm start                # React
+# Windows (PowerShell)
+start index.html          # web
+python script.py          # Python
+npm start                 # React
+
+# Mac
+open index.html
+python script.py
+npm start
 ```
 
 ---
@@ -345,6 +369,10 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 # Press Shift+Tab in the Agent input
 # The input border changes color to indicate Plan Mode
 ```
+
+---
+
+## Exercise 2.4 — Step 2: Describe Change
 
 **Step 2:** Describe a complex change:
 
@@ -434,7 +462,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 3:** Switch to GPT-5 Mini — ask the **same question**
 
-**Step 4:** Compare responses
+**Step 4:** Compare responses side by side
+
+---
+
+## Exercise 2.5 — Comparison Table
 
 | Comparison Point | Claude Sonnet | GPT-5 Mini |
 |-----------------|---------------|------------|
@@ -490,7 +522,7 @@ If task is...                    Use model...
 
 ---
 
-## Exercise 2.6 — @filename & @symbol
+## Exercise 2.6 — Steps 1–2
 
 **Step 1:** Target a specific file:
 
@@ -504,6 +536,10 @@ If task is...                    Use model...
 @calculate_total This function is returning NaN sometimes. Why?
 ```
 
+---
+
+## Exercise 2.6 — Step 3: Multiple @mentions
+
 **Step 3:** Combine multiple @mentions:
 
 ```
@@ -513,7 +549,7 @@ Are there any race conditions or timing attacks?
 
 ---
 
-## Exercise 2.6 — @branch, @chat, @folder, @web
+## Exercise 2.6 — @branch & @chat
 
 ```
 Compare @main and @feature/payment branches.
@@ -524,6 +560,10 @@ What are the key differences in the payment handling code?
 @chat(authentication-discussion) Based on that discussion,
 implement the fix we agreed on.
 ```
+
+---
+
+## Exercise 2.6 — @folder & @web
 
 ```
 @src/components Find all components that don't have loading states.
@@ -540,6 +580,10 @@ implement the fix we agreed on.
 - Start typing `@` — Cursor auto-suggests available mentions
 - You can @mention **multiple items** in one message
 - @mentions work in both **Agent** and **Chat** modes
+
+---
+
+## Exercise 2.6 — Success Criteria
 
 **Success Criteria:**
 - Used `@filename`, `@symbol`, multiple @mentions, and `@web`
@@ -574,8 +618,12 @@ implement the fix we agreed on.
 
 ```bash
 # Click checkpoint icon in Agent panel
-# Or: Cmd+Shift+S / Ctrl+Shift+S
+# Windows/Linux: Ctrl+Shift+S · Mac: Cmd+Shift+S
 ```
+
+---
+
+## Exercise 2.7 — Steps 2–3
 
 **Step 2:** Name it descriptively: `"Before auth refactor - safe point"`
 
@@ -584,6 +632,10 @@ implement the fix we agreed on.
 ```
 Add input validation to all form handlers.
 ```
+
+---
+
+## Exercise 2.7 — Steps 4–5
 
 **Step 4:** If something goes wrong → **Restore to checkpoint**
 
@@ -664,13 +716,17 @@ Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
 
 ---
 
-## Exercise 2.8 — More Commands
+## Exercise 2.8 — Step 5: Install Dependency
 
 **Step 5:** Install a dependency:
 
 ```
 Install the 'requests' library if it's not already installed.
 ```
+
+---
+
+## Exercise 2.8 — Step 6: Multi-Step Workflow
 
 **Step 6:** Multi-step workflow:
 

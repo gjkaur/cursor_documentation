@@ -1,27 +1,3 @@
----
-marp: true
-theme: gaia
-paginate: true
-header: 'Module 8 — Cloud Agents API and Webhooks'
-footer: 'Cursor Training Program · Day 2'
-style: |
-  section { font-size: 32px; color: #000000; background: #ffffff; }
-  section.lead { background: #ffffff; }
-  section.lead h1 { text-align: center; color: #cc0000; }
-  section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
-  th { background: #ffebeb; color: #cc0000; }
-  td { background: #f7f7f7; }
-  tr:nth-child(even) td { background: #ffffff; }
-  pre { font-size: 0.72em; color: #1a1a1a; background: #f4f4f4; border: 1px solid #d0d0d0; border-radius: 6px; padding: 0.5em 0.75em; font-family: Consolas, ''Courier New'', monospace; }
-  code { background: #f4f4f4; font-family: Consolas, ''Courier New'', monospace; font-size: 0.9em; padding: 0.1em 0.25em; }
-  blockquote { font-size: 1em; border-left: 4px solid #cc0000; color: #000000; }
-  h1, h2, h3, strong { color: #cc0000; }
-  header { color: #cc0000; }
-  footer { color: #000000; }
-  ul { font-size: 1em; }
----
-
 <!-- _class: lead -->
 
 # Cloud Agents API and Webhooks
@@ -29,7 +5,6 @@ style: |
 ## Module 8 · Day 2 (Hands-On)
 
 Cursor Training Program · ~60 min
-
 ---
 
 ## Module Overview
@@ -40,7 +15,6 @@ Cursor Training Program · ~60 min
 | **Format** | Hands-on exercise |
 | **Prerequisites** | User API key (Module 7), Python 3.8+, ngrok installed, GitHub repository |
 | **Module Goal** | Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications |
-
 ---
 
 ## Learning Objectives
@@ -53,7 +27,6 @@ By the end of this module, participants will be able to:
 - Create a webhook endpoint with HMAC verification
 - Test webhooks locally using ngrok
 - Build an end-to-end automated agent workflow
-
 ---
 
 ## Agenda
@@ -66,7 +39,6 @@ By the end of this module, participants will be able to:
 | 8.4 | Creating a Webhook Endpoint | 15 min |
 | 8.5 | Testing Webhooks Locally with ngrok | 13 min |
 | 8.6 | End-to-End Automated Agent Workflow | 17 min |
-
 ---
 
 <!-- _class: lead -->
@@ -76,7 +48,6 @@ By the end of this module, participants will be able to:
 ## Creating a Cloud Agent Programmatically
 
 *Concept · 5 min · Exercise · 10 min*
-
 ---
 
 ## Agent + Runs
@@ -87,7 +58,6 @@ By the end of this module, participants will be able to:
 | **Run** | Single execution (one prompt/response cycle) |
 
 **Key endpoint:** `POST /v1/agents`
-
 ---
 
 ## Request Fields
@@ -100,41 +70,78 @@ By the end of this module, participants will be able to:
 | `repos[].url` | "https://github.com/org/repo" |
 
 **Optional:** `autoCreatePR` · `model.id` · `webhookUrl` · `webhookSecret`
+---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 ---
 
 ## Exercise 8.1 — Create with curl
 
-```bash
-export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
-curl -X POST https://api.cursor.com/v1/agents \
-  -u "$CURSOR_USER_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": {"text": "Add a README.md file with setup instructions"},
-    "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO", "startingRef": "main"}],
-    "autoCreatePR": true
-  }' | jq '.'
+**Step 1 — set API key · Terminal:** **PowerShell**
+
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
 ```
 
+**Step 2 — create agent · Terminal:** **PowerShell**
+
+```powershell
+curl.exe -X POST https://api.cursor.com/v1/agents `
+  -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Content-Type: application/json" `
+  -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' `
+  | ConvertFrom-Json
+```
+
+**Terminal (alternative):** **Git Bash** / **WSL** — bash block below.
+
+```bash
+export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
+curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'
+```
 ---
 
 ## Exercise 8.1 — Capture IDs
 
-```bash
-AGENT_ID=$(echo "$RESPONSE" | jq -r '.agent.id')
-RUN_ID=$(echo "$RESPONSE" | jq -r '.run.id')
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
-echo "Agent ID: $AGENT_ID"
-echo "Dashboard: https://cursor.com/agents/$AGENT_ID"
+
+**Step 1:** Save the JSON from the create-agent call — **Terminal:** **PowerShell**
+
+```powershell
+$response = curl.exe ... | ConvertFrom-Json   # reuse create-agent command
+$env:AGENT_ID = $response.agent.id
+$env:RUN_ID = $response.run.id
+Write-Host "Agent ID: $($env:AGENT_ID)"
+Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
 ```
+---
+
+## Exercise 8.1 — Capture IDs (Part 2)
+
+**Step 2:** Optional model override in create payload — **Where:** edit JSON before POST (any terminal)
 
 Create with specific model: `"model": {"id": "claude-4.7-opus"}`
-
 ---
 
 ## Exercise 8.1 — Python Helper
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
@@ -151,7 +158,6 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 ```
 
 **Success Criteria:** Agent created · IDs captured · appears in dashboard · Python function works
-
 ---
 
 <!-- _class: lead -->
@@ -161,7 +167,6 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 ## Streaming Agent Responses (SSE)
 
 *Concept · 5 min · Exercise · 10 min*
-
 ---
 
 ## SSE Event Types
@@ -175,28 +180,35 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 | `result` | Run completes | `{"status":"FINISHED"}` |
 | `error` | Something went wrong | `{"message":"..."}` |
 | `done` | Stream ends | `{}` |
-
 ---
 
 ## Resume Support
 
 SSE streams support the **`Last-Event-ID`** header — if your connection drops, resume from the last received event.
-
 ---
 
 ## Exercise 8.2 — Stream with curl
 
-```bash
-curl -N -u "$CURSOR_USER_API_KEY:" \
-  -H "Accept: text/event-stream" \
-  "https://api.cursor.com/v1/agents/$AGENT_ID/runs/$RUN_ID/stream"
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+**Terminal:** **PowerShell**
+
+```powershell
+curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Accept: text/event-stream" `
+  "https://api.cursor.com/v1/agents/$env:AGENT_ID/runs/$env:RUN_ID/stream"
 ```
 
-Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
+Set IDs first: `$env:AGENT_ID = "..."` · `$env:RUN_ID = "..."`
 
+**Terminal (alternative):** **Git Bash** / **WSL** — bash `curl -N` block above.
+
+Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
 ---
 
 ## Exercise 8.2 — Python SSE Client
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def stream_agent_response(agent_id, run_id, on_event=None):
@@ -210,17 +222,17 @@ def stream_agent_response(agent_id, run_id, on_event=None):
             if on_event:
                 on_event(current_event, data)
 ```
-
 ---
 
 ## Exercise 8.2 — ResumableSSEClient
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on reconnect
 
 **Also:** `stream_to_file()` saves full SSE log for later review
 
 **Success Criteria:** Stream connected · received events · Python client works · resume implemented
-
 ---
 
 <!-- _class: lead -->
@@ -230,7 +242,6 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 ## Listing and Downloading Artifacts
 
 *Concept · 5 min · Exercise · 10 min*
-
 ---
 
 ## Key Endpoints
@@ -241,10 +252,11 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 | `/v1/agents/{id}/artifacts/download` | GET | Get presigned URL for download |
 
 **Important:** Download URLs expire after **15 minutes**.
-
 ---
 
 ## Exercise 8.3 — Wait & List
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def wait_for_completion(agent_id, timeout=300, poll_interval=5):
@@ -258,10 +270,11 @@ def list_artifacts(agent_id):
     response = requests.get(f"{BASE_URL}/agents/{agent_id}/artifacts", auth=AUTH)
     return response.json().get('items', [])
 ```
-
 ---
 
 ## Exercise 8.3 — Download
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 **Single artifact:**
 
@@ -275,10 +288,11 @@ download_url = response.json().get('url')
 ```
 
 **All artifacts:** loop items, create subdirs, download each via presigned URL
-
 ---
 
 ## Exercise 8.3 — CI Integration
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def process_test_results(agent_id):
@@ -288,7 +302,6 @@ def process_test_results(agent_id):
 ```
 
 **Success Criteria:** Listed artifacts · downloaded single + all · CI workflow integration
-
 ---
 
 <!-- _class: lead -->
@@ -298,7 +311,6 @@ def process_test_results(agent_id):
 ## Creating a Webhook Endpoint
 
 *Concept · 5 min · Exercise · 10 min*
-
 ---
 
 ## Webhook Headers
@@ -308,7 +320,6 @@ def process_test_results(agent_id):
 | `X-Webhook-Signature` | HMAC-SHA256 signature for verification |
 | `X-Webhook-ID` | Unique delivery ID |
 | `X-Webhook-Event` | Event type (`statusChange`) |
-
 ---
 
 ## Webhook Payload
@@ -323,10 +334,11 @@ def process_test_results(agent_id):
   "summary": "Added README.md and fixed tests"
 }
 ```
-
 ---
 
 ## Exercise 8.4 — HMAC Verification
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def verify_signature(raw_body, signature_header):
@@ -338,10 +350,11 @@ def verify_signature(raw_body, signature_header):
 ```
 
 Flask route: verify signature → parse payload → handle FINISHED/ERROR
-
 ---
 
 ## Exercise 8.4 — Configure Agent
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 curl -X POST https://api.cursor.com/v1/agents \
@@ -356,8 +369,9 @@ curl -X POST https://api.cursor.com/v1/agents \
   }'
 ```
 
-**Success Criteria:** Server running · signature verified · payload parsed · agent configured
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+**Success Criteria:** Server running · signature verified · payload parsed · agent configured
 ---
 
 <!-- _class: lead -->
@@ -367,7 +381,6 @@ curl -X POST https://api.cursor.com/v1/agents \
 ## Testing Webhooks Locally with ngrok
 
 *Concept · 5 min · Exercise · 8 min*
-
 ---
 
 ## What Is ngrok?
@@ -376,37 +389,50 @@ Creates a secure tunnel from a public URL to your local server.
 
 - Test webhooks without deploying
 - Debug locally · Demo to stakeholders
-
 ---
 
 ## Exercise 8.5 — Steps 1–3
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 1:** Start tunnel:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 ngrok http 5000
 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000
 ```
+---
+
+## Exercise 8.5 — Steps 1–3 (Part 2)
 
 **Step 2:** Copy HTTPS URL
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+---
+
+## Exercise 8.5 — Steps 1–3 (Part 3)
 
 **Step 3:** Create agent with ngrok URL:
+**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```bash
 curl -X POST https://api.cursor.com/v1/agents ... \
   -d '{"webhookUrl": "https://abc123.ngrok.io/webhook/cursor", ...}'
 ```
-
 ---
 
 ## Exercise 8.5 — Inspect & Replay
 
+**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+
 **Step 4:** Inspect requests at `http://127.0.0.1:4040`
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 **Step 5:** Replay failed webhooks (ngrok premium) — inspect raw body and headers
+**Terminal:** **Git Bash** or **Ubuntu (WSL)** — bash syntax required
 
 **Success Criteria:** Tunnel established · webhook received · signature verified · inspected in ngrok UI
-
 ---
 
 <!-- _class: lead -->
@@ -416,7 +442,6 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 ## End-to-End Automated Agent Workflow
 
 *Concept · 5 min · Exercise · 12 min*
-
 ---
 
 ## The Capstone Integration
@@ -427,7 +452,6 @@ Combine everything into `automated_workflow.py`:
 2. **Wait for completion** (webhook or polling)
 3. **Download artifacts**
 4. **Process results** (CI exit codes, notifications)
-
 ---
 
 ## Workflow Architecture
@@ -438,7 +462,6 @@ create_agent() → wait (webhook OR polling) → download_artifacts()
   Flask webhook server   completion_event.set()
   (background thread)    on FINISHED status
 ```
-
 ---
 
 ## Run the Workflow
@@ -454,7 +477,6 @@ python automated_workflow.py \
 # Polling only (no webhook):
 python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 ```
-
 ---
 
 ## Workflow Output
@@ -469,7 +491,6 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 ```
 
 **Success Criteria:** Creates agent · waits (webhook/polling) · downloads artifacts · end-to-end run
-
 ---
 
 ## Module Summary
@@ -482,7 +503,6 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 | 8.4 | Creating a Webhook Endpoint | HMAC verification |
 | 8.5 | Testing Webhooks with ngrok | Local tunnel debugging |
 | 8.6 | End-to-End Workflow | Complete automation |
-
 ---
 
 ## Quick Reference Card
@@ -501,7 +521,6 @@ SSE:  status · assistant · thinking · tool_call · result · error · done
 
 NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
 ```
-
 ---
 
 <!-- _class: lead -->

@@ -830,21 +830,50 @@ By the end of this module, participants will be able to:
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 2.1 — Steps 1–2
 
-**Step 1:** Open an unfamiliar repository in Cursor
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Agent commands → **PowerShell** ``Ctrl+` ``
 
-```bash
+
+**Step 1:** Open an unfamiliar repository in Cursor — **Terminal:** **PowerShell** (``Ctrl+` ``)
+
+1. Open terminal in Cursor (**Terminal → New Terminal** → profile **PowerShell**)
+2. Clone the sample repo and open it in Cursor:
+
+```powershell
 git clone https://github.com/facebookresearch/detectron2
 cd detectron2
 cursor .
 ```
 
-**Step 2:** Open the Agent (`Cmd+I` or `Ctrl+I`)
+---
+
+## Exercise 2.1 — Steps 1–2 (Part 2)
+
+**Step 2:** Open the Agent — **Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent in editor)
 
 ---
 
 ## Exercise 2.1 — Step 3: Orientation Prompt
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 ```
 Explain this codebase to me as if I'm a new team member.
@@ -861,14 +890,23 @@ Specifically tell me:
 
 ## Exercise 2.1 — Steps 4–5
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 4:** Follow up — trace data flow:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Based on what you just told me, trace the flow of data from input
 to output. What functions get called in order?
 ```
 
+---
+
+## Exercise 2.1 — Steps 4–5 (Part 2)
+
 **Step 5:** Ask for a visual overview:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Create an ASCII diagram showing the module relationships in this codebase.
@@ -932,11 +970,21 @@ Use **precise context** — select a function or class, then ask focused questio
 
 ## Exercise 2.2 — Steps 1–3
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Open a specific file in your project
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 **Step 2:** Select a function or class you want explained
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
+---
+
+## Exercise 2.2 — Steps 1–3 (Part 2)
 
 **Step 3:** Use the Agent with precise context:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Explain the function I have selected. For each major section, tell me:
@@ -950,14 +998,23 @@ Explain the function I have selected. For each major section, tell me:
 
 ## Exercise 2.2 — Steps 4–5
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 4:** Ask for a concrete example:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Give me a concrete example of inputs and outputs for this function.
 Show me what happens in the normal case and one edge case.
 ```
 
+---
+
+## Exercise 2.2 — Steps 4–5 (Part 2)
+
 **Step 5:** Ask about dependencies:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 What other functions does this call? What calls this function?
@@ -1002,14 +1059,23 @@ Trace the call chain two levels in each direction.
 
 ## Exercise 2.3 — Steps 1–2
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Ask for a small, safe change:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Change the welcome message in index.html from "Hello World"
 to "Welcome to My App"
 ```
 
+---
+
+## Exercise 2.3 — Steps 1–2 (Part 2)
+
 **Step 2:** Watch the agent generate the diff:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 📝 Changes to index.html:
@@ -1024,6 +1090,8 @@ Accept? [Yes] [No] [Edit]
 
 ## Exercise 2.3 — Review Questions
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
 Before accepting, ask yourself:
 
 - Are the changes **only** what I asked for?
@@ -1032,6 +1100,7 @@ Before accepting, ask yourself:
 - Will this break anything else?
 
 **Step 4:** Accept · **Step 5:** Test manually
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```bash
 open index.html          # web
@@ -1042,6 +1111,8 @@ npm start                # React
 ---
 
 ## Exercise 2.3 — If Something Goes Wrong
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 ```
 That change didn't work. The button disappeared.
@@ -1078,12 +1149,15 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 ## Exercise 2.4 — Enable Plan Mode
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
 ```bash
 # Press Shift+Tab in the Agent input
 # The input border changes color to indicate Plan Mode
 ```
 
 **Step 2:** Describe a complex change:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 Add user authentication to this web app.
@@ -1122,14 +1196,23 @@ Ready to proceed? [Yes] [No] [Modify Plan]
 
 ## Exercise 2.4 — Approve & Execute
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 4:** Answer questions and approve:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Use JWT for simplicity. No existing database yet – use SQLite for now.
 Skip email verification for this version. Proceed.
 ```
 
+---
+
+## Exercise 2.4 — Approve & Execute (Part 2)
+
 **Step 5:** Watch the agent execute the plan step by step
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Success Criteria:**
 - Enabled Plan Mode (Shift+Tab) · Agent created structured plan
@@ -1161,17 +1244,32 @@ Skip email verification for this version. Proceed.
 
 ## Exercise 2.5 — Compare Two Models
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Set model to Claude Sonnet, ask:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Explain what a closure is in JavaScript with a practical example.
 ```
 
+---
+
+## Exercise 2.5 — Compare Two Models (Part 2)
+
 **Step 2:** Copy the response
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Step 3:** Switch to GPT-5 Mini — ask the **same question**
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
+---
+
+## Exercise 2.5 — Compare Two Models (Part 3)
 
 **Step 4:** Compare responses
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 | Comparison Point | Claude Sonnet | GPT-5 Mini |
 |-----------------|---------------|------------|
@@ -1184,9 +1282,18 @@ Explain what a closure is in JavaScript with a practical example.
 
 ## Exercise 2.5 — Cost & Decision Matrix
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 5:** Check token usage at bottom of chat after each request
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
+
+---
+
+## Exercise 2.5 — Cost & Decision Matrix (Part 2)
 
 **Step 6:** Create a personal decision matrix:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 If task is...                    Use model...
@@ -1197,8 +1304,6 @@ If task is...                    Use model...
   Architecture design            → Claude Opus
   UI/frontend from image         → Gemini Pro
 ```
-
-**Success Criteria:** Same question to two models · Compared quality/speed · Created personal guide
 
 ---
 
@@ -1229,19 +1334,33 @@ If task is...                    Use model...
 
 ## Exercise 2.6 — @filename & @symbol
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Target a specific file:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 @database.py What are the security vulnerabilities in this database connection?
 ```
 
+---
+
+## Exercise 2.6 — @filename & @symbol (Part 2)
+
 **Step 2:** Target a specific function:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 @calculate_total This function is returning NaN sometimes. Why?
 ```
 
+---
+
+## Exercise 2.6 — @filename & @symbol (Part 3)
+
 **Step 3:** Combine multiple @mentions:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 @auth.py @UserModel @login_handler Review the authentication flow.
@@ -1251,6 +1370,8 @@ Are there any race conditions or timing attacks?
 ---
 
 ## Exercise 2.6 — @branch, @chat, @folder, @web
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 ```
 Compare @main and @feature/payment branches.
@@ -1307,24 +1428,44 @@ implement the fix we agreed on.
 
 ## Exercise 2.7 — Create & Restore
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Create a checkpoint before making a change
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```bash
 # Click checkpoint icon in Agent panel
 # Or: Cmd+Shift+S / Ctrl+Shift+S
 ```
 
+---
+
+## Exercise 2.7 — Create & Restore (Part 2)
+
 **Step 2:** Name it descriptively: `"Before auth refactor - safe point"`
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+
+---
+
+## Exercise 2.7 — Create & Restore (Part 3)
 
 **Step 3:** Let the agent make changes:
+**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```
 Add input validation to all form handlers.
 ```
 
+---
+
+## Exercise 2.7 — Create & Restore (Part 4)
+
 **Step 4:** If something goes wrong → **Restore to checkpoint**
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 **Step 5:** View history via the clock icon in Agent panel
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ---
 
@@ -1365,15 +1506,29 @@ Add input validation to all form handlers.
 
 ## Exercise 2.8 — Steps 1–3
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Check the environment:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run `python --version` and tell me what Python version we're using.
 ```
 
+---
+
+## Exercise 2.8 — Steps 1–3 (Part 2)
+
 **Step 2:** Approve the command when prompted
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
+---
+
+## Exercise 2.8 — Steps 1–3 (Part 3)
 
 **Step 3:** Run tests and fix failures:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run the test suite. If any tests fail, fix them.
@@ -1383,6 +1538,8 @@ Show me what you're changing.
 ---
 
 ## Exercise 2.8 — Agent Terminal Loop
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Agent commands → **PowerShell** ``Ctrl+` ``
 
 ```
 Agent: I'll run the tests first.
@@ -1403,13 +1560,22 @@ Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
 
 ## Exercise 2.8 — More Commands
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 5:** Install a dependency:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Install the 'requests' library if it's not already installed.
 ```
 
+---
+
+## Exercise 2.8 — More Commands (Part 2)
+
 **Step 6:** Multi-step workflow:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run these commands in order:
@@ -1581,38 +1747,75 @@ Ask Mode                                      Agent Mode
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 3.1 — Steps 1–2
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Open Agent panel (`Cmd+I` / `Ctrl+I`) — note mode indicator at bottom
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
+---
+
+## Exercise 3.1 — Steps 1–2 (Part 2)
 
 **Step 2:** Try to make a change in **Ask Mode**:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Change the variable name 'temp' to 'temperature' in the current file.
 ```
 
-**Expected:** Agent explains it cannot edit in Ask Mode — offers to show the change as a code block instead.
-
 ---
 
 ## Exercise 3.1 — Steps 3–5
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 3:** Ask a question Ask Mode handles well:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Explain the purpose of the main() function in this file.
 What edge cases does it handle?
 ```
 
+---
+
+## Exercise 3.1 — Steps 3–5 (Part 2)
+
 **Step 4:** Switch to **Agent Mode** via the dropdown
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Step 5:** Repeat the rename request — agent shows diff for approval
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ---
 
 ## Exercise 3.1 — Step 6 & Success Criteria
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 **Step 6:** Practice mode-switching mid-conversation:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 # Start in Ask Mode: What does this function return?
@@ -1659,14 +1862,23 @@ What edge cases does it handle?
 
 ## Exercise 3.2 — Steps 1–2
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Start a local web app (or use a public test page)
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 python -m http.server 8000
 # Or use a public test page
 ```
 
+---
+
+## Exercise 3.2 — Steps 1–2 (Part 2)
+
 **Step 2:** In Agent Mode:
+**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```
 Use the browser tool to open http://localhost:8000
@@ -1677,7 +1889,11 @@ Tell me what you see on the page.
 
 ## Exercise 3.2 — Steps 3–4
 
+**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+
+
 **Step 3:** Find specific elements:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 On that same page, find:
@@ -1686,7 +1902,12 @@ On that same page, find:
 3. Any error messages visible
 ```
 
+---
+
+## Exercise 3.2 — Steps 3–4 (Part 2)
+
 **Step 4:** Check the console:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Now open the browser developer console.
@@ -1711,14 +1932,23 @@ Agent: Found a deprecated API warning and a 404 on /api/data
 
 ## Exercise 3.2 — Steps 5–6
 
+**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+
+
 **Step 5:** Diagnose a layout issue:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 The login button is partially hidden on mobile sizes.
 Use the browser tool to check what's happening.
 ```
 
+---
+
+## Exercise 3.2 — Steps 5–6 (Part 2)
+
 **Step 6:** Extract data from a page:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Go to https://example.com/pricing
@@ -1774,7 +2004,11 @@ User: "Run the tests and fix any failures"
 
 ## Exercise 3.3 — Steps 1–2
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Check your environment:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run these commands and tell me what versions we're using:
@@ -1783,7 +2017,12 @@ Run these commands and tell me what versions we're using:
 - git --version
 ```
 
+---
+
+## Exercise 3.3 — Steps 1–2 (Part 2)
+
 **Step 2:** Run the test suite:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run the test suite. Show me which tests pass and which fail.
@@ -1793,14 +2032,23 @@ Run the test suite. Show me which tests pass and which fail.
 
 ## Exercise 3.3 — Steps 3–4
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 3:** Diagnose failures:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 One or more tests failed. What's causing these failures?
 Look at the specific error messages.
 ```
 
+---
+
+## Exercise 3.3 — Steps 3–4 (Part 2)
+
 **Step 4:** Fix and verify:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Based on your diagnosis, fix the failing tests.
@@ -1810,6 +2058,8 @@ Show me what you're changing before you run again.
 ---
 
 ## Exercise 3.3 — Debug Workflow (Step 5)
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 ```
 I found a bug where the app crashes when input is empty.
@@ -1829,7 +2079,10 @@ I found a bug where the app crashes when input is empty.
 
 ## Exercise 3.3 — Step 6 & Safety Rules
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 **Step 6:** React to long-running commands:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Run npm install or pip install. Watch the output.
@@ -1913,6 +2166,8 @@ User: "Wait, I just wanted the login bug fixed!"
 
 ## Exercise 3.4 — Step 1: Constrained Prompt
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 ```
 Task: Fix the bug where get_user_email(user_id) returns None for valid users.
 
@@ -1930,15 +2185,22 @@ Success criteria: Function returns email string for valid user IDs.
 
 ## Exercise 3.4 — Steps 2–3
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 2:** Compare constrained vs. unconstrained:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 Fix get_user_email - it's returning None sometimes.
 ```
 
-Note the difference in scope of the response.
+---
+
+## Exercise 3.4 — Steps 2–3 (Part 2)
 
 **Step 3:** Plan first:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Before making any changes, answer:
@@ -1954,7 +2216,11 @@ I will review before approving any code changes.
 
 ## Exercise 3.4 — Steps 4–5
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 4:** Negative constraints:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Add error handling to the file parser.
@@ -1966,7 +2232,12 @@ But DO NOT:
 - Change the existing test file
 ```
 
+---
+
+## Exercise 3.4 — Steps 4–5 (Part 2)
+
 **Step 5:** One change at a time:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 First, add input validation. Just show me what you'd add — don't modify yet.
@@ -1976,6 +2247,8 @@ First, add input validation. Just show me what you'd add — don't modify yet.
 ---
 
 ## Exercise 3.4 — Step 6: Prompt Templates
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Save as `.cursor/prompt-templates.md`:
 
@@ -2122,7 +2395,26 @@ Good: ...  Bad: ...
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 4.1 — Step 1: Setup
+
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
 ```bash
 mkdir -p .cursor/rules
@@ -2141,6 +2433,8 @@ General: no commented-out code, no console.log in prod
 ---
 
 ## Exercise 4.1 — Build & Test Rule
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Create `.cursor/rules/build-and-test.mdc`:
 
@@ -2162,14 +2456,23 @@ Flag: exec/eval with user input, password/secret in variable names
 
 ## Exercise 4.1 — Test & File-Specific Rules
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 5:** Verify rules are applied:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Based on the project rules, what are the coding standards I should follow?
 What are the security guardrails?
 ```
 
+---
+
+## Exercise 4.1 — Test & File-Specific Rules (Part 2)
+
 **Step 6:** Create `.cursor/rules/react-components.mdc` for `**/*.jsx, **/*.tsx`:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 - Component structure, naming (PascalCase, handleSubmit)
 - Performance: React.memo, useCallback, useMemo
 - Accessibility: keyboard nav, alt text, semantic HTML
@@ -2217,6 +2520,8 @@ What are the security guardrails?
 
 ## Exercise 4.2 — Create Instructions
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 Create `.cursor/repository-instructions.md`:
 
 ```
@@ -2234,14 +2539,23 @@ Migrations: alembic upgrade head
 
 ## Exercise 4.2 — Verify & Maintain
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 2:** Ask the Agent:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```
 What are the key technologies used in this project?
 How do I run the tests?
 ```
 
+---
+
+## Exercise 4.2 — Verify & Maintain (Part 2)
+
 **Step 3:** Update instructions when:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 - New team members join → add contact info
 - Architecture changes → update structure
 - New dependencies or common issues discovered
@@ -2284,6 +2598,8 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 
 ## Exercise 4.3 — PR Review Skill
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 Create `.cursor/skills/pr-review/SKILL.md`:
 
 ```
@@ -2300,6 +2616,8 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 
 ## Exercise 4.3 — Security Audit Skill
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 Create `.cursor/skills/security-audit/SKILL.md`:
 
 ```
@@ -2315,20 +2633,34 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 ## Exercise 4.3 — Invoke Skills
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 4:** Invoke via slash command:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 /pr-review PR #42
 /pr-review feature/payment-integration
 ```
 
+---
+
+## Exercise 4.3 — Invoke Skills (Part 2)
+
 **Step 5:** List available skills:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 What skills are available in this project?
 ```
 
+---
+
+## Exercise 4.3 — Invoke Skills (Part 3)
+
 **Step 6:** Create **Onboarding** skill — generates setup checklist from repo instructions
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Success Criteria:** Created skills · built PR Review + Security Audit · invoked via slash command
 
@@ -2608,16 +2940,41 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 5.1 — Steps 1–2
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Start an interactive session
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent
 agent "Help me understand the current codebase structure"
 ```
 
-**Step 2:** Navigate the session
+---
+
+## Exercise 5.1 — Steps 1–2 (Part 2)
+
+**Step 2:** Navigate the session (inside the running `agent` session — same terminal window) — unless step notes Git Bash or WSL
 - Type prompts naturally
 - `Shift+Enter` — new line without submitting
 - `Enter` — submit prompt
@@ -2627,7 +2984,11 @@ agent "Help me understand the current codebase structure"
 
 ## Exercise 5.1 — Steps 3–5
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 3:** Switch models:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 /model
@@ -2635,14 +2996,24 @@ agent "Help me understand the current codebase structure"
 agent --list-models
 ```
 
+---
+
+## Exercise 5.1 — Steps 3–5 (Part 2)
+
 **Step 4:** Ask Mode (read-only):
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```bash
 agent --mode=ask "What does this project's main function do?"
 # Or inside session: /ask
 ```
 
+---
+
+## Exercise 5.1 — Steps 3–5 (Part 3)
+
 **Step 5:** Plan Mode:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```bash
 agent --mode=plan "Add user authentication to this API"
@@ -2652,20 +3023,27 @@ agent --mode=plan "Add user authentication to this API"
 
 ## Exercise 5.1 — Steps 6–7
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 6:** Configure status line:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 npx -y cursor-statusline
 # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]
 ```
 
+---
+
+## Exercise 5.1 — Steps 6–7 (Part 2)
+
 **Step 7:** Terminal key bindings:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent /setup-terminal
 ```
-
-**Success Criteria:** Started session · switched models · used Ask/Plan Mode · configured status line
 
 ---
 
@@ -2706,7 +3084,11 @@ agent --non-interactive "run this task"     # No prompts, just output
 
 ## Exercise 5.2 — Steps 1–2
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Basic one-shot commands:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent "What is the difference between let and const in JavaScript?"
@@ -2714,7 +3096,12 @@ agent "Write a bash function that checks if a port is in use"
 agent --mode=ask "Explain the git rebase command with examples"
 ```
 
+---
+
+## Exercise 5.2 — Steps 1–2 (Part 2)
+
 **Step 2:** Specify models:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent --model gpt-5-mini "What does this command do: ls -la | grep .txt"
@@ -2724,6 +3111,8 @@ agent --model claude-4.5-opus "Design a database schema for a task management sy
 ---
 
 ## Exercise 5.2 — Scriptable Code Reviewer
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 Create `bin/ai-review.sh`:
 
@@ -2737,11 +3126,17 @@ Check for: debugging statements, unused imports,
 security issues, missing error handling. Be concise."
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 5.2 — Batch & Git Hooks
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 4:** Batch process files:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 for file in src/**/*.py; do
@@ -2750,9 +3145,15 @@ for file in src/**/*.py; do
 done
 ```
 
+---
+
+## Exercise 5.2 — Batch & Git Hooks (Part 2)
+
 **Step 5:** Pre-commit hook — review staged diff for secrets, debug statements, merge markers
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 **Step 6:** CI/CD — analyze test output and suggest fixes for failures
+**Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
 
 **Success Criteria:** Ran one-shots · specified models · created reviewer script · understood CI/CD use
 
@@ -2797,39 +3198,67 @@ Local Terminal                    Cloud
 
 ## Exercise 5.3 — Steps 1–3
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Start local session and hand off:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent
 & "Analyze the entire codebase and create a dependency graph."
 ```
 
+---
+
+## Exercise 5.3 — Steps 1–3 (Part 2)
+
 **Step 2:** Verify handoff:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 🚀 Handing off to Cloud Agent...
 ✅ Session running at: https://cursor.com/agents/[agent-id]
 ```
 
+---
+
+## Exercise 5.3 — Steps 1–3 (Part 3)
+
 **Step 3:** Check status via browser or CLI
+**Where:** **Web browser** — Edge or Chrome
 
 ---
 
 ## Exercise 5.3 — Steps 4–6
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 4:** Push existing conversation:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 & "Continue this conversation in the cloud. I need to log off."
 ```
 
+---
+
+## Exercise 5.3 — Steps 4–6 (Part 2)
+
 **Step 5:** Long-running task:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent "& Refactor the auth module to use JWT. Update all tests and docs."
 ```
 
+---
+
+## Exercise 5.3 — Steps 4–6 (Part 3)
+
 **Step 6:** Resume later:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent --resume [agent-id-from-cloud]
@@ -2879,7 +3308,11 @@ agent "Just say one word: auth-refactor"
 
 ## Exercise 5.4 — Steps 1–2
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Create multiple named sessions:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent "Just say one word: frontend-cleanup"   # do work, exit
@@ -2887,7 +3320,12 @@ agent "Just say one word: db-optimization"  # do work, exit
 agent "Just say one word: docs-update"
 ```
 
+---
+
+## Exercise 5.4 — Steps 1–2 (Part 2)
+
 **Step 2:** List all sessions:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 /resume
@@ -2900,20 +3338,34 @@ agent "Just say one word: docs-update"
 
 ## Exercise 5.4 — Steps 3–5
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 3:** Resume by ID:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 agent --resume abc123-def456-ghi789
 ```
 
+---
+
+## Exercise 5.4 — Steps 3–5 (Part 2)
+
 **Step 4:** Concurrent sessions in different terminals:
+**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
 
 ```bash
 # Terminal 1: agent --resume frontend-cleanup
 # Terminal 2: agent --resume db-optimization
 ```
 
+---
+
+## Exercise 5.4 — Steps 3–5 (Part 3)
+
 **Step 5:** Context management:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 /compress   # Summarize conversation, free context window
@@ -2923,9 +3375,13 @@ agent --resume abc123-def456-ghi789
 
 ## Exercise 5.4 — Steps 6–7 & Best Practices
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
 **Step 6:** Export session summary as markdown
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Step 7:** Create `bin/cursor-sessions.sh` to list and manage sessions
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)
 
@@ -3086,16 +3542,42 @@ Failed (1)
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 6.1 — Steps 1–2
 
+**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+
+
 **Step 1:** Navigate to Cloud Agents
+**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```bash
 # Cursor Editor: cloud icon or View → Cloud Agents
 open https://cursor.com/agents
 ```
 
+---
+
+## Exercise 6.1 — Steps 1–2 (Part 2)
+
 **Step 2:** Click **"+ New"** and fill out:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```
 Repository: https://github.com/YOUR_ORG/YOUR_REPO
@@ -3111,7 +3593,11 @@ Auto-create PR: ☐
 
 ## Exercise 6.1 — Steps 3–4
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 3:** Monitor live log in real time:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 [10:45:01] Agent starting...
@@ -3121,7 +3607,12 @@ Auto-create PR: ☐
 [10:45:40] Generating summary...
 ```
 
+---
+
+## Exercise 6.1 — Steps 3–4 (Part 2)
+
 **Step 4:** Configure settings (gear icon):
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 | Setting | Purpose |
 |---------|---------|
@@ -3135,7 +3626,11 @@ Auto-create PR: ☐
 
 ## Exercise 6.1 — Steps 5–6
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 5:** Launch with PR creation:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
@@ -3143,13 +3638,16 @@ Auto-create PR: ✅ Yes
 Branch prefix: docs/contributing
 ```
 
+---
+
+## Exercise 6.1 — Steps 5–6 (Part 2)
+
 **Step 6:** Share agent URL with team:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 https://cursor.com/agents/agt_abc123def456
 ```
-
-**Success Criteria:** Launched agent · monitored logs · configured settings · shared URL
 
 ---
 
@@ -3189,7 +3687,11 @@ https://cursor.com/agents/agt_abc123def456
 
 ## Exercise 6.2 — Steps 1–2
 
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+
+
 **Step 1:** Launch agent that generates artifacts:
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ```
 Generate:
@@ -3201,17 +3703,32 @@ Generate:
 Place all in artifacts/ directory.
 ```
 
+---
+
+## Exercise 6.2 — Steps 1–2 (Part 2)
+
 **Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 ---
 
 ## Exercise 6.2 — Steps 3–5
 
+**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+
+
 **Step 3:** Download individual artifacts
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
 
 **Step 4:** Download all as zip
+**Where:** **Cursor Agent panel** — ``Ctrl+L``
+
+---
+
+## Exercise 6.2 — Steps 3–5 (Part 2)
 
 **Step 5:** Preview in browser:
+**Where:** **Web browser** — Edge or Chrome
 - Markdown → rendered HTML
 - Images → inline preview
 - JSON → formatted tree view
@@ -3219,6 +3736,8 @@ Place all in artifacts/ directory.
 ---
 
 ## Exercise 6.2 — API Access
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 # List artifacts
@@ -3231,11 +3750,15 @@ DOWNLOAD_URL=$(curl -s -u "$CURSOR_USER_API_KEY:" \
 curl -L -o report.md "$DOWNLOAD_URL"
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent ID.
 
 ---
 
 ## Exercise 6.2 — CI/CD Integration
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```yaml
 # GitHub Actions — download test results from completed agent
@@ -3545,29 +4068,61 @@ response = client.chat.completions.create(
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 7.2 — Steps 1–3
 
-**Step 1:** Generate User API Key via Cursor Settings → API Keys → Generate New Key
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
-**Step 2:** Set environment variable:
 
-```bash
-export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
-echo $CURSOR_USER_API_KEY
+**Step 1:** Generate User API Key — **Where:** **Cursor app** → **Settings** → **API Keys** → **Generate New Key** (copy the key; you will not see it again)
+
+---
+
+## Exercise 7.2 — Steps 1–3 (Part 2)
+
+**Step 2:** Set environment variable — **Terminal:** **PowerShell** (``Ctrl+` ``)
+
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
+$env:CURSOR_USER_API_KEY
 ```
 
-**Step 3:** Test with curl:
+---
 
-```bash
-curl -s -u "$CURSOR_USER_API_KEY:" \
-  https://api.cursor.com/v1/models | head -20
+## Exercise 7.2 — Steps 1–3 (Part 3)
+
+**Step 3:** Test with curl — **Terminal:** **PowerShell**
+
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
+  https://api.cursor.com/v1/models | Select-Object -First 20
 ```
 
 ---
 
 ## Exercise 7.2 — Steps 4–5
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 4:** Test with Python requests:
+**Terminal:** **PowerShell** — save as `test_models.py`, then `python test_models.py` — ``Ctrl+L``
 
 ```python
 response = requests.get(
@@ -3576,7 +4131,12 @@ response = requests.get(
 )
 ```
 
+---
+
+## Exercise 7.2 — Steps 4–5 (Part 2)
+
 **Step 5:** Test with OpenAI SDK:
+**Terminal:** **PowerShell** — `python test_openai_sdk.py` — ``Ctrl+L``
 
 ```python
 client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY)
@@ -3591,7 +4151,11 @@ response = client.chat.completions.create(
 
 ## Exercise 7.2 — Steps 6–7
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 6:** Generate and test Admin API Key:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx"
@@ -3599,7 +4163,12 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   https://api.cursor.com/v1/admin/organization | jq '.'
 ```
 
+---
+
+## Exercise 7.2 — Steps 6–7 (Part 2)
+
 **Step 7:** Revoke compromised keys via API or Settings → API Keys → Revoke
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 **Success Criteria:** Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
 
@@ -3653,6 +4222,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Exercise 7.3 — Exponential Backoff
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```python
 def call_with_retry(url, max_retries=5, base_delay=1.0):
     for attempt in range(max_retries):
@@ -3671,6 +4242,8 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 ---
 
 ## Exercise 7.3 — Rate Limiter & Client
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 **Monitor headers:** warn when `X-RateLimit-Remaining` < 10% of limit
 
@@ -3729,6 +4302,8 @@ Request 2: GET with If-None-Match: "abc123"
 
 ## Exercise 7.4 — Basic ETag Usage
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```python
 def get_with_etag(url, previous_etag=None):
     headers = {'If-None-Match': previous_etag} if previous_etag else {}
@@ -3743,6 +4318,8 @@ def get_with_etag(url, previous_etag=None):
 ---
 
 ## Exercise 7.4 — ETagCache & CachedClient
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 **ETagCache:** persistent pickle-based cache keyed by URL hash
 
@@ -3784,7 +4361,11 @@ GET /v1/models
 
 ## Exercise 7.5 — Steps 1–2
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 1:** List with curl:
+**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```bash
 curl -s -u "$CURSOR_USER_API_KEY:" \
@@ -3792,13 +4373,22 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
   | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'
 ```
 
+---
+
+## Exercise 7.5 — Steps 1–2 (Part 2)
+
 **Step 2:** Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support
+**Terminal:** **PowerShell** — `python script.py`
 
 ---
 
 ## Exercise 7.5 — Steps 3–4
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 3:** Filter models:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```python
 # Models with 100k+ context
@@ -3808,15 +4398,18 @@ large_context = [m for m in models if m.get('context_window', 0) >= 100000]
 cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]
 ```
 
+---
+
+## Exercise 7.5 — Steps 3–4 (Part 2)
+
 **Step 4:** Model selection helper:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```python
 select_model("code_review", "balanced")  # → claude-4.6-sonnet
 select_model("simple_fix", "low")        # → gpt-5-mini
 select_model("frontend_ui", "high")      # → gemini-3.1-pro
 ```
-
-**Success Criteria:** Listed with curl · formatted table · filtered · selection helper
 
 ---
 
@@ -3936,38 +4529,80 @@ By the end of this module, participants will be able to:
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 8.1 — Create with curl
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+**Step 1 — set API key · Terminal:** **PowerShell**
+
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
+```
+
+**Step 2 — create agent · Terminal:** **PowerShell**
+
+```powershell
+curl.exe -X POST https://api.cursor.com/v1/agents `
+  -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Content-Type: application/json" `
+  -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' `
+  | ConvertFrom-Json
+```
+
+**Terminal (alternative):** **Git Bash** / **WSL** — bash block below.
 
 ```bash
 export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
-
-curl -X POST https://api.cursor.com/v1/agents \
-  -u "$CURSOR_USER_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": {"text": "Add a README.md file with setup instructions"},
-    "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO", "startingRef": "main"}],
-    "autoCreatePR": true
-  }' | jq '.'
+curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'
 ```
 
 ---
 
 ## Exercise 8.1 — Capture IDs
 
-```bash
-AGENT_ID=$(echo "$RESPONSE" | jq -r '.agent.id')
-RUN_ID=$(echo "$RESPONSE" | jq -r '.run.id')
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
-echo "Agent ID: $AGENT_ID"
-echo "Dashboard: https://cursor.com/agents/$AGENT_ID"
+
+**Step 1:** Save the JSON from the create-agent call — **Terminal:** **PowerShell**
+
+```powershell
+$response = curl.exe ... | ConvertFrom-Json   # reuse create-agent command
+$env:AGENT_ID = $response.agent.id
+$env:RUN_ID = $response.run.id
+Write-Host "Agent ID: $($env:AGENT_ID)"
+Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
 ```
+
+---
+
+## Exercise 8.1 — Capture IDs (Part 2)
+
+**Step 2:** Optional model override in create payload — **Where:** edit JSON before POST (any terminal)
 
 Create with specific model: `"model": {"id": "claude-4.7-opus"}`
 
 ---
 
 ## Exercise 8.1 — Python Helper
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
@@ -4019,17 +4654,27 @@ SSE streams support the **`Last-Event-ID`** header — if your connection drops,
 
 ## Exercise 8.2 — Stream with curl
 
-```bash
-curl -N -u "$CURSOR_USER_API_KEY:" \
-  -H "Accept: text/event-stream" \
-  "https://api.cursor.com/v1/agents/$AGENT_ID/runs/$RUN_ID/stream"
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+**Terminal:** **PowerShell**
+
+```powershell
+curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Accept: text/event-stream" `
+  "https://api.cursor.com/v1/agents/$env:AGENT_ID/runs/$env:RUN_ID/stream"
 ```
+
+Set IDs first: `$env:AGENT_ID = "..."` · `$env:RUN_ID = "..."`
+
+**Terminal (alternative):** **Git Bash** / **WSL** — bash `curl -N` block above.
 
 Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
 
 ---
 
 ## Exercise 8.2 — Python SSE Client
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def stream_agent_response(agent_id, run_id, on_event=None):
@@ -4047,6 +4692,8 @@ def stream_agent_response(agent_id, run_id, on_event=None):
 ---
 
 ## Exercise 8.2 — ResumableSSEClient
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on reconnect
 
@@ -4079,6 +4726,8 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 ## Exercise 8.3 — Wait & List
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```python
 def wait_for_completion(agent_id, timeout=300, poll_interval=5):
     while time.time() - start < timeout:
@@ -4096,6 +4745,8 @@ def list_artifacts(agent_id):
 
 ## Exercise 8.3 — Download
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 **Single artifact:**
 
 ```python
@@ -4112,6 +4763,8 @@ download_url = response.json().get('url')
 ---
 
 ## Exercise 8.3 — CI Integration
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```python
 def process_test_results(agent_id):
@@ -4161,6 +4814,8 @@ def process_test_results(agent_id):
 
 ## Exercise 8.4 — HMAC Verification
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```python
 def verify_signature(raw_body, signature_header):
     received = signature_header[7:]  # strip "sha256="
@@ -4176,6 +4831,8 @@ Flask route: verify signature → parse payload → handle FINISHED/ERROR
 
 ## Exercise 8.4 — Configure Agent
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 curl -X POST https://api.cursor.com/v1/agents \
   -u "$CURSOR_USER_API_KEY:" \
@@ -4188,6 +4845,8 @@ curl -X POST https://api.cursor.com/v1/agents \
     "autoCreatePR": true
   }'
 ```
+
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 **Success Criteria:** Server running · signature verified · payload parsed · agent configured
 
@@ -4214,16 +4873,30 @@ Creates a secure tunnel from a public URL to your local server.
 
 ## Exercise 8.5 — Steps 1–3
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
+
 **Step 1:** Start tunnel:
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 ```bash
 ngrok http 5000
 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000
 ```
 
+---
+
+## Exercise 8.5 — Steps 1–3 (Part 2)
+
 **Step 2:** Copy HTTPS URL
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+
+---
+
+## Exercise 8.5 — Steps 1–3 (Part 3)
 
 **Step 3:** Create agent with ngrok URL:
+**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
 
 ```bash
 curl -X POST https://api.cursor.com/v1/agents ... \
@@ -4234,9 +4907,13 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 ## Exercise 8.5 — Inspect & Replay
 
+**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+
 **Step 4:** Inspect requests at `http://127.0.0.1:4040`
+**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 **Step 5:** Replay failed webhooks (ngrok premium) — inspect raw body and headers
+**Terminal:** **Git Bash** or **Ubuntu (WSL)** — bash syntax required
 
 **Success Criteria:** Tunnel established · webhook received · signature verified · inspected in ngrok UI
 
@@ -4415,7 +5092,26 @@ By the end of this module, participants will be able to:
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 9.1 — Setup & List
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx"
@@ -4429,9 +5125,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   "https://api.cursor.com/v1/admin/members" | jq '.'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 9.1 — Pagination & Export
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 **Pagination:**
 
@@ -4439,6 +5139,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   "https://api.cursor.com/v1/admin/members?limit=10&offset=0"
 ```
+
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 **Python:** loop with offset until empty → export to `team_roster.csv` (email, role, status, joined, lastActiveAt)
 
@@ -4472,6 +5174,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Exercise 9.2 — Weekly Usage
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 END=$(date +%Y-%m-%d)
 START=$(date -d "7 days ago" +%Y-%m-%d)
@@ -4481,9 +5185,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   | jq '.daily[] | {date: .date, cost: .cost, tokens: .totalTokens, users: .activeUsers}'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 9.2 — Cost Report
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Python `generate_cost_report()` for last 30 days:
 
@@ -4519,6 +5227,8 @@ Python `generate_cost_report()` for last 30 days:
 
 ## Exercise 9.3 — Set Limits
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 USER_ID=$(curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   "https://api.cursor.com/v1/admin/members?email=developer@company.com" \
@@ -4529,11 +5239,15 @@ curl -X PATCH ".../policies/users/$USER_ID/limits" \
   -d '{"monthlyLimit": 50.00, "exceedanceAction": "block"}'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 Check current limit: `GET .../policies/users/{userId}/limits`
 
 ---
 
 ## Exercise 9.3 — Bulk Limits
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 **CSV bulk set:** `email, monthly_limit, action`
 
@@ -4569,6 +5283,8 @@ lead@company.com,200,alert
 
 ## Exercise 9.4 — Model Breakdown
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   ".../analytics/usage/models?startDate=$START&endDate=$END" \
@@ -4580,9 +5296,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   | jq '.users[] | select(.modelBreakdown."claude-4.7-opus" != null)'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 9.4 — Optimization Report
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 `generate_optimization_report()`:
 
@@ -4618,12 +5338,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Exercise 9.5 — DAU Report
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   ".../analytics/usage/daily?startDate=$START&endDate=$END" \
   | jq '{avg_weekly: ([.daily[-7:] | .[].activeUsers] | add / length),
          peak: ([.daily[] | .activeUsers] | max)}'
 ```
+
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 **Python leadership report:**
 - Average/median/peak DAU · adoption rate (% of team)
@@ -4656,6 +5380,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ---
 
 ## Exercise 9.6 — Three Leaderboards
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 **1. Engagement leaderboard** — rank by request count (anonymized emails)
 
@@ -4860,7 +5586,26 @@ By the end of this module, participants will be able to:
 
 ---
 
+## Windows Exercise Environment
+
+All exercises in this module assume **Windows 10/11** with Cursor installed.
+
+| Terminal | Use when | Open in Cursor |
+|----------|----------|----------------|
+| **PowerShell** | Default — Python, Git, `curl.exe`, npm, Cursor CLI (`agent`) | ``Ctrl+` `` → **PowerShell** |
+| **Git Bash** | Bash syntax, `export VAR=...`, shell scripts ending in `.sh` | Terminal menu → **Git Bash** |
+| **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
+| **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
+
+**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+
+**Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
+---
+
 ## Exercise 10.1 — Fetch Metrics
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 END=$(date +%Y-%m-%d)
@@ -4871,9 +5616,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   | jq '.'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 10.1 — AI Contribution %
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```bash
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
@@ -4886,9 +5635,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
     }'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 10.1 — ROI Analysis
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 Python `calculate_ai_roi()`:
 
@@ -4927,6 +5680,8 @@ AI usage cost → Net ROI
 
 ## Exercise 10.2 — Stream to File
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 curl -N -u "$CURSOR_ADMIN_API_KEY:" \
   ".../analytics/export/csv?startDate=$START&endDate=$END&type=commits" \
@@ -4935,9 +5690,13 @@ curl -N -u "$CURSOR_ADMIN_API_KEY:" \
 head -10 cursor_commits_export.csv
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 10.2 — BI Integration
+
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 Python `stream_to_dataframe()` → pandas DataFrame:
 
@@ -4978,17 +5737,23 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 ## Exercise 10.3 — Query Events
 
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 ```bash
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   ".../analytics/events?startDate=$START&endDate=$END&limit=100" \
   | jq '.events[] | {user: .user.email, file: .filePath, model: .modelId, accepted: .accepted}'
 ```
 
+**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 Acceptance rate by model: group events → total vs. accepted per model
 
 ---
 
 ## Exercise 10.3 — Compliance Report
+
+**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
 `generate_compliance_report()` for last 90 days:
 

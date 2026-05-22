@@ -9,7 +9,8 @@ style: |
   section.lead { background: #ffffff; }
   section.lead h1 { text-align: center; color: #cc0000; }
   section.lead h2 { text-align: center; font-weight: 400; color: #cc0000; }
-  table { font-size: 0.72em; margin: 0 auto; color: #000000; border-collapse: collapse; }
+  table { font-size: 0.5625em; margin: 0 auto; color: #000000; border-collapse: collapse; }
+  p, li { font-size: 0.625em; }
   th { background: #ffebeb; color: #cc0000; }
   td { background: #f7f7f7; }
   tr:nth-child(even) td { background: #ffffff; }
@@ -100,6 +101,10 @@ Probabilities:
 | Errors are bugs | Errors are features of probability |
 | Predictable behavior | Needs management via parameters |
 
+---
+
+## Traditional vs. AI — Implication
+
 **Implication:** Never trust a single run as ground truth.
 
 ---
@@ -129,6 +134,10 @@ Probabilities:
 | **Temperature** | Randomness (0 = deterministic, 1 = creative) | Bug fixes (low), brainstorming (high) |
 | **Top-p** | Nucleus sampling – limits token pool | Balanced responses |
 | **Max Tokens** | Limits response length | Controlling cost |
+
+---
+
+## Key Parameters — Example Values
 
 ```python
 temperature: 0.2   # focused
@@ -281,8 +290,6 @@ Before accepting AI-generated code, verify:
 
 ## What Is a Token?
 
-A token is the atomic unit of processing for LLMs — not a word, not a character.
-
 | Language | Example | Token Count |
 |----------|---------|-------------|
 | English | "Hello world" | 2 tokens (~0.75 words/token) |
@@ -290,7 +297,13 @@ A token is the atomic unit of processing for LLMs — not a word, not a characte
 | Code | `function calculateTotal()` | ~5 tokens (~2–4 chars/token) |
 | Chinese | "你好世界" | 4–8 tokens |
 
-**Why tokens matter:** You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see"
+---
+
+## Why Tokens Matter
+
+A token is the atomic unit of processing for LLMs — not a word, not a character.
+
+You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see"
 
 ---
 
@@ -421,6 +434,10 @@ Context = all the information the model has access to when generating a response
 | Claude 4 (Haiku / Sonnet / Opus) | 200k | ~150 | ~50,000 |
 | GPT-5 Mini / GPT-5.3 Codex | 272k | ~200 | ~70,000 |
 
+---
+
+## Context Window — What Happens When Full
+
 **When you exceed context:** Oldest content gets truncated · Critical information may be dropped
 
 **Context engineering** = knowing what to put in, what to leave out, and how to structure it.
@@ -441,12 +458,16 @@ Before every AI interaction, ask:
 
 ---
 
-## Good vs. Bad Context
+## Good vs. Bad Context — Bad Example
 
 **BAD (vague):**
 ```
 "Fix this bug: my code doesn't work"
 ```
+
+---
+
+## Good vs. Bad Context — Good Example
 
 **GOOD (specific):**
 ```
@@ -609,6 +630,10 @@ User: "What's the weather in Tokyo?"
 
 ## The Agent Loop
 
+---
+
+## The Agent Loop — Diagram
+
 ```
     ┌──────────┐
     │  GOAL    │  "Add dark mode to the entire app"
@@ -656,6 +681,10 @@ Developer writes every line → tests → deploys
 ```
 Developer defines intent → Agent executes → Developer reviews → Agent iterates
 ```
+
+---
+
+## Developer Role Shift
 
 | Old Role | New Role |
 |----------|----------|
