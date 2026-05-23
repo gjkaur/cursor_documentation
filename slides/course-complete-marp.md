@@ -5,8 +5,6 @@ paginate: true
 header: 'Cursor Training Program — Complete Course'
 ---
 
----
-
 <!-- _class: lead -->
 
 # Cursor Training Program
