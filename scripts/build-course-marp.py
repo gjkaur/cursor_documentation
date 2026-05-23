@@ -149,7 +149,7 @@ def build_course_markdown(slides_dir: Path) -> str:
         )
         parts.extend(module_slides)
 
-    return FRONTMATTER.rstrip() + "\n\n---\n\n" + "\n\n---\n\n".join(
+    return FRONTMATTER.rstrip() + "\n\n" + "\n\n---\n\n".join(
         part.strip("\n") for part in parts if part.strip()
     ) + "\n"
 
