@@ -76,7 +76,7 @@ The section below adds troubleshooting, examples, and extra detail beyond the sl
 
 ## Code Example to Use
 
-Continue with `calculator.c` in **this** folder (same directory as this doc):
+Open `core-exercises/exercise-7/` in Cursor and continue with [`calculator.c`](../../core-exercises/exercise-7/calculator.c):
 
 ```c
 #include <stdio.h>

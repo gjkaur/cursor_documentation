@@ -306,7 +306,7 @@ Check off when done:
 
 ## Related in this repo
 
-For a longer hands-on browser lab (telemetry dashboard, network, console), see [Exercise 8 – Browser Tool (extended lab)](../08-browser-tool/08-browser-tool.md).
+For a longer hands-on browser lab (telemetry dashboard, network, console), see [Exercise 10 – Browser Tool (Read Console)](../../core-exercises/exercise-10/10-browser-tool-read-console.md).
 
 ---
 

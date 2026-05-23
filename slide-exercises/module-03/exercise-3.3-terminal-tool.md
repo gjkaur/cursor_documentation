@@ -87,7 +87,7 @@ I found a bug where the app crashes when input is empty.
 3. Finally, fix the bug and verify it works
 ```
 
-<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Exercise 3.3 — Debug Workflow (Step 5)" />
+<img src="../../slides/assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Exercise 3.3 — Debug Workflow (Step 5)" />
 
 ---
 
@@ -134,7 +134,7 @@ The section below adds troubleshooting, examples, and extra detail beyond the sl
 
 ## Setup: Create a Simple Test File
 
-If you don't have existing tests, the `test_calculator.c` file in this folder already contains the example below. You can also recreate it from scratch.
+If you don't have existing tests, [`test_calculator.c`](../../core-exercises/exercise-11/test_calculator.c) in `core-exercises/exercise-11/` already contains the example below. You can also recreate it from scratch.
 
 ### Create `test_calculator.c`
 
@@ -425,7 +425,7 @@ Check off when done:
 
 ## Related in this repo
 
-For the previous browser-tool exercise, see [Exercise 10 – Browser Tool (Read Console)](../exercise-10/10-browser-tool-read-console.md).
+For the previous browser-tool exercise, see [Exercise 10 – Browser Tool (Read Console)](../../core-exercises/exercise-10/10-browser-tool-read-console.md).
 
 ---
 

@@ -84,7 +84,7 @@ The section below adds troubleshooting, examples, and extra detail beyond the sl
 
 ## Code Example to Use
 
-Use the same [`calculator.c`](../exercise-1/calculator.c) file from Exercise 1 (open the `exercise-1` folder in Cursor so `@calculator.c` resolves), or any file in your project.
+Use the same [`calculator.c`](../../core-exercises/exercise-1/calculator.c) file from Exercise 1 (open the `exercise-1` folder in Cursor so `@calculator.c` resolves), or any file in your project.
 
 To practice on a larger codebase, open any multi-file project you have locally and use `@` on a real source file (for example `@README.md` plus a file under `src/`).
 

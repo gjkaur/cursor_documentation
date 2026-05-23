@@ -227,6 +227,89 @@ def extract_exercise_slides(module_num: int) -> dict[int, list[str]]:
     return grouped
 
 
+def rewrite_core_reference_paths(text: str, core_rel: str = "") -> str:
+    """Core exercise docs use paths relative to core-exercises/; slide guides need ../../core-exercises/."""
+    core_prefix = "../../core-exercises"
+
+    text = re.sub(
+        r"\]\(\.\./exercise-(\d+)/([^)]+)\)",
+        rf"]({core_prefix}/exercise-\1/\2)",
+        text,
+    )
+    text = text.replace(
+        "](../08-browser-tool/08-browser-tool.md)",
+        f"]({core_prefix}/exercise-10/10-browser-tool-read-console.md)",
+    )
+    text = text.replace(
+        "Exercise 8 – Browser Tool (extended lab)",
+        "Exercise 10 – Browser Tool (Read Console)",
+    )
+    text = re.sub(
+        r"\]\(calculator\.c\)",
+        f"]({core_prefix}/exercise-1/calculator.c)",
+        text,
+    )
+
+    if core_rel:
+        ex_dir = core_rel.split("/")[0]
+        calc_link = f"[`calculator.c`]({core_prefix}/{ex_dir}/calculator.c)"
+        calc_dir = f"`core-exercises/{ex_dir}/`"
+
+        prose_fixes = [
+            (
+                "Continue with `calculator.c` in **this** folder (same directory as this doc). "
+                "If you already split helpers in earlier exercises, you can copy `math_utils.h` / "
+                "`math_utils.c` here too.",
+                f"Open {calc_dir} in Cursor and continue with {calc_link}. If you already split "
+                f"helpers in earlier exercises, you can copy "
+                f"[`math_utils.h`]({core_prefix}/exercise-6/math_utils.h) / "
+                f"[`math_utils.c`]({core_prefix}/exercise-6/math_utils.c) from "
+                f"`core-exercises/exercise-6/`.",
+            ),
+            (
+                "Continue with `calculator.c` in **this** folder (same directory as this doc):",
+                f"Open {calc_dir} in Cursor and continue with {calc_link}:",
+            ),
+            (
+                "Continue with `calculator.c` from previous exercises (or the copy in this folder):",
+                f"Continue with {calc_link} from {calc_dir}:",
+            ),
+            (
+                "A ready-to-use copy is included in this folder as [`calculator.c`](calculator.c). "
+                "Open the `exercise-1` folder (under `core-exercises` in this repo) in Cursor and work from there.",
+                f"A ready-to-use copy is at {calc_link}. Open {calc_dir} "
+                f"(under `core-exercises` in this repo) in Cursor and work from there.",
+            ),
+            (
+                "Save this as `calculator.c` in an empty folder (or use the file in this folder), "
+                "then open that folder in Cursor.",
+                f"Save this as `calculator.c` in an empty folder (or use {calc_link}), "
+                f"then open that folder in Cursor.",
+            ),
+            (
+                "If you don't have existing tests, the `test_calculator.c` file in this folder "
+                "already contains the example below. You can also recreate it from scratch.",
+                f"If you don't have existing tests, "
+                f"[`test_calculator.c`]({core_prefix}/exercise-11/test_calculator.c) in "
+                f"`core-exercises/exercise-11/` already contains the example below. "
+                f"You can also recreate it from scratch.",
+            ),
+        ]
+        for old, new in prose_fixes:
+            text = text.replace(old, new)
+
+    return text
+
+
+def rewrite_slide_asset_paths(text: str) -> str:
+    """Slide decks use assets/ relative to slides/; exercise guides need slides/assets/."""
+    return re.sub(
+        r'src="assets/',
+        'src="../../slides/assets/',
+        text,
+    )
+
+
 def clean_slide_for_doc(slide: str) -> str:
     lines = slide.splitlines()
     cleaned: list[str] = []
@@ -238,7 +321,7 @@ def clean_slide_for_doc(slide: str) -> str:
         cleaned.append(line)
     text = "\n".join(cleaned).strip()
     text = re.sub(r"\n{3,}", "\n\n", text)
-    return text
+    return rewrite_slide_asset_paths(text)
 
 
 def extract_success_criteria(slides: list[str]) -> list[str]:
@@ -270,7 +353,8 @@ def load_reference(meta: dict) -> str:
             text = path.read_text(encoding="utf-8")
             # Drop top title block through first --- if present
             parts = text.split("\n---\n", 1)
-            return parts[1].strip() if len(parts) > 1 else text
+            body = parts[1].strip() if len(parts) > 1 else text
+            return rewrite_core_reference_paths(body, rel)
     return ""
 
 

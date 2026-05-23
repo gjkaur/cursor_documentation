@@ -36,7 +36,7 @@ Follow these steps in order. Copy prompts exactly unless the exercise tells you 
 
 Create `.cursor/repository-instructions.md`:
 
-<img src="assets/module-04/exercise-4-2-create-instructions.svg" alt="Exercise 4.2 — Create Instructions" />
+<img src="../../slides/assets/module-04/exercise-4-2-create-instructions.svg" alt="Exercise 4.2 — Create Instructions" />
 
 ---
 

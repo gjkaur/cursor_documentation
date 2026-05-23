@@ -59,7 +59,7 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 6:** Create a personal decision matrix:
 
-<img src="assets/module-02/exercise-2-5-cost-decision-matrix.svg" alt="Exercise 2.5 — Cost & Decision Matrix" />
+<img src="../../slides/assets/module-02/exercise-2-5-cost-decision-matrix.svg" alt="Exercise 2.5 — Cost & Decision Matrix" />
 
 ---
 
@@ -96,7 +96,7 @@ The section below adds troubleshooting, examples, and extra detail beyond the sl
 
 ## Code Example to Use
 
-Continue with `calculator.c` from previous exercises (or the copy in this folder):
+Continue with [`calculator.c`](../../core-exercises/exercise-5/calculator.c) from `core-exercises/exercise-5/`:
 
 ```c
 #include <stdio.h>

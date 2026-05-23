@@ -408,7 +408,7 @@ Check off when done:
 - [ ] Noticed the difference between with/without @mention
 - [ ] (Optional) Completed bonus challenge
 
-**Next:** [Exercise 7 – Use checkpoints](../exercise-7/07-use-checkpoints.md)
+**Next:** [Exercise 7 – Use checkpoints](../../core-exercises/exercise-7/07-use-checkpoints.md)
 
 ---
 
