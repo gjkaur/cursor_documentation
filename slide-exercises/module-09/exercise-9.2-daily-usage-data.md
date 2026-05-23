@@ -9,25 +9,12 @@
 
 ---
 
-## API basics (read this first)
-
-1. Use **PowerShell** or **Git Bash** in Cursor's terminal (``Ctrl+` ``).
-2. Store keys in environment variables — never commit them:
-
-```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
-```
-
-3. Prefer `curl.exe` on Windows (not the `curl` alias) or Python `requests`.
-4. Run scripts from a dedicated folder inside this repo or your own sandbox project.
+> **API setup:** Already covered in [Exercise 7.2](../module-07/exercise-7.2-generate-and-test-api-keys.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
@@ -53,8 +40,6 @@ Python `generate_cost_report()` for last 30 days:
 - Daily breakdown table (last 14 days)
 - Budget alerts at $300 / $500 thresholds
 
-**Success Criteria:** Retrieved date range · calculated trends · generated readable report
-
 ---
 
 ## Success criteria
@@ -67,162 +52,7 @@ Python `generate_cost_report()` for last 30 days:
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Prerequisites
-
-- [ ] Admin API key from Exercise 1
-- [ ] Cursor Enterprise plan
-- [ ] `curl` and `jq` installed
-
----
-
-## Step-by-Step Instructions
-
-### Step 1: Get Active Users Usage Data (2 minutes)
-
-Get usage data for active users only (those with activity during the date range).
-
-**Command:**
-```bash
-curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "startDate": "7d",
-    "endDate": "now"
-  }' | jq '.'
-```
-
-**Expected response:**
-```json
-{
-  "data": [
-    {
-      "userId": 12345,
-      "day": "2025-01-15",
-      "date": 1736928000000,
-      "email": "alex@company.com",
-      "totalLinesAdded": 1543,
-      "totalLinesDeleted": 892,
-      "acceptedLinesAdded": 1102,
-      "acceptedLinesDeleted": 645,
-      "totalTabsShown": 342,
-      "totalTabsAccepted": 289,
-      "composerRequests": 45,
-      "chatRequests": 128,
-      "agentRequests": 12,
-      "bugbotUsages": 3,
-      "mostUsedModel": "claude-4.5-sonnet",
-      "clientVersion": "0.42.3"
-    }
-  ],
-  "period": {
-    "startDate": 1736294400000,
-    "endDate": 1736899200000
-  }
-}
-```
-
----
-
-### Step 2: Get All Team Members with Pagination (3 minutes)
-
-To get all team members (including inactive ones), use pagination parameters.
-
-**Command:**
-```bash
-curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "startDate": "7d",
-    "endDate": "now",
-    "page": 1,
-    "pageSize": 100
-  }' | jq '.'
-```
-
-**Note:** When using pagination, the response includes an `isActive` field for each user.
-
----
-
-### Step 3: Calculate Team AI Acceptance Rate (3 minutes)
-
-Calculate the percentage of AI-suggested lines that were accepted.
-
-**Command:**
-```bash
-curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "startDate": "7d",
-    "endDate": "now"
-  }' | jq '{
-    total_lines_added: [.data[].totalLinesAdded] | add,
-    total_lines_accepted: [.data[].acceptedLinesAdded] | add,
-    acceptance_rate: (([.data[].acceptedLinesAdded] | add) / ([.data[].totalLinesAdded] | add) * 100 | floor)
-  }'
-```
-
-**Expected output:**
-```json
-{
-  "total_lines_added": 8234,
-  "total_lines_accepted": 5891,
-  "acceptance_rate": 71
-}
-```
-
----
-
-### Step 4: Get Most Used Models (2 minutes)
-
-Find the most popular AI models across your team.
-
-**Command:**
-```bash
-curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "startDate": "7d",
-    "endDate": "now"
-  }' | jq -r '.data[] | .mostUsedModel' | sort | uniq -c | sort -rn
-```
-
-**Expected output:**
-```
-  8 claude-4.5-sonnet
-  3 gpt-5.2
-  2 composer-2
-  1 claude-4.7-opus
-```
-
----
-
-### Step 5: Get User-Specific Usage (Optional)
-
-Filter usage data for a specific user.
-
-**Command:**
-```bash
-# First get user email from team members
-USER_EMAIL="alex@company.com"
-
-curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "startDate": "7d",
-    "endDate": "now"
-  }' | jq --arg email "$USER_EMAIL" '.data[] | select(.email == $email)'
-```
-
----
+## Additional reference
 
 ## Expected Output
 
@@ -289,16 +119,6 @@ curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
 | **Date range** | Maximum 30 days per request |
 | **Polling frequency** | Data aggregated hourly – poll at most once per hour |
 | **Rate limit** | 20 requests per minute per team |
-
----
-
-## Success Criteria
-
-- [ ] Retrieved active users usage data
-- [ ] Retrieved all team members with pagination
-- [ ] Calculated team AI acceptance rate
-- [ ] Identified most used models
-- [ ] Filtered usage for specific user
 
 ---
 
@@ -388,34 +208,3 @@ if __name__ == "__main__":
 ```
 
 ---
-
-## Exercise Complete ✓
-
-Check off when done:
-- [ ] Retrieved active users usage data
-- [ ] Retrieved all team members with pagination
-- [ ] Calculated team AI acceptance rate
-- [ ] Identified most used models
-- [ ] Filtered usage for specific user
-- [ ] (Bonus) Created weekly report generator
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

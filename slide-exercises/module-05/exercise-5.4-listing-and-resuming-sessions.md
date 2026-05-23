@@ -9,19 +9,12 @@
 
 ---
 
-## CLI basics (read this first)
-
-1. Open **PowerShell** in Cursor: ``Ctrl+` `` → select **PowerShell**.
-2. Confirm the CLI is installed: `agent --version`
-3. If missing, install from Cursor: **Command Palette** → `Shell Command: Install 'cursor' command in PATH` (or follow Cursor docs for `agent` CLI).
-4. Run commands from your **project root** unless the exercise says otherwise.
+> **CLI basics:** Already covered in [Exercise 5.1](../module-05/exercise-5.1-interactive-cli.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
@@ -92,8 +85,6 @@ agent --resume abc123-def456-ghi789
 
 **Cleanup:** Sessions persist indefinitely — manually complete or discard finished ones
 
-**Success Criteria:** Created named sessions · listed with `/resume` · resumed · used `/compress`
-
 ---
 
 ## Success criteria
@@ -102,21 +93,7 @@ agent --resume abc123-def456-ghi789
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open your terminal | Command prompt appears |
-| 2 | Run `agent ls` to list previous sessions | List of past conversations appears |
-| 3 | Pick a session ID from the list | Session identified |
-| 4 | Run `agent --resume <session-id>` | Conversation continues from where it left off |
-| 5 | Run `agent --continue` to resume most recent | Latest conversation resumes |
-
----
+## Additional reference
 
 ## What are CLI Sessions?
 
@@ -266,17 +243,6 @@ Continuing conversation...
 
 ---
 
-## Success Criteria
-
-- [ ] Ran `agent ls` and saw previous sessions
-- [ ] Identified a session to resume
-- [ ] Used `agent --continue` to resume most recent
-- [ ] Agent remembered previous conversation
-- [ ] Used `agent --resume <id>` for a specific session
-- [ ] (Optional) Used `agent ls --cloud` to see cloud agents
-
----
-
 ## Troubleshooting
 
 | Problem | Solution |
@@ -334,20 +300,6 @@ agent --resume "$LATEST"
 
 ---
 
-## Exercise Complete ✓
-
-Check off when done:
-- [ ] Ran `agent ls` and saw sessions
-- [ ] Used `agent --continue` to resume most recent
-- [ ] Agent remembered previous conversation
-- [ ] Used `agent --resume <id>` for specific session
-- [ ] (Optional) Ran `agent ls --cloud`
-- [ ] (Optional) Completed bonus challenge
-
-**Next:** Exercise 23 – Launch Cloud Agent (Web Dashboard)
-
----
-
 ## Quick Reference: Session Management Cheat Sheet
 
 ```
@@ -391,24 +343,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

@@ -9,28 +9,12 @@
 
 ---
 
-## Cursor basics (read this first)
-
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
-| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
-| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
-| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
-| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
-| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
-| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
-| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
-| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
-
-**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
+> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Step 1:** Enable Plan Mode (Shift+Tab in the Agent input):
 
@@ -89,12 +73,6 @@ Skip email verification for this version. Proceed.
 
 ---
 
-**Success Criteria:**
-- Enabled Plan Mode (Shift+Tab)
-- Agent created structured plan
-- Agent asked clarifying questions
-- Approved plan before code was written
-
 ---
 
 ## Success criteria
@@ -106,118 +84,7 @@ Skip email verification for this version. Proceed.
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Press `Shift+Tab` to switch to Plan Mode | Mode indicator changes to "Plan" in the chat input |
-| 2 | Type a request for a new feature or change | Agent recognizes Plan Mode |
-| 3 | Press `Enter` to send | Agent asks clarifying questions instead of coding immediately |
-| 4 | Answer the Agent's questions | Agent refines the plan based on your answers |
-| 5 | Review the generated plan | Agent shows a detailed implementation plan |
-| 6 | Type "Build it" or "Proceed" | Agent executes the plan and writes the code |
-
----
-
-## Code Example to Use
-
-Continue with `calculator.c` in **this** folder (same directory as this doc):
-
-```c
-#include <stdio.h>
-
-// Function prototypes
-int add(int a, int b);
-int subtract(int a, int b);
-int multiply(int a, int b);
-int divide(int a, int b);
-
-int main() {
-    int choice, x, y, result;
-
-    printf("Simple Calculator\n");
-    printf("1. Add\n");
-    printf("2. Subtract\n");
-    printf("3. Multiply\n");
-    printf("4. Divide\n");
-    printf("Enter choice: ");
-    scanf("%d", &choice);
-
-    printf("Enter two numbers: ");
-    scanf("%d %d", &x, &y);
-
-    switch(choice) {
-        case 1:
-            result = add(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 2:
-            result = subtract(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 3:
-            result = multiply(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 4:
-            if (y != 0) {
-                result = divide(x, y);
-                printf("Result: %d\n", result);
-            } else {
-                printf("Error: Division by zero\n");
-            }
-            break;
-        default:
-            printf("Invalid choice\n");
-    }
-
-    return 0;
-}
-
-int add(int a, int b) {
-    return a + b;
-}
-
-int subtract(int a, int b) {
-    return a - b;
-}
-
-int multiply(int a, int b) {
-    return a * b;
-}
-
-int divide(int a, int b) {
-    return a / b;
-}
-```
-
----
-
-## Sample Prompts (Copy-Paste)
-
-Choose ONE of these plan-mode requests:
-
-### Option A: Add a New Feature (Modulo Operation)
-
-> *"I want to add a new 'modulo' (remainder) operation to this calculator. Use Plan Mode. Ask me clarifying questions first."*
-
-### Option B: Improve Error Handling
-
-> *"I want to add better error handling for invalid inputs (like letters instead of numbers). Use Plan Mode. Ask me clarifying questions first."*
-
-### Option C: Add Calculation History
-
-> *"I want to add a feature that shows the last 5 calculations performed. Use Plan Mode. Ask me clarifying questions first."*
-
-### Option D: Convert to Menu Loop
-
-> *"I want to change the calculator so it keeps running until the user chooses to exit. Use Plan Mode. Ask me clarifying questions first."*
-
----
+## Additional reference
 
 ## Expected Agent Questions (Example)
 
@@ -293,18 +160,6 @@ case 5:
 
 ---
 
-## Success Criteria
-
-- [ ] Switched to Plan Mode (`Shift+Tab` or `/plan`)
-- [ ] Mode indicator shows "Plan"
-- [ ] Agent asked clarifying questions before planning
-- [ ] You answered the questions
-- [ ] Agent created a detailed implementation plan
-- [ ] You reviewed and approved the plan
-- [ ] Agent executed the plan and wrote the code
-
----
-
 ## Troubleshooting
 
 | Problem | Solution |
@@ -365,20 +220,6 @@ Or try a more complex plan:
 
 ---
 
-## Exercise Complete
-
-Check off when done:
-
-- [ ] Switched to Plan Mode successfully
-- [ ] Agent asked clarifying questions
-- [ ] Agent created a plan
-- [ ] You approved the plan
-- [ ] Agent executed the plan
-- [ ] (Optional) Completed bonus challenge
-
-
----
-
 ## Quick Reference: Plan Mode Workflow
 
 ```text
@@ -406,24 +247,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

@@ -9,28 +9,12 @@
 
 ---
 
-## Cursor basics (read this first)
-
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
-| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
-| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
-| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
-| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
-| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
-| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
-| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
-| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
-
-**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
+> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
@@ -120,8 +104,6 @@ Focus: [Security, Performance, Edge cases]
 Ignore: [Style, formatting]
 ```
 
-**Success Criteria:** Constrained prompt · Plan first · Negative constraints · Template created
-
 ---
 
 ## Success criteria
@@ -130,21 +112,10 @@ Ignore: [Style, formatting]
 
 ---
 
-## Troubleshooting (common beginner issues)
+## Troubleshooting
 
 | Problem | What to try |
 |---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project
+| Agent panel won't open | `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch to **Agent Mode** in the panel footer |
+| Agent can't see files | **File → Open Folder** (not a single file) |

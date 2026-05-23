@@ -9,28 +9,12 @@
 
 ---
 
-## Cursor basics (read this first)
-
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
-| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
-| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
-| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
-| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
-| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
-| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
-| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
-| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
-
-**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
+> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
@@ -88,8 +72,6 @@ What are the security guardrails?
 - Performance: React.memo, useCallback, useMemo
 - Accessibility: keyboard nav, alt text, semantic HTML
 
-**Success Criteria:** Created rules directory · coding, build, security rules · verified application
-
 ---
 
 ## Success criteria
@@ -101,21 +83,7 @@ What are the security guardrails?
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
-| 2 | Create the `.cursor/rules/` directory | Folder for rule files |
-| 3 | Create a new rule file with `.mdc` extension | Rule file ready for content |
-| 4 | Add frontmatter and rule content | Properly formatted rule |
-| 5 | Test the rule by asking the Agent | Agent follows the rule |
-
----
+## Additional reference
 
 ## What Are Rules?
 
@@ -305,18 +273,6 @@ The function includes:
 
 ---
 
-## Success Criteria
-
-- [ ] Created `.cursor/rules/` directory
-- [ ] Created a `.mdc` rule file with proper frontmatter
-- [ ] Rule has `alwaysApply: true`
-- [ ] Saved the file in the correct location
-- [ ] Asked Agent to write code
-- [ ] Agent followed the rule
-- [ ] Verified rule compliance
-
----
-
 ## Troubleshooting
 
 | Problem | Solution |
@@ -370,19 +326,6 @@ Or create a language-specific rule:
 
 ---
 
-## Exercise Complete ✓
-
-Check off when done:
-- [ ] Created `.cursor/rules/` directory
-- [ ] Created a rule file with frontmatter
-- [ ] Rule has `alwaysApply: true`
-- [ ] Agent followed the rule when writing code
-- [ ] (Optional) Completed bonus challenge
-
-**Next:** Exercise 15 – Use AGENTS.md
-
----
-
 ## Quick Reference: Rules Cheat Sheet
 
 ```
@@ -424,24 +367,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

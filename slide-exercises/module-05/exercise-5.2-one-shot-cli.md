@@ -9,19 +9,12 @@
 
 ---
 
-## CLI basics (read this first)
-
-1. Open **PowerShell** in Cursor: ``Ctrl+` `` → select **PowerShell**.
-2. Confirm the CLI is installed: `agent --version`
-3. If missing, install from Cursor: **Command Palette** → `Shell Command: Install 'cursor' command in PATH` (or follow Cursor docs for `agent` CLI).
-4. Run commands from your **project root** unless the exercise says otherwise.
+> **CLI basics:** Already covered in [Exercise 5.1](../module-05/exercise-5.1-interactive-cli.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
@@ -64,7 +57,7 @@ security issues, missing error handling. Be concise."
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 
 **Step 4:** Batch process files:
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL
@@ -84,8 +77,6 @@ done
 **Step 6:** CI/CD — analyze test output and suggest fixes for failures
 **Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
 
-**Success Criteria:** Ran one-shots · specified models · created reviewer script · understood CI/CD use
-
 ---
 
 ## Success criteria
@@ -94,21 +85,7 @@ done
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open your terminal | Command prompt appears |
-| 2 | Type `agent -p "your prompt here"` | Agent runs once and exits |
-| 3 | View the output | Response printed to terminal |
-| 4 | Try with different output formats | JSON or plain text output |
-| 5 | Use in a script | Automation works |
-
----
+## Additional reference
 
 ## What is One-Shot Mode?
 
@@ -266,16 +243,6 @@ done
 
 ---
 
-## Success Criteria
-
-- [ ] Ran `agent -p "simple question"` and got response
-- [ ] Ran `agent -p --force` to modify a file
-- [ ] Used `--output-format json` and saw JSON output
-- [ ] Created a simple bash script using `agent -p`
-- [ ] Script executed successfully
-
----
-
 ## Troubleshooting
 
 | Problem | Solution |
@@ -329,21 +296,6 @@ agent -p "List all functions in calculator.c" --output-format json | jq '.result
 
 ---
 
-## Exercise Complete
-
-Check off when done:
-
-- [ ] Ran `agent -p` with a simple question
-- [ ] Used `--force` to modify a file
-- [ ] Used `--output-format json`
-- [ ] Created a script with `agent -p`
-- [ ] Script ran successfully
-- [ ] (Optional) Completed bonus challenge
-
-**Next:** Exercise 21 – CLI – Cloud Handoff
-
----
-
 ## Quick Reference: One-Shot Mode Cheat Sheet
 
 ```
@@ -386,24 +338,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

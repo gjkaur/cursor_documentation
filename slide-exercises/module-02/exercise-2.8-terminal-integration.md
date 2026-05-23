@@ -9,28 +9,12 @@
 
 ---
 
-## Cursor basics (read this first)
-
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
-| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
-| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
-| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
-| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
-| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
-| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
-| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
-| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
-
-**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
+> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Step 1:** Check the environment:
 
@@ -74,35 +58,7 @@ Confirm before each command that might affect the repo.
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
-| 2 | Press `Ctrl+I` (or `Cmd+I` on Mac) to open Agent | Agent panel opens |
-| 3 | Ask the Agent to run a simple terminal command | Agent proposes the command |
-| 4 | Review and approve the command | Command executes |
-| 5 | View the output in the chat | Output appears directly in conversation |
-
----
-
-## Code Example to Use
-
-Continue with `calculator.c` in **this** folder (same directory as this doc). If you already split helpers in earlier exercises, you can copy `math_utils.h` / `math_utils.c` here too.
-
-**Current directory should have at least:**
-
-```
-calculator.c
-math_utils.h (if created)
-math_utils.c (if created)
-```
-
----
+## Additional reference
 
 ## Sample Terminal Commands to Run
 
@@ -145,30 +101,6 @@ math_utils.c (if created)
 > *"Run `cat calculator.c` (Mac/Linux) or `type calculator.c` (Windows) to show me the file content"*
 
 **What it does:** Displays the entire content of the file
-
----
-
-## Sample Prompts (Copy-Paste)
-
-### Option A: List Files
-
-> *"Run `ls -la` and tell me what files you see. Which one looks like the main program file?"*
-
-### Option B: Check Disk Space
-
-> *"Run `df -h` (Mac/Linux) or `wmic logicaldisk get size,freespace,caption` (Windows) to show available disk space"*
-
-### Option C: Compile and Check for Errors
-
-> *"Compile `calculator.c` with `gcc -o calculator calculator.c`. If there are errors, explain what they mean."*
-
-### Option D: Run Tests (if you have tests)
-
-> *"Run `make test` or `npm test` and show me the results"*
-
-### Option E: Show Git Status
-
-> *"Run `git status` to show me what files have changed"*
 
 ---
 
@@ -248,17 +180,6 @@ When the Agent runs a command, you'll see:
 
 ---
 
-## Success Criteria
-
-- [ ] Agent proposed a terminal command
-- [ ] You approved the command
-- [ ] Command executed successfully
-- [ ] Output appeared in the chat
-- [ ] Agent explained or analyzed the output
-- [ ] (Optional) Added a safe command to allowlist
-
----
-
 ## Platform-Specific Commands
 
 | Task | Mac/Linux | Windows |
@@ -313,20 +234,6 @@ Or create a reusable command:
 
 ---
 
-## Exercise Complete ✓
-
-Check off when done:
-
-- [ ] Agent ran a simple command (e.g., `ls` or `dir`)
-- [ ] You approved the command
-- [ ] Output was displayed in chat
-- [ ] Agent commented on the output
-- [ ] (Optional) Completed bonus challenge
-
-**Next:** Exercise 9 – Browser Tool (View Page)
-
----
-
 ## Quick Reference: Terminal Tool Cheat Sheet
 
 ```
@@ -363,24 +270,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project
