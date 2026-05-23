@@ -1,2 +1,5 @@
 # Intentionally not maintained; see .cursor/rules/no-exercises-index.mdc
 core-exercises/cursor-training-exercises-index.md
+
+__pycache__/
+*.pyc
