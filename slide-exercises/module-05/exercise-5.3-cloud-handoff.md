@@ -9,12 +9,19 @@
 
 ---
 
-> **CLI basics:** Already covered in [Exercise 5.1](../module-05/exercise-5.1-interactive-cli.md). Skip if you completed that setup.
+## CLI basics (read this first)
+
+1. Open **PowerShell** in Cursor: ``Ctrl+` `` → select **PowerShell**.
+2. Confirm the CLI is installed: `agent --version`
+3. If missing, install from Cursor: **Command Palette** → `Shell Command: Install 'cursor' command in PATH` (or follow Cursor docs for `agent` CLI).
+4. Run commands from your **project root** unless the exercise says otherwise.
 
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
@@ -72,7 +79,21 @@ agent --resume [agent-id-from-cloud]
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Open your terminal | Command prompt appears |
+| 2 | Start an interactive CLI session | `agent` prompt appears |
+| 3 | Type `&` followed by your prompt | Agent confirms handoff to cloud |
+| 4 | Close your terminal | Agent continues running |
+| 5 | Check progress on web dashboard | See agent status and results |
+
+---
 
 ## What is Cloud Handoff?
 
@@ -226,6 +247,17 @@ agent ls --cloud
 
 ---
 
+## Success Criteria
+
+- [ ] Started interactive CLI session
+- [ ] Successfully handed off a task with `&` prefix
+- [ ] Received Cloud Agent ID and dashboard link
+- [ ] Verified agent appears in `cursor.com/agents`
+- [ ] (Optional) Waited for agent to complete
+- [ ] (Optional) Reviewed results on dashboard
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -281,6 +313,20 @@ fi
 
 ---
 
+## Exercise Complete ✓
+
+Check off when done:
+- [ ] Handed off task with `&` prefix
+- [ ] Received Cloud Agent ID
+- [ ] Verified agent in web dashboard
+- [ ] (Optional) Waited for completion
+- [ ] (Optional) Reviewed results
+- [ ] (Optional) Completed bonus challenge
+
+**Next:** Exercise 22 – CLI – List & Resume
+
+---
+
 ## Quick Reference: Cloud Handoff Cheat Sheet
 
 ```
@@ -317,3 +363,24 @@ fi
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

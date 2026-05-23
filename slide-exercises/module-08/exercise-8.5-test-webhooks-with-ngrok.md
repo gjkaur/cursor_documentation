@@ -9,12 +9,25 @@
 
 ---
 
-> **API setup:** Already covered in [Exercise 7.2](../module-07/exercise-7.2-generate-and-test-api-keys.md). Skip if you completed that setup.
+## API basics (read this first)
+
+1. Use **PowerShell** or **Git Bash** in Cursor's terminal (``Ctrl+` ``).
+2. Store keys in environment variables — never commit them:
+
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+```
+
+3. Prefer `curl.exe` on Windows (not the `curl` alias) or Python `requests`.
+4. Run scripts from a dedicated folder inside this repo or your own sandbox project.
 
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
@@ -51,6 +64,8 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 **Step 5:** Replay failed webhooks (ngrok premium) — inspect raw body and headers
 **Terminal:** **Git Bash** or **Ubuntu (WSL)** — bash syntax required
 
+**Success Criteria:** Tunnel established · webhook received · signature verified · inspected in ngrok UI
+
 ---
 
 ## Success criteria
@@ -59,7 +74,187 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Prerequisites
+
+- [ ] User API key from Exercise 1
+- [ ] Webhook server from Exercise 20 (running)
+- [ ] ngrok installed (https://ngrok.com/download)
+- [ ] `curl` and `jq` installed
+
+---
+
+## Step-by-Step Instructions
+
+### Step 1: Start Your Webhook Server (1 minute)
+
+Make sure your webhook server from Exercise 20 is running.
+
+**Command:**
+```bash
+python webhook_server.py
+```
+
+**Expected output:**
+```
+🚀 Cursor Webhook Server
+========================================
+Webhook endpoint: http://localhost:5000/webhook/cursor
+Health check: http://localhost:5000/webhook/health
+Waiting for webhook events...
+```
+
+---
+
+### Step 2: Start ngrok (2 minutes)
+
+In a new terminal, start ngrok to expose your local server.
+
+**Command:**
+```bash
+ngrok http 5000
+```
+
+**Expected output:**
+```
+ngrok by @inconshreveable
+
+Session Status                online
+Account                       your-email@company.com
+Version                       3.x.x
+Region                        United States (us)
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    https://abc123.ngrok.io -> http://localhost:5000
+Forwarding                    http://abc123.ngrok.io -> http://localhost:5000
+```
+
+**Copy the HTTPS URL** (e.g., `https://abc123.ngrok.io`) - you'll need this for webhook configuration.
+
+---
+
+### Step 3: Test Webhook Endpoint Accessibility (1 minute)
+
+Verify that ngrok is working by accessing the health endpoint.
+
+**Command:**
+```bash
+curl https://abc123.ngrok.io/webhook/health
+```
+
+**Expected response:**
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-01-15T10:30:00.000Z"
+}
+```
+
+---
+
+### Step 4: Create an Agent with Webhook (2 minutes)
+
+Create a Cloud Agent that sends webhooks to your ngrok URL.
+
+**Command:**
+```bash
+# Replace with your ngrok URL
+WEBHOOK_URL="https://abc123.ngrok.io/webhook/cursor"
+
+RESPONSE=$(curl -s -X POST https://api.cursor.com/v1/agents \
+  -u "$CURSOR_USER_API_KEY:" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": {
+      "text": "Create a simple hello world program"
+    },
+    "repos": [
+      {
+        "url": "https://github.com/YOUR_ORG/YOUR_REPO",
+        "startingRef": "main"
+      }
+    ],
+    "autoCreatePR": false,
+    "webhookUrl": "'"$WEBHOOK_URL"'",
+    "webhookSecret": "your-secret-here"
+  }')
+
+AGENT_ID=$(echo "$RESPONSE" | jq -r '.agent.id')
+echo "Agent ID: $AGENT_ID"
+echo "Dashboard: https://cursor.com/agents/$AGENT_ID"
+```
+
+---
+
+### Step 5: Monitor Webhook Delivery (2 minutes)
+
+Watch both terminals for webhook delivery.
+
+**Terminal 1 (webhook server) will show:**
+```
+📨 Received webhook: wh_abc123
+   Event: statusChange
+   ✅ Signature verified
+
+📊 Agent bc_xxx status: FINISHED
+   Summary: Created hello world program
+   🔗 PR created: https://github.com/.../pull/123
+```
+
+**Terminal 2 (ngrok) will show request details:**
+```
+POST /webhook/cursor           200 OK
+Duration: 45ms                  Content-Length: 1.2KB
+```
+
+---
+
+### Step 6: Test Webhook Retry Behavior (2 minutes)
+
+Stop your webhook server temporarily to simulate a failure, then restart to see retry behavior.
+
+**Step A: Stop webhook server (Ctrl+C in terminal 1)**
+
+**Step B: Create another agent:**
+```bash
+# Replace with your ngrok URL
+WEBHOOK_URL="https://abc123.ngrok.io/webhook/cursor"
+
+curl -s -X POST https://api.cursor.com/v1/agents \
+  -u "$CURSOR_USER_API_KEY:" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": {"text": "Add a comment to the main file"},
+    "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO"}],
+    "webhookUrl": "'"$WEBHOOK_URL"'"
+  }' | jq '.agent.id'
+```
+
+**Step C: Wait 30 seconds, then restart webhook server**
+
+**Step D: Watch for retried delivery - Cursor will retry failed webhooks**
+
+---
+
+### Step 7: Inspect ngrok Web Interface (1 minute)
+
+ngrok provides a web interface to inspect all requests.
+
+**Open in browser:**
+```
+http://127.0.0.1:4040
+```
+
+**You can see:**
+- All webhook requests
+- Request/response headers
+- Payload content
+- Response status codes
+- Timing information
+
+---
 
 ## Webhook Testing Script
 
@@ -237,6 +432,18 @@ if __name__ == "__main__":
 
 ---
 
+## Success Criteria
+
+- [ ] Webhook server running
+- [ ] ngrok tunnel established
+- [ ] Health endpoint accessible via ngrok
+- [ ] Agent created with webhook URL
+- [ ] Webhook received and processed
+- [ ] Inspected ngrok web interface
+- [ ] Tested retry behavior (optional)
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -259,3 +466,35 @@ if __name__ == "__main__":
 | **Testing** | Use ngrok to test without deploying |
 
 ---
+
+## Exercise Complete ✓
+
+Check off when done:
+- [ ] Webhook server running
+- [ ] ngrok tunnel established
+- [ ] Health endpoint accessible
+- [ ] Agent created with webhook URL
+- [ ] Webhook received and processed
+- [ ] Inspected ngrok web interface
+- [ ] Tested retry behavior (optional)
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

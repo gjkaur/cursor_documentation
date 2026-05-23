@@ -19,7 +19,9 @@
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
@@ -94,7 +96,21 @@ agent /setup-terminal
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Open your terminal | Command prompt appears |
+| 2 | Type `agent` and press Enter | CLI starts in interactive mode |
+| 3 | Type a prompt and press Enter | Agent responds in the terminal |
+| 4 | Continue the conversation | Agent remembers context |
+| 5 | Type `/quit` to exit | CLI session ends |
+
+---
 
 ## What is the Cursor CLI?
 
@@ -267,6 +283,17 @@ Goodbye!
 
 ---
 
+## Success Criteria
+
+- [ ] CLI is installed (`agent --version` works)
+- [ ] Started interactive mode (`agent`)
+- [ ] Asked a question and received response
+- [ ] Asked a follow-up question (context maintained)
+- [ ] Used `/help` to see commands
+- [ ] Exited with `/quit`
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -314,6 +341,21 @@ Or use the CLI to edit a file:
 
 ---
 
+## Exercise Complete
+
+Check off when done:
+- [ ] CLI installed and verified
+- [ ] Started interactive mode
+- [ ] Asked a question and got response
+- [ ] Used follow-up question (context maintained)
+- [ ] Used `/help` command
+- [ ] Exited with `/quit`
+- [ ] (Optional) Completed bonus challenge
+
+**Next:** Exercise 20 – CLI – One-Shot Mode
+
+---
+
 ## Quick Reference: CLI Interactive Mode Cheat Sheet
 
 ```
@@ -349,3 +391,24 @@ Or use the CLI to edit a file:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

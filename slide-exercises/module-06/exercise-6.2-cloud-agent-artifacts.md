@@ -9,12 +9,19 @@
 
 ---
 
-> **Cloud Agents setup:** Already covered in [Exercise 6.1](../module-06/exercise-6.1-launching-a-cloud-agent.md). Skip if you completed that setup.
+## Cloud Agents in the UI (read this first)
+
+1. Sign in to Cursor with a plan that includes **Cloud Agents**.
+2. Open the **Cloud Agents** view from the Cursor sidebar (or Command Palette → "Cloud Agents").
+3. Keep the web dashboard open in a browser tab if the exercise references cursor.com/agents.
+4. Use the **Agent panel** (`Ctrl+I`) for local prompts; use Cloud UI for remote runs.
 
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
@@ -75,7 +82,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ---
 
-
+**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
 ```yaml
 # GitHub Actions — download test results from completed agent
@@ -84,6 +91,8 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
     curl -s -u "${{ secrets.CURSOR_API_KEY }}:" \
       ".../artifacts/download?path=test_results.xml" > test_results.xml
 ```
+
+**Success Criteria:** Generated artifacts · downloaded single + zip · accessed via API
 
 ---
 
@@ -94,7 +103,21 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Open `cursor.com/agents` dashboard | List of Cloud Agents appears |
+| 2 | Select a completed Cloud Agent | Agent details page opens |
+| 3 | Navigate to "Artifacts" section | List of produced artifacts |
+| 4 | Click on different artifact types | View screenshots, logs, outputs |
+| 5 | Download artifacts (if needed) | Files saved to your computer |
+
+---
 
 ## What are Artifacts?
 
@@ -274,6 +297,16 @@ If your Cloud Agent created a PR, artifacts may be embedded:
 
 ---
 
+## Success Criteria
+
+- [ ] Accessed artifacts from a completed Cloud Agent
+- [ ] Viewed at least one screenshot
+- [ ] Examined log file
+- [ ] Downloaded a generated file
+- [ ] Understood what each artifact type shows
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -310,6 +343,17 @@ Use artifacts to debug a failed agent:
 Or create a report from artifacts:
 
 > *"Download all artifacts from the last 5 Cloud Agents and create a summary of what each one accomplished"*
+
+---
+
+## Exercise Complete ✓
+
+Check off when done:
+- [ ] Viewed screenshots from Cloud Agent
+- [ ] Examined log files
+- [ ] Downloaded generated files
+- [ ] Understood artifact types and their purposes
+- [ ] (Optional) Completed bonus challenge
 
 ---
 
@@ -371,3 +415,24 @@ You have completed all 25 exercises:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

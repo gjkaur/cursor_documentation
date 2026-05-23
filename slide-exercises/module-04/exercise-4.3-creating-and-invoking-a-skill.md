@@ -9,12 +9,28 @@
 
 ---
 
-> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
+## Cursor basics (read this first)
+
+| Task | Windows / Linux | Mac | Where in Cursor |
+|------|-----------------|-----|-----------------|
+| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
+| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
+| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
+| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
+| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
+| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
+| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
+| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
+| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
+
+**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
 
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
@@ -71,6 +87,8 @@ What skills are available in this project?
 **Step 6:** Create **Onboarding** skill — generates setup checklist from repo instructions
 **Where:** **Cursor Agent panel** — ``Ctrl+L``
 
+**Success Criteria:** Created skills · built PR Review + Security Audit · invoked via slash command
+
 ---
 
 ## Success criteria
@@ -79,7 +97,21 @@ What skills are available in this project?
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Create the `.cursor/skills/` directory | Folder for skills |
+| 2 | Create a skill subfolder | Folder for your specific skill |
+| 3 | Create `SKILL.md` with frontmatter | Skill file ready |
+| 4 | Add skill instructions | Agent learns the workflow |
+| 5 | Test the skill | Agent follows the skill instructions |
+
+---
 
 ## What Are Skills?
 
@@ -326,7 +358,6 @@ Type in Agent:
 The Agent should follow the skill's structure:
 
 ```
-
 ## Code Reviewer Skill - Review of divide() function
 
 ### Step 1: Understand the Code
@@ -352,6 +383,17 @@ The divide() function takes two integers and returns their quotient...
 ### Summary
 Good - Needs Improvement: Add division by zero check inside the function.
 ```
+
+---
+
+## Success Criteria
+
+- [ ] Created `.cursor/skills/` directory
+- [ ] Created a skill subfolder with `SKILL.md`
+- [ ] Skill has proper YAML frontmatter (name, description)
+- [ ] Skill has clear step-by-step instructions
+- [ ] Invoked the skill successfully
+- [ ] Agent followed the skill's structure
 
 ---
 
@@ -389,6 +431,21 @@ Create a skill for your team's specific workflow:
 Or combine multiple skills:
 
 > *"Create a skill called 'pre-commit-checklist' that runs the code-reviewer skill, then the test-generator skill, then the doc-generator skill in sequence"*
+
+---
+
+## Exercise Complete
+
+Check off when done:
+- [ ] Created `.cursor/skills/` directory
+- [ ] Created a skill with SKILL.md
+- [ ] Skill has name and description in frontmatter
+- [ ] Skill has step-by-step instructions
+- [ ] Invoked the skill successfully
+- [ ] Agent followed the skill's structure
+- [ ] (Optional) Completed bonus challenge
+
+**Next:** Exercise 17 – Invoke a Skill
 
 ---
 
@@ -435,3 +492,24 @@ Or combine multiple skills:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

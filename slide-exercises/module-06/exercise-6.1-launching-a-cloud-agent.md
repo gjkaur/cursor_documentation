@@ -19,7 +19,9 @@
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
 
@@ -98,7 +100,22 @@ https://cursor.com/agents/agt_abc123def456
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Open browser to `cursor.com/agents` | Cloud Agents dashboard loads |
+| 2 | Click "New Agent" button | Agent creation form opens |
+| 3 | Select your repository | Repository connected to Cursor |
+| 4 | Enter a prompt describing the task | Prompt saved |
+| 5 | Click "Start" | Cloud Agent begins running |
+| 6 | Monitor progress | Status updates in real-time |
+
+---
 
 ## What is the Cloud Agents Dashboard?
 
@@ -139,6 +156,30 @@ Click the **"New Agent"** button.
 | **Branch** | Select branch (e.g., `main`) |
 | **Prompt** | Describe the task (see examples below) |
 | **Model** | Select model (Composer 2 recommended) |
+
+---
+
+## Sample Prompts to Try
+
+### Option A: Documentation
+
+> *"Add a comprehensive README.md file explaining how to build and run the calculator program. Include usage examples."*
+
+### Option B: Feature Addition
+
+> *"Add a new 'power' function that calculates exponentiation. Add it to the menu as option 5. Update the README."*
+
+### Option C: Code Improvement
+
+> *"Review all functions in calculator.c. Add input validation, error handling for division by zero, and comments for each function."*
+
+### Option D: Testing
+
+> *"Create unit tests for all arithmetic functions. Run the tests and fix any failures."*
+
+### Option E: Refactoring
+
+> *"Split calculator.c into multiple files: main.c, operations.c, and input.c. Update the build instructions."*
 
 ---
 
@@ -200,6 +241,17 @@ When the agent completes, you will see:
 
 ---
 
+## Success Criteria
+
+- [ ] Accessed `cursor.com/agents` dashboard
+- [ ] Created a new Cloud Agent
+- [ ] Selected repository and branch
+- [ ] Entered a prompt and started the agent
+- [ ] Monitored progress in real-time
+- [ ] Viewed results (PR or artifacts)
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -239,6 +291,20 @@ Watch them run in parallel in the dashboard.
 Or schedule a recurring task (if available in your plan):
 
 > *"Set up a weekly Cloud Agent to run tests and report results"*
+
+---
+
+## Exercise Complete ✓
+
+Check off when done:
+- [ ] Accessed Cloud Agents dashboard
+- [ ] Created and launched a Cloud Agent
+- [ ] Monitored progress in real-time
+- [ ] Viewed results (PR or artifacts)
+- [ ] (Optional) Ran parallel agents
+- [ ] (Optional) Completed bonus challenge
+
+**Next:** Exercise 24 – Cloud Agent from Slack
 
 ---
 
@@ -284,3 +350,24 @@ Or schedule a recurring task (if available in your plan):
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

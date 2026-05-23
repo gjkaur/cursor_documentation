@@ -9,12 +9,28 @@
 
 ---
 
-> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
+## Cursor basics (read this first)
+
+| Task | Windows / Linux | Mac | Where in Cursor |
+|------|-----------------|-----|-----------------|
+| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
+| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
+| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
+| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
+| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
+| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
+| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
+| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
+| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
+
+**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
 
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Step 1:** Use @filename to point at a specific file:
 
@@ -71,6 +87,12 @@ implement the fix we agreed on.
 
 ---
 
+**Success Criteria:**
+- Used @filename to target a specific file
+- Used @symbol to target a function or class
+- Used multiple @mentions together
+- Used @web for external search
+
 ---
 
 ## Success criteria
@@ -82,7 +104,22 @@ implement the fix we agreed on.
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
+| 2 | Press `Ctrl+I` (or `Cmd+I` on Mac) to open Agent | Agent panel opens |
+| 3 | Type `@` followed by a filename | Dropdown shows matching files |
+| 4 | Select the file from dropdown | File name appears with @ prefix |
+| 5 | Type your question after the @mention | Complete prompt ready to send |
+| 6 | Press `Enter` | Agent reads that specific file and answers |
+
+---
 
 ## Setup: Add a Second File
 
@@ -192,6 +229,30 @@ int is_in_range(int n, int min, int max) {
 
 ---
 
+## Sample Prompts (Copy-Paste)
+
+### Option A: Single File @mention
+
+> *`@calculator.c` "Explain what the `main()` function does in this file"*
+
+### Option B: Header File @mention
+
+> *`@math_utils.h` "What functions are declared in this header? What do they do?"*
+
+### Option C: Multiple File @mention
+
+> *`@calculator.c` `@math_utils.c` "How do these two files work together? Which functions from math_utils.c are used in calculator.c?"*
+
+### Option D: Specific Function @mention
+
+> *`@divide` "Find the divide function. Does it handle division by zero correctly?"*
+
+### Option E: With Terminal @mention (if you have test output)
+
+> *`@Terminals` `@calculator.c` "The test shows an error. Look at the terminal output and the calculator.c file. What's wrong?"*
+
+---
+
 ## Expected Agent Responses (Examples)
 
 ### Using Option A (Single File)
@@ -277,6 +338,17 @@ Notice the difference in precision and relevance.
 
 ---
 
+## Success Criteria
+
+- [ ] Typed `@` and saw file suggestions
+- [ ] Selected a file from the dropdown
+- [ ] Asked a question about that specific file
+- [ ] Agent referenced the correct file in its response
+- [ ] Used multiple @mentions in one prompt
+- [ ] Compared response quality with and without @mention
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -326,6 +398,20 @@ Or use @mention with a specific request:
 
 ---
 
+## Exercise Complete ✓
+
+Check off when done:
+
+- [ ] Used @mention with a single file
+- [ ] Agent answered correctly about that file
+- [ ] Used @mention with multiple files
+- [ ] Noticed the difference between with/without @mention
+- [ ] (Optional) Completed bonus challenge
+
+**Next:** [Exercise 7 – Use checkpoints](../exercise-7/07-use-checkpoints.md)
+
+---
+
 ## Quick Reference: @mention Cheat Sheet
 
 ```
@@ -353,3 +439,24 @@ Or use @mention with a specific request:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

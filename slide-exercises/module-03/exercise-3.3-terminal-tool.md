@@ -9,12 +9,28 @@
 
 ---
 
-> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
+## Cursor basics (read this first)
+
+| Task | Windows / Linux | Mac | Where in Cursor |
+|------|-----------------|-----|-----------------|
+| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
+| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
+| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
+| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
+| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
+| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
+| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
+| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
+| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
+
+**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
 
 
 ---
 
-## Steps
+## Steps from the training slides
+
+Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
 **Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
@@ -90,6 +106,8 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 | Writes files, `sudo`, `git push --force` | Version checks, `cat`, `ls` |
 | `npm install -g`, start servers | `pytest`, `npm test`, `git status` |
 
+**Success Criteria:** Ran tests · Diagnosed failure · Fixed code · Verified fix
+
 ---
 
 ## Success criteria
@@ -98,7 +116,21 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 
 ---
 
-## Additional reference
+## Detailed reference (expanded instructions)
+
+The section below adds troubleshooting, examples, and extra detail beyond the slides.
+
+## Step-by-Step Instructions
+
+| Step | Action | Expected Result |
+|------|--------|-----------------|
+| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
+| 2 | Press `Ctrl+I` (or `Cmd+I` on Mac) to open Agent | Agent panel opens |
+| 3 | Ask Agent to run the test command | Agent proposes the command |
+| 4 | Approve the command | Tests run, output appears in chat |
+| 5 | Ask Agent to analyze results | Agent identifies passed/failed tests |
+
+---
 
 ## Setup: Create a Simple Test File
 
@@ -197,6 +229,30 @@ chmod +x run_tests.sh
 
 ---
 
+## Sample Prompts (Copy-Paste)
+
+### Option A: Run Tests (Simple)
+
+> *"Run the tests using `gcc test_calculator.c -o test_calculator && ./test_calculator` (Mac/Linux) or the appropriate command for your system"*
+
+### Option B: Run with Test Runner
+
+> *"Run `./run_tests.sh` (Mac/Linux) or `run_tests.bat` (Windows) to execute the test suite"*
+
+### Option C: Analyze Test Results
+
+> *"Run the tests and tell me how many passed and if any failed"*
+
+### Option D: Fix a Failing Test (Intentional)
+
+First, introduce an error in `test_calculator.c` – change `assert(add(2, 3) == 5)` to `assert(add(2, 3) == 6)`
+
+Then ask:
+
+> *"Run the tests. One test is failing. Identify which one and fix it."*
+
+---
+
 ## Expected Agent Response (Example)
 
 Using Option A with passing tests:
@@ -263,6 +319,17 @@ Do you want me to apply this fix?
 
 ---
 
+## Success Criteria
+
+- [ ] Agent ran the test command
+- [ ] Test output appeared in chat
+- [ ] Agent identified passing tests
+- [ ] Agent identified failing tests (if any)
+- [ ] Agent analyzed test results
+- [ ] (Optional) Agent fixed a failing test
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -297,6 +364,21 @@ Ask the Agent to add a new test:
 Or run tests in a loop:
 
 > *"Run the tests 3 times in a row. If any test fails, stop and tell me which one failed."*
+
+---
+
+## Exercise Complete
+
+Check off when done:
+
+- [ ] Agent ran test command
+- [ ] Test output displayed
+- [ ] Agent analyzed results
+- [ ] Agent identified passed/failed tests
+- [ ] (Optional) Agent fixed a failing test
+- [ ] (Optional) Completed bonus challenge
+
+**Next:** Exercise 12 – Terminal Tool (Fix Errors)
 
 ---
 
@@ -344,3 +426,24 @@ Or run tests in a loop:
 ## Related in this repo
 
 For the previous browser-tool exercise, see [Exercise 10 – Browser Tool (Read Console)](../exercise-10/10-browser-tool-read-console.md).
+
+---
+
+## Troubleshooting (common beginner issues)
+
+| Problem | What to try |
+|---------|-------------|
+| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
+| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
+| Agent can't see my files | **File → Open Folder** (not a single file) |
+| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
+| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
+
+---
+
+## Exercise complete
+
+- [ ] Finished all steps above
+- [ ] Checked success criteria
+- [ ] Noted one thing you would do differently on a real project

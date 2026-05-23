@@ -195,29 +195,6 @@ CLOUD_BASICS = """## Cloud Agents in the UI (read this first)
 4. Use the **Agent panel** (`Ctrl+I`) for local prompts; use Cloud UI for remote runs.
 """
 
-# First exercise in each track that carries the full setup section; others link here.
-BASICS_ANCHOR: dict[str, tuple[int, int, str]] = {
-    "cursor": (2, 1, "Cursor basics"),
-    "cli": (5, 1, "CLI basics"),
-    "cloud": (6, 1, "Cloud Agents setup"),
-    "api": (7, 2, "API setup"),
-}
-
-PLATFORM_BANNER = "**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`"
-
-# Reference sections that duplicate slide steps or success criteria already in the guide.
-SKIP_REFERENCE_HEADERS = (
-    "step-by-step instructions",
-    "sample prompt",
-    "success criteria",
-    "exercise complete",
-    "prerequisites",
-    "objective:",
-    "time:",
-    "difficulty:",
-    "real-world scenario:",
-)
-
 
 def slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
@@ -297,115 +274,26 @@ def load_reference(meta: dict) -> str:
     return ""
 
 
-def _exercise_path(module_num: int, ex_num: int, title: str) -> str:
-    slug = slugify(title)
-    return f"../module-{module_num:02d}/exercise-{module_num}.{ex_num}-{slug}.md"
-
-
-def basics_section(module_num: int, ex_num: int, ex_type: str) -> str:
-    anchor_mod, anchor_ex, label = BASICS_ANCHOR.get(ex_type, BASICS_ANCHOR["cursor"])
-    full_blocks = {
-        "cursor": CURSOR_BASICS,
-        "cli": CLI_BASICS,
-        "api": API_BASICS,
-        "cloud": CLOUD_BASICS,
-    }
-    if module_num == anchor_mod and ex_num == anchor_ex:
-        return full_blocks.get(ex_type, CURSOR_BASICS)
-
-    anchor_title = EXERCISE_META[(anchor_mod, anchor_ex)]["title"]
-    link = _exercise_path(anchor_mod, anchor_ex, anchor_title)
-    return (
-        f"> **{label}:** Already covered in [Exercise {anchor_mod}.{anchor_ex}]({link}). "
-        f"Skip if you completed that setup.\n"
-    )
-
-
-def remove_inline_success_criteria(text: str) -> str:
-    text = re.sub(
-        r"\*\*Success Criteria:\*\*[^\n]*\n(?:- .+\n?)*",
-        "",
-        text,
-        flags=re.IGNORECASE,
-    )
-    text = re.sub(r"\*\*Success Criteria:\*\*[^\n]+\n?", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text.strip()
-
-
-def dedupe_platform_banner(text: str) -> str:
-    if PLATFORM_BANNER not in text:
-        return text
-    first, _, rest = text.partition(PLATFORM_BANNER)
-    return first + PLATFORM_BANNER + rest.replace(PLATFORM_BANNER, "")
-
-
-def trim_reference(reference: str, module_num: int, ex_num: int, slide_body: str) -> str:
-    if not reference.strip():
-        return ""
-
-    sections = re.split(r"\n(?=## )", reference.strip())
-    kept: list[str] = []
-    for section in sections:
-        header = section.split("\n", 1)[0].lower().replace("## ", "").strip()
-        if any(skip in header for skip in SKIP_REFERENCE_HEADERS):
-            continue
-        if header.startswith("code example to use"):
-            if module_num == 2 and ex_num > 1:
-                continue
-            if module_num == 2 and ex_num == 1 and "git clone" in slide_body.lower():
-                continue
-        kept.append(section.strip())
-
-    return "\n\n".join(kept).strip()
-
-
-def reference_has_troubleshooting(reference: str) -> bool:
-    return bool(re.search(r"^## Troubleshooting\b", reference, re.MULTILINE))
-
-
-def troubleshooting_section(ex_type: str) -> str:
-    if ex_type == "api":
-        return """| Problem | What to try |
-|---------|-------------|
-| API returns 401 | Re-copy the key; confirm Admin vs User key for the endpoint |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-| curl fails on Windows | Use `curl.exe`, not the PowerShell alias |
-| JSON errors in PowerShell | Escape quotes or save the body to a `.json` file |
-"""
-    if ex_type == "cli":
-        return """| Problem | What to try |
-|---------|-------------|
-| `agent` not found | Install CLI from Cursor Command Palette → shell command |
-| Wrong project context | `cd` to your repo root before starting a session |
-| Session won't resume | Run `agent --resume` with the exact session name |
-"""
-    if ex_type == "cloud":
-        return """| Problem | What to try |
-|---------|-------------|
-| Cloud Agents tab missing | Confirm plan includes Cloud Agents; sign out and back in |
-| Run stuck | Refresh dashboard; check repo access and branch name |
-"""
-    return """| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch to **Agent Mode** in the panel footer |
-| Agent can't see files | **File → Open Folder** (not a single file) |
-"""
-
-
 def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[str]) -> str:
     title = meta["title"]
+    slug = slugify(title)
     module_title = MODULE_TITLES[module_num]
     ex_type = meta.get("type", "cursor")
 
-    basics = basics_section(module_num, ex_num, ex_type)
-    slide_body = "\n\n---\n\n".join(
-        clean_slide_for_doc(s) for s in slide_chunks if clean_slide_for_doc(s)
-    )
-    slide_body = dedupe_platform_banner(remove_inline_success_criteria(slide_body))
+    if ex_type == "cursor":
+        basics = CURSOR_BASICS
+    elif ex_type == "cli":
+        basics = CLI_BASICS
+    elif ex_type == "api":
+        basics = API_BASICS
+    elif ex_type == "cloud":
+        basics = CLOUD_BASICS
+    else:
+        basics = CURSOR_BASICS
+
+    slide_body = "\n\n---\n\n".join(clean_slide_for_doc(s) for s in slide_chunks if clean_slide_for_doc(s))
     criteria = extract_success_criteria(slide_chunks)
-    reference = trim_reference(load_reference(meta), module_num, ex_num, slide_body)
+    reference = load_reference(meta)
 
     lines = [
         f"# Exercise {module_num}.{ex_num}: {title}",
@@ -423,9 +311,11 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
         "",
         "---",
         "",
-        "## Steps",
+        "## Steps from the training slides",
         "",
-        slide_body or "_No slide steps extracted — use the additional reference below if present._",
+        "Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.",
+        "",
+        slide_body or "_No slide steps extracted — use the reference section below._",
         "",
     ]
 
@@ -436,18 +326,42 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
         lines.append("")
 
     if reference:
-        lines.extend(["---", "", "## Additional reference", "", reference, ""])
-
-    if not reference_has_troubleshooting(reference):
         lines.extend([
             "---",
             "",
-            "## Troubleshooting",
+            "## Detailed reference (expanded instructions)",
             "",
-            troubleshooting_section(ex_type),
+            "The section below adds troubleshooting, examples, and extra detail beyond the slides.",
+            "",
+            reference,
+            "",
         ])
 
-    return "\n".join(lines).rstrip() + "\n"
+    lines.extend([
+        "---",
+        "",
+        "## Troubleshooting (common beginner issues)",
+        "",
+        "| Problem | What to try |",
+        "|---------|-------------|",
+        "| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |",
+        "| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |",
+        "| Agent can't see my files | **File → Open Folder** (not a single file) |",
+        "| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |",
+        "| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |",
+        "| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |",
+        "",
+        "---",
+        "",
+        "## Exercise complete",
+        "",
+        "- [ ] Finished all steps above",
+        "- [ ] Checked success criteria",
+        "- [ ] Noted one thing you would do differently on a real project",
+        "",
+    ])
+
+    return "\n".join(lines)
 
 
 def main() -> int:
