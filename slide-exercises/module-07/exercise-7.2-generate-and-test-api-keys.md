@@ -25,9 +25,7 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
 
@@ -53,7 +51,7 @@ curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 
 **Step 4:** Test with Python requests:
 **Terminal:** **PowerShell** — save as `test_models.py`, then `python test_models.py` — ``Ctrl+L``
@@ -81,7 +79,7 @@ response = client.chat.completions.create(
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+
 
 **Step 6:** Generate and test Admin API Key:
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL
@@ -97,8 +95,6 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 **Step 7:** Revoke compromised keys via API or Settings → API Keys → Revoke
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
-**Success Criteria:** Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
-
 ---
 
 ## Success criteria
@@ -107,180 +103,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Prerequisites
-
-- [ ] Admin access to Cursor Dashboard
-- [ ] Cursor Enterprise plan (for Admin API key)
-- [ ] Browser access to cursor.com
-
----
-
-## Step-by-Step Instructions
-
-### Step 1: Generate an Admin API Key (5 minutes)
-
-Admin API keys are used for team management, analytics, and AI Code Tracking.
-
-**Instructions:**
-
-1. Log into Cursor Dashboard at `cursor.com/dashboard`
-2. Navigate to **Settings → Advanced → Admin API Keys**
-3. Click **Create New API Key**
-4. Enter a descriptive name: `"Training - Admin Key"`
-5. Click **Create**
-6. **Copy the key immediately** – it will only be shown once!
-
-**Key format:** `crsr_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-
-**Save it securely:**
-
-```bash
-# Save to environment variable (temporary)
-export CURSOR_ADMIN_API_KEY="crsr_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-# Or save to a secure file (not recommended for production)
-echo "CURSOR_ADMIN_API_KEY=crsr_xxxxxxxx..." > .env.api
-chmod 600 .env.api
-```
-
----
-
-### Step 2: Generate a User API Key (3 minutes)
-
-User API keys are used for Cloud Agents API (available on all plans).
-
-**Instructions:**
-
-1. Navigate to **Dashboard → Integrations**
-2. Scroll to **API Keys** section
-3. Click **Generate New API Key**
-4. Enter a name: `"Training - User Key"`
-5. Click **Generate**
-6. **Copy the key immediately**
-
-**Save it:**
-
-```bash
-export CURSOR_USER_API_KEY="cursor_user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-```
-
----
-
-### Step 3: Generate a Service Account API Key (2 minutes - Enterprise only)
-
-Service account keys are for automation and CI/CD pipelines (non-human accounts).
-
-**Instructions:**
-
-1. Navigate to **Dashboard → Settings → Service Accounts**
-2. Click **New Service Account**
-3. Enter name: `"Training Automation"`
-4. Click **Create**
-5. **Copy the API key immediately**
-
-**Save it:**
-
-```bash
-export CURSOR_SERVICE_API_KEY="crsr_sa_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-```
-
----
-
-### Step 4: Test Admin API Key Authentication (5 minutes)
-
-Test that your Admin API key works with the Admin API.
-
-**Command:**
-
-```bash
-# Test getting team members
-curl -X GET "https://api.cursor.com/teams/members" \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  --silent | jq '.'
-```
-
-**Expected response:**
-
-```json
-{
-  "teamMembers": [
-    {
-      "id": 12345,
-      "name": "Your Name",
-      "email": "you@company.com",
-      "role": "owner",
-      "isRemoved": false
-    }
-  ]
-}
-```
-
-**Test with Bearer token (alternative):**
-
-```bash
-curl -X GET "https://api.cursor.com/teams/members" \
-  -H "Authorization: Bearer $CURSOR_ADMIN_API_KEY" \
-  --silent | jq '.'
-```
-
----
-
-### Step 5: Test User API Key Authentication (3 minutes)
-
-Test that your User API key works with the Cloud Agents API.
-
-**Command:**
-
-```bash
-# Test getting available models
-curl -X GET "https://api.cursor.com/v1/models" \
-  -u "$CURSOR_USER_API_KEY:" \
-  --silent | jq '.'
-```
-
-**Expected response:**
-
-```json
-{
-  "items": [
-    "claude-4-sonnet-thinking",
-    "gpt-5.2",
-    "claude-4.5-sonnet-thinking",
-    "composer-2",
-    "gpt-5-mini"
-  ]
-}
-```
-
----
-
-### Step 6: Test API Key Info Endpoint (2 minutes)
-
-Get information about the API key being used.
-
-**Command:**
-
-```bash
-curl -X GET "https://api.cursor.com/v1/me" \
-  -u "$CURSOR_USER_API_KEY:" \
-  --silent | jq '.'
-```
-
-**Expected response:**
-
-```json
-{
-  "apiKeyName": "Training - User Key",
-  "createdAt": "2025-01-15T10:30:00.000Z",
-  "userEmail": "your-email@company.com"
-}
-```
-
----
+## Additional reference
 
 ## Expected Output
 
@@ -323,17 +146,6 @@ curl -X GET "https://api.cursor.com/v1/me" \
   "userEmail": "alex@company.com"
 }
 ```
-
----
-
-## Success Criteria
-
-- [ ] Admin API key generated and saved securely
-- [ ] User API key generated and saved securely
-- [ ] Service account key generated (if Enterprise)
-- [ ] Admin API key successfully tested with `/teams/members` endpoint
-- [ ] User API key successfully tested with `/v1/models` endpoint
-- [ ] API key info endpoint returned correct information
 
 ---
 
@@ -423,36 +235,3 @@ print("  export CURSOR_SERVICE_API_KEY=your_key")
 ```
 
 ---
-
-## Exercise Complete
-
-Check off when done:
-
-- [ ] Generated Admin API key
-- [ ] Generated User API key
-- [ ] Generated Service Account key (optional)
-- [ ] Tested Admin API key with `/teams/members`
-- [ ] Tested User API key with `/v1/models`
-- [ ] Tested API key info endpoint
-- [ ] (Bonus) Created key testing script
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

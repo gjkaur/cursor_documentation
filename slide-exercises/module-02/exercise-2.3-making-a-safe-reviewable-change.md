@@ -9,28 +9,12 @@
 
 ---
 
-## Cursor basics (read this first)
-
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
-| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
-| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
-| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
-| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
-| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
-| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
-| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
-| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
-
-**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
+> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Step 1:** Ask for a small, safe change:
 
@@ -82,10 +66,6 @@ That change didn't work. The button disappeared.
 Please explain what happened and suggest a fix.
 ```
 
-**Success Criteria:**
-- Agent proposed a change · Reviewed diff before accepting
-- Accepted only after verification · Tested the change
-
 ---
 
 ## Success criteria
@@ -95,118 +75,7 @@ Please explain what happened and suggest a fix.
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
-| 2 | Press `Ctrl+I` (or `Cmd+I` on Mac) to open Agent | Agent panel opens |
-| 3 | Type a request for a small, safe change | Prompt ready to send |
-| 4 | Press `Enter` to send | Agent proposes changes or asks for approval |
-| 5 | Review the diff (green = added, red = removed) | You see exactly what will change |
-| 6 | If you approve, let the Agent proceed | Changes are applied to your file |
-
----
-
-## Code Example to Use
-
-Continue with `calculator.c` in **this** folder (same directory as this doc):
-
-```c
-#include <stdio.h>
-
-// Function prototypes
-int add(int a, int b);
-int subtract(int a, int b);
-int multiply(int a, int b);
-int divide(int a, int b);
-
-int main() {
-    int choice, x, y, result;
-
-    printf("Simple Calculator\n");
-    printf("1. Add\n");
-    printf("2. Subtract\n");
-    printf("3. Multiply\n");
-    printf("4. Divide\n");
-    printf("Enter choice: ");
-    scanf("%d", &choice);
-
-    printf("Enter two numbers: ");
-    scanf("%d %d", &x, &y);
-
-    switch(choice) {
-        case 1:
-            result = add(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 2:
-            result = subtract(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 3:
-            result = multiply(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 4:
-            if (y != 0) {
-                result = divide(x, y);
-                printf("Result: %d\n", result);
-            } else {
-                printf("Error: Division by zero\n");
-            }
-            break;
-        default:
-            printf("Invalid choice\n");
-    }
-
-    return 0;
-}
-
-int add(int a, int b) {
-    return a + b;
-}
-
-int subtract(int a, int b) {
-    return a - b;
-}
-
-int multiply(int a, int b) {
-    return a * b;
-}
-
-int divide(int a, int b) {
-    return a / b;
-}
-```
-
----
-
-## Sample Prompts (Copy-Paste)
-
-Choose ONE of these safe change requests:
-
-### Option A: Add a Comment (Safest)
-
-> *"Add a comment at the very top of `calculator.c` that says: 'Created for Cursor Training - Basic Calculator' "*
-
-### Option B: Add a Welcome Message
-
-> *"In the `main()` function, right after the `printf("Simple Calculator\n");` line, add a new line that prints: 'Welcome to the calculator!' "*
-
-### Option C: Add Input Confirmation
-
-> *"After reading the two numbers with `scanf`, add a line that prints: 'You entered: x and y' (replace x and y with the actual values)"*
-
-### Option D: Improve Output Formatting
-
-> *"Change all result print statements from 'Result: %d\n' to '=== Result: %d ===\n' (with the === before and after)"*
-
----
+## Additional reference
 
 ## Expected Agent Response (Example)
 
@@ -253,16 +122,6 @@ When the Agent shows changes, look for:
 ```
 
 This changes the output format from `Result: 5` to `=== Result: 5 ===`.
-
----
-
-## Success Criteria
-
-- [ ] Agent understood your request
-- [ ] Agent showed a diff (changes highlighted)
-- [ ] You reviewed the changes before approving
-- [ ] Changes were applied to the file
-- [ ] The file still works (no syntax errors)
 
 ---
 
@@ -319,20 +178,6 @@ Or try a slightly more complex safe change:
 
 ---
 
-## Exercise Complete ✓
-
-Check off when done:
-
-- [ ] Requested a small, safe change
-- [ ] Reviewed the diff before approving
-- [ ] Changes applied successfully
-- [ ] File still works (if applicable)
-- [ ] (Optional) Completed bonus challenge
-
-
-
----
-
 ## Quick Reference: Safe Change Checklist
 
 ```text
@@ -357,24 +202,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

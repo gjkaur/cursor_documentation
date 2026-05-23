@@ -28,9 +28,7 @@
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Step 1:** Open an unfamiliar repository in Cursor
 
@@ -76,11 +74,6 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ---
 
-**Success Criteria:**
-- Agent described project purpose
-- Agent identified entry points and key modules
-- Agent suggested first files to read
-
 ---
 
 ## Success criteria
@@ -91,107 +84,7 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open Cursor and open a project folder (File → Open Folder) | Your code files appear in the Explorer sidebar |
-| 2 | Press `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac) | The Agent panel opens on the right side of the screen |
-| 3 | Type or copy-paste the sample prompt below into the Agent input box | The prompt appears in the input area |
-| 4 | Press `Enter` to send | Agent starts responding, showing its thinking process |
-| 5 | Read the Agent's response | Agent explains the codebase purpose, entry point, and key files |
-
----
-
-## Code Example to Use
-
-You can use **any codebase** you have access to. If you don't have one, create a simple test file:
-
-### Sample File: `calculator.c`
-
-A ready-to-use copy is included in this folder as [`calculator.c`](calculator.c). Open the `exercise-1` folder (under `core-exercises` in this repo) in Cursor and work from there.
-
-```c
-#include <stdio.h>
-
-// Function prototypes
-int add(int a, int b);
-int subtract(int a, int b);
-int multiply(int a, int b);
-int divide(int a, int b);
-
-int main() {
-    int choice, x, y, result;
-
-    printf("Simple Calculator\n");
-    printf("1. Add\n");
-    printf("2. Subtract\n");
-    printf("3. Multiply\n");
-    printf("4. Divide\n");
-    printf("Enter choice: ");
-    scanf("%d", &choice);
-
-    printf("Enter two numbers: ");
-    scanf("%d %d", &x, &y);
-
-    switch(choice) {
-        case 1:
-            result = add(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 2:
-            result = subtract(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 3:
-            result = multiply(x, y);
-            printf("Result: %d\n", result);
-            break;
-        case 4:
-            if (y != 0) {
-                result = divide(x, y);
-                printf("Result: %d\n", result);
-            } else {
-                printf("Error: Division by zero\n");
-            }
-            break;
-        default:
-            printf("Invalid choice\n");
-    }
-
-    return 0;
-}
-
-int add(int a, int b) {
-    return a + b;
-}
-
-int subtract(int a, int b) {
-    return a - b;
-}
-
-int multiply(int a, int b) {
-    return a * b;
-}
-
-int divide(int a, int b) {
-    return a / b;
-}
-```
-
-Save this as `calculator.c` in an empty folder (or use the file in this folder), then open that folder in Cursor.
-
----
-
-## Sample Prompt (Copy-Paste)
-
-> *"Explain this codebase in 3-5 sentences. What is the main purpose? Where is the entry point (where does execution start)? List 2-3 key functions and what they do."*
-
----
+## Additional reference
 
 ## Expected Agent Response (Example)
 
@@ -210,16 +103,6 @@ Key functions:
 
 The program includes error handling for invalid menu choices and division by zero.
 ```
-
----
-
-## Success Criteria
-
-- [ ] Agent panel opened successfully (`Ctrl+I` or `Cmd+I`)
-- [ ] Agent responded to your prompt
-- [ ] Response identified the main entry point (e.g., `main()`, `main.c`, `app.js`)
-- [ ] Response listed at least 2 key functions with their purposes
-- [ ] You understood the codebase better after reading the response
 
 ---
 
@@ -255,33 +138,3 @@ After completing the exercise, try this follow-up prompt:
 This helps you identify areas of technical debt or candidates for refactoring.
 
 ---
-
-## Exercise Complete ✓
-
-Check off when done:
-
-- [ ] Opened Agent panel
-- [ ] Asked for codebase explanation
-- [ ] Received and understood response
-- [ ] (Optional) Completed bonus challenge
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project

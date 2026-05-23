@@ -9,28 +9,12 @@
 
 ---
 
-## Cursor basics (read this first)
-
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
-| Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
-| Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
-| Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
-| Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
-| Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
-| Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
-| Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
-| Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
-
-**Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
+> **Cursor basics:** Already covered in [Exercise 2.1](../module-02/exercise-2.1-codebase-understanding.md). Skip if you completed that setup.
 
 
 ---
 
-## Steps from the training slides
-
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+## Steps
 
 **Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
 
@@ -78,10 +62,6 @@ What edge cases does it handle?
 # Then: "Switch to Agent Mode and fix the off-by-one error"
 ```
 
-**Success Criteria:**
-- Used Ask Mode for questions · Observed Ask Mode cannot make changes
-- Switched to Agent Mode · Made a change with diff review
-
 ---
 
 ## Success criteria
@@ -91,22 +71,7 @@ What edge cases does it handle?
 
 ---
 
-## Detailed reference (expanded instructions)
-
-The section below adds troubleshooting, examples, and extra detail beyond the slides.
-
-## Step-by-Step Instructions
-
-| Step | Action | Expected Result |
-|------|--------|-----------------|
-| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
-| 2 | Press `Ctrl+I` (or `Cmd+I` on Mac) to open Agent | Agent panel opens |
-| 3 | Switch to Ask Mode using `/ask` | Mode indicator changes to "Ask" |
-| 4 | Ask a question that requires code changes | Agent explains but does NOT modify files |
-| 5 | Switch to Agent Mode using `/agent` | Mode indicator changes to "Agent" |
-| 6 | Ask the same question | Agent makes the actual code change |
-
----
+## Additional reference
 
 ## Understanding the Two Modes
 
@@ -131,26 +96,6 @@ The section below adds troubleshooting, examples, and extra detail beyond the sl
 | **Slash command** | Type `/ask`, `/agent`, or `/plan` |
 | **Keyboard shortcut** | Press `Shift+Tab` to rotate through modes |
 | **Dropdown** | Click the mode selector in the chat input |
-
----
-
-## Sample Prompts to Compare
-
-### Test Prompt 1: Code Change Request
-
-> *"Add a comment at the top of `calculator.c` saying 'Created with Cursor'"*
-
-### Test Prompt 2: Code Generation
-
-> *"Create a new function called `greeting()` that prints 'Hello, World!'"*
-
-### Test Prompt 3: Code Modification
-
-> *"Change all `printf` statements to add an exclamation mark at the end"*
-
-### Test Prompt 4: File Creation
-
-> *"Create a new file called `README.md` with basic project documentation"*
 
 ---
 
@@ -259,18 +204,6 @@ I'll add a comment at the top of `calculator.c`.
 
 ---
 
-## Success Criteria
-
-- [ ] Switched to Ask Mode (`/ask`)
-- [ ] Asked a change-making request in Ask Mode
-- [ ] Agent explained what would change but didn't modify files
-- [ ] Switched to Agent Mode (`/agent`)
-- [ ] Asked the same request in Agent Mode
-- [ ] Agent actually made the change
-- [ ] Verified the difference in behavior
-
----
-
 ## Troubleshooting
 
 | Problem | Solution |
@@ -302,20 +235,6 @@ Try this multi-step workflow:
 4. Verify the change works
 
 This mimics a safe, review-before-implement workflow.
-
----
-
-## Exercise Complete ✓
-
-Check off when done:
-- [ ] Switched to Ask Mode
-- [ ] Asked change-making request in Ask Mode – no changes made
-- [ ] Switched to Agent Mode
-- [ ] Asked same request – changes made
-- [ ] Understood the difference between modes
-- [ ] (Optional) Completed bonus challenge
-
-**Next:** Exercise 14 – Create a Rule
 
 ---
 
@@ -352,24 +271,3 @@ Check off when done:
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Troubleshooting (common beginner issues)
-
-| Problem | What to try |
-|---------|-------------|
-| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
-| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
-| Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
-| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
-| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
-
----
-
-## Exercise complete
-
-- [ ] Finished all steps above
-- [ ] Checked success criteria
-- [ ] Noted one thing you would do differently on a real project
