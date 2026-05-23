@@ -2,10 +2,8 @@
 marp: true
 theme: flat-gaia
 paginate: true
-header: 'Module 3 — Agent Modes and Tools'
-footer: 'Cursor Training Program · Day 1'
+header: "Module 3 — Agent Modes and Tools"
 ---
-
 <!-- _class: lead -->
 
 # Agent Modes and Tools
@@ -13,6 +11,7 @@ footer: 'Cursor Training Program · Day 1'
 ## Module 3 · Day 1 (Hands-On + Concept)
 
 Cursor Training Program · ~60 min
+
 ---
 
 ## Module Overview
@@ -23,6 +22,7 @@ Cursor Training Program · ~60 min
 | **Format** | Hands-on exercise + concept |
 | **Prerequisites** | Module 2 completed, live web app available (or sample provided) |
 | **Module Goal** | Master different agent modes and the core tools that make agents powerful |
+
 ---
 
 ## Learning Objectives
@@ -33,6 +33,7 @@ By the end of this module, participants will be able to:
 - Use the Browser Tool to inspect live pages and read console output
 - Run terminal commands through the agent and diagnose failures
 - Write effective, constrained prompts that avoid scope creep
+
 ---
 
 ## Agenda
@@ -43,6 +44,7 @@ By the end of this module, participants will be able to:
 | 3.2 | Browser Tool | 18 min |
 | 3.3 | Terminal Tool | 20 min |
 | 3.4 | Effective Prompting in Practice | 22 min |
+
 ---
 
 <!-- _class: lead -->
@@ -52,6 +54,7 @@ By the end of this module, participants will be able to:
 ## Ask Mode vs. Agent Mode
 
 *Concept · 10 min · Exercise · 8 min*
+
 ---
 
 ## The Core Distinction
@@ -65,6 +68,7 @@ By the end of this module, participants will be able to:
 | **Can call tools** | ❌ No | ✅ Yes |
 | **Safety level** | Very high (read-only) | Moderate (needs oversight) |
 | **Best for** | Questions, learning, code review | Implementation, debugging, automation |
+
 ---
 
 ## When to Use Each Mode
@@ -79,6 +83,7 @@ By the end of this module, participants will be able to:
 - You need to run and react to commands
 - Multi-step tasks · Development environment
 - You're prepared to review changes
+
 ---
 
 ## Safety Implications
@@ -90,21 +95,15 @@ By the end of this module, participants will be able to:
 | Malicious commands | None | Possible (needs approval) |
 | Data leakage | Low | Medium (can read files) |
 | API cost | Low (no tool calls) | Higher (multiple tool calls) |
+
 ---
 
 ## The Mode Continuum
 
-```text
-READ-ONLY ←─────────────────────────────────────→ FULL ACTION
-     │                                              │
-     ▼                                              ▼
-Ask Mode                                      Agent Mode
-     │                                              │
-     └──────────→ Chat (middle ground) ←───────────┘
-               (Can read, can't write)
-```
+<img src="assets/module-03/the-mode-continuum.svg" alt="The Mode Continuum" />
 
 > *"Not every AI interaction needs full agent capabilities."*
+
 ---
 
 ## Windows Exercise Environment
@@ -121,6 +120,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
 ---
 
 ## Exercise 3.1 — Steps 1–2
@@ -130,6 +130,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Step 1:** Open Agent panel (`Cmd+I` / `Ctrl+I`) — note mode indicator at bottom
 **Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
 ---
 
 ## Exercise 3.1 — Steps 1–2 (Part 2)
@@ -140,6 +141,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 ```
 Change the variable name 'temp' to 'temperature' in the current file.
 ```
+
 ---
 
 ## Exercise 3.1 — Steps 3–5
@@ -154,6 +156,7 @@ Change the variable name 'temp' to 'temperature' in the current file.
 Explain the purpose of the main() function in this file.
 What edge cases does it handle?
 ```
+
 ---
 
 ## Exercise 3.1 — Steps 3–5 (Part 2)
@@ -163,6 +166,7 @@ What edge cases does it handle?
 
 **Step 5:** Repeat the rename request — agent shows diff for approval
 **Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+
 ---
 
 ## Exercise 3.1 — Step 6 & Success Criteria
@@ -180,6 +184,7 @@ What edge cases does it handle?
 **Success Criteria:**
 - Used Ask Mode for questions · Observed Ask Mode cannot make changes
 - Switched to Agent Mode · Made a change with diff review
+
 ---
 
 <!-- _class: lead -->
@@ -189,6 +194,7 @@ What edge cases does it handle?
 ## Browser Tool
 
 *Concept · 8 min · Exercise · 10 min*
+
 ---
 
 ## What the Browser Tool Can Do
@@ -199,6 +205,7 @@ What edge cases does it handle?
 - Extract data from live pages
 
 > *"See what your app actually looks like in a browser — not just the source code."*
+
 ---
 
 ## Browser Tool: With vs. Without
@@ -209,6 +216,7 @@ What edge cases does it handle?
 | "Is the API returning data?" | Checks code | Sees network tab |
 | "What console errors?" | Asks you | Reads console directly |
 | "Does responsive layout work?" | Trusts CSS | Views at different sizes |
+
 ---
 
 ## Exercise 3.2 — Steps 1–2
@@ -223,6 +231,7 @@ What edge cases does it handle?
 python -m http.server 8000
 # Or use a public test page
 ```
+
 ---
 
 ## Exercise 3.2 — Steps 1–2 (Part 2)
@@ -234,6 +243,7 @@ python -m http.server 8000
 Use the browser tool to open http://localhost:8000
 Tell me what you see on the page.
 ```
+
 ---
 
 ## Exercise 3.2 — Steps 3–4
@@ -250,6 +260,7 @@ On that same page, find:
 2. The number of buttons
 3. Any error messages visible
 ```
+
 ---
 
 ## Exercise 3.2 — Steps 3–4 (Part 2)
@@ -261,20 +272,13 @@ On that same page, find:
 Now open the browser developer console.
 Are there any errors or warnings? If so, what are they?
 ```
+
 ---
 
 ## Expected Agent Actions
 
-```text
-→ browser_navigate(url="http://localhost:8000")
-→ browser_snapshot() — page structure captured
-→ browser_console_messages()
-   [WARNING] Deprecated API used on line 42
-   [ERROR] Failed to load resource: /api/data 404
+<img src="assets/module-03/expected-agent-actions.svg" alt="Expected Agent Actions" />
 
-Agent: Found a deprecated API warning and a 404 on /api/data
-
-```
 ---
 
 ## Exercise 3.2 — Steps 5–6
@@ -289,6 +293,7 @@ Agent: Found a deprecated API warning and a 404 on /api/data
 The login button is partially hidden on mobile sizes.
 Use the browser tool to check what's happening.
 ```
+
 ---
 
 ## Exercise 3.2 — Steps 5–6 (Part 2)
@@ -300,6 +305,7 @@ Use the browser tool to check what's happening.
 Go to https://example.com/pricing
 Extract all pricing plan names and their monthly costs into a table.
 ```
+
 ---
 
 ## Browser Tool Limitations
@@ -312,6 +318,7 @@ Extract all pricing plan names and their monthly costs into a table.
 | Cannot upload files | Not supported yet |
 
 **Success Criteria:** Opened URL · Read content · Checked console · Extracted data
+
 ---
 
 <!-- _class: lead -->
@@ -321,6 +328,7 @@ Extract all pricing plan names and their monthly costs into a table.
 ## Terminal Tool
 
 *Concept · 8 min · Exercise · 12 min*
+
 ---
 
 ## What the Terminal Tool Can Do
@@ -329,19 +337,13 @@ Extract all pricing plan names and their monthly costs into a table.
 - See stdout, stderr, exit codes
 - Read command output as context for next actions
 - Chain commands based on previous results
+
 ---
 
 ## Terminal Tool Flow
 
-```text
-User: "Run the tests and fix any failures"
-  → Agent: Execute "pytest tests/"
-  → Result: Exit code 1, "2 failed, 5 passed"
-  → Agent: Reads failures, fixes code
-  → Agent: Reruns tests
-  → Agent: "All tests passed."
+<img src="assets/module-03/terminal-tool-flow.svg" alt="Terminal Tool Flow" />
 
-```
 ---
 
 ## Exercise 3.3 — Steps 1–2
@@ -358,6 +360,7 @@ Run these commands and tell me what versions we're using:
 - node --version (if applicable)
 - git --version
 ```
+
 ---
 
 ## Exercise 3.3 — Steps 1–2 (Part 2)
@@ -368,6 +371,7 @@ Run these commands and tell me what versions we're using:
 ```
 Run the test suite. Show me which tests pass and which fail.
 ```
+
 ---
 
 ## Exercise 3.3 — Steps 3–4
@@ -382,6 +386,7 @@ Run the test suite. Show me which tests pass and which fail.
 One or more tests failed. What's causing these failures?
 Look at the specific error messages.
 ```
+
 ---
 
 ## Exercise 3.3 — Steps 3–4 (Part 2)
@@ -393,6 +398,7 @@ Look at the specific error messages.
 Based on your diagnosis, fix the failing tests.
 Show me what you're changing before you run again.
 ```
+
 ---
 
 ## Exercise 3.3 — Debug Workflow (Step 5)
@@ -407,12 +413,8 @@ I found a bug where the app crashes when input is empty.
 3. Finally, fix the bug and verify it works
 ```
 
-```text
-→ python app.py → IndexError: list index out of range (line 23)
-→ Agent adds guard condition
-→ python app.py --test-empty-input → "No data provided"
+<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Exercise 3.3 — Debug Workflow (Step 5)" />
 
-```
 ---
 
 ## Exercise 3.3 — Step 6 & Safety Rules
@@ -433,6 +435,7 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 | `npm install -g`, start servers | `pytest`, `npm test`, `git status` |
 
 **Success Criteria:** Ran tests · Diagnosed failure · Fixed code · Verified fix
+
 ---
 
 <!-- _class: lead -->
@@ -442,6 +445,7 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 ## Effective Prompting in Practice
 
 *Concept · 10 min · Exercise · 12 min*
+
 ---
 
 ## Anatomy of an Effective Prompt
@@ -451,6 +455,7 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 3. **CONSTRAINTS** — "Do not change the function signature…"
 4. **OUTPUT FORMAT** — "Show me the diff and explain your change…"
 5. **SUCCESS CRITERIA** — "Function should return 0 for empty input…"
+
 ---
 
 ## Bad Prompts vs. Good Prompts
@@ -461,6 +466,7 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 | "Add logging" | "Add INFO-level logging to calculate() using existing logger config." |
 | "Make it faster" | "Optimize find_user() from O(n²) to O(n log n). Don't change signature." |
 | "Review my code" | "Review auth.py for SQL injection, password handling, session issues. Ignore style." |
+
 ---
 
 ## The "Boundaries" Technique
@@ -476,6 +482,7 @@ BOUNDARIES:
 
 Change ONLY: the function body of calculate_total()
 ```
+
 ---
 
 ## Avoiding Scope Creep
@@ -494,6 +501,7 @@ User: "Wait, I just wanted the login bug fixed!"
 | **Ask for plan first** | "Plan Mode: Show me what you'll change before doing it" |
 | **Use checkpoints** | Create checkpoint before complex requests |
 | **Prefer diffs** | "Show me the diff, don't replace the whole file" |
+
 ---
 
 ## Exercise 3.4 — Step 1: Constrained Prompt
@@ -512,6 +520,7 @@ Constraints:
 Output format: Show exact diff and explain root cause.
 Success criteria: Function returns email string for valid user IDs.
 ```
+
 ---
 
 ## Exercise 3.4 — Steps 2–3
@@ -525,6 +534,7 @@ Success criteria: Function returns email string for valid user IDs.
 ```
 Fix get_user_email - it's returning None sometimes.
 ```
+
 ---
 
 ## Exercise 3.4 — Steps 2–3 (Part 2)
@@ -541,6 +551,7 @@ Before making any changes, answer:
 
 I will review before approving any code changes.
 ```
+
 ---
 
 ## Exercise 3.4 — Steps 4–5
@@ -560,6 +571,7 @@ But DO NOT:
 - Swallow exceptions silently (always log them)
 - Change the existing test file
 ```
+
 ---
 
 ## Exercise 3.4 — Steps 4–5 (Part 2)
@@ -571,6 +583,7 @@ But DO NOT:
 First, add input validation. Just show me what you'd add — don't modify yet.
 [Review] Now add the validation. Show the diff before I accept.
 ```
+
 ---
 
 ## Exercise 3.4 — Step 6: Prompt Templates
@@ -594,6 +607,7 @@ Ignore: [Style, formatting]
 ```
 
 **Success Criteria:** Constrained prompt · Plan first · Negative constraints · Template created
+
 ---
 
 ## Module Summary
@@ -604,26 +618,13 @@ Ignore: [Style, formatting]
 | 3.2 | Browser Tool | Agent can see live pages and console |
 | 3.3 | Terminal Tool | Agent can run commands and react |
 | 3.4 | Effective Prompting | Boundaries prevent scope creep |
+
 ---
 
 ## Quick Reference Card
 
-```text
-MODES:
-  ASK MODE    → Read-only | Questions, learning
-  AGENT MODE  → Full tools | Implementation, debugging
+<img src="assets/module-03/quick-reference-card.svg" alt="Quick Reference Card" />
 
-TOOLS:
-  BROWSER  → Navigate, read, console, screenshot
-  TERMINAL → Execute commands, read output
-  FILE     → Read, edit, create, delete
-  SEARCH   → Code search, symbol lookup
-
-PROMPTING:
-  • Be specific  • Define boundaries  • Plan first for complex tasks
-  • Specify output format  • Define success criteria
-
-```
 ---
 
 <!-- _class: lead -->

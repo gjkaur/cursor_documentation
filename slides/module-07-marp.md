@@ -2,10 +2,8 @@
 marp: true
 theme: flat-gaia
 paginate: true
-header: 'Module 7 — Cursor API Foundations'
-footer: 'Cursor Training Program · Day 2'
+header: "Module 7 — Cursor API Foundations"
 ---
-
 <!-- _class: lead -->
 
 # Cursor API Foundations
@@ -13,6 +11,7 @@ footer: 'Cursor Training Program · Day 2'
 ## Module 7 · Day 2 (Concept + Hands-On)
 
 Cursor Training Program · ~60 min
+
 ---
 
 ## Module Overview
@@ -23,6 +22,7 @@ Cursor Training Program · ~60 min
 | **Format** | Concept + hands-on exercise |
 | **Prerequisites** | Cursor account, basic API familiarity, Python 3.8+ installed |
 | **Module Goal** | Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests |
+
 ---
 
 ## Learning Objectives
@@ -34,6 +34,7 @@ By the end of this module, participants will be able to:
 - Implement rate limit handling and error recovery
 - Use ETag caching for efficient repeat queries
 - Test authentication by listing available models
+
 ---
 
 ## Agenda
@@ -45,6 +46,7 @@ By the end of this module, participants will be able to:
 | 7.3 | Rate Limits and Error Handling | 20 min |
 | 7.4 | ETag Caching | 18 min |
 | 7.5 | Listing Available Models | 10 min |
+
 ---
 
 <!-- _class: lead -->
@@ -54,6 +56,7 @@ By the end of this module, participants will be able to:
 ## The Cursor API Landscape
 
 *Concept · 10 min*
+
 ---
 
 ## The Five APIs
@@ -65,6 +68,7 @@ By the end of this module, participants will be able to:
 | **Files** | `/v1/files` | Upload/download files for agents |
 | **Admin** | `/v1/admin/*` | Team management, analytics, policies |
 | **Webhooks** | `/v1/webhooks` | Register and manage webhook endpoints |
+
 ---
 
 ## API Comparison Matrix
@@ -76,6 +80,7 @@ By the end of this module, participants will be able to:
 | **Files** | User API key | Per-minute | Storage | Context upload |
 | **Admin** | Admin API key | Higher limits | Included in plan | Team management |
 | **Webhooks** | User API key | Per-minute | Free | Notifications |
+
 ---
 
 ## When to Use Which API
@@ -84,6 +89,7 @@ By the end of this module, participants will be able to:
 - **Run a long task that writes code** → Agents API
 - **Manage team usage and limits** → Admin API
 - **Be notified when agents complete** → Webhooks API
+
 ---
 
 ## OpenAI Compatibility
@@ -103,6 +109,7 @@ response = client.chat.completions.create(
 ```
 
 **Success Criteria:** Understand five APIs · select correct API · understand OpenAI compatibility
+
 ---
 
 <!-- _class: lead -->
@@ -112,6 +119,7 @@ response = client.chat.completions.create(
 ## Authentication
 
 *Concept · 8 min · Exercise · 12 min*
+
 ---
 
 ## Authentication Methods
@@ -122,6 +130,7 @@ response = client.chat.completions.create(
 | **Bearer Token** | `Authorization: Bearer <key>` | OAuth-style clients |
 | **User API Key** | Regular key | Agents, Chat, Files APIs |
 | **Admin API Key** | `admin_` prefixed | Admin API only |
+
 ---
 
 ## API Key Types
@@ -135,6 +144,7 @@ response = client.chat.completions.create(
 - Generated in: Organization Settings → API Keys
 - Format: `cursor_admin_xxxxxxxxxxxx`
 - Can access: Admin API + everything User can
+
 ---
 
 ## Security Best Practices
@@ -146,6 +156,7 @@ response = client.chat.completions.create(
 - Revoke unused keys immediately
 - Use Admin API keys only when necessary
 - Monitor key usage in dashboard
+
 ---
 
 ## Windows Exercise Environment
@@ -162,6 +173,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
 ---
 
 ## Exercise 7.2 — Steps 1–3
@@ -170,6 +182,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 **Step 1:** Generate User API Key — **Where:** **Cursor app** → **Settings** → **API Keys** → **Generate New Key** (copy the key; you will not see it again)
+
 ---
 
 ## Exercise 7.2 — Steps 1–3 (Part 2)
@@ -180,6 +193,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 $env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
 $env:CURSOR_USER_API_KEY
 ```
+
 ---
 
 ## Exercise 7.2 — Steps 1–3 (Part 3)
@@ -190,6 +204,7 @@ $env:CURSOR_USER_API_KEY
 curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
   https://api.cursor.com/v1/models | Select-Object -First 20
 ```
+
 ---
 
 ## Exercise 7.2 — Steps 4–5
@@ -206,6 +221,7 @@ response = requests.get(
     auth=(API_KEY, "")  # Empty password
 )
 ```
+
 ---
 
 ## Exercise 7.2 — Steps 4–5 (Part 2)
@@ -221,6 +237,7 @@ response = client.chat.completions.create(
     max_tokens=10
 )
 ```
+
 ---
 
 ## Exercise 7.2 — Steps 6–7
@@ -236,6 +253,7 @@ export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx"
 curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   https://api.cursor.com/v1/admin/organization | jq '.'
 ```
+
 ---
 
 ## Exercise 7.2 — Steps 6–7 (Part 2)
@@ -244,6 +262,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
 **Success Criteria:** Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
+
 ---
 
 <!-- _class: lead -->
@@ -253,6 +272,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ## Rate Limits and Error Handling
 
 *Concept · 10 min · Exercise · 10 min*
+
 ---
 
 ## Rate Limits by API
@@ -264,6 +284,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | Agents (create) | 100 requests | per minute |
 | Admin API | 500 requests | per minute |
 | Webhooks | 2000 requests | per minute |
+
 ---
 
 ## HTTP Status Codes to Handle
@@ -276,6 +297,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | **403** | Forbidden | Check permissions |
 | **429** | Too Many Requests | Implement backoff |
 | **500/503** | Server Error | Retry with backoff |
+
 ---
 
 ## Rate Limit Headers
@@ -286,6 +308,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | `X-RateLimit-Remaining` | Requests left | `942` |
 | `X-RateLimit-Reset` | Window reset (Unix timestamp) | `1700000000` |
 | `Retry-After` | Seconds to wait (on 429) | `60` |
+
 ---
 
 ## Exercise 7.3 — Exponential Backoff
@@ -306,6 +329,7 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
             time.sleep(delay)
     return None
 ```
+
 ---
 
 ## Exercise 7.3 — Rate Limiter & Client
@@ -319,6 +343,7 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 **CursorAPIClient:** combines rate limiting, retries on 429/5xx, timeout handling, and typed methods like `get_models()` and `create_agent()`
 
 **Success Criteria:** Backoff · header monitoring · rate limiter · robust client class
+
 ---
 
 <!-- _class: lead -->
@@ -328,6 +353,7 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 ## ETag Caching
 
 *Concept · 8 min · Exercise · 10 min*
+
 ---
 
 ## What Are ETags?
@@ -337,19 +363,13 @@ ETags are unique identifiers for API response versions.
 1. Send `If-None-Match` header with previous ETag
 2. Server returns `304 Not Modified` if unchanged
 3. No data transfer, no rate limit consumption
+
 ---
 
 ## ETag Flow
 
-```text
-Request 1: GET /v1/analytics/usage
-  → 200 OK, ETag: "abc123", Body: { ... data ... }
+<img src="assets/module-07/etag-flow.svg" alt="ETag Flow" />
 
-Request 2: GET with If-None-Match: "abc123"
-  → 304 Not Modified (unchanged) OR
-  → 200 OK, ETag: "def456" (updated data)
-
-```
 ---
 
 ## Endpoints Supporting ETags
@@ -361,6 +381,7 @@ Request 2: GET with If-None-Match: "abc123"
 | `/v1/agents/{id}` | ✅ Yes | Changes during run |
 | `/v1/analytics/usage` | ✅ Yes | Daily changes |
 | `/v1/agents` (list) | ⚠️ Partial | Changes frequently |
+
 ---
 
 ## Exercise 7.4 — Basic ETag Usage
@@ -377,6 +398,7 @@ def get_with_etag(url, previous_etag=None):
     if response.status_code == 200:
         return response.json(), response.headers.get('ETag')
 ```
+
 ---
 
 ## Exercise 7.4 — ETagCache & CachedClient
@@ -393,6 +415,7 @@ def get_with_etag(url, previous_etag=None):
 **Batch analytics:** fetch 30 days of usage — unchanged days return 304 instantly
 
 **Success Criteria:** Basic ETag request · persistent cache · analytics workload caching
+
 ---
 
 <!-- _class: lead -->
@@ -402,6 +425,7 @@ def get_with_etag(url, previous_etag=None):
 ## Listing Available Models
 
 *Concept · 4 min · Exercise · 6 min*
+
 ---
 
 ## The Models Endpoint
@@ -416,6 +440,7 @@ GET /v1/models
 - Capabilities (vision, tool calling, etc.)
 
 > *"Simplest API call — perfect for verifying your API key works."*
+
 ---
 
 ## Exercise 7.5 — Steps 1–2
@@ -431,12 +456,14 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
   https://api.cursor.com/v1/models \
   | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'
 ```
+
 ---
 
 ## Exercise 7.5 — Steps 1–2 (Part 2)
 
 **Step 2:** Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support
 **Terminal:** **PowerShell** — `python script.py`
+
 ---
 
 ## Exercise 7.5 — Steps 3–4
@@ -454,6 +481,7 @@ large_context = [m for m in models if m.get('context_window', 0) >= 100000]
 # Cheapest by input price
 cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]
 ```
+
 ---
 
 ## Exercise 7.5 — Steps 3–4 (Part 2)
@@ -466,6 +494,7 @@ select_model("code_review", "balanced")  # → claude-4.6-sonnet
 select_model("simple_fix", "low")        # → gpt-5-mini
 select_model("frontend_ui", "high")      # → gemini-3.1-pro
 ```
+
 ---
 
 ## Module Summary
@@ -477,26 +506,13 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 | 7.3 | Rate Limits & Errors | Robust clients |
 | 7.4 | ETag Caching | Efficient queries |
 | 7.5 | Listing Models | Auth smoke-test |
+
 ---
 
 ## Quick Reference Card
 
-```text
-BASE URL: https://api.cursor.com/v1
+<img src="assets/module-07/quick-reference-card.svg" alt="Quick Reference Card" />
 
-AUTH:  -u "api_key:" (curl)  |  Bearer token  |  OpenAI SDK base_url
-
-ENDPOINTS:
-  GET  /models              List available models
-  POST /agents              Create cloud agent
-  GET  /agents/{id}         Get agent status
-  GET  /admin/members       List team members
-  GET  /admin/analytics/usage  Usage data
-
-ERRORS:  429/5xx → retry with backoff  |  4xx → fix request
-CACHE:   If-None-Match → handle 304 Not Modified
-
-```
 ---
 
 <!-- _class: lead -->

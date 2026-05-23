@@ -2,10 +2,8 @@
 marp: true
 theme: flat-gaia
 paginate: true
-header: 'Module 5 — Cursor CLI and Local Automation'
-footer: 'Cursor Training Program · Day 1'
+header: "Module 5 — Cursor CLI and Local Automation"
 ---
-
 <!-- _class: lead -->
 
 # Cursor CLI and Local Automation
@@ -13,6 +11,7 @@ footer: 'Cursor Training Program · Day 1'
 ## Module 5 · Day 1 (Hands-On)
 
 Cursor Training Program · ~60 min
+
 ---
 
 ## Module Overview
@@ -23,6 +22,7 @@ Cursor Training Program · ~60 min
 | **Format** | Hands-on exercise |
 | **Prerequisites** | Cursor CLI installed, terminal access, Modules 1–4 completed |
 | **Module Goal** | Master the Cursor CLI for terminal-based AI workflows and automation |
+
 ---
 
 ## Learning Objectives
@@ -33,6 +33,7 @@ By the end of this module, participants will be able to:
 - Run one-shot CLI commands for scripting and CI/CD integration
 - Hand off local sessions to Cloud Agents for remote execution
 - List, resume, and manage concurrent sessions effectively
+
 ---
 
 ## Agenda
@@ -43,6 +44,7 @@ By the end of this module, participants will be able to:
 | 5.2 | One-Shot CLI | 20 min |
 | 5.3 | Cloud Handoff | 18 min |
 | 5.4 | Listing and Resuming Sessions | 20 min |
+
 ---
 
 <!-- _class: lead -->
@@ -52,6 +54,7 @@ By the end of this module, participants will be able to:
 ## Interactive CLI
 
 *Concept · 8 min · Exercise · 12 min*
+
 ---
 
 ## What Is the Cursor CLI?
@@ -64,6 +67,7 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 - Integrate AI into existing CLI tools
 
 **Primary command:** `agent` (main entry point)
+
 ---
 
 ## Interactive Mode Commands
@@ -78,6 +82,7 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 | `/usage` | View Cursor usage stats |
 | `/about` | View environment and CLI configuration |
 | `/resume` | View and resume previous sessions |
+
 ---
 
 ## Windows Exercise Environment
@@ -94,6 +99,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
 ---
 
 ## Exercise 5.1 — Steps 1–2
@@ -108,6 +114,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 agent
 agent "Help me understand the current codebase structure"
 ```
+
 ---
 
 ## Exercise 5.1 — Steps 1–2 (Part 2)
@@ -117,6 +124,7 @@ agent "Help me understand the current codebase structure"
 - `Shift+Enter` — new line without submitting
 - `Enter` — submit prompt
 - `Ctrl+D` twice — exit
+
 ---
 
 ## Exercise 5.1 — Steps 3–5
@@ -132,6 +140,7 @@ agent "Help me understand the current codebase structure"
 # Or list models outside session:
 agent --list-models
 ```
+
 ---
 
 ## Exercise 5.1 — Steps 3–5 (Part 2)
@@ -143,6 +152,7 @@ agent --list-models
 agent --mode=ask "What does this project's main function do?"
 # Or inside session: /ask
 ```
+
 ---
 
 ## Exercise 5.1 — Steps 3–5 (Part 3)
@@ -153,6 +163,7 @@ agent --mode=ask "What does this project's main function do?"
 ```bash
 agent --mode=plan "Add user authentication to this API"
 ```
+
 ---
 
 ## Exercise 5.1 — Steps 6–7
@@ -167,6 +178,7 @@ agent --mode=plan "Add user authentication to this API"
 npx -y cursor-statusline
 # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]
 ```
+
 ---
 
 ## Exercise 5.1 — Steps 6–7 (Part 2)
@@ -177,6 +189,7 @@ npx -y cursor-statusline
 ```bash
 agent /setup-terminal
 ```
+
 ---
 
 <!-- _class: lead -->
@@ -186,6 +199,7 @@ agent /setup-terminal
 ## One-Shot CLI
 
 *Concept · 8 min · Exercise · 12 min*
+
 ---
 
 ## One-Shot Command Structure
@@ -198,6 +212,7 @@ agent --non-interactive "run this task"     # No prompts, just output
 ```
 
 > *"Perfect for automation, CI/CD pipelines, and batch operations."*
+
 ---
 
 ## Use Cases for One-Shot CLI
@@ -209,6 +224,7 @@ agent --non-interactive "run this task"     # No prompts, just output
 | **CI/CD tasks** | `agent "Review this PR diff for security issues"` |
 | **Batch processing** | Loop through files with `agent` commands |
 | **Pre-commit hooks** | `agent --mode=ask "Check for console.log statements"` |
+
 ---
 
 ## Exercise 5.2 — Steps 1–2
@@ -224,6 +240,7 @@ agent "What is the difference between let and const in JavaScript?"
 agent "Write a bash function that checks if a port is in use"
 agent --mode=ask "Explain the git rebase command with examples"
 ```
+
 ---
 
 ## Exercise 5.2 — Steps 1–2 (Part 2)
@@ -235,6 +252,7 @@ agent --mode=ask "Explain the git rebase command with examples"
 agent --model gpt-5-mini "What does this command do: ls -la | grep .txt"
 agent --model claude-4.5-opus "Design a database schema for a task management system"
 ```
+
 ---
 
 ## Exercise 5.2 — Scriptable Code Reviewer
@@ -254,6 +272,7 @@ security issues, missing error handling. Be concise."
 ```
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 5.2 — Batch & Git Hooks
@@ -270,6 +289,7 @@ for file in src/**/*.py; do
       "Summarize this Python file in one sentence: $(head -50 $file)"
 done
 ```
+
 ---
 
 ## Exercise 5.2 — Batch & Git Hooks (Part 2)
@@ -281,6 +301,7 @@ done
 **Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
 
 **Success Criteria:** Ran one-shots · specified models · created reviewer script · understood CI/CD use
+
 ---
 
 <!-- _class: lead -->
@@ -290,6 +311,7 @@ done
 ## Cloud Handoff
 
 *Concept · 8 min · Exercise · 10 min*
+
 ---
 
 ## What Is Cloud Handoff?
@@ -301,20 +323,13 @@ Send a local conversation to a Cloud Agent:
 - Resume the session later from any device
 
 **The `&` prefix:** Prepend any message with `&` to send it to the cloud.
+
 ---
 
 ## Cloud Handoff Flow
 
-```text
-Local Terminal                         Cloud
-┌─────────────────┐                  ┌─────────────────┐
-│ agent           │  ──& prompt──→   │ Cloud Agent     │
-│ (interactive    │                  │ (runs async)    │
-│  session)       │  ←──result────   │                 │
-└─────────────────┘                  └─────────────────┘
-                                           ↓
-                                    cursor.com/agents
-```
+<img src="assets/module-05/cloud-handoff-flow.svg" alt="Cloud Handoff Flow" />
+
 ---
 
 ## Exercise 5.3 — Steps 1–3
@@ -329,6 +344,7 @@ Local Terminal                         Cloud
 agent
 & "Analyze the entire codebase and create a dependency graph."
 ```
+
 ---
 
 ## Exercise 5.3 — Steps 1–3 (Part 2)
@@ -340,12 +356,14 @@ agent
 🚀 Handing off to Cloud Agent...
 ✅ Session running at: https://cursor.com/agents/[agent-id]
 ```
+
 ---
 
 ## Exercise 5.3 — Steps 1–3 (Part 3)
 
 **Step 3:** Check status via browser or CLI
 **Where:** **Web browser** — Edge or Chrome
+
 ---
 
 ## Exercise 5.3 — Steps 4–6
@@ -359,6 +377,7 @@ agent
 ```
 & "Continue this conversation in the cloud. I need to log off."
 ```
+
 ---
 
 ## Exercise 5.3 — Steps 4–6 (Part 2)
@@ -369,6 +388,7 @@ agent
 ```bash
 agent "& Refactor the auth module to use JWT. Update all tests and docs."
 ```
+
 ---
 
 ## Exercise 5.3 — Steps 4–6 (Part 3)
@@ -379,6 +399,7 @@ agent "& Refactor the auth module to use JWT. Update all tests and docs."
 ```bash
 agent --resume [agent-id-from-cloud]
 ```
+
 ---
 
 ## Cloud Handoff Best Practices
@@ -391,6 +412,7 @@ agent --resume [agent-id-from-cloud]
 | Parallel work streams | Security-sensitive code (local only) |
 
 **Success Criteria:** Sent `&` message · verified cloud agent · accessed via web
+
 ---
 
 <!-- _class: lead -->
@@ -400,6 +422,7 @@ agent --resume [agent-id-from-cloud]
 ## Listing and Resuming Sessions
 
 *Concept · 8 min · Exercise · 12 min*
+
 ---
 
 ## Session Management Commands
@@ -416,6 +439,7 @@ agent --resume [agent-id-from-cloud]
 agent "Just say one word: auth-refactor"
 # Session named "auth-refactor Agent"
 ```
+
 ---
 
 ## Exercise 5.4 — Steps 1–2
@@ -431,6 +455,7 @@ agent "Just say one word: frontend-cleanup"   # do work, exit
 agent "Just say one word: db-optimization"  # do work, exit
 agent "Just say one word: docs-update"
 ```
+
 ---
 
 ## Exercise 5.4 — Steps 1–2 (Part 2)
@@ -444,6 +469,7 @@ agent "Just say one word: docs-update"
 # 2. db-optimization Agent (1 hour ago)
 # 3. docs-update Agent (30 minutes ago)
 ```
+
 ---
 
 ## Exercise 5.4 — Steps 3–5
@@ -457,6 +483,7 @@ agent "Just say one word: docs-update"
 ```bash
 agent --resume abc123-def456-ghi789
 ```
+
 ---
 
 ## Exercise 5.4 — Steps 3–5 (Part 2)
@@ -468,6 +495,7 @@ agent --resume abc123-def456-ghi789
 # Terminal 1: agent --resume frontend-cleanup
 # Terminal 2: agent --resume db-optimization
 ```
+
 ---
 
 ## Exercise 5.4 — Steps 3–5 (Part 3)
@@ -478,6 +506,7 @@ agent --resume abc123-def456-ghi789
 ```
 /compress   # Summarize conversation, free context window
 ```
+
 ---
 
 ## Exercise 5.4 — Steps 6–7 & Best Practices
@@ -497,6 +526,7 @@ agent --resume abc123-def456-ghi789
 **Cleanup:** Sessions persist indefinitely — manually complete or discard finished ones
 
 **Success Criteria:** Created named sessions · listed with `/resume` · resumed · used `/compress`
+
 ---
 
 ## Module Summary
@@ -507,6 +537,7 @@ agent --resume abc123-def456-ghi789
 | 5.2 | One-Shot CLI | Scripting & automation |
 | 5.3 | Cloud Handoff | Remote/long-running tasks |
 | 5.4 | Session Management | Concurrent work handling |
+
 ---
 
 ## Quick Reference Card
@@ -525,6 +556,7 @@ CLOUD:  & "message"  →  cursor.com/agents
 
 KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit)
 ```
+
 ---
 
 <!-- _class: lead -->

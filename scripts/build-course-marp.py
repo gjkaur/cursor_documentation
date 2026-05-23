@@ -30,7 +30,6 @@ marp: true
 theme: flat-gaia
 paginate: true
 header: 'Cursor Training Program — Complete Course'
-footer: 'Springpeople · Cursor Training'
 ---"""
 
 
@@ -115,7 +114,6 @@ Cloud agents, programmatic APIs, admin analytics, and AI code tracking.
 
 def _day_break_slide(day: str, subtitle: str) -> str:
     return f"""<!-- _class: lead -->
-<!-- _footer: 'Cursor Training Program · {day}' -->
 
 # {day}
 
@@ -145,10 +143,8 @@ def build_course_markdown(slides_dir: Path) -> str:
             continue
 
         header = f"Module {num} — {title}"
-        footer = f"Cursor Training Program · {day}"
         module_slides[0] = (
-            f"<!-- _header: '{header}' -->\n"
-            f"<!-- _footer: '{footer}' -->\n\n"
+            f"<!-- _header: '{header}' -->\n\n"
             f"{module_slides[0].lstrip()}"
         )
         parts.extend(module_slides)

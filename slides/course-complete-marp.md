@@ -3,7 +3,6 @@ marp: true
 theme: flat-gaia
 paginate: true
 header: 'Cursor Training Program — Complete Course'
-footer: 'Springpeople · Cursor Training'
 ---
 
 ---
@@ -66,7 +65,6 @@ Cloud agents, programmatic APIs, admin analytics, and AI code tracking.
 ---
 
 <!-- _header: 'Module 1 — Mental Models for AI-Assisted Development' -->
-<!-- _footer: 'Cursor Training Program · Day 1' -->
 
 <!-- _class: lead -->
 
@@ -80,12 +78,12 @@ Cursor Training Program · Concept block · ~60 min
 
 ## Module Overview
 
-| Aspect | Details |
-|--------|---------|
-| **Duration** | ~60 minutes |
-| **Format** | Concept block (foundational theory) |
-| **Prerequisites** | None – this is the starting point |
-| **Module Goal** | Build accurate mental models of how AI coding assistants work, their limitations, and how to use them effectively |
+| Aspect            | Details                                                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Duration**      | ~60 minutes                                                                                                       |
+| **Format**        | Concept block (foundational theory)                                                                               |
+| **Prerequisites** | None – this is the starting point                                                                                 |
+| **Module Goal**   | Build accurate mental models of how AI coding assistants work, their limitations, and how to use them effectively |
 
 ---
 
@@ -108,7 +106,7 @@ By the end of this module, participants will be able to:
 
 ## How AI Models Work
 
-*Concept · 12 minutes*
+_Concept · 12 minutes_
 
 ---
 
@@ -124,28 +122,18 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 ## Next-Token Prediction
 
-```
-Input: "def calculate_sum(a, b):"
-Model thinks: "What's most likely next?"
-
-Probabilities:
-  - "return" → 85%
-  - "print"  → 8%
-  - "pass"   → 4%
-  - "for"    → 2%
-  - Other    → 1%
-```
+<img src="assets/module-01/next-token-prediction.svg" alt="Next-token prediction probabilities" />
 
 ---
 
 ## Traditional Code vs. AI Model
 
-| Traditional Code | AI Model |
-|------------------|----------|
+| Traditional Code                         | AI Model                                   |
+| ---------------------------------------- | ------------------------------------------ |
 | Deterministic (same input → same output) | Probabilistic (different outputs possible) |
-| You control the logic | You influence, but don't control |
-| Errors are bugs | Errors are features of probability |
-| Predictable behavior | Needs management via parameters |
+| You control the logic                    | You influence, but don't control           |
+| Errors are bugs                          | Errors are features of probability         |
+| Predictable behavior                     | Needs management via parameters            |
 
 ---
 
@@ -157,29 +145,17 @@ Probabilities:
 
 ## What Determines AI Output?
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    Factors That Shape Output                 │
-├─────────────────────────────────────────────────────────────┤
-│  1. Training Data      → What the model "learned"           │
-│  2. Prompt             → Your instruction (most influential) │
-│  3. Temperature        → Randomness level (0=deterministic)  │
-│  4. Top-p / Top-k      → Token selection pool size          │
-│  5. System Prompt      → Persistent behavioral guidelines   │
-│  6. Context Window     → What the model can "see"           │
-│  7. Model Architecture → Different models, different biases  │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/factors-output.svg" alt="Factors that shape AI output" />
 
 ---
 
 ## Key Parameters You Control
 
-| Parameter | What It Does | Best For |
-|-----------|--------------|----------|
+| Parameter       | What It Does                                 | Best For                              |
+| --------------- | -------------------------------------------- | ------------------------------------- |
 | **Temperature** | Randomness (0 = deterministic, 1 = creative) | Bug fixes (low), brainstorming (high) |
-| **Top-p** | Nucleus sampling – limits token pool | Balanced responses |
-| **Max Tokens** | Limits response length | Controlling cost |
+| **Top-p**       | Nucleus sampling – limits token pool         | Balanced responses                    |
+| **Max Tokens**  | Limits response length                       | Controlling cost                      |
 
 ---
 
@@ -195,7 +171,7 @@ max_tokens: 4000   # cap length
 
 ## Temperature Impact
 
-Same prompt: *"Write a function to reverse a string"*
+Same prompt: _"Write a function to reverse a string"_
 
 ```python
 # Temperature 0.1 — very deterministic
@@ -232,7 +208,7 @@ Models are frozen at their training cutoff date. They don't know:
 
 ## Hallucinations
 
-*Concept · 10 minutes*
+_Concept · 10 minutes_
 
 ---
 
@@ -246,29 +222,19 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 ## Hallucinations in Code
 
-| Type | Example | How to Spot |
-|------|---------|-------------|
-| **Fake APIs** | `import nonexistent_library` | Check docs; import fails |
-| **Wrong parameters** | Incorrect function signature | Type checking |
-| **Invented methods** | `list.reverse_in_place()` | Know the standard library |
-| **Confident nonsense** | "This is the standard way to…" | Cross-reference |
-| **Outdated syntax** | Old Python 2 style | Know version differences |
+| Type                   | Example                        | How to Spot               |
+| ---------------------- | ------------------------------ | ------------------------- |
+| **Fake APIs**          | `import nonexistent_library`   | Check docs; import fails  |
+| **Wrong parameters**   | Incorrect function signature   | Type checking             |
+| **Invented methods**   | `list.reverse_in_place()`      | Know the standard library |
+| **Confident nonsense** | "This is the standard way to…" | Cross-reference           |
+| **Outdated syntax**    | Old Python 2 style             | Know version differences  |
 
 ---
 
 ## Why Models Hallucinate
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                  Root Causes of Hallucination               │
-├─────────────────────────────────────────────────────────────┤
-│  Training Data Gaps     → Model "guesses" when uncertain    │
-│  Probability Pressure   → Must output SOMETHING             │
-│  Pattern Overfitting    → Sees patterns that don't exist    │
-│  No True/False Circuit  → Models don't have truth checking  │
-│  Confidence Calibration → Sounds confident when wrong       │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/hallucination-causes.svg" alt="Root causes of hallucination" />
 
 ---
 
@@ -289,14 +255,14 @@ response = await async_requests.get('https://api.example.com')
 
 ## Hallucination Mitigation Strategies
 
-| Strategy | How It Works | Example |
-|----------|--------------|---------|
-| **Grounding** | Provide source material | Paste library docs into context |
-| **Verification** | Ask for citations | "Which line of the docs shows this?" |
-| **Constrained decoding** | Limit possible outputs | JSON mode, regex patterns |
-| **Self-consistency** | Ask multiple times, compare | Run same prompt 3×, take majority |
-| **Low temperature** | Reduce randomness | `temperature: 0.1` |
-| **Tool use** | Let model search/lookup | Enable web search for docs |
+| Strategy                 | How It Works                | Example                              |
+| ------------------------ | --------------------------- | ------------------------------------ |
+| **Grounding**            | Provide source material     | Paste library docs into context      |
+| **Verification**         | Ask for citations           | "Which line of the docs shows this?" |
+| **Constrained decoding** | Limit possible outputs      | JSON mode, regex patterns            |
+| **Self-consistency**     | Ask multiple times, compare | Run same prompt 3×, take majority    |
+| **Low temperature**      | Reduce randomness           | `temperature: 0.1`                   |
+| **Tool use**             | Let model search/lookup     | Enable web search for docs           |
 
 ---
 
@@ -315,7 +281,7 @@ Before accepting AI-generated code, verify:
 
 ## The Developer's Mindset
 
-> *"Trust, but verify – especially when the AI sounds most confident."*
+> _"Trust, but verify – especially when the AI sounds most confident."_
 
 - Hallucinations decrease with better prompts and context
 - They never fully disappear
@@ -330,18 +296,18 @@ Before accepting AI-generated code, verify:
 
 ## Tokens and Pricing
 
-*Concept · 10 minutes*
+_Concept · 10 minutes_
 
 ---
 
 ## What Is a Token?
 
-| Language | Example | Token Count |
-|----------|---------|-------------|
-| English | "Hello world" | 2 tokens (~0.75 words/token) |
-| English | "Congratulations" | 1 token |
-| Code | `function calculateTotal()` | ~5 tokens (~2–4 chars/token) |
-| Chinese | "你好世界" | 4–8 tokens |
+| Language | Example                     | Token Count                  |
+| -------- | --------------------------- | ---------------------------- |
+| English  | "Hello world"               | 2 tokens (~0.75 words/token) |
+| English  | "Congratulations"           | 1 token                      |
+| Code     | `function calculateTotal()` | ~5 tokens (~2–4 chars/token) |
+| Chinese  | "你好世界"                  | 4–8 tokens                   |
 
 ---
 
@@ -363,26 +329,26 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 
 ## Model Pricing Examples
 
-| Model | Input (per 1M) | Output (per 1M) | Output/Input |
-|-------|---------------:|----------------:|-------------:|
-| GPT-5 Mini | $0.25 | $2.00 | 8× |
-| Claude 4.5 Haiku | $1.00 | $5.00 | 5× |
-| GPT-5.3 Codex | $1.75 | $14.00 | 8× |
-| Gemini 3.1 Pro | $2.00 | $12.00 | 6× |
-| Claude 4.6 Sonnet | $3.00 | $15.00 | 5× |
-| Claude 4.7 Opus | $5.00 | $25.00 | 5× |
-| GPT-5.5 | $5.00 | $30.00 | 6× |
+| Model             | Input (per 1M) | Output (per 1M) | Output/Input |
+| ----------------- | -------------: | --------------: | -----------: |
+| GPT-5 Mini        |          $0.25 |           $2.00 |           8× |
+| Claude 4.5 Haiku  |          $1.00 |           $5.00 |           5× |
+| GPT-5.3 Codex     |          $1.75 |          $14.00 |           8× |
+| Gemini 3.1 Pro    |          $2.00 |          $12.00 |           6× |
+| Claude 4.6 Sonnet |          $3.00 |          $15.00 |           5× |
+| Claude 4.7 Opus   |          $5.00 |          $25.00 |           5× |
+| GPT-5.5           |          $5.00 |          $30.00 |           6× |
 
 ---
 
 ## What 1 Million Tokens Looks Like
 
-| Content Type | Approximate Amount |
-|--------------|-------------------|
-| Plain English text | ~750,000 words (~1,500 pages) |
-| Python code | ~250,000–500,000 lines |
-| Average conversation | 5–10 sessions |
-| Full codebase | Small to medium project |
+| Content Type         | Approximate Amount            |
+| -------------------- | ----------------------------- |
+| Plain English text   | ~750,000 words (~1,500 pages) |
+| Python code          | ~250,000–500,000 lines        |
+| Average conversation | 5–10 sessions                 |
+| Full codebase        | Small to medium project       |
 
 ---
 
@@ -405,25 +371,25 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 
 ## Cost Optimization Strategies
 
-| Strategy | How It Works | Impact |
-|----------|--------------|--------|
-| **Use cheaper models** | Mini/Haiku for simple tasks | 5–20× reduction |
-| **Reduce context** | Only send relevant code | 2–5× reduction |
-| **Cache responses** | Reuse common answers | Variable |
-| **Batch operations** | Combine multiple tasks | 30–50% reduction |
-| **Monitor usage** | Track spending per user | Prevents surprises |
-| **Set limits** | Monthly spending caps | Budget protection |
+| Strategy               | How It Works                | Impact             |
+| ---------------------- | --------------------------- | ------------------ |
+| **Use cheaper models** | Mini/Haiku for simple tasks | 5–20× reduction    |
+| **Reduce context**     | Only send relevant code     | 2–5× reduction     |
+| **Cache responses**    | Reuse common answers        | Variable           |
+| **Batch operations**   | Combine multiple tasks      | 30–50% reduction   |
+| **Monitor usage**      | Track spending per user     | Prevents surprises |
+| **Set limits**         | Monthly spending caps       | Budget protection  |
 
 ---
 
 ## Real-World Cost Bounds
 
-| Usage Level | Monthly Cost | What You Can Do |
-|-------------|--------------|-----------------|
-| Light | $10–20 | Occasional questions, small fixes |
-| Medium | $50–100 | Daily coding, regular agent use |
-| Heavy | $200–500 | Full-time AI assistance, multiple agents |
-| Enterprise | $1000+ | Team usage, automation, CI/CD |
+| Usage Level | Monthly Cost | What You Can Do                          |
+| ----------- | ------------ | ---------------------------------------- |
+| Light       | $10–20       | Occasional questions, small fixes        |
+| Medium      | $50–100      | Daily coding, regular agent use          |
+| Heavy       | $200–500     | Full-time AI assistance, multiple agents |
+| Enterprise  | $1000+       | Team usage, automation, CI/CD            |
 
 ---
 
@@ -449,7 +415,7 @@ Context discipline = cost discipline.
 
 ## Context
 
-*Concept · 12 minutes · The single most valuable AI skill*
+_Concept · 12 minutes · The single most valuable AI skill_
 
 ---
 
@@ -457,28 +423,16 @@ Context discipline = cost discipline.
 
 Context = all the information the model has access to when generating a response.
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    What Goes Into Context                   │
-├─────────────────────────────────────────────────────────────┤
-│  System Prompt   → "You are a helpful coding assistant"     │
-│  User Prompt     → "Fix this bug: ..."                      │
-│  Code Files      → Current file, related files              │
-│  Conversation    → Previous exchanges                       │
-│  Retrieved Docs  → Library documentation, examples          │
-│  Tool Outputs    → Results from search, file reads          │
-│  Constraints     → "Only use standard library"              │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/context-inputs.svg" alt="What goes into context" />
 
 ---
 
 ## The Context Window Limit
 
-| Model | Context Window | Pages of Text | Lines of Code |
-|-------|---------------:|--------------:|--------------:|
-| Claude 4 (Haiku / Sonnet / Opus) | 200k | ~150 | ~50,000 |
-| GPT-5 Mini / GPT-5.3 Codex | 272k | ~200 | ~70,000 |
+| Model                            | Context Window | Pages of Text | Lines of Code |
+| -------------------------------- | -------------: | ------------: | ------------: |
+| Claude 4 (Haiku / Sonnet / Opus) |           200k |          ~150 |       ~50,000 |
+| GPT-5 Mini / GPT-5.3 Codex       |           272k |          ~200 |       ~70,000 |
 
 ---
 
@@ -507,6 +461,7 @@ Before every AI interaction, ask:
 ## Good vs. Bad Context — Bad Example
 
 **BAD (vague):**
+
 ```
 "Fix this bug: my code doesn't work"
 ```
@@ -516,6 +471,7 @@ Before every AI interaction, ask:
 ## Good vs. Bad Context — Good Example
 
 **GOOD (specific):**
+
 ```
 Python function sorts dicts by key but raises KeyError.
 Code: def sort_by_key(data, key): ...
@@ -527,30 +483,19 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 ## Context Prioritization Pyramid
 
-```text
-                    ┌─────────────┐
-                    │  Critical   │  MUST include (~10–20%)
-                  ┌┴─────────────┴┐
-                  │   Important   │  Should include (~20–30%)
-                ┌┴───────────────┴┐
-                │     Helpful     │  Nice to have (~30–40%)
-              ┌┴─────────────────┴┐
-              │    Low Value        │  Omit if possible
-              └───────────────────┘
-
-```
+<img src="assets/module-01/context-pyramid.svg" alt="Context prioritization pyramid" />
 
 ---
 
 ## Context Window Management
 
-| Strategy | How It Works | When to Use |
-|----------|--------------|-------------|
-| **Summarization** | Compress earlier conversation | Long sessions |
-| **Selective inclusion** | Only relevant files | Large codebases |
-| **Chunking** | Split across multiple calls | Exceeding limit |
-| **Hierarchical** | Summaries + details on demand | Complex projects |
-| **Vector retrieval** | Semantic search for relevant context | Very large codebases |
+| Strategy                | How It Works                         | When to Use          |
+| ----------------------- | ------------------------------------ | -------------------- |
+| **Summarization**       | Compress earlier conversation        | Long sessions        |
+| **Selective inclusion** | Only relevant files                  | Large codebases      |
+| **Chunking**            | Split across multiple calls          | Exceeding limit      |
+| **Hierarchical**        | Summaries + details on demand        | Complex projects     |
+| **Vector retrieval**    | Semantic search for relevant context | Very large codebases |
 
 ---
 
@@ -558,14 +503,7 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 Models pay **most attention to the beginning and end** of context, and **less to the middle**.
 
-```text
-Context Position Attention:
-├─────────────────────────────────────────────────────────┤
-│ BEGINNING  ████████████████████████████████  (high)    │
-│ MIDDLE     ████████                           (low)    │
-│ END        ████████████████████████████████  (high)    │
-└─────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/lost-in-middle.svg" alt="Lost in the middle attention chart" />
 
 **Implication:** Put critical information at the beginning OR end, not the middle.
 
@@ -577,7 +515,7 @@ Context Position Attention:
 
 ## Tool Calling and MCP
 
-*Concept · 8 minutes*
+_Concept · 8 minutes_
 
 ---
 
@@ -587,59 +525,44 @@ Tool calling (function calling) lets the AI request execution of external functi
 
 The AI **doesn't execute code** — it outputs a structured request that **your system** executes.
 
-```text
-User: "What's the weather in Tokyo?"
-  → AI decides: need weather data
-  → AI outputs: tool_call { name: "get_weather", args: { city: "Tokyo" } }
-  → Your system executes get_weather("Tokyo")
-  → Result returned to AI
-  → AI: "The weather in Tokyo is 22°C and sunny"
-
-```
+<img src="assets/module-01/tool-calling-flow.svg" alt="Tool calling flow" />
 
 ---
 
 ## Common Tool Types in Development
 
-| Tool | Purpose | Example |
-|------|---------|---------|
-| **read_file** | Read code files | "Show me the auth module" |
-| **edit_file** | Modify code | "Add error handling to line 42" |
-| **search_code** | Find patterns | "Find all uses of this function" |
-| **run_terminal** | Execute commands | "Run the tests" |
-| **web_search** | Find documentation | "Look up pandas DataFrame API" |
-| **browser** | Browse web pages | "Open the PR and review it" |
-| **git** | Version control | "Create a branch and commit" |
+| Tool             | Purpose            | Example                          |
+| ---------------- | ------------------ | -------------------------------- |
+| **read_file**    | Read code files    | "Show me the auth module"        |
+| **edit_file**    | Modify code        | "Add error handling to line 42"  |
+| **search_code**  | Find patterns      | "Find all uses of this function" |
+| **run_terminal** | Execute commands   | "Run the tests"                  |
+| **web_search**   | Find documentation | "Look up pandas DataFrame API"   |
+| **browser**      | Browse web pages   | "Open the PR and review it"      |
+| **git**          | Version control    | "Create a branch and commit"     |
 
 ---
 
 ## MCP (Model Context Protocol)
 
-> *"USB-C for AI — one protocol that works across different tools."*
+> _"USB-C for AI — one protocol that works across different tools."_
 
 **Without MCP:** Each tool needs custom integration
 
 **With MCP:** Tools advertise their capabilities; AI discovers them dynamically
 
-```text
-┌──────────────┐       ┌──────────────┐       ┌──────────────┐
-│   AI Model   │  ←→   │   MCP Host   │  ←→   │    Tools     │
-│  (Claude,    │       │  (Cursor,    │       │  (Files,     │
-│   GPT, etc.) │       │   etc.)      │       │   Terminal,  │
-└──────────────┘       └──────────────┘       │   Web, etc.) │
-                                              └──────────────┘
-```
+<img src="assets/module-01/mcp-architecture.svg" alt="MCP architecture" />
 
 ---
 
 ## Why MCP Matters
 
-| Benefit | Explanation |
-|---------|-------------|
+| Benefit              | Explanation                                |
+| -------------------- | ------------------------------------------ |
 | **Interoperability** | Same tools work across different AI models |
-| **Discoverability** | AI can learn what tools are available |
-| **Standardization** | One protocol, not dozens of custom APIs |
-| **Extensibility** | Add new tools without changing AI logic |
+| **Discoverability**  | AI can learn what tools are available      |
+| **Standardization**  | One protocol, not dozens of custom APIs    |
+| **Extensibility**    | Add new tools without changing AI logic    |
 
 ---
 
@@ -659,20 +582,20 @@ User: "What's the weather in Tokyo?"
 
 ## Agents
 
-*Concept · 8 minutes*
+_Concept · 8 minutes_
 
 ---
 
 ## Agent vs. Chatbot
 
-| Aspect | Chatbot | Agent |
-|--------|---------|-------|
-| **Interaction** | Single turn or simple back-and-forth | Multi-step, goal-oriented |
-| **Control** | User drives each step | Agent plans and executes |
-| **Memory** | Limited to conversation | Can maintain state across steps |
-| **Actions** | None (text only) | Can call tools, modify files |
-| **Autonomy** | None | Goal-directed autonomy |
-| **Example** | "Explain this code" | "Fix all bugs in this repository" |
+| Aspect          | Chatbot                              | Agent                             |
+| --------------- | ------------------------------------ | --------------------------------- |
+| **Interaction** | Single turn or simple back-and-forth | Multi-step, goal-oriented         |
+| **Control**     | User drives each step                | Agent plans and executes          |
+| **Memory**      | Limited to conversation              | Can maintain state across steps   |
+| **Actions**     | None (text only)                     | Can call tools, modify files      |
+| **Autonomy**    | None                                 | Goal-directed autonomy            |
+| **Example**     | "Explain this code"                  | "Fix all bugs in this repository" |
 
 ---
 
@@ -682,78 +605,56 @@ User: "What's the weather in Tokyo?"
 
 ## The Agent Loop — Diagram
 
-```text
-         ┌─────────────────────────────────────┐
-         │ GOAL: Add dark mode to entire app   │
-         └──────────────────┬──────────────────┘
-                            ↓
-         ┌─────────────────────────────────────┐
-         │ PLAN: Break goal into steps         │
-         └──────────────────┬──────────────────┘
-                            ↓
-    ┌─────────────┐                    ┌──────────────────────┐
-    │ ACT         │  ←──────────────→  │ OBSERVE              │
-    │ Run tools   │                    │ Tool call → result   │
-    └──────┬──────┘                    └──────────────────────┘
-           ↓
-         ┌─────────────────────────────────────┐
-         │ THINK: Evaluate progress, adjust    │
-         └──────────────────┬──────────────────┘
-                            ↓
-         ┌─────────────────────────────────────┐
-         │ REPEAT: Until goal done or blocked  │
-         └─────────────────────────────────────┘
-```
+<img src="assets/module-01/agent-loop.svg" alt="Agent loop diagram" />
 
 ---
 
 ## Levels of Agent Autonomy
 
-| Level | Name | Description | Example |
-|-------|------|-------------|---------|
-| **L1** | Assistant | Responds, needs step-by-step guidance | Basic chatbot |
-| **L2** | Tool-caller | Can request tools, human approves | Cursor Agent with approval |
-| **L3** | Planner | Makes plans, executes with supervision | Auto-code review |
-| **L4** | Autonomous | Self-directed, minimal supervision | CI/CD agent |
-| **L5** | Full Agent | Complete task ownership | Enterprise automation |
+| Level  | Name        | Description                            | Example                    |
+| ------ | ----------- | -------------------------------------- | -------------------------- |
+| **L1** | Assistant   | Responds, needs step-by-step guidance  | Basic chatbot              |
+| **L2** | Tool-caller | Can request tools, human approves      | Cursor Agent with approval |
+| **L3** | Planner     | Makes plans, executes with supervision | Auto-code review           |
+| **L4** | Autonomous  | Self-directed, minimal supervision     | CI/CD agent                |
+| **L5** | Full Agent  | Complete task ownership                | Enterprise automation      |
 
 ---
 
 ## How Agents Change Your Role
 
 **Traditional:**
-```
-Developer writes every line → tests → deploys
-```
+
+<img src="assets/module-01/role-flow-traditional.svg" alt="Traditional developer workflow" />
 
 **Agent-Assisted:**
-```text
-Developer defines intent → Agent executes → Developer reviews → Agent iterates
 
-```
+<img src="assets/module-01/role-flow-agent-assisted.svg" alt="Agent-assisted developer workflow" />
 
 ---
 
 ## Developer Role Shift
 
-| Old Role | New Role |
-|----------|----------|
-| Code writer | Intent specifier |
-| Debugger | Quality reviewer |
-| Implementation | Orchestration |
+| Old Role       | New Role           |
+| -------------- | ------------------ |
+| Code writer    | Intent specifier   |
+| Debugger       | Quality reviewer   |
+| Implementation | Orchestration      |
 | Manual testing | Acceptance testing |
-| Problem solver | Problem framer |
+| Problem solver | Problem framer     |
 
 ---
 
 ## When to Use Agents
 
 **Good for agents:**
+
 - Large, multi-step tasks · Repetitive patterns
 - Well-defined with clear success criteria
 - Low-risk changes · Documentation updates
 
 **Bad for agents:**
+
 - Security-critical systems · Unrecoverable actions
 - Poorly defined goals · Real-time requirements
 - High cost of failure
@@ -762,19 +663,18 @@ Developer defines intent → Agent executes → Developer reviews → Agent iter
 
 ## Module Summary
 
-| Lesson | Topic | Key Insight |
-|--------|-------|-------------|
-| 1.1 | How AI Models Work | Probabilistic, not deterministic – manage with temperature |
-| 1.2 | Hallucinations | Models invent confidently – always verify |
-| 1.3 | Tokens and Pricing | Output costs more – optimize context, use cheaper models |
-| 1.4 | Context | Single most valuable skill – quality in = quality out |
-| 1.5 | Tool Calling & MCP | AI requests actions, you control execution |
-| 1.6 | Agents | Goal-directed action – changes developer role |
+| Lesson | Topic              | Key Insight                                                |
+| ------ | ------------------ | ---------------------------------------------------------- |
+| 1.1    | How AI Models Work | Probabilistic, not deterministic – manage with temperature |
+| 1.2    | Hallucinations     | Models invent confidently – always verify                  |
+| 1.3    | Tokens and Pricing | Output costs more – optimize context, use cheaper models   |
+| 1.4    | Context            | Single most valuable skill – quality in = quality out      |
+| 1.5    | Tool Calling & MCP | AI requests actions, you control execution                 |
+| 1.6    | Agents             | Goal-directed action – changes developer role              |
 
 ---
 
 <!-- _header: 'Module 2 — Cursor Editor Essentials' -->
-<!-- _footer: 'Cursor Training Program · Day 1' -->
 
 <!-- _class: lead -->
 
@@ -901,22 +801,7 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ## Expected Agent Output (Sample)
 
-```text
-PURPOSE: Object detection and segmentation library (PyTorch)
-
-ENTRY POINTS:
-• train_net.py — Main training script
-• demo.py — Inference demo
-
-KEY MODULES:
-config/ ←→ model_zoo ←→ engine/
-   ↓           ↓           ↓
-structures ←→ modeling/ ←→ data/
-
-DATA FLOW:
-Config → build_model() → DataLoader → Training Loop → Loss → Backprop
-
-```
+<img src="assets/module-02/expected-agent-output-sample.svg" alt="Expected Agent Output (Sample)" />
 
 ---
 
@@ -1248,16 +1133,7 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 6:** Create a personal decision matrix:
 
-```text
-If task is...                    Use model...
-  Typos / text changes           → GPT-5 Mini
-  Quick question                 → Claude Haiku
-  Daily coding                   → GPT-5.3 Codex
-  Complex debugging              → Claude Sonnet
-  Architecture design            → Claude Opus
-  UI/frontend from image         → Gemini Pro
-
-```
+<img src="assets/module-02/exercise-2-5-cost-decision-matrix.svg" alt="Exercise 2.5 — Cost & Decision Matrix" />
 
 ---
 
@@ -1487,21 +1363,7 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Agent Terminal Loop
 
-```text
-Agent: I'll run the tests first.
-→ Executing: pytest tests/
-→ Output: 7 passed, 2 failed
-
-Agent: Two tests failed. Let me look at them.
-→ Reading: tests/test_auth.py
-
-Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
-→ Editing: tests/test_auth.py
-
-→ Executing: pytest tests/test_auth.py
-→ Output: All tests passed
-
-```
+<img src="assets/module-02/exercise-2-8-agent-terminal-loop.svg" alt="Exercise 2.8 — Agent Terminal Loop" />
 
 ---
 
@@ -1561,24 +1423,11 @@ Confirm before each command that might affect the repo.
 
 ## Quick Reference Card
 
-```text
-SHORTCUTS:
-  Cmd/Ctrl + I          → Open Agent
-  Cmd/Ctrl + L          → Explain selected code
-  Shift + Tab           → Toggle Plan Mode
-  Cmd/Ctrl + Shift + S  → Create checkpoint
-
-@MENTIONS:  @filename  @symbol  @branch  @chat  @web
-
-SAFE CHANGE:  Ask → Review diff → Accept/reject → Test
-PLAN MODE:    Shift+Tab → Describe → Review plan → Approve → Execute
-
-```
+<img src="assets/module-02/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
 <!-- _header: 'Module 3 — Agent Modes and Tools' -->
-<!-- _footer: 'Cursor Training Program · Day 1' -->
 
 <!-- _class: lead -->
 
@@ -1676,15 +1525,7 @@ By the end of this module, participants will be able to:
 
 ## The Mode Continuum
 
-```text
-READ-ONLY ←─────────────────────────────────────→ FULL ACTION
-     │                                              │
-     ▼                                              ▼
-Ask Mode                                      Agent Mode
-     │                                              │
-     └──────────→ Chat (middle ground) ←───────────┘
-               (Can read, can't write)
-```
+<img src="assets/module-03/the-mode-continuum.svg" alt="The Mode Continuum" />
 
 > *"Not every AI interaction needs full agent capabilities."*
 
@@ -1861,16 +1702,7 @@ Are there any errors or warnings? If so, what are they?
 
 ## Expected Agent Actions
 
-```text
-→ browser_navigate(url="http://localhost:8000")
-→ browser_snapshot() — page structure captured
-→ browser_console_messages()
-   [WARNING] Deprecated API used on line 42
-   [ERROR] Failed to load resource: /api/data 404
-
-Agent: Found a deprecated API warning and a 404 on /api/data
-
-```
+<img src="assets/module-03/expected-agent-actions.svg" alt="Expected Agent Actions" />
 
 ---
 
@@ -1935,15 +1767,7 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ## Terminal Tool Flow
 
-```text
-User: "Run the tests and fix any failures"
-  → Agent: Execute "pytest tests/"
-  → Result: Exit code 1, "2 failed, 5 passed"
-  → Agent: Reads failures, fixes code
-  → Agent: Reruns tests
-  → Agent: "All tests passed."
-
-```
+<img src="assets/module-03/terminal-tool-flow.svg" alt="Terminal Tool Flow" />
 
 ---
 
@@ -2014,12 +1838,7 @@ I found a bug where the app crashes when input is empty.
 3. Finally, fix the bug and verify it works
 ```
 
-```text
-→ python app.py → IndexError: list index out of range (line 23)
-→ Agent adds guard condition
-→ python app.py --test-empty-input → "No data provided"
-
-```
+<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Exercise 3.3 — Debug Workflow (Step 5)" />
 
 ---
 
@@ -2229,27 +2048,11 @@ Ignore: [Style, formatting]
 
 ## Quick Reference Card
 
-```text
-MODES:
-  ASK MODE    → Read-only | Questions, learning
-  AGENT MODE  → Full tools | Implementation, debugging
-
-TOOLS:
-  BROWSER  → Navigate, read, console, screenshot
-  TERMINAL → Execute commands, read output
-  FILE     → Read, edit, create, delete
-  SEARCH   → Code search, symbol lookup
-
-PROMPTING:
-  • Be specific  • Define boundaries  • Plan first for complex tasks
-  • Specify output format  • Define success criteria
-
-```
+<img src="assets/module-03/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
 <!-- _header: 'Module 4 — Customizing Cursor for Your Team' -->
-<!-- _footer: 'Cursor Training Program · Day 1' -->
 
 <!-- _class: lead -->
 
@@ -2471,17 +2274,7 @@ What are the security guardrails?
 
 Create `.cursor/repository-instructions.md`:
 
-```text
-Project: Task Manager API (FastAPI + PostgreSQL + JWT)
-
-Architecture: api/ → services/ → repositories/ → models/
-Conventions: dependency injection, async/await, type hints required
-
-Run dev:  uvicorn src.main:app --reload
-Run tests: pytest -v
-Migrations: alembic upgrade head
-
-```
+<img src="assets/module-04/exercise-4-2-create-instructions.svg" alt="Exercise 4.2 — Create Instructions" />
 
 ---
 
@@ -2526,15 +2319,7 @@ How do I run the tests?
 
 A reusable, specialized workflow the agent loads and follows — a **"prompt template with memory."**
 
-```text
-.cursor/skills/
-├── skill-name/
-│   ├── SKILL.md          # Main instructions (required)
-│   ├── scripts/          # Optional helper scripts
-│   ├── references/       # Optional reference docs
-│   └── templates/        # Optional output templates
-
-```
+<img src="assets/module-04/what-is-a-skill.svg" alt="What Is a Skill?" />
 
 | Use Case | Example Skill |
 |----------|---------------|
@@ -2629,14 +2414,7 @@ What skills are available in this project?
 
 MCP standardizes how AI agents discover and use external tools — **"USB port for AI."**
 
-```text
-Cursor Agent ←─MCP Protocol─→ MCP Server
-                                  ├─→ GitHub API
-                                  ├─→ Slack API
-                                  ├─→ Jira API
-                                  └─→ Custom Tools
-
-```
+<img src="assets/module-04/what-is-mcp.svg" alt="What Is MCP?" />
 
 | MCP Server | Capabilities |
 |------------|--------------|
@@ -2698,15 +2476,7 @@ Send a message to #deploys: "Deployment starting"
 
 Create `.cursor/commands/deploy.md`:
 
-```text
-name: deploy  |  arguments: environment (staging | production)
-
-Pre-deploy: make test → make lint → git status clean
-Deploy staging: git push origin main → kubectl set image
-Deploy production: git tag → deploy-prod.sh (requires approval)
-Post-deploy: health check → smoke tests → Slack notify
-
-```
+<img src="assets/module-04/walkthrough-slash-command-example.svg" alt="Walkthrough: Slash Command Example" />
 
 Usage: `/deploy staging`
 
@@ -2728,13 +2498,7 @@ Usage: `/deploy staging`
 
 Independent agent instances for specialized tasks — own context, tools, and instructions — then report back to the main agent.
 
-```text
-Main Agent
-  ├──→ Subagent: Security Scanner → "2 critical issues found"
-  ├──→ Subagent: Documentation Generator → "Updated README.md"
-  └──→ Subagent: Test Writer → "Added 5 test cases"
-
-```
+<img src="assets/module-04/what-are-subagents.svg" alt="What Are Subagents?" />
 
 ---
 
@@ -2797,20 +2561,11 @@ Meanwhile, I'll work on the frontend.
 
 ## Quick Reference Card
 
-```text
-RULES          → .cursor/rules/*.mdc (standards, security, build)
-REPO INSTR.    → .cursor/repository-instructions.md (project overview)
-SKILLS         → .cursor/skills/*/SKILL.md (invoke with /skill-name)
-MCP            → ~/.cursor/mcp.json (GitHub, Slack, Jira, custom)
-SLASH CMDS     → .cursor/commands/*.md (/deploy, /onboard, /triage)
-SUBAGENTS      → Parallel, isolated, specialized execution
-
-```
+<img src="assets/module-04/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
 <!-- _header: 'Module 5 — Cursor CLI and Local Automation' -->
-<!-- _footer: 'Cursor Training Program · Day 1' -->
 
 <!-- _class: lead -->
 
@@ -3136,16 +2891,7 @@ Send a local conversation to a Cloud Agent:
 
 ## Cloud Handoff Flow
 
-```text
-Local Terminal                         Cloud
-┌─────────────────┐                  ┌─────────────────┐
-│ agent           │  ──& prompt──→   │ Cloud Agent     │
-│ (interactive    │                  │ (runs async)    │
-│  session)       │  ←──result────   │                 │
-└─────────────────┘                  └─────────────────┘
-                                           ↓
-                                    cursor.com/agents
-```
+<img src="assets/module-05/cloud-handoff-flow.svg" alt="Cloud Handoff Flow" />
 
 ---
 
@@ -3377,7 +3123,6 @@ KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit)
 ---
 
 <!-- _class: lead -->
-<!-- _footer: 'Cursor Training Program · Day 2' -->
 
 # Day 2
 
@@ -3388,7 +3133,6 @@ Cursor Training Program · Complete Course
 ---
 
 <!-- _header: 'Module 6 — Cloud Agents in the UI' -->
-<!-- _footer: 'Cursor Training Program · Day 2' -->
 
 <!-- _class: lead -->
 
@@ -3748,18 +3492,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ## Messaging Integration Architecture
 
-```text
-Slack/Discord/Teams
-  │  "/cursor review PR #42"
-  ↓
-Webhook Receiver (your server or Cursor hosted)
-  │  POST /v1/agents with webhookUrl
-  ↓
-Cursor Cloud Agent
-  │  POST to webhookUrl when complete
-  ↓
-Webhook Receiver → Post response to Slack
-```
+<img src="assets/module-06/messaging-integration-architecture.svg" alt="Messaging Integration Architecture" />
 
 ---
 
@@ -3846,26 +3579,11 @@ curl -X POST https://your-server.com/trigger-agent \
 
 ## Quick Reference Card
 
-```text
-UI ACCESS:
-  Cursor Editor: View → Cloud Agents
-  Web: https://cursor.com/agents
-
-LAUNCH:  + New → repo/branch → prompt → model → Launch Agent
-
-ARTIFACTS:  View in detail page · Download single/zip · API (30-day storage)
-
-MESSAGING:
-  /cursor [prompt] in Slack
-  !cursor [prompt] in Discord
-  Webhook POST to trigger endpoint
-
-```
+<img src="assets/module-06/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
 <!-- _header: 'Module 7 — Cursor API Foundations' -->
-<!-- _footer: 'Cursor Training Program · Day 2' -->
 
 <!-- _class: lead -->
 
@@ -4231,15 +3949,7 @@ ETags are unique identifiers for API response versions.
 
 ## ETag Flow
 
-```text
-Request 1: GET /v1/analytics/usage
-  → 200 OK, ETag: "abc123", Body: { ... data ... }
-
-Request 2: GET with If-None-Match: "abc123"
-  → 304 Not Modified (unchanged) OR
-  → 200 OK, ETag: "def456" (updated data)
-
-```
+<img src="assets/module-07/etag-flow.svg" alt="ETag Flow" />
 
 ---
 
@@ -4382,27 +4092,11 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 ## Quick Reference Card
 
-```text
-BASE URL: https://api.cursor.com/v1
-
-AUTH:  -u "api_key:" (curl)  |  Bearer token  |  OpenAI SDK base_url
-
-ENDPOINTS:
-  GET  /models              List available models
-  POST /agents              Create cloud agent
-  GET  /agents/{id}         Get agent status
-  GET  /admin/members       List team members
-  GET  /admin/analytics/usage  Usage data
-
-ERRORS:  429/5xx → retry with backoff  |  4xx → fix request
-CACHE:   If-None-Match → handle 304 Not Modified
-
-```
+<img src="assets/module-07/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
 <!-- _header: 'Module 8 — Cloud Agents API and Webhooks' -->
-<!-- _footer: 'Cursor Training Program · Day 2' -->
 
 <!-- _class: lead -->
 
@@ -4898,12 +4592,7 @@ Combine everything into `automated_workflow.py`:
 
 ## Workflow Architecture
 
-```text
-create_agent() → wait (webhook OR polling) → download_artifacts()
-       ↑                    ↑
-  Flask webhook server   completion_event.set()
-  (background thread)    on FINISHED status
-```
+<img src="assets/module-08/workflow-architecture.svg" alt="Workflow Architecture" />
 
 ---
 
@@ -4971,7 +4660,6 @@ NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
 ---
 
 <!-- _header: 'Module 9 — Admin and Analytics APIs' -->
-<!-- _footer: 'Cursor Training Program · Day 2' -->
 
 <!-- _class: lead -->
 
@@ -5378,16 +5066,7 @@ def anonymize_email(email):
 
 ## Demo: Intent Analysis
 
-```text
-🎯 CONVERSATION INTENT ANALYSIS
-  debug              ████████████ 35.2%
-  refactor           ████████ 22.1%
-  document           ██████ 16.8%
-  test               ████ 11.5%
-  feature            ███ 8.9%
-  understand         ██ 5.5%
-
-```
+<img src="assets/module-09/demo-intent-analysis.svg" alt="Demo: Intent Analysis" />
 
 ---
 
@@ -5427,15 +5106,7 @@ def anonymize_email(email):
 
 ## Demo: SafeRemovalDemo Workflow
 
-```text
-Step 1: find_user(email) → user_id
-Step 2: audit_resources() → agents, runs
-Step 3: deactivate() → status: inactive
-Step 4: transfer_resources(new_owner_email)
-Step 5: hard_delete() → permanent (rare)
-→ generate_audit_report()
-
-```
+<img src="assets/module-09/demo-saferemovaldemo-workflow.svg" alt="Demo: SafeRemovalDemo Workflow" />
 
 **Bulk deactivation:** find users inactive 90+ days → review → notify → deactivate
 
@@ -5460,24 +5131,11 @@ Step 5: hard_delete() → permanent (rare)
 
 ## Quick Reference Card
 
-```text
-ENDPOINTS:
-  GET   /admin/members                    List members
-  GET   /admin/analytics/usage/daily      Daily usage
-  GET   /admin/analytics/usage/models     Model usage
-  GET   /admin/analytics/usage/users      Per-user usage
-  PATCH /admin/policies/users/{id}/limits Set spend limits
-  GET   /admin/members/{id}/resources     User resources
-
-LEADERBOARDS:  Anonymize · positive metrics · opt-in · role context
-REMOVAL:       Audit → Deactivate → Transfer → Log → Confirm delete
-
-```
+<img src="assets/module-09/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
 <!-- _header: 'Module 10 — AI Code Tracking and Reporting' -->
-<!-- _footer: 'Cursor Training Program · Day 2' -->
 
 <!-- _class: lead -->
 
