@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 316" width="920" height="316">
+<rect width="920" height="316" rx="10" ry="10" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
+
+  <rect x="1" y="1" width="918" height="54" rx="8" ry="8" fill="#ffebeb" stroke="#cc0000" stroke-width="2"/>
+  <text x="460.0" y="34.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#cc0000">Root Causes of Hallucination</text>
+  <line x1="1" y1="55" x2="919" y2="55" stroke="#d0d0d0" stroke-width="1"/>
+
+<rect x="12" y="70" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="96.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Training Data Gaps</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Model "guesses" when uncertain</tspan></text>
+<rect x="12" y="116" width="896" height="40" rx="4" fill="#ffffff"/>
+<text x="28" y="142.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Probability Pressure</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Must output SOMETHING</tspan></text>
+<rect x="12" y="162" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="188.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Pattern Overfitting</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Sees patterns that don't exist</tspan></text>
+<rect x="12" y="208" width="896" height="40" rx="4" fill="#ffffff"/>
+<text x="28" y="234.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">No True/False Circuit</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Models don't have truth checking</tspan></text>
+<rect x="12" y="254" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="280.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Confidence Calibration</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Sounds confident when wrong</tspan></text>
+</svg>

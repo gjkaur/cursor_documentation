@@ -2,10 +2,8 @@
 marp: true
 theme: flat-gaia
 paginate: true
-header: 'Module 2 — Cursor Editor Essentials'
-footer: 'Cursor Training Program · Day 1'
+header: "Module 2 — Cursor Editor Essentials"
 ---
-
 <!-- _class: lead -->
 
 # Cursor Editor Essentials
@@ -131,22 +129,7 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 ## Expected Agent Output (Sample)
 
-```text
-PURPOSE: Object detection and segmentation library (PyTorch)
-
-ENTRY POINTS:
-• train_net.py — Main training script
-• demo.py — Inference demo
-
-KEY MODULES:
-config/ ←→ model_zoo ←→ engine/
-   ↓           ↓           ↓
-structures ←→ modeling/ ←→ data/
-
-DATA FLOW:
-Config → build_model() → DataLoader → Training Loop → Loss → Backprop
-
-```
+<img src="assets/module-02/expected-agent-output-sample.svg" alt="Expected Agent Output (Sample)" />
 
 ---
 
@@ -478,16 +461,7 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 6:** Create a personal decision matrix:
 
-```text
-If task is...                    Use model...
-  Typos / text changes           → GPT-5 Mini
-  Quick question                 → Claude Haiku
-  Daily coding                   → GPT-5.3 Codex
-  Complex debugging              → Claude Sonnet
-  Architecture design            → Claude Opus
-  UI/frontend from image         → Gemini Pro
-
-```
+<img src="assets/module-02/exercise-2-5-cost-decision-matrix.svg" alt="Exercise 2.5 — Cost & Decision Matrix" />
 
 ---
 
@@ -717,21 +691,7 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Agent Terminal Loop
 
-```text
-Agent: I'll run the tests first.
-→ Executing: pytest tests/
-→ Output: 7 passed, 2 failed
-
-Agent: Two tests failed. Let me look at them.
-→ Reading: tests/test_auth.py
-
-Agent: Login test failing — timeout too short. Increasing 5 → 10 seconds.
-→ Editing: tests/test_auth.py
-
-→ Executing: pytest tests/test_auth.py
-→ Output: All tests passed
-
-```
+<img src="assets/module-02/exercise-2-8-agent-terminal-loop.svg" alt="Exercise 2.8 — Agent Terminal Loop" />
 
 ---
 
@@ -791,19 +751,7 @@ Confirm before each command that might affect the repo.
 
 ## Quick Reference Card
 
-```text
-SHORTCUTS:
-  Cmd/Ctrl + I          → Open Agent
-  Cmd/Ctrl + L          → Explain selected code
-  Shift + Tab           → Toggle Plan Mode
-  Cmd/Ctrl + Shift + S  → Create checkpoint
-
-@MENTIONS:  @filename  @symbol  @branch  @chat  @web
-
-SAFE CHANGE:  Ask → Review diff → Accept/reject → Test
-PLAN MODE:    Shift+Tab → Describe → Review plan → Approve → Execute
-
-```
+<img src="assets/module-02/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 

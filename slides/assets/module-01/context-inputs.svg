@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 408" width="920" height="408">
+<rect width="920" height="408" rx="10" ry="10" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
+
+  <rect x="1" y="1" width="918" height="54" rx="8" ry="8" fill="#ffebeb" stroke="#cc0000" stroke-width="2"/>
+  <text x="460.0" y="34.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#cc0000">What Goes Into Context</text>
+  <line x1="1" y1="55" x2="919" y2="55" stroke="#d0d0d0" stroke-width="1"/>
+
+<rect x="12" y="70" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="96.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">System Prompt</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">"You are a helpful coding assistant"</tspan></text>
+<rect x="12" y="116" width="896" height="40" rx="4" fill="#ffffff"/>
+<text x="28" y="142.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">User Prompt</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">"Fix this bug: ..."</tspan></text>
+<rect x="12" y="162" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="188.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Code Files</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Current file, related files</tspan></text>
+<rect x="12" y="208" width="896" height="40" rx="4" fill="#ffffff"/>
+<text x="28" y="234.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Conversation</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Previous exchanges</tspan></text>
+<rect x="12" y="254" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="280.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Retrieved Docs</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Library documentation, examples</tspan></text>
+<rect x="12" y="300" width="896" height="40" rx="4" fill="#ffffff"/>
+<text x="28" y="326.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Tool Outputs</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Results from search, file reads</tspan></text>
+<rect x="12" y="346" width="896" height="40" rx="4" fill="#f7f7f7"/>
+<text x="28" y="372.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">Constraints</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">"Only use standard library"</tspan></text>
+</svg>

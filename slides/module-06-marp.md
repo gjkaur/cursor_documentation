@@ -2,10 +2,8 @@
 marp: true
 theme: flat-gaia
 paginate: true
-header: 'Module 6 — Cloud Agents in the UI'
-footer: 'Cursor Training Program · Day 2'
+header: "Module 6 — Cloud Agents in the UI"
 ---
-
 <!-- _class: lead -->
 
 # Cloud Agents in the UI
@@ -13,6 +11,7 @@ footer: 'Cursor Training Program · Day 2'
 ## Module 6 · Day 2 (Hands-On + Demonstration)
 
 Cursor Training Program · ~90 min
+
 ---
 
 ## Module Overview
@@ -23,6 +22,7 @@ Cursor Training Program · ~90 min
 | **Format** | Hands-on exercise + demonstration |
 | **Prerequisites** | Cursor account, GitHub repository access, Modules 1–5 completed |
 | **Module Goal** | Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations |
+
 ---
 
 ## Learning Objectives
@@ -33,6 +33,7 @@ By the end of this module, participants will be able to:
 - Collect and download artifacts from completed cloud runs
 - Trigger Cloud Agents from messaging platforms (Slack, Discord)
 - Manage cloud agent history and settings
+
 ---
 
 ## Agenda
@@ -42,6 +43,7 @@ By the end of this module, participants will be able to:
 | 6.1 | Launching a Cloud Agent | 25 min |
 | 6.2 | Cloud Agent Artifacts | 23 min |
 | 6.3 | Cloud Agents from Messaging Platforms | 20 min |
+
 ---
 
 <!-- _class: lead -->
@@ -51,6 +53,7 @@ By the end of this module, participants will be able to:
 ## Launching a Cloud Agent
 
 *Concept · 10 min · Exercise · 15 min*
+
 ---
 
 ## Cloud Agents vs. Local Agent
@@ -63,6 +66,7 @@ By the end of this module, participants will be able to:
 | **Terminal access** | Your terminal | Simulated/scripted |
 | **File access** | Local files | GitHub repos only |
 | **Best for** | Interactive work | Batch, scheduled, hands-off |
+
 ---
 
 ## When to Use Cloud Agents
@@ -75,6 +79,7 @@ By the end of this module, participants will be able to:
 **Bad for:**
 - Interactive debugging · Local-only files
 - Security-sensitive code · Quick questions
+
 ---
 
 ## Accessing Cloud Agents UI
@@ -84,6 +89,7 @@ By the end of this module, participants will be able to:
 | **From Cursor Editor** | View → Cloud Agents (or cloud icon in sidebar) |
 | **From Web** | https://cursor.com/agents |
 | **From Mobile** | cursor.com/agents (responsive web) |
+
 ---
 
 ## Cloud Agent Dashboard
@@ -100,6 +106,7 @@ Completed (4)
 Failed (1)
   ❌ deploy-staging          ERROR • Auth token expired
 ```
+
 ---
 
 ## Windows Exercise Environment
@@ -116,6 +123,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
 ---
 
 ## Exercise 6.1 — Steps 1–2
@@ -130,6 +138,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 # Cursor Editor: cloud icon or View → Cloud Agents
 open https://cursor.com/agents
 ```
+
 ---
 
 ## Exercise 6.1 — Steps 1–2 (Part 2)
@@ -146,6 +155,7 @@ Prompt: Read README and main source files. Summarize:
 Model: claude-4.6-sonnet
 Auto-create PR: ☐
 ```
+
 ---
 
 ## Exercise 6.1 — Steps 3–4
@@ -163,6 +173,7 @@ Auto-create PR: ☐
 [10:45:16] Reading README.md
 [10:45:40] Generating summary...
 ```
+
 ---
 
 ## Exercise 6.1 — Steps 3–4 (Part 2)
@@ -177,6 +188,7 @@ Auto-create PR: ☐
 | Notification Email | Completion notifications |
 | Webhook URL | POST completion events |
 | Max Run Time | 5 min – 24 hrs |
+
 ---
 
 ## Exercise 6.1 — Steps 5–6
@@ -192,6 +204,7 @@ Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
 Auto-create PR: ✅ Yes
 Branch prefix: docs/contributing
 ```
+
 ---
 
 ## Exercise 6.1 — Steps 5–6 (Part 2)
@@ -202,6 +215,7 @@ Branch prefix: docs/contributing
 ```
 https://cursor.com/agents/agt_abc123def456
 ```
+
 ---
 
 <!-- _class: lead -->
@@ -211,6 +225,7 @@ https://cursor.com/agents/agt_abc123def456
 ## Cloud Agent Artifacts
 
 *Concept · 8 min · Exercise · 15 min*
+
 ---
 
 ## Types of Artifacts
@@ -225,6 +240,7 @@ https://cursor.com/agents/agt_abc123def456
 | **Test results** | `junit.xml`, `coverage.json` |
 
 > *"Files produced by the agent that you can download or view in the UI."*
+
 ---
 
 ## Artifact Storage
@@ -233,6 +249,7 @@ https://cursor.com/agents/agt_abc123def456
 - Multiple artifacts per agent
 - Download URLs expire after **15 minutes**
 - Max **100MB** per file · **1GB** total per agent
+
 ---
 
 ## Exercise 6.2 — Steps 1–2
@@ -252,12 +269,14 @@ Generate:
 
 Place all in artifacts/ directory.
 ```
+
 ---
 
 ## Exercise 6.2 — Steps 1–2 (Part 2)
 
 **Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
 **Where:** **Cursor Agent panel** — ``Ctrl+L``
+
 ---
 
 ## Exercise 6.2 — Steps 3–5
@@ -270,6 +289,7 @@ Place all in artifacts/ directory.
 
 **Step 4:** Download all as zip
 **Where:** **Cursor Agent panel** — ``Ctrl+L``
+
 ---
 
 ## Exercise 6.2 — Steps 3–5 (Part 2)
@@ -279,6 +299,7 @@ Place all in artifacts/ directory.
 - Markdown → rendered HTML
 - Images → inline preview
 - JSON → formatted tree view
+
 ---
 
 ## Exercise 6.2 — API Access
@@ -299,6 +320,7 @@ curl -L -o report.md "$DOWNLOAD_URL"
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent ID.
+
 ---
 
 ## Exercise 6.2 — CI/CD Integration
@@ -314,6 +336,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 ```
 
 **Success Criteria:** Generated artifacts · downloaded single + zip · accessed via API
+
 ---
 
 <!-- _class: lead -->
@@ -323,6 +346,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 ## Cloud Agents from Messaging Platforms
 
 *Concept · 10 min · Demonstration*
+
 ---
 
 ## Supported Integrations
@@ -333,22 +357,13 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 | **Discord** | Command triggering, webhook responses | Medium (Bot token) |
 | **Teams** | Webhook integration | Medium (Webhook) |
 | **Generic Webhook** | POST-triggered agents | Low (any platform) |
+
 ---
 
 ## Messaging Integration Architecture
 
-```text
-Slack/Discord/Teams
-  │  "/cursor review PR #42"
-  ↓
-Webhook Receiver (your server or Cursor hosted)
-  │  POST /v1/agents with webhookUrl
-  ↓
-Cursor Cloud Agent
-  │  POST to webhookUrl when complete
-  ↓
-Webhook Receiver → Post response to Slack
-```
+<img src="assets/module-06/messaging-integration-architecture.svg" alt="Messaging Integration Architecture" />
+
 ---
 
 ## Demo: Slack Integration
@@ -367,6 +382,7 @@ Usage Hint: [prompt or command]
 - Parses Slack command → launches Cloud Agent via API
 - Acknowledges immediately with agent URL
 - Posts completion summary when webhook fires
+
 ---
 
 ## Demo: Slack Usage
@@ -387,6 +403,7 @@ Watch progress: https://cursor.com/agents/agt_abc123
 Summary: 3 commits — fixed login bug, added tests, updated README.
 PR: https://github.com/your-org/your-repo/pull/43
 ```
+
 ---
 
 ## Demo: Discord Integration
@@ -399,6 +416,7 @@ async def cursor_command(ctx, *, prompt):
 ```
 
 Usage: `!cursor Add error handling to all API endpoints`
+
 ---
 
 ## Generic Webhook & Notifications
@@ -416,6 +434,7 @@ curl -X POST https://your-server.com/trigger-agent \
 **Status notifications:** configure `notifyOnStart`, `notifyOnComplete`, `notifyOnError`
 
 **Success Criteria:** Understood architecture · saw Slack/Discord demos · webhook triggering
+
 ---
 
 ## Module Summary
@@ -425,25 +444,13 @@ curl -X POST https://your-server.com/trigger-agent \
 | 6.1 | Launching Cloud Agents | Remote execution |
 | 6.2 | Cloud Agent Artifacts | Output collection |
 | 6.3 | Messaging Integrations | Chat-triggered agents |
+
 ---
 
 ## Quick Reference Card
 
-```text
-UI ACCESS:
-  Cursor Editor: View → Cloud Agents
-  Web: https://cursor.com/agents
+<img src="assets/module-06/quick-reference-card.svg" alt="Quick Reference Card" />
 
-LAUNCH:  + New → repo/branch → prompt → model → Launch Agent
-
-ARTIFACTS:  View in detail page · Download single/zip · API (30-day storage)
-
-MESSAGING:
-  /cursor [prompt] in Slack
-  !cursor [prompt] in Discord
-  Webhook POST to trigger endpoint
-
-```
 ---
 
 <!-- _class: lead -->

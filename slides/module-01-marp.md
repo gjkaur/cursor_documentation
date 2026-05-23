@@ -3,9 +3,7 @@ marp: true
 theme: flat-gaia
 paginate: true
 header: "Module 1 — Mental Models for AI-Assisted Development"
-footer: "Cursor Training Program · Day 1"
 ---
-
 <!-- _class: lead -->
 
 # Mental Models for AI-Assisted Development
@@ -62,17 +60,7 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 ## Next-Token Prediction
 
-```
-Input: "def calculate_sum(a, b):"
-Model thinks: "What's most likely next?"
-
-Probabilities:
-  - "return" → 85%
-  - "print"  → 8%
-  - "pass"   → 4%
-  - "for"    → 2%
-  - Other    → 1%
-```
+<img src="assets/module-01/next-token-prediction.svg" alt="Next-token prediction probabilities" />
 
 ---
 
@@ -95,19 +83,7 @@ Probabilities:
 
 ## What Determines AI Output?
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    Factors That Shape Output                │
-├─────────────────────────────────────────────────────────────┤
-│  1. Training Data      → What the model "learned"           │
-│  2. Prompt             → Your instruction(most influential) │
-│  3. Temperature        → Randomness level(0=deterministic)  │
-│  4. Top-p / Top-k      → Token selection pool size          │
-│  5. System Prompt      → Persistent behavioral guidelines   │
-│  6. Context Window     → What the model can "see"           │
-│  7. Model Architecture → Different models, different biases │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/factors-output.svg" alt="Factors that shape AI output" />
 
 ---
 
@@ -196,17 +172,7 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 ## Why Models Hallucinate
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                  Root Causes of Hallucination               │
-├─────────────────────────────────────────────────────────────┤
-│  Training Data Gaps     → Model "guesses" when uncertain    │
-│  Probability Pressure   → Must output SOMETHING             │
-│  Pattern Overfitting    → Sees patterns that don't exist    │
-│  No True/False Circuit  → Models don't have truth checking  │
-│  Confidence Calibration → Sounds confident when wrong       │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/hallucination-causes.svg" alt="Root causes of hallucination" />
 
 ---
 
@@ -395,19 +361,7 @@ _Concept · 12 minutes · The single most valuable AI skill_
 
 Context = all the information the model has access to when generating a response.
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                    What Goes Into Context                   │
-├─────────────────────────────────────────────────────────────┤
-│  System Prompt   → "You are a helpful coding assistant"     │
-│  User Prompt     → "Fix this bug: ..."                      │
-│  Code Files      → Current file, related files              │
-│  Conversation    → Previous exchanges                       │
-│  Retrieved Docs  → Library documentation, examples          │
-│  Tool Outputs    → Results from search, file reads          │
-│  Constraints     → "Only use standard library"              │
-└─────────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/context-inputs.svg" alt="What goes into context" />
 
 ---
 
@@ -467,18 +421,7 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 ## Context Prioritization Pyramid
 
-```text
-                  ┌─────────────┐
-                  │  Critical   │  MUST include (~10–20%)
-                 ┌┴─────────────┴┐
-                 │   Important   │  Should include (~20–30%)
-                ┌┴───────────────┴┐
-                │     Helpful     │  Nice to have (~30–40%)
-               ┌┴─────────────────┴┐
-               │    Low Value      │  Omit if possible
-               └───────────────────┘
-
-```
+<img src="assets/module-01/context-pyramid.svg" alt="Context prioritization pyramid" />
 
 ---
 
@@ -498,14 +441,7 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 Models pay **most attention to the beginning and end** of context, and **less to the middle**.
 
-```text
-Context Position Attention:
-├────────────────────────────────────────────────────────┤
-│ BEGINNING  ████████████████████████████████  (high)    │
-│ MIDDLE     ████████                           (low)    │
-│ END        ████████████████████████████████  (high)    │
-└────────────────────────────────────────────────────────┘
-```
+<img src="assets/module-01/lost-in-middle.svg" alt="Lost in the middle attention chart" />
 
 **Implication:** Put critical information at the beginning OR end, not the middle.
 
@@ -527,15 +463,7 @@ Tool calling (function calling) lets the AI request execution of external functi
 
 The AI **doesn't execute code** — it outputs a structured request that **your system** executes.
 
-```text
-User: "What's the weather in Tokyo?"
-  → AI decides: need weather data
-  → AI outputs: tool_call { name: "get_weather", args: { city: "Tokyo" } }
-  → Your system executes get_weather("Tokyo")
-  → Result returned to AI
-  → AI: "The weather in Tokyo is 22°C and sunny"
-
-```
+<img src="assets/module-01/tool-calling-flow.svg" alt="Tool calling flow" />
 
 ---
 
@@ -561,14 +489,7 @@ User: "What's the weather in Tokyo?"
 
 **With MCP:** Tools advertise their capabilities; AI discovers them dynamically
 
-```text
-┌──────────────┐       ┌──────────────┐       ┌──────────────┐
-│   AI Model   │  ←→   │   MCP Host   │  ←→   │    Tools     │
-│  (Claude,    │       │  (Cursor,    │       │  (Files,     │
-│   GPT, etc.) │       │   etc.)      │       │   Terminal,  │
-└──────────────┘       └──────────────┘       │   Web, etc.) │
-                                              └──────────────┘
-```
+<img src="assets/module-01/mcp-architecture.svg" alt="MCP architecture" />
 
 ---
 
@@ -622,28 +543,7 @@ _Concept · 8 minutes_
 
 ## The Agent Loop — Diagram
 
-```text
-         ┌─────────────────────────────────────┐
-         │ GOAL: Add dark mode to entire app   │
-         └──────────────────┬──────────────────┘
-                            ↓
-         ┌─────────────────────────────────────┐
-         │ PLAN: Break goal into steps         │
-         └──────────────────┬──────────────────┘
-                            ↓
-    ┌─────────────┐                    ┌──────────────────────┐
-    │ ACT         │  ←──────────────→  │ OBSERVE              │
-    │ Run tools   │                    │ Tool call → result   │
-    └──────┬──────┘                    └──────────────────────┘
-           ↓
-         ┌─────────────────────────────────────┐
-         │ THINK: Evaluate progress, adjust    │
-         └──────────────────┬──────────────────┘
-                            ↓
-         ┌─────────────────────────────────────┐
-         │ REPEAT: Until goal done or blocked  │
-         └─────────────────────────────────────┘
-```
+<img src="assets/module-01/agent-loop.svg" alt="Agent loop diagram" />
 
 ---
 
@@ -663,16 +563,11 @@ _Concept · 8 minutes_
 
 **Traditional:**
 
-```
-Developer writes every line → tests → deploys
-```
+<img src="assets/module-01/role-flow-traditional.svg" alt="Traditional developer workflow" />
 
 **Agent-Assisted:**
 
-```text
-Developer defines intent → Agent executes → Developer reviews → Agent iterates
-
-```
+<img src="assets/module-01/role-flow-agent-assisted.svg" alt="Agent-assisted developer workflow" />
 
 ---
 

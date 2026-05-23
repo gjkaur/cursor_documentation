@@ -2,10 +2,8 @@
 marp: true
 theme: flat-gaia
 paginate: true
-header: 'Module 9 — Admin and Analytics APIs'
-footer: 'Cursor Training Program · Day 2'
+header: "Module 9 — Admin and Analytics APIs"
 ---
-
 <!-- _class: lead -->
 
 # Admin and Analytics APIs
@@ -13,6 +11,7 @@ footer: 'Cursor Training Program · Day 2'
 ## Module 9 · Day 2 (Hands-On + Demonstrations)
 
 Cursor Training Program · ~75 min
+
 ---
 
 ## Module Overview
@@ -23,6 +22,7 @@ Cursor Training Program · ~75 min
 | **Format** | Hands-on exercise + demonstrations |
 | **Prerequisites** | Admin API key (not User key), Python 3.8+, Modules 7–8 completed |
 | **Module Goal** | Master team management, usage analytics, cost governance, and safe admin operations |
+
 ---
 
 ## Learning Objectives
@@ -37,6 +37,7 @@ By the end of this module, participants will be able to:
 - Build responsible leaderboards without privacy violations
 - Analyze conversation intent and complexity (demonstration)
 - Safely remove team members with proper patterns (demonstration)
+
 ---
 
 ## Agenda
@@ -51,6 +52,7 @@ By the end of this module, participants will be able to:
 | 9.6 | Leaderboards | 6 min | Exercise |
 | 9.7 | Conversation Insights | 6 min | Demo |
 | 9.8 | Destructive Admin Operations | 6 min | Demo |
+
 ---
 
 <!-- _class: lead -->
@@ -60,6 +62,7 @@ By the end of this module, participants will be able to:
 ## Listing Team Members
 
 *Concept · 5 min · Exercise · 8 min*
+
 ---
 
 ## User vs. Admin API Key
@@ -73,6 +76,7 @@ By the end of this module, participants will be able to:
 | **Format** | `cursor_xxx...` | `cursor_admin_xxx...` |
 
 **Key endpoint:** `GET /v1/admin/members`
+
 ---
 
 ## Windows Exercise Environment
@@ -89,6 +93,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
+
 ---
 
 ## Exercise 9.1 — Setup & List
@@ -108,6 +113,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ```
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 9.1 — Pagination & Export
@@ -128,6 +134,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 **Helper:** `get_user_id_by_email(email)` for downstream admin calls
 
 **Success Criteria:** Authenticated · listed members · handled pagination · exported CSV
+
 ---
 
 <!-- _class: lead -->
@@ -137,6 +144,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ## Daily Usage Data
 
 *Concept · 5 min · Exercise · 10 min*
+
 ---
 
 ## Key Endpoint
@@ -148,6 +156,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 - Active users per day · Breakdown by user and model (optional)
 
 > *"Finance asks: 'What did we spend yesterday?' Engineering leads ask: 'Who's using what?'"*
+
 ---
 
 ## Exercise 9.2 — Weekly Usage
@@ -164,6 +173,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ```
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 9.2 — Cost Report
@@ -178,6 +188,7 @@ Python `generate_cost_report()` for last 30 days:
 - Budget alerts at $300 / $500 thresholds
 
 **Success Criteria:** Retrieved date range · calculated trends · generated readable report
+
 ---
 
 <!-- _class: lead -->
@@ -187,6 +198,7 @@ Python `generate_cost_report()` for last 30 days:
 ## Setting User Spend Limits
 
 *Concept · 5 min · Exercise · 8 min*
+
 ---
 
 ## Key Endpoint
@@ -197,6 +209,7 @@ Python `generate_cost_report()` for last 30 days:
 |--------|----------|
 | `alert` | Send notification but allow usage |
 | `block` | Prevent any further requests for the month |
+
 ---
 
 ## Exercise 9.3 — Set Limits
@@ -216,6 +229,7 @@ curl -X PATCH ".../policies/users/$USER_ID/limits" \
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 Check current limit: `GET .../policies/users/{userId}/limits`
+
 ---
 
 ## Exercise 9.3 — Bulk Limits
@@ -233,6 +247,7 @@ lead@company.com,200,alert
 **Find heavy users:** query `/analytics/usage/users` for current month → filter cost > threshold
 
 **Success Criteria:** Retrieved user ID · set limit · verified · bulk setting implemented
+
 ---
 
 <!-- _class: lead -->
@@ -242,6 +257,7 @@ lead@company.com,200,alert
 ## Model Usage Analytics
 
 *Concept · 5 min · Exercise · 8 min*
+
 ---
 
 ## Key Endpoint
@@ -249,6 +265,7 @@ lead@company.com,200,alert
 `GET /v1/admin/analytics/usage/models`
 
 > *"Which models are actually being used? Is Opus worth the cost? Should you train people on cheaper alternatives?"*
+
 ---
 
 ## Exercise 9.4 — Model Breakdown
@@ -267,6 +284,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ```
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+
 ---
 
 ## Exercise 9.4 — Optimization Report
@@ -281,6 +299,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 - Estimated monthly savings if guidelines applied
 
 **Success Criteria:** Retrieved model breakdown · identified expensive users · generated recommendations
+
 ---
 
 <!-- _class: lead -->
@@ -290,6 +309,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ## Daily Active Users (DAU)
 
 *Concept · 4 min · Exercise · 6 min*
+
 ---
 
 ## Why DAU Matters
@@ -300,6 +320,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 - Justify renewal and expansion
 
 **Source:** `activeUsers` field from `/admin/analytics/usage/daily`
+
 ---
 
 ## Exercise 9.5 — DAU Report
@@ -321,6 +342,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 - Health assessment: >80% excellent · >50% good · <30% investigate
 
 **Success Criteria:** Calculated DAU · adoption metrics · leadership-ready report
+
 ---
 
 <!-- _class: lead -->
@@ -330,6 +352,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 ## Leaderboards
 
 *Concept · 5 min · Exercise · 6 min*
+
 ---
 
 ## Responsible Leaderboard Principles
@@ -340,6 +363,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | **Focus on positive metrics** | Show savings, not spending |
 | **Opt-in only** | Allow users to choose public visibility |
 | **Include context** | Show team size, role differences |
+
 ---
 
 ## Exercise 9.6 — Three Leaderboards
@@ -359,6 +383,7 @@ def anonymize_email(email):
 ```
 
 **Success Criteria:** Anonymized · efficiency-focused · savings-focused leaderboards
+
 ---
 
 <!-- _class: lead -->
@@ -368,6 +393,7 @@ def anonymize_email(email):
 ## Conversation Insights
 
 *Concept · 6 min · Demonstration*
+
 ---
 
 ## What Conversation Insights Reveal
@@ -378,20 +404,13 @@ def anonymize_email(email):
 - Which models perform best for which task types
 
 **Endpoint:** `GET /v1/admin/analytics/conversations` (may require Enterprise plan)
+
 ---
 
 ## Demo: Intent Analysis
 
-```text
-🎯 CONVERSATION INTENT ANALYSIS
-  debug              ████████████ 35.2%
-  refactor           ████████ 22.1%
-  document           ██████ 16.8%
-  test               ████ 11.5%
-  feature            ███ 8.9%
-  understand         ██ 5.5%
+<img src="assets/module-09/demo-intent-analysis.svg" alt="Demo: Intent Analysis" />
 
-```
 ---
 
 ## Demo: Complexity & Categories
@@ -405,6 +424,7 @@ def anonymize_email(email):
 **Stuck patterns:** conversations >5 min with `success: false` → suggest training/docs
 
 **Success Criteria:** Understood capabilities · intent/complexity/category tracking · stuck patterns
+
 ---
 
 <!-- _class: lead -->
@@ -414,6 +434,7 @@ def anonymize_email(email):
 ## Destructive Admin Operations
 
 *Concept · 6 min · Demonstration*
+
 ---
 
 ## Safe Removal Playbook
@@ -423,23 +444,17 @@ def anonymize_email(email):
 3. **Transfer ownership** — critical agents, webhooks
 4. **Log everything** — compliance audit trail
 5. **Confirm before hard delete** — GDPR/security only
+
 ---
 
 ## Demo: SafeRemovalDemo Workflow
 
-```text
-Step 1: find_user(email) → user_id
-Step 2: audit_resources() → agents, runs
-Step 3: deactivate() → status: inactive
-Step 4: transfer_resources(new_owner_email)
-Step 5: hard_delete() → permanent (rare)
-→ generate_audit_report()
-
-```
+<img src="assets/module-09/demo-saferemovaldemo-workflow.svg" alt="Demo: SafeRemovalDemo Workflow" />
 
 **Bulk deactivation:** find users inactive 90+ days → review → notify → deactivate
 
 **Success Criteria:** 5-step pattern · audit-first · soft vs hard delete · resource transfer
+
 ---
 
 ## Module Summary
@@ -454,23 +469,13 @@ Step 5: hard_delete() → permanent (rare)
 | 9.6 | Leaderboards | Exercise |
 | 9.7 | Conversation Insights | Demo |
 | 9.8 | Destructive Operations | Demo |
+
 ---
 
 ## Quick Reference Card
 
-```text
-ENDPOINTS:
-  GET   /admin/members                    List members
-  GET   /admin/analytics/usage/daily      Daily usage
-  GET   /admin/analytics/usage/models     Model usage
-  GET   /admin/analytics/usage/users      Per-user usage
-  PATCH /admin/policies/users/{id}/limits Set spend limits
-  GET   /admin/members/{id}/resources     User resources
+<img src="assets/module-09/quick-reference-card.svg" alt="Quick Reference Card" />
 
-LEADERBOARDS:  Anonymize · positive metrics · opt-in · role context
-REMOVAL:       Audit → Deactivate → Transfer → Log → Confirm delete
-
-```
 ---
 
 <!-- _class: lead -->
