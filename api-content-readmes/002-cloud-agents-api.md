@@ -115,7 +115,7 @@ This is the most important endpoint. It creates a Cloud Agent and starts its fir
 |-------|-----------|--------------|---------|
 | `prompt.text` | ✅ Yes | The instruction for the agent | "Add a README file" |
 | `prompt.images` | No | Base64-encoded images (max 5, 15MB each) | `"data:image/png;base64,..."` |
-| `model.id` | No | Which AI model to use (omit for default) | `"composer-2"` |
+| `model.id` | No | Which AI model to use (omit for default) | `"composer-2.5"` |
 | `model.params` | No | Model settings (thinking effort, etc.) | `[{"id":"thinking","value":"high"}]` |
 | `repos[].url` | See note | GitHub repo URL | `"https://github.com/your-org/repo"` |
 | `repos[].startingRef` | No | Branch/tag/commit to start from | `"main"` |
@@ -139,7 +139,7 @@ curl -X POST https://api.cursor.com/v1/agents \
       "text": "Add a README.md file with setup instructions and a badges section"
     },
     "model": {
-      "id": "composer-2",
+      "id": "composer-2.5",
       "params": [
         { "id": "thinking", "value": "high" }
       ]
@@ -544,7 +544,7 @@ curl -u YOUR_API_KEY: https://api.cursor.com/v1/models
     "claude-4-sonnet-thinking",
     "gpt-5.2",
     "claude-4.5-sonnet-thinking",
-    "composer-2",
+    "composer-2.5",
     "gpt-5-mini"
   ]
 }

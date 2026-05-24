@@ -1091,16 +1091,18 @@ Skip email verification for this version. Proceed.
 | Task Type | Recommended Model | Why |
 |-----------|-------------------|-----|
 | Typo fixes, simple edits | GPT-5 Mini | Cheap, fast, good enough |
-| Daily coding, bug fixes | GPT-5.3 Codex or Claude Sonnet | Best value, high quality |
+| Daily coding, bug fixes | **Composer 2.5** or GPT-5.3 Codex | Best value in Cursor; built for agent tools |
 | Complex logic, architecture | Claude Opus or GPT-5.5 | Smartest, but expensive |
 | Frontend/visual work | Gemini 3.1 Pro | Can see images |
 | Fast, simple questions | Claude Haiku | Fastest responses |
+
+**Model reference:** [`docs-content-readmes/010-docs-models-cursor-composer-2-5.md`](../docs-content-readmes/010-docs-models-cursor-composer-2-5.md)
 
 ---
 
 ## Exercise 2.5 — Compare Two Models
 
-**Step 1:** Set model to Claude Sonnet, ask:
+**Step 1:** Set model to **Composer 2.5** (`/model composer-2.5`), ask:
 
 ```
 Explain what a closure is in JavaScript with a practical example.
@@ -1116,7 +1118,7 @@ Explain what a closure is in JavaScript with a practical example.
 
 ## Exercise 2.5 — Comparison Table
 
-| Comparison Point | Claude Sonnet | GPT-5 Mini |
+| Comparison Point | Composer 2.5 | GPT-5 Mini |
 |-----------------|---------------|------------|
 | Length | | |
 | Code example quality | | |
@@ -3159,7 +3161,7 @@ By the end of this module, participants will be able to:
 
 - Launch and monitor Cloud Agents from the Cursor UI
 - Collect and download artifacts from completed cloud runs
-- Trigger Cloud Agents from messaging platforms (Slack, Discord)
+- Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira)
 - Manage cloud agent history and settings
 
 ---
@@ -3481,9 +3483,10 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 | Platform | Capabilities | Setup |
 |----------|--------------|-------|
-| **Slack** | Command triggering, notifications | Medium (Slack app) |
+| **Slack** | `@Cursor` mentions, command triggering, notifications | Medium (Slack app) |
+| **Microsoft Teams** | `@Cursor` in channels, delegate tasks to cloud agents | Medium (Teams integration) |
+| **Jira** | Assign issues to Cursor, `@Cursor` in comments, PR updates in Jira | Medium (requires Rovo) |
 | **Discord** | Command triggering, webhook responses | Medium (Bot token) |
-| **Teams** | Webhook integration | Medium (Webhook) |
 | **Generic Webhook** | POST-triggered agents | Low (any platform) |
 
 ---
@@ -3534,6 +3537,25 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 ---
 
+## Demo: Jira Integration
+
+**Step 1:** Install the Jira integration from the Cursor dashboard (requires Cursor admin access).
+
+**Step 2:** Ensure Jira Commercial Cloud has **Rovo** enabled.
+
+**Step 3:** Assign a work item to **Cursor** or mention `@Cursor` in a comment:
+
+```
+@Cursor Add input validation to the signup form and update tests.
+```
+
+**What happens:**
+- Agent reads the issue title, description, comments, and repository settings
+- Agent implements the fix and opens a pull request
+- Jira receives a completion update with a link to the PR
+
+---
+
 ## Demo: Discord Integration
 
 ```python
@@ -3561,7 +3583,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 **Status notifications:** configure `notifyOnStart`, `notifyOnComplete`, `notifyOnError`
 
-**Success Criteria:** Understood architecture · saw Slack/Discord demos · webhook triggering
+**Success Criteria:** Understood architecture · saw Slack/Jira/Discord demos · webhook triggering
 
 ---
 

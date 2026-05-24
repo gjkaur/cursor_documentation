@@ -1792,13 +1792,15 @@ Run the same prompt on two models and compare quality, speed, and cost. Open the
 | Task Type | Recommended Model | Why |
 |-----------|-------------------|-----|
 | Typo fixes, simple edits | GPT-5 Mini | Cheap, fast, good enough |
-| Daily coding, bug fixes | GPT-5.3 Codex or Claude Sonnet | Best value, high quality |
+| Daily coding, bug fixes | **Composer 2.5** or GPT-5.3 Codex | Best value in Cursor; built for agent tools |
 | Complex logic, architecture | Claude Opus or GPT-5.5 | Smartest, but expensive |
 | Frontend/visual work | Gemini 3.1 Pro | Can see images |
 | Fast, simple questions | Claude Haiku | Fastest responses |
 
+**Model reference:** [`docs-content-readmes/010-docs-models-cursor-composer-2-5.md`](../docs-content-readmes/010-docs-models-cursor-composer-2-5.md)
+
 <!--
-Walk this table conversationally: Task Type — Recommended Model, Why. Typo fixes, simple edits — GPT-5 Mini, Cheap, fast, good enough. Daily coding, bug fixes — GPT-5.3 Codex or Claude Sonnet, Best value, high quality. Complex logic, architecture — Claude Opus or GPT-5.5, Smartest, but expensive. Frontend/visual work — Gemini 3.1 Pro, Can see images. Fast, simple questions — Claude Haiku, Fastest responses. Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
+Walk this table conversationally: Task Type — Recommended Model, Why. Typo fixes, simple edits — GPT-5 Mini, Cheap, fast, good enough. Daily coding, bug fixes — Composer 2.5 or GPT-5.3 Codex, Best value in Cursor; built for agent tools. Complex logic, architecture — Claude Opus or GPT-5.5, Smartest, but expensive. Frontend/visual work — Gemini 3.1 Pro, Can see images. Fast, simple questions — Claude Haiku, Fastest responses. Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
 -->
 
 ---
@@ -1806,7 +1808,7 @@ Walk this table conversationally: Task Type — Recommended Model, Why. Typo fix
 
 ## Exercise 2.5 — Compare Two Models
 
-**Step 1:** Set model to Claude Sonnet, ask:
+**Step 1:** Set model to **Composer 2.5** (`/model composer-2.5`), ask:
 
 ```
 Explain what a closure is in JavaScript with a practical example.
@@ -1821,7 +1823,7 @@ Explain what a closure is in JavaScript with a practical example.
 <!--
 Hands-on time for Exercise 2.5 — Compare Two Models. This exercise is Comparing Two Models. Goal: Run the same prompt on two models and compare quality, speed, and cost.. Follow the detailed steps in slide-exercises/module-02/exercise-2.5-comparing-two-models.md. 
 
-Step 1: Set model to Claude Sonnet, ask: Explain what a closure is in JavaScript with a practical example. Step 2: Copy the response Step 3: Switch to GPT-5 Mini — ask the same question Step 4: Compare responses side by side
+Step 1: Set model to Composer 2.5 (/model composer-2.5), ask: Explain what a closure is in JavaScript with a practical example. Step 2: Copy the response Step 3: Switch to GPT-5 Mini — ask the same question Step 4: Compare responses side by side
 
 Tell them to paste this prompt into the Agent (or read it aloud while they type): "Explain what a closure is in JavaScript with a practical example."
 
@@ -1833,7 +1835,7 @@ Give work time now. Circulate quietly. Watch for people accepting diffs without 
 
 ## Exercise 2.5 — Comparison Table
 
-| Comparison Point | Claude Sonnet | GPT-5 Mini |
+| Comparison Point | Composer 2.5 | GPT-5 Mini |
 |-----------------|---------------|------------|
 | Length | | |
 | Code example quality | | |
@@ -5230,11 +5232,11 @@ By the end of this module, participants will be able to:
 
 - Launch and monitor Cloud Agents from the Cursor UI
 - Collect and download artifacts from completed cloud runs
-- Trigger Cloud Agents from messaging platforms (Slack, Discord)
+- Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira)
 - Manage cloud agent history and settings
 
 <!--
-These learning objectives describe outcomes, not topics. Paraphrase them: Launch and monitor Cloud Agents from the Cursor UI. Collect and download artifacts from completed cloud runs. Trigger Cloud Agents from messaging platforms (Slack, Discord). Manage cloud agent history and settings.
+These learning objectives describe outcomes, not topics. Paraphrase them: Launch and monitor Cloud Agents from the Cursor UI. Collect and download artifacts from completed cloud runs. Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira). Manage cloud agent history and settings.
 
 Ask the room: which of these would help your team most this quarter? Note one or two answers — you can refer back at the module summary.
 
@@ -5748,13 +5750,14 @@ Transition from the previous lesson with one sentence on how this topic connects
 
 | Platform | Capabilities | Setup |
 |----------|--------------|-------|
-| **Slack** | Command triggering, notifications | Medium (Slack app) |
+| **Slack** | `@Cursor` mentions, command triggering, notifications | Medium (Slack app) |
+| **Microsoft Teams** | `@Cursor` in channels, delegate tasks to cloud agents | Medium (Teams integration) |
+| **Jira** | Assign issues to Cursor, `@Cursor` in comments, PR updates in Jira | Medium (requires Rovo) |
 | **Discord** | Command triggering, webhook responses | Medium (Bot token) |
-| **Teams** | Webhook integration | Medium (Webhook) |
 | **Generic Webhook** | POST-triggered agents | Low (any platform) |
 
 <!--
-Walk this table conversationally: Platform — Capabilities, Setup. Slack — Command triggering, notifications, Medium (Slack app). Discord — Command triggering, webhook responses, Medium (Bot token). Teams — Webhook integration, Medium (Webhook). Generic Webhook — POST-triggered agents, Low (any platform). Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
+Walk this table conversationally: Platform — Capabilities, Setup. Slack — @Cursor mentions, command triggering, notifications, Medium (Slack app). Microsoft Teams — @Cursor in channels, delegate tasks to cloud agents, Medium (Teams integration). Jira — Assign issues to Cursor, @Cursor in comments, PR updates in Jira, Medium (requires Rovo). Discord — Command triggering, webhook responses, Medium (Bot token). Generic Webhook — POST-triggered agents, Low (any platform). Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
 -->
 
 ---
@@ -5831,6 +5834,34 @@ Close the demo by stating when they would use this in production and when they w
 ---
 
 
+## Demo: Jira Integration
+
+**Step 1:** Install the Jira integration from the Cursor dashboard (requires Cursor admin access).
+
+**Step 2:** Ensure Jira Commercial Cloud has **Rovo** enabled.
+
+**Step 3:** Assign a work item to **Cursor** or mention `@Cursor` in a comment:
+
+```
+@Cursor Add input validation to the signup form and update tests.
+```
+
+**What happens:**
+- Agent reads the issue title, description, comments, and repository settings
+- Agent implements the fix and opens a pull request
+- Jira receives a completion update with a link to the PR
+
+<!--
+This slide supports a live demonstration: Jira Integration. Narrate every click and keystroke — assume no one has seen this screen before.
+
+If the network fails, describe what would happen and show a screenshot or backup recording. Save questions until the demo completes unless someone is completely lost.
+
+Close the demo by stating when they would use this in production and when they would not.
+-->
+
+---
+
+
 ## Demo: Discord Integration
 
 ```python
@@ -5867,7 +5898,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 **Status notifications:** configure `notifyOnStart`, `notifyOnComplete`, `notifyOnError`
 
-**Success Criteria:** Understood architecture · saw Slack/Discord demos · webhook triggering
+**Success Criteria:** Understood architecture · saw Slack/Jira/Discord demos · webhook triggering
 
 <!--
 Any HTTP POST can trigger agents: curl -X POST https://your-server.com/trigger-agent \ -H "Content-Type: application/json" \ Do not read every line of code unless you are teaching syntax. Highlight what participants should notice — a parameter value, a pattern, or a mistake to avoid.
@@ -6479,7 +6510,7 @@ ETags are unique identifiers for API response versions.
 3. No data transfer, no rate limit consumption
 
 <!--
-For slide 316, What Are ETags?: ETags are unique identifiers for API response versions. 1. Send If-None-Match header with previous ETag 2. Server returns 304 Not Modified if unchanged 3. No data transfer, no rate limit consumption
+For slide 317, What Are ETags?: ETags are unique identifiers for API response versions. 1. Send If-None-Match header with previous ETag 2. Server returns 304 Not Modified if unchanged 3. No data transfer, no rate limit consumption
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 -->
@@ -7045,7 +7076,7 @@ Walk this table conversationally: Event — When It Happens, Data Example. statu
 SSE streams support the **`Last-Event-ID`** header — if your connection drops, resume from the last received event.
 
 <!--
-For slide 343, Resume Support: SSE streams support the Last-Event-ID header — if your connection drops, resume from the last received event.
+For slide 344, Resume Support: SSE streams support the Last-Event-ID header — if your connection drops, resume from the last received event.
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 -->
@@ -7500,7 +7531,7 @@ Combine everything into `automated_workflow.py`:
 4. **Process results** (CI exit codes, notifications)
 
 <!--
-For slide 364, The Capstone Integration: Combine everything into automated_workflow.py: 1. Create agent (with optional webhook URL) 2. Wait for completion (webhook or polling) 3. Download artifacts 4. Process results (CI exit codes, notifications)
+For slide 365, The Capstone Integration: Combine everything into automated_workflow.py: 1. Create agent (with optional webhook URL) 2. Wait for completion (webhook or polling) 3. Download artifacts 4. Process results (CI exit codes, notifications)
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 -->
@@ -8302,7 +8333,7 @@ Transition from the previous lesson with one sentence on how this topic connects
 5. **Confirm before hard delete** — GDPR/security only
 
 <!--
-For slide 402, Safe Removal Playbook: 1. Audit first — active agents, runs, API keys 2. Soft delete — deactivate (no new agents; existing continue) 3. Transfer ownership — critical agents, webhooks 4. Log everything — compliance audit trail 5. Confirm before hard delete — GDPR/security only
+For slide 403, Safe Removal Playbook: 1. Audit first — active agents, runs, API keys 2. Soft delete — deactivate (no new agents; existing continue) 3. Transfer ownership — critical agents, webhooks 4. Log everything — compliance audit trail 5. Confirm before hard delete — GDPR/security only
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 -->
@@ -8810,7 +8841,7 @@ Run with: `streamlit run cursor_dashboard.py`
 5. **Compliance Export** — download events CSV
 
 <!--
-For slide 426, Take-Home: Streamlit Dashboard: Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — cost, DAU, AI %, team size 2. Usage Analytics — daily cost trend (Plotly line chart) 3. AI Code Impact — AI vs human bar chart + acceptance by model 4. Team Management — member table 5. Compliance Export — download events CSV
+For slide 427, Take-Home: Streamlit Dashboard: Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — cost, DAU, AI %, team size 2. Usage Analytics — daily cost trend (Plotly line chart) 3. AI Code Impact — AI vs human bar chart + acceptance by model 4. Team Management — member table 5. Compliance Export — download events CSV
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 -->

@@ -107,7 +107,7 @@ All prices are **per million tokens**. Teams are charged at **public list API pr
 
 | Model | Input | Output |
 |-------|-------|--------|
-| Composer 2 | $0.50 | $2.50 |
+| Composer 2.5 | $0.50 | $2.50 |
 | GPT-5 Mini | $0.25 | $2.00 |
 | Gemini 2.5 Flash | $0.30 | $2.50 |
 | GPT-5 | $1.25 | $10.00 |

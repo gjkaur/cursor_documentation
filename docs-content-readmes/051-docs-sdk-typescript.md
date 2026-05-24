@@ -70,7 +70,7 @@ const result = await Agent.prompt(
   "What does the auth middleware do?",
   {
     apiKey: process.env.CURSOR_API_KEY!,
-    model: { id: "composer-2" },
+    model: { id: "composer-2.5" },
     local: { cwd: process.cwd() }
   }
 );
@@ -99,7 +99,7 @@ import { Agent } from "@cursor/sdk";
 
 const agent = await Agent.create({
   apiKey: process.env.CURSOR_API_KEY!,
-  model: { id: "composer-2" },
+  model: { id: "composer-2.5" },
   local: {
     cwd: process.cwd()  // working directory
   }
@@ -111,7 +111,7 @@ const agent = await Agent.create({
 ```typescript
 const agent = await Agent.create({
   apiKey: process.env.CURSOR_API_KEY!,
-  model: { id: "composer-2" },
+  model: { id: "composer-2.5" },
   cloud: {
     repos: [{
       url: "https://github.com/your-org/your-repo",
@@ -330,7 +330,7 @@ const agent = await Agent.create({
 ```typescript
 const agent = await Agent.create({
   apiKey: process.env.CURSOR_API_KEY!,
-  model: { id: "composer-2" },
+  model: { id: "composer-2.5" },
   cloud: {
     repos: [{ url: "https://github.com/your-org/your-repo" }],
     mcpServers: {
@@ -373,7 +373,7 @@ Define named subagents that the main agent can spawn:
 
 ```typescript
 const agent = await Agent.create({
-  model: { id: "composer-2" },
+  model: { id: "composer-2.5" },
   apiKey: process.env.CURSOR_API_KEY,
   local: { cwd: process.cwd() },
   agents: {
@@ -502,7 +502,7 @@ Thrown when a Run operation is not available on the current runtime. Use `run.su
 
 ```typescript
 interface ModelSelection {
-  id: string;                    // "composer-2", "gpt-5.2", etc.
+  id: string;                    // "composer-2.5", "gpt-5.2", etc.
   params?: ModelParameterValue[];  // [{ id: "thinking", value: "high" }]
 }
 ```
@@ -558,7 +558,7 @@ async function main() {
   // Create a cloud agent
   await using agent = await Agent.create({
     apiKey: process.env.CURSOR_API_KEY!,
-    model: { id: "composer-2" },
+    model: { id: "composer-2.5" },
     cloud: {
       repos: [{ url: "https://github.com/your-org/your-repo" }],
       autoCreatePR: true

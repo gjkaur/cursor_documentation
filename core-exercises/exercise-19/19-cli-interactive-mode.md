@@ -279,7 +279,7 @@ Check off when done:
 │  COMMANDS (type at > prompt):                                   │
 │  /help        - Show all commands                              │
 │  /quit        - Exit CLI                                       │
-│  /model <name> - Switch model (e.g., /model composer-2)        │
+│  /model <name> - Switch model (e.g., /model composer-2.5)        │
 │  /plan        - Switch to Plan mode                            │
 │  /ask         - Switch to Ask mode                             │
 │  /agent       - Switch to Agent mode                           │

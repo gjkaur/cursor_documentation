@@ -5,6 +5,8 @@
 **Time:** 25 min  
 **Difficulty:** Beginner
 
+**Further reading:** [`docs-content-readmes/011-changelog.md`](../../docs-content-readmes/011-changelog.md) (Jira, Teams, and automations updates)
+
 **Objective:** Launch a Cloud Agent from the Cursor UI and track its run.
 
 ---
@@ -155,7 +157,7 @@ Click the **"New Agent"** button.
 | **Repository** | Select your GitHub repo (e.g., `your-username/calculator`) |
 | **Branch** | Select branch (e.g., `main`) |
 | **Prompt** | Describe the task (see examples below) |
-| **Model** | Select model (Composer 2 recommended) |
+| **Model** | Select model (**Composer 2.5** recommended) |
 
 ---
 

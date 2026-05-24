@@ -6,6 +6,171 @@ Let me break down the major updates from these recent releases.
 
 ---
 
+## Release: May 20, 2026 (Version 3.5) – Improvements to Cursor Automations 🤖
+
+### What's New?
+
+> *"This release brings Cursor Automations into the Agents Window and adds support for configuring automations with multiple attached repositories or no repositories at all."*
+
+| Before | After |
+|--------|-------|
+| Automations managed mainly at `cursor.com/automations` | Create and manage automations in the **Agents Window** alongside agents |
+| One repo per automation | **Multi-repo** or **no-repo** automations |
+| Manual setup each time | Templates and reusable automation configs |
+
+**Launch promotion:** For the next 7 days, all agent runs for **newly created automations are 50% off**.
+
+---
+
+### 1. Automations in the Agents Window 🪟
+
+| Feature | What It Means |
+|---------|---------------|
+| **Same workspace as agents** | Create, edit, and monitor automations without leaving Cursor |
+| **Template gallery** | Start from examples like fixing Slack-reported bugs or cleaning up feature flags |
+| **Faster iteration** | Test triggers and prompts in the same UI you use for interactive agents |
+
+**Example templates shown in docs:**
+- Fix Bugs Reported in Slack
+- Investigate Top Datadog Errors
+- Clean up feature flags
+
+**Why this matters for beginners:** Automations are no longer a separate website workflow — they live next to the Agent you already use.
+
+---
+
+### 2. Multi-Repo Automations 📦
+
+> *"You can now attach multiple repositories to a single automation."*
+
+| Feature | What It Means |
+|---------|---------------|
+| **Cross-repo context** | One automation can reason across frontend, backend, and shared libraries |
+| **End-to-end tasks** | Delivery, testing, and verification can span multiple codebases |
+| **Reusable environments** | Configure once, reuse across sessions |
+
+**Why this matters:** Real products rarely live in a single repo. Automations can now mirror how your team actually works.
+
+---
+
+## Release: May 19, 2026 – No-Repo Automations 🔌
+
+### What's New?
+
+> *"You can now create automations with agents that monitor tools and act on signals without needing an attached repository."*
+
+| Use Case | Example |
+|----------|---------|
+| **Daily digests** | Slack digest agent summarizes unread DMs and key channels every morning |
+| **Metrics monitoring** | Product analytics agent pulls weekly metrics from Databricks |
+| **Support triage** | Product FAQ agent drafts first responses from docs and past threads |
+| **Finance reporting** | Product finance agent pulls recurring revenue from Stripe |
+| **Customer health** | Customer health agent flags accounts with shifting signals across Granola, Slack, and Databricks |
+
+**New marketplace templates:** Slack digest, product analytics, product FAQ, product finance, and customer health agents.
+
+**Why this matters for beginners:** Not every automation needs code. You can automate ops, analytics, and support workflows with tool access alone.
+
+---
+
+## Release: May 19, 2026 – Cursor in Jira 🎫
+
+### What's New?
+
+> *"Cursor is now available in Jira. Assign work items to Cursor or mention @Cursor in a comment to kick off a cloud agent."*
+
+| Step | What Happens |
+|------|--------------|
+| 1 | Assign a Jira issue to Cursor or mention `@Cursor` in a comment |
+| 2 | Agent reads title, description, comments, and team repository settings |
+| 3 | Agent fixes bugs, adds features, updates tests, or investigates the ticket |
+| 4 | Agent posts completion updates in Jira with a link to the pull request |
+
+**Setup requirements:**
+
+| Requirement | Details |
+|-------------|---------|
+| **Installation** | Cursor integrations in the Cursor dashboard |
+| **Access** | Cursor admin access |
+| **Jira plan** | Jira Commercial Cloud with **Rovo** enabled |
+
+**Why this matters for beginners:** If your team lives in Jira, you can delegate engineering work from a ticket — without copying context into Cursor manually.
+
+---
+
+## Release: May 18, 2026 – Composer 2.5 Available 🚀
+
+### What's New?
+
+> *"Composer 2.5 is now available in Cursor. It is a substantial improvement over Composer 2, with better intelligence and behavior, stronger performance on sustained long-running tasks, more reliable following of complex instructions, and an improved collaborative experience."*
+
+| Aspect | Composer 2.5 | Composer 2 (prior) |
+|--------|--------------|-------------------|
+| **Model ID** | `composer-2.5` | `composer-2` |
+| **Long-horizon tasks** | Reinforcement learning on sustained agentic work | Good, but less capable |
+| **Standard pricing** | $0.50 input / $2.50 output per 1M tokens | Same pricing tier |
+| **Fast pricing (default)** | $3.00 input / $15.00 output per 1M tokens | Prior fast tier was lower |
+| **Launch promo** | **Double usage** for the first week | — |
+
+### Benchmark Highlights (from Cursor docs)
+
+| Benchmark | Composer 2.5 | Opus 4.7 | GPT-5.5 | Composer 2 |
+|-----------|--------------|----------|---------|------------|
+| **Terminal-Bench 2.0** | 69.3% | 69.4% | 82.7% | 61.7% |
+| **SWE-Bench Multilingual** | 79.8% | 80.5% | 77.8% | 73.7% |
+| **CursorBench v3.1** | 63.2% | 64.8% max | 64.3% xhigh | 52.2% |
+
+**Why this matters for beginners:** Composer 2.5 is Cursor's default agentic model path forward — frontier intelligence with strong tool use inside Cursor. See [010-docs-models-cursor-composer-2-5.md](010-docs-models-cursor-composer-2-5.md) for full pricing and usage guidance.
+
+---
+
+## Release: May 13, 2026 (Version 3.4) – Full-Screen Tabs and Compact Chats 🖥️
+
+### What's New?
+
+> *"This release introduces quality-of-life improvements to the Agents Window."*
+
+---
+
+### 1. Full-Screen Tabs 📐
+
+Maximize the right panel to focus on a single tab — files, changes, canvases, PRs, browsers, and terminals can all expand to fill the working area.
+
+| Feature | What It Does |
+|---------|--------------|
+| **Full-screen mode** | Hides distractions; agent chat becomes a **floating prompt bar** |
+| **Enter/exit** | Panel header button, command palette, or **`Cmd/Ctrl+Shift+M`** |
+| **Supported tabs** | Files, changes, canvases, PRs, browser, terminal |
+
+**Why this matters for beginners:** Review diffs, PRs, or browser output without fighting for screen space.
+
+---
+
+### 2. Compact Chat Responses 💬
+
+> *"Compact chats give you a tighter view of your agent conversations so you can read threads more quickly without losing important context."*
+
+**Tool call density** controls how much tool activity appears in each response:
+
+| Setting | What You See |
+|---------|--------------|
+| **Compact** | Concise results, minimal tool traces |
+| **Balanced** | Important intermediate steps included |
+| **Detailed** | Near-complete step-by-step context |
+
+**Why this matters:** Long agent runs become easier to scan — choose how much "behind the scenes" detail you want.
+
+---
+
+### Improvements & Bug Fixes (May 13, Version 3.4)
+
+| Category | Count |
+|----------|-------|
+| **Improvements** | 8 |
+| **Bug fixes** | 9 |
+
+---
+
 ## Release: May 13, 2026 – Development Environments for Cloud Agents 🌐
 
 ### What's New?
@@ -333,10 +498,17 @@ You can now see a breakdown of what's taking up space in your AI's "context" (th
 
 | Date | Feature | What It Does |
 |------|---------|--------------|
+| May 20 | **Automations in Agents Window (3.5)** | Create/manage automations alongside agents; multi-repo or no-repo |
+| May 20 | **Automation launch promo** | 50% off agent runs for newly created automations (7 days) |
+| May 19 | **No-repo automations** | Monitor tools and act on signals without an attached repository |
+| May 19 | **Cursor in Jira** | Assign issues or `@Cursor` in comments; agent updates Jira with PR link |
+| May 18 | **Composer 2.5** | Frontier agentic model; double usage first week |
+| May 13 | **Full-screen tabs (3.4)** | Maximize files, PRs, browser, terminal tabs; `Cmd/Ctrl+Shift+M` |
+| May 13 | **Compact chats (3.4)** | Tool call density: Compact / Balanced / Detailed |
 | May 13 | **Dev environments** | Full environments for cloud agents (multi-repo, config as code, governance) |
 | May 11 | **Microsoft Teams** | `@Cursor` in Teams channels |
 | May 11 | **Bugbot effort levels** | Customize review depth (Default, High, Custom) |
-| May 7 | **PR Review** | Complete PR workflow inside Cursor |
+| May 7 | **PR Review (3.3)** | Complete PR workflow inside Cursor |
 | May 7 | **Build in parallel** | Execute plan tasks simultaneously |
 | May 7 | **Split PRs** | Split changes into logical PRs |
 | May 7 | **Pin skills** | Quick-access skill pills |
@@ -352,6 +524,12 @@ You can now see a breakdown of what's taking up space in your AI's "context" (th
 
 | Feature | What it does | Who cares? |
 |---------|--------------|-------------|
+| **Automations in Agents Window** | Build automations next to interactive agents | Teams automating repetitive work |
+| **Multi-repo / no-repo automations** | Automate across repos or without code at all | Platform and ops teams |
+| **Cursor in Jira** | Delegate tickets to `@Cursor` from Jira | Teams using Jira + Rovo |
+| **Composer 2.5** | Cursor's improved default agentic model | Everyone using Cursor agents |
+| **Full-screen tabs** | Focus on diffs, PRs, browser, or terminal | Anyone reviewing agent output |
+| **Compact chats** | Control how much tool detail you see | Power users in long threads |
 | **Dev environments** | Cloud agents get a full laptop-like setup | Teams running cloud agents |
 | **Multi-repo** | One environment spans all your repos | Teams with multiple repos |
 | **Microsoft Teams** | `@Cursor` works in Teams channels | Teams using MS Teams |
@@ -372,6 +550,11 @@ You can now see a breakdown of what's taking up space in your AI's "context" (th
 
 | Update | Why It Matters |
 |--------|----------------|
+| **Automations in Agents Window** | Automations are first-class in the main agent UI |
+| **Multi-repo / no-repo automations** | Automate real-world cross-system workflows |
+| **Jira integration** | Delegate engineering work from Jira tickets |
+| **Composer 2.5** | Better long-running agentic tasks at frontier quality |
+| **Full-screen tabs + compact chats** | Easier to review and scan agent work |
 | **Dev environments** | Agents can have full setup like your laptop |
 | **Multi-repo** | Agents can work across multiple repos |
 | **Teams integration** | Use Cursor from Microsoft Teams |
@@ -386,17 +569,23 @@ You can now see a breakdown of what's taking up space in your AI's "context" (th
 
 The features most relevant to you as a beginner are:
 
-### 1. Parallel Execution ⚡
+### 1. Composer 2.5 🚀
+Cursor's own agentic model got a major upgrade. If you use Cursor daily, this is likely your best default for agent work.
+
+### 2. Automations in the Agents Window 🤖
+You can now set up scheduled or event-driven agents without leaving the editor — great for "fix bugs from Slack" or "clean up flags" workflows.
+
+### 3. Parallel Execution ⚡
 Your plans will execute faster. If you give Cursor a list of independent tasks, it will tackle them simultaneously. Less waiting!
 
-### 2. Context Usage Breakdown 🔍
+### 4. Full-Screen Tabs & Compact Chats 🖥️
+Review agent output more comfortably, and tune how much tool detail you see in long conversations.
+
+### 5. Context Usage Breakdown 🔍
 If Cursor ever seems lost or confused, you can check what's filling up its context. Maybe you added too many rules or enabled too many skills. Now you can see and fix it.
 
-### 3. Spend Alerts (if on a team) 💰
-If you're on a company team, you'll get friendly warnings before you hit your spending limit. No more sudden blocks!
-
-### 4. Microsoft Teams Integration 💬
-If your company uses Teams, just `@Cursor` in any channel to delegate a task or ask a question. No app switching needed.
+### 6. Jira & Microsoft Teams Integrations 💬
+If your company uses Jira or Teams, delegate work with `@Cursor` without switching apps.
 
 ---
 
@@ -425,28 +614,19 @@ The changelog is organized by date (most recent first). Each entry includes:
 
 ---
 
-## One Important Note
-
-The PDF and PNG files you shared show **different content**:
-
-- **The PDF** shows the real changelog entries (PR Review, Parallel Plans, Context Usage, etc.)
-- **The PNG** has a bunch of repetitive "Change #X: Add Pull Request" lines (looks like a formatting/export error)
-
-**Focus on the PDF content** – that's the real changelog for Cursor!
-
----
-
 ## The Bottom Line
 
-**Cursor's May 2026 updates focus on three main areas: better cloud agent environments (multi-repo, config as code, security), more integrations (Microsoft Teams), and improved workflows (parallel execution, PR review, context visibility).**
+**Cursor's May 2026 updates focus on four main areas: smarter default models (Composer 2.5), richer automations (Agents Window, multi-repo, no-repo), more integrations (Jira and Microsoft Teams), and better agent UX (full-screen tabs, compact chats, parallel plans, PR review, context visibility).**
 
 **For your engineers:**
-- Cloud agents can now have full development environments
-- Use `@Cursor` in Microsoft Teams (in addition to Slack)
-- Customize Bugbot effort for deeper reviews
-- Build plans in parallel for faster execution
-- Split changes into logical PRs for easier review
-- See context usage breakdown to debug issues
+- Use **Composer 2.5** for long-running agentic tasks
+- Build **automations in the Agents Window** — with multiple repos or no repo at all
+- Delegate work from **Jira** (`@Cursor` or assign to Cursor) and **Microsoft Teams**
+- Use **full-screen tabs** and **compact chats** to review agent output faster
+- Cloud agents can now have **full development environments**
+- Customize **Bugbot effort** for deeper reviews
+- **Build plans in parallel** and **split changes into logical PRs**
+- Use **context usage breakdown** to debug issues
 
 ---
 
@@ -455,8 +635,14 @@ The PDF and PNG files you shared show **different content**:
 The **changelog** is Cursor's way of telling users: *"Hey, we added these cool new things!"*
 
 **Key takeaways:**
+- **Composer 2.5** = Cursor's improved frontier agentic model (double usage first week at launch)
+- **Automations in Agents Window** = Set up background agents without leaving Cursor
+- **No-repo automations** = Automate Slack digests, analytics, finance, and support without code
+- **Jira** = Assign tickets or `@Cursor` in comments; get PR links back in Jira
 - **Dev Environments** = Cloud agents get a full laptop-like setup (multi-repo, secrets, audit logs)
 - **Microsoft Teams** = `@Cursor` works in Teams channels (just like Slack)
+- **Full-screen tabs** = Focus on diffs, PRs, browser, or terminal (`Cmd/Ctrl+Shift+M`)
+- **Compact chats** = Choose Compact / Balanced / Detailed tool-call density
 - **Bugbot Effort Levels** = Trade speed for thoroughness on PR reviews
 - **PR Review** = Review code inside Cursor (no more switching to GitHub)
 - **Parallel Plans** = Faster execution (Cursor does multiple tasks at once)
@@ -465,5 +651,5 @@ The **changelog** is Cursor's way of telling users: *"Hey, we added these cool n
 - **Context Breakdown** = See what's using AI memory (helps with debugging)
 - **Spend Alerts** = Get warnings before hitting budget (no surprise blocks)
 
-**For a beginner:** The most exciting features are **parallel execution** and **split PRs** – your AI assistant works faster and produces smaller, reviewable PRs. The context breakdown is also helpful if you run into issues.
+**For a beginner:** The most exciting features are **Composer 2.5**, **automations in the Agents Window**, and **parallel execution / split PRs** — your AI assistant is smarter, easier to automate, and faster. The context breakdown is also helpful if you run into issues.
 

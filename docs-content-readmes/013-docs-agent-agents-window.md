@@ -107,7 +107,16 @@ In the Agents Window, you can have agents working on **all three simultaneously*
 
 ---
 
-### 4. Easy Handoff Between Local and Cloud 🔄
+### 4. Cursor Automations 🤖
+**What it does:** Create and manage **automations** — scheduled or event-driven cloud agents — in the same interface.
+
+**As of May 2026:** Automations moved into the Agents Window. You can attach **multiple repositories** or run **no-repo** automations that monitor tools like Slack, Databricks, or Stripe without attached code.
+
+**Why it matters:** Background agents and interactive agents now share one command center.
+
+---
+
+### 5. Easy Handoff Between Local and Cloud 🔄
 **What it does:** Move an agent from cloud to local and back.
 
 **Example workflow:**
@@ -123,7 +132,7 @@ In the Agents Window, you can have agents working on **all three simultaneously*
 
 ---
 
-### 5. Worktrees 🌿
+### 6. Worktrees 🌿
 **What it does:** Run agents in isolated Git checkouts so each task has its own files and changes.
 
 **What is a worktree?** It's like having multiple copies of your project that share the same Git history but keep changes separate.

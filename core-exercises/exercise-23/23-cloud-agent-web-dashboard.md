@@ -61,7 +61,7 @@ Click the **"New Agent"** button.
 | **Repository** | Select your GitHub repo (e.g., `your-username/calculator`) |
 | **Branch** | Select branch (e.g., `main`) |
 | **Prompt** | Describe the task (see examples below) |
-| **Model** | Select model (Composer 2 recommended) |
+| **Model** | Select model (**Composer 2.5** recommended) |
 
 ---
 

@@ -21,7 +21,7 @@ Cursor's AI assistant that can **independently complete complex coding tasks**, 
 |-----------|-----------|-----------------|
 | **Instructions** | Rules that guide agent behavior | You + Cursor defaults |
 | **Tools** | Capabilities (edit files, run commands, etc.) | Built into Cursor |
-| **Model** | The AI brain (Claude, GPT, Composer 2, etc.) | You choose |
+| **Model** | The AI brain (Claude, GPT, Composer 2.5, etc.) | You choose |
 
 ---
 

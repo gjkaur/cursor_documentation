@@ -250,7 +250,7 @@ curl -X GET "https://api.cursor.com/v1/models" \
     "claude-4-sonnet-thinking",
     "gpt-5.2",
     "claude-4.5-sonnet-thinking",
-    "composer-2",
+    "composer-2.5",
     "gpt-5-mini"
   ]
 }
@@ -308,7 +308,7 @@ curl -X GET "https://api.cursor.com/v1/me" \
     "claude-4-sonnet-thinking",
     "gpt-5.2",
     "claude-4.5-sonnet-thinking",
-    "composer-2",
+    "composer-2.5",
     "gpt-5-mini"
   ]
 }

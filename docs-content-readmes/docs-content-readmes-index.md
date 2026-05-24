@@ -12,7 +12,7 @@ The readmes cover the full Cursor product surface:
 - **Customization:** plugins, rules, skills, subagents, hooks, and MCP.
 - **Cloud Agent:** setup, capabilities, automations, machines, settings, networking, API endpoints, and best practices.
 - **Developer tooling:** Cursor CLI, headless mode, shell mode, ACP, CLI references, TypeScript SDK, and deeplinks.
-- **Integrations:** Slack, Linear, GitHub, GitLab, JetBrains, Xcode, and Cursor Blame.
+- **Integrations:** Slack, Microsoft Teams, Jira, Linear, GitHub, GitLab, JetBrains, Xcode, and Cursor Blame.
 - **Teams and account management:** team setup, pricing, members, SSO, dashboard, analytics, SCIM, and enterprise billing groups.
 - **Enterprise:** identity, privacy, governance, network configuration, LLM safety, pooled usage, compliance, deployment, service accounts, and BAA guidance.
 
@@ -86,7 +86,7 @@ These files explain Cursor model choices, usage costs, and the strengths of spec
 - [007-docs-models-gpt-5-5.md](007-docs-models-gpt-5-5.md) - covers GPT-5.5.
 - [008-docs-models-gpt-5-3-codex.md](008-docs-models-gpt-5-3-codex.md) - covers GPT-5.3 Codex.
 - [009-docs-models-grok-4-3.md](009-docs-models-grok-4-3.md) - covers Grok 4.3.
-- [010-docs-models-cursor-composer-2.md](010-docs-models-cursor-composer-2.md) - explains Cursor Composer 2.
+- [010-docs-models-cursor-composer-2-5.md](010-docs-models-cursor-composer-2-5.md) - explains Cursor Composer 2.5.
 
 ### Agent, Tools, and Security
 
@@ -200,7 +200,7 @@ These files explain Cursor deployment and governance for larger organizations.
 - [007-docs-models-gpt-5-5.md](007-docs-models-gpt-5-5.md)
 - [008-docs-models-gpt-5-3-codex.md](008-docs-models-gpt-5-3-codex.md)
 - [009-docs-models-grok-4-3.md](009-docs-models-grok-4-3.md)
-- [010-docs-models-cursor-composer-2.md](010-docs-models-cursor-composer-2.md)
+- [010-docs-models-cursor-composer-2-5.md](010-docs-models-cursor-composer-2-5.md)
 - [011-changelog.md](011-changelog.md)
 - [012-docs-agent-overview.md](012-docs-agent-overview.md)
 - [013-docs-agent-agents-window.md](013-docs-agent-agents-window.md)

@@ -112,7 +112,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
           "messages": 320,
           "users": 12
         },
-        "composer-2": {
+        "composer-2.5": {
           "messages": 890,
           "users": 22
         },
@@ -166,7 +166,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
     "users": 18
   },
   {
-    "model": "composer-2",
+    "model": "composer-2.5",
     "messages": 4500,
     "users": 22
   },
@@ -218,7 +218,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
       {
         "date": "2025-01-15",
         "model_breakdown": {
-          "composer-2": {
+          "composer-2.5": {
             "messages": 120,
             "users": 1
           },
@@ -389,7 +389,7 @@ class ModelAnalytics:
             "claude-4.7-opus": 25.00,
             "claude-4.5-sonnet": 3.00,
             "gpt-5.2": 2.50,
-            "composer-2": 2.50,
+            "composer-2.5": 2.50,
             "gpt-5-mini": 0.50,
         }
         
@@ -404,7 +404,7 @@ class ModelAnalytics:
         
         print("-" * 50)
         print(f"   {'Estimated total':<25} ${total_cost:>10.2f}")
-        print("\n💡 Tip: Use composer-2 or gpt-5-mini for cost savings")
+        print("\n💡 Tip: Use composer-2.5 or gpt-5-mini for cost savings")
         
         return usage
 
@@ -459,7 +459,7 @@ Model                          Messages    Users   Avg/User
 --------------------------------------------------
 claude-4.5-sonnet                 8,520       28        304
 gpt-5-mini                        5,600       18        311
-composer-2                        4,500       22        204
+composer-2.5                        4,500       22        204
 gpt-5.2                           3,100       15        206
 claude-4.7-opus                   2,100       12        175
 
@@ -467,7 +467,7 @@ claude-4.7-opus                   2,100       12        175
 --------------------------------------------------
 claude-4.5-sonnet                 35.5% █████████████████
 gpt-5-mini                        23.3% ███████████
-composer-2                        18.8% █████████
+composer-2.5                        18.8% █████████
 gpt-5.2                           12.9% ██████
 claude-4.7-opus                    8.8% ████
 
@@ -476,11 +476,11 @@ claude-4.7-opus                    8.8% ████
    claude-4.7-opus                  $52.50
    claude-4.5-sonnet                $25.56
    gpt-5.2                           $7.75
-   composer-2                       $11.25
+   composer-2.5                       $11.25
 --------------------------------------------------
    Estimated total                 $101.31
 
-💡 Tip: Use composer-2 or gpt-5-mini for cost savings
+💡 Tip: Use composer-2.5 or gpt-5-mini for cost savings
 ```
 
 ---

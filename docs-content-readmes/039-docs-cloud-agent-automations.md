@@ -20,16 +20,27 @@ Let me break this down for a beginner.
 
 ---
 
-## Getting Started (3 Steps)
+## Getting Started
 
-Create a new automation at `cursor.com/automations`, or start from a template in the marketplace.
+Create a new automation in the **Agents Window** (recommended) or at `cursor.com/automations`, or start from a template in the marketplace.
 
 | Step | What to do |
 |------|------------|
-| **1** | Choose a trigger (e.g., every hour, when a pull request is opened) |
-| **2** | Write a prompt with instructions for the automation |
-| **3** | Choose tools (Send to Slack, Comment on PR, MCP tools) |
-| **4** | Create and watch it run! |
+| **1** | Choose a trigger (e.g., every hour, when a pull request is opened, new Slack message) |
+| **2** | Attach zero, one, or **multiple repositories** (multi-repo automations) |
+| **3** | Write a prompt with instructions for the automation |
+| **4** | Choose tools (Send to Slack, Comment on PR, MCP tools) |
+| **5** | Create and watch it run! |
+
+### Automation Types (May 2026)
+
+| Type | When to use |
+|------|-------------|
+| **Single-repo** | Classic code maintenance tied to one repository |
+| **Multi-repo** | Tasks spanning frontend, backend, shared libraries, or services |
+| **No-repo** | Tool-only workflows (Slack digests, analytics, finance, customer health) with no attached code |
+
+> *As of May 20, 2026, automations can be created and managed directly in the Agents Window. Newly created automations may qualify for launch promotions (check the changelog for current offers).*
 
 ---
 
@@ -324,7 +335,7 @@ Prompts define what the agent should do. Write them the same way you would write
 | Concept | Details |
 |---------|---------|
 | **What it does** | Run Cloud Agents automatically on triggers |
-| **Setup** | `cursor.com/automations` |
+| **Setup** | Agents Window (recommended) or `cursor.com/automations` |
 | **Triggers** | Scheduled, GitHub, Slack, Webhook, Linear, Sentry, PagerDuty |
 | **Tools** | Open PR, Comment on PR, Request reviewers, Send to Slack, Read Slack, MCP, Memories |
 | **Billing** | Team pool or individual (depends on scope) |

@@ -69,12 +69,12 @@ Beginner-friendly summaries of the **full Cursor product surface** (82 topics).
 ### Content groups
 
 - **Getting started** — Cursor overview, quickstart, changelog.
-- **Models and pricing** — model selection, pricing concepts, Claude 4.6 Sonnet, Claude Opus 4.7, Gemini 3.1 Pro, GPT-5.5, GPT-5.3 Codex, Grok 4.3, Cursor Composer 2.
+- **Models and pricing** — model selection, pricing concepts, Claude 4.6 Sonnet, Claude Opus 4.7, Gemini 3.1 Pro, GPT-5.5, GPT-5.3 Codex, Grok 4.3, Cursor Composer 2.5.
 - **Agent workflows** — Agent overview, Agents window, Agent Review, Plan Mode, Debug Mode, prompting, tools (terminal, browser, search, canvas), checkpoints, worktrees, security.
 - **Customization** — plugins, rules, skills, subagents, hooks, MCP.
 - **Cloud Agent** — setup, capabilities, my machines, self-hosted pool, automations, best practices, security & network, settings, API endpoints, Bugbot, security review.
 - **Developer tooling** — TypeScript SDK, CLI (overview, installation, using, shell mode, ACP, headless, slash commands, parameters, authentication, permissions, configuration), deeplinks.
-- **Integrations** — Slack, Linear, GitHub, GitLab, JetBrains, Xcode, Cursor Blame.
+- **Integrations** — Slack, Microsoft Teams, Jira, Linear, GitHub, GitLab, JetBrains, Xcode, Cursor Blame.
 - **Teams and account administration** — team setup, pricing, members, SSO, dashboard, analytics, SCIM, enterprise billing groups.
 - **Enterprise** — enterprise overview, identity & access management, privacy & data governance, network configuration, LLM safety & controls, model & integration management, pooled usage, compliance & monitoring, BAA, deployment patterns, service accounts.
 

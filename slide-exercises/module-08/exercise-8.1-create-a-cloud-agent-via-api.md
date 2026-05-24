@@ -395,7 +395,7 @@ Dashboard: https://cursor.com/agents/bc-00000000-0000-0000-0000-000000000001
 | `prompt.text` | ✅ Yes | The instruction for the agent | `"Add a README file"` |
 | `repos[].url` | ✅ Yes | GitHub repository URL | `"https://github.com/org/repo"` |
 | `repos[].startingRef` | No | Branch/tag/commit to start from | `"main"` |
-| `model.id` | No | AI model to use | `"composer-2"` |
+| `model.id` | No | AI model to use | `"composer-2.5"` |
 | `model.params` | No | Model parameters | `[{"id":"thinking","value":"high"}]` |
 | `branchName` | No | Custom branch name | `"feature/my-task"` |
 | `autoGenerateBranch` | No | Create new branch (default: true) | `true` |

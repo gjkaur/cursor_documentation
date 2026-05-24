@@ -145,7 +145,7 @@ The `model` field controls which model a subagent uses:
 | Value | Behavior |
 |-------|----------|
 | **`inherit`** | Uses same model as parent agent (default) |
-| **Specific model ID** | Uses exact model (e.g., `composer-2`, `gpt-5.5`) |
+| **Specific model ID** | Uses exact model (e.g., `composer-2.5`, `gpt-5.5`) |
 
 **Choose `inherit` when:** Subagent needs same reasoning power as parent  
 **Use specific model when:** You need particular capabilities regardless of parent

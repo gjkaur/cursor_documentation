@@ -415,15 +415,16 @@ echo "✅ Downloaded to ./artifacts_$AGENT_ID/"
 
 ### Concept (10 minutes)
 
-> *"Triggering work from chat. This demonstration shows how to integrate Cloud Agents with Slack, Discord, and other messaging platforms – turning chat commands into autonomous agents."*
+> *"Triggering work from chat. This demonstration shows how to integrate Cloud Agents with Slack, Microsoft Teams, Jira, Discord, and other messaging platforms – turning chat commands and ticket assignments into autonomous agents."*
 
 ### Supported Integrations
 
 | Platform | Capabilities | Setup Complexity |
 |----------|--------------|------------------|
-| **Slack** | Command triggering, notifications | Medium (Slack app) |
+| **Slack** | `@Cursor` mentions, command triggering, notifications | Medium (Slack app) |
+| **Microsoft Teams** | `@Cursor` in channels, delegate tasks to cloud agents | Medium (Teams integration) |
+| **Jira** | Assign issues to Cursor, `@Cursor` in comments, PR updates in Jira | Medium (requires Rovo) |
 | **Discord** | Command triggering, webhook responses | Medium (Bot token) |
-| **Teams** | Webhook integration | Medium (Webhook) |
 | **Generic Webhook** | POST-triggered agents | Low (any platform) |
 
 ### Architecture

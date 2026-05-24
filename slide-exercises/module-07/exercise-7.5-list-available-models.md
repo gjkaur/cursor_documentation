@@ -101,7 +101,7 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
     "claude-4-sonnet-thinking",
     "gpt-5.2",
     "claude-4.5-sonnet-thinking",
-    "composer-2",
+    "composer-2.5",
     "gpt-5-mini",
     "claude-4.5-haiku",
     "gpt-5.3-codex",
@@ -133,7 +133,7 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
      1  claude-4-sonnet-thinking
      2  gpt-5.2
      3  claude-4.5-sonnet-thinking
-     4  composer-2
+     4  composer-2.5
      5  gpt-5-mini
      6  claude-4.5-haiku
      7  gpt-5.3-codex
@@ -295,7 +295,7 @@ python3 list_models.py
     "claude-4-sonnet-thinking",
     "gpt-5.2",
     "claude-4.5-sonnet-thinking",
-    "composer-2",
+    "composer-2.5",
     "gpt-5-mini",
     "claude-4.5-haiku",
     "gpt-5.3-codex",
@@ -311,7 +311,7 @@ python3 list_models.py
      1  claude-4-sonnet-thinking
      2  gpt-5.2
      3  claude-4.5-sonnet-thinking
-     4  composer-2
+     4  composer-2.5
      5  gpt-5-mini
      6  claude-4.5-haiku
      7  gpt-5.3-codex
@@ -336,7 +336,7 @@ python3 list_models.py
 
 | Model ID | Provider | Best For |
 |----------|----------|----------|
-| `composer-2` | Cursor | Everyday coding (best value) |
+| `composer-2.5` | Cursor | Everyday coding (best value) |
 | `gpt-5-mini` | OpenAI | Simple tasks, fast responses |
 | `gpt-5.3-codex` | OpenAI | Coding specialized |
 | `gpt-5.2` | OpenAI | General coding |
@@ -400,7 +400,7 @@ def test_model_speed(model_id, prompt="Say 'Hello'"):
     return elapsed
 
 # Test a few models
-models = ["gpt-5-mini", "composer-2", "grok-4.3"]
+models = ["gpt-5-mini", "composer-2.5", "grok-4.3"]
 for model in models:
     try:
         duration = test_model_speed(model)

@@ -103,7 +103,7 @@ agent -p "What is 2+2?" --output-format json
 ```json
 {
   "result": "2+2 equals 4.",
-  "model": "composer-2",
+  "model": "composer-2.5",
   "duration_ms": 1234
 }
 ```

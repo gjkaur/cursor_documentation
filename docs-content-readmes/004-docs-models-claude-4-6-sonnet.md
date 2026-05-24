@@ -47,7 +47,7 @@ Let me break this down for a complete beginner.
 
 | Limitation | Better alternative |
 |------------|-------------------|
-| Codex or Composer offer better value for most coding | GPT-5 Codex or Composer 2 |
+| Codex or Composer offer better value for most coding | GPT-5 Codex or Composer 2.5 |
 | Opus is stronger for top-tier quality | Claude 4.6 Opus (more expensive) |
 
 **Simple version:** 
@@ -155,7 +155,7 @@ Sonnet 4.6 has access to **ALL Cursor tools**:
 ### NO, use something else if:
 - ❌ You want the absolute cheapest option → Use GPT-5 Mini
 - ❌ You want the absolute smartest option → Use Opus or GPT-5.5
-- ❌ You want the best value per dollar → Try Composer 2 or Codex
+- ❌ You want the best value per dollar → Try Composer 2.5 or Codex
 - ❌ You need extremely fast responses → Try Haiku or Flash models
 
 ---

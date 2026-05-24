@@ -1,8 +1,8 @@
 # Cursor Training Program — Speaker Scripts
 
-Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) (430 slides). Read aloud or adapt — not bullet hints.
+Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) (431 slides). Read aloud or adapt — not bullet hints.
 
-*Generated: 2026-05-22*
+*Generated: 2026-05-23*
 
 ## How to use
 
@@ -1187,7 +1187,7 @@ Run the same prompt on two models and compare quality, speed, and cost. Open the
 
 **Script**
 
-Walk this table conversationally: Task Type — Recommended Model, Why. Typo fixes, simple edits — GPT-5 Mini, Cheap, fast, good enough. Daily coding, bug fixes — GPT-5.3 Codex or Claude Sonnet, Best value, high quality. Complex logic, architecture — Claude Opus or GPT-5.5, Smartest, but expensive. Frontend/visual work — Gemini 3.1 Pro, Can see images. Fast, simple questions — Claude Haiku, Fastest responses. Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
+Walk this table conversationally: Task Type — Recommended Model, Why. Typo fixes, simple edits — GPT-5 Mini, Cheap, fast, good enough. Daily coding, bug fixes — Composer 2.5 or GPT-5.3 Codex, Best value in Cursor; built for agent tools. Complex logic, architecture — Claude Opus or GPT-5.5, Smartest, but expensive. Frontend/visual work — Gemini 3.1 Pro, Can see images. Fast, simple questions — Claude Haiku, Fastest responses. Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
 
 ---
 
@@ -1199,7 +1199,7 @@ Walk this table conversationally: Task Type — Recommended Model, Why. Typo fix
 
 Hands-on time for Exercise 2.5 — Compare Two Models. This exercise is Comparing Two Models. Goal: Run the same prompt on two models and compare quality, speed, and cost.. Follow the detailed steps in slide-exercises/module-02/exercise-2.5-comparing-two-models.md. 
 
-Step 1: Set model to Claude Sonnet, ask: Explain what a closure is in JavaScript with a practical example. Step 2: Copy the response Step 3: Switch to GPT-5 Mini — ask the same question Step 4: Compare responses side by side
+Step 1: Set model to Composer 2.5 (/model composer-2.5), ask: Explain what a closure is in JavaScript with a practical example. Step 2: Copy the response Step 3: Switch to GPT-5 Mini — ask the same question Step 4: Compare responses side by side
 
 Tell them to paste this prompt into the Agent (or read it aloud while they type): "Explain what a closure is in JavaScript with a practical example."
 
@@ -3375,7 +3375,7 @@ This module overview slide sets expectations. In your own words, cover: Duration
 
 **Script**
 
-These learning objectives describe outcomes, not topics. Paraphrase them: Launch and monitor Cloud Agents from the Cursor UI. Collect and download artifacts from completed cloud runs. Trigger Cloud Agents from messaging platforms (Slack, Discord). Manage cloud agent history and settings.
+These learning objectives describe outcomes, not topics. Paraphrase them: Launch and monitor Cloud Agents from the Cursor UI. Collect and download artifacts from completed cloud runs. Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira). Manage cloud agent history and settings.
 
 Ask the room: which of these would help your team most this quarter? Note one or two answers — you can refer back at the module summary.
 
@@ -3691,7 +3691,7 @@ Transition from the previous lesson with one sentence on how this topic connects
 
 **Script**
 
-Walk this table conversationally: Platform — Capabilities, Setup. Slack — Command triggering, notifications, Medium (Slack app). Discord — Command triggering, webhook responses, Medium (Bot token). Teams — Webhook integration, Medium (Webhook). Generic Webhook — POST-triggered agents, Low (any platform). Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
+Walk this table conversationally: Platform — Capabilities, Setup. Slack — @Cursor mentions, command triggering, notifications, Medium (Slack app). Microsoft Teams — @Cursor in channels, delegate tasks to cloud agents, Medium (Teams integration). Jira — Assign issues to Cursor, @Cursor in comments, PR updates in Jira, Medium (requires Rovo). Discord — Command triggering, webhook responses, Medium (Bot token). Generic Webhook — POST-triggered agents, Low (any platform). Pick the two rows that matter most to your audience and spend extra time there; summarize the rest in one sentence.
 
 ---
 
@@ -3735,7 +3735,21 @@ Close the demo by stating when they would use this in production and when they w
 
 ---
 
-### Slide 284 — Demo: Discord Integration
+### Slide 284 — Demo: Jira Integration
+
+**Type:** demo · **Lesson:** 6.3
+
+**Script**
+
+This slide supports a live demonstration: Jira Integration. Narrate every click and keystroke — assume no one has seen this screen before.
+
+If the network fails, describe what would happen and show a screenshot or backup recording. Save questions until the demo completes unless someone is completely lost.
+
+Close the demo by stating when they would use this in production and when they would not.
+
+---
+
+### Slide 285 — Demo: Discord Integration
 
 **Type:** demo · **Lesson:** 6.3
 
@@ -3749,7 +3763,7 @@ Close the demo by stating when they would use this in production and when they w
 
 ---
 
-### Slide 285 — Generic Webhook & Notifications
+### Slide 286 — Generic Webhook & Notifications
 
 **Type:** code · **Lesson:** 6.3
 
@@ -3763,7 +3777,7 @@ Remind the room: use environment variables for keys, redact secrets in screen sh
 
 ---
 
-### Slide 286 — Module Summary
+### Slide 287 — Module Summary
 
 **Type:** module_summary · **Lesson:** 6.3
 
@@ -3777,7 +3791,7 @@ Announce the break or introduce the next module with one connecting sentence.
 
 ---
 
-### Slide 287 — Quick Reference Card
+### Slide 288 — Quick Reference Card
 
 **Type:** quick_reference · **Lesson:** 6.3
 
@@ -3791,7 +3805,7 @@ Offer two minutes for questions on this module only, then move on.
 
 ## Module 7 — Cursor API Foundations
 
-### Slide 288 — Cursor API Foundations
+### Slide 289 — Cursor API Foundations
 
 **Type:** module_intro
 
@@ -3803,7 +3817,7 @@ Preview whether this module is lecture, hands-on, or mixed. If it is hands-on, t
 
 ---
 
-### Slide 289 — Module Overview
+### Slide 290 — Module Overview
 
 **Type:** module_overview
 
@@ -3813,7 +3827,7 @@ This module overview slide sets expectations. In your own words, cover: Duration
 
 ---
 
-### Slide 290 — Learning Objectives
+### Slide 291 — Learning Objectives
 
 **Type:** learning_objectives
 
@@ -3827,7 +3841,7 @@ Tell participants they are not expected to memorize this list; they should recog
 
 ---
 
-### Slide 291 — Agenda
+### Slide 292 — Agenda
 
 **Type:** module_agenda
 
@@ -3837,7 +3851,7 @@ Use this agenda as your pacing map for the module. You will cover: Lesson 7.1, T
 
 ---
 
-### Slide 292 — Lesson 7.1
+### Slide 293 — Lesson 7.1
 
 **Type:** lesson_intro · **Lesson:** 7.1
 
@@ -3849,7 +3863,7 @@ Transition from the previous lesson with one sentence on how this topic connects
 
 ---
 
-### Slide 293 — The Five APIs
+### Slide 294 — The Five APIs
 
 **Type:** table · **Lesson:** 7.1
 
@@ -3859,7 +3873,7 @@ Walk this table conversationally: API — Endpoint, Purpose. Chat Completions �
 
 ---
 
-### Slide 294 — API Comparison Matrix
+### Slide 295 — API Comparison Matrix
 
 **Type:** table · **Lesson:** 7.1
 
@@ -3869,7 +3883,7 @@ Walk this table conversationally: API — Auth Type, Rate Limit. Chat Completion
 
 ---
 
-### Slide 295 — When to Use Which API
+### Slide 296 — When to Use Which API
 
 **Type:** bullets · **Lesson:** 7.1
 
@@ -3879,7 +3893,7 @@ On this slide, When to Use Which API, cover these points in order: F i r s t ,  
 
 ---
 
-### Slide 296 — OpenAI Compatibility
+### Slide 297 — OpenAI Compatibility
 
 **Type:** code · **Lesson:** 7.1
 
@@ -3893,7 +3907,7 @@ Remind the room: use environment variables for keys, redact secrets in screen sh
 
 ---
 
-### Slide 297 — Lesson 7.2
+### Slide 298 — Lesson 7.2
 
 **Type:** lesson_intro · **Lesson:** 7.2
 
@@ -3905,7 +3919,7 @@ Create Admin and User API keys and verify authentication. Open the lab guide at 
 
 ---
 
-### Slide 298 — Authentication Methods
+### Slide 299 — Authentication Methods
 
 **Type:** table · **Lesson:** 7.2
 
@@ -3915,7 +3929,7 @@ Walk this table conversationally: Method — Format, When to Use. HTTP Basic —
 
 ---
 
-### Slide 299 — API Key Types
+### Slide 300 — API Key Types
 
 **Type:** bullets · **Lesson:** 7.2
 
@@ -3925,7 +3939,7 @@ On this slide, API Key Types, cover these points in order: F i r s t ,   G e n e
 
 ---
 
-### Slide 300 — Security Best Practices
+### Slide 301 — Security Best Practices
 
 **Type:** bullets · **Lesson:** 7.2
 
@@ -3935,7 +3949,7 @@ On this slide, Security Best Practices, cover these points in order: F i r s t ,
 
 ---
 
-### Slide 301 — Windows Exercise Environment
+### Slide 302 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 7.2
 
@@ -3949,7 +3963,7 @@ Walk the room for two to three minutes. Common blockers: wrong key type, missing
 
 ---
 
-### Slide 302 — Exercise 7.2 — Steps 1–3
+### Slide 303 — Exercise 7.2 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -3963,7 +3977,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 303 — Exercise 7.2 — Steps 1–3 (Part 2)
+### Slide 304 — Exercise 7.2 — Steps 1–3 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -3979,7 +3993,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 304 — Exercise 7.2 — Steps 1–3 (Part 3)
+### Slide 305 — Exercise 7.2 — Steps 1–3 (Part 3)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -3993,7 +4007,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 305 — Exercise 7.2 — Steps 4–5
+### Slide 306 — Exercise 7.2 — Steps 4–5
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -4009,7 +4023,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 306 — Exercise 7.2 — Steps 4–5 (Part 2)
+### Slide 307 — Exercise 7.2 — Steps 4–5 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -4025,7 +4039,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 307 — Exercise 7.2 — Steps 6–7
+### Slide 308 — Exercise 7.2 — Steps 6–7
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -4039,7 +4053,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 308 — Exercise 7.2 — Steps 6–7 (Part 2)
+### Slide 309 — Exercise 7.2 — Steps 6–7 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -4053,7 +4067,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 309 — Lesson 7.3
+### Slide 310 — Lesson 7.3
 
 **Type:** lesson_intro · **Lesson:** 7.3
 
@@ -4065,7 +4079,7 @@ Handle 429 responses with backoff and rate-limit headers. Open the lab guide at 
 
 ---
 
-### Slide 310 — Rate Limits by API
+### Slide 311 — Rate Limits by API
 
 **Type:** table · **Lesson:** 7.3
 
@@ -4075,7 +4089,7 @@ Walk this table conversationally: API — Limit, Window. Chat Completions — 10
 
 ---
 
-### Slide 311 — HTTP Status Codes to Handle
+### Slide 312 — HTTP Status Codes to Handle
 
 **Type:** table · **Lesson:** 7.3
 
@@ -4085,7 +4099,7 @@ Walk this table conversationally: Code — Meaning, Action. 200 — Success, Pro
 
 ---
 
-### Slide 312 — Rate Limit Headers
+### Slide 313 — Rate Limit Headers
 
 **Type:** table · **Lesson:** 7.3
 
@@ -4095,7 +4109,7 @@ Walk this table conversationally: Header — Description, Example. X-RateLimit-L
 
 ---
 
-### Slide 313 — Exercise 7.3 — Exponential Backoff
+### Slide 314 — Exercise 7.3 — Exponential Backoff
 
 **Type:** exercise · **Lesson:** 7.3 · **Exercise:** 7.3
 
@@ -4109,7 +4123,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 314 — Exercise 7.3 — Rate Limiter & Client
+### Slide 315 — Exercise 7.3 — Rate Limiter & Client
 
 **Type:** exercise · **Lesson:** 7.3 · **Exercise:** 7.3
 
@@ -4123,7 +4137,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 315 — Lesson 7.4
+### Slide 316 — Lesson 7.4
 
 **Type:** lesson_intro · **Lesson:** 7.4
 
@@ -4135,19 +4149,19 @@ Use ETags to avoid re-downloading unchanged API data. Open the lab guide at slid
 
 ---
 
-### Slide 316 — What Are ETags?
+### Slide 317 — What Are ETags?
 
 **Type:** content · **Lesson:** 7.4
 
 **Script**
 
-For slide 316, What Are ETags?: ETags are unique identifiers for API response versions. 1. Send If-None-Match header with previous ETag 2. Server returns 304 Not Modified if unchanged 3. No data transfer, no rate limit consumption
+For slide 317, What Are ETags?: ETags are unique identifiers for API response versions. 1. Send If-None-Match header with previous ETag 2. Server returns 304 Not Modified if unchanged 3. No data transfer, no rate limit consumption
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 
 ---
 
-### Slide 317 — ETag Flow
+### Slide 318 — ETag Flow
 
 **Type:** diagram · **Lesson:** 7.4
 
@@ -4159,7 +4173,7 @@ After explaining the flow, ask: does this match how you thought the system worke
 
 ---
 
-### Slide 318 — Endpoints Supporting ETags
+### Slide 319 — Endpoints Supporting ETags
 
 **Type:** table · **Lesson:** 7.4
 
@@ -4169,7 +4183,7 @@ Walk this table conversationally: Endpoint — ETag Support, Cache Freshness. /v
 
 ---
 
-### Slide 319 — Exercise 7.4 — Basic ETag Usage
+### Slide 320 — Exercise 7.4 — Basic ETag Usage
 
 **Type:** exercise · **Lesson:** 7.4 · **Exercise:** 7.4
 
@@ -4183,7 +4197,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 320 — Exercise 7.4 — ETagCache & CachedClient
+### Slide 321 — Exercise 7.4 — ETagCache & CachedClient
 
 **Type:** exercise · **Lesson:** 7.4 · **Exercise:** 7.4
 
@@ -4197,7 +4211,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 321 — Lesson 7.5
+### Slide 322 — Lesson 7.5
 
 **Type:** lesson_intro · **Lesson:** 7.5
 
@@ -4209,7 +4223,7 @@ Query available models and pick the right one programmatically. Open the lab gui
 
 ---
 
-### Slide 322 — The Models Endpoint
+### Slide 323 — The Models Endpoint
 
 **Type:** quote · **Lesson:** 7.5
 
@@ -4223,7 +4237,7 @@ Pause two beats after the quote so it lands. Then ask whether anyone has seen th
 
 ---
 
-### Slide 323 — Exercise 7.5 — Steps 1–2
+### Slide 324 — Exercise 7.5 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -4237,7 +4251,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 324 — Exercise 7.5 — Steps 1–2 (Part 2)
+### Slide 325 — Exercise 7.5 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -4251,7 +4265,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 325 — Exercise 7.5 — Steps 3–4
+### Slide 326 — Exercise 7.5 — Steps 3–4
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -4267,7 +4281,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 326 — Exercise 7.5 — Steps 3–4 (Part 2)
+### Slide 327 — Exercise 7.5 — Steps 3–4 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -4283,7 +4297,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 327 — Module Summary
+### Slide 328 — Module Summary
 
 **Type:** module_summary · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -4297,7 +4311,7 @@ Announce the break or introduce the next module with one connecting sentence.
 
 ---
 
-### Slide 328 — Quick Reference Card
+### Slide 329 — Quick Reference Card
 
 **Type:** quick_reference · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -4311,7 +4325,7 @@ Offer two minutes for questions on this module only, then move on.
 
 ## Module 8 — Cloud Agents API and Webhooks
 
-### Slide 329 — Cloud Agents API and Webhooks
+### Slide 330 — Cloud Agents API and Webhooks
 
 **Type:** module_intro
 
@@ -4323,7 +4337,7 @@ Preview whether this module is lecture, hands-on, or mixed. If it is hands-on, t
 
 ---
 
-### Slide 330 — Module Overview
+### Slide 331 — Module Overview
 
 **Type:** module_overview
 
@@ -4333,7 +4347,7 @@ This module overview slide sets expectations. In your own words, cover: Duration
 
 ---
 
-### Slide 331 — Learning Objectives
+### Slide 332 — Learning Objectives
 
 **Type:** learning_objectives
 
@@ -4347,7 +4361,7 @@ Tell participants they are not expected to memorize this list; they should recog
 
 ---
 
-### Slide 332 — Agenda
+### Slide 333 — Agenda
 
 **Type:** module_agenda
 
@@ -4357,7 +4371,7 @@ Use this agenda as your pacing map for the module. You will cover: Lesson 8.1, C
 
 ---
 
-### Slide 333 — Lesson 8.1
+### Slide 334 — Lesson 8.1
 
 **Type:** lesson_intro · **Lesson:** 8.1
 
@@ -4369,7 +4383,7 @@ Create a Cloud Agent run using curl or Python. Open the lab guide at slide-exerc
 
 ---
 
-### Slide 334 — Agent + Runs
+### Slide 335 — Agent + Runs
 
 **Type:** table · **Lesson:** 8.1
 
@@ -4379,7 +4393,7 @@ Walk this table conversationally: Concept — Description. Agent — Durable ent
 
 ---
 
-### Slide 335 — Request Fields
+### Slide 336 — Request Fields
 
 **Type:** table · **Lesson:** 8.1
 
@@ -4389,7 +4403,7 @@ Walk this table conversationally: Field — Example. prompt.text — "Add a READ
 
 ---
 
-### Slide 336 — Windows Exercise Environment
+### Slide 337 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 8.1
 
@@ -4403,7 +4417,7 @@ Walk the room for two to three minutes. Common blockers: wrong key type, missing
 
 ---
 
-### Slide 337 — Exercise 8.1 — Create with curl
+### Slide 338 — Exercise 8.1 — Create with curl
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -4419,7 +4433,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 338 — Exercise 8.1 — Capture IDs
+### Slide 339 — Exercise 8.1 — Capture IDs
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -4433,7 +4447,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 339 — Exercise 8.1 — Capture IDs (Part 2)
+### Slide 340 — Exercise 8.1 — Capture IDs (Part 2)
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -4447,7 +4461,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 340 — Exercise 8.1 — Python Helper
+### Slide 341 — Exercise 8.1 — Python Helper
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -4461,7 +4475,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 341 — Lesson 8.2
+### Slide 342 — Lesson 8.2
 
 **Type:** lesson_intro · **Lesson:** 8.2
 
@@ -4473,7 +4487,7 @@ Stream Cloud Agent events with Server-Sent Events. Open the lab guide at slide-e
 
 ---
 
-### Slide 342 — SSE Event Types
+### Slide 343 — SSE Event Types
 
 **Type:** table · **Lesson:** 8.2
 
@@ -4483,19 +4497,19 @@ Walk this table conversationally: Event — When It Happens, Data Example. statu
 
 ---
 
-### Slide 343 — Resume Support
+### Slide 344 — Resume Support
 
 **Type:** content · **Lesson:** 8.2
 
 **Script**
 
-For slide 343, Resume Support: SSE streams support the Last-Event-ID header — if your connection drops, resume from the last received event.
+For slide 344, Resume Support: SSE streams support the Last-Event-ID header — if your connection drops, resume from the last received event.
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 
 ---
 
-### Slide 344 — Exercise 8.2 — Stream with curl
+### Slide 345 — Exercise 8.2 — Stream with curl
 
 **Type:** exercise · **Lesson:** 8.2 · **Exercise:** 8.2
 
@@ -4509,7 +4523,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 345 — Exercise 8.2 — Python SSE Client
+### Slide 346 — Exercise 8.2 — Python SSE Client
 
 **Type:** exercise · **Lesson:** 8.2 · **Exercise:** 8.2
 
@@ -4523,7 +4537,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 346 — Exercise 8.2 — ResumableSSEClient
+### Slide 347 — Exercise 8.2 — ResumableSSEClient
 
 **Type:** exercise · **Lesson:** 8.2 · **Exercise:** 8.2
 
@@ -4537,7 +4551,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 347 — Lesson 8.3
+### Slide 348 — Lesson 8.3
 
 **Type:** lesson_intro · **Lesson:** 8.3
 
@@ -4549,7 +4563,7 @@ Wait for completion, list artifacts, and download outputs. Open the lab guide at
 
 ---
 
-### Slide 348 — Key Endpoints
+### Slide 349 — Key Endpoints
 
 **Type:** table · **Lesson:** 8.3
 
@@ -4559,7 +4573,7 @@ Walk this table conversationally: Endpoint — Method, Purpose. /v1/agents/{id}/
 
 ---
 
-### Slide 349 — Exercise 8.3 — Wait & List
+### Slide 350 — Exercise 8.3 — Wait & List
 
 **Type:** exercise · **Lesson:** 8.3 · **Exercise:** 8.3
 
@@ -4573,7 +4587,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 350 — Exercise 8.3 — Download
+### Slide 351 — Exercise 8.3 — Download
 
 **Type:** exercise · **Lesson:** 8.3 · **Exercise:** 8.3
 
@@ -4587,7 +4601,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 351 — Exercise 8.3 — CI Integration
+### Slide 352 — Exercise 8.3 — CI Integration
 
 **Type:** exercise · **Lesson:** 8.3 · **Exercise:** 8.3
 
@@ -4601,7 +4615,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 352 — Lesson 8.4
+### Slide 353 — Lesson 8.4
 
 **Type:** lesson_intro · **Lesson:** 8.4
 
@@ -4613,7 +4627,7 @@ Receive webhooks and verify HMAC signatures. Open the lab guide at slide-exercis
 
 ---
 
-### Slide 353 — Webhook Headers
+### Slide 354 — Webhook Headers
 
 **Type:** table · **Lesson:** 8.4
 
@@ -4623,7 +4637,7 @@ Walk this table conversationally: Header — Description. X-Webhook-Signature �
 
 ---
 
-### Slide 354 — Webhook Payload
+### Slide 355 — Webhook Payload
 
 **Type:** code · **Lesson:** 8.4
 
@@ -4635,7 +4649,7 @@ For example, point at this line: "{" and explain why it matters.
 
 ---
 
-### Slide 355 — Exercise 8.4 — HMAC Verification
+### Slide 356 — Exercise 8.4 — HMAC Verification
 
 **Type:** exercise · **Lesson:** 8.4 · **Exercise:** 8.4
 
@@ -4649,7 +4663,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 356 — Exercise 8.4 — Configure Agent
+### Slide 357 — Exercise 8.4 — Configure Agent
 
 **Type:** exercise · **Lesson:** 8.4 · **Exercise:** 8.4
 
@@ -4663,7 +4677,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 357 — Lesson 8.5
+### Slide 358 — Lesson 8.5
 
 **Type:** lesson_intro · **Lesson:** 8.5
 
@@ -4675,7 +4689,7 @@ Expose a local server with ngrok and inspect webhook payloads. Open the lab guid
 
 ---
 
-### Slide 358 — What Is ngrok?
+### Slide 359 — What Is ngrok?
 
 **Type:** bullets · **Lesson:** 8.5
 
@@ -4685,7 +4699,7 @@ On this slide, What Is ngrok?, cover these points in order: F i r s t ,   T e s 
 
 ---
 
-### Slide 359 — Exercise 8.5 — Steps 1–3
+### Slide 360 — Exercise 8.5 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -4701,7 +4715,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 360 — Exercise 8.5 — Steps 1–3 (Part 2)
+### Slide 361 — Exercise 8.5 — Steps 1–3 (Part 2)
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -4715,7 +4729,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 361 — Exercise 8.5 — Steps 1–3 (Part 3)
+### Slide 362 — Exercise 8.5 — Steps 1–3 (Part 3)
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -4729,7 +4743,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 362 — Exercise 8.5 — Inspect & Replay
+### Slide 363 — Exercise 8.5 — Inspect & Replay
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -4743,7 +4757,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 363 — Lesson 8.6
+### Slide 364 — Lesson 8.6
 
 **Type:** lesson_intro · **Lesson:** 8.6
 
@@ -4755,19 +4769,19 @@ Transition from the previous lesson with one sentence on how this topic connects
 
 ---
 
-### Slide 364 — The Capstone Integration
+### Slide 365 — The Capstone Integration
 
 **Type:** content · **Lesson:** 8.6
 
 **Script**
 
-For slide 364, The Capstone Integration: Combine everything into automated_workflow.py: 1. Create agent (with optional webhook URL) 2. Wait for completion (webhook or polling) 3. Download artifacts 4. Process results (CI exit codes, notifications)
+For slide 365, The Capstone Integration: Combine everything into automated_workflow.py: 1. Create agent (with optional webhook URL) 2. Wait for completion (webhook or polling) 3. Download artifacts 4. Process results (CI exit codes, notifications)
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 
 ---
 
-### Slide 365 — Workflow Architecture
+### Slide 366 — Workflow Architecture
 
 **Type:** diagram · **Lesson:** 8.6
 
@@ -4779,7 +4793,7 @@ After explaining the flow, ask: does this match how you thought the system worke
 
 ---
 
-### Slide 366 — Run the Workflow
+### Slide 367 — Run the Workflow
 
 **Type:** code · **Lesson:** 8.6
 
@@ -4791,7 +4805,7 @@ For example, point at this line: "export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxx
 
 ---
 
-### Slide 367 — Workflow Output
+### Slide 368 — Workflow Output
 
 **Type:** code · **Lesson:** 8.6
 
@@ -4803,7 +4817,7 @@ For example, point at this line: "🚀 CLOUD AGENT AUTOMATED WORKFLOW" and expla
 
 ---
 
-### Slide 368 — Module Summary
+### Slide 369 — Module Summary
 
 **Type:** module_summary · **Lesson:** 8.6
 
@@ -4817,7 +4831,7 @@ Announce the break or introduce the next module with one connecting sentence.
 
 ---
 
-### Slide 369 — Quick Reference Card
+### Slide 370 — Quick Reference Card
 
 **Type:** quick_reference · **Lesson:** 8.6
 
@@ -4831,7 +4845,7 @@ Offer two minutes for questions on this module only, then move on.
 
 ## Module 9 — Admin and Analytics APIs
 
-### Slide 370 — Admin and Analytics APIs
+### Slide 371 — Admin and Analytics APIs
 
 **Type:** module_intro
 
@@ -4843,7 +4857,7 @@ Preview whether this module is lecture, hands-on, or mixed. If it is hands-on, t
 
 ---
 
-### Slide 371 — Module Overview
+### Slide 372 — Module Overview
 
 **Type:** module_overview
 
@@ -4853,7 +4867,7 @@ This module overview slide sets expectations. In your own words, cover: Duration
 
 ---
 
-### Slide 372 — Learning Objectives
+### Slide 373 — Learning Objectives
 
 **Type:** learning_objectives
 
@@ -4867,7 +4881,7 @@ Tell participants they are not expected to memorize this list; they should recog
 
 ---
 
-### Slide 373 — Agenda
+### Slide 374 — Agenda
 
 **Type:** module_agenda
 
@@ -4877,7 +4891,7 @@ Use this agenda as your pacing map for the module. You will cover: Lesson 9.1, L
 
 ---
 
-### Slide 374 — Lesson 9.1
+### Slide 375 — Lesson 9.1
 
 **Type:** lesson_intro · **Lesson:** 9.1
 
@@ -4889,7 +4903,7 @@ List team members with pagination and export to CSV. Open the lab guide at slide
 
 ---
 
-### Slide 375 — User vs. Admin API Key
+### Slide 376 — User vs. Admin API Key
 
 **Type:** table · **Lesson:** 9.1
 
@@ -4899,7 +4913,7 @@ Walk this table conversationally: Aspect — User API Key, Admin API Key. Scope 
 
 ---
 
-### Slide 376 — Windows Exercise Environment
+### Slide 377 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 9.1
 
@@ -4913,7 +4927,7 @@ Walk the room for two to three minutes. Common blockers: wrong key type, missing
 
 ---
 
-### Slide 377 — Exercise 9.1 — Setup & List
+### Slide 378 — Exercise 9.1 — Setup & List
 
 **Type:** exercise · **Lesson:** 9.1 · **Exercise:** 9.1
 
@@ -4927,7 +4941,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 378 — Exercise 9.1 — Pagination & Export
+### Slide 379 — Exercise 9.1 — Pagination & Export
 
 **Type:** exercise · **Lesson:** 9.1 · **Exercise:** 9.1
 
@@ -4941,7 +4955,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 379 — Lesson 9.2
+### Slide 380 — Lesson 9.2
 
 **Type:** lesson_intro · **Lesson:** 9.2
 
@@ -4953,7 +4967,7 @@ Pull daily usage and build a weekly cost report. Open the lab guide at slide-exe
 
 ---
 
-### Slide 380 — Key Endpoint
+### Slide 381 — Key Endpoint
 
 **Type:** quote · **Lesson:** 9.2
 
@@ -4967,7 +4981,7 @@ Pause two beats after the quote so it lands. Then ask whether anyone has seen th
 
 ---
 
-### Slide 381 — Exercise 9.2 — Weekly Usage
+### Slide 382 — Exercise 9.2 — Weekly Usage
 
 **Type:** exercise · **Lesson:** 9.2 · **Exercise:** 9.2
 
@@ -4981,7 +4995,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 382 — Exercise 9.2 — Cost Report
+### Slide 383 — Exercise 9.2 — Cost Report
 
 **Type:** exercise · **Lesson:** 9.2 · **Exercise:** 9.2
 
@@ -4995,7 +5009,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 383 — Lesson 9.3
+### Slide 384 — Lesson 9.3
 
 **Type:** lesson_intro · **Lesson:** 9.3
 
@@ -5007,7 +5021,7 @@ Set and bulk-update per-user spending limits. Open the lab guide at slide-exerci
 
 ---
 
-### Slide 384 — Key Endpoint
+### Slide 385 — Key Endpoint
 
 **Type:** table · **Lesson:** 9.3
 
@@ -5017,7 +5031,7 @@ Walk this table conversationally: Action — Behavior. alert — Send notificati
 
 ---
 
-### Slide 385 — Exercise 9.3 — Set Limits
+### Slide 386 — Exercise 9.3 — Set Limits
 
 **Type:** exercise · **Lesson:** 9.3 · **Exercise:** 9.3
 
@@ -5031,7 +5045,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 386 — Exercise 9.3 — Bulk Limits
+### Slide 387 — Exercise 9.3 — Bulk Limits
 
 **Type:** exercise · **Lesson:** 9.3 · **Exercise:** 9.3
 
@@ -5047,7 +5061,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 387 — Lesson 9.4
+### Slide 388 — Lesson 9.4
 
 **Type:** lesson_intro · **Lesson:** 9.4
 
@@ -5059,7 +5073,7 @@ Analyze model usage and identify optimization opportunities. Open the lab guide 
 
 ---
 
-### Slide 388 — Key Endpoint
+### Slide 389 — Key Endpoint
 
 **Type:** quote · **Lesson:** 9.4
 
@@ -5073,7 +5087,7 @@ Pause two beats after the quote so it lands. Then ask whether anyone has seen th
 
 ---
 
-### Slide 389 — Exercise 9.4 — Model Breakdown
+### Slide 390 — Exercise 9.4 — Model Breakdown
 
 **Type:** exercise · **Lesson:** 9.4 · **Exercise:** 9.4
 
@@ -5087,7 +5101,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 390 — Exercise 9.4 — Optimization Report
+### Slide 391 — Exercise 9.4 — Optimization Report
 
 **Type:** exercise · **Lesson:** 9.4 · **Exercise:** 9.4
 
@@ -5101,7 +5115,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 391 — Lesson 9.5
+### Slide 392 — Lesson 9.5
 
 **Type:** lesson_intro · **Lesson:** 9.5
 
@@ -5113,7 +5127,7 @@ Report daily active users over a date range. Open the lab guide at slide-exercis
 
 ---
 
-### Slide 392 — Why DAU Matters
+### Slide 393 — Why DAU Matters
 
 **Type:** bullets · **Lesson:** 9.5
 
@@ -5123,7 +5137,7 @@ On this slide, Why DAU Matters, cover these points in order: F i r s t ,   T r a
 
 ---
 
-### Slide 393 — Exercise 9.5 — DAU Report
+### Slide 394 — Exercise 9.5 — DAU Report
 
 **Type:** exercise · **Lesson:** 9.5 · **Exercise:** 9.5
 
@@ -5137,7 +5151,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 394 — Lesson 9.6
+### Slide 395 — Lesson 9.6
 
 **Type:** lesson_intro · **Lesson:** 9.6
 
@@ -5149,7 +5163,7 @@ Build leaderboards for tabs, AI lines, and agent runs. Open the lab guide at sli
 
 ---
 
-### Slide 395 — Responsible Leaderboard Principles
+### Slide 396 — Responsible Leaderboard Principles
 
 **Type:** table · **Lesson:** 9.6
 
@@ -5159,7 +5173,7 @@ Walk this table conversationally: Principle — Implementation. Anonymize — Ro
 
 ---
 
-### Slide 396 — Exercise 9.6 — Three Leaderboards
+### Slide 397 — Exercise 9.6 — Three Leaderboards
 
 **Type:** exercise · **Lesson:** 9.6 · **Exercise:** 9.6
 
@@ -5173,7 +5187,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 397 — Lesson 9.7
+### Slide 398 — Lesson 9.7
 
 **Type:** lesson_intro · **Lesson:** 9.7
 
@@ -5185,7 +5199,7 @@ Transition from the previous lesson with one sentence on how this topic connects
 
 ---
 
-### Slide 398 — What Conversation Insights Reveal
+### Slide 399 — What Conversation Insights Reveal
 
 **Type:** bullets · **Lesson:** 9.7
 
@@ -5195,7 +5209,7 @@ On this slide, What Conversation Insights Reveal, cover these points in order: F
 
 ---
 
-### Slide 399 — Demo: Intent Analysis
+### Slide 400 — Demo: Intent Analysis
 
 **Type:** demo · **Lesson:** 9.7
 
@@ -5209,7 +5223,7 @@ Close the demo by stating when they would use this in production and when they w
 
 ---
 
-### Slide 400 — Demo: Complexity & Categories
+### Slide 401 — Demo: Complexity & Categories
 
 **Type:** demo · **Lesson:** 9.7
 
@@ -5223,7 +5237,7 @@ Close the demo by stating when they would use this in production and when they w
 
 ---
 
-### Slide 401 — Lesson 9.8
+### Slide 402 — Lesson 9.8
 
 **Type:** lesson_intro · **Lesson:** 9.8
 
@@ -5235,19 +5249,19 @@ Transition from the previous lesson with one sentence on how this topic connects
 
 ---
 
-### Slide 402 — Safe Removal Playbook
+### Slide 403 — Safe Removal Playbook
 
 **Type:** content · **Lesson:** 9.8
 
 **Script**
 
-For slide 402, Safe Removal Playbook: 1. Audit first — active agents, runs, API keys 2. Soft delete — deactivate (no new agents; existing continue) 3. Transfer ownership — critical agents, webhooks 4. Log everything — compliance audit trail 5. Confirm before hard delete — GDPR/security only
+For slide 403, Safe Removal Playbook: 1. Audit first — active agents, runs, API keys 2. Soft delete — deactivate (no new agents; existing continue) 3. Transfer ownership — critical agents, webhooks 4. Log everything — compliance audit trail 5. Confirm before hard delete — GDPR/security only
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 
 ---
 
-### Slide 403 — Demo: SafeRemovalDemo Workflow
+### Slide 404 — Demo: SafeRemovalDemo Workflow
 
 **Type:** demo · **Lesson:** 9.8
 
@@ -5261,7 +5275,7 @@ Close the demo by stating when they would use this in production and when they w
 
 ---
 
-### Slide 404 — Module Summary
+### Slide 405 — Module Summary
 
 **Type:** module_summary · **Lesson:** 9.8
 
@@ -5275,7 +5289,7 @@ Announce the break or introduce the next module with one connecting sentence.
 
 ---
 
-### Slide 405 — Quick Reference Card
+### Slide 406 — Quick Reference Card
 
 **Type:** quick_reference · **Lesson:** 9.8
 
@@ -5289,7 +5303,7 @@ Offer two minutes for questions on this module only, then move on.
 
 ## Module 10 — AI Code Tracking and Reporting
 
-### Slide 406 — AI Code Tracking and Reporting
+### Slide 407 — AI Code Tracking and Reporting
 
 **Type:** module_intro
 
@@ -5301,7 +5315,7 @@ Preview whether this module is lecture, hands-on, or mixed. If it is hands-on, t
 
 ---
 
-### Slide 407 — Module Overview
+### Slide 408 — Module Overview
 
 **Type:** module_overview
 
@@ -5311,7 +5325,7 @@ This module overview slide sets expectations. In your own words, cover: Duration
 
 ---
 
-### Slide 408 — Learning Objectives
+### Slide 409 — Learning Objectives
 
 **Type:** learning_objectives
 
@@ -5325,7 +5339,7 @@ Tell participants they are not expected to memorize this list; they should recog
 
 ---
 
-### Slide 409 — Agenda
+### Slide 410 — Agenda
 
 **Type:** module_agenda
 
@@ -5335,7 +5349,7 @@ Use this agenda as your pacing map for the module. You will cover: Lesson 10.1, 
 
 ---
 
-### Slide 410 — Lesson 10.1
+### Slide 411 — Lesson 10.1
 
 **Type:** lesson_intro · **Lesson:** 10.1
 
@@ -5347,7 +5361,7 @@ Fetch AI commit metrics and calculate contribution percentage. Open the lab guid
 
 ---
 
-### Slide 411 — Key Endpoint
+### Slide 412 — Key Endpoint
 
 **Type:** quote · **Lesson:** 10.1
 
@@ -5361,7 +5375,7 @@ Pause two beats after the quote so it lands. Then ask whether anyone has seen th
 
 ---
 
-### Slide 412 — Windows Exercise Environment
+### Slide 413 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 10.1
 
@@ -5375,7 +5389,7 @@ Walk the room for two to three minutes. Common blockers: wrong key type, missing
 
 ---
 
-### Slide 413 — Exercise 10.1 — Fetch Metrics
+### Slide 414 — Exercise 10.1 — Fetch Metrics
 
 **Type:** exercise · **Lesson:** 10.1 · **Exercise:** 10.1
 
@@ -5389,7 +5403,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 414 — Exercise 10.1 — AI Contribution %
+### Slide 415 — Exercise 10.1 — AI Contribution %
 
 **Type:** exercise · **Lesson:** 10.1 · **Exercise:** 10.1
 
@@ -5403,7 +5417,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 415 — Exercise 10.1 — ROI Analysis
+### Slide 416 — Exercise 10.1 — ROI Analysis
 
 **Type:** exercise · **Lesson:** 10.1 · **Exercise:** 10.1
 
@@ -5419,7 +5433,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 416 — Lesson 10.2
+### Slide 417 — Lesson 10.2
 
 **Type:** lesson_intro · **Lesson:** 10.2
 
@@ -5431,7 +5445,7 @@ Stream large CSV exports for BI tools. Open the lab guide at slide-exercises/mod
 
 ---
 
-### Slide 417 — Key Endpoint
+### Slide 418 — Key Endpoint
 
 **Type:** quote · **Lesson:** 10.2
 
@@ -5445,7 +5459,7 @@ Pause two beats after the quote so it lands. Then ask whether anyone has seen th
 
 ---
 
-### Slide 418 — Exercise 10.2 — Stream to File
+### Slide 419 — Exercise 10.2 — Stream to File
 
 **Type:** exercise · **Lesson:** 10.2 · **Exercise:** 10.2
 
@@ -5459,7 +5473,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 419 — Exercise 10.2 — BI Integration
+### Slide 420 — Exercise 10.2 — BI Integration
 
 **Type:** exercise · **Lesson:** 10.2 · **Exercise:** 10.2
 
@@ -5475,7 +5489,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 420 — Lesson 10.3
+### Slide 421 — Lesson 10.3
 
 **Type:** lesson_intro · **Lesson:** 10.3
 
@@ -5487,7 +5501,7 @@ Query per-change AI events for compliance reporting. Open the lab guide at slide
 
 ---
 
-### Slide 421 — Key Endpoint
+### Slide 422 — Key Endpoint
 
 **Type:** quote · **Lesson:** 10.3
 
@@ -5501,7 +5515,7 @@ Pause two beats after the quote so it lands. Then ask whether anyone has seen th
 
 ---
 
-### Slide 422 — Exercise 10.3 — Query Events
+### Slide 423 — Exercise 10.3 — Query Events
 
 **Type:** exercise · **Lesson:** 10.3 · **Exercise:** 10.3
 
@@ -5515,7 +5529,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 423 — Exercise 10.3 — Compliance Report
+### Slide 424 — Exercise 10.3 — Compliance Report
 
 **Type:** exercise · **Lesson:** 10.3 · **Exercise:** 10.3
 
@@ -5529,7 +5543,7 @@ Give work time now. Circulate quietly. Watch for Admin versus User API key mix-u
 
 ---
 
-### Slide 424 — Lesson 10.4
+### Slide 425 — Lesson 10.4
 
 **Type:** lesson_intro · **Lesson:** 10.4
 
@@ -5541,7 +5555,7 @@ Design a leadership dashboard combining analytics APIs. Open the lab guide at sl
 
 ---
 
-### Slide 425 — Dashboard Components
+### Slide 426 — Dashboard Components
 
 **Type:** table · **Lesson:** 10.4
 
@@ -5551,19 +5565,19 @@ Walk this table conversationally: Component — Data Source, Purpose. Usage Over
 
 ---
 
-### Slide 426 — Take-Home: Streamlit Dashboard
+### Slide 427 — Take-Home: Streamlit Dashboard
 
 **Type:** content · **Lesson:** 10.4
 
 **Script**
 
-For slide 426, Take-Home: Streamlit Dashboard: Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — cost, DAU, AI %, team size 2. Usage Analytics — daily cost trend (Plotly line chart) 3. AI Code Impact — AI vs human bar chart + acceptance by model 4. Team Management — member table 5. Compliance Export — download events CSV
+For slide 427, Take-Home: Streamlit Dashboard: Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — cost, DAU, AI %, team size 2. Usage Analytics — daily cost trend (Plotly line chart) 3. AI Code Impact — AI vs human bar chart + acceptance by model 4. Team Management — member table 5. Compliance Export — download events CSV
 
 Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.
 
 ---
 
-### Slide 427 — Project Deliverables
+### Slide 428 — Project Deliverables
 
 **Type:** table · **Lesson:** 10.4
 
@@ -5573,7 +5587,7 @@ Walk this table conversationally: Deliverable — Description. Working dashboard
 
 ---
 
-### Slide 428 — Module Summary
+### Slide 429 — Module Summary
 
 **Type:** module_summary · **Lesson:** 10.4
 
@@ -5587,7 +5601,7 @@ Announce the break or introduce the next module with one connecting sentence.
 
 ---
 
-### Slide 429 — Quick Reference Card
+### Slide 430 — Quick Reference Card
 
 **Type:** quick_reference · **Lesson:** 10.4
 
@@ -5599,7 +5613,7 @@ Offer two minutes for questions on this module only, then move on.
 
 ---
 
-### Slide 430 — Course Complete
+### Slide 431 — Course Complete
 
 **Type:** module_intro · **Lesson:** 10.4
 

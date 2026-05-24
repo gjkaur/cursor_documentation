@@ -103,7 +103,7 @@ int divide(int a, int b) {
 | Model | Provider | Speed | Cost | Best For |
 |-------|----------|-------|------|----------|
 | **GPT-5 Mini** | OpenAI | Fast | $ | Quick answers, simple tasks |
-| **Composer 2** | Cursor | Fast | $$ | Everyday coding (best value) |
+| **Composer 2.5** | Cursor | Fast | $$ | Everyday coding (best value) |
 | **Grok 4.3** | xAI | Fastest | $$ | Interactive, speed-critical |
 | **GPT-5.3 Codex** | OpenAI | Medium | $$ | Coding specialized |
 | **Claude 4.6 Sonnet** | Anthropic | Medium | $$$ | Balanced daily driver |
@@ -154,11 +154,11 @@ Type in Agent: `/model gpt-5-mini`
 
 ---
 
-### Step 2: Run with Composer 2 (Cursor's Default)
+### Step 2: Run with Composer 2.5 (Fast is the product default; use Standard for lowest cost)
 
-**Switch to Composer 2:**
+**Switch to Composer 2.5:**
 
-Type in Agent: `/model composer-2`
+Type in Agent: `/model composer-2.5`
 
 **Ask the EXACT SAME prompt:**
 
@@ -237,7 +237,7 @@ Copy this table to record your observations:
 | Model | Speed (1-5) | Quality (1-5) | Detail Level | Best For |
 |-------|-------------|---------------|--------------|----------|
 | GPT-5 Mini | | | | |
-| Composer 2 | | | | |
+| Composer 2.5 | | | | |
 | Grok 4.3 | | | | |
 | Claude 4.6 Sonnet | | | | |
 | Claude 4.7 Opus | | | | |
@@ -261,7 +261,7 @@ Copy this table to record your observations:
 | Model | Typical Speed | Typical Quality | Best Use Case |
 |-------|---------------|-----------------|---------------|
 | **GPT-5 Mini** | Very Fast | Basic | Quick answers, simple explanations |
-| **Composer 2** | Fast | Good | Everyday coding, best value |
+| **Composer 2.5** | Fast | Good | Everyday coding, best value |
 | **Grok 4.3** | Fastest | Good | Interactive debugging, speed-critical |
 | **Claude 4.6 Sonnet** | Medium | Very Good | Code review, refactoring |
 | **Claude 4.7 Opus** | Slow | Excellent | Complex analysis, safety-critical |
@@ -369,7 +369,7 @@ math_status_t divide_safe(int a, int b, int* result) {
 | Method | Command |
 |--------|---------|
 | **Slash command in chat** | `/model gpt-5-mini` |
-| **Slash command in chat** | `/model composer-2` |
+| **Slash command in chat** | `/model composer-2.5` |
 | **Slash command in chat** | `/model claude-4.6-sonnet` |
 | **Slash command in chat** | `/model claude-4.7-opus` |
 | **CLI flag** | `agent --model gpt-5-mini "prompt"` |
@@ -411,7 +411,7 @@ math_status_t divide_safe(int a, int b, int* result) {
 │  → GPT-5 Mini or Grok 4.3 (fastest, cheapest)                  │
 │                                                                 │
 │  EVERYDAY CODING (80% of your work)                            │
-│  → Composer 2 or GPT-5.3 Codex (best value)                    │
+│  → Composer 2.5 or GPT-5.3 Codex (best value)                    │
 │                                                                 │
 │  CODE REVIEW & REFACTORING                                     │
 │  → Claude 4.6 Sonnet (good balance)                            │
@@ -422,7 +422,7 @@ math_status_t divide_safe(int a, int b, int* result) {
 │  INTERACTIVE DEBUGGING (need fast responses)                   │
 │  → Grok 4.3 (fastest)                                          │
 │                                                                 │
-│  WHEN UNSURE → Start with Composer 2, upgrade if needed        │
+│  WHEN UNSURE → Start with Composer 2.5, upgrade if needed        │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -434,7 +434,7 @@ math_status_t divide_safe(int a, int b, int* result) {
 **Different models for different tasks.**
 
 - Use **cheap/fast models** (GPT-5 Mini, Grok) for simple questions
-- Use **balanced models** (Composer 2, Claude Sonnet) for daily coding
+- Use **balanced models** (Composer 2.5, Claude Sonnet) for daily coding
 - Use **premium models** (Claude Opus) for complex, safety-critical work
 
 **Cost-saving tip:** Start with a cheaper model. If the response isn't good enough, switch to a smarter model for just that task.

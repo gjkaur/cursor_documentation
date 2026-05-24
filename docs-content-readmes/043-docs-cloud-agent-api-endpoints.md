@@ -103,7 +103,7 @@ The colon after the API key is required (empty password).
     "images": []  // optional, base64-encoded, max 5 images, 15MB each
   },
   "model": {
-    "id": "composer-2",
+    "id": "composer-2.5",
     "params": [
       { "id": "thinking", "value": "high" }
     ]

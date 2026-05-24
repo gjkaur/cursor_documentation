@@ -443,7 +443,7 @@ Period: 30d to now
 🧠 Model Distribution (COMPOSER changes only)
 ----------------------------------------
    claude-4.5-sonnet          234 (51.3%)
-   composer-2                 123 (27.0%)
+   composer-2.5                 123 (27.0%)
    gpt-5.2                     67 (14.7%)
    claude-4.7-opus             32 ( 7.0%)
 

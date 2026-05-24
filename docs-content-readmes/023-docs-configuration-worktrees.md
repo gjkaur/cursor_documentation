@@ -364,7 +364,7 @@ You're not sure which model is best for a complex task.
 
 **Use `/best-of-n`:**
 ```
-/best-of-n claude-4.6-sonnet,gpt-5.3-codex,composer-2 refactor the payment service to use the new API
+/best-of-n claude-4.6-sonnet,gpt-5.3-codex,composer-2.5 refactor the payment service to use the new API
 ```
 
 **Result:** Three worktrees, three implementations. Pick the best one.

@@ -198,7 +198,7 @@ curl -s -X POST https://api.cursor.com/teams/daily-usage-data \
 ```
   8 claude-4.5-sonnet
   3 gpt-5.2
-  2 composer-2
+  2 composer-2.5
   1 claude-4.7-opus
 ```
 

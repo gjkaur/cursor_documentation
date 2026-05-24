@@ -151,7 +151,7 @@ AI tools use techniques to reduce token usage:
 | Model | Input Cost (per 1M tokens) | Output Cost (per 1M tokens) |
 |-------|---------------------------|----------------------------|
 | GPT-5 Mini | $0.25 | $2.00 |
-| Composer 2 | $0.50 | $2.50 |
+| Composer 2.5 | $0.50 | $2.50 |
 | GPT-5.3 Codex | $1.75 | $14.00 |
 | Claude 4.6 Sonnet | $3.00 | $15.00 |
 | Claude 4.7 Opus | $5.00 | $25.00 |

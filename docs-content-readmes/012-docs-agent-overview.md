@@ -44,7 +44,7 @@ This includes:
 We'll cover these in detail below – but think of tools as the Agent's "hands" and "eyes."
 
 ### 3. Model 🧠
-**What it is:** The AI brain powering the Agent (Claude, GPT, Composer 2, etc.)
+**What it is:** The AI brain powering the Agent (Claude, GPT, Composer 2.5, etc.)
 
 You can choose which model the Agent uses for each task.
 

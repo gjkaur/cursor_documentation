@@ -313,7 +313,7 @@ const result = await Agent.prompt(
   "What does this code do?",
   {
     apiKey: process.env.CURSOR_API_KEY,
-    model: { id: "composer-2" },
+    model: { id: "composer-2.5" },
     local: { cwd: process.cwd() }
   }
 );

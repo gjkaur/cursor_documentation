@@ -7,6 +7,8 @@
 
 **Objective:** Collect and download artifacts produced by Cloud Agents.
 
+**Related:** Messaging integrations (Slack, Teams, Jira) — see [`docs-content-readmes/011-changelog.md`](../../docs-content-readmes/011-changelog.md) and Lesson 6.3 in [`slides/module-06-marp.md`](../../slides/module-06-marp.md).
+
 ---
 
 ## Cloud Agents in the UI (read this first)
@@ -374,7 +376,7 @@ You have completed all 25 exercises:
 - ✅ Create rules, skills, and subagents
 - ✅ Use CLI for automation
 - ✅ Launch and monitor Cloud Agents
-- ✅ Integrate with Slack
+- ✅ Integrate with Slack, Microsoft Teams, and Jira (see [`docs-content-readmes/011-changelog.md`](../../docs-content-readmes/011-changelog.md))
 
 ---
 
