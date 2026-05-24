@@ -110,13 +110,13 @@ math_utils.c (if created)
 
 Using Option A (List files):
 
-```
 I'll run `ls -la` to list the files in this directory.
 
 **Command:** `ls -la`
 
 **Output:**
-```
+
+```text
 total 32
 drwxr-xr-x  5 user  staff   160 Dec 10 10:00 .
 drwxr-xr-x  4 user  staff   128 Dec 10 09:30 ..
@@ -130,7 +130,6 @@ drwxr-xr-x  4 user  staff   128 Dec 10 09:30 ..
 - `calculator.c` is the main program file
 - `math_utils.c` and `math_utils.h` are helper files
 - `calculator` is the compiled executable (likely from a previous build)
-```
 
 ---
 
