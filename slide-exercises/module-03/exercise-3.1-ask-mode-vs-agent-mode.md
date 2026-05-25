@@ -158,11 +158,11 @@ The section below adds troubleshooting, examples, and extra detail beyond the sl
 
 Using Test Prompt 1 in Ask Mode:
 
-```
-I'm in Ask Mode, so I cannot make changes to your files. 
+I'm in Ask Mode, so I cannot make changes to your files.
 
 **What I would do in Agent Mode:**
 Add this comment at the top of `calculator.c`:
+
 ```c
 // Created with Cursor
 #include <stdio.h>
@@ -174,7 +174,6 @@ Add this comment at the top of `calculator.c`:
 2. Then ask me again to add the comment
 
 **Alternative:** You can make the change manually by editing the file yourself.
-```
 
 **Key observation:** Ask Mode explains WHAT would change but does NOT actually change anything.
 
@@ -184,10 +183,10 @@ Add this comment at the top of `calculator.c`:
 
 Using the same prompt after switching to Agent Mode:
 
-```
 I'll add a comment at the top of `calculator.c`.
 
 **Change made:**
+
 ```diff
 + // Created with Cursor
   #include <stdio.h>
@@ -196,7 +195,6 @@ I'll add a comment at the top of `calculator.c`.
 ✅ Comment added successfully.
 
 **Updated file:** `calculator.c` now has the comment at the top.
-```
 
 **Key observation:** Agent Mode actually makes the change.
 
