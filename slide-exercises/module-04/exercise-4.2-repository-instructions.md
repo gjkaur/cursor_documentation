@@ -175,13 +175,13 @@ If you want something simpler:
 
 Using Test Prompt 1:
 
-```
 Based on your AGENTS.md instructions:
 
 **Reasoning (as requested):**
 I'll add a `multiply` function to calculator.c. According to your coding standards, I'll use 4 spaces for indentation, snake_case for the function name, and add a comment before the function.
 
 **Code to add:**
+
 ```c
 // Multiplies two integers and returns the result
 int multiply(int first_number, int second_number) {
@@ -191,6 +191,7 @@ int multiply(int first_number, int second_number) {
 ```
 
 **Diff:**
+
 ```diff
 + // Multiplies two integers and returns the result
 + int multiply(int first_number, int second_number) {
@@ -200,7 +201,6 @@ int multiply(int first_number, int second_number) {
 ```
 
 **Do you want me to add this function to calculator.c?**
-```
 
 ---
 

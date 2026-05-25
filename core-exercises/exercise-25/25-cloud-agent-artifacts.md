@@ -132,6 +132,7 @@ Click or download a log artifact.
 Download generated files (code, documentation, configs).
 
 **Example: Generated README.md**
+
 ```markdown
 # Calculator
 
@@ -143,14 +144,10 @@ A simple command-line calculator program written in C.
 - Modulo operation (added by Cursor Agent)
 
 ## Building
-```bash
-gcc -o calculator calculator.c
-```
+`gcc -o calculator calculator.c`
 
 ## Usage
-```bash
-./calculator
-```
+`./calculator`
 ```
 
 **Useful for:**

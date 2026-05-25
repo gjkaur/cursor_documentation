@@ -7,8 +7,6 @@
 
 **Objective:** Collect and download artifacts produced by Cloud Agents.
 
-**Related:** Messaging integrations (Slack, Teams, Jira) — see [`docs-content-readmes/011-changelog.md`](../../docs-content-readmes/011-changelog.md) and Lesson 6.3 in [`slides/module-06-marp.md`](../../slides/module-06-marp.md).
-
 ---
 
 ## Cloud Agents in the UI (read this first)
@@ -231,6 +229,7 @@ Click or download a log artifact.
 Download generated files (code, documentation, configs).
 
 **Example: Generated README.md**
+
 ```markdown
 # Calculator
 
@@ -242,14 +241,10 @@ A simple command-line calculator program written in C.
 - Modulo operation (added by Cursor Agent)
 
 ## Building
-```bash
-gcc -o calculator calculator.c
-```
+`gcc -o calculator calculator.c`
 
 ## Usage
-```bash
-./calculator
-```
+`./calculator`
 ```
 
 **Useful for:**
@@ -376,7 +371,7 @@ You have completed all 25 exercises:
 - ✅ Create rules, skills, and subagents
 - ✅ Use CLI for automation
 - ✅ Launch and monitor Cloud Agents
-- ✅ Integrate with Slack, Microsoft Teams, and Jira (see [`docs-content-readmes/011-changelog.md`](../../docs-content-readmes/011-changelog.md))
+- ✅ Integrate with Slack
 
 ---
 

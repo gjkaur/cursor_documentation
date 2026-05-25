@@ -141,23 +141,23 @@ The Agent might ask:
 
 After answering the questions, the Agent will create a plan like this:
 
-````markdown
-# Implementation Plan: Add Modulo Operation
+### Implementation Plan: Add Modulo Operation
 
-## Summary
-Add a new modulo (remainder) operation as option 5 in the calculator menu.
+**Summary:** Add a new modulo (remainder) operation as option 5 in the calculator menu.
 
-## Files to Modify
+**Files to Modify**
 - `calculator.c` - Add modulo function and menu option
 
-## Detailed Steps
+**Detailed Steps**
 
-### Step 1: Add Function Prototype
+**Step 1: Add Function Prototype**
+
 ```c
 int modulo(int a, int b);
 ```
 
-### Step 2: Implement Modulo Function
+**Step 2: Implement Modulo Function**
+
 ```c
 int modulo(int a, int b) {
     if (b == 0) {
@@ -168,13 +168,16 @@ int modulo(int a, int b) {
 }
 ```
 
-### Step 3: Update Menu Display
+**Step 3: Update Menu Display**
+
 Change menu to include:
-```
+
+```text
 5. Modulo
 ```
 
-### Step 4: Add Case in Switch Statement
+**Step 4: Add Case in Switch Statement**
+
 ```c
 case 5:
     result = modulo(x, y);
@@ -182,16 +185,15 @@ case 5:
     break;
 ```
 
-## Estimated Changes
+**Estimated Changes**
 - ~15 lines of code added
 - No existing code removed
 
-## Risks
+**Risks**
 - Modulo by zero - handled with check
 - Negative numbers - C's % operator works with negatives (implementation-defined behavior)
 
 **Ready to build. Type 'Build it' to proceed.**
-````
 
 ---
 

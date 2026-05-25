@@ -5,8 +5,6 @@
 **Time:** 25 min  
 **Difficulty:** Beginner
 
-**Further reading:** [`docs-content-readmes/011-changelog.md`](../../docs-content-readmes/011-changelog.md) (Jira, Teams, and automations updates)
-
 **Objective:** Launch a Cloud Agent from the Cursor UI and track its run.
 
 ---

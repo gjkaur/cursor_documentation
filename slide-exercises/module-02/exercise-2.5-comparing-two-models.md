@@ -7,8 +7,6 @@
 
 **Objective:** Run the same prompt on two models and compare quality, speed, and cost.
 
-**Further reading:** [`docs-content-readmes/010-docs-models-cursor-composer-2-5.md`](../../docs-content-readmes/010-docs-models-cursor-composer-2-5.md)
-
 ---
 
 ## Cursor basics (read this first)
