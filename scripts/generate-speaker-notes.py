@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from marp_tables import extract_fenced_code_blocks, extract_markdown_tables, split_marp_slides
+from speaker_notes_enrichment import EnrichmentMatch, exercise_step_hints, match_enrichment
 
 _spec = importlib.util.spec_from_file_location(
     "generate_slide_exercises",
@@ -51,6 +52,8 @@ class SlideContext:
     lesson_title: str | None = None
     exercise: tuple[int, int] | None = None
     day: str | None = None
+    exercise_briefing_for: tuple[int, int] | None = None
+    prev_heading: str | None = None
 
 
 def _strip_directives(text: str) -> str:
@@ -223,6 +226,109 @@ def _lab_path(module: int, ex_num: int) -> str | None:
     return matches[0].relative_to(REPO).as_posix() if matches else None
 
 
+def _lab_file(module: int, ex_num: int) -> Path | None:
+    folder = REPO / "slide-exercises" / f"module-{module:02d}"
+    if not folder.exists():
+        return None
+    matches = sorted(folder.glob(f"exercise-{module}.{ex_num}-*.md"))
+    return matches[0] if matches else None
+
+
+def _parse_lab_troubleshooting(text: str) -> list[str]:
+    tips: list[str] = []
+    if "## Troubleshooting" not in text:
+        return tips
+    section = text.split("## Troubleshooting", 1)[1].split("\n## ", 1)[0]
+    for line in section.splitlines():
+        if line.strip().startswith("|") and "---" not in line:
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            if len(cells) >= 2 and cells[0].lower() not in {"problem", "what to try"}:
+                tips.append(f"If {cells[0]}: {cells[1]}")
+    return tips[:3]
+
+
+def _parse_lab_step_blocks(text: str) -> dict[str, dict[str, str]]:
+    """Map lowercase step keywords to goal/look_for from lab guide."""
+    blocks: dict[str, dict[str, str]] = {}
+    current_key = "default"
+    current: dict[str, str] = {}
+    for line in text.splitlines():
+        step_match = re.match(r"\*\*Step (\d+)[^*]*\*\*|\*\*Step (\d+) — ([^*]+)\*\*", line.strip(), re.I)
+        if step_match:
+            if current:
+                blocks[current_key] = current
+            title = (step_match.group(3) or step_match.group(0) or "step").lower()
+            current_key = re.sub(r"[^a-z0-9]+", " ", title).strip()
+            current = {}
+            continue
+        goal = re.match(r"\*\*Goal:\*\*\s*(.+)", line.strip())
+        if goal:
+            current["goal"] = _clean_inline(goal.group(1))
+            continue
+        look = re.match(r"\*\*Look for:\*\*\s*(.+)", line.strip())
+        if look:
+            current["look_for"] = _clean_inline(look.group(1))
+            continue
+    if current:
+        blocks[current_key] = current
+    return blocks
+
+
+def _lab_context(module: int, ex_num: int) -> tuple[dict[str, dict[str, str]], list[str]]:
+    path = _lab_file(module, ex_num)
+    if not path:
+        return {}, []
+    text = path.read_text(encoding="utf-8")
+    return _parse_lab_step_blocks(text), _parse_lab_troubleshooting(text)
+
+
+def _match_lab_step(heading: str, step_blocks: dict[str, dict[str, str]]) -> dict[str, str]:
+    h = heading.lower()
+    for key, data in step_blocks.items():
+        if key != "default" and key in h:
+            return data
+    for key, data in step_blocks.items():
+        tokens = [t for t in key.split() if len(t) > 3]
+        if tokens and all(t in h for t in tokens[:2]):
+            return data
+    return step_blocks.get("default", {})
+
+
+def _transition(prev: str | None, heading: str, kind: str) -> str | None:
+    if not prev or prev == heading:
+        return None
+    if kind in {"lesson_intro", "module_intro", "module_overview", "course_agenda", "day_overview", "exercise"}:
+        return None
+    if kind in {"diagram", "table", "code", "quote", "bullets", "content"}:
+        return f"Next: {heading}."
+    return None
+
+
+def _apply_enrichment(
+    spoken: list[str],
+    heading: str,
+    kind: str,
+    ctx: SlideContext,
+    *,
+    slide_summary: str | None = None,
+    max_summary_words: int = 35,
+) -> None:
+    enrich: EnrichmentMatch = match_enrichment(heading, kind, ctx.module)
+    transition = _transition(ctx.prev_heading, heading, kind)
+    if transition:
+        spoken.append(transition)
+    spoken.extend(enrich.paragraphs)
+    if slide_summary:
+        words = slide_summary.split()
+        if len(words) > max_summary_words:
+            slide_summary = " ".join(words[:max_summary_words]) + "… (see slide)"
+        if enrich.paragraphs:
+            spoken.append(f"On screen: {slide_summary}")
+        elif slide_summary:
+            spoken.append(slide_summary)
+    spoken.extend(enrich.engagement)
+
+
 def _update_context(slide: str, ctx: SlideContext) -> None:
     header = re.search(r"<!-- _header: 'Module (\d+) — (.+)' -->", slide)
     if header:
@@ -263,6 +369,8 @@ def _update_context(slide: str, ctx: SlideContext) -> None:
     if ex:
         ctx.exercise = ex
         ctx.module = ex[0]
+        if ctx.exercise_briefing_for != ex:
+            ctx.exercise_briefing_for = None
 
 
 def _join_script(paragraphs: list[str]) -> list[str]:
@@ -331,25 +439,30 @@ def _narrate_agenda_table(rows: list[list[str]]) -> str:
 def _narrate_bullets(bullets: list[str], heading: str, intro: str | None = None) -> list[str]:
     if not bullets:
         return []
-    lead = intro or f"On {heading},"
-    if len(bullets) == 1:
-        return [f"{lead} the main point is this: {bullets[0]}."]
-    if len(bullets) <= 5:
-        body = ", ".join(bullets[:-1]) + f", and {bullets[-1]}"
-        return [f"{lead} cover the following: {body}."]
-    body = ", ".join(bullets[:4]) + f", and several more items on screen including {bullets[-1]}"
-    return [f"{lead} cover the following: {body}."]
+    parts: list[str] = []
+    if intro:
+        parts.append(intro)
+    if len(bullets) <= 3:
+        for i, item in enumerate(bullets):
+            parts.append(f"Point {i + 1}: {item}.")
+    else:
+        parts.append(
+            f"There are {len(bullets)} items on this slide. I'll emphasize the first two, then you can scan the rest."
+        )
+        parts.append(f"First: {bullets[0]}.")
+        parts.append(f"Second: {bullets[1]} — this one usually matters most in practice.")
+        if len(bullets) > 2:
+            parts.append(f"Also on screen: {', '.join(bullets[2:4])}" + ("…" if len(bullets) > 4 else "") + ".")
+    return parts
 
 
 def _narrate_quote(quote: str, body: list[str], heading: str) -> list[str]:
     q = quote.strip().strip('"').strip("'")
-    parts = [f'The headline on this slide is "{q}".']
+    parts: list[str] = [f'Start with the line on screen: "{q}"']
     if body:
-        parts.append(" ".join(body))
-    elif "hallucination" in heading.lower():
         parts.append(
-            "The danger is not that the model hesitates — it is that it answers with complete confidence "
-            "while being completely wrong."
+            "Expand in your own words — do not read the bullet text verbatim: "
+            + " ".join(body[:2])
         )
     return parts
 
@@ -455,53 +568,89 @@ def _exercise_spoken(
     meta: dict,
     body: list[str],
     prompts: list[str],
-) -> list[str]:
+    ctx: SlideContext,
+) -> tuple[list[str], list[str]]:
     title = meta.get("title", heading)
-    parts: list[str] = []
+    spoken: list[str] = []
+    facilitator: list[str] = []
+    step_blocks, trouble = _lab_context(ex[0], ex[1])
+    step_data = _match_lab_step(heading, step_blocks)
 
     if "Success Criteria" in heading:
         criteria = _bullets(slide)
-        parts.append(f"That wraps up Exercise {ex[0]}.{ex[1]} — {title}.")
+        spoken.append(f"Let's debrief Exercise {ex[0]}.{ex[1]} — {title}.")
         if criteria:
-            joined = "; ".join(criteria)
-            parts.append(f"You should be able to check off: {joined}.")
-        elif meta.get("objective"):
-            parts.append(f"The intended outcome was: {meta.get('objective')}")
-        parts.append(
-            "Who completed everything? What did the Agent get wrong, or what surprised you? "
-            "Those answers are as valuable as getting a green checkmark."
+            spoken.append(
+                "Check off what you actually completed — not what the Agent claimed: "
+                + "; ".join(criteria[:4])
+                + ("…" if len(criteria) > 4 else "")
+                + "."
+            )
+        spoken.extend(exercise_step_hints(ex[0], ex[1], "success"))
+        spoken.append(
+            "Ask two volunteers: what did the Agent get wrong, and what prompt change fixed it? "
+            "That reflection is the learning outcome."
         )
-        return parts
+        if trouble:
+            facilitator.append("Common issues: " + "; ".join(trouble))
+        return spoken, facilitator
 
-    parts.append(f"We are on {heading} for Exercise {ex[0]}.{ex[1]} — {title}.")
-    if meta.get("objective"):
-        parts.append(meta["objective"])
+    first_slide = ctx.exercise_briefing_for != ex
+    hints = exercise_step_hints(ex[0], ex[1], heading, first_step=first_slide)
 
-    if "Demonstration (Windows)" in slide or "PowerShell" in slide:
-        parts.append(
-            "On Windows, use the integrated PowerShell terminal — Ctrl+backtick — "
-            "and the Agent panel with Ctrl+I unless the slide says otherwise."
-        )
+    if first_slide:
+        ctx.exercise_briefing_for = ex
+        spoken.append(f"Starting Exercise {ex[0]}.{ex[1]} — {title}. {meta.get('time', '15 min')} scheduled.")
+        if meta.get("objective"):
+            spoken.append(meta["objective"])
+        lab = _lab_path(ex[0], ex[1])
+        if lab:
+            spoken.append(f"The full lab guide with troubleshooting is in {lab}.")
+        if "Demonstration (Windows)" in slide or ex[0] >= 2:
+            spoken.append(
+                "Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. "
+                "Open the repo folder, not a single file."
+            )
+        spoken.extend(hints)
+    else:
+        spoken.append(f"Next step — {heading.replace(f'Exercise {ex[0]}.{ex[1]} — ', '')}.")
+
+    if step_data.get("goal"):
+        spoken.append(f"Goal for this step: {step_data['goal']}")
+    if step_data.get("look_for"):
+        spoken.append(f"A good result looks like: {step_data['look_for']}")
 
     for line in body:
-        if re.match(r"^Step \d+", line, re.IGNORECASE):
-            parts.append(line + ".")
+        if re.match(r"^Step \d+", line, re.I):
+            spoken.append(line + ".")
         elif line.startswith("Where:") or line.startswith("Terminal:"):
-            parts.append(line + ".")
-        elif line.startswith("Goal:") or line.startswith("Look for:"):
-            parts.append(line + ".")
+            spoken.append(line + ".")
 
     for prompt in prompts:
         flat = " ".join(prompt.split())
-        parts.append(f'In the Agent chat, paste this prompt exactly: "{flat}"')
+        spoken.append(
+            f"Paste this into the Agent — constraints matter as much as the ask: \"{flat}\""
+        )
+        if "@" in flat and "calculator" in flat.lower():
+            spoken.append("Keep @calculator.c in the prompt so the Agent cannot wander to other files.")
 
-    if not prompts and not any(re.match(r"^Step", p, re.I) for p in body):
-        step_text = " ".join(body)
-        if step_text:
-            parts.append(step_text + ".")
+    spoken.extend(h for h in hints if h not in spoken)
 
-    parts.append("Take a few minutes now to complete this step before we move on.")
-    return parts
+    closings = [
+        "Work for about two to four minutes — I'll answer questions when hands go up.",
+        "Try it now; if you finish early, help a neighbor or refine your follow-up prompt.",
+        "Pause here — most groups need a few minutes before the next step.",
+    ]
+    spoken.append(closings[(ex[0] + ex[1] + len(heading)) % len(closings)])
+
+    if meta.get("type") == "api":
+        facilitator.extend(trouble or ["Watch Admin vs User keys and PowerShell quoting."])
+    elif meta.get("type") == "cli":
+        facilitator.append("Watch PATH, working directory, and resumed session branch.")
+    else:
+        facilitator.extend(trouble[:2] or ["Watch unread diffs and wrong repo folder."])
+
+    return spoken, facilitator
 
 
 def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[list[str], list[str]]:
@@ -552,33 +701,25 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
             )
         )
     elif kind == "day_overview":
-        if rows:
-            modules = []
-            for row in rows:
-                if len(row) >= 4 and not _is_table_header_row(row):
-                    modules.append(
-                        f"Module {row[0].strip('*')}, {row[1]}, focused on {row[2]}, about {row[3]}"
-                    )
-                elif len(row) >= 3 and not _is_table_header_row(row):
-                    modules.append(f"Module {row[0].strip('*')}, {row[1]}, {row[2]}")
-            module_text = "; ".join(modules)
-        else:
-            module_text = _plain_text(slide)
-        footer = " ".join(body)
+        enrich = match_enrichment(heading, kind, ctx.module)
         if "Day 1" in heading:
             spoken.append(
-                f"Day one is {heading}. {module_text}. "
-                f"{footer + ' ' if footer else ''}"
-                "The theme today is building confidence in the editor before we ask anyone to call an API."
+                "Day one is about editor confidence — mental models first, then hands-on Cursor through Module 5. "
+                "We will not call external APIs until tomorrow."
             )
         else:
             spoken.append(
-                f"Day two is {heading}. {module_text}. "
-                f"{footer + ' ' if footer else ''}"
-                "Today assumes yesterday's mental models and editor habits are in place. "
-                "Modules seven through ten need API keys, and modules nine and ten need enterprise admin access. "
-                "If you do not have keys, pair with someone who does for those exercises."
+                "Day two assumes yesterday's habits stuck — API keys ready, PowerShell working, and realistic expectations "
+                "about agent autonomy."
             )
+        spoken.extend(enrich.paragraphs)
+        if rows:
+            highlights = []
+            for row in rows[:5]:
+                if len(row) >= 3 and not _is_table_header_row(row):
+                    highlights.append(f"Module {row[0].strip('*')} ({row[2]})")
+            if highlights:
+                spoken.append("Today's modules in one breath: " + ", ".join(highlights) + ". Details are on the slide.")
     elif kind == "day_break":
         spoken.extend(
             _join_script(
@@ -593,41 +734,33 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
             )
         )
     elif kind == "module_intro":
+        _apply_enrichment(spoken, heading, kind, ctx)
         subtitle = next((p for p in body if p), "")
-        format_hint = "concept discussion" if "concept" in subtitle.lower() else "hands-on work"
-        spoken.extend(
-            _join_script(
-                [
-                    f"We are starting Module {ctx.module}: {ctx.module_title}. {subtitle}",
-                    f"This block is mostly {format_hint}. "
-                    f"By the end of Module {ctx.module}, you should be able to apply what we cover on a real project next week.",
-                    "If this is a hands-on module, open Cursor now and confirm your repo folder is loaded. "
-                    "If it is concept-only, listen for one idea you can use on Monday morning.",
-                ]
-            )
-        )
+        if subtitle and "min" in subtitle:
+            spoken.append(f"Timing on slide: {subtitle}")
     elif kind == "module_overview":
-        narration = _narrate_kv_table(rows) or _plain_text(slide)
-        spoken.append(
-            f"Before we dive in, here is what to expect from Module {ctx.module}. {narration} "
-            "If any prerequisite on this slide would block you, raise your hand now so we can help before we continue."
-        )
+        _apply_enrichment(spoken, heading, kind, ctx)
+        if rows:
+            goal = next((r[1] for r in rows if len(r) >= 2 and "goal" in r[0].lower()), None)
+            if goal:
+                spoken.append(f"The module goal in plain language: {goal}")
+        spoken.append("Glance at duration and prerequisites on screen — raise a hand if anything blocks you.")
     elif kind == "learning_objectives":
+        spoken.append(
+            f"These outcomes define success for Module {ctx.module} — not a reading list, but skills you will practice."
+        )
         if bullets:
-            obj = ". ".join(f"{b.rstrip('.')}" for b in bullets)
-            spoken.extend(
-                _join_script(
-                    [
-                        f"By the end of Module {ctx.module}, you should be able to do the following: {obj}.",
-                        "You do not need to memorize this list word for word — you should recognize each outcome "
-                        "after we have practiced it in an exercise or demo.",
-                    ]
-                )
+            spoken.append(
+                "Highlight three that matter for your role: "
+                + "; ".join(bullets[:3])
+                + ("; plus more on screen" if len(bullets) > 3 else "")
+                + "."
             )
-        else:
-            spoken.append(_plain_text(slide))
+        _apply_enrichment(spoken, "learning objectives", "bullets", ctx)
     elif kind == "module_agenda":
-        spoken.append(_narrate_agenda_table(rows) or _plain_text(slide))
+        spoken.append(
+            _narrate_agenda_table(rows) or "Use this agenda to pace the module — protect exercise time if we run long."
+        )
         facilitator.append("Announce when the next hands-on block starts so people can close email and open Cursor.")
     elif kind == "lesson_intro":
         lesson_title = ctx.lesson_title or heading
@@ -638,19 +771,17 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
             if len(parts) == 2:
                 meta = EXERCISE_META.get((int(parts[0]), int(parts[1])))
         spoken.append(
-            f"We now begin Lesson {ctx.lesson}: {lesson_title}. "
-            f"{timing + '. ' if timing else ''}"
-            f"For this lesson, please {participation}."
+            f"Lesson {ctx.lesson}: {lesson_title}. {timing + ' ' if timing else ''}"
+            f"Participation: {participation}."
         )
         if meta and meta.get("objective"):
-            spoken.append(meta["objective"])
+            spoken.append(f"Why this lesson exists: {meta['objective']}")
+        _apply_enrichment(spoken, lesson_title, "lesson_intro", ctx)
         if ctx.lesson:
             mod, les = ctx.lesson.split(".")
             lab = _lab_path(int(mod), int(les))
             if lab and meta:
-                spoken.append(
-                    f"When we reach the exercise slides, the detailed lab guide is in {lab}."
-                )
+                spoken.append(f"Lab reference: {lab}")
     elif kind == "exercise_setup":
         spoken.extend(
             _join_script(
@@ -668,13 +799,9 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
         ex = _exercise_ref(slide) or ctx.exercise
         meta = EXERCISE_META.get(ex, {}) if ex else {}
         if ex:
-            spoken.extend(_exercise_spoken(slide, heading, ex, meta, body, prompts))
-            if meta.get("type") == "api":
-                facilitator.append("Watch for Admin vs User key mix-ups, curl quoting, and JSON escaping in PowerShell.")
-            elif meta.get("type") == "cli":
-                facilitator.append("Watch for agent not on PATH, wrong directory, or wrong resumed session.")
-            else:
-                facilitator.append("Watch for unread diffs, missing @mentions, or work in the wrong repo.")
+            ex_spoken, ex_fac = _exercise_spoken(slide, heading, ex, meta, body, prompts, ctx)
+            spoken.extend(ex_spoken)
+            facilitator.extend(ex_fac)
         else:
             spoken.append(" ".join(body) if body else _plain_text(slide))
     elif kind == "demo":
@@ -700,37 +827,39 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
         alt = re.search(r'alt="([^"]+)"', slide)
         alt_text = alt.group(1) if alt else heading
         spoken.extend(_narrate_diagram(heading, alt_text, quote, body))
+        _apply_enrichment(spoken, heading, kind, ctx, slide_summary=alt_text)
     elif kind == "table":
+        _apply_enrichment(spoken, heading, kind, ctx)
         max_cols = max((len(r) for r in rows), default=0)
         if max_cols >= 3:
-            narration = _narrate_three_col_table(rows)
+            brief = _narrate_three_col_table(rows)
         else:
-            narration = _narrate_compare_table(rows) or _narrate_kv_table(rows)
-        if narration:
-            spoken.append(narration)
-        elif body:
-            spoken.append(" ".join(body))
-        else:
-            spoken.append(_plain_text(slide))
+            brief = _narrate_compare_table(rows) or _narrate_kv_table(rows)
+        if brief:
+            spoken.append(f"Slide reference (skim, do not read every cell): {brief[:280]}")
         if "Key Insight" in slide and rows:
-            insights = []
-            for row in rows:
-                if len(row) >= 3 and not _is_table_header_row(row):
-                    insights.append(f"Lesson {row[0]}: {row[2]}")
+            insights = [
+                f"{row[0]} → {row[2]}"
+                for row in rows
+                if len(row) >= 3 and not _is_table_header_row(row)
+            ]
             if insights:
-                spoken.append("To recap the module: " + "; ".join(insights) + ".")
+                spoken.append("Recap ask: " + "; ".join(insights[:4]) + ".")
     elif kind == "quote":
         if quote:
             spoken.extend(_narrate_quote(quote, body, heading))
+            _apply_enrichment(spoken, heading, kind, ctx)
         else:
-            spoken.append(" ".join(body) if body else _plain_text(slide))
+            _apply_enrichment(spoken, heading, kind, ctx, slide_summary=" ".join(body) if body else heading)
     elif kind == "code":
         blocks = extract_fenced_code_blocks(slide)
         spoken.extend(_narrate_code(heading, body, blocks))
+        _apply_enrichment(spoken, heading, kind, ctx)
     elif kind == "bullets":
         spoken.extend(_narrate_bullets(bullets, heading))
+        _apply_enrichment(spoken, heading, kind, ctx)
         if body:
-            spoken.append(" ".join(body))
+            spoken.append(" ".join(body[:2]))
     elif kind == "module_summary":
         if rows:
             recap = []
@@ -765,9 +894,10 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
             if text.lower().startswith(heading.lower()):
                 text = text[len(heading) :].lstrip(" .:-")
             if text.lower().startswith("implication:"):
-                text = f"The practical implication is this: {text.split(':', 1)[1].strip()}"
-            spoken.append(text if text else heading)
+                text = text.split(":", 1)[1].strip()
+        _apply_enrichment(spoken, heading, kind, ctx, slide_summary=text or None)
 
+    ctx.prev_heading = heading
     return _join_script(spoken), _join_script(facilitator)
 
 
@@ -787,14 +917,14 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
         "# Cursor Training Program — Speaker Scripts",
         "",
         f"Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) "
-        f"({len(slides)} slides). Read the **Script** sections aloud; **Facilitator notes** are pacing and room management only.",
+        f"({len(slides)} slides). **Script** = teaching narrative; **Facilitator notes** = pacing and room management.",
         "",
         f"*Generated: {date.today().isoformat()}*",
         "",
         "## How to use",
         "",
         "- Match **Slide N** to the page number in the deck footer or Marp presenter view (`p`).",
-        "- **Script** = words to say. **Facilitator notes** = timing and logistics (not read to the room).",
+        "- **Script** = what to teach (examples, pitfalls, debriefs) — not a verbatim repeat of the slide.",
         "- Hands-on slides reference lab guides in [`slide-exercises/`](../slide-exercises/).",
         "- Embedded presenter notes: [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md).",
         "",
