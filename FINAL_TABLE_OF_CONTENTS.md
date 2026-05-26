@@ -404,12 +404,13 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Related core exercise** | [`core-exercises/exercise-11/11-terminal-tool-run-tests.md`](core-exercises/exercise-11/11-terminal-tool-run-tests.md) |
 
 **Slide sections covered:**
-- Exercise 3.3 — Steps 1–2
-- Exercise 3.3 — Steps 1–2 (Part 2)
-- Exercise 3.3 — Steps 3–4
-- Exercise 3.3 — Steps 3–4 (Part 2)
-- Exercise 3.3 — Debug Workflow (Step 5)
-- Exercise 3.3 — Step 6 & Safety Rules
+- Exercise 3.3 — Setup
+- Exercise 3.3 — Step 1: Safe Command
+- Exercise 3.3 — Step 2: Run Passing Tests
+- Exercise 3.3 — Step 3: Break a Test
+- Exercise 3.3 — Step 4: Diagnose Failure
+- Exercise 3.3 — Step 5: Fix and Verify
+- Exercise 3.3 — Step 6: Approval Rules
 
 #### Lesson 3.4 — Effective Prompting in Practice
 
@@ -425,13 +426,15 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Objective** | Write constrained prompts and reusable templates for real tasks. |
 | **Lab guide** | [`slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md`](slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md) |
 | **Slides** | `slides/module-03-marp.md` (Lesson 3.4) |
+| **Related core exercise** | [`core-exercises/exercise-26/26-effective-prompting-in-practice.md`](core-exercises/exercise-26/26-effective-prompting-in-practice.md) |
 
 **Slide sections covered:**
+- Exercise 3.4 — Setup
 - Exercise 3.4 — Step 1: Constrained Prompt
-- Exercise 3.4 — Steps 2–3
-- Exercise 3.4 — Steps 2–3 (Part 2)
-- Exercise 3.4 — Steps 4–5
-- Exercise 3.4 — Steps 4–5 (Part 2)
+- Exercise 3.4 — Step 2: Vague vs. Constrained
+- Exercise 3.4 — Step 3: Plan Before Editing
+- Exercise 3.4 — Step 4: DO NOT List
+- Exercise 3.4 — Step 5: One Change at a Time
 - Exercise 3.4 — Step 6: Prompt Templates
 
 ---
@@ -513,7 +516,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Objective** | Build and invoke reusable Agent skills for repeated workflows. |
 | **Lab guide** | [`slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md`](slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md) |
 | **Slides** | `slides/module-04-marp.md` (Lesson 4.3) |
-| **Related core exercise** | [`core-exercises/exercise-16/16-create-a-skill.md`](core-exercises/exercise-16/16-create-a-skill.md) |
+| **Related core exercise** | [`core-exercises/exercise-16/16-create-a-skill.md`](core-exercises/exercise-16/16-create-a-skill.md) · [`core-exercises/exercise-17/17-invoke-a-skill.md`](core-exercises/exercise-17/17-invoke-a-skill.md) |
 
 **Slide sections covered:**
 - Exercise 4.3 — PR Review Skill
@@ -818,7 +821,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | Field | Detail |
 |-------|--------|
 | **Title** | Exercise 7.4: ETag Caching |
-| **Lab time** | 15 min |
+| **Lab time** | 18 min |
 | **Difficulty** | Beginner |
 | **Objective** | Use ETags to avoid re-downloading unchanged API data. |
 | **Lab guide** | [`slide-exercises/module-07/exercise-7.4-etag-caching.md`](slide-exercises/module-07/exercise-7.4-etag-caching.md) |
@@ -1025,7 +1028,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 #### Lesson 9.2 — Daily Usage Data
 
-**Time:** 10 min · **Type:** Exercise
+**Time:** 15 min · **Type:** Exercise
 
 **Exercise**
 
@@ -1229,6 +1232,13 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Lab guide** | [`slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md`](slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md) |
 | **Slides** | `slides/module-10-marp.md` (Lesson 10.4) |
 
+**Slide sections covered:**
+- Exercise 10.4 — Dashboard Components
+- Exercise 10.4 — Streamlit Dashboard
+- Exercise 10.4 — Deliverables
+
+**Note:** Take-home lab — full step-by-step instructions are in the lab guide.
+
 ---
 
 ## Slide Exercise Master Index
@@ -1260,7 +1270,7 @@ All hands-on lab guides under `slide-exercises/`, sorted by module.
 | **6.2** | Cloud Agent Artifacts | — | 25 min | Beginner | [`exercise-6.2-cloud-agent-artifacts.md`](slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md) |
 | **7.2** | Generate and Test API Keys | — | 15 min | Beginner | [`exercise-7.2-generate-and-test-api-keys.md`](slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md) |
 | **7.3** | Rate Limits and Error Handling | — | 15 min | Beginner | [`exercise-7.3-rate-limits-and-error-handling.md`](slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md) |
-| **7.4** | ETag Caching | — | 15 min | Beginner | [`exercise-7.4-etag-caching.md`](slide-exercises/module-07/exercise-7.4-etag-caching.md) |
+| **7.4** | ETag Caching | — | 18 min | Beginner | [`exercise-7.4-etag-caching.md`](slide-exercises/module-07/exercise-7.4-etag-caching.md) |
 | **7.5** | List Available Models | — | 10 min | Beginner | [`exercise-7.5-list-available-models.md`](slide-exercises/module-07/exercise-7.5-list-available-models.md) |
 | **8.1** | Create a Cloud Agent via API | — | 15 min | Beginner | [`exercise-8.1-create-a-cloud-agent-via-api.md`](slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md) |
 | **8.2** | Stream Agent Responses (SSE) | — | 15 min | Beginner | [`exercise-8.2-stream-agent-responses-sse.md`](slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md) |

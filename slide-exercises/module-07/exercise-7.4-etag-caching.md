@@ -2,7 +2,7 @@
 
 **Module 7:** Cursor API Foundations  
 **Slides:** `slides/module-07-marp.md` (Lesson 7.4)  
-**Time:** 15 min  
+**Time:** 18 min  
 **Difficulty:** Beginner
 
 **Objective:** Use ETags to avoid re-downloading unchanged API data.

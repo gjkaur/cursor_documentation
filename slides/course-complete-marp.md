@@ -805,6 +805,8 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 2.1](../slide-exercises/module-02/exercise-2.1-codebase-understanding.md)
+
 ---
 
 ## The Problem & The Solution
@@ -909,6 +911,8 @@ team members can read it.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.2](../slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md)
+
 ---
 
 ## Targeted Explanations
@@ -983,6 +987,8 @@ Trace the call chain two levels in each direction.
 ## Making a Safe, Reviewable Change
 
 *Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 2.3](../slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md)
 
 ---
 
@@ -1068,6 +1074,8 @@ Please explain what happened and suggest a fix.
 ## Plan Mode
 
 *Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 2.4](../slide-exercises/module-02/exercise-2.4-plan-mode.md)
 
 ---
 
@@ -1170,6 +1178,8 @@ Skip email verification for this version. Proceed.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.5](../slide-exercises/module-02/exercise-2.5-comparing-two-models.md)
+
 ---
 
 <!-- _class: fit-sm -->
@@ -1245,6 +1255,8 @@ Explain what a closure is in JavaScript with a practical example.
 ## Precise Context with @mentions
 
 *Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 2.6](../slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md)
 
 ---
 
@@ -1356,6 +1368,8 @@ implement the fix we agreed on.
 
 *Concept · 4 min · Exercise · 4 min*
 
+**Lab guide:** [`Exercise 2.7](../slide-exercises/module-02/exercise-2.7-checkpoints.md)
+
 ---
 
 ## A Safety Net for Experiments
@@ -1420,6 +1434,8 @@ Add input validation to all form handlers.
 ## Terminal Integration
 
 *Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 2.8](../slide-exercises/module-02/exercise-2.8-terminal-integration.md)
 
 ---
 
@@ -1595,6 +1611,8 @@ By the end of this module, participants will be able to:
 
 *Concept · 10 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 3.1](../slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md)
+
 ---
 
 <!-- _class: fit-sm -->
@@ -1747,6 +1765,8 @@ What edge cases does it handle?
 
 *Concept · 8 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 3.2](../slide-exercises/module-03/exercise-3.2-browser-tool.md)
+
 ---
 
 ## What the Browser Tool Can Do
@@ -1888,6 +1908,8 @@ Extract all pricing plan names and their monthly costs into a table.
 ## Terminal Tool
 
 *Concept · 8 min · Exercise · 12 min*
+
+**Lab guide:** [`Exercise 3.3](../slide-exercises/module-03/exercise-3.3-terminal-tool.md)
 
 ---
 
@@ -2054,6 +2076,8 @@ Run git status. Summarize only — do not commit or push.
 ## Effective Prompting in Practice
 
 *Concept · 10 min · Exercise · 12 min*
+
+**Lab guide:** [`Exercise 3.4](../slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md)
 
 ---
 
@@ -2370,6 +2394,8 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 4.1](../slide-exercises/module-04/exercise-4.1-creating-a-rule.md)
+
 ---
 
 <!-- _class: fit-md -->
@@ -2510,6 +2536,8 @@ What are the security guardrails?
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 4.2](../slide-exercises/module-04/exercise-4.2-repository-instructions.md)
+
 ---
 
 <!-- _class: fit-md -->
@@ -2589,6 +2617,8 @@ How do I run the tests?
 ## Creating and Invoking a Skill
 
 *Concept · 8 min · Exercise · 12 min*
+
+**Lab guide:** [`Exercise 4.3](../slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md)
 
 ---
 
@@ -2918,6 +2948,8 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 5.1](../slide-exercises/module-05/exercise-5.1-interactive-cli.md)
+
 ---
 
 ## What Is the Cursor CLI?
@@ -3069,6 +3101,8 @@ agent /setup-terminal
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 5.2](../slide-exercises/module-05/exercise-5.2-one-shot-cli.md)
+
 ---
 
 <!-- _class: fit-md -->
@@ -3191,6 +3225,8 @@ done
 
 *Concept · 8 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 5.3](../slide-exercises/module-05/exercise-5.3-cloud-handoff.md)
+
 ---
 
 ## What Is Cloud Handoff?
@@ -3306,6 +3342,8 @@ agent --resume [agent-id-from-cloud]
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 5.4](../slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md)
+
 ---
 
 <!-- _class: fit-sm -->
@@ -3405,7 +3443,7 @@ agent --resume abc123-def456-ghi789
 **Step 6:** Export session summary as markdown
 **Where:** **Agent panel** — ``Ctrl+I``
 
-**Step 7:** Create `bin/cursor-sessions.sh` to list and manage sessions
+**Step 7:** Create `scripts/cursor-sessions.ps1` to list and manage sessions (optional `.sh` on Mac/Linux)
 **Where:** **Agent panel** — ``Ctrl+I``
 
 **Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)
@@ -3502,6 +3540,8 @@ By the end of this module, participants will be able to:
 ## Launching a Cloud Agent
 
 *Concept · 10 min · Exercise · 15 min*
+
+**Lab guide:** [`Exercise 6.1](../slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md)
 
 ---
 
@@ -3677,6 +3717,8 @@ https://cursor.com/agents/agt_abc123def456
 ## Cloud Agent Artifacts
 
 *Concept · 8 min · Exercise · 15 min*
+
+**Lab guide:** [`Exercise 6.2](../slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md)
 
 ---
 
@@ -4077,6 +4119,8 @@ response = client.chat.completions.create(
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 7.2](../slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md)
+
 ---
 
 <!-- _class: fit-md -->
@@ -4244,6 +4288,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 *Concept · 10 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 7.3](../slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md)
+
 ---
 
 <!-- _class: fit-md -->
@@ -4333,6 +4379,8 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 *Concept · 8 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 7.4](../slide-exercises/module-07/exercise-7.4-etag-caching.md)
+
 ---
 
 ## What Are ETags?
@@ -4410,6 +4458,8 @@ def get_with_etag(url, previous_etag=None):
 ## Listing Available Models
 
 *Concept · 4 min · Exercise · 6 min*
+
+**Lab guide:** [`Exercise 7.5](../slide-exercises/module-07/exercise-7.5-list-available-models.md)
 
 ---
 
@@ -4569,6 +4619,8 @@ By the end of this module, participants will be able to:
 
 *Concept · 5 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 8.1](../slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md)
+
 ---
 
 ## Agent + Runs
@@ -4704,6 +4756,8 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 *Concept · 5 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 8.2](../slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md)
+
 ---
 
 <!-- _class: fit-sm -->
@@ -4791,6 +4845,8 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 *Concept · 5 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 8.3](../slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md)
+
 ---
 
 ## Key Endpoints
@@ -4870,6 +4926,8 @@ def process_test_results(agent_id):
 ## Creating a Webhook Endpoint
 
 *Concept · 5 min · Exercise · 10 min*
+
+**Lab guide:** [`Exercise 8.4](../slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md)
 
 ---
 
@@ -4951,6 +5009,8 @@ curl -X POST https://api.cursor.com/v1/agents \
 ## Testing Webhooks Locally with ngrok
 
 *Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 8.5](../slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md)
 
 ---
 
@@ -5146,12 +5206,12 @@ By the end of this module, participants will be able to:
 
 | Lesson | Topic | Time | Type |
 |--------|-------|------|------|
-| 9.1 | Listing Team Members | 8 min | Exercise |
-| 9.2 | Daily Usage Data | 10 min | Exercise |
-| 9.3 | Setting User Spend Limits | 8 min | Exercise |
-| 9.4 | Model Usage Analytics | 8 min | Exercise |
-| 9.5 | Daily Active Users | 6 min | Exercise |
-| 9.6 | Leaderboards | 6 min | Exercise |
+| 9.1 | Listing Team Members | 13 min | Exercise |
+| 9.2 | Daily Usage Data | 15 min | Exercise |
+| 9.3 | Setting User Spend Limits | 13 min | Exercise |
+| 9.4 | Model Usage Analytics | 13 min | Exercise |
+| 9.5 | Daily Active Users | 10 min | Exercise |
+| 9.6 | Leaderboards | 11 min | Exercise |
 | 9.7 | Conversation Insights | 6 min | Demo |
 | 9.8 | Destructive Admin Operations | 6 min | Demo |
 
@@ -5163,7 +5223,9 @@ By the end of this module, participants will be able to:
 
 ## Listing Team Members
 
-*Concept · 5 min · Exercise · 8 min*
+*13 min total · Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 9.1](../slide-exercises/module-09/exercise-9.1-list-team-members.md)
 
 ---
 
@@ -5253,7 +5315,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Daily Usage Data
 
-*Concept · 5 min · Exercise · 10 min*
+*15 min total · Concept · 5 min · Exercise · 10 min*
+
+**Lab guide:** [`Exercise 9.2](../slide-exercises/module-09/exercise-9.2-daily-usage-data.md)
 
 ---
 
@@ -5309,7 +5373,9 @@ Python `generate_cost_report()` for last 30 days:
 
 ## Setting User Spend Limits
 
-*Concept · 5 min · Exercise · 8 min*
+*13 min total · Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 9.3](../slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md)
 
 ---
 
@@ -5372,7 +5438,9 @@ lead@company.com,200,alert
 
 ## Model Usage Analytics
 
-*Concept · 5 min · Exercise · 8 min*
+*13 min total · Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 9.4](../slide-exercises/module-09/exercise-9.4-model-usage-analytics.md)
 
 ---
 
@@ -5426,7 +5494,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Daily Active Users (DAU)
 
-*Concept · 4 min · Exercise · 6 min*
+*10 min total · Concept · 4 min · Exercise · 6 min*
+
+**Lab guide:** [`Exercise 9.5](../slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md)
 
 ---
 
@@ -5471,7 +5541,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Leaderboards
 
-*Concept · 5 min · Exercise · 6 min*
+*11 min total · Concept · 5 min · Exercise · 6 min*
+
+**Lab guide:** [`Exercise 9.6](../slide-exercises/module-09/exercise-9.6-leaderboards.md)
 
 ---
 
@@ -5516,7 +5588,7 @@ def anonymize_email(email):
 
 ## Conversation Insights
 
-*Concept · 6 min · Demonstration*
+*6 min total · Concept · 6 min · Demonstration*
 
 ---
 
@@ -5559,7 +5631,7 @@ def anonymize_email(email):
 
 ## Destructive Admin Operations
 
-*Concept · 6 min · Demonstration*
+*6 min total · Concept · 6 min · Demonstration*
 
 ---
 
@@ -5667,6 +5739,8 @@ By the end of this module, participants will be able to:
 
 *Concept · 3 min · Exercise · 5 min*
 
+**Lab guide:** [`Exercise 10.1](../slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md)
+
 ---
 
 ## Key Endpoint
@@ -5770,6 +5844,8 @@ AI usage cost → Net ROI
 
 *Concept · 3 min · Exercise · 4 min*
 
+**Lab guide:** [`Exercise 10.2](../slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md)
+
 ---
 
 ## Key Endpoint
@@ -5829,6 +5905,8 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 *Concept · 3 min · Exercise · 4 min*
 
+**Lab guide:** [`Exercise 10.3](../slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md)
+
 ---
 
 ## Key Endpoint
@@ -5882,11 +5960,15 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 *Concept · 4 min · Take-Home Project*
 
+**Lab guide:** [`Exercise 10.4](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md)
+
+**Lab guide:** [`Exercise 10.4`](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md)
+
 ---
 
 <!-- _class: fit-md -->
 
-## Dashboard Components
+## Exercise 10.4 — Dashboard Components
 
 | Component | Data Source | Purpose |
 |-----------|-------------|---------|
@@ -5898,7 +5980,7 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 ---
 
-## Take-Home: Streamlit Dashboard
+## Exercise 10.4 — Streamlit Dashboard
 
 Run with: `streamlit run cursor_dashboard.py`
 
@@ -5913,7 +5995,7 @@ Run with: `streamlit run cursor_dashboard.py`
 
 <!-- _class: fit-md -->
 
-## Project Deliverables
+## Exercise 10.4 — Deliverables
 
 | Deliverable | Description |
 |-------------|-------------|

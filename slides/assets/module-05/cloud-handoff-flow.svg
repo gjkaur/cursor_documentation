@@ -1,168 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 314" width="920" height="314">
-<rect width="920" height="314" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="31.13" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">L</text>
-<text x="45.39" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">o</text>
-<text x="59.65" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">a</text>
-<text x="73.91" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">l</text>
-<text x="102.43" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">T</text>
-<text x="116.69000000000001" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="130.95000000000002" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">m</text>
-<text x="145.21" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">i</text>
-<text x="159.47" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">n</text>
-<text x="173.73" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">a</text>
-<text x="187.98999999999998" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">l</text>
-<text x="487.4499999999998" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">C</text>
-<text x="501.7099999999998" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">l</text>
-<text x="515.9699999999998" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">o</text>
-<text x="530.2299999999998" y="43.55" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">d</text>
-<text x="31.13" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">┌</text>
-<text x="45.39" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="59.65" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="73.91" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="88.17" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="102.43" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="116.69000000000001" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="130.95000000000002" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="145.21" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="159.47" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="173.73" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="187.98999999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="202.24999999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="216.50999999999996" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="230.76999999999995" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="245.02999999999994" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">┐</text>
-<text x="458.92999999999984" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">┌</text>
-<text x="473.1899999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="487.4499999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="501.7099999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="515.9699999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="530.2299999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="544.4899999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="558.7499999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="573.0099999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="587.2699999999998" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="601.5299999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="615.7899999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="630.0499999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="644.3099999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="658.5699999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="672.8299999999997" y="76.9" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">┐</text>
-<text x="31.13" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="59.65" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">g</text>
-<text x="73.91" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="88.17" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">n</text>
-<text x="102.43" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="245.02999999999994" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="273.54999999999995" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="287.80999999999995" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="302.06999999999994" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">&amp;</text>
-<text x="330.5899999999999" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">r</text>
-<text x="344.8499999999999" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">o</text>
-<text x="359.1099999999999" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">m</text>
-<text x="373.3699999999999" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">p</text>
-<text x="387.6299999999999" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="401.8899999999999" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="416.14999999999986" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→</text>
-<text x="458.92999999999984" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="487.4499999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">C</text>
-<text x="501.7099999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">l</text>
-<text x="515.9699999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">o</text>
-<text x="530.2299999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">d</text>
-<text x="558.7499999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">A</text>
-<text x="573.0099999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">g</text>
-<text x="587.2699999999998" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="601.5299999999997" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="672.8299999999997" y="110.25" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="31.13" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="59.65" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">i</text>
-<text x="73.91" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">n</text>
-<text x="88.17" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="102.43" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="116.69000000000001" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">r</text>
-<text x="130.95000000000002" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">c</text>
-<text x="145.21" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="159.47" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">i</text>
-<text x="173.73" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">v</text>
-<text x="187.98999999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="245.02999999999994" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="458.92999999999984" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="487.4499999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">(</text>
-<text x="501.7099999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">r</text>
-<text x="515.9699999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">u</text>
-<text x="530.2299999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="558.7499999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">a</text>
-<text x="573.0099999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="587.2699999999998" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">y</text>
-<text x="601.5299999999997" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">c</text>
-<text x="615.7899999999997" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">)</text>
-<text x="672.8299999999997" y="143.6" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="31.13" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="59.65" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="73.91" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="88.17" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="102.43" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="116.69000000000001" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">i</text>
-<text x="130.95000000000002" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">n</text>
-<text x="145.21" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">)</text>
-<text x="245.02999999999994" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="273.54999999999995" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">←</text>
-<text x="287.80999999999995" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="302.06999999999994" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="316.3299999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">r</text>
-<text x="330.5899999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="344.8499999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">u</text>
-<text x="359.1099999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">l</text>
-<text x="373.3699999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="387.6299999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="401.8899999999999" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="416.14999999999986" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="458.92999999999984" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="672.8299999999997" y="176.95" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">│</text>
-<text x="31.13" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">└</text>
-<text x="45.39" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="59.65" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="73.91" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="88.17" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="102.43" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="116.69000000000001" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="130.95000000000002" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="145.21" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="159.47" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="173.73" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="187.98999999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="202.24999999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="216.50999999999996" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="230.76999999999995" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="245.02999999999994" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">┘</text>
-<text x="458.92999999999984" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">└</text>
-<text x="473.1899999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="487.4499999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="501.7099999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="515.9699999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="530.2299999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="544.4899999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="558.7499999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="573.0099999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="587.2699999999998" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="601.5299999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="615.7899999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="630.0499999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="644.3099999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="658.5699999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">─</text>
-<text x="672.8299999999997" y="210.29999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">┘</text>
-<text x="530.2299999999998" y="243.64999999999998" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">↓</text>
-<text x="458.92999999999984" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">u</text>
-<text x="473.1899999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">r</text>
-<text x="487.4499999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
-<text x="501.7099999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">o</text>
-<text x="515.9699999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">r</text>
-<text x="530.2299999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">c</text>
-<text x="544.4899999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">o</text>
-<text x="558.7499999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">m</text>
-<text x="573.0099999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">/</text>
-<text x="587.2699999999998" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">a</text>
-<text x="601.5299999999997" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">e</text>
-<text x="615.7899999999997" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">n</text>
-<text x="630.0499999999997" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">t</text>
-<text x="644.3099999999997" y="277.0" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">s</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" width="920" height="360">
+
+<defs>
+  <marker id="arrow-end" viewBox="0 0 10 10" markerWidth="7" markerHeight="7"
+          refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,1 L9,5 L0,9 Z" fill="#cc0000"/>
+  </marker>
+  <marker id="arrow-start" viewBox="0 0 10 10" markerWidth="7" markerHeight="7"
+          refX="1" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M9,1 L0,5 L9,9 Z" fill="#cc0000"/>
+  </marker>
+</defs>
+<rect width="920" height="360" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<rect x="0" y="0" width="920" height="52" rx="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<line x1="0" y1="52" x2="920" y2="52" stroke="#d0d0d0" stroke-width="2"/>
+<text x="460.0" y="34" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#cc0000">CLOUD HANDOFF FLOW</text>
+<text x="220" y="88" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1a1a1a">Local Terminal</text>
+<text x="700" y="88" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1a1a1a">Cloud</text>
+<rect x="105.0" y="118" width="230" height="118" rx="8" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
+<rect x="585.0" y="118" width="230" height="118" rx="8" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
+<text x="220" y="156" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#1a1a1a">agent</text>
+<text x="220" y="184" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#1a1a1a">(interactive</text>
+<text x="220" y="212" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#1a1a1a">session)</text>
+<text x="700" y="170" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#1a1a1a">Cloud Agent</text>
+<text x="700" y="198" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#1a1a1a">(runs async)</text>
+<line x1="347.0" y1="168" x2="573.0" y2="168" stroke="#cc0000" stroke-width="2" marker-end="url(#arrow-end)"/>
+<text x="460.0" y="158" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="20" fill="#666666">&amp; prompt</text>
+<line x1="573.0" y1="214" x2="347.0" y2="214" stroke="#cc0000" stroke-width="2" marker-end="url(#arrow-end)"/>
+<text x="460.0" y="204" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="20" fill="#666666">result</text>
+<line x1="700" y1="236" x2="700" y2="264" stroke="#cc0000" stroke-width="2" marker-end="url(#arrow-end)"/>
+<text x="700" y="292" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#1a1a1a">cursor.com/agents</text>
+<text x="700" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#666666">(web/mobile access)</text>
 </svg>

@@ -15,7 +15,15 @@ Cursor Training Program · ~20 min + take-home
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -32,7 +40,15 @@ Cursor Training Program · ~20 min + take-home
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -47,7 +63,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -64,7 +88,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -76,9 +108,19 @@ By the end of this module, participants will be able to:
 
 *Concept · 3 min · Exercise · 5 min*
 
+**Lab guide:** [`Exercise 10.1](../slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -95,7 +137,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -118,7 +168,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -141,7 +199,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -166,7 +232,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -191,7 +265,15 @@ AI usage cost → Net ROI
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -203,9 +285,19 @@ AI usage cost → Net ROI
 
 *Concept · 3 min · Exercise · 4 min*
 
+**Lab guide:** [`Exercise 10.2](../slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -219,7 +311,15 @@ AI usage cost → Net ROI
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -241,7 +341,15 @@ head -10 cursor_commits_export.csv
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -266,7 +374,15 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -278,9 +394,19 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 *Concept · 3 min · Exercise · 4 min*
 
+**Lab guide:** [`Exercise 10.3](../slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -296,7 +422,15 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -316,7 +450,15 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -335,7 +477,15 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -347,15 +497,27 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 *Concept · 4 min · Take-Home Project*
 
+**Lab guide:** [`Exercise 10.4](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md)
+
+**Lab guide:** [`Exercise 10.4`](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md)
+
+
+
+
+
 
 
 ---
 
 
 
+
+
+
+
 <!-- _class: fit-md -->
 
-## Dashboard Components
+## Exercise 10.4 — Dashboard Components
 
 | Component | Data Source | Purpose |
 |-----------|-------------|---------|
@@ -367,11 +529,19 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
+
+
+
 ---
 
 
 
-## Take-Home: Streamlit Dashboard
+
+
+
+
+## Exercise 10.4 — Streamlit Dashboard
 
 Run with: `streamlit run cursor_dashboard.py`
 
@@ -384,13 +554,21 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
 <!-- _class: fit-md -->
 
-## Project Deliverables
+## Exercise 10.4 — Deliverables
 
 | Deliverable | Description |
 |-------------|-------------|
@@ -403,7 +581,15 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -420,7 +606,15 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -432,7 +626,15 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -453,5 +655,9 @@ Run with: `streamlit run cursor_dashboard.py`
 **Next steps:** Complete take-home dashboard · set up scheduled exports · implement cost alerts
 
 *End of Module 10 — End of Day 2 Training Program*
+
+
+
+
 
 

@@ -93,7 +93,7 @@ agent --resume abc123-def456-ghi789
 **Step 6:** Export session summary as markdown
 **Where:** **Agent panel** — ``Ctrl+I``
 
-**Step 7:** Create `bin/cursor-sessions.sh` to list and manage sessions
+**Step 7:** Create `scripts/cursor-sessions.ps1` to list and manage sessions (optional `.sh` on Mac/Linux)
 **Where:** **Agent panel** — ``Ctrl+I``
 
 **Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)

@@ -71,6 +71,7 @@ EXERCISE_META: dict[tuple[int, int], dict] = {
              "objective": "Add repository instructions the Agent reads automatically."},
     (4, 3): {"title": "Creating and Invoking a Skill", "time": "20 min", "type": "cursor",
              "core": "exercise-16/16-create-a-skill.md",
+             "core_extra": "exercise-17/17-invoke-a-skill.md",
              "objective": "Build and invoke reusable Agent skills for repeated workflows."},
     (5, 1): {"title": "Interactive CLI", "time": "20 min", "type": "cli",
              "core": "exercise-19/19-cli-interactive-mode.md",
@@ -96,7 +97,7 @@ EXERCISE_META: dict[tuple[int, int], dict] = {
     (7, 3): {"title": "Rate Limits and Error Handling", "time": "15 min", "type": "api",
              "api": "exercise-2/02-rate-limits-and-error-handling.md",
              "objective": "Handle 429 responses with backoff and rate-limit headers."},
-    (7, 4): {"title": "ETag Caching", "time": "15 min", "type": "api",
+    (7, 4): {"title": "ETag Caching", "time": "18 min", "type": "api",
              "api": "exercise-3/03-etag-caching.md",
              "objective": "Use ETags to avoid re-downloading unchanged API data."},
     (7, 5): {"title": "List Available Models", "time": "10 min", "type": "api",
@@ -394,7 +395,15 @@ def rewrite_core_reference_paths(text: str, core_rel: str = "") -> str:
         ]
         for old, new in prose_fixes:
             text = text.replace(old, new)
+        text = re.sub(
+            r"A ready-to-use copy is included in this folder as \[`calculator\.c`\]\([^)]+\)\.",
+            f"A ready-to-use copy is at {calc_link}. Open {calc_dir} "
+            f"(under `core-exercises` in this repo) in Cursor and work from there.",
+            text,
+        )
 
+    if core_rel.startswith("exercise-11"):
+        text = text.replace("in this folder", "in the exercise-11 folder")
     return text
 
 
@@ -440,19 +449,19 @@ def extract_success_criteria(slides: list[str]) -> list[str]:
 
 
 def load_reference(meta: dict) -> str:
-    for key in ("core", "api"):
+    chunks: list[str] = []
+    for key in ("core", "core_extra", "api"):
         rel = meta.get(key)
         if not rel:
             continue
-        base = CORE if key == "core" else API
+        base = CORE if key.startswith("core") else API
         path = base / rel
         if path.exists():
             text = path.read_text(encoding="utf-8")
-            # Drop top title block through first --- if present
             parts = text.split("\n---\n", 1)
             body = parts[1].strip() if len(parts) > 1 else text
-            return rewrite_core_reference_paths(body, rel)
-    return ""
+            chunks.append(rewrite_core_reference_paths(body, meta.get("core", rel)))
+    return "\n\n---\n\n".join(chunks)
 
 
 def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[str]) -> str:
@@ -475,6 +484,11 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
     slide_body = rewrite_windows_demo_instructions(
         "\n\n---\n\n".join(clean_slide_for_doc(s) for s in slide_chunks if clean_slide_for_doc(s))
     )
+    if module_num == 3 and ex_num == 3:
+        slide_body = slide_body.replace(
+            "Files in folder:", "Files in `core-exercises/exercise-11/`:"
+        )
+        slide_body = slide_body.replace("in this folder", "in the exercise-11 folder")
     criteria = extract_success_criteria(slide_chunks)
     reference = rewrite_windows_demo_instructions(load_reference(meta))
 
@@ -519,6 +533,12 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
             "The section below adds troubleshooting, examples, and extra detail beyond the slides.",
             "",
             reference,
+            "",
+        ])
+
+    if module_num == 4 and ex_num == 3:
+        lines.extend([
+            "**Next:** [`Exercise 17 – Invoke a Skill`](../../core-exercises/exercise-17/17-invoke-a-skill.md)",
             "",
         ])
 

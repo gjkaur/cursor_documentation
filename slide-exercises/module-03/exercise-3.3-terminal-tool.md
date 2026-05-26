@@ -57,7 +57,7 @@ Follow these steps in order. Copy prompts exactly unless the exercise tells you 
 3. Confirm **Agent Mode** (`/agent`)
 4. Need **`gcc`** installed (compile C tests)
 
-Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
+Files in `core-exercises/exercise-11/`: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
 ---
 
@@ -84,7 +84,7 @@ Summarize the output. Do not modify any files.
 
 **Windows (demo — PowerShell):**
 ```
-Run .\run_tests.bat in this folder.
+Run .\run_tests.bat in the exercise-11 folder.
 Show full output: compilation OK? how many tests passed?
 ```
 
@@ -223,7 +223,7 @@ Summarize the output. Do not modify any files.
 **Goal:** Compile and run `test_calculator.c` using the Windows batch runner.
 
 ```
-Run the test suite with .\run_tests.bat in this folder.
+Run the test suite with .\run_tests.bat in the exercise-11 folder.
 
 Show the full terminal output and tell me:
 - Did compilation succeed?
@@ -327,7 +327,7 @@ Show me the diff before I accept file changes.
 **Optional prompt:**
 
 ```
-Run git status in this folder and summarize what you see.
+Run git status in the exercise-11 folder and summarize what you see.
 Do not commit or push anything.
 ```
 
@@ -350,7 +350,7 @@ Do not commit or push anything.
 
 Using Step 2:
 
-I'll compile and run the tests using the test runner in this folder.
+I'll compile and run the tests using the test runner in the exercise-11 folder.
 
 **Command:** `.\run_tests.bat` (Windows PowerShell)
 

@@ -33,8 +33,13 @@ for md in sorted(EX.rglob("*.md")):
     lower = text.lower()
     if "in this folder" in lower or "same directory as this doc" in lower:
         for fname in ("calculator.c", "test_calculator.c", "math_utils.c", "math_utils.h"):
-            if fname in text and not (md.parent / fname).exists():
-                issues.append(("missing-local", rel_md, fname))
+            if fname not in text:
+                continue
+            if (md.parent / fname).exists():
+                continue
+            if "core-exercises/" in text:
+                continue
+            issues.append(("missing-local", rel_md, fname))
 
 for kind, file, detail in issues:
     print(f"{kind}\t{file}\t{detail}")

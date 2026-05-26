@@ -18,7 +18,15 @@ Cursor Training Program · Hands-on exercise · ~90 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -40,7 +48,15 @@ Cursor Training Program · Hands-on exercise · ~90 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -68,7 +84,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -96,7 +120,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -112,6 +144,12 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 2.1](../slide-exercises/module-02/exercise-2.1-codebase-understanding.md)
+
+
+
+
+
 
 
 
@@ -119,6 +157,10 @@ By the end of this module, participants will be able to:
 
 
 ---
+
+
+
+
 
 
 
@@ -140,7 +182,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -167,7 +217,15 @@ cursor .
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -195,7 +253,15 @@ Specifically tell me:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -218,7 +284,15 @@ to output. What functions get called in order?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -240,7 +314,15 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -259,7 +341,15 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -282,7 +372,15 @@ team members can read it.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -303,7 +401,15 @@ team members can read it.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -319,6 +425,12 @@ team members can read it.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.2](../slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md)
+
+
+
+
+
 
 
 
@@ -326,6 +438,10 @@ team members can read it.
 
 
 ---
+
+
+
+
 
 
 
@@ -345,7 +461,15 @@ Use **precise context** — select a function or class, then ask focused questio
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -376,7 +500,15 @@ Explain the function I have selected. For each major section, tell me:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -399,7 +531,15 @@ Show me what happens in the normal case and one edge case.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -422,7 +562,15 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -446,7 +594,15 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -462,6 +618,12 @@ Trace the call chain two levels in each direction.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.3](../slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md)
+
+
+
+
+
 
 
 
@@ -469,6 +631,10 @@ Trace the call chain two levels in each direction.
 
 
 ---
+
+
+
+
 
 
 
@@ -491,7 +657,15 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -526,7 +700,15 @@ Accept? [Yes] [No] [Edit]
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -551,7 +733,15 @@ Before accepting, ask yourself:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -577,7 +767,15 @@ npm start                 # Node/React dev server
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -602,7 +800,15 @@ Please explain what happened and suggest a fix.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -618,6 +824,12 @@ Please explain what happened and suggest a fix.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.4](../slide-exercises/module-02/exercise-2.4-plan-mode.md)
+
+
+
+
+
 
 
 
@@ -625,6 +837,10 @@ Please explain what happened and suggest a fix.
 
 
 ---
+
+
+
+
 
 
 
@@ -648,7 +864,15 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -671,7 +895,15 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -701,7 +933,15 @@ Don't write code yet – just give me a plan.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -738,7 +978,15 @@ Ready to proceed? [Yes] [No] [Modify Plan]
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -763,7 +1011,15 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -785,7 +1041,15 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -801,6 +1065,12 @@ Skip email verification for this version. Proceed.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.5](../slide-exercises/module-02/exercise-2.5-comparing-two-models.md)
+
+
+
+
+
 
 
 
@@ -808,6 +1078,10 @@ Skip email verification for this version. Proceed.
 
 
 ---
+
+
+
+
 
 
 
@@ -834,7 +1108,15 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -862,7 +1144,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -884,7 +1174,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -907,7 +1205,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -928,7 +1234,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -944,6 +1258,12 @@ Explain what a closure is in JavaScript with a practical example.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.6](../slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md)
+
+
+
+
+
 
 
 
@@ -951,6 +1271,10 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 ---
+
+
+
+
 
 
 
@@ -978,7 +1302,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1006,7 +1338,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1029,7 +1369,15 @@ Are there any race conditions or timing attacks?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1052,7 +1400,15 @@ What are the key differences in the payment handling code?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1075,7 +1431,15 @@ implement the fix we agreed on.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1103,7 +1467,15 @@ implement the fix we agreed on.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1123,7 +1495,15 @@ implement the fix we agreed on.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1145,7 +1525,15 @@ implement the fix we agreed on.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1161,6 +1549,12 @@ implement the fix we agreed on.
 
 *Concept · 4 min · Exercise · 4 min*
 
+**Lab guide:** [`Exercise 2.7](../slide-exercises/module-02/exercise-2.7-checkpoints.md)
+
+
+
+
+
 
 
 
@@ -1168,6 +1562,10 @@ implement the fix we agreed on.
 
 
 ---
+
+
+
+
 
 
 
@@ -1191,7 +1589,15 @@ implement the fix we agreed on.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1214,7 +1620,15 @@ implement the fix we agreed on.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1238,7 +1652,15 @@ Add input validation to all form handlers.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1258,7 +1680,15 @@ Add input validation to all form handlers.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1282,7 +1712,15 @@ Add input validation to all form handlers.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1298,6 +1736,12 @@ Add input validation to all form handlers.
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 2.8](../slide-exercises/module-02/exercise-2.8-terminal-integration.md)
+
+
+
+
+
 
 
 
@@ -1305,6 +1749,10 @@ Add input validation to all form handlers.
 
 
 ---
+
+
+
+
 
 
 
@@ -1329,7 +1777,15 @@ Add input validation to all form handlers.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1361,7 +1817,15 @@ Run `dir` and tell me which file looks like the main program.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1380,7 +1844,15 @@ Run `dir` and tell me which file looks like the main program.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1404,7 +1876,15 @@ Show me the command output.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1433,7 +1913,15 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1460,7 +1948,15 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1488,7 +1984,15 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1507,7 +2011,15 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -1524,6 +2036,10 @@ Confirm before each command that might affect the repo.
 > Now that you've mastered essential Cursor workflows, **Module 3: Agent Modes and Tools** covers Ask, Agent, and custom modes plus browser and terminal tools.
 
 *End of Module 2*
+
+
+
+
 
 
 

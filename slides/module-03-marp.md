@@ -15,7 +15,15 @@ Cursor Training Program · ~60 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -32,7 +40,15 @@ Cursor Training Program · ~60 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -47,7 +63,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -64,7 +88,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -76,9 +108,19 @@ By the end of this module, participants will be able to:
 
 *Concept · 10 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 3.1](../slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -98,7 +140,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -119,7 +169,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -137,7 +195,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -151,7 +217,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -174,7 +248,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -188,7 +270,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -203,7 +293,15 @@ Change the variable name 'temp' to 'temperature' in the current file.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -222,7 +320,15 @@ What edge cases does it handle?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -236,7 +342,15 @@ What edge cases does it handle?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -260,7 +374,15 @@ What edge cases does it handle?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -272,9 +394,19 @@ What edge cases does it handle?
 
 *Concept · 8 min · Exercise · 10 min*
 
+**Lab guide:** [`Exercise 3.2](../slide-exercises/module-03/exercise-3.2-browser-tool.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -289,7 +421,15 @@ What edge cases does it handle?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -306,7 +446,15 @@ What edge cases does it handle?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -325,7 +473,15 @@ python -m http.server 8000
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -341,7 +497,15 @@ Tell me what you see on the page.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -364,7 +528,15 @@ On that same page, find:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -380,7 +552,15 @@ Are there any errors or warnings? If so, what are they?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -392,7 +572,15 @@ Are there any errors or warnings? If so, what are they?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -411,7 +599,15 @@ Use the browser tool to check what's happening.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -427,7 +623,15 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -446,7 +650,15 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -458,9 +670,19 @@ Extract all pricing plan names and their monthly costs into a table.
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 3.3](../slide-exercises/module-03/exercise-3.3-terminal-tool.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -473,7 +695,15 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -485,7 +715,15 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -505,7 +743,15 @@ Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -530,7 +776,15 @@ Summarize the output. Do not modify any files.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -554,7 +808,15 @@ Show full output: compilation OK? how many tests passed?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -572,7 +834,15 @@ Show full output: compilation OK? how many tests passed?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -596,7 +866,15 @@ Is the bug in the test or in add()? Explain only — do not fix yet.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -623,7 +901,15 @@ Show the diff before I accept changes.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -652,7 +938,15 @@ Run git status. Summarize only — do not commit or push.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -664,9 +958,19 @@ Run git status. Summarize only — do not commit or push.
 
 *Concept · 10 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 3.4](../slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -680,7 +984,15 @@ Run git status. Summarize only — do not commit or push.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -698,7 +1010,15 @@ Run git status. Summarize only — do not commit or push.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -712,7 +1032,15 @@ Always tell the agent what **NOT** to touch:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -737,7 +1065,15 @@ User: "Wait, I just wanted the login bug fixed!"
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -756,7 +1092,15 @@ Use **`@calculator.c`** in every prompt below.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -790,7 +1134,15 @@ Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -814,7 +1166,15 @@ Note: Did the Agent change more than `divide()`?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -844,7 +1204,15 @@ Do not edit files yet — I will review first.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -872,7 +1240,15 @@ DO NOT:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -902,7 +1278,15 @@ Do not change main() or other functions.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -943,7 +1327,15 @@ Show diff before applying.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -960,7 +1352,15 @@ Show diff before applying.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -972,7 +1372,15 @@ Show diff before applying.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -985,5 +1393,9 @@ Show diff before applying.
 > Now that you understand agent modes and core tools, **Module 4: Customizing Cursor for Your Team** covers rules, skills, MCP integrations, and subagents for team workflows.
 
 *End of Module 3*
+
+
+
+
 
 

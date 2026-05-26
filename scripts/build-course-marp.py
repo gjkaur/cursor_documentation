@@ -190,6 +190,16 @@ def main() -> int:
     slides_dir = args.slides_dir if args.slides_dir.is_absolute() else repo_root / args.slides_dir
     output = args.output if args.output.is_absolute() else repo_root / args.output
 
+    import importlib.util
+
+    inject_spec = importlib.util.spec_from_file_location(
+        "inject_lab", repo_root / "scripts" / "inject-lab-guide-links.py"
+    )
+    inject_mod = importlib.util.module_from_spec(inject_spec)
+    assert inject_spec.loader
+    inject_spec.loader.exec_module(inject_mod)
+    inject_mod.main()
+
     tagged = _apply_fit_classes(slides_dir)
     if tagged:
         print(f"Tagged {tagged} dense slide(s) with fit-* classes")

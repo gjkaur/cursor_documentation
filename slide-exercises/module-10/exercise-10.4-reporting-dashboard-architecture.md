@@ -34,7 +34,35 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
-_No slide steps extracted — use the reference section below._
+| Component | Data Source | Purpose |
+|-----------|-------------|---------|
+| Usage Overview | Usage API | Cost, tokens, active users |
+| AI Contribution | Commits API | ROI, adoption metrics |
+| Model Performance | Events API | Acceptance rates, efficiency |
+| Team Activity | Members API | Onboarding, licensing |
+| Compliance | Events + Audit | Audit trail, security |
+
+---
+
+Run with: `streamlit run cursor_dashboard.py`
+
+**5 panels:**
+1. **Executive Summary** — cost, DAU, AI %, team size
+2. **Usage Analytics** — daily cost trend (Plotly line chart)
+3. **AI Code Impact** — AI vs human bar chart + acceptance by model
+4. **Team Management** — member table
+5. **Compliance Export** — download events CSV
+
+---
+
+| Deliverable | Description |
+|-------------|-------------|
+| **Working dashboard** | Streamlit, Metabase, or custom frontend |
+| **Documentation** | Setup instructions and data source descriptions |
+| **One insight** | Key finding from your team's data |
+| **Export script** | Automated CSV export for compliance |
+
+**Bonus:** cost alerts · spend limit UI · model A/B comparison · cloud deployment
 
 ---
 

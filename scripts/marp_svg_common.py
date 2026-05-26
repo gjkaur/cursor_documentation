@@ -69,15 +69,11 @@ def monospace_panel_svg(
     ]
     y = pad_y + fs * 0.85
     for line in lines:
-        x = pad_x
-        for ch in line:
-            if ch != " ":
-                parts.append(
-                    f'<text x="{x + char_w / 2}" y="{y}" text-anchor="middle" '
-                    f'font-family="{MONO}" font-size="{fs:.2f}" fill="{TEXT}">'
-                    f"{html.escape(ch)}</text>"
-                )
-            x += char_w
+        parts.append(
+            f'<text x="{pad_x}" y="{y}" text-anchor="start" '
+            f'font-family="{MONO}" font-size="{fs:.2f}" fill="{TEXT}">'
+            f"{html.escape(line)}</text>"
+        )
         y += line_h
     parts.append("</svg>")
     return "\n".join(parts)
@@ -89,18 +85,25 @@ def lines_from_monospace_svg(svg_text: str) -> list[str]:
 
     rows: dict[float, list[tuple[float, str]]] = {}
     for match in re.finditer(
-        r'<text x="([0-9.]+)" y="([0-9.]+)"[^>]*>([^<]*)</text>', svg_text
+        r'<text x="([0-9.]+)" y="([0-9.]+)"([^>]*)>([^<]*)</text>', svg_text
     ):
-        x, y, ch = float(match.group(1)), float(match.group(2)), html_mod.unescape(match.group(3))
-        rows.setdefault(y, []).append((x, ch))
+        x, y = float(match.group(1)), float(match.group(2))
+        attrs, text = match.group(3), html_mod.unescape(match.group(4))
+        if 'text-anchor="start"' in attrs or len(text) > 1:
+            rows.setdefault(y, []).append((x, text))
+            continue
+        rows.setdefault(y, []).append((x, text))
 
     lines: list[str] = []
     char_w = FS_MONO * 0.62
     pad_x = 24
     for y in sorted(rows):
         chars = sorted(rows[y], key=lambda item: item[0])
-        if len(chars) == 1 and len(chars[0][1]) > 1:
+        if len(chars) == 1:
             lines.append(chars[0][1])
+            continue
+        if all(len(ch) > 1 for _, ch in chars):
+            lines.extend(ch for _, ch in chars)
             continue
         max_col = 0
         grid: dict[int, str] = {}

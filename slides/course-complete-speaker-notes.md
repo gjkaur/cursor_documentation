@@ -1757,6 +1757,8 @@ You will also see the heading: Codebase Understanding.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
 
+The slide says: Lab guide: [`Exercise 2.1](../slide-exercises/module-02/exercise-2.1-codebase-understanding.md).
+
 ---
 
 ### Slide 66 — The Problem & The Solution
@@ -2005,6 +2007,8 @@ You will also see the heading: Explaining a Specific File or Symbol.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
 
+The slide says: Lab guide: [`Exercise 2.2](../slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md).
+
 ---
 
 ### Slide 75 — Targeted Explanations
@@ -2167,6 +2171,8 @@ The slide title is: Lesson 2.3.
 You will also see the heading: Making a Safe, Reviewable Change.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 2.3](../slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md).
 
 ---
 
@@ -2369,6 +2375,8 @@ The slide title is: Lesson 2.4.
 You will also see the heading: Plan Mode.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 2.4](../slide-exercises/module-02/exercise-2.4-plan-mode.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -2604,6 +2612,8 @@ You will also see the heading: Comparing Two Models.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
 
+The slide says: Lab guide: [`Exercise 2.5](../slide-exercises/module-02/exercise-2.5-comparing-two-models.md).
+
 ---
 
 ### Slide 94 — Model Selection Guide
@@ -2786,6 +2796,8 @@ The slide title is: Lesson 2.6.
 You will also see the heading: Precise Context with @mentions.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 2.6](../slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -3062,6 +3074,8 @@ You will also see the heading: Checkpoints.
 
 The note on screen reads: Concept · 4 min · Exercise · 4 min.
 
+The slide says: Lab guide: [`Exercise 2.7](../slide-exercises/module-02/exercise-2.7-checkpoints.md).
+
 Terms on this slide — quick definitions for the room:
 
 A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
@@ -3246,6 +3260,8 @@ The slide title is: Lesson 2.8.
 You will also see the heading: Terminal Integration.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 2.8](../slide-exercises/module-02/exercise-2.8-terminal-integration.md).
 
 ---
 
@@ -3624,6 +3640,8 @@ The slide title is: Lesson 3.1.
 You will also see the heading: Ask Mode vs. Agent Mode.
 
 The note on screen reads: Concept · 10 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 3.1](../slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -4011,6 +4029,8 @@ You will also see the heading: Browser Tool.
 
 The note on screen reads: Concept · 8 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 3.2](../slide-exercises/module-03/exercise-3.2-browser-tool.md).
+
 Terms on this slide — quick definitions for the room:
 
 The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
@@ -4360,6 +4380,8 @@ The slide title is: Lesson 3.3.
 You will also see the heading: Terminal Tool.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
+
+The slide says: Lab guide: [`Exercise 3.3](../slide-exercises/module-03/exercise-3.3-terminal-tool.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -4737,6 +4759,8 @@ The slide title is: Lesson 3.4.
 You will also see the heading: Effective Prompting in Practice.
 
 The note on screen reads: Concept · 10 min · Exercise · 12 min.
+
+The slide says: Lab guide: [`Exercise 3.4](../slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md).
 
 ---
 
@@ -5385,6 +5409,8 @@ You will also see the heading: Creating a Rule.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
 
+The slide says: Lab guide: [`Exercise 4.1](../slide-exercises/module-04/exercise-4.1-creating-a-rule.md).
+
 ---
 
 ### Slide 178 — What Are Rules?
@@ -5687,6 +5713,8 @@ You will also see the heading: Repository Instructions.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
 
+The slide says: Lab guide: [`Exercise 4.2](../slide-exercises/module-04/exercise-4.2-repository-instructions.md).
+
 Terms on this slide — quick definitions for the room:
 
 Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
@@ -5877,6 +5905,8 @@ The slide title is: Lesson 4.3.
 You will also see the heading: Creating and Invoking a Skill.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
+
+The slide says: Lab guide: [`Exercise 4.3](../slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md).
 
 ---
 
@@ -6557,6 +6587,8 @@ You will also see the heading: Interactive CLI.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
 
+The slide says: Lab guide: [`Exercise 5.1](../slide-exercises/module-05/exercise-5.1-interactive-cli.md).
+
 Terms on this slide — quick definitions for the room:
 
 Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
@@ -6943,6 +6975,8 @@ You will also see the heading: One-Shot CLI.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
 
+The slide says: Lab guide: [`Exercise 5.2](../slide-exercises/module-05/exercise-5.2-one-shot-cli.md).
+
 Terms on this slide — quick definitions for the room:
 
 One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
@@ -7204,6 +7238,8 @@ The slide title is: Lesson 5.3.
 You will also see the heading: Cloud Handoff.
 
 The note on screen reads: Concept · 8 min · Exercise · 10 min.
+
+The slide says: Lab guide: [`Exercise 5.3](../slide-exercises/module-05/exercise-5.3-cloud-handoff.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -7515,6 +7551,8 @@ You will also see the heading: Listing and Resuming Sessions.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
 
+The slide says: Lab guide: [`Exercise 5.4](../slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md).
+
 ---
 
 ### Slide 246 — Session Management Commands
@@ -7737,7 +7775,7 @@ Step 6: Export session summary as markdown.
 
 Where: Agent panel — `Ctrl+I`.
 
-Step 7: Create bin/cursor-sessions.sh to list and manage sessions.
+Step 7: Create scripts/cursor-sessions.ps1 to list and manage sessions (optional .sh on Mac/Linux).
 
 Where: Agent panel — `Ctrl+I`.
 
@@ -7964,6 +8002,8 @@ The slide title is: Lesson 6.1.
 You will also see the heading: Launching a Cloud Agent.
 
 The note on screen reads: Concept · 10 min · Exercise · 15 min.
+
+The slide says: Lab guide: [`Exercise 6.1](../slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -8392,6 +8432,8 @@ The slide title is: Lesson 6.2.
 You will also see the heading: Cloud Agent Artifacts.
 
 The note on screen reads: Concept · 8 min · Exercise · 15 min.
+
+The slide says: Lab guide: [`Exercise 6.2](../slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -9251,6 +9293,12 @@ You will also see the heading: Authentication.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
 
+The slide says: Lab guide: [`Exercise 7.2](../slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md).
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
 ---
 
 ### Slide 301 — Authentication Methods
@@ -9691,6 +9739,8 @@ You will also see the heading: Rate Limits and Error Handling.
 
 The note on screen reads: Concept · 10 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 7.3](../slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md).
+
 Terms on this slide — quick definitions for the room:
 
 A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
@@ -9891,6 +9941,8 @@ You will also see the heading: ETag Caching.
 
 The note on screen reads: Concept · 8 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 7.4](../slide-exercises/module-07/exercise-7.4-etag-caching.md).
+
 Terms on this slide — quick definitions for the room:
 
 ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
@@ -9993,7 +10045,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 **Script**
 
-We are starting Exercise 7.4 — ETag Caching. We have about 15 min for this lab.
+We are starting Exercise 7.4 — ETag Caching. We have about 18 min for this lab.
 
 Use ETags to avoid re-downloading unchanged API data.
 
@@ -10100,6 +10152,8 @@ The slide title is: Lesson 7.5.
 You will also see the heading: Listing Available Models.
 
 The note on screen reads: Concept · 4 min · Exercise · 6 min.
+
+The slide says: Lab guide: [`Exercise 7.5](../slide-exercises/module-07/exercise-7.5-list-available-models.md).
 
 ---
 
@@ -10491,9 +10545,13 @@ You will also see the heading: Creating a Cloud Agent Programmatically.
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 8.1](../slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md).
+
 Terms on this slide — quick definitions for the room:
 
 A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 ---
 
@@ -10773,6 +10831,8 @@ You will also see the heading: Streaming Agent Responses (SSE).
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 8.2](../slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md).
+
 Terms on this slide — quick definitions for the room:
 
 Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
@@ -10971,6 +11031,8 @@ You will also see the heading: Listing and Downloading Artifacts.
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 8.3](../slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md).
+
 Terms on this slide — quick definitions for the room:
 
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
@@ -11137,9 +11199,13 @@ You will also see the heading: Creating a Webhook Endpoint.
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
 
+The slide says: Lab guide: [`Exercise 8.4](../slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md).
+
 Terms on this slide — quick definitions for the room:
 
 A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
 
 ---
 
@@ -11292,6 +11358,8 @@ The slide title is: Lesson 8.5.
 You will also see the heading: Testing Webhooks Locally with ngrok.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 8.5](../slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -11761,17 +11829,17 @@ The slide title is: Agenda.
 
 The table header columns are: Lesson, Topic, Time, Type.
 
-Table row: 9.1, Listing Team Members, 8 min, Exercise.
+Table row: 9.1, Listing Team Members, 13 min, Exercise.
 
-Table row: 9.2, Daily Usage Data, 10 min, Exercise.
+Table row: 9.2, Daily Usage Data, 15 min, Exercise.
 
-Table row: 9.3, Setting User Spend Limits, 8 min, Exercise.
+Table row: 9.3, Setting User Spend Limits, 13 min, Exercise.
 
-Table row: 9.4, Model Usage Analytics, 8 min, Exercise.
+Table row: 9.4, Model Usage Analytics, 13 min, Exercise.
 
-Table row: 9.5, Daily Active Users, 6 min, Exercise.
+Table row: 9.5, Daily Active Users, 10 min, Exercise.
 
-Table row: 9.6, Leaderboards, 6 min, Exercise.
+Table row: 9.6, Leaderboards, 11 min, Exercise.
 
 Table row: 9.7, Conversation Insights, 6 min, Demo.
 
@@ -11803,7 +11871,9 @@ The slide title is: Lesson 9.1.
 
 You will also see the heading: Listing Team Members.
 
-The note on screen reads: Concept · 5 min · Exercise · 8 min.
+The note on screen reads: 13 min total · Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 9.1](../slide-exercises/module-09/exercise-9.1-list-team-members.md).
 
 ---
 
@@ -11989,7 +12059,9 @@ The slide title is: Lesson 9.2.
 
 You will also see the heading: Daily Usage Data.
 
-The note on screen reads: Concept · 5 min · Exercise · 10 min.
+The note on screen reads: 15 min total · Concept · 5 min · Exercise · 10 min.
+
+The slide says: Lab guide: [`Exercise 9.2](../slide-exercises/module-09/exercise-9.2-daily-usage-data.md).
 
 ---
 
@@ -12115,7 +12187,9 @@ The slide title is: Lesson 9.3.
 
 You will also see the heading: Setting User Spend Limits.
 
-The note on screen reads: Concept · 5 min · Exercise · 8 min.
+The note on screen reads: 13 min total · Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 9.3](../slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -12237,7 +12311,9 @@ The slide title is: Lesson 9.4.
 
 You will also see the heading: Model Usage Analytics.
 
-The note on screen reads: Concept · 5 min · Exercise · 8 min.
+The note on screen reads: 13 min total · Concept · 5 min · Exercise · 8 min.
+
+The slide says: Lab guide: [`Exercise 9.4](../slide-exercises/module-09/exercise-9.4-model-usage-analytics.md).
 
 ---
 
@@ -12349,7 +12425,9 @@ The slide title is: Lesson 9.5.
 
 You will also see the heading: Daily Active Users (DAU).
 
-The note on screen reads: Concept · 4 min · Exercise · 6 min.
+The note on screen reads: 10 min total · Concept · 4 min · Exercise · 6 min.
+
+The slide says: Lab guide: [`Exercise 9.5](../slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md).
 
 Terms on this slide — quick definitions for the room:
 
@@ -12448,7 +12526,9 @@ The slide title is: Lesson 9.6.
 
 You will also see the heading: Leaderboards.
 
-The note on screen reads: Concept · 5 min · Exercise · 6 min.
+The note on screen reads: 11 min total · Concept · 5 min · Exercise · 6 min.
+
+The slide says: Lab guide: [`Exercise 9.6](../slide-exercises/module-09/exercise-9.6-leaderboards.md).
 
 ---
 
@@ -12530,7 +12610,7 @@ The slide title is: Lesson 9.7.
 
 You will also see the heading: Conversation Insights.
 
-The note on screen reads: Concept · 6 min · Demonstration.
+The note on screen reads: 6 min total · Concept · 6 min · Demonstration.
 
 ---
 
@@ -12618,7 +12698,7 @@ The slide title is: Lesson 9.8.
 
 You will also see the heading: Destructive Admin Operations.
 
-The note on screen reads: Concept · 6 min · Demonstration.
+The note on screen reads: 6 min total · Concept · 6 min · Demonstration.
 
 ---
 
@@ -12872,6 +12952,8 @@ You will also see the heading: AI Commit Metrics.
 
 The note on screen reads: Concept · 3 min · Exercise · 5 min.
 
+The slide says: Lab guide: [`Exercise 10.1](../slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md).
+
 Terms on this slide — quick definitions for the room:
 
 AI commit metrics track how much committed code came from AI assistance versus human-only edits.
@@ -13080,6 +13162,8 @@ You will also see the heading: Bulk Export via CSV Streaming.
 
 The note on screen reads: Concept · 3 min · Exercise · 4 min.
 
+The slide says: Lab guide: [`Exercise 10.2](../slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md).
+
 Terms on this slide — quick definitions for the room:
 
 Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
@@ -13209,6 +13293,8 @@ The slide title is: Lesson 10.3.
 You will also see the heading: Granular AI Change Events.
 
 The note on screen reads: Concept · 3 min · Exercise · 4 min.
+
+The slide says: Lab guide: [`Exercise 10.3](../slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md).
 
 ---
 
@@ -13340,17 +13426,29 @@ You will also see the heading: Reporting Dashboard Architecture.
 
 The note on screen reads: Concept · 4 min · Take-Home Project.
 
+The slide says: Lab guide: [`Exercise 10.4](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md).
+
+The slide says: Lab guide: [Exercise 10.4](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md).
+
 ---
 
-### Slide 428 — Dashboard Components
+### Slide 428 — Exercise 10.4 — Dashboard Components
 
-**Type:** table · **Lesson:** 10.4
+**Type:** exercise · **Lesson:** 10.4 · **Exercise:** 10.4
 
 **Script**
 
-This slide is a table — Dashboard Components.
+We are starting Exercise 10.4 — Reporting Dashboard Architecture. We have about Take-home for this lab.
 
-The slide title is: Dashboard Components.
+Design a leadership dashboard combining analytics APIs.
+
+The full lab guide is in slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md if you need extra detail.
+
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.4 — Dashboard Components.
 
 The table header columns are: Component, Data Source, Purpose.
 
@@ -13372,17 +13470,25 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
 
+**Facilitator notes**
+
+- If 401 Unauthorized: Check Admin API key
+- If Empty charts: No data in selected date range
+- If CORS error: Flask-CORS should handle this
+
 ---
 
-### Slide 429 — Take-Home: Streamlit Dashboard
+### Slide 429 — Exercise 10.4 — Streamlit Dashboard
 
-**Type:** content · **Lesson:** 10.4
+**Type:** exercise · **Lesson:** 10.4 · **Exercise:** 10.4
 
 **Script**
 
-Let's look at Take-Home: Streamlit Dashboard.
+Now for Streamlit Dashboard.
 
-The slide title is: Take-Home: Streamlit Dashboard.
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.4 — Streamlit Dashboard.
 
 The slide says: Run with: streamlit run cursor_dashboard.py.
 
@@ -13414,17 +13520,25 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 
+**Facilitator notes**
+
+- If 401 Unauthorized: Check Admin API key
+- If Empty charts: No data in selected date range
+- If CORS error: Flask-CORS should handle this
+
 ---
 
-### Slide 430 — Project Deliverables
+### Slide 430 — Exercise 10.4 — Deliverables
 
-**Type:** table · **Lesson:** 10.4
+**Type:** exercise · **Lesson:** 10.4 · **Exercise:** 10.4
 
 **Script**
 
-This slide is a table — Project Deliverables.
+Now for Deliverables.
 
-The slide title is: Project Deliverables.
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.4 — Deliverables.
 
 The slide says: Bonus: cost alerts · spend limit UI · model A/B comparison · cloud deployment.
 
@@ -13444,11 +13558,17 @@ A spend limit is a monthly cap on a user's Cursor usage — can alert or block w
 
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 
+**Facilitator notes**
+
+- If 401 Unauthorized: Check Admin API key
+- If Empty charts: No data in selected date range
+- If CORS error: Flask-CORS should handle this
+
 ---
 
 ### Slide 431 — Module Summary
 
-**Type:** module_summary · **Lesson:** 10.4
+**Type:** module_summary · **Lesson:** 10.4 · **Exercise:** 10.4
 
 **Script**
 
@@ -13482,7 +13602,7 @@ BI stands for Business Intelligence — dashboards and reports built from export
 
 ### Slide 432 — Quick Reference Card
 
-**Type:** quick_reference · **Lesson:** 10.4
+**Type:** quick_reference · **Lesson:** 10.4 · **Exercise:** 10.4
 
 **Script**
 
@@ -13500,7 +13620,7 @@ The figure on this slide is titled: Quick Reference Card.
 
 ### Slide 433 — Course Complete
 
-**Type:** bullets · **Lesson:** 10.4
+**Type:** bullets · **Lesson:** 10.4 · **Exercise:** 10.4
 
 **Script**
 

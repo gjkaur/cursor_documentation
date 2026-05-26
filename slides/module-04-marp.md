@@ -15,7 +15,15 @@ Cursor Training Program · ~60 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -32,7 +40,15 @@ Cursor Training Program · ~60 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -48,7 +64,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -66,7 +90,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -78,9 +110,19 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 4.1](../slide-exercises/module-04/exercise-4.1-creating-a-rule.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -99,7 +141,15 @@ Rules are Markdown files (`.cursor/rules/*.mdc`) with persistent instructions th
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -109,7 +159,15 @@ Rules are Markdown files (`.cursor/rules/*.mdc`) with persistent instructions th
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -119,7 +177,15 @@ alwaysApply: true
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -134,7 +200,15 @@ Good: ...  Bad: ...
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -157,7 +231,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -183,7 +265,15 @@ General: no commented-out code, no console.log in prod
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -211,7 +301,15 @@ Flag: exec/eval with user input, password/secret in variable names
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -230,7 +328,15 @@ What are the security guardrails?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -246,7 +352,15 @@ What are the security guardrails?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -258,9 +372,19 @@ What are the security guardrails?
 
 *Concept · 5 min · Exercise · 8 min*
 
+**Lab guide:** [`Exercise 4.2](../slide-exercises/module-04/exercise-4.2-repository-instructions.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -277,7 +401,15 @@ What are the security guardrails?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -299,7 +431,15 @@ What are the security guardrails?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -315,7 +455,15 @@ Create `.cursor/repository-instructions.md`:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -334,7 +482,15 @@ How do I run the tests?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -350,7 +506,15 @@ How do I run the tests?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -362,9 +526,19 @@ How do I run the tests?
 
 *Concept · 8 min · Exercise · 12 min*
 
+**Lab guide:** [`Exercise 4.3](../slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md)
+
+
+
+
+
 
 
 ---
+
+
+
+
 
 
 
@@ -385,7 +559,15 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -409,7 +591,15 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -432,7 +622,15 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -451,7 +649,15 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -466,7 +672,15 @@ What skills are available in this project?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -479,7 +693,15 @@ What skills are available in this project?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -493,7 +715,15 @@ What skills are available in this project?
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -514,7 +744,15 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -541,7 +779,15 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -573,7 +819,15 @@ Send a message to #deploys: "Deployment starting"
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -591,7 +845,15 @@ Usage: `/deploy staging`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -605,7 +867,15 @@ Usage: `/deploy staging`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -619,7 +889,15 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -636,7 +914,15 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -650,7 +936,15 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -675,7 +969,15 @@ Meanwhile, I'll work on the frontend.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -693,7 +995,15 @@ Meanwhile, I'll work on the frontend.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -705,7 +1015,15 @@ Meanwhile, I'll work on the frontend.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -718,5 +1036,9 @@ Meanwhile, I'll work on the frontend.
 > Now that you've customized Cursor for your team, **Module 5: Cursor CLI and Local Automation** covers terminal-based AI sessions, one-shot commands, and cloud handoff.
 
 *End of Module 4*
+
+
+
+
 
 

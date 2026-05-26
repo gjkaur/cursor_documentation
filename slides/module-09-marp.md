@@ -18,7 +18,15 @@ Cursor Training Program · ~75 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -40,7 +48,15 @@ Cursor Training Program · ~75 min
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -68,7 +84,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -81,12 +105,12 @@ By the end of this module, participants will be able to:
 
 | Lesson | Topic | Time | Type |
 |--------|-------|------|------|
-| 9.1 | Listing Team Members | 8 min | Exercise |
-| 9.2 | Daily Usage Data | 10 min | Exercise |
-| 9.3 | Setting User Spend Limits | 8 min | Exercise |
-| 9.4 | Model Usage Analytics | 8 min | Exercise |
-| 9.5 | Daily Active Users | 6 min | Exercise |
-| 9.6 | Leaderboards | 6 min | Exercise |
+| 9.1 | Listing Team Members | 13 min | Exercise |
+| 9.2 | Daily Usage Data | 15 min | Exercise |
+| 9.3 | Setting User Spend Limits | 13 min | Exercise |
+| 9.4 | Model Usage Analytics | 13 min | Exercise |
+| 9.5 | Daily Active Users | 10 min | Exercise |
+| 9.6 | Leaderboards | 11 min | Exercise |
 | 9.7 | Conversation Insights | 6 min | Demo |
 | 9.8 | Destructive Admin Operations | 6 min | Demo |
 
@@ -96,7 +120,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -110,7 +142,13 @@ By the end of this module, participants will be able to:
 
 ## Listing Team Members
 
-*Concept · 5 min · Exercise · 8 min*
+*13 min total · Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 9.1](../slide-exercises/module-09/exercise-9.1-list-team-members.md)
+
+
+
+
 
 
 
@@ -119,6 +157,10 @@ By the end of this module, participants will be able to:
 
 
 ---
+
+
+
+
 
 
 
@@ -145,7 +187,15 @@ By the end of this module, participants will be able to:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -175,7 +225,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -208,7 +266,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -240,7 +306,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -254,7 +328,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Daily Usage Data
 
-*Concept · 5 min · Exercise · 10 min*
+*15 min total · Concept · 5 min · Exercise · 10 min*
+
+**Lab guide:** [`Exercise 9.2](../slide-exercises/module-09/exercise-9.2-daily-usage-data.md)
+
+
+
+
 
 
 
@@ -263,6 +343,10 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 ---
+
+
+
+
 
 
 
@@ -286,7 +370,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -316,7 +408,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -343,7 +443,15 @@ Python `generate_cost_report()` for last 30 days:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -357,7 +465,13 @@ Python `generate_cost_report()` for last 30 days:
 
 ## Setting User Spend Limits
 
-*Concept · 5 min · Exercise · 8 min*
+*13 min total · Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 9.3](../slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md)
+
+
+
+
 
 
 
@@ -366,6 +480,10 @@ Python `generate_cost_report()` for last 30 days:
 
 
 ---
+
+
+
+
 
 
 
@@ -388,7 +506,15 @@ Python `generate_cost_report()` for last 30 days:
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -421,7 +547,15 @@ Check current limit: `GET .../policies/users/{userId}/limits`
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -450,7 +584,15 @@ lead@company.com,200,alert
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -464,7 +606,13 @@ lead@company.com,200,alert
 
 ## Model Usage Analytics
 
-*Concept · 5 min · Exercise · 8 min*
+*13 min total · Concept · 5 min · Exercise · 8 min*
+
+**Lab guide:** [`Exercise 9.4](../slide-exercises/module-09/exercise-9.4-model-usage-analytics.md)
+
+
+
+
 
 
 
@@ -473,6 +621,10 @@ lead@company.com,200,alert
 
 
 ---
+
+
+
+
 
 
 
@@ -492,7 +644,15 @@ lead@company.com,200,alert
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -524,7 +684,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -551,7 +719,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -565,7 +741,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Daily Active Users (DAU)
 
-*Concept · 4 min · Exercise · 6 min*
+*10 min total · Concept · 4 min · Exercise · 6 min*
+
+**Lab guide:** [`Exercise 9.5](../slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md)
+
+
+
+
 
 
 
@@ -574,6 +756,10 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 ---
+
+
+
+
 
 
 
@@ -596,7 +782,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -631,7 +825,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -645,7 +847,13 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Leaderboards
 
-*Concept · 5 min · Exercise · 6 min*
+*11 min total · Concept · 5 min · Exercise · 6 min*
+
+**Lab guide:** [`Exercise 9.6](../slide-exercises/module-09/exercise-9.6-leaderboards.md)
+
+
+
+
 
 
 
@@ -654,6 +862,10 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 ---
+
+
+
+
 
 
 
@@ -675,7 +887,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -706,7 +926,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -720,7 +948,11 @@ def anonymize_email(email):
 
 ## Conversation Insights
 
-*Concept · 6 min · Demonstration*
+*6 min total · Concept · 6 min · Demonstration*
+
+
+
+
 
 
 
@@ -729,6 +961,10 @@ def anonymize_email(email):
 
 
 ---
+
+
+
+
 
 
 
@@ -751,7 +987,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -770,7 +1014,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -796,7 +1048,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -810,7 +1070,11 @@ def anonymize_email(email):
 
 ## Destructive Admin Operations
 
-*Concept · 6 min · Demonstration*
+*6 min total · Concept · 6 min · Demonstration*
+
+
+
+
 
 
 
@@ -819,6 +1083,10 @@ def anonymize_email(email):
 
 
 ---
+
+
+
+
 
 
 
@@ -840,7 +1108,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -863,7 +1139,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -891,7 +1175,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -910,7 +1202,15 @@ def anonymize_email(email):
 
 
 
+
+
+
+
 ---
+
+
+
+
 
 
 
@@ -927,6 +1227,10 @@ def anonymize_email(email):
 > Now that you can manage your team and analyze usage, **Module 10** covers attributing AI contributions per commit, exporting metrics to BI tools, and building complete dashboards.
 
 *End of Module 9*
+
+
+
+
 
 
 
