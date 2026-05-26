@@ -165,11 +165,17 @@ def _blockquote(slide: str) -> str | None:
 
 def _body_paragraphs(slide: str) -> list[str]:
     paragraphs: list[str] = []
+    in_fence = False
     for line in slide.splitlines():
         stripped = line.strip()
+        if stripped.startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
         if not stripped or stripped.startswith("#") or stripped.startswith("|"):
             continue
-        if stripped.startswith(">") or stripped.startswith("```") or stripped.startswith("<!--"):
+        if stripped.startswith(">") or stripped.startswith("<!--"):
             continue
         if stripped.startswith("*") and stripped.endswith("*") and not stripped.startswith("**"):
             continue
@@ -263,7 +269,242 @@ def _join_script(paragraphs: list[str]) -> list[str]:
     return [p for p in paragraphs if p.strip()]
 
 
-def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> list[str]:
+def _is_table_header_row(row: list[str]) -> bool:
+    if not row or not row[0].strip():
+        return True
+    label = row[0].strip().lower()
+    if label.startswith("-") or label in {"aspect", "module", "lesson", "parameter", "strategy", "scenario", "type", "problem"}:
+        return True
+    return all(ch in "-— " for ch in label)
+
+
+def _narrate_kv_table(rows: list[list[str]]) -> str:
+    parts: list[str] = []
+    for row in rows:
+        if len(row) >= 2 and not _is_table_header_row(row):
+            parts.append(f"{row[0]}: {row[1]}.")
+    return " ".join(parts)
+
+
+def _compare_data_rows(rows: list[list[str]]) -> list[tuple[str, str]]:
+    pairs: list[tuple[str, str]] = []
+    for row in rows:
+        if len(row) >= 2 and not _is_table_header_row(row):
+            pairs.append((row[0], row[1]))
+    if len(pairs) >= 2:
+        short = sum(len(pairs[0][i]) for i in range(2)) / 2
+        long = sum(len(pairs[1][i]) for i in range(2)) / 2
+        if short < long * 0.65:
+            pairs = pairs[1:]
+    return pairs
+
+
+def _narrate_compare_table(rows: list[list[str]]) -> str:
+    pairs = _compare_data_rows(rows)
+    if not pairs:
+        return ""
+    sentences = [f"{left}: {right}." for left, right in pairs]
+    return " ".join(sentences)
+
+
+def _narrate_three_col_table(rows: list[list[str]]) -> str:
+    parts: list[str] = []
+    for row in rows:
+        if len(row) >= 3 and not _is_table_header_row(row):
+            parts.append(f"{row[0]}: {row[1]}. Use this when {row[2]}.")
+    return " ".join(parts)
+
+
+def _narrate_agenda_table(rows: list[list[str]]) -> str:
+    parts: list[str] = []
+    for row in rows:
+        if len(row) >= 3 and not _is_table_header_row(row):
+            if row[0].isdigit() or re.match(r"^\d+\.\d+$", row[0]):
+                parts.append(f"Lesson {row[0]}, {row[1]}, about {row[2]}")
+            else:
+                parts.append(f"Module {row[0]}, {row[1]}, {row[2]}")
+    if not parts:
+        return _narrate_compare_table(rows)
+    return "Here is how we will spend our time: " + "; ".join(parts) + "."
+
+
+def _narrate_bullets(bullets: list[str], heading: str, intro: str | None = None) -> list[str]:
+    if not bullets:
+        return []
+    lead = intro or f"On {heading},"
+    if len(bullets) == 1:
+        return [f"{lead} the main point is this: {bullets[0]}."]
+    if len(bullets) <= 5:
+        body = ", ".join(bullets[:-1]) + f", and {bullets[-1]}"
+        return [f"{lead} cover the following: {body}."]
+    body = ", ".join(bullets[:4]) + f", and several more items on screen including {bullets[-1]}"
+    return [f"{lead} cover the following: {body}."]
+
+
+def _narrate_quote(quote: str, body: list[str], heading: str) -> list[str]:
+    q = quote.strip().strip('"').strip("'")
+    parts = [f'The headline on this slide is "{q}".']
+    if body:
+        parts.append(" ".join(body))
+    elif "hallucination" in heading.lower():
+        parts.append(
+            "The danger is not that the model hesitates — it is that it answers with complete confidence "
+            "while being completely wrong."
+        )
+    return parts
+
+
+def _narrate_diagram(heading: str, alt_text: str, quote: str | None, body: list[str]) -> list[str]:
+    topic = alt_text or heading
+    parts: list[str] = [f"This slide shows {topic.lower() if topic.isupper() else topic}."]
+    lower = f"{heading} {alt_text}".lower()
+    if "next-token" in lower or "token prediction" in lower:
+        parts.append(
+            "The model reads the text so far, assigns a probability to each possible next token, "
+            "samples one, appends it, and repeats. That loop is how an entire answer is generated."
+        )
+    elif "factor" in lower and "output" in lower:
+        parts.append(
+            "Your prompt, system instructions, attached files, model choice, and parameters such as temperature "
+            "all feed into the same response. When quality shifts, one of these inputs usually changed."
+        )
+    elif "hallucination" in lower and "cause" in lower:
+        parts.append(
+            "Hallucinations come from gaps in training data, missing context, overconfidence, and pressure to answer "
+            "even when the model should say it does not know."
+        )
+    elif "context" in lower and ("pyramid" in lower or "input" in lower):
+        parts.append(
+            "Not all context is equal. Recent messages, open files, rules, and repository structure compete for "
+            "the same token budget — put the most important material where the model will actually use it."
+        )
+    elif "agent loop" in lower or "tool calling" in lower:
+        parts.append(
+            "The agent proposes an action, Cursor runs the tool, the result returns to the model, and the loop "
+            "continues until the task is done or you stop it."
+        )
+    elif "mcp" in lower:
+        parts.append(
+            "MCP connects Cursor to external systems through a standard protocol so tools stay outside the model "
+            "but still appear in the agent loop."
+        )
+    elif body:
+        parts.append(" ".join(body))
+    elif quote:
+        parts.append(quote)
+    else:
+        parts.append(
+            "Walk through each box and arrow once, naming what enters the flow, what happens in the middle, "
+            "and what comes out the other side."
+        )
+    return parts
+
+
+def _narrate_code(heading: str, body: list[str], blocks: list[str]) -> list[str]:
+    intro = " ".join(body[:3]) if body else heading
+    parts = [intro] if intro else [heading]
+    if blocks:
+        block = blocks[0].strip()
+        lines = [ln for ln in block.splitlines() if ln.strip() and not ln.strip().startswith("#")]
+        if "temperature" in block.lower():
+            parts.append(
+                "These are sensible defaults for focused coding work: a low temperature around 0.2, "
+                "top-p near 0.9 for balance, and a max token cap to control cost."
+            )
+        elif "temperature 0.1" in block.lower() or "temperature 0.7" in block.lower():
+            parts.append(
+                "The same prompt produces different code at different temperatures. "
+                "Lower values stay close to the obvious solution; higher values add variation and sometimes instability."
+            )
+        elif "requests.async" in block or "hallucinated" in block.lower():
+            parts.append(
+                "The top snippet looks plausible but invents an API that does not exist. "
+                "The correct approach is to use httpx or aiohttp for async HTTP in Python."
+            )
+        elif "curl" in block.lower() or "api.cursor.com" in block.lower():
+            parts.append(
+                "Run this from PowerShell with your key in an environment variable. "
+                "Never paste live credentials into chat or commit them to git."
+            )
+        elif len(lines) <= 4:
+            parts.append(f"The important lines are: {'; '.join(lines[:3])}.")
+        else:
+            parts.append(f"Focus on the first few lines — for example: {lines[0][:100]}.")
+    return parts
+
+
+def _lesson_format(timing: str | None) -> tuple[str, str]:
+    if not timing:
+        return "mixed", "listen, participate, or follow along as indicated on the next slides"
+    lower = timing.lower()
+    if "concept" in lower:
+        return "concept", "listen and take notes — you do not need to type along yet"
+    if "exercise" in lower or "hands-on" in lower:
+        return "hands-on", "open Cursor and work through the steps on the upcoming slides"
+    if "demo" in lower or "demonstration" in lower:
+        return "demonstration", "watch the live demo and note where each control lives in the UI"
+    if "walkthrough" in lower:
+        return "walkthrough", "follow on screen as I show the configuration or file layout"
+    return "mixed", "follow along as we go"
+
+
+def _exercise_spoken(
+    slide: str,
+    heading: str,
+    ex: tuple[int, int],
+    meta: dict,
+    body: list[str],
+    prompts: list[str],
+) -> list[str]:
+    title = meta.get("title", heading)
+    parts: list[str] = []
+
+    if "Success Criteria" in heading:
+        criteria = _bullets(slide)
+        parts.append(f"That wraps up Exercise {ex[0]}.{ex[1]} — {title}.")
+        if criteria:
+            joined = "; ".join(criteria)
+            parts.append(f"You should be able to check off: {joined}.")
+        elif meta.get("objective"):
+            parts.append(f"The intended outcome was: {meta.get('objective')}")
+        parts.append(
+            "Who completed everything? What did the Agent get wrong, or what surprised you? "
+            "Those answers are as valuable as getting a green checkmark."
+        )
+        return parts
+
+    parts.append(f"We are on {heading} for Exercise {ex[0]}.{ex[1]} — {title}.")
+    if meta.get("objective"):
+        parts.append(meta["objective"])
+
+    if "Demonstration (Windows)" in slide or "PowerShell" in slide:
+        parts.append(
+            "On Windows, use the integrated PowerShell terminal — Ctrl+backtick — "
+            "and the Agent panel with Ctrl+I unless the slide says otherwise."
+        )
+
+    for line in body:
+        if re.match(r"^Step \d+", line, re.IGNORECASE):
+            parts.append(line + ".")
+        elif line.startswith("Where:") or line.startswith("Terminal:"):
+            parts.append(line + ".")
+        elif line.startswith("Goal:") or line.startswith("Look for:"):
+            parts.append(line + ".")
+
+    for prompt in prompts:
+        flat = " ".join(prompt.split())
+        parts.append(f'In the Agent chat, paste this prompt exactly: "{flat}"')
+
+    if not prompts and not any(re.match(r"^Step", p, re.I) for p in body):
+        step_text = " ".join(body)
+        if step_text:
+            parts.append(step_text + ".")
+
+    parts.append("Take a few minutes now to complete this step before we move on.")
+    return parts
+
+
+def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[list[str], list[str]]:
     kind = _slide_kind(slide, ctx)
     heading = _heading(slide)
     timing = _timing(slide)
@@ -272,16 +513,15 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> list[str
     bullets = _bullets(slide)
     rows = _table_rows(slide)
     prompts = _prompt_blocks(slide)
-    paragraphs: list[str] = []
+    spoken: list[str] = []
+    facilitator: list[str] = []
 
     if timing:
-        paragraphs.append(
-            f"[Timing: {timing}. Adjust depth if the room is fast or slow — do not rush hands-on blocks.]"
-        )
+        facilitator.append(f"Pacing: {timing}. Shorten repetition before cutting exercise time.")
 
     if kind == "course_title":
         subtitle = next((p for p in body if "Springpeople" in p or "Modules" in p), "")
-        paragraphs.extend(
+        spoken.extend(
             _join_script(
                 [
                     "Good morning, and welcome to the Cursor Training Program — AI-Assisted Development with Cursor. "
@@ -291,336 +531,270 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> list[str
                     "Before we start, please confirm three things: Cursor is installed, you are signed in, and you have "
                     "a Git repository you can experiment in — sample repos are fine if you do not want to use production code.",
                     "This course is roughly seventy percent hands-on and thirty percent concept and discussion. "
-                    "You will see slide numbers in the footer; match them to this speaker script or to Marp presenter view. "
-                    "Questions are welcome — short ones during a slide, longer ones at breaks or module transitions.",
+                    "Questions are welcome during a slide if they are quick; save longer ones for breaks or module transitions.",
                 ]
             )
         )
     elif kind == "course_agenda":
-        paragraphs.extend(
+        spoken.extend(
             _join_script(
                 [
-                    "Let me orient you to the full two-day arc shown on this agenda slide.",
-                    "Day one builds editor fluency: Module one gives shared mental models for how AI assistants actually work. "
-                    "Modules two through four are hands-on in the Cursor editor — understanding codebases, safe changes, "
-                    "agent modes, rules, and skills. Module five introduces the CLI for terminal and scripting workflows.",
+                    "Here is the full two-day arc for our time together.",
+                    "Day one builds editor fluency. Module one gives us shared mental models for how AI assistants actually work. "
+                    "Modules two through four are hands-on in the Cursor editor — understanding codebases, making safe changes, "
+                    "working with agent modes, and customizing rules and skills. Module five introduces the CLI for terminal "
+                    "and scripting workflows.",
                     "Day two shifts to automation and integration: Cloud Agents in the UI, API authentication and reliability, "
                     "programmatic Cloud Agent launches and webhooks, admin and analytics reporting, and AI code tracking.",
                     "The total scheduled time is about eleven and a half hours across both days, plus breaks. "
-                    "I will adjust pacing based on your experience — raise your hand if you have never opened Cursor before "
-                    "so I can spend a little extra time on setup in the first hands-on module.",
+                    "If you have never opened Cursor before, let me know now so I can allow extra setup time in Module two.",
                 ]
             )
         )
     elif kind == "day_overview":
-        paragraphs.append(
-            f"This slide previews {heading}. "
-            "Walk the module table row by row: name the module number, what participants will do there, "
-            "and whether it is mostly concept, hands-on, or demonstration. "
-            "Emphasize that day one is about building confidence in the editor before we ask anyone to call an API."
-            if "Day 1" in heading
-            else f"This slide previews {heading}. "
-            "Explain that day two assumes day-one mental models and editor habits are in place. "
-            "Modules seven through ten require API keys; enterprise features are needed for modules nine and ten. "
-            "If anyone lacks admin access, pair them with someone who has keys for those exercises."
-        )
+        if rows:
+            modules = []
+            for row in rows:
+                if len(row) >= 4 and not _is_table_header_row(row):
+                    modules.append(
+                        f"Module {row[0].strip('*')}, {row[1]}, focused on {row[2]}, about {row[3]}"
+                    )
+                elif len(row) >= 3 and not _is_table_header_row(row):
+                    modules.append(f"Module {row[0].strip('*')}, {row[1]}, {row[2]}")
+            module_text = "; ".join(modules)
+        else:
+            module_text = _plain_text(slide)
+        footer = " ".join(body)
+        if "Day 1" in heading:
+            spoken.append(
+                f"Day one is {heading}. {module_text}. "
+                f"{footer + ' ' if footer else ''}"
+                "The theme today is building confidence in the editor before we ask anyone to call an API."
+            )
+        else:
+            spoken.append(
+                f"Day two is {heading}. {module_text}. "
+                f"{footer + ' ' if footer else ''}"
+                "Today assumes yesterday's mental models and editor habits are in place. "
+                "Modules seven through ten need API keys, and modules nine and ten need enterprise admin access. "
+                "If you do not have keys, pair with someone who does for those exercises."
+            )
     elif kind == "day_break":
-        paragraphs.extend(
+        spoken.extend(
             _join_script(
                 [
-                    f"Welcome back to {heading}. "
+                    f"Welcome back — {heading}.",
                     "Yesterday we established how AI models behave and how to use Cursor safely in real repositories. "
-                    "Today we extend that work outside the IDE — CLI, Cloud Agents, and production-grade API integration.",
-                    "Before we continue, confirm API keys are available where needed and that everyone can open a terminal "
-                    "and reach api.cursor.com from this network. We will use environment variables for every key — "
+                    "Today we extend that work outside the IDE: the CLI, Cloud Agents, and production-grade API integration.",
+                    "Before we continue, make sure API keys are available where needed and that you can open PowerShell "
+                    "and reach api.cursor.com from this network. We will store every key in environment variables — "
                     "never paste secrets on screen or into chat logs.",
                 ]
             )
         )
     elif kind == "module_intro":
-        subtitle = next((p for p in body if "Cursor Training Program" in p or "min" in p), "")
-        paragraphs.extend(
+        subtitle = next((p for p in body if p), "")
+        format_hint = "concept discussion" if "concept" in subtitle.lower() else "hands-on work"
+        spoken.extend(
             _join_script(
                 [
-                    f"We are starting Module {ctx.module}: {ctx.module_title}. "
-                    f"{subtitle + ' ' if subtitle else ''}"
-                    "State the module goal in plain language: what participants will be able to do when we finish — "
-                    "not just what topics we will mention.",
-                    "Preview whether this module is lecture, hands-on, or mixed. "
-                    "If it is hands-on, tell people when to open their laptops and which folder or repo to use. "
-                    "If it is concept-only, ask them to listen for one idea they can use on Monday morning.",
+                    f"We are starting Module {ctx.module}: {ctx.module_title}. {subtitle}",
+                    f"This block is mostly {format_hint}. "
+                    f"By the end of Module {ctx.module}, you should be able to apply what we cover on a real project next week.",
+                    "If this is a hands-on module, open Cursor now and confirm your repo folder is loaded. "
+                    "If it is concept-only, listen for one idea you can use on Monday morning.",
                 ]
             )
         )
     elif kind == "module_overview":
-        rows_text = ""
-        for row in rows:
-            if len(row) >= 2 and row[0].lower() not in {"aspect", "--------"}:
-                rows_text += f"{row[0]} is {row[1]}. "
-        paragraphs.append(
-            f"This module overview slide sets expectations. In your own words, cover: {rows_text or _plain_text(slide)} "
-            "Call out prerequisites explicitly and pause until anyone blocked by missing tools has help. "
-            "Do not read the table word-for-word — translate it into what the room will experience in the next hour."
+        narration = _narrate_kv_table(rows) or _plain_text(slide)
+        spoken.append(
+            f"Before we dive in, here is what to expect from Module {ctx.module}. {narration} "
+            "If any prerequisite on this slide would block you, raise your hand now so we can help before we continue."
         )
     elif kind == "learning_objectives":
-        obj_text = ". ".join(bullets) if bullets else _plain_text(slide)
-        paragraphs.extend(
-            _join_script(
-                [
-                    "These learning objectives describe outcomes, not topics. "
-                    f"Paraphrase them: {obj_text}.",
-                    "Ask the room: which of these would help your team most this quarter? "
-                    "Note one or two answers — you can refer back at the module summary.",
-                    "Tell participants they are not expected to memorize this list; they should recognize each outcome "
-                    "when they have done it during an exercise or demo.",
-                ]
+        if bullets:
+            obj = ". ".join(f"{b.rstrip('.')}" for b in bullets)
+            spoken.extend(
+                _join_script(
+                    [
+                        f"By the end of Module {ctx.module}, you should be able to do the following: {obj}.",
+                        "You do not need to memorize this list word for word — you should recognize each outcome "
+                        "after we have practiced it in an exercise or demo.",
+                    ]
+                )
             )
-        )
+        else:
+            spoken.append(_plain_text(slide))
     elif kind == "module_agenda":
-        agenda_lines = []
-        for row in rows:
-            if len(row) >= 3 and row[0] not in {"Lesson", "--------"} and not row[0].startswith("-"):
-                agenda_lines.append(f"Lesson {row[0]}, {row[1]}, about {row[2]}")
-        agenda_speech = "; ".join(agenda_lines[:6]) if agenda_lines else _plain_text(slide)
-        paragraphs.append(
-            f"Use this agenda as your pacing map for the module. "
-            f"You will cover: {agenda_speech}. "
-            "Announce when the next hands-on block starts so people can close email and open Cursor. "
-            "If you fall behind, shorten concept repetition before cutting exercise time."
-        )
+        spoken.append(_narrate_agenda_table(rows) or _plain_text(slide))
+        facilitator.append("Announce when the next hands-on block starts so people can close email and open Cursor.")
     elif kind == "lesson_intro":
         lesson_title = ctx.lesson_title or heading
+        _fmt, participation = _lesson_format(timing)
         meta = None
         if ctx.lesson:
             parts = ctx.lesson.split(".")
             if len(parts) == 2:
                 meta = EXERCISE_META.get((int(parts[0]), int(parts[1])))
-        paragraphs.extend(
-            _join_script(
-                [
-                    f"We now begin Lesson {ctx.lesson}: {lesson_title}. "
-                    f"{timing + '. ' if timing else ''}"
-                    "Name the lesson type aloud — concept, hands-on exercise, demonstration, or walkthrough — "
-                    "so participants know whether to listen, type along, or watch.",
-                    f"{meta['objective'] + ' ' if meta and meta.get('objective') else ''}"
-                    f"{'Open the lab guide at ' + _lab_path(int(ctx.lesson.split('.')[0]), int(ctx.lesson.split('.')[1])) + ' when we reach the exercise slides. ' if meta and ctx.lesson and _lab_path(int(ctx.lesson.split('.')[0]), int(ctx.lesson.split('.')[1])) else ''}"
-                    "Transition from the previous lesson with one sentence on how this topic connects to what they just learned.",
-                ]
-            )
+        spoken.append(
+            f"We now begin Lesson {ctx.lesson}: {lesson_title}. "
+            f"{timing + '. ' if timing else ''}"
+            f"For this lesson, please {participation}."
         )
+        if meta and meta.get("objective"):
+            spoken.append(meta["objective"])
+        if ctx.lesson:
+            mod, les = ctx.lesson.split(".")
+            lab = _lab_path(int(mod), int(les))
+            if lab and meta:
+                spoken.append(
+                    f"When we reach the exercise slides, the detailed lab guide is in {lab}."
+                )
     elif kind == "exercise_setup":
-        paragraphs.extend(
+        spoken.extend(
             _join_script(
                 [
-                    "Pause the slide deck for environment setup. Everyone should open PowerShell or Git Bash in Cursor's integrated terminal.",
-                    "For API exercises: set keys with `$env:CURSOR_ADMIN_API_KEY` or `$env:CURSOR_USER_API_KEY` — never commit keys to git. "
-                    "On Windows, use `curl.exe` rather than the PowerShell curl alias when the lab shows curl commands.",
-                    "Walk the room for two to three minutes. Common blockers: wrong key type, missing curl, wrong working directory. "
-                    "Do not advance until most pairs show a successful test call or are paired with someone who has.",
+                    "Let's pause for environment setup. Open PowerShell in Cursor's integrated terminal — Ctrl+backtick.",
+                    "For API exercises, set your keys in the session, for example "
+                    "`$env:CURSOR_ADMIN_API_KEY` or `$env:CURSOR_USER_API_KEY`. Never commit keys to git.",
+                    "On Windows, use `curl.exe` when a lab shows curl — not the PowerShell alias.",
+                    "Once your test call succeeds, give me a thumbs-up and we will continue.",
                 ]
             )
         )
+        facilitator.append("Allow two to three minutes. Pair anyone blocked on keys or curl with a neighbor.")
     elif kind == "exercise":
         ex = _exercise_ref(slide) or ctx.exercise
         meta = EXERCISE_META.get(ex, {}) if ex else {}
-        lab = _lab_path(ex[0], ex[1]) if ex else None
-        step_text = " ".join(body)
-        if "Success Criteria" in heading:
-            paragraphs.extend(
-                _join_script(
-                    [
-                        f"We are closing Exercise {ex[0]}.{ex[1]} — {meta.get('title', 'this lab')}. "
-                        "Read each success criterion on the slide and ask the room to mentally check what they completed.",
-                        f"Expected outcome: {meta.get('objective', 'participants followed the lab successfully')}. "
-                        "Invite one or two volunteers to share what surprised them or what the Agent got wrong.",
-                        "If many groups are behind, offer five more minutes or demonstrate the last step on your machine. "
-                        "Do not leave the exercise without a shared definition of done.",
-                    ]
-                )
-            )
+        if ex:
+            spoken.extend(_exercise_spoken(slide, heading, ex, meta, body, prompts))
+            if meta.get("type") == "api":
+                facilitator.append("Watch for Admin vs User key mix-ups, curl quoting, and JSON escaping in PowerShell.")
+            elif meta.get("type") == "cli":
+                facilitator.append("Watch for agent not on PATH, wrong directory, or wrong resumed session.")
+            else:
+                facilitator.append("Watch for unread diffs, missing @mentions, or work in the wrong repo.")
         else:
-            paragraphs.extend(
-                _join_script(
-                    [
-                        f"Hands-on time for {heading}. "
-                        f"This exercise is {meta.get('title', heading)}. "
-                        f"Goal: {meta.get('objective', 'complete the steps on screen')}. "
-                        f"{'Follow the detailed steps in ' + lab + '. ' if lab else ''}",
-                        step_text if step_text else "Direct participants to reproduce exactly what appears on this slide.",
-                    ]
-                )
-            )
-            for prompt in prompts:
-                paragraphs.append(
-                    f"Tell them to paste this prompt into the Agent (or read it aloud while they type): "
-                    f'"{prompt.replace(chr(10), " ").strip()}"'
-                )
-            paragraphs.append(
-                "Give work time now. Circulate quietly. "
-                + (
-                    "Watch for Admin versus User API key mix-ups, curl quoting issues, and JSON escaping in PowerShell."
-                    if meta.get("type") == "api"
-                    else "Watch for people accepting diffs without reading, missing @mentions, or working in the wrong repo."
-                    if meta.get("type") != "cli"
-                    else "Watch for agent not on PATH, wrong directory, or resumed session pointing at the wrong branch."
-                )
-                + " When most are done, ask: who got a useful result? Who hit an error we should discuss?"
-            )
+            spoken.append(" ".join(body) if body else _plain_text(slide))
     elif kind == "demo":
-        paragraphs.extend(
-            _join_script(
-                [
-                    f"This slide supports a live demonstration: {heading.replace('Demo: ', '')}. "
-                    "Narrate every click and keystroke — assume no one has seen this screen before.",
-                    "If the network fails, describe what would happen and show a screenshot or backup recording. "
-                    "Save questions until the demo completes unless someone is completely lost.",
-                    "Close the demo by stating when they would use this in production and when they would not.",
-                ]
-            )
+        demo_title = heading.replace("Demo: ", "")
+        spoken.append(
+            f"I am going to demonstrate {demo_title} live on my machine. "
+            f"{' '.join(body) if body else 'Watch where each control appears in Cursor.'} "
+            "I will narrate each click and keystroke as I go."
         )
+        spoken.append(
+            f"When the demo finishes, we will discuss when {demo_title.lower()} belongs in production workflow "
+            "and when a lighter-weight approach is enough."
+        )
+        facilitator.append("If the network fails, describe the expected result and use a screenshot backup.")
     elif kind == "walkthrough":
-        paragraphs.extend(
-            _join_script(
-                [
-                    f"This is a walkthrough slide: {heading.replace('Walkthrough: ', '')}. "
-                    "Show the configuration or file location on your machine; participants observe unless time allows typing along.",
-                    "Explain where the setting lives in Cursor or in the repository, who on a team would maintain it, "
-                    "and how it differs from a rule, skill, or MCP server.",
-                ]
-            )
+        walk_title = heading.replace("Walkthrough: ", "")
+        spoken.append(
+            f"In this walkthrough we will look at {walk_title}. "
+            f"{' '.join(body) if body else 'I will show the file or setting on my screen.'} "
+            "Watch where this lives in Cursor or in the repository — that location matters as much as the content."
         )
     elif kind == "diagram":
         alt = re.search(r'alt="([^"]+)"', slide)
         alt_text = alt.group(1) if alt else heading
-        paragraphs.extend(
-            _join_script(
-                [
-                    f"This slide is visual: {alt_text}. "
-                    "Point to each part of the diagram in order — left to right or top to bottom — and name it once.",
-                    "After explaining the flow, ask: does this match how you thought the system worked? "
-                    "Misconceptions here will cause mistakes later, so pause for one question.",
-                ]
-            )
-        )
-        if quote:
-            paragraphs.append(f'Tie the diagram to this idea: "{quote}"')
+        spoken.extend(_narrate_diagram(heading, alt_text, quote, body))
     elif kind == "table":
-        if rows:
-            narrated = []
-            for row in rows[:6]:
-                if len(row) >= 2 and not row[0].startswith("-"):
-                    narrated.append(f"{row[0]} — {row[1]}" + (f", {row[2]}" if len(row) > 2 else ""))
-            table_speech = ". ".join(narrated)
-            paragraphs.append(
-                f"Walk this table conversationally: {table_speech}. "
-                "Pick the two rows that matter most to your audience and spend extra time there; "
-                "summarize the rest in one sentence."
-            )
+        max_cols = max((len(r) for r in rows), default=0)
+        if max_cols >= 3:
+            narration = _narrate_three_col_table(rows)
         else:
-            paragraphs.append(f"Explain the comparison on this slide: {_plain_text(slide)}")
-        if "Key Insight" in slide:
-            paragraphs.append(
-                "This is a module recap table. For each lesson, ask someone to restate the key insight in their own words."
-            )
+            narration = _narrate_compare_table(rows) or _narrate_kv_table(rows)
+        if narration:
+            spoken.append(narration)
+        elif body:
+            spoken.append(" ".join(body))
+        else:
+            spoken.append(_plain_text(slide))
+        if "Key Insight" in slide and rows:
+            insights = []
+            for row in rows:
+                if len(row) >= 3 and not _is_table_header_row(row):
+                    insights.append(f"Lesson {row[0]}: {row[2]}")
+            if insights:
+                spoken.append("To recap the module: " + "; ".join(insights) + ".")
     elif kind == "quote":
         if quote:
-            q = quote.strip('"')
-            paragraphs.extend(
-                _join_script(
-                    [
-                        f'Read or closely paraphrase the quote on screen: "{q}"',
-                        " ".join(body) if body else "Expand with one concrete example from your own engineering experience.",
-                        "Pause two beats after the quote so it lands. Then ask whether anyone has seen the opposite problem in real projects.",
-                    ]
-                )
-            )
+            spoken.extend(_narrate_quote(quote, body, heading))
         else:
-            paragraphs.append(f"Cover the main message: {_plain_text(slide)}")
+            spoken.append(" ".join(body) if body else _plain_text(slide))
     elif kind == "code":
         blocks = extract_fenced_code_blocks(slide)
-        intro = " ".join(body[:3]) if body else heading
-        paragraphs.append(
-            f"{intro} "
-            "Do not read every line of code unless you are teaching syntax. "
-            "Highlight what participants should notice — a parameter value, a pattern, or a mistake to avoid."
-        )
-        if blocks:
-            sample = blocks[0].strip().splitlines()[0][:120]
-            paragraphs.append(f'For example, point at this line: "{sample}" and explain why it matters.')
-        if "curl" in slide.lower() or "api.cursor.com" in slide.lower():
-            paragraphs.append(
-                "Remind the room: use environment variables for keys, redact secrets in screen shares, "
-                "and never commit `.env` files with live credentials."
-            )
+        spoken.extend(_narrate_code(heading, body, blocks))
     elif kind == "bullets":
-        if bullets:
-            lead = f"On this slide, {heading}, cover these points in order: "
-            lead += " ".join(f"First, {bullets[0]}." if bullets else "")
-            for item in bullets[1:4]:
-                lead += f" Next, {item}."
-            if len(bullets) > 4:
-                lead += f" The remaining bullets are detail you can skip if time is short: {', '.join(bullets[4:])}."
-            paragraphs.append(lead)
-        else:
-            paragraphs.append(f"Explain: {_plain_text(slide)}")
+        spoken.extend(_narrate_bullets(bullets, heading))
+        if body:
+            spoken.append(" ".join(body))
     elif kind == "module_summary":
-        paragraphs.extend(
+        if rows:
+            recap = []
+            for row in rows:
+                if len(row) >= 3 and not _is_table_header_row(row):
+                    recap.append(f"Lesson {row[0]}, {row[1]} — key insight: {row[2]}")
+            summary = "; ".join(recap) if recap else _plain_text(slide)
+        else:
+            summary = _plain_text(slide)
+        spoken.extend(
             _join_script(
                 [
-                    f"Module {ctx.module} summary. In sixty seconds, walk the lesson table and restate one key insight per row.",
-                    "Ask the closing question: what will you do differently on Monday? Take two or three answers.",
-                    "Announce the break or introduce the next module with one connecting sentence.",
+                    f"That completes Module {ctx.module}. {summary}",
+                    "What will you do differently on Monday? I will take two or three answers before we break or move on.",
                 ]
             )
         )
     elif kind == "quick_reference":
-        paragraphs.extend(
+        spoken.extend(
             _join_script(
                 [
-                    "This quick reference slide is meant for post-course use. "
-                    "Tell participants to screenshot it or copy the commands into their team wiki.",
-                    "Offer two minutes for questions on this module only, then move on.",
+                    "This quick reference slide is for you to keep after the course — screenshot it or copy the commands "
+                    "into your team wiki.",
+                    " ".join(bullets) if bullets else _plain_text(slide),
                 ]
             )
         )
+        facilitator.append("Allow about two minutes for final questions on this module.")
     else:
         text = " ".join(body) if body else _plain_text(slide)
-        paragraphs.extend(
-            _join_script(
-                [
-                    f"For slide {slide_num}, {heading}: {text}",
-                    "Check for questions before you advance. If the room is silent, ask a specific question tied to the slide content.",
-                ]
-            )
-        )
+        if text:
+            if text.lower().startswith(heading.lower()):
+                text = text[len(heading) :].lstrip(" .:-")
+            if text.lower().startswith("implication:"):
+                text = f"The practical implication is this: {text.split(':', 1)[1].strip()}"
+            spoken.append(text if text else heading)
 
-    return _join_script(paragraphs)
+    return _join_script(spoken), _join_script(facilitator)
 
 
-def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, SlideContext, list[str]]]]:
+def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, SlideContext, list[str], list[str]]]]:
     markdown = source.read_text(encoding="utf-8")
     slides = split_marp_slides(markdown)
     ctx = SlideContext()
-    entries: list[tuple[int, str, SlideContext, list[str]]] = []
+    entries: list[tuple[int, str, SlideContext, list[str], list[str]]] = []
 
     for index, slide in enumerate(slides, start=1):
         _update_context(slide, ctx)
         heading = _heading(slide)
-        script = _script_for_slide(slide, index, ctx)
-        entries.append((index, heading, SlideContext(**vars(ctx)), script))
+        spoken, facilitator = _script_for_slide(slide, index, ctx)
+        entries.append((index, heading, SlideContext(**vars(ctx)), spoken, facilitator))
 
     lines = [
         "# Cursor Training Program — Speaker Scripts",
         "",
         f"Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) "
-        f"({len(slides)} slides). Read aloud or adapt — not bullet hints.",
+        f"({len(slides)} slides). Read the **Script** sections aloud; **Facilitator notes** are pacing and room management only.",
         "",
         f"*Generated: {date.today().isoformat()}*",
         "",
         "## How to use",
         "",
         "- Match **Slide N** to the page number in the deck footer or Marp presenter view (`p`).",
-        "- **[Timing: …]** lines are pacing reminders; they are not spoken verbatim.",
+        "- **Script** = words to say. **Facilitator notes** = timing and logistics (not read to the room).",
         "- Hands-on slides reference lab guides in [`slide-exercises/`](../slide-exercises/).",
         "- Embedded presenter notes: [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md).",
         "",
@@ -629,7 +803,7 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
     ]
 
     current_module: int | None = None
-    for slide_num, heading, slide_ctx, script in entries:
+    for slide_num, heading, slide_ctx, spoken, facilitator in entries:
         if slide_ctx.module != current_module:
             current_module = slide_ctx.module
             if current_module is None:
@@ -648,8 +822,14 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
         lines.append("")
         lines.append("**Script**")
         lines.append("")
-        for paragraph in script:
+        for paragraph in spoken:
             lines.append(paragraph)
+            lines.append("")
+        if facilitator:
+            lines.append("**Facilitator notes**")
+            lines.append("")
+            for note in facilitator:
+                lines.append(f"- {note}")
             lines.append("")
         lines.append("---")
         lines.append("")
@@ -657,7 +837,7 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
     return "\n".join(lines).rstrip() + "\n", entries
 
 
-def inject_marp_notes(source: Path, entries: list[tuple[int, str, SlideContext, list[str]]]) -> str:
+def inject_marp_notes(source: Path, entries: list[tuple[int, str, SlideContext, list[str], list[str]]]) -> str:
     markdown = source.read_text(encoding="utf-8")
     slides = split_marp_slides(markdown)
 
@@ -665,8 +845,8 @@ def inject_marp_notes(source: Path, entries: list[tuple[int, str, SlideContext, 
         raise ValueError(f"Slide count mismatch: {len(slides)} slides vs {len(entries)} note entries")
 
     enriched: list[str] = []
-    for slide, (_slide_num, _heading, _ctx, script) in zip(slides, entries):
-        note_text = "\n\n".join(script)
+    for slide, (_slide_num, _heading, _ctx, spoken, _facilitator) in zip(slides, entries):
+        note_text = "\n\n".join(spoken)
         body = slide.rstrip() + f"\n\n<!--\n{note_text}\n-->\n"
         enriched.append(body)
 

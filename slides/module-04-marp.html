@@ -201,7 +201,7 @@ Good: ...  Bad: ...
 </tr>
 </tbody>
 </table>
-<p><strong>Cursor Agent panel</strong> (<code>Ctrl+L</code>) is for natural-language prompts — not a shell.</p>
+<p><strong>Agent panel</strong> (<code>Ctrl+I</code>) is for prompts and tool use · <strong>Chat</strong> (<code>Ctrl+L</code>) is read-only Q&amp;A.</p>
 <p><strong>Set default profile:</strong> Settings → <code>terminal.integrated.defaultProfile.windows</code> → <strong>PowerShell</strong></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
@@ -221,7 +221,7 @@ General: no commented-out code, no console.log in prod
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="10" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-41--build--test-rule">Exercise 4.1 — Build &amp; Test Rule</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p>Create <code>.cursor/rules/build-and-test.mdc</code>:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Before changes: git status, git diff
 After changes:  make test / pytest / npm test → make lint
@@ -236,9 +236,9 @@ Flag: exec/eval with user input, password/secret in variable names
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="11" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-41--test--file-specific-rules">Exercise 4.1 — Test &amp; File-Specific Rules</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p><strong>Step 5:</strong> Verify rules are applied:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Based on the project rules, what are the coding standards I should follow?
 What are the security guardrails?
 </code></pre>
@@ -247,7 +247,7 @@ What are the security guardrails?
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-41--test--file-specific-rules-part-2">Exercise 4.1 — Test &amp; File-Specific Rules (Part 2)</h2>
 <p><strong>Step 6:</strong> Create <code>.cursor/rules/react-components.mdc</code> for <code>**/*.jsx, **/*.tsx</code>:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <ul>
 <li>Component structure, naming (PascalCase, handleSubmit)</li>
 <li>Performance: React.memo, useCallback, useMemo</li>
@@ -314,16 +314,16 @@ What are the security guardrails?
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="16" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-42--create-instructions">Exercise 4.2 — Create Instructions</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p>Create <code>.cursor/repository-instructions.md</code>:</p>
 <img src="assets/module-04/exercise-4-2-create-instructions.svg" alt="Exercise 4.2 — Create Instructions" />
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="17" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-42--verify--maintain">Exercise 4.2 — Verify &amp; Maintain</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p><strong>Step 2:</strong> Ask the Agent:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code> (or <code>Ctrl+I</code> for inline Agent)</p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>What are the key technologies used in this project?
 How do I run the tests?
 </code></pre>
@@ -332,7 +332,7 @@ How do I run the tests?
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-42--verify--maintain-part-2">Exercise 4.2 — Verify &amp; Maintain (Part 2)</h2>
 <p><strong>Step 3:</strong> Update instructions when:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <ul>
 <li>New team members join → add contact info</li>
 <li>Architecture changes → update structure</li>
@@ -382,7 +382,7 @@ How do I run the tests?
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="21" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-43--pr-review-skill">Exercise 4.3 — PR Review Skill</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p>Create <code>.cursor/skills/pr-review/SKILL.md</code>:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>name: pr-review
 description: Review a PR for code quality, security, and team standards
@@ -396,7 +396,7 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="22" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-43--security-audit-skill">Exercise 4.3 — Security Audit Skill</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p>Create <code>.cursor/skills/security-audit/SKILL.md</code>:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>Scan for:
   Critical: hardcoded secrets, SQL injection, command injection, eval()
@@ -409,9 +409,9 @@ Output: report with line numbers, fix suggestions, overall risk rating
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="23" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--theme:flat-gaia;" data-marpit-pagination-total="38">
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-43--invoke-skills">Exercise 4.3 — Invoke Skills</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p><strong>Step 4:</strong> Invoke via slash command:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>/pr-review PR #42
 /pr-review feature/payment-integration
 </code></pre>
@@ -420,7 +420,7 @@ Output: report with line numbers, fix suggestions, overall risk rating
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-43--invoke-skills-part-2">Exercise 4.3 — Invoke Skills (Part 2)</h2>
 <p><strong>Step 5:</strong> List available skills:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>What skills are available in this project?
 </code></pre>
 </section>
@@ -428,7 +428,7 @@ Output: report with line numbers, fix suggestions, overall risk rating
 <header>Module 4 — Customizing Cursor for Your Team</header>
 <h2 id="exercise-43--invoke-skills-part-3">Exercise 4.3 — Invoke Skills (Part 3)</h2>
 <p><strong>Step 6:</strong> Create <strong>Onboarding</strong> skill — generates setup checklist from repo instructions<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <p><strong>Success Criteria:</strong> Created skills · built PR Review + Security Audit · invoked via slash command</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-header="Module 4 — Customizing Cursor for Your Team" data-class="lead" data-theme="flat-gaia" lang="en-US" class="lead" data-marpit-pagination="26" style="--paginate:true;--header:Module 4 — Customizing Cursor for Your Team;--class:lead;--theme:flat-gaia;" data-marpit-pagination-total="38">

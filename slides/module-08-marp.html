@@ -192,7 +192,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Cursor Agent panel</strong> (<code>Ctrl+L</code>) is for natural-language prompts — not a shell.</p>
+<p><strong>Agent panel</strong> (<code>Ctrl+I</code>) is for prompts and tool use · <strong>Chat</strong> (<code>Ctrl+L</code>) is read-only Q&amp;A.</p>
 <p><strong>Set default profile:</strong> Settings → <code>terminal.integrated.defaultProfile.windows</code> → <strong>PowerShell</strong></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-header="Module 8 — Cloud Agents API and Webhooks" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--header:Module 8 — Cloud Agents API and Webhooks;--theme:flat-gaia;" data-marpit-pagination-total="42">
@@ -344,7 +344,7 @@ curl -X POST https://api.cursor.com/v1/agents   -u <span class="hljs-string">&qu
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-header="Module 8 — Cloud Agents API and Webhooks" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="18" style="--paginate:true;--header:Module 8 — Cloud Agents API and Webhooks;--theme:flat-gaia;" data-marpit-pagination-total="42">
 <header>Module 8 — Cloud Agents API and Webhooks</header>
 <h2 id="exercise-82--resumablesseclient">Exercise 8.2 — ResumableSSEClient</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p>Track <code>last_event_id</code> from <code>id:</code> lines → send as <code>Last-Event-ID</code> header on reconnect</p>
 <p><strong>Also:</strong> <code>stream_to_file()</code> saves full SSE log for later review</p>
 <p><strong>Success Criteria:</strong> Stream connected · received events · Python client works · resume implemented</p>
@@ -544,7 +544,7 @@ download_url = response.json().get(<span class="hljs-string">&#x27;url&#x27;</sp
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-paginate="true" data-header="Module 8 — Cloud Agents API and Webhooks" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="34" style="--paginate:true;--header:Module 8 — Cloud Agents API and Webhooks;--theme:flat-gaia;" data-marpit-pagination-total="42">
 <header>Module 8 — Cloud Agents API and Webhooks</header>
 <h2 id="exercise-85--inspect--replay">Exercise 8.5 — Inspect &amp; Replay</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Agent → <code>Ctrl+L</code> · Shell → <strong>PowerShell</strong> · Browser for dashboards</p>
+<p><strong>Demonstration (Windows):</strong> Agent <code>Ctrl+I</code> · <strong>PowerShell</strong> · Browser for dashboards</p>
 <p><strong>Step 4:</strong> Inspect requests at <code>http://127.0.0.1:4040</code><br />
 <strong>Terminal:</strong> <strong>PowerShell</strong> — unless step notes Git Bash or WSL</p>
 <p><strong>Step 5:</strong> Replay failed webhooks (ngrok premium) — inspect raw body and headers<br />

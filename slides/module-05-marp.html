@@ -191,7 +191,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Cursor Agent panel</strong> (<code>Ctrl+L</code>) is for natural-language prompts — not a shell.</p>
+<p><strong>Agent panel</strong> (<code>Ctrl+I</code>) is for prompts and tool use · <strong>Chat</strong> (<code>Ctrl+L</code>) is read-only Q&amp;A.</p>
 <p><strong>Set default profile:</strong> Settings → <code>terminal.integrated.defaultProfile.windows</code> → <strong>PowerShell</strong></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-header="Module 5 — Cursor CLI and Local Automation" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="9" style="--paginate:true;--header:Module 5 — Cursor CLI and Local Automation;--theme:flat-gaia;" data-marpit-pagination-total="44">
@@ -230,7 +230,7 @@ agent --list-models
 <header>Module 5 — Cursor CLI and Local Automation</header>
 <h2 id="exercise-51--steps-3%E2%80%935-part-2">Exercise 5.1 — Steps 3–5 (Part 2)</h2>
 <p><strong>Step 4:</strong> Ask Mode (read-only):<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code> (or <code>Ctrl+I</code> for inline Agent)</p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">agent --mode=ask <span class="hljs-string">&quot;What does this project&#x27;s main function do?&quot;</span>
 <span class="hljs-comment"># Or inside session: /ask</span>
 </code></pre>
@@ -239,7 +239,7 @@ agent --list-models
 <header>Module 5 — Cursor CLI and Local Automation</header>
 <h2 id="exercise-51--steps-3%E2%80%935-part-3">Exercise 5.1 — Steps 3–5 (Part 3)</h2>
 <p><strong>Step 5:</strong> Plan Mode:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code> (or <code>Ctrl+I</code> for inline Agent)</p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">agent --mode=plan <span class="hljs-string">&quot;Add user authentication to this API&quot;</span>
 </code></pre>
 </section>
@@ -365,7 +365,7 @@ security issues, missing error handling. Be concise.&quot;</span>
 <header>Module 5 — Cursor CLI and Local Automation</header>
 <h2 id="exercise-52--batch--git-hooks-part-2">Exercise 5.2 — Batch &amp; Git Hooks (Part 2)</h2>
 <p><strong>Step 5:</strong> Pre-commit hook — review staged diff for secrets, debug statements, merge markers<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code> (or <code>Ctrl+I</code> for inline Agent)</p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <p><strong>Step 6:</strong> CI/CD — analyze test output and suggest fixes for failures<br />
 <strong>Terminal:</strong> <strong>PowerShell</strong> — clone/open repo, then continue in Agent panel</p>
 <p><strong>Success Criteria:</strong> Ran one-shots · specified models · created reviewer script · understood CI/CD use</p>
@@ -546,7 +546,7 @@ agent <span class="hljs-string">&quot;Just say one word: docs-update&quot;</span
 <header>Module 5 — Cursor CLI and Local Automation</header>
 <h2 id="exercise-54--steps-3%E2%80%935-part-2">Exercise 5.4 — Steps 3–5 (Part 2)</h2>
 <p><strong>Step 4:</strong> Concurrent sessions in different terminals:<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code> (or <code>Ctrl+I</code> for inline Agent)</p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash"><span class="hljs-comment"># Terminal 1: agent --resume frontend-cleanup</span>
 <span class="hljs-comment"># Terminal 2: agent --resume db-optimization</span>
 </code></pre>
@@ -562,11 +562,11 @@ agent <span class="hljs-string">&quot;Just say one word: docs-update&quot;</span
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-paginate="true" data-header="Module 5 — Cursor CLI and Local Automation" data-theme="flat-gaia" lang="en-US" data-marpit-pagination="41" style="--paginate:true;--header:Module 5 — Cursor CLI and Local Automation;--theme:flat-gaia;" data-marpit-pagination-total="44">
 <header>Module 5 — Cursor CLI and Local Automation</header>
 <h2 id="exercise-54--steps-6%E2%80%937--best-practices">Exercise 5.4 — Steps 6–7 &amp; Best Practices</h2>
-<p><strong>Platform:</strong> Windows 10/11 · Prompts → <strong>Agent panel</strong> <code>Ctrl+L</code> · Diffs → <strong>Editor</strong></p>
+<p><strong>Demonstration (Windows):</strong> <strong>PowerShell</strong> terminal (<code>Ctrl+` </code>) · Agent panel <code>Ctrl+I</code> · shortcuts use <strong>Ctrl</strong></p>
 <p><strong>Step 6:</strong> Export session summary as markdown<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <p><strong>Step 7:</strong> Create <code>bin/cursor-sessions.sh</code> to list and manage sessions<br />
-<strong>Where:</strong> <strong>Cursor Agent panel</strong> — <code>Ctrl+L</code></p>
+<strong>Where:</strong> <strong>Agent panel</strong> — <code>Ctrl+I</code></p>
 <p><strong>Naming:</strong> Use <code>[area]-[task]</code> format (e.g., <code>api-auth-fix</code>)</p>
 <p><strong>Context:</strong> Use <code>/compress</code> on long sessions · cloud handoff for very long tasks</p>
 <p><strong>Cleanup:</strong> Sessions persist indefinitely — manually complete or discard finished ones</p>
