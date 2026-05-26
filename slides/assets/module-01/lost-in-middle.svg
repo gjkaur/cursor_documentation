@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 250" width="920" height="250">
 <rect width="920" height="250" rx="10" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
-<text x="28" y="36" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#cc0000">Context Position Attention</text>
-<text x="28" y="84" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1a1a1a">BEGINNING</text>
+<text x="28" y="36" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#cc0000">Context Position Attention</text>
+<text x="28" y="84" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1a1a1a">BEGINNING</text>
 <rect x="180" y="64" width="620" height="28" rx="4" fill="#f7f7f7" stroke="#d0d0d0"/>
 <rect x="180" y="64" width="570" height="28" rx="4" fill="#cc0000"/>
-<text x="812" y="84" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#666666">(high)</text>
-<text x="28" y="136" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1a1a1a">MIDDLE</text>
+<text x="812" y="84" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#666666">(high)</text>
+<text x="28" y="136" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1a1a1a">MIDDLE</text>
 <rect x="180" y="116" width="620" height="28" rx="4" fill="#f7f7f7" stroke="#d0d0d0"/>
 <rect x="180" y="116" width="173" height="28" rx="4" fill="#cc0000"/>
-<text x="812" y="136" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#666666">(low)</text>
-<text x="28" y="188" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1a1a1a">END</text>
+<text x="812" y="136" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#666666">(low)</text>
+<text x="28" y="188" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1a1a1a">END</text>
 <rect x="180" y="168" width="620" height="28" rx="4" fill="#f7f7f7" stroke="#d0d0d0"/>
 <rect x="180" y="168" width="570" height="28" rx="4" fill="#cc0000"/>
-<text x="812" y="188" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#666666">(high)</text>
+<text x="812" y="188" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#666666">(high)</text>
 </svg>

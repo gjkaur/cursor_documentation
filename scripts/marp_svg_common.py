@@ -15,11 +15,11 @@ BORDER = "#d0d0d0"
 FONT = "Arial, Helvetica, sans-serif"
 MONO = "Consolas, 'Courier New', monospace"
 
-FS_TITLE = 22
-FS_HEADING = 20
-FS_BODY = 18
-FS_SMALL = 16
-FS_MONO = 19
+FS_TITLE = 26
+FS_HEADING = 24
+FS_BODY = 22
+FS_SMALL = 20
+FS_MONO = 23
 
 HEADER_H = 54
 HEADER_GAP = 16
@@ -36,30 +36,45 @@ def _text_baseline_in_box(box_y: float, box_h: float, font_size: float) -> float
     return box_y + box_h / 2 + font_size * 0.35
 
 
-def monospace_panel_svg(lines: list[str], width: int = 920) -> str:
+def monospace_panel_svg(
+    lines: list[str],
+    width: int = 920,
+    *,
+    max_panel_height: int = 500,
+    font_size: float | None = None,
+) -> str:
     """Render monospace ASCII block on a fixed character grid inside a panel."""
     pad_x = 24
     pad_y = 24
-    char_w = FS_MONO * 0.62
-    line_h = FS_MONO * 1.45
+    fs = font_size or FS_MONO
+    char_w = fs * 0.62
+    line_h = fs * 1.45
     max_len = max((len(line) for line in lines), default=0)
     content_w = max_len * char_w
     width = max(width, int(pad_x * 2 + content_w))
     height = int(pad_y * 2 + len(lines) * line_h)
+
+    if height > max_panel_height:
+        scale = max_panel_height / height
+        fs *= scale
+        char_w = fs * 0.62
+        line_h = fs * 1.45
+        height = int(pad_y * 2 + len(lines) * line_h)
+
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" '
         f'width="{width}" height="{height}">',
         f'<rect width="{width}" height="{height}" rx="10" ry="10" fill="{PANEL}" '
         f'stroke="{BORDER}" stroke-width="2"/>',
     ]
-    y = pad_y + FS_MONO * 0.85
+    y = pad_y + fs * 0.85
     for line in lines:
         x = pad_x
         for ch in line:
             if ch != " ":
                 parts.append(
                     f'<text x="{x + char_w / 2}" y="{y}" text-anchor="middle" '
-                    f'font-family="{MONO}" font-size="{FS_MONO}" fill="{TEXT}">'
+                    f'font-family="{MONO}" font-size="{fs:.2f}" fill="{TEXT}">'
                     f"{html.escape(ch)}</text>"
                 )
             x += char_w

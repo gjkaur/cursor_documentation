@@ -209,6 +209,8 @@ The slide says: Cursor Training Program · Concept block · ~60 min.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Module Overview
 
 | Aspect            | Details                                                                                                           |
@@ -347,7 +349,7 @@ An LLM is not executing a program you wrote. It predicts the next token, samples
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Next-Token Prediction
 
@@ -373,6 +375,8 @@ It can feel like reasoning, but the mechanism is still pattern completion. Keepi
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Traditional Code vs. AI Model
 
@@ -431,7 +435,7 @@ Teams that skip verification accumulate AI debt — code that looked fine in cha
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## What Determines AI Output?
 
@@ -692,7 +696,7 @@ Build a team habit: if the Agent cites an API, someone verifies it before merge.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Why Models Hallucinate
 
@@ -713,7 +717,7 @@ A hallucination is a confident answer that is wrong — for example an API or li
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Example: Confident Wrong
 
@@ -749,7 +753,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Hallucination Mitigation Strategies
 
@@ -904,6 +908,8 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
+<!-- _class: fit-md -->
+
 ## What Is a Token?
 
 | Language | Example                     | Token Count                  |
@@ -988,7 +994,7 @@ Input tokens are the prompt, attached files, and instructions you send — they 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Model Pricing Examples
 
@@ -1027,6 +1033,8 @@ Table row: GPT-5.5, $5.00, $30.00, 6×.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## What 1 Million Tokens Looks Like
 
 | Content Type         | Approximate Amount            |
@@ -1059,7 +1067,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Cost Calculation Example
 
@@ -1093,7 +1101,7 @@ A five-minute agent loop on two files beats a twenty-minute loop on the whole tr
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Cost Optimization Strategies
 
@@ -1132,6 +1140,8 @@ A five-minute agent loop on two files beats a twenty-minute loop on the whole tr
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Real-World Cost Bounds
 
@@ -1297,6 +1307,8 @@ Context window is the maximum amount of text the model can consider at once — 
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Context Checklist
 
 Before every AI interaction, ask:
@@ -1357,6 +1369,8 @@ The code on the slide reads: "Fix this bug: my code doesn't work".
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Good vs. Bad Context — Good Example
 
 **GOOD (specific):**
@@ -1379,7 +1393,7 @@ The code on the slide reads: Python function sorts dicts by key but raises KeyEr
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Context Prioritization Pyramid
 
@@ -1439,7 +1453,7 @@ Context window is the maximum amount of text the model can consider at once — 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## The "Lost in the Middle" Problem
 
@@ -1503,7 +1517,7 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## What Is Tool Calling?
 
@@ -1581,7 +1595,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## MCP (Model Context Protocol)
 
@@ -1615,6 +1629,8 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Why MCP Matters
 
@@ -1716,7 +1732,7 @@ The slide says: _Concept · 8 minutes_.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Agent vs. Chatbot
 
@@ -1775,7 +1791,7 @@ The agent loop is plan, act with tools, observe results, and repeat until the ta
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## The Agent Loop — Diagram
 
@@ -1798,7 +1814,7 @@ Follow the loop on the slide: you state a goal, the model plans, Cursor runs a t
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Levels of Agent Autonomy
 
@@ -1907,6 +1923,8 @@ In the table, Problem solver: Problem framer.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## When to Use Agents
 
 **Good for agents:**
@@ -1946,7 +1964,7 @@ Bullet 6 on the slide: High cost of failure.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Module Summary
 
@@ -2020,6 +2038,8 @@ The slide says: Cursor Training Program · Hands-on exercise · ~90 min.
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -2103,7 +2123,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Agenda
 
@@ -2207,6 +2227,8 @@ Every one of us has opened a repo and wondered where to start. The Agent can pro
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Exercise 2.1 — Steps 1–2
 
 **Step 1:** Open an unfamiliar repository in Cursor
@@ -2256,7 +2278,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 2.1 — Step 3: Orientation Prompt
 
@@ -2355,7 +2377,7 @@ The code on the slide reads: Create an ASCII diagram showing the module relation
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Expected Agent Output (Sample)
 
@@ -2591,6 +2613,8 @@ The code on the slide reads: What other functions does this call? What calls thi
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Inline Explanation Shortcut
 
 ```bash
@@ -2692,7 +2716,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 2.3 — Steps 1–2
 
@@ -3163,7 +3187,7 @@ The note on screen reads: Concept · 5 min · Exercise · 8 min.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Model Selection Guide
 
@@ -3253,6 +3277,8 @@ Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding t
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Exercise 2.5 — Comparison Table
 
 | Comparison Point | Composer 2.5 | GPT-5 Mini |
@@ -3287,7 +3313,7 @@ Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding t
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 2.5 — Cost & Decision Matrix
 
@@ -3375,7 +3401,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## @mention Types
 
@@ -3925,6 +3951,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Exercise 2.8 — Steps 1–3
 
 **Demonstration (Windows):** **PowerShell** · Agent ``Ctrl+I``
@@ -3981,7 +4009,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 2.8 — Agent Terminal Loop
 
@@ -4105,7 +4133,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Module Summary
 
@@ -4157,7 +4185,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -4200,6 +4228,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -4270,6 +4300,8 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -4391,6 +4423,8 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
+<!-- _class: fit-md -->
+
 ## When to Use Each Mode
 
 **USE ASK MODE when:**
@@ -4482,7 +4516,7 @@ Teams that skip verification accumulate AI debt — code that looked fine in cha
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## The Mode Continuum
 
@@ -4507,7 +4541,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -4707,7 +4741,7 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 3.1 — Step 6 & Success Criteria
 
@@ -4830,6 +4864,8 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Browser Tool: With vs. Without
 
@@ -4954,7 +4990,7 @@ HTTP stands for Hypertext Transfer Protocol — the request/response protocol br
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 3.2 — Steps 3–4
 
@@ -5029,7 +5065,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Expected Agent Actions
 
@@ -5124,6 +5160,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Browser Tool Limitations
 
@@ -5228,7 +5266,7 @@ The Terminal tool lets the Agent run tests and builds and read real output. That
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Terminal Tool Flow
 
@@ -5314,6 +5352,8 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Exercise 3.3 — Step 1: Safe Command
 
 **Step 1 — Read-only command**
@@ -5361,6 +5401,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 2: Run Passing Tests
 
@@ -5557,7 +5599,7 @@ The code on the slide reads: @test_calculator.c 1. Run tests and confirm the fai
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 3.3 — Step 6: Approval Rules
 
@@ -5728,30 +5770,16 @@ SQL stands for Structured Query Language — the language relational databases u
 
 Always tell the agent what **NOT** to touch:
 
-```
-BOUNDARIES:
-- Do NOT change: function signatures, return types, existing tests
-- Do NOT touch: config files, database schemas, other modules
-- Do NOT delete: comments, logging, error handling
-- Do NOT add: new dependencies, external APIs, global state
-
-Change ONLY: the function body of calculate_total()
-```
+<img src="assets/module-03/the-boundaries-technique.svg" alt="The &quot;Boundaries&quot; Technique" />
 
 <!--
+This slide includes a diagram — The "Boundaries" Technique.
+
 The slide title is: The "Boundaries" Technique.
 
 The slide says: Always tell the agent what NOT to touch:.
 
-Bullet 1 on the slide: Do NOT change: function signatures, return types, existing tests.
-
-Bullet 2 on the slide: Do NOT touch: config files, database schemas, other modules.
-
-Bullet 3 on the slide: Do NOT delete: comments, logging, error handling.
-
-Bullet 4 on the slide: Do NOT add: new dependencies, external APIs, global state.
-
-The code on the slide reads: BOUNDARIES: - Do NOT change: function signatures, return types, existing tests - Do NOT touch: config files, database schemas, other modules - Do NOT delete: comments, logging, error handling - Do NOT add: new dependencies, external APIs, global state Change ONLY: the function body of calculate_total().
+The figure on this slide is titled: The &quot;Boundaries&quot; Technique.
 
 Terms on this slide — quick definitions for the room:
 
@@ -5761,7 +5789,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Avoiding Scope Creep
 
@@ -6266,6 +6294,8 @@ The code on the slide begins: ## Bug Fix Template @{{file}} Task: [Describe bug]
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Takeaway |
@@ -6304,7 +6334,7 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -6343,6 +6373,8 @@ The slide says: Cursor Training Program · ~60 min.
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -6581,7 +6613,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -6639,7 +6671,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 4.1 — Step 1: Setup
 
@@ -6692,7 +6724,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 4.1 — Build & Test Rule
 
@@ -6857,6 +6889,8 @@ Repository Instructions are a single project overview file the agent reads for s
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Rules vs. Repository Instructions
 
 | Aspect | Rules | Repository Instructions |
@@ -6938,7 +6972,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 4.2 — Create Instructions
 
@@ -7176,7 +7210,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 4.3 — Security Audit Skill
 
@@ -7405,7 +7439,7 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Hooks & Slash Workflows
 
@@ -7516,7 +7550,7 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Walkthrough: Slash Command Example
 
@@ -7603,6 +7637,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-md -->
+
 ## When to Use Subagents
 
 | Scenario | Why Subagent | Example |
@@ -7666,7 +7702,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Walkthrough: Subagents in Action
 
@@ -7675,12 +7711,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 **Without subagents:** Mixed context, sequential, slower
 
 **With subagents (parallel):**
-```
-→ Subagent 1 (Security): scan all files, read-only
-→ Subagent 2 (Docs): generate OpenAPI spec, write to docs/
-
-Main Agent combines: security report + openapi.yaml
-```
+<img src="assets/module-04/walkthrough-subagents-parallel.svg" alt="Walkthrough: Subagents in Action" />
 
 **Invoke:**
 ```
@@ -7705,19 +7736,13 @@ The slide says: Invoke:.
 
 Success criteria listed: Understood concept · parallel execution · recognized templates.
 
-The code on the slide reads: → Subagent 1 (Security): scan all files, read-only → Subagent 2 (Docs): generate OpenAPI spec, write to docs/ Main Agent combines: security report + openapi.yaml.
+The figure on this slide is titled: Walkthrough: Subagents in Action.
 
 The code on the slide reads: Spawn a security subagent to audit src/auth/ independently. Meanwhile, I'll work on the frontend..
 
 Terms on this slide — quick definitions for the room:
 
 A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
-
-OpenAPI is the Open API Specification — a machine-readable description of REST endpoints.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-YAML stands for YAML Ain't Markup Language — a human-readable config format used in many DevOps tools.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -7768,7 +7793,7 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -7811,6 +7836,8 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -7877,6 +7904,8 @@ CI/CD stands for Continuous Integration and Continuous Deployment — automated 
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -7981,7 +8010,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Interactive Mode Commands
 
@@ -8031,7 +8060,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -8169,6 +8198,8 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 5.1 — Steps 3–5
 
@@ -8468,6 +8499,8 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Exercise 5.2 — Steps 1–2
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
@@ -8752,7 +8785,7 @@ When the PR comes back, the same review discipline applies.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Cloud Handoff Flow
 
@@ -8991,6 +9024,8 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Cloud Handoff Best Practices
 
 | When to Use | When Not to Use |
@@ -9058,7 +9093,7 @@ The note on screen reads: Concept · 8 min · Exercise · 12 min.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Session Management Commands
 
@@ -9101,6 +9136,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 5.4 — Steps 1–2
 
@@ -9149,7 +9186,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 5.4 — Steps 1–2 (Part 2)
 
@@ -9359,6 +9396,8 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Skill |
@@ -9395,35 +9434,18 @@ One-shot CLI means a single non-interactive agent command — ideal for scripts 
 ---
 
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-BASIC:
-  agent                  Start interactive session
-  agent "prompt"         One-shot command
-  agent --mode=ask       Read-only mode
-  agent --mode=plan      Plan before code
-  agent --model <name>   Specify model
-
-IN SESSION:  /model  /compress  /rules  /commands  /resume  /usage
-
-CLOUD:  & "message"  →  cursor.com/agents
-
-KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit)
-```
+<img src="assets/module-05/quick-reference-card.svg" alt="Quick Reference Card" />
 
 <!--
 This quick reference slide is for you to keep after the course.
 
 The slide title is: Quick Reference Card.
 
-The code on the slide reads: BASIC:   agent                  Start interactive session   agent "prompt"         One-shot command   agent --mode=ask       Read-only mode   agent --mode=plan      Plan before code   agent --model <name>   Specify model IN SESSION:  /model  /compress  /rules  /commands  /resume  /usage CLOUD:  & "message"  →  cursor.com/agents KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit).
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+The figure on this slide is titled: Quick Reference Card.
 -->
 
 ---
@@ -9480,6 +9502,8 @@ The slide says: Cursor Training Program · ~90 min.
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -9611,7 +9635,7 @@ A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a G
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Cloud Agents vs. Local Agent
 
@@ -9738,33 +9762,18 @@ When the PR comes back, the same review discipline applies.
 
 ## Cloud Agent Dashboard
 
-```
-Active (2)
-  🔄 security-audit-2024    running • 12 min elapsed
-  🔄 doc-generator           running • 3 min elapsed
-
-Completed (4)
-  ✅ pr-review-42            FINISHED • 2 artifacts
-  ✅ test-suite              FINISHED • 1 artifact
-
-Failed (1)
-  ❌ deploy-staging          ERROR • Auth token expired
-```
+<img src="assets/module-06/cloud-agent-dashboard.svg" alt="Cloud Agent Dashboard" />
 
 <!--
+This slide includes a diagram — Cloud Agent Dashboard.
+
 The slide title is: Cloud Agent Dashboard.
 
-The code on the slide reads: Active (2)   🔄 security-audit-2024    running • 12 min elapsed   🔄 doc-generator           running • 3 min elapsed Completed (4)   ✅ pr-review-42            FINISHED • 2 artifacts   ✅ test-suite              FINISHED • 1 artifact Failed (1)   ❌ deploy-staging          ERROR • Auth token expired.
+The figure on this slide is titled: Cloud Agent Dashboard.
 
 Terms on this slide — quick definitions for the room:
 
 A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
-
-PR stands for Pull Request — a proposed code change others review before it merges.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -9774,7 +9783,7 @@ When the PR comes back, the same review discipline applies.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -9880,7 +9889,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 6.1 — Steps 1–2 (Part 2)
 
@@ -9928,7 +9937,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 6.1 — Steps 3–4
 
@@ -9971,7 +9980,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 6.1 — Steps 3–4 (Part 2)
 
@@ -10022,6 +10031,8 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 6.1 — Steps 5–6
 
@@ -10213,7 +10224,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 6.2 — Steps 1–2
 
@@ -10425,7 +10436,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 6.2 — CI/CD Integration
 
@@ -10538,7 +10549,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Messaging Integration Architecture
 
@@ -10555,7 +10566,7 @@ The figure on this slide is titled: Messaging Integration Architecture.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Demo: Slack Integration
 
@@ -10661,6 +10672,8 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Demo: Jira Integration
 
 **Step 1:** Install the Jira integration from the Cursor dashboard (requires Cursor admin access).
@@ -10707,6 +10720,8 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Demo: Discord Integration
 
 ```python
@@ -10740,6 +10755,8 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Generic Webhook & Notifications
 
@@ -10823,7 +10840,7 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -10866,6 +10883,8 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -11043,7 +11062,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## API Comparison Matrix
 
@@ -11182,6 +11201,8 @@ The note on screen reads: Concept · 8 min · Exercise · 12 min.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Authentication Methods
 
 | Method | Format | When to Use |
@@ -11223,6 +11244,8 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## API Key Types
 
@@ -11271,6 +11294,8 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Security Best Practices
 
 - Never commit API keys to git
@@ -11308,7 +11333,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -11518,7 +11543,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 7.2 — Steps 4–5 (Part 2)
 
@@ -11566,6 +11591,8 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 7.2 — Steps 6–7
 
@@ -11724,7 +11751,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## HTTP Status Codes to Handle
 
@@ -11765,6 +11792,8 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Rate Limit Headers
 
@@ -11969,7 +11998,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## ETag Flow
 
@@ -12031,7 +12060,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 7.4 — Basic ETag Usage
 
@@ -12166,6 +12195,8 @@ The note on screen reads: Concept · 4 min · Exercise · 6 min.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## The Models Endpoint
 
 ```bash
@@ -12275,7 +12306,7 @@ The slide title is: Exercise 7.5 — Steps 1–2 (Part 2).
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 7.5 — Steps 3–4
 
@@ -12399,7 +12430,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -12450,6 +12481,8 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -12537,7 +12570,7 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Agenda
 
@@ -12686,7 +12719,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -12820,7 +12853,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 8.1 — Capture IDs
 
@@ -13288,7 +13321,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 8.3 — Download
 
@@ -13442,7 +13475,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Webhook Payload
 
@@ -13476,7 +13509,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 8.4 — HMAC Verification
 
@@ -13882,7 +13915,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Workflow Architecture
 
@@ -13899,7 +13932,7 @@ The figure on this slide is titled: Workflow Architecture.
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Run the Workflow
 
@@ -13934,7 +13967,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Workflow Output
 
@@ -13968,7 +14001,7 @@ A webhook is an HTTP callback — when an event happens, the service POSTs a pay
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Module Summary
 
@@ -14020,47 +14053,18 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 ---
 
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-ENDPOINTS:
-  POST /v1/agents                         Create agent
-  GET  /v1/agents/{id}                    Get status
-  GET  /v1/agents/{id}/runs/{id}/stream   SSE stream
-  GET  /v1/agents/{id}/artifacts          List artifacts
-  GET  /v1/agents/{id}/artifacts/download Download
-
-WEBHOOK:  X-Webhook-Signature (HMAC-SHA256)  |  X-Webhook-Event
-
-SSE:  status · assistant · thinking · tool_call · result · error · done
-
-NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
-```
+<img src="assets/module-08/quick-reference-card.svg" alt="Quick Reference Card" />
 
 <!--
 This quick reference slide is for you to keep after the course.
 
 The slide title is: Quick Reference Card.
 
-The code on the slide reads: ENDPOINTS:   POST /v1/agents                         Create agent   GET  /v1/agents/{id}                    Get status   GET  /v1/agents/{id}/runs/{id}/stream   SSE stream   GET  /v1/agents/{id}/artifacts          List artifacts   GET  /v1/agents/{id}/artifacts/download Download WEBHOOK:  X-Webhook-Signature (HMAC-SHA256)  |  X-Webhook-Event SSE:  status · assistant · thinking · tool_call · result · error · done NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040.
-
-Terms on this slide — quick definitions for the room:
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
-
-HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
-
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
+The figure on this slide is titled: Quick Reference Card.
 -->
 
 ---
@@ -14088,6 +14092,8 @@ The slide says: Cursor Training Program · ~75 min.
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -14167,7 +14173,7 @@ A spend limit is a monthly cap on a user's Cursor usage — can alert or block w
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Agenda
 
@@ -14238,7 +14244,7 @@ The note on screen reads: Concept · 5 min · Exercise · 8 min.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## User vs. Admin API Key
 
@@ -14281,7 +14287,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -14391,6 +14397,8 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.1 — Pagination & Export
 
@@ -14702,6 +14710,8 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Exercise 9.3 — Bulk Limits
 
 **Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
@@ -14791,7 +14801,7 @@ The slide says: GET /v1/admin/analytics/usage/models.
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 9.4 — Model Breakdown
 
@@ -15030,6 +15040,8 @@ The note on screen reads: Concept · 5 min · Exercise · 6 min.
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Responsible Leaderboard Principles
 
 | Principle | Implementation |
@@ -15057,6 +15069,8 @@ In the table, **Include context**: Show team size, role differences.
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.6 — Three Leaderboards
 
@@ -15160,7 +15174,7 @@ Bullet 4 on the slide: Which models perform best for which task types.
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Demo: Intent Analysis
 
@@ -15284,7 +15298,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Demo: SafeRemovalDemo Workflow
 
@@ -15315,7 +15329,7 @@ Hard delete permanently removes a user and associated data — irreversible and 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Module Summary
 
@@ -15361,7 +15375,7 @@ A spend limit is a monthly cap on a user's Cursor usage — can alert or block w
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -15400,6 +15414,8 @@ The slide says: Cursor Training Program · ~20 min + take-home.
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -15468,6 +15484,8 @@ BI stands for Business Intelligence — dashboards and reports built from export
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -15572,7 +15590,7 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -15676,7 +15694,7 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Exercise 10.1 — AI Contribution %
 
@@ -15825,6 +15843,8 @@ BI stands for Business Intelligence — dashboards and reports built from export
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.2 — Stream to File
 
@@ -16186,6 +16206,8 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
+<!-- _class: fit-md -->
+
 ## Project Deliverables
 
 | Deliverable | Description |
@@ -16223,6 +16245,8 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
+
+<!-- _class: fit-md -->
 
 ## Module Summary
 
@@ -16264,41 +16288,18 @@ BI stands for Business Intelligence — dashboards and reports built from export
 ---
 
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-ENDPOINTS:
-  GET /admin/analytics/commits      AI per commit
-  GET /admin/analytics/export/csv   Bulk CSV export
-  GET /admin/analytics/events       Granular events
-
-KEY METRICS:
-  Adoption:  DAU / total team size
-  ROI:       (Hours saved × rate) - AI cost
-  Quality:   Acceptance rate by model
-  Compliance: Complete change audit trail
-
-DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
-```
+<img src="assets/module-10/quick-reference-card.svg" alt="Quick Reference Card" />
 
 <!--
 This quick reference slide is for you to keep after the course.
 
 The slide title is: Quick Reference Card.
 
-The code on the slide reads: ENDPOINTS:   GET /admin/analytics/commits      AI per commit   GET /admin/analytics/export/csv   Bulk CSV export   GET /admin/analytics/events       Granular events KEY METRICS:   Adoption:  DAU / total team size   ROI:       (Hours saved × rate) - AI cost   Quality:   Acceptance rate by model   Compliance: Complete change audit trail DEPLOY:  Streamlit · Metabase · PowerBI · Custom React.
-
-Terms on this slide — quick definitions for the room:
-
-Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
-
-DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
-
-ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
+The figure on this slide is titled: Quick Reference Card.
 -->
 
 ---

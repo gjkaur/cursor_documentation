@@ -4,6 +4,7 @@ theme: flat-gaia
 paginate: true
 header: "Module 8 — Cloud Agents API and Webhooks"
 ---
+
 <!-- _class: lead -->
 
 # Cloud Agents API and Webhooks
@@ -14,9 +15,8 @@ Cursor Training Program · ~60 min
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -32,11 +32,7 @@ Cursor Training Program · ~60 min
 
 
 
-
-
 ---
-
-
 
 
 
@@ -53,10 +49,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -75,11 +68,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -93,11 +82,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -112,11 +97,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -133,10 +114,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -159,10 +137,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
-
-
 ---
-
 
 
 
@@ -197,10 +172,7 @@ curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H 
 
 
 
-
-
 ---
-
 
 
 
@@ -223,11 +195,7 @@ Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -239,10 +207,7 @@ Create with specific model: `"model": {"id": "claude-4.7-opus"}`
 
 
 
-
-
 ---
-
 
 
 
@@ -270,11 +235,7 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 
 
-
-
 ---
-
-
 
 
 
@@ -288,10 +249,7 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 
 
-
-
 ---
-
 
 
 
@@ -311,11 +269,7 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 
 
-
-
 ---
-
-
 
 
 
@@ -325,10 +279,7 @@ SSE streams support the **`Last-Event-ID`** header — if your connection drops,
 
 
 
-
-
 ---
-
 
 
 
@@ -354,10 +305,7 @@ Parse lines starting with `event:` and `data:` — print assistant text, tool ca
 
 
 
-
-
 ---
-
 
 
 
@@ -382,11 +330,7 @@ def stream_agent_response(agent_id, run_id, on_event=None):
 
 
 
-
-
 ---
-
-
 
 
 
@@ -402,11 +346,7 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 
 
-
-
 ---
-
-
 
 
 
@@ -420,11 +360,7 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 
 
-
-
 ---
-
-
 
 
 
@@ -439,10 +375,7 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 
 
-
-
 ---
-
 
 
 
@@ -467,10 +400,7 @@ def list_artifacts(agent_id):
 
 
 
-
-
 ---
-
 
 
 
@@ -495,10 +425,7 @@ download_url = response.json().get('url')
 
 
 
-
-
 ---
-
 
 
 
@@ -519,11 +446,7 @@ def process_test_results(agent_id):
 
 
 
-
-
 ---
-
-
 
 
 
@@ -537,11 +460,7 @@ def process_test_results(agent_id):
 
 
 
-
-
 ---
-
-
 
 
 
@@ -555,10 +474,7 @@ def process_test_results(agent_id):
 
 
 
-
-
 ---
-
 
 
 
@@ -579,10 +495,7 @@ def process_test_results(agent_id):
 
 
 
-
-
 ---
-
 
 
 
@@ -605,10 +518,7 @@ Flask route: verify signature → parse payload → handle FINISHED/ERROR
 
 
 
-
-
 ---
-
 
 
 
@@ -637,11 +547,7 @@ curl -X POST https://api.cursor.com/v1/agents \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -655,11 +561,7 @@ curl -X POST https://api.cursor.com/v1/agents \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -672,11 +574,7 @@ Creates a secure tunnel from a public URL to your local server.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -695,11 +593,7 @@ ngrok http 5000
 
 
 
-
-
 ---
-
-
 
 
 
@@ -710,11 +604,7 @@ ngrok http 5000
 
 
 
-
-
 ---
-
-
 
 
 
@@ -730,11 +620,7 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -752,11 +638,7 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -770,11 +652,7 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -789,10 +667,7 @@ Combine everything into `automated_workflow.py`:
 
 
 
-
-
 ---
-
 
 
 
@@ -804,10 +679,7 @@ Combine everything into `automated_workflow.py`:
 
 
 
-
-
 ---
-
 
 
 
@@ -829,10 +701,7 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 
 
-
-
 ---
-
 
 
 
@@ -853,10 +722,7 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 
 
-
-
 ---
-
 
 
 
@@ -875,39 +741,19 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 
 
-
-
 ---
 
 
 
-
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-ENDPOINTS:
-  POST /v1/agents                         Create agent
-  GET  /v1/agents/{id}                    Get status
-  GET  /v1/agents/{id}/runs/{id}/stream   SSE stream
-  GET  /v1/agents/{id}/artifacts          List artifacts
-  GET  /v1/agents/{id}/artifacts/download Download
-
-WEBHOOK:  X-Webhook-Signature (HMAC-SHA256)  |  X-Webhook-Event
-
-SSE:  status · assistant · thinking · tool_call · result · error · done
-
-NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
-```
-
-
+<img src="assets/module-08/quick-reference-card.svg" alt="Quick Reference Card" />
 
 
 
 ---
-
-
 
 
 
@@ -920,7 +766,5 @@ NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
 > Now that you can programmatically launch and monitor agents, **Module 9** covers team management and usage insights.
 
 *End of Module 8*
-
-
 
 

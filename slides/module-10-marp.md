@@ -4,6 +4,7 @@ theme: flat-gaia
 paginate: true
 header: "Module 10 — AI Code Tracking and Reporting"
 ---
+
 <!-- _class: lead -->
 
 # AI Code Tracking and Reporting
@@ -14,9 +15,8 @@ Cursor Training Program · ~20 min + take-home
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -32,11 +32,7 @@ Cursor Training Program · ~20 min + take-home
 
 
 
-
-
 ---
-
-
 
 
 
@@ -51,9 +47,8 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -69,11 +64,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -87,11 +78,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -108,10 +95,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -134,10 +118,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
-
-
 ---
-
 
 
 
@@ -160,10 +141,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
-
-
 ---
-
 
 
 
@@ -188,10 +166,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
-
-
 ---
-
 
 
 
@@ -216,11 +191,7 @@ AI usage cost → Net ROI
 
 
 
-
-
 ---
-
-
 
 
 
@@ -234,11 +205,7 @@ AI usage cost → Net ROI
 
 
 
-
-
 ---
-
-
 
 
 
@@ -252,9 +219,8 @@ AI usage cost → Net ROI
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -275,10 +241,7 @@ head -10 cursor_commits_export.csv
 
 
 
-
-
 ---
-
 
 
 
@@ -303,11 +266,7 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
-
-
 ---
-
-
 
 
 
@@ -321,11 +280,7 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
-
-
 ---
-
-
 
 
 
@@ -341,11 +296,7 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
-
-
 ---
-
-
 
 
 
@@ -365,11 +316,7 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
-
-
 ---
-
-
 
 
 
@@ -388,11 +335,7 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
-
-
 ---
-
-
 
 
 
@@ -406,10 +349,7 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
-
-
 ---
-
 
 
 
@@ -427,11 +367,7 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
-
-
 ---
-
-
 
 
 
@@ -448,9 +384,8 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -468,9 +403,8 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -486,39 +420,19 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
-
-
 ---
 
 
 
-
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-ENDPOINTS:
-  GET /admin/analytics/commits      AI per commit
-  GET /admin/analytics/export/csv   Bulk CSV export
-  GET /admin/analytics/events       Granular events
-
-KEY METRICS:
-  Adoption:  DAU / total team size
-  ROI:       (Hours saved × rate) - AI cost
-  Quality:   Acceptance rate by model
-  Compliance: Complete change audit trail
-
-DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
-```
-
-
+<img src="assets/module-10/quick-reference-card.svg" alt="Quick Reference Card" />
 
 
 
 ---
-
-
 
 
 
@@ -539,7 +453,5 @@ DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
 **Next steps:** Complete take-home dashboard · set up scheduled exports · implement cost alerts
 
 *End of Module 10 — End of Day 2 Training Program*
-
-
 
 

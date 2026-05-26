@@ -2,21 +2,21 @@
 <rect width="920" height="408" rx="10" ry="10" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
 
   <rect x="1" y="1" width="918" height="54" rx="8" ry="8" fill="#ffebeb" stroke="#cc0000" stroke-width="2"/>
-  <text x="460.0" y="34.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#cc0000">Factors That Shape Output</text>
+  <text x="460.0" y="36.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#cc0000">Factors That Shape Output</text>
   <line x1="1" y1="55" x2="919" y2="55" stroke="#d0d0d0" stroke-width="1"/>
 
 <rect x="12" y="70" width="896" height="40" rx="4" fill="#f7f7f7"/>
-<text x="28" y="96.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">1. Training Data</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">What the model "learned"</tspan></text>
+<text x="28" y="97.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">1. Training Data</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">What the model "learned"</tspan></text>
 <rect x="12" y="116" width="896" height="40" rx="4" fill="#ffffff"/>
-<text x="28" y="142.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">2. Prompt</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Your instruction (most influential)</tspan></text>
+<text x="28" y="143.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">2. Prompt</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">Your instruction (most influential)</tspan></text>
 <rect x="12" y="162" width="896" height="40" rx="4" fill="#f7f7f7"/>
-<text x="28" y="188.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">3. Temperature</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Randomness level (0 = deterministic)</tspan></text>
+<text x="28" y="189.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">3. Temperature</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">Randomness level (0 = deterministic)</tspan></text>
 <rect x="12" y="208" width="896" height="40" rx="4" fill="#ffffff"/>
-<text x="28" y="234.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">4. Top-p / Top-k</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Token selection pool size</tspan></text>
+<text x="28" y="235.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">4. Top-p / Top-k</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">Token selection pool size</tspan></text>
 <rect x="12" y="254" width="896" height="40" rx="4" fill="#f7f7f7"/>
-<text x="28" y="280.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">5. System Prompt</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Persistent behavioral guidelines</tspan></text>
+<text x="28" y="281.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">5. System Prompt</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">Persistent behavioral guidelines</tspan></text>
 <rect x="12" y="300" width="896" height="40" rx="4" fill="#ffffff"/>
-<text x="28" y="326.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">6. Context Window</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">What the model can "see"</tspan></text>
+<text x="28" y="327.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">6. Context Window</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">What the model can "see"</tspan></text>
 <rect x="12" y="346" width="896" height="40" rx="4" fill="#f7f7f7"/>
-<text x="28" y="372.3" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1a1a1a"><tspan font-weight="700">7. Model Architecture</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="19">Different models, different biases</tspan></text>
+<text x="28" y="373.7" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1a1a1a"><tspan font-weight="700">7. Model Architecture</tspan><tspan fill="#666666">  →  </tspan><tspan font-family="Consolas, 'Courier New', monospace" font-size="23">Different models, different biases</tspan></text>
 </svg>

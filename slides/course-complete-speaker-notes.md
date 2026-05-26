@@ -4802,23 +4802,17 @@ SQL stands for Structured Query Language — the language relational databases u
 
 ### Slide 162 — The "Boundaries" Technique
 
-**Type:** code · **Lesson:** 3.4
+**Type:** diagram · **Lesson:** 3.4
 
 **Script**
+
+This slide includes a diagram — The "Boundaries" Technique.
 
 The slide title is: The "Boundaries" Technique.
 
 The slide says: Always tell the agent what NOT to touch:.
 
-Bullet 1 on the slide: Do NOT change: function signatures, return types, existing tests.
-
-Bullet 2 on the slide: Do NOT touch: config files, database schemas, other modules.
-
-Bullet 3 on the slide: Do NOT delete: comments, logging, error handling.
-
-Bullet 4 on the slide: Do NOT add: new dependencies, external APIs, global state.
-
-The code on the slide reads: BOUNDARIES: - Do NOT change: function signatures, return types, existing tests - Do NOT touch: config files, database schemas, other modules - Do NOT delete: comments, logging, error handling - Do NOT add: new dependencies, external APIs, global state Change ONLY: the function body of calculate_total().
+The figure on this slide is titled: The &quot;Boundaries&quot; Technique.
 
 Terms on this slide — quick definitions for the room:
 
@@ -6371,19 +6365,13 @@ The slide says: Invoke:.
 
 Success criteria listed: Understood concept · parallel execution · recognized templates.
 
-The code on the slide reads: → Subagent 1 (Security): scan all files, read-only → Subagent 2 (Docs): generate OpenAPI spec, write to docs/ Main Agent combines: security report + openapi.yaml.
+The figure on this slide is titled: Walkthrough: Subagents in Action.
 
 The code on the slide reads: Spawn a security subagent to audit src/auth/ independently. Meanwhile, I'll work on the frontend..
 
 Terms on this slide — quick definitions for the room:
 
 A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
-
-OpenAPI is the Open API Specification — a machine-readable description of REST endpoints.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-YAML stands for YAML Ain't Markup Language — a human-readable config format used in many DevOps tools.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
@@ -7821,11 +7809,7 @@ This quick reference slide is for you to keep after the course.
 
 The slide title is: Quick Reference Card.
 
-The code on the slide reads: BASIC:   agent                  Start interactive session   agent "prompt"         One-shot command   agent --mode=ask       Read-only mode   agent --mode=plan      Plan before code   agent --model <name>   Specify model IN SESSION:  /model  /compress  /rules  /commands  /resume  /usage CLOUD:  & "message"  →  cursor.com/agents KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit).
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+The figure on this slide is titled: Quick Reference Card.
 
 **Facilitator notes**
 
@@ -8089,23 +8073,19 @@ When the PR comes back, the same review discipline applies.
 
 ### Slide 264 — Cloud Agent Dashboard
 
-**Type:** code · **Lesson:** 6.1
+**Type:** diagram · **Lesson:** 6.1
 
 **Script**
 
+This slide includes a diagram — Cloud Agent Dashboard.
+
 The slide title is: Cloud Agent Dashboard.
 
-The code on the slide reads: Active (2)   🔄 security-audit-2024    running • 12 min elapsed   🔄 doc-generator           running • 3 min elapsed Completed (4)   ✅ pr-review-42            FINISHED • 2 artifacts   ✅ test-suite              FINISHED • 1 artifact Failed (1)   ❌ deploy-staging          ERROR • Auth token expired.
+The figure on this slide is titled: Cloud Agent Dashboard.
 
 Terms on this slide — quick definitions for the room:
 
 A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
-
-PR stands for Pull Request — a proposed code change others review before it merges.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -11683,23 +11663,7 @@ This quick reference slide is for you to keep after the course.
 
 The slide title is: Quick Reference Card.
 
-The code on the slide reads: ENDPOINTS:   POST /v1/agents                         Create agent   GET  /v1/agents/{id}                    Get status   GET  /v1/agents/{id}/runs/{id}/stream   SSE stream   GET  /v1/agents/{id}/artifacts          List artifacts   GET  /v1/agents/{id}/artifacts/download Download WEBHOOK:  X-Webhook-Signature (HMAC-SHA256)  |  X-Webhook-Event SSE:  status · assistant · thinking · tool_call · result · error · done NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040.
-
-Terms on this slide — quick definitions for the room:
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
-
-HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
-
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
+The figure on this slide is titled: Quick Reference Card.
 
 **Facilitator notes**
 
@@ -13526,17 +13490,7 @@ This quick reference slide is for you to keep after the course.
 
 The slide title is: Quick Reference Card.
 
-The code on the slide reads: ENDPOINTS:   GET /admin/analytics/commits      AI per commit   GET /admin/analytics/export/csv   Bulk CSV export   GET /admin/analytics/events       Granular events KEY METRICS:   Adoption:  DAU / total team size   ROI:       (Hours saved × rate) - AI cost   Quality:   Acceptance rate by model   Compliance: Complete change audit trail DEPLOY:  Streamlit · Metabase · PowerBI · Custom React.
-
-Terms on this slide — quick definitions for the room:
-
-Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
-
-DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
-
-ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
+The figure on this slide is titled: Quick Reference Card.
 
 **Facilitator notes**
 

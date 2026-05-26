@@ -4,6 +4,7 @@ theme: flat-gaia
 paginate: true
 header: "Module 5 — Cursor CLI and Local Automation"
 ---
+
 <!-- _class: lead -->
 
 # Cursor CLI and Local Automation
@@ -14,9 +15,8 @@ Cursor Training Program · ~60 min
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -32,11 +32,7 @@ Cursor Training Program · ~60 min
 
 
 
-
-
 ---
-
-
 
 
 
@@ -51,9 +47,8 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -69,11 +64,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -87,11 +78,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -108,10 +95,7 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 
 
 
-
-
 ---
-
 
 
 
@@ -132,10 +116,7 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 
 
 
-
-
 ---
-
 
 
 
@@ -158,11 +139,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -181,11 +158,7 @@ agent "Help me understand the current codebase structure"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -199,9 +172,8 @@ agent "Help me understand the current codebase structure"
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -222,11 +194,7 @@ agent --list-models
 
 
 
-
-
 ---
-
-
 
 
 
@@ -242,11 +210,7 @@ agent --mode=ask "What does this project's main function do?"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -261,11 +225,7 @@ agent --mode=plan "Add user authentication to this API"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -284,11 +244,7 @@ npx -y cursor-statusline
 
 
 
-
-
 ---
-
-
 
 
 
@@ -303,11 +259,7 @@ agent /setup-terminal
 
 
 
-
-
 ---
-
-
 
 
 
@@ -321,10 +273,7 @@ agent /setup-terminal
 
 
 
-
-
 ---
-
 
 
 
@@ -343,10 +292,7 @@ agent --non-interactive "run this task"     # No prompts, just output
 
 
 
-
-
 ---
-
 
 
 
@@ -364,9 +310,8 @@ agent --non-interactive "run this task"     # No prompts, just output
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -387,11 +332,7 @@ agent --mode=ask "Explain the git rebase command with examples"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -407,10 +348,7 @@ agent --model claude-4.5-opus "Design a database schema for a task management sy
 
 
 
-
-
 ---
-
 
 
 
@@ -436,10 +374,7 @@ security issues, missing error handling. Be concise."
 
 
 
-
-
 ---
-
 
 
 
@@ -462,11 +397,7 @@ done
 
 
 
-
-
 ---
-
-
 
 
 
@@ -482,11 +413,7 @@ done
 
 
 
-
-
 ---
-
-
 
 
 
@@ -500,11 +427,7 @@ done
 
 
 
-
-
 ---
-
-
 
 
 
@@ -520,10 +443,7 @@ Send a local conversation to a Cloud Agent:
 
 
 
-
-
 ---
-
 
 
 
@@ -535,11 +455,7 @@ Send a local conversation to a Cloud Agent:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -558,11 +474,7 @@ agent
 
 
 
-
-
 ---
-
-
 
 
 
@@ -578,11 +490,7 @@ agent
 
 
 
-
-
 ---
-
-
 
 
 
@@ -593,11 +501,7 @@ agent
 
 
 
-
-
 ---
-
-
 
 
 
@@ -615,11 +519,7 @@ agent
 
 
 
-
-
 ---
-
-
 
 
 
@@ -634,11 +534,7 @@ agent "& Refactor the auth module to use JWT. Update all tests and docs."
 
 
 
-
-
 ---
-
-
 
 
 
@@ -653,9 +549,8 @@ agent --resume [agent-id-from-cloud]
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -673,11 +568,7 @@ agent --resume [agent-id-from-cloud]
 
 
 
-
-
 ---
-
-
 
 
 
@@ -691,10 +582,7 @@ agent --resume [agent-id-from-cloud]
 
 
 
-
-
 ---
-
 
 
 
@@ -717,9 +605,8 @@ agent "Just say one word: auth-refactor"
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -740,10 +627,7 @@ agent "Just say one word: docs-update"
 
 
 
-
-
 ---
-
 
 
 
@@ -763,11 +647,7 @@ agent "Just say one word: docs-update"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -785,11 +665,7 @@ agent --resume abc123-def456-ghi789
 
 
 
-
-
 ---
-
-
 
 
 
@@ -805,11 +681,7 @@ agent --resume abc123-def456-ghi789
 
 
 
-
-
 ---
-
-
 
 
 
@@ -824,11 +696,7 @@ agent --resume abc123-def456-ghi789
 
 
 
-
-
 ---
-
-
 
 
 
@@ -852,9 +720,8 @@ agent --resume abc123-def456-ghi789
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -870,39 +737,19 @@ agent --resume abc123-def456-ghi789
 
 
 
-
-
 ---
 
 
 
-
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-BASIC:
-  agent                  Start interactive session
-  agent "prompt"         One-shot command
-  agent --mode=ask       Read-only mode
-  agent --mode=plan      Plan before code
-  agent --model <name>   Specify model
-
-IN SESSION:  /model  /compress  /rules  /commands  /resume  /usage
-
-CLOUD:  & "message"  →  cursor.com/agents
-
-KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit)
-```
-
-
+<img src="assets/module-05/quick-reference-card.svg" alt="Quick Reference Card" />
 
 
 
 ---
-
-
 
 
 
@@ -915,7 +762,5 @@ KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit)
 > Now that you've mastered terminal-based AI workflows, **Module 6: Cloud Agents in the UI** covers launching cloud agents, collecting artifacts, and messaging integrations.
 
 *End of Module 5*
-
-
 
 

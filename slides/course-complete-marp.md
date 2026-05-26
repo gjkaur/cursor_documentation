@@ -2081,21 +2081,13 @@ Run git status. Summarize only — do not commit or push.
 
 ---
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## The "Boundaries" Technique
 
 Always tell the agent what **NOT** to touch:
 
-```
-BOUNDARIES:
-- Do NOT change: function signatures, return types, existing tests
-- Do NOT touch: config files, database schemas, other modules
-- Do NOT delete: comments, logging, error handling
-- Do NOT add: new dependencies, external APIs, global state
-
-Change ONLY: the function body of calculate_total()
-```
+<img src="assets/module-03/the-boundaries-technique.svg" alt="The &quot;Boundaries&quot; Technique" />
 
 ---
 
@@ -2826,7 +2818,7 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 ---
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-xs -->
 
 ## Walkthrough: Subagents in Action
 
@@ -2835,12 +2827,7 @@ Independent agent instances for specialized tasks — own context, tools, and in
 **Without subagents:** Mixed context, sequential, slower
 
 **With subagents (parallel):**
-```
-→ Subagent 1 (Security): scan all files, read-only
-→ Subagent 2 (Docs): generate OpenAPI spec, write to docs/
-
-Main Agent combines: security report + openapi.yaml
-```
+<img src="assets/module-04/walkthrough-subagents-parallel.svg" alt="Walkthrough: Subagents in Action" />
 
 **Invoke:**
 ```
@@ -3444,24 +3431,11 @@ agent --resume abc123-def456-ghi789
 
 ---
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-BASIC:
-  agent                  Start interactive session
-  agent "prompt"         One-shot command
-  agent --mode=ask       Read-only mode
-  agent --mode=plan      Plan before code
-  agent --model <name>   Specify model
-
-IN SESSION:  /model  /compress  /rules  /commands  /resume  /usage
-
-CLOUD:  & "message"  →  cursor.com/agents
-
-KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit)
-```
+<img src="assets/module-05/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
@@ -3569,22 +3543,11 @@ By the end of this module, participants will be able to:
 
 ---
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Cloud Agent Dashboard
 
-```
-Active (2)
-  🔄 security-audit-2024    running • 12 min elapsed
-  🔄 doc-generator           running • 3 min elapsed
-
-Completed (4)
-  ✅ pr-review-42            FINISHED • 2 artifacts
-  ✅ test-suite              FINISHED • 1 artifact
-
-Failed (1)
-  ❌ deploy-staging          ERROR • Auth token expired
-```
+<img src="assets/module-06/cloud-agent-dashboard.svg" alt="Cloud Agent Dashboard" />
 
 ---
 
@@ -5127,24 +5090,11 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 ---
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-ENDPOINTS:
-  POST /v1/agents                         Create agent
-  GET  /v1/agents/{id}                    Get status
-  GET  /v1/agents/{id}/runs/{id}/stream   SSE stream
-  GET  /v1/agents/{id}/artifacts          List artifacts
-  GET  /v1/agents/{id}/artifacts/download Download
-
-WEBHOOK:  X-Webhook-Signature (HMAC-SHA256)  |  X-Webhook-Event
-
-SSE:  status · assistant · thinking · tool_call · result · error · done
-
-NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
-```
+<img src="assets/module-08/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 
@@ -5989,24 +5939,11 @@ Run with: `streamlit run cursor_dashboard.py`
 
 ---
 
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
-```
-ENDPOINTS:
-  GET /admin/analytics/commits      AI per commit
-  GET /admin/analytics/export/csv   Bulk CSV export
-  GET /admin/analytics/events       Granular events
-
-KEY METRICS:
-  Adoption:  DAU / total team size
-  ROI:       (Hours saved × rate) - AI cost
-  Quality:   Acceptance rate by model
-  Compliance: Complete change audit trail
-
-DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
-```
+<img src="assets/module-10/quick-reference-card.svg" alt="Quick Reference Card" />
 
 ---
 

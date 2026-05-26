@@ -18,12 +18,12 @@ ACCENT = "#cc0000"
 FONT = "Arial, Helvetica, sans-serif"
 MONO = "Consolas, 'Courier New', monospace"
 
-# Diagram typography (aligned with slide body ~22px)
-FS_TITLE = 22
-FS_HEADING = 20
-FS_BODY = 18
-FS_SMALL = 16
-FS_MONO = 19
+# Diagram typography (aligned with slide body ~32px default)
+FS_TITLE = 26
+FS_HEADING = 24
+FS_BODY = 22
+FS_SMALL = 20
+FS_MONO = 23
 
 HEADER_H = 54
 HEADER_GAP = 16

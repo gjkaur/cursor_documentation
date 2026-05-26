@@ -16,7 +16,11 @@ Cursor Training Program · Hands-on exercise · ~90 min
 
 
 
+
+
 ---
+
+
 
 
 <!-- _class: fit-md -->
@@ -34,7 +38,11 @@ Cursor Training Program · Hands-on exercise · ~90 min
 
 
 
+
+
 ---
+
+
 
 
 
@@ -58,7 +66,11 @@ By the end of this module, participants will be able to:
 
 
 
+
+
 ---
+
+
 
 
 
@@ -82,7 +94,11 @@ By the end of this module, participants will be able to:
 
 
 
+
+
 ---
+
+
 
 
 
@@ -100,7 +116,11 @@ By the end of this module, participants will be able to:
 
 
 
+
+
 ---
+
+
 
 
 
@@ -118,7 +138,11 @@ By the end of this module, participants will be able to:
 
 
 
+
+
 ---
+
+
 
 
 <!-- _class: fit-md -->
@@ -141,7 +165,11 @@ cursor .
 
 
 
+
+
 ---
+
+
 
 
 
@@ -165,7 +193,11 @@ Specifically tell me:
 
 
 
+
+
 ---
+
+
 
 
 
@@ -184,7 +216,11 @@ to output. What functions get called in order?
 
 
 
+
+
 ---
+
+
 
 
 
@@ -202,7 +238,11 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -217,7 +257,11 @@ Create an ASCII diagram showing the module relationships in this codebase.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -236,7 +280,11 @@ team members can read it.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -253,7 +301,11 @@ team members can read it.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -271,7 +323,11 @@ team members can read it.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -287,7 +343,11 @@ Use **precise context** — select a function or class, then ask focused questio
 
 
 
+
+
 ---
+
+
 
 
 
@@ -314,7 +374,11 @@ Explain the function I have selected. For each major section, tell me:
 
 
 
+
+
 ---
+
+
 
 
 
@@ -333,7 +397,11 @@ Show me what happens in the normal case and one edge case.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -352,7 +420,11 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
 ---
+
+
 
 
 <!-- _class: fit-md -->
@@ -372,7 +444,11 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -390,7 +466,11 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -409,7 +489,11 @@ Trace the call chain two levels in each direction.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -440,7 +524,11 @@ Accept? [Yes] [No] [Edit]
 
 
 
+
+
 ---
+
+
 
 
 
@@ -461,7 +549,11 @@ Before accepting, ask yourself:
 
 
 
+
+
 ---
+
+
 
 
 
@@ -483,7 +575,11 @@ npm start                 # Node/React dev server
 
 
 
+
+
 ---
+
+
 
 
 
@@ -504,7 +600,11 @@ Please explain what happened and suggest a fix.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -522,7 +622,11 @@ Please explain what happened and suggest a fix.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -542,7 +646,11 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -561,7 +669,11 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -587,7 +699,11 @@ Don't write code yet – just give me a plan.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -620,7 +736,11 @@ Ready to proceed? [Yes] [No] [Modify Plan]
 
 
 
+
+
 ---
+
+
 
 
 
@@ -641,7 +761,11 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -659,7 +783,11 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -677,7 +805,11 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -700,7 +832,11 @@ Skip email verification for this version. Proceed.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -724,7 +860,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 <!-- _class: fit-md -->
@@ -742,7 +882,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -761,7 +905,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -778,7 +926,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -796,7 +948,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -820,7 +976,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -844,7 +1004,11 @@ Explain what a closure is in JavaScript with a practical example.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -863,7 +1027,11 @@ Are there any race conditions or timing attacks?
 
 
 
+
+
 ---
+
+
 
 
 
@@ -882,7 +1050,11 @@ What are the key differences in the payment handling code?
 
 
 
+
+
 ---
+
+
 
 
 
@@ -901,7 +1073,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -925,7 +1101,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -941,7 +1121,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -959,7 +1143,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -977,7 +1165,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -997,7 +1189,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1016,7 +1212,11 @@ implement the fix we agreed on.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1036,7 +1236,11 @@ Add input validation to all form handlers.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1052,7 +1256,11 @@ Add input validation to all form handlers.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1072,7 +1280,11 @@ Add input validation to all form handlers.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1090,7 +1302,11 @@ Add input validation to all form handlers.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1111,7 +1327,11 @@ Add input validation to all form handlers.
 
 
 
+
+
 ---
+
+
 
 
 <!-- _class: fit-md -->
@@ -1139,7 +1359,11 @@ Run `dir` and tell me which file looks like the main program.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1154,7 +1378,11 @@ Run `dir` and tell me which file looks like the main program.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1174,7 +1402,11 @@ Show me the command output.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1199,7 +1431,11 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1222,7 +1458,11 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1246,7 +1486,11 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1261,7 +1505,11 @@ Confirm before each command that might affect the repo.
 
 
 
+
+
 ---
+
+
 
 
 
@@ -1276,6 +1524,8 @@ Confirm before each command that might affect the repo.
 > Now that you've mastered essential Cursor workflows, **Module 3: Agent Modes and Tools** covers Ask, Agent, and custom modes plus browser and terminal tools.
 
 *End of Module 2*
+
+
 
 
 

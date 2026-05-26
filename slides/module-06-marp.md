@@ -4,6 +4,7 @@ theme: flat-gaia
 paginate: true
 header: "Module 6 — Cloud Agents in the UI"
 ---
+
 <!-- _class: lead -->
 
 # Cloud Agents in the UI
@@ -14,9 +15,8 @@ Cursor Training Program · ~90 min
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -32,11 +32,7 @@ Cursor Training Program · ~90 min
 
 
 
-
-
 ---
-
-
 
 
 
@@ -51,11 +47,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -69,11 +61,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -87,10 +75,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -109,11 +94,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -130,11 +111,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -148,36 +125,19 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
 
 
 
-
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## Cloud Agent Dashboard
 
-```
-Active (2)
-  🔄 security-audit-2024    running • 12 min elapsed
-  🔄 doc-generator           running • 3 min elapsed
-
-Completed (4)
-  ✅ pr-review-42            FINISHED • 2 artifacts
-  ✅ test-suite              FINISHED • 1 artifact
-
-Failed (1)
-  ❌ deploy-staging          ERROR • Auth token expired
-```
-
-
+<img src="assets/module-06/cloud-agent-dashboard.svg" alt="Cloud Agent Dashboard" />
 
 
 
 ---
-
 
 
 
@@ -200,11 +160,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -223,10 +179,7 @@ open https://cursor.com/agents
 
 
 
-
-
 ---
-
 
 
 
@@ -249,10 +202,7 @@ Auto-create PR: ☐
 
 
 
-
-
 ---
-
 
 
 
@@ -276,10 +226,7 @@ Auto-create PR: ☐
 
 
 
-
-
 ---
-
 
 
 
@@ -300,9 +247,8 @@ Auto-create PR: ☐
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -323,11 +269,7 @@ Branch prefix: docs/contributing
 
 
 
-
-
 ---
-
-
 
 
 
@@ -342,11 +284,7 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
-
-
 ---
-
-
 
 
 
@@ -360,10 +298,7 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
-
-
 ---
-
 
 
 
@@ -384,11 +319,7 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
-
-
 ---
-
-
 
 
 
@@ -401,10 +332,7 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
-
-
 ---
-
 
 
 
@@ -430,11 +358,7 @@ Place all in artifacts/ directory.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -445,11 +369,7 @@ Place all in artifacts/ directory.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -466,11 +386,7 @@ Place all in artifacts/ directory.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -484,10 +400,7 @@ Place all in artifacts/ directory.
 
 
 
-
-
 ---
-
 
 
 
@@ -514,10 +427,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
-
-
 ---
-
 
 
 
@@ -539,11 +449,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
-
-
 ---
-
-
 
 
 
@@ -557,10 +463,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
-
-
 ---
-
 
 
 
@@ -578,10 +481,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
-
-
 ---
-
 
 
 
@@ -593,10 +493,7 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
-
-
 ---
-
 
 
 
@@ -621,10 +518,7 @@ Usage Hint: [prompt or command]
 
 
 
-
-
 ---
-
 
 
 
@@ -651,9 +545,8 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -677,9 +570,8 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -697,9 +589,8 @@ Usage: `!cursor Add error handling to all API endpoints`
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -722,11 +613,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -740,10 +627,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 
 
-
-
 ---
-
 
 
 
@@ -755,11 +639,7 @@ curl -X POST https://your-server.com/trigger-agent \
 
 
 
-
-
 ---
-
-
 
 
 
@@ -772,7 +652,5 @@ curl -X POST https://your-server.com/trigger-agent \
 > Now that you've mastered Cloud Agents in the UI, **Module 7: Cursor API Foundations** covers the API ecosystem, authentication, rate limits, and efficient request patterns.
 
 *End of Module 6*
-
-
 
 

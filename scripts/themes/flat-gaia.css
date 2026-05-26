@@ -251,6 +251,19 @@ section img {
   margin: 0.65em auto 0;
   max-width: 100%;
   max-height: var(--image-max-height);
+  object-fit: contain;
+}
+
+section.fit-md img {
+  max-height: calc(var(--image-max-height) - 20px);
+}
+
+section.fit-sm img {
+  max-height: calc(var(--image-max-height) - 40px);
+}
+
+section.fit-xs img {
+  max-height: calc(var(--image-max-height) - 60px);
 }
 
 code {

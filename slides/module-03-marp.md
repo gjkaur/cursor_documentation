@@ -4,6 +4,7 @@ theme: flat-gaia
 paginate: true
 header: "Module 3 — Agent Modes and Tools"
 ---
+
 <!-- _class: lead -->
 
 # Agent Modes and Tools
@@ -14,9 +15,8 @@ Cursor Training Program · ~60 min
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -32,11 +32,7 @@ Cursor Training Program · ~60 min
 
 
 
-
-
 ---
-
-
 
 
 
@@ -51,9 +47,8 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -69,11 +64,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -87,10 +78,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -110,9 +98,8 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -132,10 +119,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -153,10 +137,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -170,10 +151,7 @@ By the end of this module, participants will be able to:
 
 
 
-
-
 ---
-
 
 
 
@@ -196,11 +174,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -214,11 +188,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -233,11 +203,7 @@ Change the variable name 'temp' to 'temperature' in the current file.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -256,11 +222,7 @@ What edge cases does it handle?
 
 
 
-
-
 ---
-
-
 
 
 
@@ -274,10 +236,7 @@ What edge cases does it handle?
 
 
 
-
-
 ---
-
 
 
 
@@ -301,11 +260,7 @@ What edge cases does it handle?
 
 
 
-
-
 ---
-
-
 
 
 
@@ -319,11 +274,7 @@ What edge cases does it handle?
 
 
 
-
-
 ---
-
-
 
 
 
@@ -338,9 +289,8 @@ What edge cases does it handle?
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -356,11 +306,7 @@ What edge cases does it handle?
 
 
 
-
-
 ---
-
-
 
 
 
@@ -379,11 +325,7 @@ python -m http.server 8000
 
 
 
-
-
 ---
-
-
 
 
 
@@ -399,10 +341,7 @@ Tell me what you see on the page.
 
 
 
-
-
 ---
-
 
 
 
@@ -425,11 +364,7 @@ On that same page, find:
 
 
 
-
-
 ---
-
-
 
 
 
@@ -445,10 +380,7 @@ Are there any errors or warnings? If so, what are they?
 
 
 
-
-
 ---
-
 
 
 
@@ -460,11 +392,7 @@ Are there any errors or warnings? If so, what are they?
 
 
 
-
-
 ---
-
-
 
 
 
@@ -483,11 +411,7 @@ Use the browser tool to check what's happening.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -503,9 +427,8 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -523,11 +446,7 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -541,11 +460,7 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -558,10 +473,7 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
-
-
 ---
-
 
 
 
@@ -573,11 +485,7 @@ Extract all pricing plan names and their monthly costs into a table.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -597,9 +505,8 @@ Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -623,9 +530,8 @@ Summarize the output. Do not modify any files.
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -648,11 +554,7 @@ Show full output: compilation OK? how many tests passed?
 
 
 
-
-
 ---
-
-
 
 
 
@@ -670,10 +572,7 @@ Show full output: compilation OK? how many tests passed?
 
 
 
-
-
 ---
-
 
 
 
@@ -697,10 +596,7 @@ Is the bug in the test or in add()? Explain only — do not fix yet.
 
 
 
-
-
 ---
-
 
 
 
@@ -727,10 +623,7 @@ Show the diff before I accept changes.
 
 
 
-
-
 ---
-
 
 
 
@@ -759,11 +652,7 @@ Run git status. Summarize only — do not commit or push.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -777,11 +666,7 @@ Run git status. Summarize only — do not commit or push.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -795,10 +680,7 @@ Run git status. Summarize only — do not commit or push.
 
 
 
-
-
 ---
-
 
 
 
@@ -816,35 +698,21 @@ Run git status. Summarize only — do not commit or push.
 
 
 
-
-
 ---
 
 
 
-
-<!-- _class: fit-xs -->
+<!-- _class: fit-sm -->
 
 ## The "Boundaries" Technique
 
 Always tell the agent what **NOT** to touch:
 
-```
-BOUNDARIES:
-- Do NOT change: function signatures, return types, existing tests
-- Do NOT touch: config files, database schemas, other modules
-- Do NOT delete: comments, logging, error handling
-- Do NOT add: new dependencies, external APIs, global state
-
-Change ONLY: the function body of calculate_total()
-```
-
-
+<img src="assets/module-03/the-boundaries-technique.svg" alt="The &quot;Boundaries&quot; Technique" />
 
 
 
 ---
-
 
 
 
@@ -869,11 +737,7 @@ User: "Wait, I just wanted the login bug fixed!"
 
 
 
-
-
 ---
-
-
 
 
 
@@ -892,10 +756,7 @@ Use **`@calculator.c`** in every prompt below.
 
 
 
-
-
 ---
-
 
 
 
@@ -929,11 +790,7 @@ Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -957,10 +814,7 @@ Note: Did the Agent change more than `divide()`?
 
 
 
-
-
 ---
-
 
 
 
@@ -990,10 +844,7 @@ Do not edit files yet — I will review first.
 
 
 
-
-
 ---
-
 
 
 
@@ -1021,10 +872,7 @@ DO NOT:
 
 
 
-
-
 ---
-
 
 
 
@@ -1054,10 +902,7 @@ Do not change main() or other functions.
 
 
 
-
-
 ---
-
 
 
 
@@ -1098,9 +943,8 @@ Show diff before applying.
 
 
 
-
-
 ---
+
 
 
 <!-- _class: fit-md -->
@@ -1116,10 +960,7 @@ Show diff before applying.
 
 
 
-
-
 ---
-
 
 
 
@@ -1131,11 +972,7 @@ Show diff before applying.
 
 
 
-
-
 ---
-
-
 
 
 
@@ -1148,7 +985,5 @@ Show diff before applying.
 > Now that you understand agent modes and core tools, **Module 4: Customizing Cursor for Your Team** covers rules, skills, MCP integrations, and subagents for team workflows.
 
 *End of Module 3*
-
-
 
 
