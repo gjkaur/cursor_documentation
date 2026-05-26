@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from marp_tables import extract_fenced_code_blocks, extract_markdown_tables, split_marp_slides
 from speaker_notes_enrichment import EnrichmentMatch, exercise_step_speech, match_enrichment
+from speaker_notes_glossary import glossary_notes_for_slide
 
 _spec = importlib.util.spec_from_file_location(
     "generate_slide_exercises",
@@ -980,6 +981,7 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
         spoken.append(f"Let's look at {heading}.")
 
     _append_unique(spoken, _narrate_all_slide_text(slide, heading))
+    _append_unique(spoken, glossary_notes_for_slide(slide, heading))
     enrich = match_enrichment(heading, kind, ctx.module)
     if enrich.paragraphs:
         _append_unique(spoken, enrich.paragraphs[:2])
@@ -1007,14 +1009,14 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
         "# Cursor Training Program — Speaker Scripts",
         "",
         f"Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) "
-        f"({len(slides)} slides). **Script** walks through every line on the slide, then adds brief teaching context where helpful.",
+        f"({len(slides)} slides). **Script** walks through every line on the slide, expands abbreviations, defines technical terms, then adds brief teaching context where helpful.",
         "",
         f"*Generated: {date.today().isoformat()}*",
         "",
         "## How to use",
         "",
         "- Match **Slide N** to the page number in the deck footer or Marp presenter view (`p`).",
-        "- **Script** = read aloud; it names and explains each heading, bullet, table row, quote, and code block on the slide.",
+        "- **Script** = read aloud; it names each heading, bullet, table row, quote, and code block, then defines acronyms and jargon on that slide.",
         "- Hands-on slides reference lab guides in [`slide-exercises/`](../slide-exercises/).",
         "- Embedded presenter notes: [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md).",
         "",

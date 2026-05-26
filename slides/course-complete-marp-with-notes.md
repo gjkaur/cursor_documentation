@@ -83,6 +83,16 @@ Table row: **8**, Cloud Agents API and Webhooks, Day 2, ~60 min.
 Table row: **9**, Admin and Analytics APIs, Day 2, ~75 min.
 
 Table row: **10**, AI Code Tracking and Reporting, Day 2, ~20 min.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -118,6 +128,12 @@ Table row: **3**, Agent Modes and Tools, Hands-On + Concept, ~60 min.
 Table row: **4**, Customizing Cursor for Your Team, Hands-On + Walkthrough, ~60 min.
 
 Table row: **5**, Cursor CLI and Local Automation, Hands-On, ~60 min.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -153,6 +169,12 @@ Table row: **8**, Cloud Agents API and Webhooks, Hands-On, ~60 min.
 Table row: **9**, Admin and Analytics APIs, Hands-On + Demonstrations, ~75 min.
 
 Table row: **10**, AI Code Tracking and Reporting, Hands-On + Take-Home, ~20 min.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -244,6 +266,20 @@ Bullet 4 on the slide: Master context as the single most valuable AI skill.
 Bullet 5 on the slide: Distinguish between tool calling, MCP, and autonomous agents.
 
 Bullet 6 on the slide: Define the developer's evolving role with AI agents.
+
+Terms on this slide — quick definitions for the room:
+
+Probabilistic means the same input can produce different outputs — unlike traditional code that always returns the same result.
+
+Deterministic means the same input always produces the same output — how conventional software behaves.
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
+
+Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -293,6 +329,16 @@ The slide says: At its simplest, an LLM is a next-token prediction engine.
 
 The slide says: Given a sequence of tokens, it predicts what comes next — then samples, appends, repeats.
 
+Terms on this slide — quick definitions for the room:
+
+Next-token prediction means the model reads everything so far, ranks likely next pieces of text, picks one, appends it, and repeats.
+
+Probabilistic means the same input can produce different outputs — unlike traditional code that always returns the same result.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+LLM stands for Large Language Model — a neural network trained to generate text one token at a time.
+
 Run the same unit test twice and you get the same result every time. Run the same prompt in Cursor twice and you may get different wording, structure, or even logic.
 
 An LLM is not executing a program you wrote. It predicts the next token, samples one, appends it, and repeats — millions of times per answer. That is why we never treat a single Agent run as final without review.
@@ -311,6 +357,12 @@ This slide includes a diagram — Next-Token Prediction.
 The slide title is: Next-Token Prediction.
 
 The figure on this slide is titled: Next-token prediction probabilities.
+
+Terms on this slide — quick definitions for the room:
+
+Next-token prediction means the model reads everything so far, ranks likely next pieces of text, picks one, appends it, and repeats.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 
 Look at the diagram. The model reads everything so far, ranks possible next tokens by probability, picks one, appends it, and runs the loop again. That is the entire answer — autocomplete at scale.
 
@@ -343,6 +395,12 @@ In the table, You control the logic: You influence, but don't control.
 In the table, Errors are bugs: Errors are features of probability.
 
 In the table, Predictable behavior: Needs management via parameters.
+
+Terms on this slide — quick definitions for the room:
+
+Probabilistic means the same input can produce different outputs — unlike traditional code that always returns the same result.
+
+Deterministic means the same input always produces the same output — how conventional software behaves.
 
 Traditional software is deterministic — same input, same output. You own every branch and bug fix.
 
@@ -411,6 +469,18 @@ In the table, **Top-p** — Nucleus sampling – limits token pool. Use case on 
 
 In the table, **Max Tokens** — Limits response length. Use case on slide: Controlling cost.
 
+Terms on this slide — quick definitions for the room:
+
+Deterministic means the same input always produces the same output — how conventional software behaves.
+
+Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
+
+Max tokens caps how long the model's answer can be — useful for controlling cost and verbosity.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+Top-p, also called nucleus sampling, limits the pool of tokens the model may choose from on each step.
+
 Temperature controls randomness — keep it low for bug fixes, slightly higher for brainstorming, then back down before you merge.
 
 Top-p and max tokens shape breadth and length. Two teammates with the same prompt can still differ if their settings differ.
@@ -431,6 +501,10 @@ max_tokens: 4000   # cap length
 The slide title is: Key Parameters — Example Values.
 
 The code on the slide reads: temperature: 0.2   # focused top_p: 0.9         # balanced max_tokens: 4000   # cap length.
+
+Terms on this slide — quick definitions for the room:
+
+Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
 -->
 
 ---
@@ -467,6 +541,12 @@ The slide says: Same prompt: _"Write a function to reverse a string"_.
 
 The code on the slide reads: # Temperature 0.1 — very deterministic def reverse_string(s):     return s[::-1] # Temperature 0.7 — balanced (adds edge cases) def reverse_string(s):     if not s: return s     return s[::-1] # Temperature 1.2 — creative, potentially unstable def flip_the_text(text): ....
 
+Terms on this slide — quick definitions for the room:
+
+Deterministic means the same input always produces the same output — how conventional software behaves.
+
+Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
+
 Same ask, three temperatures on the slide. Notice low temperature stays close to the obvious solution; high temperature adds variation — and sometimes instability you do not want in production code.
 -->
 
@@ -501,6 +581,10 @@ Bullet 3 on the slide: Your specific architecture decisions.
 
 Bullet 4 on the slide: Recent library updates (unless in context).
 
+Terms on this slide — quick definitions for the room:
+
+Training cutoff is the date the model's knowledge was frozen — it will not know about releases after that unless you add context.
+
 Models are frozen at a training cutoff. They do not automatically know your internal APIs, your architecture decisions, or libraries released last month unless you put that information in context.
 
 If the Agent guesses wrong about your stack, the fix is usually better context — not a different model.
@@ -525,6 +609,10 @@ The slide title is: Lesson 1.2.
 You will also see the heading: Hallucinations.
 
 The slide says: _Concept · 10 minutes_.
+
+Terms on this slide — quick definitions for the room:
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
 -->
 
 ---
@@ -544,6 +632,10 @@ The slide title is: What Are Hallucinations?.
 The slide quotes: "Confident-sounding outputs that are factually wrong, made up, or don't exist."
 
 The slide says: Most dangerous form: the model sounds completely confident while being completely wrong.
+
+Terms on this slide — quick definitions for the room:
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
 
 A hallucination is a confident answer that is wrong — a library that does not exist, a method that was never in the API, outdated syntax presented as current best practice.
 
@@ -580,6 +672,10 @@ In the table, **Confident nonsense** — "This is the standard way to…". Use c
 
 In the table, **Outdated syntax** — Old Python 2 style. Use case on slide: Know version differences.
 
+Terms on this slide — quick definitions for the room:
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
+
 Fake imports and invented methods show up constantly. Your fastest checks are: does it import, does the type checker agree, does the official doc mention this API?
 
 Build a team habit: if the Agent cites an API, someone verifies it before merge.
@@ -598,6 +694,10 @@ This slide includes a diagram — Why Models Hallucinate.
 The slide title is: Why Models Hallucinate.
 
 The figure on this slide is titled: Root causes of hallucination.
+
+Terms on this slide — quick definitions for the room:
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
 -->
 
 ---
@@ -626,6 +726,12 @@ You will also see the heading: Reality: requests does NOT have async support..
 You will also see the heading: Correct answer: Use httpx or aiohttp.
 
 The code on the slide reads: User: "How do I use requests for async calls?" # Hallucinated (confident, wrong) import requests.async as async_requests response = await async_requests.get('https://api.example.com') # Reality: requests does NOT have async support. # Correct answer: Use httpx or aiohttp.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -660,6 +766,20 @@ In the table, **Self-consistency** — Ask multiple times, compare. Use case on 
 In the table, **Low temperature** — Reduce randomness. Use case on slide: `temperature: 0.1`.
 
 In the table, **Tool use** — Let model search/lookup. Use case on slide: Enable web search for docs.
+
+Terms on this slide — quick definitions for the room:
+
+Constrained decoding restricts output shape — for example JSON mode or regex patterns the model must follow.
+
+Self-consistency means running the same prompt several times and comparing or voting on answers to reduce random errors.
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
+
+Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
+
+Grounding means giving the model source material — files, docs, or URLs — so answers stay tied to facts instead of guesses.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 Ground the model with docs and @mentions. Ask it to cite sources. Use structured outputs when you need predictable shape.
 
@@ -698,6 +818,10 @@ Bullet 4 on the slide: Are there obvious logic errors?.
 Bullet 5 on the slide: Would this code actually run?.
 
 Bullet 6 on the slide: Does the model cite sources you can verify?.
+
+Terms on this slide — quick definitions for the room:
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
 -->
 
 ---
@@ -726,6 +850,12 @@ Bullet 2 on the slide: They never fully disappear.
 Bullet 3 on the slide: You are the human-in-the-loop responsible for verification.
 
 Bullet 4 on the slide: Experience helps you "smell" potential hallucinations.
+
+Terms on this slide — quick definitions for the room:
+
+Human-in-the-loop means a person reviews AI output before it ships — the safety pattern we use throughout this course.
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
 -->
 
 ---
@@ -751,6 +881,10 @@ The slide title is: Lesson 1.3.
 You will also see the heading: Tokens and Pricing.
 
 The slide says: _Concept · 10 minutes_.
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -780,6 +914,10 @@ In the table, Code — `function calculateTotal()`. Use case on slide: ~5 tokens
 
 In the table, Chinese — "你好世界". Use case on slide: 4–8 tokens.
 
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
 Tokens are how models meter context and cost — roughly three quarters of a word in English.
 
 Small chat prompts are cheap; agent loops over large repos are not. Narrow context saves money and often improves quality.
@@ -802,6 +940,10 @@ The slide title is: Why Tokens Matter.
 The slide says: A token is the atomic unit of processing for LLMs — not a word, not a character.
 
 The slide says: You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see".
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -821,6 +963,12 @@ The slide title is: Input vs. Output Pricing.
 The slide says: Input tokens (prompt, code context, retrieved docs) cost less than output tokens (generated code and explanations).
 
 The slide says: Output is often 5–8× more expensive — generation is more compute-intensive than reading.
+
+Terms on this slide — quick definitions for the room:
+
+Output tokens are the text the model generates — explanations and code — and they typically cost more than input.
+
+Input tokens are the prompt, attached files, and instructions you send — they usually cost less than generated output.
 -->
 
 ---
@@ -886,6 +1034,10 @@ In the table, Python code: ~250,000–500,000 lines.
 In the table, Average conversation: 5–10 sessions.
 
 In the table, Full codebase: Small to medium project.
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -910,6 +1062,10 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 The slide title is: Cost Calculation Example.
 
 The code on the slide reads: prompt_tokens = 5000    # instructions + context output_tokens = 2000    # AI response model = "claude-4.6-sonnet" input_price  = 3.00     # per 1M tokens output_price = 15.00    # per 1M tokens input_cost  = (5000 / 1_000_000) * 3.00 output_cost = (2000 / 1_000_000) * 15.00 total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents).
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 
 Bound your tasks: specific @mentions, clear stop conditions, checkpoints before long agent runs.
 
@@ -980,6 +1136,12 @@ In the table, Medium — $50–100. Use case on slide: Daily coding, regular age
 In the table, Heavy — $200–500. Use case on slide: Full-time AI assistance, multiple agents.
 
 In the table, Enterprise — $1000+. Use case on slide: Team usage, automation, CI/CD.
+
+Terms on this slide — quick definitions for the room:
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -1077,6 +1239,10 @@ Table row: Model, Context Window, Pages of Text, Lines of Code.
 Table row: Claude 4 (Haiku / Sonnet / Opus), 200k, ~150, ~50,000.
 
 Table row: GPT-5 Mini / GPT-5.3 Codex, 272k, ~200, ~70,000.
+
+Terms on this slide — quick definitions for the room:
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
 -->
 
 ---
@@ -1096,6 +1262,12 @@ The slide title is: Context Window — What Happens When Full.
 The slide says: When you exceed context: Oldest content gets truncated · Critical information may be dropped.
 
 The slide says: Context engineering = knowing what to put in, what to leave out, and how to structure it.
+
+Terms on this slide — quick definitions for the room:
+
+Context engineering is deliberately choosing what files, rules, and history you include — and what you leave out.
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
 -->
 
 ---
@@ -1133,6 +1305,10 @@ Bullet 5 on the slide: Is my context under the token limit?.
 Bullet 6 on the slide: Have I included relevant error messages?.
 
 Bullet 7 on the slide: Have I specified constraints (libraries, version, style)?.
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -1222,6 +1398,14 @@ In the table, **Chunking** — Split across multiple calls. Use case on slide: E
 In the table, **Hierarchical** — Summaries + details on demand. Use case on slide: Complex projects.
 
 In the table, **Vector retrieval** — Semantic search for relevant context. Use case on slide: Very large codebases.
+
+Terms on this slide — quick definitions for the room:
+
+Vector retrieval stores embeddings of text so similar concepts can be found even when wording differs.
+
+Semantic search finds relevant code or docs by meaning, not just exact keyword matches.
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
 -->
 
 ---
@@ -1245,6 +1429,10 @@ The slide says: Models pay most attention to the beginning and end of context, a
 The implication on the slide: Put critical information at the beginning OR end, not the middle..
 
 The figure on this slide is titled: Lost in the middle attention chart.
+
+Terms on this slide — quick definitions for the room:
+
+Lost in the middle is the tendency for models to pay less attention to information buried in the middle of a long context.
 
 Models attend strongly to the beginning and end of context and weaker to the middle. Put critical constraints at the top of your prompt and repeat them after large pasted logs.
 -->
@@ -1274,6 +1462,12 @@ The slide title is: Lesson 1.5.
 You will also see the heading: Tool Calling and MCP.
 
 The slide says: _Concept · 8 minutes_.
+
+Terms on this slide — quick definitions for the room:
+
+Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -1297,6 +1491,10 @@ The slide says: Tool calling (function calling) lets the AI request execution of
 The slide says: The AI doesn't execute code — it outputs a structured request that your system executes.
 
 The figure on this slide is titled: Tool calling flow.
+
+Terms on this slide — quick definitions for the room:
+
+Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
 
 Tool calling is how the model stops guessing and starts acting — read a file, run a terminal command, fetch a URL.
 
@@ -1338,6 +1536,12 @@ In the table, **web_search** — Find documentation. Use case on slide: "Look up
 In the table, **browser** — Browse web pages. Use case on slide: "Open the PR and review it".
 
 In the table, **git** — Version control. Use case on slide: "Create a branch and commit".
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -1365,6 +1569,10 @@ The slide says: Without MCP: Each tool needs custom integration.
 The slide says: With MCP: Tools advertise their capabilities; AI discovers them dynamically.
 
 The figure on this slide is titled: MCP architecture.
+
+Terms on this slide — quick definitions for the room:
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 
 MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 -->
@@ -1395,6 +1603,10 @@ In the table, **Discoverability**: AI can learn what tools are available.
 In the table, **Standardization**: One protocol, not dozens of custom APIs.
 
 In the table, **Extensibility**: Add new tools without changing AI logic.
+
+Terms on this slide — quick definitions for the room:
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 
 MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 -->
@@ -1434,6 +1646,10 @@ Number 3 on the slide: Set timeouts — e.g., 30 seconds max per tool.
 Number 4 on the slide: Log all tool calls — audit trail for debugging.
 
 Number 5 on the slide: Require human approval for destructive actions — never auto-run writes/deletes.
+
+Terms on this slide — quick definitions for the room:
+
+Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
 
 Tool calling is how the model stops guessing and starts acting — read a file, run a terminal command, fetch a URL.
 
@@ -1494,6 +1710,10 @@ In the table, **Autonomy** — None. Use case on slide: Goal-directed autonomy.
 
 In the table, **Example** — "Explain this code". Use case on slide: "Fix all bugs in this repository".
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
 Chatbots answer questions. Agents pursue outcomes across multiple steps — edits, commands, follow-ups.
 
 That difference drives cost, risk, and how carefully you review each step.
@@ -1508,6 +1728,10 @@ That difference drives cost, risk, and how carefully you review each step.
 Let's look at The Agent Loop.
 
 The slide title is: The Agent Loop.
+
+Terms on this slide — quick definitions for the room:
+
+The agent loop is plan, act with tools, observe results, and repeat until the task is done or you stop it.
 -->
 
 ---
@@ -1523,6 +1747,10 @@ This slide includes a diagram — The Agent Loop — Diagram.
 The slide title is: The Agent Loop — Diagram.
 
 The figure on this slide is titled: Agent loop diagram.
+
+Terms on this slide — quick definitions for the room:
+
+The agent loop is plan, act with tools, observe results, and repeat until the task is done or you stop it.
 
 Follow the loop on the slide: you state a goal, the model plans, Cursor runs a tool, results return, and the cycle repeats until the task finishes or you stop it. Each cycle is a chance to review before more changes land.
 -->
@@ -1557,6 +1785,12 @@ Table row: **L4**, Autonomous, Self-directed, minimal supervision, CI/CD agent.
 
 Table row: **L5**, Full Agent, Complete task ownership, Enterprise automation.
 
+Terms on this slide — quick definitions for the room:
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
 Chatbots answer questions. Agents pursue outcomes across multiple steps — edits, commands, follow-ups.
 
 That difference drives cost, risk, and how carefully you review each step.
@@ -1587,6 +1821,10 @@ The slide says: Agent-Assisted:.
 The figure on this slide is titled: Traditional developer workflow.
 
 The figure on this slide is titled: Agent-assisted developer workflow.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -1691,6 +1929,22 @@ In the table, 1.4 — Context. Use case on slide: Single most valuable skill –
 In the table, 1.5 — Tool Calling & MCP. Use case on slide: AI requests actions, you control execution.
 
 In the table, 1.6 — Agents. Use case on slide: Goal-directed action – changes developer role.
+
+Terms on this slide — quick definitions for the room:
+
+Probabilistic means the same input can produce different outputs — unlike traditional code that always returns the same result.
+
+Deterministic means the same input always produces the same output — how conventional software behaves.
+
+A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
+
+Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
+
+Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -1782,6 +2036,18 @@ Bullet 6 on the slide: Use @mentions for precise context control.
 Bullet 7 on the slide: Navigate checkpoints as a safety net.
 
 Bullet 8 on the slide: Let agents run terminal commands and react to output.
+
+Terms on this slide — quick definitions for the room:
+
+Diff review is reading added and removed lines before you accept an AI edit — your primary quality gate.
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -1822,6 +2088,14 @@ In the table, 2.6 — @mentions. Use case on slide: 13 min.
 In the table, 2.7 — Checkpoints. Use case on slide: 8 min.
 
 In the table, 2.8 — Terminal Integration. Use case on slide: 13 min.
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -1871,6 +2145,10 @@ The slide says: The Problem: Opening a new codebase is overwhelming. Where do yo
 
 The slide says: The Cursor Solution: Ask the agent to explain the codebase. It reads files, traces connections, and returns a roadmap.
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
 Every one of us has opened a repo and wondered where to start. The Agent can produce a roadmap in minutes — but the first answer is a draft, not gospel. Your job is to verify and follow up.
 -->
 
@@ -1915,6 +2193,12 @@ The slide title is: Exercise 2.1 — Steps 1–2.
 The slide says: Windows (PowerShell) in Cursor's integrated terminal (`Ctrl+ `` → PowerShell):.
 
 The code on the slide reads: git clone https://github.com/facebookresearch/detectron2 cd detectron2 cursor ..
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -1949,6 +2233,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 2.1 — Step 3: Orientation Prompt.
 
 The code on the slide reads: Explain this codebase to me as if I'm a new team member. Specifically tell me: 1. What is the main purpose of this project? 2. What are the entry points (main scripts, CLI, API)? 3. What are the key modules and how do they relate? 4. What are the main dependencies? 5. What files should I read first to understand the architecture?.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -2021,6 +2311,10 @@ This slide includes a diagram — Expected Agent Output (Sample).
 The slide title is: Expected Agent Output (Sample).
 
 The figure on this slide is titled: Expected Agent Output (Sample).
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2041,6 +2335,10 @@ The slide title is: Pro Tip — Save the Overview.
 The slide says: Pro Tip: Save the agent's explanation as a project note:.
 
 The code on the slide reads: Save this explanation as .cursor/project-overview.md so future team members can read it..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2071,6 +2369,10 @@ Bullet 1 on the slide: Agent described project purpose.
 Bullet 2 on the slide: Agent identified entry points and key modules.
 
 Bullet 3 on the slide: Agent suggested first files to read.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2115,6 +2417,10 @@ The slide title is: Targeted Explanations.
 The slide quotes: ""Don't make the agent read the whole codebase when you just need to understand one function.""
 
 The slide says: Use precise context — select a function or class, then ask focused questions.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2166,6 +2472,10 @@ Bullet 3 on the slide: Potential edge cases or bugs.
 Bullet 4 on the slide: How it could be improved.
 
 The code on the slide reads: Explain the function I have selected. For each major section, tell me: - What it does - Why it's designed that way (trade-offs) - Potential edge cases or bugs - How it could be improved.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2248,6 +2558,10 @@ Bullet 1 on the slide: Selected specific code · Agent explained the selection.
 Bullet 2 on the slide: Agent provided input/output examples · Agent traced call dependencies.
 
 The code on the slide reads: # Select code, press Cmd+L (or Ctrl+L) # The agent explains the selected code in the chat panel.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2309,6 +2623,12 @@ Number 2 on the slide: Review the diff (what's added/removed).
 Number 3 on the slide: Accept or reject changes.
 
 Number 4 on the slide: Test after acceptance.
+
+Terms on this slide — quick definitions for the room:
+
+Diff review is reading added and removed lines before you accept an AI edit — your primary quality gate.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2360,6 +2680,10 @@ The slide title is: Exercise 2.3 — Steps 1–2.
 The code on the slide reads: Change the welcome message in index.html from "Hello World" to "Welcome to My App".
 
 The code on the slide reads: 📝 Changes to index.html:   <h1>- Hello World</h1>   <h1>+ Welcome to My App</h1> Accept? [Yes] [No] [Edit].
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2429,6 +2753,10 @@ The slide says: Windows (PowerShell) — use these in the demo:.
 The slide says: Other platforms: Mac — open index.html · same python / npm commands.
 
 The code on the slide reads: start index.html          # open HTML in default browser python script.py          # run Python script npm start                 # Node/React dev server.
+
+Terms on this slide — quick definitions for the room:
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -2463,6 +2791,10 @@ Bullet 1 on the slide: Agent proposed a change · Reviewed diff before accepting
 Bullet 2 on the slide: Accepted only after verification · Tested the change.
 
 The code on the slide reads: That change didn't work. The button disappeared. Please explain what happened and suggest a fix..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2490,6 +2822,10 @@ The slide title is: Lesson 2.4.
 You will also see the heading: Plan Mode.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+Terms on this slide — quick definitions for the room:
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
 -->
 
 ---
@@ -2521,6 +2857,12 @@ Bullet 2 on the slide: Refactoring existing code.
 Bullet 3 on the slide: You're not 100% sure of the best approach.
 
 Bullet 4 on the slide: The change is risky or hard to undo.
+
+Terms on this slide — quick definitions for the room:
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2557,6 +2899,12 @@ You will also see the heading: Press Shift+Tab in the Agent input.
 You will also see the heading: The input border changes color to indicate Plan Mode.
 
 The code on the slide reads: # Press Shift+Tab in the Agent input # The input border changes color to indicate Plan Mode.
+
+Terms on this slide — quick definitions for the room:
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 Plan Mode shows you the design before files change. Use it for multi-file work and unfamiliar codebases — plans are cheaper to throw away than bad diffs.
 -->
@@ -2636,6 +2984,14 @@ The slide title is: Exercise 2.4 — Step 3: Review the Plan.
 Step 3: Review the agent's plan — a good plan includes:.
 
 The code on the slide begins: 📋 IMPLEMENTATION PLAN Step 1: Create User Model — models/user.js Step 2: Auth Routes — routes/auth.js (login, logout, register) Step 3: Session Management — middleware/session.js Step 4: Protected Route Middleware — middleware/auth.js Step 5: Update Frontend — pages/login.html, dashboard.html. The rest of the block continues on the slide.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JWT stands for JSON Web Token — a compact, signed token format often used for authentication.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -2666,6 +3022,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 2.4 — Approve & Execute.
 
 The code on the slide reads: Use JWT for simplicity. No existing database yet – use SQLite for now. Skip email verification for this version. Proceed..
+
+Terms on this slide — quick definitions for the room:
+
+SQLite is a lightweight file-based database — no separate server process required.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JWT stands for JSON Web Token — a compact, signed token format often used for authentication.
 -->
 
 ---
@@ -2697,6 +3061,12 @@ Bullet 2 on the slide: Agent created structured plan.
 Bullet 3 on the slide: Agent asked clarifying questions.
 
 Bullet 4 on the slide: Approved plan before code was written.
+
+Terms on this slide — quick definitions for the room:
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2759,6 +3129,12 @@ In the table, Complex logic, architecture — Claude Opus or GPT-5.5. Use case o
 In the table, Frontend/visual work — Gemini 3.1 Pro. Use case on slide: Can see images.
 
 In the table, Fast, simple questions — Claude Haiku. Use case on slide: Fastest responses.
+
+Terms on this slide — quick definitions for the room:
+
+Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding tasks and tool use inside the editor.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -2802,6 +3178,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 2.5 — Compare Two Models.
 
 The code on the slide reads: Explain what a closure is in JavaScript with a practical example..
+
+Terms on this slide — quick definitions for the room:
+
+Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding tasks and tool use inside the editor.
 -->
 
 ---
@@ -2832,6 +3212,10 @@ In the table, Code example quality — . Use case on slide: .
 In the table, Explanation clarity — . Use case on slide: .
 
 In the table, Speed — . Use case on slide: .
+
+Terms on this slide — quick definitions for the room:
+
+Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding tasks and tool use inside the editor.
 -->
 
 ---
@@ -2857,6 +3241,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 2.5 — Cost & Decision Matrix.
 
 The figure on this slide is titled: Exercise 2.5 — Cost & Decision Matrix.
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -2910,6 +3298,10 @@ The slide title is: Lesson 2.6.
 You will also see the heading: Precise Context with @mentions.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -2948,6 +3340,10 @@ In the table, `@chat` — Reference past conversation. Use case on slide: `@prev
 In the table, `@folder` — Reference entire directory. Use case on slide: `@/src/utils`.
 
 In the table, `@web` — Search the web. Use case on slide: `@web pandas DataFrame`.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -2991,6 +3387,10 @@ The slide title is: Exercise 2.6 — Steps 1–2.
 The code on the slide reads: @database.py What are the security vulnerabilities in this database connection?.
 
 The code on the slide reads: @calculate_total This function is returning NaN sometimes. Why?.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3017,6 +3417,10 @@ The slide title is: Exercise 2.6 — Step 3: Multiple @mentions.
 Step 3: Combine multiple @mentions:.
 
 The code on the slide reads: @auth.py @UserModel @login_handler Review the authentication flow. Are there any race conditions or timing attacks?.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3043,6 +3447,10 @@ The slide title is: Exercise 2.6 — Step 4: @branch.
 Step 4: Use @branch to reference a different branch:.
 
 The code on the slide reads: Compare @main and @feature/payment branches. What are the key differences in the payment handling code?.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3106,6 +3514,10 @@ The slide title is: Exercise 2.6 — Steps 6–7: @folder & @web.
 The code on the slide reads: @src/components Find all components that don't have loading states..
 
 The code on the slide reads: @web React 19 useTransition hook How do I use it?.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3127,6 +3539,12 @@ Bullet 1 on the slide: Start typing @ — Cursor auto-suggests available mention
 Bullet 2 on the slide: You can @mention multiple items in one message.
 
 Bullet 3 on the slide: @mentions work in both Agent and Chat modes.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3158,6 +3576,10 @@ Bullet 2 on the slide: Used @symbol to target a function or class.
 Bullet 3 on the slide: Used multiple @mentions together.
 
 Bullet 4 on the slide: Used @web for external search.
+
+Terms on this slide — quick definitions for the room:
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3185,6 +3607,10 @@ The slide title is: Lesson 2.7.
 You will also see the heading: Checkpoints.
 
 The note on screen reads: Concept · 4 min · Exercise · 4 min.
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
 -->
 
 ---
@@ -3216,6 +3642,12 @@ Bullet 2 on the slide: Conversation history · File states.
 Bullet 3 on the slide: Before complex changes · At milestones (Step 2 of 5).
 
 Bullet 4 on the slide: Before risky experiments · Before terminal commands.
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3252,6 +3684,12 @@ You will also see the heading: Click checkpoint icon in Agent panel.
 You will also see the heading: Windows: `Ctrl+Shift+S (Mac: Cmd+Shift+S`).
 
 The code on the slide reads: # Click checkpoint icon in Agent panel # Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``).
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3281,6 +3719,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 2.7 — Steps 2–3.
 
 The code on the slide reads: Add input validation to all form handlers..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3302,6 +3744,12 @@ Step 5: View history via the clock icon in Agent panel.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.7 — Steps 4–5.
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3333,6 +3781,10 @@ Bullet 3 on the slide: Test the restored state before continuing.
 Bullet 4 on the slide: Clean up old checkpoints periodically.
 
 Bullet 5 on the slide: Created checkpoint · Made changes · Restored · Verified restoration.
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
 
 Checkpoints are undo for agent experiments — create one before risky prompts or broad @folder mentions.
 -->
@@ -3394,6 +3846,10 @@ Bullet 4 on the slide: You approve each command before execution.
 Bullet 5 on the slide: Commands appear in terminal for you to see.
 
 Bullet 6 on the slide: You can reject dangerous commands.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3446,6 +3902,10 @@ Environment note on the slide: Demonstration (Windows): PowerShell · Agent `Ctr
 The code on the slide reads: Run `python --version` and `gcc --version` in PowerShell. Tell me what versions we're using..
 
 The code on the slide reads: Run `dir` and tell me which file looks like the main program..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3463,6 +3923,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 2.8 — Agent Terminal Loop.
 
 The figure on this slide is titled: Exercise 2.8 — Agent Terminal Loop.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3556,6 +4020,10 @@ In the table, **Always approve first**: `Remove-Item`, `sudo`, `git push --force
 In the table, **Review carefully**: `pip install`, `npm install`, git branch changes, docker.
 
 In the table, **Safe to auto-approve (Windows demo)**: `python --version`, `dir`, `Get-Location`, `Get-Content`, `pytest`, `npm test`.
+
+Terms on this slide — quick definitions for the room:
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -3596,6 +4064,16 @@ In the table, 2.6 — @mentions. Use case on slide: Precise context.
 In the table, 2.7 — Checkpoints. Use case on slide: Safety net.
 
 In the table, 2.8 — Terminal Integration. Use case on slide: Command execution.
+
+Terms on this slide — quick definitions for the room:
+
+Diff review is reading added and removed lines before you accept an AI edit — your primary quality gate.
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3634,6 +4112,10 @@ The slide title is: Agent Modes and Tools.
 You will also see the heading: Module 3 · Day 1 (Hands-On + Concept).
 
 The slide says: Cursor Training Program · ~60 min.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3662,6 +4144,10 @@ In the table, **Format**: Hands-on exercise + concept.
 In the table, **Prerequisites**: Module 2 completed, live web app available (or sample provided).
 
 In the table, **Module Goal**: Master different agent modes and the core tools that make agents powerful.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3690,6 +4176,16 @@ Bullet 2 on the slide: Use the Browser Tool to inspect live pages and read conso
 Bullet 3 on the slide: Run terminal commands through the agent and diagnose failures.
 
 Bullet 4 on the slide: Write effective, constrained prompts that avoid scope creep.
+
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+Scope creep is when the agent changes more files or behavior than you asked for — constrain with explicit DO NOT lists.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 -->
 
 ---
@@ -3718,6 +4214,16 @@ In the table, 3.2 — Browser Tool. Use case on slide: 18 min.
 In the table, 3.3 — Terminal Tool. Use case on slide: 20 min.
 
 In the table, 3.4 — Effective Prompting in Practice. Use case on slide: 22 min.
+
+Terms on this slide — quick definitions for the room:
+
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 -->
 
 ---
@@ -3747,6 +4253,12 @@ The slide title is: Lesson 3.1.
 You will also see the heading: Ask Mode vs. Agent Mode.
 
 The note on screen reads: Concept · 10 min · Exercise · 8 min.
+
+Terms on this slide — quick definitions for the room:
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 -->
 
 ---
@@ -3784,6 +4296,14 @@ In the table, **Can call tools** — ❌ No. Use case on slide: ✅ Yes.
 In the table, **Safety level** — Very high (read-only). Use case on slide: Moderate (needs oversight).
 
 In the table, **Best for** — Questions, learning, code review. Use case on slide: Implementation, debugging, automation.
+
+Terms on this slide — quick definitions for the room:
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
@@ -3824,6 +4344,12 @@ Bullet 5 on the slide: You need to run and react to commands.
 Bullet 6 on the slide: Multi-step tasks · Development environment.
 
 Bullet 7 on the slide: You're prepared to review changes.
+
+Terms on this slide — quick definitions for the room:
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 -->
 
 ---
@@ -3856,6 +4382,14 @@ In the table, Data leakage — Low. Use case on slide: Medium (can read files).
 
 In the table, API cost — Low (no tool calls). Use case on slide: Higher (multiple tool calls).
 
+Terms on this slide — quick definitions for the room:
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
 The practical rule is on the slide: never trust a single run as ground truth. Run the code, read the diff, check the docs — every time.
 
 Teams that skip verification accumulate AI debt — code that looked fine in chat but fails in CI.
@@ -3878,6 +4412,10 @@ The slide title is: The Mode Continuum.
 The slide quotes: ""Not every AI interaction needs full agent capabilities.""
 
 The figure on this slide is titled: The Mode Continuum.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3924,6 +4462,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -3955,6 +4503,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 3.1 — Steps 1–2.
 
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -3983,6 +4535,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 3.1 — Steps 1–2 (Part 2).
 
 The code on the slide reads: Change the variable name 'temp' to 'temperature' in the current file..
+
+Terms on this slide — quick definitions for the room:
+
+Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4017,6 +4577,12 @@ The slide title is: Exercise 3.1 — Steps 3–5.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: Explain the purpose of the main() function in this file. What edge cases does it handle?.
+
+Terms on this slide — quick definitions for the room:
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4044,6 +4610,10 @@ Where: Agent panel — `Ctrl+I`.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 3.1 — Steps 3–5 (Part 2).
+
+Terms on this slide — quick definitions for the room:
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
 -->
 
 ---
@@ -4091,6 +4661,14 @@ Bullet 1 on the slide: Used Ask Mode for questions · Observed Ask Mode cannot m
 Bullet 2 on the slide: Switched to Agent Mode · Made a change with diff review.
 
 The code on the slide reads: # Start in Ask Mode: What does this function return? # Then: "Switch to Agent Mode and fix the off-by-one error".
+
+Terms on this slide — quick definitions for the room:
+
+Diff review is reading added and removed lines before you accept an AI edit — your primary quality gate.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 -->
 
 ---
@@ -4118,6 +4696,10 @@ The slide title is: Lesson 3.2.
 You will also see the heading: Browser Tool.
 
 The note on screen reads: Concept · 8 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
 -->
 
 ---
@@ -4146,6 +4728,12 @@ Bullet 2 on the slide: See console logs and errors · Take screenshots (dependin
 Bullet 3 on the slide: Click elements and interact with pages.
 
 Bullet 4 on the slide: Extract data from live pages.
+
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+DOM stands for Document Object Model — the live tree structure of elements on a web page.
 
 The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 -->
@@ -4176,6 +4764,12 @@ In the table, "Is the API returning data?" — Checks code. Use case on slide: S
 In the table, "What console errors?" — Asks you. Use case on slide: Reads console directly.
 
 In the table, "Does responsive layout work?" — Trusts CSS. Use case on slide: Views at different sizes.
+
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 -->
@@ -4220,6 +4814,14 @@ You will also see the heading: Or use a public test page.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent Ctrl+I`.
 
 The code on the slide reads: python -m http.server 8000 # Or use a public test page.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -4249,6 +4851,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 3.2 — Steps 1–2 (Part 2).
 
 The code on the slide reads: Use the browser tool to open http://localhost:8000 Tell me what you see on the page..
+
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
 -->
 
 ---
@@ -4285,6 +4895,10 @@ The slide title is: Exercise 3.2 — Steps 3–4.
 Environment note on the slide: Demonstration (Windows): Agent `Ctrl+I` · PowerShell · Browser for dashboards.
 
 The code on the slide reads: On that same page, find: 1. The main heading text 2. The number of buttons 3. Any error messages visible.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4314,6 +4928,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 3.2 — Steps 3–4 (Part 2).
 
 The code on the slide reads: Now open the browser developer console. Are there any errors or warnings? If so, what are they?.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4329,6 +4947,10 @@ This slide includes a diagram — Expected Agent Actions.
 The slide title is: Expected Agent Actions.
 
 The figure on this slide is titled: Expected Agent Actions.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4363,6 +4985,12 @@ The slide title is: Exercise 3.2 — Steps 5–6.
 Environment note on the slide: Demonstration (Windows): Agent `Ctrl+I` · PowerShell · Browser for dashboards.
 
 The code on the slide reads: The login button is partially hidden on mobile sizes. Use the browser tool to check what's happening..
+
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4392,6 +5020,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 3.2 — Steps 5–6 (Part 2).
 
 The code on the slide reads: Go to https://example.com/pricing Extract all pricing plan names and their monthly costs into a table..
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4425,6 +5059,14 @@ In the table, Rate limits on some sites: Space out requests.
 
 In the table, Cannot upload files: Not supported yet.
 
+Terms on this slide — quick definitions for the room:
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+
 The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 -->
 
@@ -4453,6 +5095,10 @@ The slide title is: Lesson 3.3.
 You will also see the heading: Terminal Tool.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
+
+Terms on this slide — quick definitions for the room:
+
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
 -->
 
 ---
@@ -4478,6 +5124,10 @@ Bullet 3 on the slide: Read command output as context for next actions.
 
 Bullet 4 on the slide: Chain commands based on previous results.
 
+Terms on this slide — quick definitions for the room:
+
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
+
 The Terminal tool lets the Agent run tests and builds and read real output. That is how we turn guesses into evidence.
 -->
 
@@ -4494,6 +5144,10 @@ This slide includes a diagram — Terminal Tool Flow.
 The slide title is: Terminal Tool Flow.
 
 The figure on this slide is titled: Terminal Tool Flow.
+
+Terms on this slide — quick definitions for the room:
+
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
 
 The Terminal tool lets the Agent run tests and builds and read real output. That is how we turn guesses into evidence.
 -->
@@ -4553,6 +5207,12 @@ Number 2 on the slide: Open Agent panel — `Ctrl+I`.
 Number 3 on the slide: Confirm Agent Mode (/agent).
 
 Number 4 on the slide: Need gcc installed (compile C tests).
+
+Terms on this slide — quick definitions for the room:
+
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
 -->
 
 ---
@@ -4597,6 +5257,10 @@ Goal: Approve a low-risk terminal command.
 Look for: Version strings in chat · no file edits.
 
 The code on the slide reads: Check whether gcc and git are available. Run gcc --version and git --version. Summarize the output. Do not modify any files..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4689,6 +5353,10 @@ Number 1 on the slide: Open test_calculator.c.
 Number 2 on the slide: Change assert(add(2, 3) == 5); → == 6.
 
 Number 3 on the slide: Save — do not ask Agent to edit yet.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4732,6 +5400,10 @@ Goal: Agent explains the failure without fixing yet.
 Look for: Names test_add · expects 6, got 5 · test is wrong.
 
 The code on the slide reads: @test_calculator.c Run the test suite again. Which test failed? What assertion failed? Is the bug in the test or in add()? Explain only — do not fix yet..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -4937,6 +5609,10 @@ In the table, "Add logging": "Add INFO-level logging to calculate() using existi
 In the table, "Make it faster": "Optimize find_user() from O(n²) to O(n log n). Don't change signature.".
 
 In the table, "Review my code": "Review auth.py for SQL injection, password handling, session issues. Ignore style.".
+
+Terms on this slide — quick definitions for the room:
+
+SQL stands for Structured Query Language — the language relational databases use for queries and updates.
 -->
 
 ---
@@ -4970,6 +5646,10 @@ Bullet 3 on the slide: Do NOT delete: comments, logging, error handling.
 Bullet 4 on the slide: Do NOT add: new dependencies, external APIs, global state.
 
 The code on the slide reads: BOUNDARIES: - Do NOT change: function signatures, return types, existing tests - Do NOT touch: config files, database schemas, other modules - Do NOT delete: comments, logging, error handling - Do NOT add: new dependencies, external APIs, global state Change ONLY: the function body of calculate_total().
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5012,6 +5692,18 @@ In the table, **Use checkpoints**: Create checkpoint before complex requests.
 In the table, **Prefer diffs**: "Show me the diff, don't replace the whole file".
 
 The code on the slide reads: User: "Fix the login bug." Agent: "Fixed login. Also refactored auth, added OAuth, reorganized codebase." User: "Wait, I just wanted the login bug fixed!".
+
+Terms on this slide — quick definitions for the room:
+
+Scope creep is when the agent changes more files or behavior than you asked for — constrain with explicit DO NOT lists.
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+OAuth stands for Open Authorization — a standard for delegated login without sharing passwords.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5066,6 +5758,10 @@ Number 1 on the slide: File → Open Folder → core-exercises/exercise-3/.
 Number 2 on the slide: Open Agent panel — `Ctrl+I`.
 
 Number 3 on the slide: Confirm Agent Mode (footer shows Agent, or type /agent).
+
+Terms on this slide — quick definitions for the room:
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
 -->
 
 ---
@@ -5131,6 +5827,10 @@ Bullet 3 on the slide: Do NOT modify main() or other functions.
 Bullet 4 on the slide: Change ONLY the divide() function body.
 
 The code on the slide reads: @calculator.c Task: Improve divide() so it handles division by zero safely inside the function itself. Constraints: - Do NOT change any function signatures - Do NOT add new #include lines - Do NOT modify main() or other functions - Change ONLY the divide() function body Output format: Show the exact diff and explain the root cause in 2–3 sentences. Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5186,6 +5886,10 @@ The slide says: Part B — constrained: Re-send the Step 1 prompt.
 Look for: Constrained prompt → smaller, reviewable diff.
 
 The code on the slide reads: @calculator.c Fix the divide function..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5239,6 +5943,12 @@ The slide title is: Exercise 3.4 — Step 3: Plan Before Editing.
 Look for: Written plan, no diff until you approve.
 
 The code on the slide reads: @calculator.c Before making any changes, answer: 1. What is the smallest change needed for divide()? 2. Which lines would you change? 3. What could go wrong? 4. What will you NOT change? Do not edit files yet — I will review first..
+
+Terms on this slide — quick definitions for the room:
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5296,6 +6006,10 @@ Bullet 3 on the slide: Add new functions.
 Bullet 4 on the slide: Modify main().
 
 The code on the slide reads: @calculator.c Add a one-line comment above divide() explaining it performs integer division. DO NOT: - Change any function bodies - Rename functions - Add new functions - Modify main().
+
+Terms on this slide — quick definitions for the room:
+
+Scope creep is when the agent changes more files or behavior than you asked for — constrain with explicit DO NOT lists.
 -->
 
 ---
@@ -5457,6 +6171,16 @@ In the table, 3.2 — Browser Tool. Use case on slide: Agent can see live pages 
 In the table, 3.3 — Terminal Tool. Use case on slide: Agent can run commands and react.
 
 In the table, 3.4 — Effective Prompting. Use case on slide: Boundaries prevent scope creep.
+
+Terms on this slide — quick definitions for the room:
+
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+Scope creep is when the agent changes more files or behavior than you asked for — constrain with explicit DO NOT lists.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
 -->
 
 ---
@@ -5523,6 +6247,12 @@ In the table, **Format**: Hands-on exercise + walkthrough.
 In the table, **Prerequisites**: Modules 1–3 completed, team repository access, Cursor installed.
 
 In the table, **Module Goal**: Customize Cursor for team workflows with rules, skills, MCP, and subagents.
+
+Terms on this slide — quick definitions for the room:
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -5554,6 +6284,14 @@ Bullet 3 on the slide: Build and invoke reusable Skills for specialized workflow
 Bullet 4 on the slide: Connect external tools via MCP and create slash workflows.
 
 Bullet 5 on the slide: Understand when and how to use Subagents for delegation.
+
+Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -5585,6 +6323,14 @@ In the table, 4.3 — Creating and Invoking a Skill. Use case on slide: 20 min.
 In the table, 4.4 — MCP, Hooks, and Slash Workflows. Use case on slide: 10 min.
 
 In the table, 4.5 — Subagents. Use case on slide: 6 min.
+
+Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -5644,6 +6390,10 @@ Table row: **Project**, Specific repo, When opening that project, "Run `make tes
 Table row: **File pattern**, Matching files, When editing those files, "For `*.py` files, use type hints".
 
 Table row: **User**, Your account, Always across all projects, "Explain like I'm a junior developer".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5698,6 +6448,10 @@ You will also see the heading: Examples.
 The slide says: Write your instructions here in natural language.
 
 The slide says: Good: ...  Bad: .
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5744,6 +6498,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -5791,6 +6555,10 @@ The slide says: Create coding standards rule at .cursor/rules/coding-standards.m
 The code on the slide reads: mkdir -p .cursor/rules.
 
 The code on the slide reads: globs: **/*.{js,ts,py}  |  alwaysApply: true Python: type hints, Black (88 chars), Google docstrings JS/TS: const over let, arrow functions, optional chaining General: no commented-out code, no console.log in prod.
+
+Terms on this slide — quick definitions for the room:
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -5836,6 +6604,18 @@ The slide says: Create .cursor/rules/security.mdc:.
 The code on the slide reads: Before changes: git status, git diff After changes:  make test / pytest / npm test → make lint Do NOT suggest changes that break tests or need undocumented API keys.
 
 The code on the slide reads: Never: hardcoded secrets, eval() on user input, SQL concatenation Always: input validation, rate limiting, HTTPS, safe error messages Flag: exec/eval with user input, password/secret in variable names.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+SQL stands for Structured Query Language — the language relational databases use for queries and updates.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -5870,6 +6650,10 @@ The slide title is: Exercise 4.1 — Test & File-Specific Rules.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: Based on the project rules, what are the coding standards I should follow? What are the security guardrails?.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5903,6 +6687,10 @@ Bullet 1 on the slide: Component structure, naming (PascalCase, handleSubmit).
 Bullet 2 on the slide: Performance: React.memo, useCallback, useMemo.
 
 Bullet 3 on the slide: Accessibility: keyboard nav, alt text, semantic HTML.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -5930,6 +6718,10 @@ The slide title is: Lesson 4.2.
 You will also see the heading: Repository Instructions.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
 -->
 
 ---
@@ -5958,6 +6750,10 @@ In the table, **Complexity** — Multiple files, scoped. Use case on slide: Sing
 In the table, **Granularity** — Per-file patterns. Use case on slide: Entire repository.
 
 In the table, **Use case** — Detailed standards. Use case on slide: High-level project overview.
+
+Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
 
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
@@ -6000,6 +6796,10 @@ You will also see the heading: Contact.
 
 The code on the slide reads: # Repository Instructions for [Project Name] ## Project Purpose ## Key Technologies ## Architecture Overview ## Important Conventions ## Common Tasks (make dev, make test, make build) ## External Dependencies ## Contact.
 
+Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
+
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
 
@@ -6032,6 +6832,10 @@ Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ct
 The slide says: Create .cursor/repository-instructions.md:.
 
 The figure on this slide is titled: Exercise 4.2 — Create Instructions.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -6066,6 +6870,10 @@ The slide title is: Exercise 4.2 — Verify & Maintain.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: What are the key technologies used in this project? How do I run the tests?.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -6099,6 +6907,10 @@ Bullet 1 on the slide: New team members join → add contact info.
 Bullet 2 on the slide: Architecture changes → update structure.
 
 Bullet 3 on the slide: New dependencies or common issues discovered.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -6163,6 +6975,14 @@ In the table, Documentation: "Generate API Docs".
 
 The figure on this slide is titled: What Is a Skill?.
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
 
@@ -6206,6 +7026,12 @@ The slide says: Create .cursor/skills/pr-review/SKILL.md:.
 
 The code on the slide reads: name: pr-review description: Review a PR for code quality, security, and team standards Step 1: Fetch diff (git fetch + git diff main...FETCH_HEAD) Step 2: Review — code quality, security, testing, docs, style Step 3: Output formatted review with Critical / Warning / Suggestion Verdict: APPROVE / REQUEST CHANGES / COMMENT.
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
 
@@ -6241,6 +7067,14 @@ Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ct
 The slide says: Create .cursor/skills/security-audit/SKILL.md:.
 
 The code on the slide reads: Scan for:   Critical: hardcoded secrets, SQL injection, command injection, eval()   Medium:   no input validation, weak crypto, missing CSRF   Low:      debug endpoints, verbose errors, outdated deps Output: report with line numbers, fix suggestions, overall risk rating.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CSRF stands for Cross-Site Request Forgery — an attack where a malicious site triggers actions in another site you are logged into.
+
+SQL stands for Structured Query Language — the language relational databases use for queries and updates.
 
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
@@ -6278,6 +7112,14 @@ Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ct
 
 The code on the slide reads: /pr-review PR #42 /pr-review feature/payment-integration.
 
+Terms on this slide — quick definitions for the room:
+
+A slash command is a typed shortcut — often backed by a skill — that triggers a repeatable workflow.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
 
@@ -6308,6 +7150,10 @@ The slide title is: Exercise 4.3 — Invoke Skills (Part 2).
 
 The code on the slide reads: What skills are available in this project?.
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
 
@@ -6334,6 +7180,14 @@ The slide title is: Exercise 4.3 — Invoke Skills (Part 3).
 
 Success criteria listed: Created skills · built PR Review + Security Audit · invoked via slash command.
 
+Terms on this slide — quick definitions for the room:
+
+A slash command is a typed shortcut — often backed by a skill — that triggers a repeatable workflow.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
 
@@ -6358,6 +7212,10 @@ The slide title is: Lesson 4.4.
 You will also see the heading: MCP, Hooks, and Slash Workflows.
 
 The note on screen reads: Concept · 10 min · Walkthrough.
+
+Terms on this slide — quick definitions for the room:
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -6394,6 +7252,10 @@ In the table, **Jira**: Create tickets, update status.
 In the table, **Database**: Query databases, run migrations.
 
 The figure on this slide is titled: What Is MCP?.
+
+Terms on this slide — quick definitions for the room:
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 
 MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 -->
@@ -6446,6 +7308,12 @@ In the table, `/onboard @newdev`: Onboarding skill + GitHub issue + Slack messag
 In the table, `/deploy staging`: Tests → build → deploy → notify team.
 
 In the table, `/bug-report`: Analyze error → create issue → assign on-call.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -6486,6 +7354,16 @@ The code on the slide begins: {   "mcpServers": {     "github": {       "command
 
 The code on the slide reads: Create a PR from feature/payment and request review from @alice Send a message to #deploys: "Deployment starting".
 
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+
 MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 -->
 
@@ -6514,6 +7392,12 @@ The slide says: Usage: /deploy staging.
 Success criteria listed: Understood MCP, hooks, slash commands · saw configuration examples.
 
 The figure on this slide is titled: Walkthrough: Slash Command Example.
+
+Terms on this slide — quick definitions for the room:
+
+A slash command is a typed shortcut — often backed by a skill — that triggers a repeatable workflow.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -6535,6 +7419,10 @@ The slide title is: Lesson 4.5.
 You will also see the heading: Subagents.
 
 The note on screen reads: Concept · 6 min · Walkthrough.
+
+Terms on this slide — quick definitions for the room:
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
 -->
 
 ---
@@ -6554,6 +7442,12 @@ The slide title is: What Are Subagents?.
 The slide says: Independent agent instances for specialized tasks — own context, tools, and instructions — then report back to the main agent.
 
 The figure on this slide is titled: What Are Subagents?.
+
+Terms on this slide — quick definitions for the room:
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -6582,6 +7476,10 @@ In the table, **Isolation** — Separate context. Use case on slide: Analyze lar
 In the table, **Specialization** — Different instructions. Use case on slide: Security expert vs. UI designer.
 
 In the table, **Sandboxing** — Limit tool access. Use case on slide: Read-only subagent for unknown code.
+
+Terms on this slide — quick definitions for the room:
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
 -->
 
 ---
@@ -6607,6 +7505,10 @@ In the table, **Tool**: Single action (read file, run command).
 In the table, **Skill**: Multi-step workflow, same context.
 
 In the table, **Subagent**: Parallel, isolated, specialized work.
+
+Terms on this slide — quick definitions for the room:
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
 
 Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 -->
@@ -6654,6 +7556,18 @@ Success criteria listed: Understood concept · parallel execution · recognized 
 The code on the slide reads: → Subagent 1 (Security): scan all files, read-only → Subagent 2 (Docs): generate OpenAPI spec, write to docs/ Main Agent combines: security report + openapi.yaml.
 
 The code on the slide reads: Spawn a security subagent to audit src/auth/ independently. Meanwhile, I'll work on the frontend..
+
+Terms on this slide — quick definitions for the room:
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
+
+OpenAPI is the Open API Specification — a machine-readable description of REST endpoints.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+YAML stands for YAML Ain't Markup Language — a human-readable config format used in many DevOps tools.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -6685,6 +7599,16 @@ In the table, 4.3 — Creating Skills. Use case on slide: `.cursor/skills/*/SKIL
 In the table, 4.4 — MCP & Slash Commands. Use case on slide: MCP config, slash commands.
 
 In the table, 4.5 — Subagents. Use case on slide: Understanding of delegation.
+
+Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
+
+A slash command is a typed shortcut — often backed by a skill — that triggers a repeatable workflow.
+
+A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 -->
 
 ---
@@ -6723,6 +7647,10 @@ The slide title is: Cursor CLI and Local Automation.
 You will also see the heading: Module 5 · Day 1 (Hands-On).
 
 The slide says: Cursor Training Program · ~60 min.
+
+Terms on this slide — quick definitions for the room:
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -6751,6 +7679,10 @@ In the table, **Format**: Hands-on exercise.
 In the table, **Prerequisites**: Cursor CLI installed, terminal access, Modules 1–4 completed.
 
 In the table, **Module Goal**: Master the Cursor CLI for terminal-based AI workflows and automation.
+
+Terms on this slide — quick definitions for the room:
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -6779,6 +7711,12 @@ Bullet 2 on the slide: Run one-shot CLI commands for scripting and CI/CD integra
 Bullet 3 on the slide: Hand off local sessions to Cloud Agents for remote execution.
 
 Bullet 4 on the slide: List, resume, and manage concurrent sessions effectively.
+
+Terms on this slide — quick definitions for the room:
+
+One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
 -->
 
 ---
@@ -6807,6 +7745,14 @@ In the table, 5.2 — One-Shot CLI. Use case on slide: 20 min.
 In the table, 5.3 — Cloud Handoff. Use case on slide: 18 min.
 
 In the table, 5.4 — Listing and Resuming Sessions. Use case on slide: 20 min.
+
+Terms on this slide — quick definitions for the room:
+
+Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
+
+One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
 -->
 
 ---
@@ -6832,6 +7778,10 @@ The slide title is: Lesson 5.1.
 You will also see the heading: Interactive CLI.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
+
+Terms on this slide — quick definitions for the room:
+
+Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
 -->
 
 ---
@@ -6864,6 +7814,12 @@ Bullet 2 on the slide: Get code assistance without leaving your workflow.
 Bullet 3 on the slide: Automate coding tasks with scripts.
 
 Bullet 4 on the slide: Integrate AI into existing CLI tools.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -6904,6 +7860,14 @@ In the table, `/usage`: View Cursor usage stats.
 In the table, `/about`: View environment and CLI configuration.
 
 In the table, `/resume`: View and resume previous sessions.
+
+Terms on this slide — quick definitions for the room:
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
+
+MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -6950,6 +7914,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -6990,6 +7964,12 @@ The slide title is: Exercise 5.1 — Steps 1–2.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent agent "Help me understand the current codebase structure".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7019,6 +7999,12 @@ Bullet 2 on the slide: Shift+Enter — new line without submitting.
 Bullet 3 on the slide: Enter — submit prompt.
 
 Bullet 4 on the slide: Ctrl+D twice — exit.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7056,6 +8042,12 @@ You will also see the heading: Or list models outside session:.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: /model # Or list models outside session: agent --list-models.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7087,6 +8079,12 @@ The slide title is: Exercise 5.1 — Steps 3–5 (Part 2).
 You will also see the heading: Or inside session: /ask.
 
 The code on the slide reads: agent --mode=ask "What does this project's main function do?" # Or inside session: /ask.
+
+Terms on this slide — quick definitions for the room:
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -7117,6 +8115,14 @@ The slide title is: Exercise 5.1 — Steps 3–5 (Part 3).
 Step 5: Plan Mode:.
 
 The code on the slide reads: agent --mode=plan "Add user authentication to this API".
+
+Terms on this slide — quick definitions for the room:
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -7153,6 +8159,10 @@ You will also see the heading: Shows: [model: claude-4.5-sonnet] [~/project] [ma
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: npx -y cursor-statusline # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k].
+
+Terms on this slide — quick definitions for the room:
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7181,6 +8191,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.1 — Steps 6–7 (Part 2).
 
 The code on the slide reads: agent /setup-terminal.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7206,6 +8222,10 @@ The slide title is: Lesson 5.2.
 You will also see the heading: One-Shot CLI.
 
 The note on screen reads: Concept · 8 min · Exercise · 12 min.
+
+Terms on this slide — quick definitions for the room:
+
+One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
 -->
 
 ---
@@ -7230,6 +8250,12 @@ The slide title is: One-Shot Command Structure.
 The slide quotes: ""Perfect for automation, CI/CD pipelines, and batch operations.""
 
 The code on the slide reads: agent "your prompt here"                    # Basic one-shot agent --mode=ask "question about code"      # Read-only agent --model claude-4.5-sonnet "task"      # Specific model agent --non-interactive "run this task"     # No prompts, just output.
+
+Terms on this slide — quick definitions for the room:
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -7261,6 +8287,18 @@ In the table, **CI/CD tasks**: `agent "Review this PR diff for security issues"`
 In the table, **Batch processing**: Loop through files with `agent` commands.
 
 In the table, **Pre-commit hooks**: `agent --mode=ask "Check for console.log statements"`.
+
+Terms on this slide — quick definitions for the room:
+
+One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -7302,6 +8340,12 @@ The slide title is: Exercise 5.2 — Steps 1–2.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent "What is the difference between let and const in JavaScript?" agent "Write a bash function that checks if a port is in use" agent --mode=ask "Explain the git rebase command with examples".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7331,6 +8375,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.2 — Steps 1–2 (Part 2).
 
 The code on the slide reads: agent --model gpt-5-mini "What does this command do: ls -la | grep .txt" agent --model claude-4.5-opus "Design a database schema for a task management system".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7370,6 +8420,12 @@ The slide says: Create bin/ai-review.sh:.
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: #!/bin/bash STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ') agent --mode=ask "Review these staged files for common issues: Files: $STAGED_FILES Check for: debugging statements, unused imports, security issues, missing error handling. Be concise.".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -7406,6 +8462,14 @@ The slide title is: Exercise 5.2 — Batch & Git Hooks.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: for file in src/**/*.py; do     agent --mode=ask --non-interactive \       "Summarize this Python file in one sentence: $(head -50 $file)" done.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7437,6 +8501,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.2 — Batch & Git Hooks (Part 2).
 
 Success criteria listed: Ran one-shots · specified models · created reviewer script · understood CI/CD use.
+
+Terms on this slide — quick definitions for the room:
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -7466,6 +8536,10 @@ The slide title is: Lesson 5.3.
 You will also see the heading: Cloud Handoff.
 
 The note on screen reads: Concept · 8 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
 -->
 
 ---
@@ -7496,6 +8570,12 @@ Bullet 2 on the slide: Let the agent run long tasks while you're away.
 
 Bullet 3 on the slide: Resume the session later from any device.
 
+Terms on this slide — quick definitions for the room:
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
 When the PR comes back, the same review discipline applies.
@@ -7514,6 +8594,10 @@ This slide includes a diagram — Cloud Handoff Flow.
 The slide title is: Cloud Handoff Flow.
 
 The figure on this slide is titled: Cloud Handoff Flow.
+
+Terms on this slide — quick definitions for the room:
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -7558,6 +8642,12 @@ The slide title is: Exercise 5.3 — Steps 1–3.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent & "Analyze the entire codebase and create a dependency graph.".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7587,6 +8677,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.3 — Steps 1–3 (Part 2).
 
 The code on the slide reads: 🚀 Handing off to Cloud Agent... ✅ Session running at: https://cursor.com/agents/[agent-id].
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7607,6 +8705,10 @@ Where: Web browser — Edge or Chrome.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 5.3 — Steps 1–3 (Part 3).
+
+Terms on this slide — quick definitions for the room:
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -7640,6 +8742,10 @@ The slide title is: Exercise 5.3 — Steps 4–6.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: & "Continue this conversation in the cloud. I need to log off.".
+
+Terms on this slide — quick definitions for the room:
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7668,6 +8774,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.3 — Steps 4–6 (Part 2).
 
 The code on the slide reads: agent "& Refactor the auth module to use JWT. Update all tests and docs.".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JWT stands for JSON Web Token — a compact, signed token format often used for authentication.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7696,6 +8810,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.3 — Steps 4–6 (Part 3).
 
 The code on the slide reads: agent --resume [agent-id-from-cloud].
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7728,6 +8848,12 @@ In the table, When you need to close laptop: Interactive debugging.
 In the table, Overnight batch processing: Tasks needing terminal access.
 
 In the table, Parallel work streams: Security-sensitive code (local only).
+
+Terms on this slide — quick definitions for the room:
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -7795,6 +8921,10 @@ In the table, `agent --resume [id]`: Resume a specific session by ID.
 In the table, `agent --list`: List available sessions (alternative).
 
 The code on the slide reads: agent "Just say one word: auth-refactor" # Session named "auth-refactor Agent".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -7836,6 +8966,12 @@ The slide title is: Exercise 5.4 — Steps 1–2.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent "Just say one word: frontend-cleanup"   # do work, exit agent "Just say one word: db-optimization"  # do work, exit agent "Just say one word: docs-update".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7873,6 +9009,12 @@ You will also see the heading: 2. db-optimization Agent (1 hour ago).
 You will also see the heading: 3. docs-update Agent (30 minutes ago).
 
 The code on the slide reads: /resume # 1. frontend-cleanup Agent (2 hours ago) # 2. db-optimization Agent (1 hour ago) # 3. docs-update Agent (30 minutes ago).
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7906,6 +9048,12 @@ The slide title is: Exercise 5.4 — Steps 3–5.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent --resume abc123-def456-ghi789.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -7939,6 +9087,10 @@ You will also see the heading: Terminal 1: agent --resume frontend-cleanup.
 You will also see the heading: Terminal 2: agent --resume db-optimization.
 
 The code on the slide reads: # Terminal 1: agent --resume frontend-cleanup # Terminal 2: agent --resume db-optimization.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -7967,6 +9119,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 5.4 — Steps 3–5 (Part 3).
 
 The code on the slide reads: /compress   # Summarize conversation, free context window.
+
+Terms on this slide — quick definitions for the room:
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -8014,6 +9172,14 @@ The slide says: Context: Use /compress on long sessions · cloud handoff for ver
 The slide says: Cleanup: Sessions persist indefinitely — manually complete or discard finished ones.
 
 Success criteria listed: Created named sessions · listed with /resume · resumed · used /compress.
+
+Terms on this slide — quick definitions for the room:
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -8042,6 +9208,14 @@ In the table, 5.2 — One-Shot CLI. Use case on slide: Scripting & automation.
 In the table, 5.3 — Cloud Handoff. Use case on slide: Remote/long-running tasks.
 
 In the table, 5.4 — Session Management. Use case on slide: Concurrent work handling.
+
+Terms on this slide — quick definitions for the room:
+
+Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
+
+One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
 -->
 
 ---
@@ -8070,6 +9244,10 @@ This quick reference slide is for you to keep after the course.
 The slide title is: Quick Reference Card.
 
 The code on the slide reads: BASIC:   agent                  Start interactive session   agent "prompt"         One-shot command   agent --mode=ask       Read-only mode   agent --mode=plan      Plan before code   agent --model <name>   Specify model IN SESSION:  /model  /compress  /rules  /commands  /resume  /usage CLOUD:  & "message"  →  cursor.com/agents KEYS:  Shift+Enter (new line)  |  Ctrl+D twice (exit).
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -8150,6 +9328,10 @@ In the table, **Format**: Hands-on exercise + demonstration.
 In the table, **Prerequisites**: Cursor account, GitHub repository access, Modules 1–5 completed.
 
 In the table, **Module Goal**: Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -8178,6 +9360,12 @@ Bullet 2 on the slide: Collect and download artifacts from completed cloud runs.
 Bullet 3 on the slide: Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira).
 
 Bullet 4 on the slide: Manage cloud agent history and settings.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -8203,6 +9391,12 @@ In the table, 6.1 — Launching a Cloud Agent. Use case on slide: 25 min.
 In the table, 6.2 — Cloud Agent Artifacts. Use case on slide: 23 min.
 
 In the table, 6.3 — Cloud Agents from Messaging Platforms. Use case on slide: 20 min.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -8232,6 +9426,10 @@ The slide title is: Lesson 6.1.
 You will also see the heading: Launching a Cloud Agent.
 
 The note on screen reads: Concept · 10 min · Exercise · 15 min.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
 -->
 
 ---
@@ -8266,6 +9464,12 @@ In the table, **Terminal access** — Your terminal. Use case on slide: Simulate
 In the table, **File access** — Local files. Use case on slide: GitHub repos only.
 
 In the table, **Best for** — Interactive work. Use case on slide: Batch, scheduled, hands-off.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -8305,6 +9509,12 @@ Bullet 4 on the slide: Interactive debugging · Local-only files.
 
 Bullet 5 on the slide: Security-sensitive code · Quick questions.
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
 When the PR comes back, the same review discipline applies.
@@ -8334,6 +9544,10 @@ In the table, **From Web**: https://cursor.com/agents.
 
 In the table, **From Mobile**: cursor.com/agents (responsive web).
 
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
 When the PR comes back, the same review discipline applies.
@@ -8361,6 +9575,16 @@ Failed (1)
 The slide title is: Cloud Agent Dashboard.
 
 The code on the slide reads: Active (2)   🔄 security-audit-2024    running • 12 min elapsed   🔄 doc-generator           running • 3 min elapsed Completed (4)   ✅ pr-review-42            FINISHED • 2 artifacts   ✅ test-suite              FINISHED • 1 artifact Failed (1)   ❌ deploy-staging          ERROR • Auth token expired.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 
 Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
@@ -8411,6 +9635,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -8453,6 +9687,12 @@ You will also see the heading: Cursor Editor: cloud icon or View → Cloud Agent
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: # Cursor Editor: cloud icon or View → Cloud Agents open https://cursor.com/agents.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -8491,6 +9731,14 @@ Bullet 1 on the slide: What this project does.
 Bullet 2 on the slide: Key dependencies · How to run locally · Common issues.
 
 The code on the slide reads: Repository: https://github.com/YOUR_ORG/YOUR_REPO Branch: main Prompt: Read README and main source files. Summarize:   - What this project does   - Key dependencies · How to run locally · Common issues Model: claude-4.6-sonnet Auto-create PR: ☐.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -8528,6 +9776,10 @@ The slide title is: Exercise 6.1 — Steps 3–4.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: [10:45:01] Agent starting... [10:45:02] Cloning repository... [10:45:15] Repository cloned [10:45:16] Reading README.md [10:45:40] Generating summary....
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -8568,6 +9820,16 @@ In the table, Notification Email: Completion notifications.
 In the table, Webhook URL: POST completion events.
 
 In the table, Max Run Time: 5 min – 24 hrs.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -8603,6 +9865,12 @@ The slide title is: Exercise 6.1 — Steps 5–6.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style Auto-create PR: ✅ Yes Branch prefix: docs/contributing.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -8631,6 +9899,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 6.1 — Steps 5–6 (Part 2).
 
 The code on the slide reads: https://cursor.com/agents/agt_abc123def456.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -8660,6 +9936,12 @@ The slide title is: Lesson 6.2.
 You will also see the heading: Cloud Agent Artifacts.
 
 The note on screen reads: Concept · 8 min · Exercise · 15 min.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -8698,6 +9980,14 @@ In the table, **Images**: `*.png`, `*.jpg`, `*.svg`.
 In the table, **Archives**: `*.zip`, `*.tar.gz`.
 
 In the table, **Test results**: `junit.xml`, `coverage.json`.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 -->
 
 ---
@@ -8722,6 +10012,12 @@ Bullet 2 on the slide: Multiple artifacts per agent.
 Bullet 3 on the slide: Download URLs expire after 15 minutes.
 
 Bullet 4 on the slide: Max 100MB per file · 1GB total per agent.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -8767,6 +10063,18 @@ The slide title is: Exercise 6.2 — Steps 1–2.
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: Generate: 1. api_documentation.md — OpenAPI-style docs for all endpoints 2. test_report.json — test suite summary 3. screenshot.png — main UI screenshot (if applicable) 4. dependencies.txt — all packages and versions Place all in artifacts/ directory..
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+OpenAPI is the Open API Specification — a machine-readable description of REST endpoints.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -8787,6 +10095,12 @@ Where: Agent panel — `Ctrl+I`.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 6.2 — Steps 1–2 (Part 2).
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -8819,6 +10133,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 6.2 — Steps 3–5.
 
 Environment note on the slide: Demonstration (Windows): Agent `Ctrl+I` · PowerShell · Browser for dashboards.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -8848,6 +10168,10 @@ Bullet 1 on the slide: Markdown → rendered HTML.
 Bullet 2 on the slide: Images → inline preview.
 
 Bullet 3 on the slide: JSON → formatted tree view.
+
+Terms on this slide — quick definitions for the room:
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 -->
 
 ---
@@ -8890,6 +10214,18 @@ The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME
 The slide says: Create bin/process-artifacts.sh to batch-download all artifacts for an agent ID.
 
 The code on the slide reads: # List artifacts curl -s -u "$CURSOR_USER_API_KEY:" \   "https://api.cursor.com/v1/agents/$AGENT_ID/artifacts" | jq '.' # Download specific artifact DOWNLOAD_URL=$(curl -s -u "$CURSOR_USER_API_KEY:" \   ".../artifacts/download?path=artifacts/report.md" | jq -r '.url') curl -L -o report.md "$DOWNLOAD_URL".
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -8925,6 +10261,16 @@ Success criteria listed: Generated artifacts · downloaded single + zip · acces
 Bullet 1 on the slide: name: Download Cloud Agent artifacts.
 
 The code on the slide reads: # GitHub Actions — download test results from completed agent - name: Download Cloud Agent artifacts   run: |     curl -s -u "${{ secrets.CURSOR_API_KEY }}:" \       ".../artifacts/download?path=test_results.xml" > test_results.xml.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -8981,6 +10327,14 @@ In the table, **Jira** — Assign issues to Cursor, `@Cursor` in comments, PR up
 In the table, **Discord** — Command triggering, webhook responses. Use case on slide: Medium (Bot token).
 
 In the table, **Generic Webhook** — POST-triggered agents. Use case on slide: Low (any platform).
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -9038,6 +10392,20 @@ Bullet 2 on the slide: Acknowledges immediately with agent URL.
 Bullet 3 on the slide: Posts completion summary when webhook fires.
 
 The code on the slide reads: Command: /cursor Request URL: https://your-server.com/webhook/slack-cursor Usage Hint: [prompt or command].
+
+Terms on this slide — quick definitions for the room:
+
+A slash command is a typed shortcut — often backed by a skill — that triggers a repeatable workflow.
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -9076,6 +10444,14 @@ The slide says: Response:.
 The code on the slide reads: /cursor Review the recent commits and summarize what changed.
 
 The code on the slide reads: 🤖 Launching Cloud Agent `agt_abc123` Watch progress: https://cursor.com/agents/agt_abc123 ✅ Cloud Agent Complete! Summary: 3 commits — fixed login bug, added tests, updated README. PR: https://github.com/your-org/your-repo/pull/43.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -9116,6 +10492,12 @@ Bullet 2 on the slide: Agent implements the fix and opens a pull request.
 Bullet 3 on the slide: Jira receives a completion update with a link to the PR.
 
 The code on the slide reads: @Cursor Add input validation to the signup form and update tests..
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -9142,6 +10524,14 @@ The slide title is: Demo: Discord Integration.
 The slide says: Usage: !cursor Add error handling to all API endpoints.
 
 The code on the slide reads: @bot.command(name='cursor') async def cursor_command(ctx, *, prompt):     response = requests.post("https://api.cursor.com/v1/agents", ...)     await ctx.send(f"✅ Agent launched: https://cursor.com/agents/{agent_id}").
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9176,6 +10566,22 @@ Success criteria listed: Understood architecture · saw Slack/Jira/Discord demos
 
 The code on the slide reads: curl -X POST https://your-server.com/trigger-agent \   -H "Content-Type: application/json" \   -d '{"prompt": "Run the weekly security scan", "repo": "..."}'.
 
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
@@ -9202,6 +10608,12 @@ In the table, 6.1 — Launching Cloud Agents. Use case on slide: Remote executio
 In the table, 6.2 — Cloud Agent Artifacts. Use case on slide: Output collection.
 
 In the table, 6.3 — Messaging Integrations. Use case on slide: Chat-triggered agents.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -9240,6 +10652,10 @@ The slide title is: Cursor API Foundations.
 You will also see the heading: Module 7 · Day 2 (Concept + Hands-On).
 
 The slide says: Cursor Training Program · ~60 min.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9268,6 +10684,10 @@ In the table, **Format**: Concept + hands-on exercise.
 In the table, **Prerequisites**: Cursor account, basic API familiarity, Python 3.8+ installed.
 
 In the table, **Module Goal**: Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9299,6 +10719,14 @@ Bullet 3 on the slide: Implement rate limit handling and error recovery.
 Bullet 4 on the slide: Use ETag caching for efficient repeat queries.
 
 Bullet 5 on the slide: Test authentication by listing available models.
+
+Terms on this slide — quick definitions for the room:
+
+ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9330,6 +10758,14 @@ In the table, 7.3 — Rate Limits and Error Handling. Use case on slide: 20 min.
 In the table, 7.4 — ETag Caching. Use case on slide: 18 min.
 
 In the table, 7.5 — Listing Available Models. Use case on slide: 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9351,6 +10787,10 @@ The slide title is: Lesson 7.1.
 You will also see the heading: The Cursor API Landscape.
 
 The note on screen reads: Concept · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9382,6 +10822,12 @@ In the table, **Files** — `/v1/files`. Use case on slide: Upload/download file
 In the table, **Admin** — `/v1/admin/*`. Use case on slide: Team management, analytics, policies.
 
 In the table, **Webhooks** — `/v1/webhooks`. Use case on slide: Register and manage webhook endpoints.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9413,6 +10859,18 @@ Table row: **Files**, User API key, Per-minute, Storage.
 Table row: **Admin**, Admin API key, Higher limits, Included in plan.
 
 Table row: **Webhooks**, User API key, Per-minute, Free.
+
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -9437,6 +10895,12 @@ Bullet 2 on the slide: Run a long task that writes code → Agents API.
 Bullet 3 on the slide: Manage team usage and limits → Admin API.
 
 Bullet 4 on the slide: Be notified when agents complete → Webhooks API.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9466,6 +10930,14 @@ The slide title is: OpenAI Compatibility.
 Success criteria listed: Understand five APIs · select correct API · understand OpenAI compatibility.
 
 The code on the slide reads: from openai import OpenAI client = OpenAI(     base_url="https://api.cursor.com/v1",     api_key="your-cursor-api-key" ) response = client.chat.completions.create(     model="claude-4.6-sonnet",     messages=[{"role": "user", "content": "Hello!"}] ).
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -9519,6 +10991,20 @@ In the table, **Bearer Token** — `Authorization: Bearer <key>`. Use case on sl
 In the table, **User API Key** — Regular key. Use case on slide: Agents, Chat, Files APIs.
 
 In the table, **Admin API Key** — `admin_` prefixed. Use case on slide: Admin API only.
+
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+
+Bearer token auth puts the key in an Authorization Bearer header — another common API style.
+
+OAuth stands for Open Authorization — a standard for delegated login without sharing passwords.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
@@ -9557,6 +11043,14 @@ Bullet 5 on the slide: Format: cursor_admin_xxxxxxxxxxxx.
 
 Bullet 6 on the slide: Can access: Admin API + everything User can.
 
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
@@ -9591,6 +11085,10 @@ Bullet 5 on the slide: Revoke unused keys immediately.
 Bullet 6 on the slide: Use Admin API keys only when necessary.
 
 Bullet 7 on the slide: Monitor key usage in dashboard.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9637,6 +11135,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -9669,6 +11177,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 7.2 — Steps 1–3.
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+
+Terms on this slide — quick definitions for the room:
+
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
 -->
 
 ---
@@ -9699,6 +11211,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 7.2 — Steps 1–3 (Part 2).
 
 The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx" $env:CURSOR_USER_API_KEY.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9727,6 +11243,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 7.2 — Steps 1–3 (Part 3).
 
 The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `   https://api.cursor.com/v1/models | Select-Object -First 20.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9767,6 +11289,12 @@ The slide title is: Exercise 7.2 — Steps 4–5.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: response = requests.get(     "https://api.cursor.com/v1/models",     auth=(API_KEY, "")  # Empty password ).
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9804,6 +11332,16 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 7.2 — Steps 4–5 (Part 2).
 
 The code on the slide reads: client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY) response = client.chat.completions.create(     model="gpt-5-mini",     messages=[{"role": "user", "content": "Say 'API works!'"}],     max_tokens=10 ).
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+SDK stands for Software Development Kit — a library and helpers for calling an API from your language of choice.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -9841,6 +11379,14 @@ The slide title is: Exercise 7.2 — Steps 6–7.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx" curl -s -u "$CURSOR_ADMIN_API_KEY:" \   https://api.cursor.com/v1/admin/organization | jq '.'.
+
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -9869,6 +11415,14 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 7.2 — Steps 6–7 (Part 2).
 
 Success criteria listed: Generated keys · tested curl, Python, OpenAI SDK · tested Admin key.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+SDK stands for Software Development Kit — a library and helpers for calling an API from your language of choice.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -9896,6 +11450,10 @@ The slide title is: Lesson 7.3.
 You will also see the heading: Rate Limits and Error Handling.
 
 The note on screen reads: Concept · 10 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
 -->
 
 ---
@@ -9927,6 +11485,16 @@ In the table, Agents (create) — 100 requests. Use case on slide: per minute.
 In the table, Admin API — 500 requests. Use case on slide: per minute.
 
 In the table, Webhooks — 2000 requests. Use case on slide: per minute.
+
+Terms on this slide — quick definitions for the room:
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -9963,6 +11531,12 @@ In the table, **403** — Forbidden. Use case on slide: Check permissions.
 In the table, **429** — Too Many Requests. Use case on slide: Implement backoff.
 
 In the table, **500/503** — Server Error. Use case on slide: Retry with backoff.
+
+Terms on this slide — quick definitions for the room:
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -9991,6 +11565,10 @@ In the table, `X-RateLimit-Remaining` — Requests left. Use case on slide: `942
 In the table, `X-RateLimit-Reset` — Window reset (Unix timestamp). Use case on slide: `1700000000`.
 
 In the table, `Retry-After` — Seconds to wait (on 429). Use case on slide: `60`.
+
+Terms on this slide — quick definitions for the room:
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -10033,6 +11611,16 @@ The slide title is: Exercise 7.3 — Exponential Backoff.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide begins: def call_with_retry(url, max_retries=5, base_delay=1.0):     for attempt in range(max_retries):         response = requests.get(url, auth=AUTH)         if response.status_code == 200:             return response.json()         if 400 <= response.status_code < 500:. The rest of the block continues on the slide.
+
+Terms on this slide — quick definitions for the room:
+
+Exponential backoff means waiting longer after each failed retry — standard practice when APIs return 429 or 5xx errors.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -10067,6 +11655,12 @@ The slide says: CursorAPIClient: combines rate limiting, retries on 429/5xx, tim
 
 Success criteria listed: Backoff · header monitoring · rate limiter · robust client class.
 
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
@@ -10095,6 +11689,10 @@ The slide title is: Lesson 7.4.
 You will also see the heading: ETag Caching.
 
 The note on screen reads: Concept · 8 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
 -->
 
 ---
@@ -10127,6 +11725,18 @@ Number 2 on the slide: Server returns 304 Not Modified if unchanged.
 
 Number 3 on the slide: No data transfer, no rate limit consumption.
 
+Terms on this slide — quick definitions for the room:
+
+HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
+
+If-None-Match is an HTTP header carrying your cached ETag — the server uses it to decide whether data changed.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
@@ -10143,6 +11753,10 @@ This slide includes a diagram — ETag Flow.
 The slide title is: ETag Flow.
 
 The figure on this slide is titled: ETag Flow.
+
+Terms on this slide — quick definitions for the room:
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -10176,6 +11790,10 @@ In the table, `/v1/agents/{id}` — ✅ Yes. Use case on slide: Changes during r
 In the table, `/v1/analytics/usage` — ✅ Yes. Use case on slide: Daily changes.
 
 In the table, `/v1/agents` (list) — ⚠️ Partial. Use case on slide: Changes frequently.
+
+Terms on this slide — quick definitions for the room:
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -10214,6 +11832,20 @@ The slide title is: Exercise 7.4 — Basic ETag Usage.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: def get_with_etag(url, previous_etag=None):     headers = {'If-None-Match': previous_etag} if previous_etag else {}     response = requests.get(url, auth=AUTH, headers=headers)     if response.status_code == 304:         return None, response.headers.get('ETag')  # Use cached data     if response.status_code == 200:         return response.json(), response.headers.get('ETag').
+
+Terms on this slide — quick definitions for the room:
+
+HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
+
+If-None-Match is an HTTP header carrying your cached ETag — the server uses it to decide whether data changed.
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -10258,6 +11890,18 @@ Bullet 1 on the slide: Check local cache → send If-None-Match.
 Bullet 2 on the slide: On 304 → return cached data (Cache HIT).
 
 Bullet 3 on the slide: On 200 → update cache (Cache MISS).
+
+Terms on this slide — quick definitions for the room:
+
+HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
+
+If-None-Match is an HTTP header carrying your cached ETag — the server uses it to decide whether data changed.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -10319,6 +11963,16 @@ Bullet 2 on the slide: Pricing (input/output per 1M tokens).
 Bullet 3 on the slide: Capabilities (vision, tool calling, etc.).
 
 The code on the slide reads: GET /v1/models.
+
+Terms on this slide — quick definitions for the room:
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
+
+Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -10358,6 +12012,12 @@ The slide title is: Exercise 7.5 — Steps 1–2.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: curl -s -u "$CURSOR_USER_API_KEY:" \   https://api.cursor.com/v1/models \   | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -10419,6 +12079,12 @@ You will also see the heading: Cheapest by input price.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: # Models with 100k+ context large_context = [m for m in models if m.get('context_window', 0) >= 100000] # Cheapest by input price cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5].
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -10449,6 +12115,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 7.5 — Steps 3–4 (Part 2).
 
 The code on the slide reads: select_model("code_review", "balanced")  # → claude-4.6-sonnet select_model("simple_fix", "low")        # → gpt-5-mini select_model("frontend_ui", "high")      # → gemini-3.1-pro.
+
+Terms on this slide — quick definitions for the room:
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -10480,6 +12150,14 @@ In the table, 7.3 — Rate Limits & Errors. Use case on slide: Robust clients.
 In the table, 7.4 — ETag Caching. Use case on slide: Efficient queries.
 
 In the table, 7.5 — Listing Models. Use case on slide: Auth smoke-test.
+
+Terms on this slide — quick definitions for the room:
+
+ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -10524,6 +12202,12 @@ The slide title is: Cloud Agents API and Webhooks.
 You will also see the heading: Module 8 · Day 2 (Hands-On).
 
 The slide says: Cursor Training Program · ~60 min.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -10552,6 +12236,14 @@ In the table, **Format**: Hands-on exercise.
 In the table, **Prerequisites**: User API key (Module 7), Python 3.8+, ngrok installed, GitHub repository.
 
 In the table, **Module Goal**: Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications.
+
+Terms on this slide — quick definitions for the room:
+
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
 -->
 
 ---
@@ -10586,6 +12278,22 @@ Bullet 4 on the slide: Create a webhook endpoint with HMAC verification.
 Bullet 5 on the slide: Test webhooks locally using ngrok.
 
 Bullet 6 on the slide: Build an end-to-end automated agent workflow.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -10620,6 +12328,20 @@ In the table, 8.4 — Creating a Webhook Endpoint. Use case on slide: 15 min.
 In the table, 8.5 — Testing Webhooks Locally with ngrok. Use case on slide: 13 min.
 
 In the table, 8.6 — End-to-End Automated Agent Workflow. Use case on slide: 17 min.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -10649,6 +12371,10 @@ The slide title is: Lesson 8.1.
 You will also see the heading: Creating a Cloud Agent Programmatically.
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
 -->
 
 ---
@@ -10675,6 +12401,10 @@ The table header columns are: Concept, Description.
 In the table, **Agent**: Durable entity with conversation history and workspace state.
 
 In the table, **Run**: Single execution (one prompt/response cycle).
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -10705,6 +12435,12 @@ The table header columns are: Field, Example.
 In the table, `prompt.text`: "Add a README.md file".
 
 In the table, `repos[].url`: "https://github.com/org/repo".
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -10751,6 +12487,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -10811,6 +12557,20 @@ The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx".
 The code on the slide reads: curl.exe -X POST https://api.cursor.com/v1/agents `   -u "$($env:CURSOR_USER_API_KEY):" `   -H "Content-Type: application/json" `   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' `   | ConvertFrom-Json.
 
 The code on the slide reads: export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx" curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -10843,6 +12603,16 @@ The slide title is: Exercise 8.1 — Capture IDs.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: $response = curl.exe ... | ConvertFrom-Json   # reuse create-agent command $env:AGENT_ID = $response.agent.id $env:RUN_ID = $response.run.id Write-Host "Agent ID: $($env:AGENT_ID)" Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)".
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -10864,6 +12634,10 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 8.1 — Capture IDs (Part 2).
 
 The slide says: Create with specific model: "model": {"id": "claude-4.7-opus"}.
+
+Terms on this slide — quick definitions for the room:
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 -->
 
 ---
@@ -10901,6 +12675,18 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 Success criteria listed: Agent created · IDs captured · appears in dashboard · Python function works.
 
 The code on the slide begins: def create_agent(prompt, repo_url, auto_create_pr=False, model=None):     payload = {         "prompt": {"text": prompt},         "repos": [{"url": repo_url}],         "autoCreatePR": auto_create_pr     }. The rest of the block continues on the slide.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
@@ -10926,6 +12712,14 @@ The slide title is: Lesson 8.2.
 You will also see the heading: Streaming Agent Responses (SSE).
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -10963,6 +12757,12 @@ In the table, `result` — Run completes. Use case on slide: `{"status":"FINISHE
 In the table, `error` — Something went wrong. Use case on slide: `{"message":"..."}`.
 
 In the table, `done` — Stream ends. Use case on slide: `{}`.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -10978,6 +12778,12 @@ Let's look at Resume Support.
 The slide title is: Resume Support.
 
 The slide says: SSE streams support the Last-Event-ID header — if your connection drops, resume from the last received event.
+
+Terms on this slide — quick definitions for the room:
+
+Last-Event-ID lets you resume an SSE stream after a disconnect — the server continues from the last event you received.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -11025,6 +12831,14 @@ The slide says: Terminal (alternative): Git Bash / WSL — bash curl -N block ab
 The slide says: Parse lines starting with event: and data: — print assistant text, tool calls, and result status.
 
 The code on the slide reads: curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `   -H "Accept: text/event-stream" `   "https://api.cursor.com/v1/agents/$env:AGENT_ID/runs/$env:RUN_ID/stream".
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -11057,6 +12871,16 @@ The slide title is: Exercise 8.2 — Python SSE Client.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: def stream_agent_response(agent_id, run_id, on_event=None):     url = f"{BASE_URL}/agents/{agent_id}/runs/{run_id}/stream"     response = requests.get(url, auth=AUTH, stream=True)     for line in response.iter_lines():         if line.startswith(b'event:'):             current_event = line[6:].strip().decode()         elif line.startswith(b'data:'):             data = json.loads(line[5:].strip())             if on_event:                 on_event(current_event, data).
+
+Terms on this slide — quick definitions for the room:
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -11086,6 +12910,14 @@ The slide says: Track last_event_id from id: lines → send as Last-Event-ID hea
 The slide says: Also: stream_to_file() saves full SSE log for later review.
 
 Success criteria listed: Stream connected · received events · Python client works · resume implemented.
+
+Terms on this slide — quick definitions for the room:
+
+Last-Event-ID lets you resume an SSE stream after a disconnect — the server continues from the last event you received.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -11111,6 +12943,10 @@ The slide title is: Lesson 8.3.
 You will also see the heading: Listing and Downloading Artifacts.
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -11137,6 +12973,12 @@ The table header columns are: Endpoint, Method, Purpose.
 In the table, `/v1/agents/{id}/artifacts` — GET. Use case on slide: List all artifacts.
 
 In the table, `/v1/agents/{id}/artifacts/download` — GET. Use case on slide: Get presigned URL for download.
+
+Terms on this slide — quick definitions for the room:
+
+A presigned URL is a time-limited download link — common for Cloud Agent artifacts that expire after a short window.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 -->
 
 ---
@@ -11175,6 +13017,16 @@ The slide title is: Exercise 8.3 — Wait & List.
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: def wait_for_completion(agent_id, timeout=300, poll_interval=5):     while time.time() - start < timeout:         status = get_agent_status(agent_id).get('status')         if status == 'FINISHED': return True         elif status == 'ERROR': return False         time.sleep(poll_interval) def list_artifacts(agent_id):     response = requests.get(f"{BASE_URL}/agents/{agent_id}/artifacts", auth=AUTH)     return response.json().get('items', []).
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -11213,6 +13065,16 @@ The slide says: Single artifact:.
 The slide says: All artifacts: loop items, create subdirs, download each via presigned URL.
 
 The code on the slide reads: response = requests.get(     f"{BASE_URL}/agents/{agent_id}/artifacts/download",     auth=AUTH, params={"path": artifact_path} ) download_url = response.json().get('url') # curl download_url → save to disk.
+
+Terms on this slide — quick definitions for the room:
+
+A presigned URL is a time-limited download link — common for Cloud Agent artifacts that expire after a short window.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -11245,6 +13107,12 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 Success criteria listed: Listed artifacts · downloaded single + all · CI workflow integration.
 
 The code on the slide reads: def process_test_results(agent_id):     wait_for_completion(agent_id, timeout=600)     download_artifact(agent_id, "artifacts/junit.xml", "test_results.xml")     # Parse XML → exit 1 if failures/errors, else exit 0.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -11272,6 +13140,10 @@ The slide title is: Lesson 8.4.
 You will also see the heading: Creating a Webhook Endpoint.
 
 The note on screen reads: Concept · 5 min · Exercise · 10 min.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
 -->
 
 ---
@@ -11298,6 +13170,12 @@ In the table, `X-Webhook-ID`: Unique delivery ID.
 
 In the table, `X-Webhook-Event`: Event type (`statusChange`).
 
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
@@ -11321,6 +13199,14 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 The slide title is: Webhook Payload.
 
 The code on the slide reads: {   "event": "statusChange",   "id": "agent_abc123",   "status": "FINISHED",   "source": {"repository": "https://github.com/your-org/your-repo"},   "target": {"url": "...", "prUrl": "https://github.com/.../pull/123"},   "summary": "Added README.md and fixed tests" }.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
@@ -11361,6 +13247,12 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: Flask route: verify signature → parse payload → handle FINISHED/ERROR.
 
 The code on the slide reads: def verify_signature(raw_body, signature_header):     received = signature_header[7:]  # strip "sha256="     expected = hmac.new(         WEBHOOK_SECRET.encode(), raw_body, hashlib.sha256     ).hexdigest()     return hmac.compare_digest(expected, received).
+
+Terms on this slide — quick definitions for the room:
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -11401,6 +13293,20 @@ The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME
 Success criteria listed: Server running · signature verified · payload parsed · agent configured.
 
 The code on the slide reads: curl -X POST https://api.cursor.com/v1/agents \   -u "$CURSOR_USER_API_KEY:" \   -H "Content-Type: application/json" \   -d '{     "prompt": {"text": "Add a CONTRIBUTING.md file"},     "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO"}],     "webhookUrl": "https://your-domain.com/webhook/cursor",     "webhookSecret": "your-secret-here",     "autoCreatePR": true   }'.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -11428,6 +13334,12 @@ The slide title is: Lesson 8.5.
 You will also see the heading: Testing Webhooks Locally with ngrok.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
 -->
 
 ---
@@ -11450,6 +13362,14 @@ The slide says: Creates a secure tunnel from a public URL to your local server.
 Bullet 1 on the slide: Test webhooks without deploying.
 
 Bullet 2 on the slide: Debug locally · Demo to stakeholders.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -11492,6 +13412,18 @@ You will also see the heading: Forwarding: https://abc123.ngrok.io -> http://loc
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: ngrok http 5000 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -11512,6 +13444,14 @@ Terminal: PowerShell — unless step notes Git Bash or WSL.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.5 — Steps 1–3 (Part 2).
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -11539,6 +13479,20 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 8.5 — Steps 1–3 (Part 3).
 
 The code on the slide reads: curl -X POST https://api.cursor.com/v1/agents ... \   -d '{"webhookUrl": "https://abc123.ngrok.io/webhook/cursor", ...}'.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -11574,6 +13528,18 @@ The slide title is: Exercise 8.5 — Inspect & Replay.
 Environment note on the slide: Demonstration (Windows): Agent `Ctrl+I` · PowerShell · Browser for dashboards.
 
 Success criteria listed: Tunnel established · webhook received · signature verified · inspected in ngrok UI.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
@@ -11595,6 +13561,10 @@ The slide title is: Lesson 8.6.
 You will also see the heading: End-to-End Automated Agent Workflow.
 
 The note on screen reads: Concept · 5 min · Exercise · 12 min.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -11631,6 +13601,16 @@ Number 2 on the slide: Wait for completion (webhook or polling).
 Number 3 on the slide: Download artifacts.
 
 Number 4 on the slide: Process results (CI exit codes, notifications).
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -11671,6 +13651,14 @@ The slide title is: Run the Workflow.
 You will also see the heading: Polling only (no webhook):.
 
 The code on the slide reads: export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx" python automated_workflow.py \   --repo "https://github.com/YOUR_ORG/YOUR_REPO" \   --prompt "Add a comprehensive README.md with setup and API docs" \   --output "./outputs" # Polling only (no webhook): python automated_workflow.py --repo "..." --prompt "..." --no-webhook.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -11695,6 +13683,14 @@ The slide title is: Workflow Output.
 Success criteria listed: Creates agent · waits (webhook/polling) · downloads artifacts · end-to-end run.
 
 The code on the slide reads: 🚀 CLOUD AGENT AUTOMATED WORKFLOW 📝 Creating agent... Agent ID: agt_abc123 ⏳ Waiting for completion... ✅ Webhook received: Agent agt_abc123 completed 📎 Downloaded 3 artifacts to agent_outputs/ ✅ WORKFLOW COMPLETE.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
 -->
 
 ---
@@ -11729,6 +13725,22 @@ In the table, 8.4 — Creating a Webhook Endpoint. Use case on slide: HMAC verif
 In the table, 8.5 — Testing Webhooks with ngrok. Use case on slide: Local tunnel debugging.
 
 In the table, 8.6 — End-to-End Workflow. Use case on slide: Complete automation.
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -11757,6 +13769,22 @@ This quick reference slide is for you to keep after the course.
 The slide title is: Quick Reference Card.
 
 The code on the slide reads: ENDPOINTS:   POST /v1/agents                         Create agent   GET  /v1/agents/{id}                    Get status   GET  /v1/agents/{id}/runs/{id}/stream   SSE stream   GET  /v1/agents/{id}/artifacts          List artifacts   GET  /v1/agents/{id}/artifacts/download Download WEBHOOK:  X-Webhook-Signature (HMAC-SHA256)  |  X-Webhook-Event SSE:  status · assistant · thinking · tool_call · result · error · done NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
 
 ---
@@ -11808,6 +13836,10 @@ In the table, **Format**: Hands-on exercise + demonstrations.
 In the table, **Prerequisites**: Admin API key (not User key), Python 3.8+, Modules 7–8 completed.
 
 In the table, **Module Goal**: Master team management, usage analytics, cost governance, and safe admin operations.
+
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
 -->
 
 ---
@@ -11848,6 +13880,10 @@ Bullet 6 on the slide: Build responsible leaderboards without privacy violations
 Bullet 7 on the slide: Analyze conversation intent and complexity (demonstration).
 
 Bullet 8 on the slide: Safely remove team members with proper patterns (demonstration).
+
+Terms on this slide — quick definitions for the room:
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 -->
 
 ---
@@ -11888,6 +13924,10 @@ Table row: 9.6, Leaderboards, 6 min, Exercise.
 Table row: 9.7, Conversation Insights, 6 min, Demo.
 
 Table row: 9.8, Destructive Admin Operations, 6 min, Demo.
+
+Terms on this slide — quick definitions for the room:
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 -->
 
 ---
@@ -11947,6 +13987,12 @@ In the table, **Can modify policies** — ❌ No. Use case on slide: ✅ Yes.
 
 In the table, **Format** — `cursor_xxx...`. Use case on slide: `cursor_admin_xxx...`.
 
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+
 Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
@@ -11994,6 +14040,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -12039,6 +14095,12 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx" # Verify admin access curl -s -u "$CURSOR_ADMIN_API_KEY:" \   https://api.cursor.com/v1/admin/organization | jq '.' # List all team members curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/members" | jq '.'.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -12083,6 +14145,16 @@ The slide says: Helper: get_user_id_by_email(email) for downstream admin calls.
 Success criteria listed: Authenticated · listed members · handled pagination · exported CSV.
 
 The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/members?limit=10&offset=0".
+
+Terms on this slide — quick definitions for the room:
+
+Pagination splits large result sets into pages — you walk them with offset and limit or cursor parameters.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -12137,6 +14209,10 @@ The slide says: Returns:.
 Bullet 1 on the slide: Cost per day · Input/output token counts.
 
 Bullet 2 on the slide: Active users per day · Breakdown by user and model (optional).
+
+Terms on this slide — quick definitions for the room:
+
+Output tokens are the text the model generates — explanations and code — and they typically cost more than input.
 -->
 
 ---
@@ -12175,6 +14251,14 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: END=$(date +%Y-%m-%d) START=$(date -d "7 days ago" +%Y-%m-%d) curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/analytics/usage/daily?startDate=$START&endDate=$END" \   | jq '.daily[] | {date: .date, cost: .cost, tokens: .totalTokens, users: .activeUsers}'.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -12213,6 +14297,12 @@ Bullet 2 on the slide: Week-over-week change · top 5 costliest days.
 Bullet 3 on the slide: Daily breakdown table (last 14 days).
 
 Bullet 4 on the slide: Budget alerts at $300 / $500 thresholds.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
 
 ---
@@ -12238,6 +14328,10 @@ The slide title is: Lesson 9.3.
 You will also see the heading: Setting User Spend Limits.
 
 The note on screen reads: Concept · 5 min · Exercise · 8 min.
+
+Terms on this slide — quick definitions for the room:
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 -->
 
 ---
@@ -12307,6 +14401,12 @@ The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME
 The slide says: Check current limit: GET .../policies/users/{userId}/limits.
 
 The code on the slide reads: USER_ID=$(curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/members?email=developer@company.com" \   | jq -r '.members[0].id') curl -X PATCH ".../policies/users/$USER_ID/limits" \   -u "$CURSOR_ADMIN_API_KEY:" \   -d '{"monthlyLimit": 50.00, "exceedanceAction": "block"}'.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -12346,6 +14446,12 @@ The slide says: Find heavy users: query /analytics/usage/users for current month
 Success criteria listed: Retrieved user ID · set limit · verified · bulk setting implemented.
 
 The code on the slide reads: intern@company.com,20,block contractor@company.com,50,alert lead@company.com,200,alert.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -12432,6 +14538,10 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/usage/models?startDate=$START&endDate=$END" \   | jq '.models[] | {model: .modelId, cost: .cost, requests: .requestCount}' # Find Opus overuse per user curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/usage/users?startDate=$START&endDate=$END" \   | jq '.users[] | select(.modelBreakdown."claude-4.7-opus" != null)'.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -12470,6 +14580,10 @@ Bullet 2 on the slide: Users on Claude Opus → suggest Sonnet for non-critical 
 Bullet 3 on the slide: High Sonnet usage → suggest GPT-5.3 Codex (40% savings).
 
 Bullet 4 on the slide: Estimated monthly savings if guidelines applied.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
@@ -12495,6 +14609,10 @@ The slide title is: Lesson 9.5.
 You will also see the heading: Daily Active Users (DAU).
 
 The note on screen reads: Concept · 4 min · Exercise · 6 min.
+
+Terms on this slide — quick definitions for the room:
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
 -->
 
 ---
@@ -12523,6 +14641,10 @@ Bullet 2 on the slide: Identify unused licenses for reallocation.
 Bullet 3 on the slide: Measure impact of training sessions.
 
 Bullet 4 on the slide: Justify renewal and expansion.
+
+Terms on this slide — quick definitions for the room:
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
 -->
 
 ---
@@ -12576,6 +14698,14 @@ Bullet 2 on the slide: WoW growth rate · weekly averages.
 Bullet 3 on the slide: Health assessment: >80% excellent · >50% good · <30% investigate.
 
 The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/usage/daily?startDate=$START&endDate=$END" \   | jq '{avg_weekly: ([.daily[-7:] | .[].activeUsers] | add / length),          peak: ([.daily[] | .activeUsers] | max)}'.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+
+WoW stands for Week over Week — comparing this week's metric to last week's.
 -->
 
 ---
@@ -12676,6 +14806,12 @@ The slide says: 3. Savings leaderboard — users who saved by choosing efficient
 Success criteria listed: Anonymized · efficiency-focused · savings-focused leaderboards.
 
 The code on the slide reads: def anonymize_email(email):     local = email.split('@')[0]     return local[:2] + "..." + local[-2:].
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -12835,6 +14971,18 @@ Number 3 on the slide: Transfer ownership — critical agents, webhooks.
 Number 4 on the slide: Log everything — compliance audit trail.
 
 Number 5 on the slide: Confirm before hard delete — GDPR/security only.
+
+Terms on this slide — quick definitions for the room:
+
+Soft delete deactivates a user account while retaining audit history — common before permanent removal.
+
+Hard delete permanently removes a user and associated data — irreversible and compliance-sensitive.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+GDPR is the General Data Protection Regulation — European privacy rules that affect how you store user data.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -12860,6 +15008,10 @@ The slide says: Bulk deactivation: find users inactive 90+ days → review → n
 Success criteria listed: 5-step pattern · audit-first · soft vs hard delete · resource transfer.
 
 The figure on this slide is titled: Demo: SafeRemovalDemo Workflow.
+
+Terms on this slide — quick definitions for the room:
+
+Hard delete permanently removes a user and associated data — irreversible and compliance-sensitive.
 -->
 
 ---
@@ -12900,6 +15052,10 @@ In the table, 9.6 — Leaderboards. Use case on slide: Exercise.
 In the table, 9.7 — Conversation Insights. Use case on slide: Demo.
 
 In the table, 9.8 — Destructive Operations. Use case on slide: Demo.
+
+Terms on this slide — quick definitions for the room:
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 -->
 
 ---
@@ -12966,6 +15122,12 @@ In the table, **Format**: Hands-on exercise + take-home project.
 In the table, **Prerequisites**: Admin API key, Git repository access, Modules 8–9 completed.
 
 In the table, **Module Goal**: Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards.
+
+Terms on this slide — quick definitions for the room:
+
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
@@ -12994,6 +15156,12 @@ Bullet 2 on the slide: Stream metrics to BI tools via CSV export.
 Bullet 3 on the slide: Access granular AI change events for compliance.
 
 Bullet 4 on the slide: Build a complete reporting dashboard combining all data sources.
+
+Terms on this slide — quick definitions for the room:
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
@@ -13022,6 +15190,14 @@ In the table, 10.2 — Bulk Export via CSV Streaming. Use case on slide: 7 min.
 In the table, 10.3 — Granular AI Change Events. Use case on slide: 7 min.
 
 In the table, 10.4 — Reporting Dashboard Architecture. Use case on slide: 4 min + take-home.
+
+Terms on this slide — quick definitions for the room:
+
+AI commit metrics track how much committed code came from AI assistance versus human-only edits.
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -13047,6 +15223,10 @@ The slide title is: Lesson 10.1.
 You will also see the heading: AI Commit Metrics.
 
 The note on screen reads: Concept · 3 min · Exercise · 5 min.
+
+Terms on this slide — quick definitions for the room:
+
+AI commit metrics track how much committed code came from AI assistance versus human-only edits.
 -->
 
 ---
@@ -13079,6 +15259,12 @@ Bullet 1 on the slide: Lines added by AI vs. human.
 Bullet 2 on the slide: Files modified by agent vs. manual.
 
 Bullet 3 on the slide: Commit-level attribution · Per-developer breakdown.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
 -->
 
 ---
@@ -13125,6 +15311,16 @@ In the table, **Git Bash** — Bash syntax, `export VAR=...`, shell scripts endi
 In the table, **Command Prompt** — Legacy `.bat` files only. Use case on slide: Terminal menu → **Command Prompt**.
 
 In the table, **Ubuntu (WSL)** — Linux-only tools or native bash without Git Bash. Use case on slide: Terminal menu → **Ubuntu (WSL)**.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+
+WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+
+npm is the Node Package Manager — the default registry and tool for JavaScript packages.
 -->
 
 ---
@@ -13163,6 +15359,12 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: END=$(date +%Y-%m-%d) START=$(date -d "30 days ago" +%Y-%m-%d) curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/commits?startDate=$START&endDate=$END&repo=https://github.com/YOUR_ORG/YOUR_REPO" \   | jq '.'.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -13197,6 +15399,10 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/commits?startDate=$START&endDate=$END" \   | jq '{       total_commits: .summary.totalCommits,       ai_commits: .summary.aiAuthoredCommits,       ai_percentage: (.summary.aiAuthoredCommits / .summary.totalCommits * 100),       lines_saved: .summary.aiGeneratedLines     }'.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -13237,6 +15443,12 @@ The slide says: contributor_breakdown() — AI %, AI lines, commits per develope
 Success criteria listed: Retrieved metrics · calculated AI % · generated ROI analysis.
 
 The code on the slide reads: AI-generated lines vs. human-written lines (%) Estimated time saved (10 lines/min assumption) Estimated cost saved ($100/hr developer cost) AI usage cost → Net ROI.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
 -->
 
 ---
@@ -13262,6 +15474,12 @@ The slide title is: Lesson 10.2.
 You will also see the heading: Bulk Export via CSV Streaming.
 
 The note on screen reads: Concept · 3 min · Exercise · 4 min.
+
+Terms on this slide — quick definitions for the room:
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -13285,6 +15503,14 @@ The slide quotes: ""Wire metrics into BI tools (Tableau, PowerBI, Looker, Metaba
 The slide says: GET /v1/admin/analytics/export/csv (streaming).
 
 The slide says: Export types: commits · events · usage.
+
+Terms on this slide — quick definitions for the room:
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
@@ -13322,6 +15548,12 @@ Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
 
 The code on the slide reads: curl -N -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/export/csv?startDate=$START&endDate=$END&type=commits" \   -o cursor_commits_export.csv head -10 cursor_commits_export.csv.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -13362,6 +15594,14 @@ The slide says: Upload to Metabase, PowerBI, or Tableau via CSV import.
 Success criteria listed: Streamed CSV · loaded into DataFrame · created BI-ready files.
 
 The code on the slide reads: export_for_bi():   bi_commits.csv   # commit data   bi_events.csv    # event data   bi_usage.csv     # usage data.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
@@ -13416,6 +15656,12 @@ The slide says: Tracks per event:.
 Bullet 1 on the slide: File, line range, model used, timestamp.
 
 Bullet 2 on the slide: User, accepted/rejected status.
+
+Terms on this slide — quick definitions for the room:
+
+SOC2 is Service Organization Control 2 — a common security and compliance audit framework for SaaS vendors.
+
+ISO refers to International Organization for Standardization frameworks — audit and compliance standards many enterprises require.
 -->
 
 ---
@@ -13455,6 +15701,12 @@ The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME
 The slide says: Acceptance rate by model: group events → total vs. accepted per model.
 
 The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/events?startDate=$START&endDate=$END&limit=100" \   | jq '.events[] | {user: .user.email, file: .filePath, model: .modelId, accepted: .accepted}'.
+
+Terms on this slide — quick definitions for the room:
+
+Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -13493,6 +15745,14 @@ Bullet 2 on the slide: Top 10 files with most AI changes (needs review).
 Bullet 3 on the slide: Export compliance_export.csv for auditors:.
 
 Bullet 4 on the slide: timestamp, user_email, model_id, file_path, line_start, line_end, accepted.
+
+Terms on this slide — quick definitions for the room:
+
+Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -13549,6 +15809,14 @@ In the table, Model Performance — Events API. Use case on slide: Acceptance ra
 In the table, Team Activity — Members API. Use case on slide: Onboarding, licensing.
 
 In the table, Compliance — Events + Audit. Use case on slide: Audit trail, security.
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
 -->
 
 ---
@@ -13593,6 +15861,12 @@ Number 3 on the slide: AI Code Impact — AI vs human bar chart + acceptance by 
 Number 4 on the slide: Team Management — member table.
 
 Number 5 on the slide: Compliance Export — download events CSV.
+
+Terms on this slide — quick definitions for the room:
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -13625,6 +15899,12 @@ In the table, **Documentation**: Setup instructions and data source descriptions
 In the table, **One insight**: Key finding from your team's data.
 
 In the table, **Export script**: Automated CSV export for compliance.
+
+Terms on this slide — quick definitions for the room:
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
@@ -13653,6 +15933,18 @@ In the table, 10.2 — Bulk Export via CSV. Use case on slide: BI integration.
 In the table, 10.3 — Granular Change Events. Use case on slide: Compliance reporting.
 
 In the table, 10.4 — Dashboard Architecture. Use case on slide: Complete dashboard.
+
+Terms on this slide — quick definitions for the room:
+
+Granular change events are per-edit audit records — file, lines changed, model used, and whether the edit was accepted.
+
+AI commit metrics track how much committed code came from AI assistance versus human-only edits.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+
+ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
+
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
@@ -13681,6 +15973,16 @@ This quick reference slide is for you to keep after the course.
 The slide title is: Quick Reference Card.
 
 The code on the slide reads: ENDPOINTS:   GET /admin/analytics/commits      AI per commit   GET /admin/analytics/export/csv   Bulk CSV export   GET /admin/analytics/events       Granular events KEY METRICS:   Adoption:  DAU / total team size   ROI:       (Hours saved × rate) - AI cost   Quality:   Acceptance rate by model   Compliance: Complete change audit trail DEPLOY:  Streamlit · Metabase · PowerBI · Custom React.
+
+Terms on this slide — quick definitions for the room:
+
+Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+
+ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
 -->
 
 ---
@@ -13728,4 +16030,14 @@ Bullet 4 on the slide: Analyze usage, model adoption, and AI contribution.
 Bullet 5 on the slide: Track AI vs. human code changes per commit.
 
 Bullet 6 on the slide: Build reporting dashboards for leadership.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 -->
