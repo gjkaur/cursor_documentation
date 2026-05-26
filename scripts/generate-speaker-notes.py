@@ -178,7 +178,11 @@ def _body_paragraphs(slide: str) -> list[str]:
             continue
         if not stripped or stripped.startswith("#") or stripped.startswith("|"):
             continue
+        if stripped.startswith("- ") or stripped.startswith("* "):
+            continue
         if stripped.startswith(">") or stripped.startswith("<!--"):
+            continue
+        if stripped.startswith("<img") or stripped.startswith("!["):
             continue
         if stripped.startswith("*") and stripped.endswith("*") and not stripped.startswith("**"):
             continue
@@ -197,6 +201,176 @@ def _table_rows(slide: str) -> list[list[str]]:
     if not tables:
         return []
     return [[_clean_inline(cell) for cell in row] for row in tables[0]]
+
+
+def _all_bullets(slide: str) -> list[str]:
+    items: list[str] = []
+    for line in slide.splitlines():
+        match = re.match(r"^[-*]\s+(.+)$", line.strip())
+        if match:
+            items.append(_clean_inline(match.group(1)))
+    return items
+
+
+def _numbered_lines(slide: str) -> list[tuple[str, str]]:
+    items: list[tuple[str, str]] = []
+    in_fence = False
+    for line in slide.splitlines():
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence or line.strip().startswith("|"):
+            continue
+        match = re.match(r"^(\d+)\.\s+(.+)$", line.strip())
+        if match:
+            items.append((match.group(1), _clean_inline(match.group(2))))
+    return items
+
+
+def _image_alts(slide: str) -> list[str]:
+    alts = re.findall(r'alt="([^"]+)"', slide)
+    for match in re.finditer(r"!\[([^\]]*)\]", slide):
+        if match.group(1).strip():
+            alts.append(match.group(1).strip())
+    return alts
+
+
+def _italic_lines(slide: str) -> list[str]:
+    lines: list[str] = []
+    for line in slide.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("*") and stripped.endswith("*") and not stripped.startswith("**"):
+            lines.append(_clean_inline(stripped.strip("*")))
+    return lines
+
+
+def _extra_headings(slide: str, main_heading: str) -> list[str]:
+    titles: list[str] = []
+    main = main_heading.lower()
+    for line in slide.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("# "):
+            text = _clean_inline(stripped[2:])
+            if text.lower() != main:
+                titles.append(text)
+        elif stripped.startswith("## "):
+            text = _clean_inline(stripped[3:])
+            if text.lower() != main:
+                titles.append(text)
+    return titles
+
+
+def _is_separator_row(row: list[str]) -> bool:
+    return all(re.match(r"^[-—:\s]+$", cell) for cell in row if cell)
+
+
+def _looks_like_header(header: list[str], data_rows: list[list[str]]) -> bool:
+    if not data_rows:
+        return False
+    h_avg = sum(len(c) for c in header) / max(len(header), 1)
+    d_avg = sum(len(c) for row in data_rows[:2] for c in row) / max(
+        sum(len(r) for r in data_rows[:2]), 1
+    )
+    return h_avg < d_avg * 0.75
+
+
+def _norm_text(text: str) -> str:
+    return re.sub(r"\s+", " ", text.lower().strip())
+
+
+def _append_unique(spoken: list[str], additions: list[str]) -> None:
+    existing = [_norm_text(s) for s in spoken]
+    for raw in additions:
+        text = raw.strip()
+        if not text:
+            continue
+        norm = _norm_text(text)
+        if len(norm) < 12:
+            continue
+        if any(norm in e or e in norm for e in existing if len(e) > 20):
+            continue
+        spoken.append(text)
+        existing.append(norm)
+
+
+def _narrate_all_slide_text(slide: str, heading: str) -> list[str]:
+    """Read-aloud walkthrough of every text element visible on the slide."""
+    parts: list[str] = [f"The slide title is: {heading}."]
+
+    for title in _extra_headings(slide, heading):
+        parts.append(f"You will also see the heading: {title}.")
+
+    for note in _italic_lines(slide):
+        parts.append(f"The note on screen reads: {note}.")
+
+    quote = _blockquote(slide)
+    if quote:
+        parts.append(f'The slide quotes: "{quote}"')
+
+    for paragraph in _body_paragraphs(slide):
+        lower = paragraph.lower()
+        if lower.startswith("implication:"):
+            parts.append(f"The implication on the slide: {paragraph.split(':', 1)[1].strip()}.")
+        elif lower.startswith("success criteria:"):
+            rest = paragraph.split(":", 1)[1].strip()
+            if rest:
+                parts.append(f"Success criteria listed: {rest}.")
+            else:
+                parts.append("Success criteria are listed on the slide as follows.")
+        elif paragraph.startswith("Demonstration") or paragraph.startswith("Platform"):
+            parts.append(f"Environment note on the slide: {paragraph}.")
+        elif paragraph.startswith("Step "):
+            parts.append(f"{paragraph.rstrip('.')}.")
+        elif paragraph.startswith("Goal:") or paragraph.startswith("Look for:"):
+            parts.append(f"{paragraph.rstrip('.')}.")
+        elif paragraph.startswith("Where:") or paragraph.startswith("Terminal:"):
+            parts.append(f"{paragraph.rstrip('.')}.")
+        else:
+            parts.append(f"The slide says: {paragraph.rstrip('.')}.")
+
+    for index, item in enumerate(_all_bullets(slide), start=1):
+        parts.append(f"Bullet {index} on the slide: {item.rstrip('.')}.")
+
+    for num, item in _numbered_lines(slide):
+        parts.append(f"Number {num} on the slide: {item.rstrip('.')}.")
+
+    for table in extract_markdown_tables(slide):
+        if not table:
+            continue
+        data_start = 0
+        if len(table) > 1 and _looks_like_header(table[0], table[1:]):
+            cols = ", ".join(table[0])
+            parts.append(f"The table header columns are: {cols}.")
+            data_start = 1
+        for row in table[data_start:]:
+            if _is_separator_row(row) or _is_table_header_row(row):
+                continue
+            if len(row) == 2:
+                parts.append(f"In the table, {row[0]}: {row[1]}.")
+            elif len(row) == 3:
+                parts.append(f"In the table, {row[0]} — {row[1]}. Use case on slide: {row[2]}.")
+            elif len(row) >= 4:
+                parts.append(
+                    f"Table row: {row[0]}, {row[1]}, {row[2]}, {row[3]}."
+                )
+
+    for alt in _image_alts(slide):
+        parts.append(f"The figure on this slide is titled: {alt}.")
+
+    for block in extract_fenced_code_blocks(slide):
+        lines = [ln.rstrip() for ln in block.strip().splitlines() if ln.strip()]
+        if not lines:
+            continue
+        if len(lines) <= 10:
+            parts.append("The code on the slide reads: " + " ".join(lines) + ".")
+        else:
+            parts.append(
+                "The code on the slide begins: "
+                + " ".join(lines[:6])
+                + ". The rest of the block continues on the slide."
+            )
+
+    return parts
 
 
 def _prompt_blocks(slide: str) -> list[str]:
@@ -701,25 +875,10 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
             )
         )
     elif kind == "day_overview":
-        enrich = match_enrichment(heading, kind, ctx.module)
         if "Day 1" in heading:
-            spoken.append(
-                "Day one is about editor confidence — mental models first, then hands-on Cursor through Module 5. "
-                "We will not call external APIs until tomorrow."
-            )
+            spoken.append("Day one focuses on editor confidence before we touch any APIs.")
         else:
-            spoken.append(
-                "Day two assumes yesterday's habits stuck — API keys ready, PowerShell working, and realistic expectations "
-                "about agent autonomy."
-            )
-        spoken.extend(enrich.paragraphs)
-        if rows:
-            highlights = []
-            for row in rows[:5]:
-                if len(row) >= 3 and not _is_table_header_row(row):
-                    highlights.append(f"Module {row[0].strip('*')} ({row[2]})")
-            if highlights:
-                spoken.append("Today's modules in one breath: " + ", ".join(highlights) + ". Details are on the slide.")
+            spoken.append("Day two builds on yesterday with Cloud Agents, APIs, and analytics.")
     elif kind == "day_break":
         spoken.extend(
             _join_script(
@@ -735,26 +894,12 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
         )
     elif kind == "module_intro":
         _apply_enrichment(spoken, heading, kind, ctx)
-        subtitle = next((p for p in body if p), "")
-        if subtitle and "min" in subtitle:
-            spoken.append(f"Timing on slide: {subtitle}")
     elif kind == "module_overview":
-        _apply_enrichment(spoken, heading, kind, ctx)
-        if rows:
-            goal = next((r[1] for r in rows if len(r) >= 2 and "goal" in r[0].lower()), None)
-            if goal:
-                spoken.append(f"Our goal for this module: {goal}")
-        spoken.append("Check duration and prerequisites on the slide — raise your hand if anything would block you.")
+        spoken.append(f"Here is the overview for Module {ctx.module}.")
     elif kind == "learning_objectives":
-        spoken.append(f"By the end of Module {ctx.module}, you should be able to do the following.")
-        if bullets:
-            for i, obj in enumerate(bullets[:6], 1):
-                spoken.append(f"{i}. {obj.rstrip('.')}.")
-        _apply_enrichment(spoken, "learning objectives", "bullets", ctx)
+        spoken.append(f"These are the learning objectives for Module {ctx.module}.")
     elif kind == "module_agenda":
-        spoken.append(
-            _narrate_agenda_table(rows) or "Use this agenda to pace the module — protect exercise time if we run long."
-        )
+        spoken.append(f"Here is the agenda for Module {ctx.module}.")
         facilitator.append("Announce when the next hands-on block starts so people can close email and open Cursor.")
     elif kind == "lesson_intro":
         lesson_title = ctx.lesson_title or heading
@@ -818,89 +963,29 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
             "Watch where this lives in Cursor or in the repository — that location matters as much as the content."
         )
     elif kind == "diagram":
-        alt = re.search(r'alt="([^"]+)"', slide)
-        alt_text = alt.group(1) if alt else heading
-        enrich = match_enrichment(heading, kind, ctx.module)
-        if enrich.paragraphs:
-            spoken.extend(enrich.paragraphs)
-        else:
-            spoken.extend(_narrate_diagram(heading, alt_text, quote, body))
+        spoken.append(f"This slide includes a diagram — {heading}.")
     elif kind == "table":
-        enrich = match_enrichment(heading, kind, ctx.module)
-        max_cols = max((len(r) for r in rows), default=0)
-        if max_cols >= 3:
-            table_speech = _speak_three_col_table(rows)
-        else:
-            table_speech = _speak_compare_table(rows) or _narrate_kv_table(rows)
-        if enrich.paragraphs:
-            spoken.extend(enrich.paragraphs)
-        elif table_speech:
-            spoken.append(table_speech)
-        if "Key Insight" in slide and rows:
-            insights = [
-                f"Lesson {row[0]}: {row[2]}"
-                for row in rows
-                if len(row) >= 3 and not _is_table_header_row(row)
-            ]
-            if insights:
-                spoken.append("To recap: " + "; ".join(insights[:4]) + ".")
+        spoken.append(f"This slide is a table — {heading}.")
     elif kind == "quote":
-        if quote:
-            spoken.extend(_narrate_quote(quote, body, heading))
-            _apply_enrichment(spoken, heading, kind, ctx)
-        else:
-            spoken.append(" ".join(body) if body else _plain_text(slide))
-            _apply_enrichment(spoken, heading, kind, ctx)
+        spoken.append(f"This slide highlights a key quote — {heading}.")
     elif kind == "code":
-        blocks = extract_fenced_code_blocks(slide)
-        spoken.extend(_narrate_code(heading, body, blocks))
-        _apply_enrichment(spoken, heading, kind, ctx)
+        spoken.append(f"This slide shows code — {heading}.")
     elif kind == "bullets":
-        spoken.extend(_narrate_bullets(bullets, heading))
-        _apply_enrichment(spoken, heading, kind, ctx)
-        if body:
-            spoken.append(" ".join(body[:2]))
+        spoken.append(f"This slide lists key points under {heading}.")
     elif kind == "module_summary":
-        if rows:
-            recap = []
-            for row in rows:
-                if len(row) >= 3 and not _is_table_header_row(row):
-                    recap.append(f"Lesson {row[0]}, {row[1]} — key insight: {row[2]}")
-            summary = "; ".join(recap) if recap else _plain_text(slide)
-        else:
-            summary = _plain_text(slide)
-        spoken.extend(
-            _join_script(
-                [
-                    f"That completes Module {ctx.module}. {summary}",
-                    "What will you do differently on Monday? I will take two or three answers before we break or move on.",
-                ]
-            )
-        )
+        spoken.append(f"That wraps up Module {ctx.module}. Here is the summary on screen.")
     elif kind == "quick_reference":
-        spoken.extend(
-            _join_script(
-                [
-                    "This quick reference slide is for you to keep after the course — screenshot it or copy the commands "
-                    "into your team wiki.",
-                    " ".join(bullets) if bullets else _plain_text(slide),
-                ]
-            )
-        )
-        facilitator.append("Allow about two minutes for final questions on this module.")
+        spoken.append("This quick reference slide is for you to keep after the course.")
     else:
-        text = " ".join(body) if body else _plain_text(slide)
-        enrich = match_enrichment(heading, kind, ctx.module)
-        if enrich.paragraphs:
-            spoken.extend(enrich.paragraphs)
-        elif text:
-            if text.lower().startswith(heading.lower()):
-                text = text[len(heading) :].lstrip(" .:-")
-            if text.lower().startswith("implication:"):
-                text = f"The practical implication is this: {text.split(':', 1)[1].strip()}"
-            spoken.append(text)
-        else:
-            _apply_enrichment(spoken, heading, kind, ctx)
+        spoken.append(f"Let's look at {heading}.")
+
+    _append_unique(spoken, _narrate_all_slide_text(slide, heading))
+    enrich = match_enrichment(heading, kind, ctx.module)
+    if enrich.paragraphs:
+        _append_unique(spoken, enrich.paragraphs[:2])
+
+    if kind == "quick_reference":
+        facilitator.append("Allow about two minutes for final questions on this module.")
 
     ctx.prev_heading = heading
     return _finalize_script(_join_script(spoken)), _join_script(facilitator)
@@ -922,14 +1007,14 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
         "# Cursor Training Program — Speaker Scripts",
         "",
         f"Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) "
-        f"({len(slides)} slides). **Script** = read aloud verbatim. **Facilitator notes** = pacing and troubleshooting only.",
+        f"({len(slides)} slides). **Script** walks through every line on the slide, then adds brief teaching context where helpful.",
         "",
         f"*Generated: {date.today().isoformat()}*",
         "",
         "## How to use",
         "",
         "- Match **Slide N** to the page number in the deck footer or Marp presenter view (`p`).",
-        "- **Script** = exactly what to say to the room. No improvisation required.",
+        "- **Script** = read aloud; it names and explains each heading, bullet, table row, quote, and code block on the slide.",
         "- Hands-on slides reference lab guides in [`slide-exercises/`](../slide-exercises/).",
         "- Embedded presenter notes: [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md).",
         "",
