@@ -61,6 +61,7 @@ EXERCISE_META: dict[tuple[int, int], dict] = {
              "core": "exercise-11/11-terminal-tool-run-tests.md",
              "objective": "Use the Terminal tool to run tests, read output, and fix failures."},
     (3, 4): {"title": "Effective Prompting in Practice", "time": "22 min", "type": "cursor",
+             "core": "exercise-26/26-effective-prompting-in-practice.md",
              "objective": "Write constrained prompts and reusable templates for real tasks."},
     (4, 1): {"title": "Creating a Rule", "time": "20 min", "type": "cursor",
              "core": "exercise-14/14-create-a-rule.md",

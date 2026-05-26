@@ -1888,6 +1888,7 @@ If there's a warning about deprecated packages, note it and suggest fixes.
 | Bad Prompt | Good Prompt |
 |------------|-------------|
 | "Fix this code" | "Fix the IndexError in process_list() when list is empty. Do not change return type." |
+| `@calculator.c Fix divide` | `@calculator.c Improve divide() for division by zero. Change ONLY divide(). Show diff + cause.` |
 | "Add logging" | "Add INFO-level logging to calculate() using existing logger config." |
 | "Make it faster" | "Optimize find_user() from O(n²) to O(n log n). Don't change signature." |
 | "Review my code" | "Review auth.py for SQL injection, password handling, session issues. Ignore style." |
@@ -1929,109 +1930,171 @@ User: "Wait, I just wanted the login bug fixed!"
 
 ---
 
+## Exercise 3.4 — Setup
+
+**Before you start**
+
+**Goal:** Practice six prompting techniques on `calculator.c` from earlier exercises.
+
+**Do this first:**
+1. **File → Open Folder** → `core-exercises/exercise-3/`
+2. Open **Agent panel** — ``Ctrl+I`` (Mac: ``Cmd+I``)
+3. Confirm **Agent Mode** (footer shows Agent, or type `/agent`)
+
+Use **`@calculator.c`** in every prompt below.
+
+---
+
 ## Exercise 3.4 — Step 1: Constrained Prompt
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 1 — Constrained prompt**
+
+**Goal:** Task + boundaries + output format + success criteria.
+
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
-Task: Fix the bug where get_user_email(user_id) returns None for valid users.
+@calculator.c
+
+Task: Improve divide() so it handles division by zero safely inside the function itself.
 
 Constraints:
-- Do NOT change the function signature
-- Do NOT add new imports
-- Do NOT modify other functions
-- Do NOT add print statements (use existing logger)
+- Do NOT change any function signatures
+- Do NOT add new #include lines
+- Do NOT modify main() or other functions
+- Change ONLY the divide() function body
 
-Output format: Show exact diff and explain root cause.
-Success criteria: Function returns email string for valid user IDs.
+Output format: Show the exact diff and explain the root cause in 2–3 sentences.
+
+Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5.
 ```
+
+**Look for:** Diff limited to `divide()` — not a full refactor.
 
 ---
 
-## Exercise 3.4 — Steps 2–3
+## Exercise 3.4 — Step 2: Vague vs. Constrained
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 2 — Vague vs. constrained**
 
+**Goal:** See why boundaries matter.
 
-**Step 2:** Compare constrained vs. unconstrained:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Part A — vague** (new message or `/clear`):
 
 ```
-Fix get_user_email - it's returning None sometimes.
+@calculator.c Fix the divide function.
 ```
+
+Note: Did the Agent change more than `divide()`?
+
+**Part B — constrained:** Re-send the **Step 1** prompt.
+
+**Look for:** Constrained prompt → smaller, reviewable diff.
 
 ---
 
-## Exercise 3.4 — Steps 2–3 (Part 2)
+## Exercise 3.4 — Step 3: Plan Before Editing
 
-**Step 3:** Plan first:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Step 3 — Plan before editing**
+
+**Goal:** Approve a plan before any file changes.
+
+**Where:** Ask Mode (`/ask`) or Agent with *"do not edit yet"*
 
 ```
+@calculator.c
+
 Before making any changes, answer:
-1. What files would need to change?
-2. What is the root cause you suspect?
-3. What are the risks?
-4. Are there alternative approaches?
+1. What is the smallest change needed for divide()?
+2. Which lines would you change?
+3. What could go wrong?
+4. What will you NOT change?
 
-I will review before approving any code changes.
+Do not edit files yet — I will review first.
 ```
+
+**Look for:** Written plan, **no diff** until you approve.
 
 ---
 
-## Exercise 3.4 — Steps 4–5
+## Exercise 3.4 — Step 4: DO NOT List
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 4 — DO NOT list**
 
-
-**Step 4:** Negative constraints:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Goal:** Forbid scope creep explicitly.
 
 ```
-Add error handling to the file parser.
+@calculator.c
 
-But DO NOT:
-- Change the return type (must remain dict)
-- Add external dependencies
-- Swallow exceptions silently (always log them)
-- Change the existing test file
+Add a one-line comment above divide() explaining it performs integer division.
+
+DO NOT:
+- Change any function bodies
+- Rename functions
+- Add new functions
+- Modify main()
 ```
+
+**Look for:** Comment only — no logic changes.
 
 ---
 
-## Exercise 3.4 — Steps 4–5 (Part 2)
+## Exercise 3.4 — Step 5: One Change at a Time
 
-**Step 5:** One change at a time:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Step 5 — One change at a time**
 
+**Goal:** Two messages — propose, then apply.
+
+**Message 1:**
 ```
-First, add input validation. Just show me what you'd add — don't modify yet.
-[Review] Now add the validation. Show the diff before I accept.
+@calculator.c
+
+Show me the validation you would add inside divide() for division by zero.
+Do not edit the file yet.
 ```
+
+**Message 2** (after you review Message 1):
+```
+Now add only that validation to divide(). Show the diff before I accept.
+Do not change main() or other functions.
+```
+
+**Look for:** Message 1 = no edit · Message 2 = small diff.
 
 ---
 
 ## Exercise 3.4 — Step 6: Prompt Templates
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 6 — Prompt templates**
 
-Save as `.cursor/prompt-templates.md`:
+**Goal:** Reusable prompts for real projects.
+
+Create **`.cursor/prompt-templates.md`**:
 
 ```
 ## Bug Fix Template
-Task: [Describe bug]  File: [path]  Lines: [range]
-Constraints: Do NOT change [signatures, imports]
-Success criteria: [How to verify]
+@{{file}}
+Task: [Describe bug]
+Constraints: Do NOT change [signatures / other files]
+Output: Show diff + root cause
+Success: [How to verify]
 
-## Feature Addition Template
-Plan first: Yes/No  Constraints: Do NOT break [existing functionality]
+## Plan-First Template
+@{{file}}
+Before editing: list files, risks, and what you will NOT touch.
+Wait for my approval.
 
-## Code Review Template
-Focus: [Security, Performance, Edge cases]
-Ignore: [Style, formatting]
+## Small Change Template
+@{{file}}
+Change ONLY: [function or lines]
+DO NOT: [forbidden changes]
+Show diff before applying.
 ```
 
-**Success Criteria:** Constrained prompt · Plan first · Negative constraints · Template created
+**Success Criteria:**
+- Constrained prompt sent · Vague vs. constrained compared
+- Plan before edit · DO NOT list used · Two-message flow tried
+- `.cursor/prompt-templates.md` created
 
 ---
 
