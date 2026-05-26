@@ -123,6 +123,21 @@ Cursor Training Program · Complete Course
 """
 
 
+def _apply_fit_classes(slides_dir: Path) -> int:
+    import importlib.util
+
+    script = Path(__file__).resolve().parent / "apply-slide-fit-classes.py"
+    spec = importlib.util.spec_from_file_location("apply_slide_fit_classes", script)
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+
+    tagged = 0
+    for path in sorted(slides_dir.glob("module-*-marp.md")):
+        tagged += mod.process_file(path)
+    return tagged
+
+
 def build_course_markdown(slides_dir: Path) -> str:
     parts = list(_intro_slides())
     previous_day: str | None = None
@@ -174,6 +189,10 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parent.parent
     slides_dir = args.slides_dir if args.slides_dir.is_absolute() else repo_root / args.slides_dir
     output = args.output if args.output.is_absolute() else repo_root / args.output
+
+    tagged = _apply_fit_classes(slides_dir)
+    if tagged:
+        print(f"Tagged {tagged} dense slide(s) with fit-* classes")
 
     markdown = build_course_markdown(slides_dir)
     output.parent.mkdir(parents=True, exist_ok=True)

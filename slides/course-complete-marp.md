@@ -74,6 +74,8 @@ Cursor Training Program · Concept block · ~60 min
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Overview
 
 | Aspect            | Details                                                                                                           |
@@ -118,11 +120,15 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Next-Token Prediction
 
 <img src="assets/module-01/next-token-prediction.svg" alt="Next-token prediction probabilities" />
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Traditional Code vs. AI Model
 
@@ -140,6 +146,8 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 **Implication:** Never trust a single run as ground truth.
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## What Determines AI Output?
 
@@ -166,6 +174,8 @@ max_tokens: 4000   # cap length
 ```
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Temperature Impact
 
@@ -218,6 +228,8 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Hallucinations in Code
 
 | Type                   | Example                        | How to Spot               |
@@ -230,11 +242,15 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Why Models Hallucinate
 
 <img src="assets/module-01/hallucination-causes.svg" alt="Root causes of hallucination" />
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Example: Confident Wrong
 
@@ -250,6 +266,8 @@ response = await async_requests.get('https://api.example.com')
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Hallucination Mitigation Strategies
 
@@ -298,6 +316,8 @@ _Concept · 10 minutes_
 
 ---
 
+<!-- _class: fit-md -->
+
 ## What Is a Token?
 
 | Language | Example                     | Token Count                  |
@@ -325,6 +345,8 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Model Pricing Examples
 
 | Model             | Input (per 1M) | Output (per 1M) | Output/Input |
@@ -339,6 +361,8 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 
 ---
 
+<!-- _class: fit-md -->
+
 ## What 1 Million Tokens Looks Like
 
 | Content Type         | Approximate Amount            |
@@ -349,6 +373,8 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 | Full codebase        | Small to medium project       |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Cost Calculation Example
 
@@ -367,6 +393,8 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Cost Optimization Strategies
 
 | Strategy               | How It Works                | Impact             |
@@ -380,6 +408,8 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Real-World Cost Bounds
 
 | Usage Level | Monthly Cost | What You Can Do                          |
@@ -390,6 +420,8 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 | Enterprise  | $1000+       | Team usage, automation, CI/CD            |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## The Cache Effect
 
@@ -417,6 +449,8 @@ _Concept · 12 minutes · The single most valuable AI skill_
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## What Is Context?
 
 Context = all the information the model has access to when generating a response.
@@ -442,6 +476,8 @@ Context = all the information the model has access to when generating a response
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Context Checklist
 
 Before every AI interaction, ask:
@@ -466,6 +502,8 @@ Before every AI interaction, ask:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Good vs. Bad Context — Good Example
 
 **GOOD (specific):**
@@ -479,11 +517,15 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Context Prioritization Pyramid
 
 <img src="assets/module-01/context-pyramid.svg" alt="Context prioritization pyramid" />
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Context Window Management
 
@@ -496,6 +538,8 @@ Using Python 3.11. Expected: skip dicts without the key.
 | **Vector retrieval**    | Semantic search for relevant context | Very large codebases |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## The "Lost in the Middle" Problem
 
@@ -517,6 +561,8 @@ _Concept · 8 minutes_
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## What Is Tool Calling?
 
 Tool calling (function calling) lets the AI request execution of external functions.
@@ -526,6 +572,8 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 <img src="assets/module-01/tool-calling-flow.svg" alt="Tool calling flow" />
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Common Tool Types in Development
 
@@ -541,6 +589,8 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## MCP (Model Context Protocol)
 
 > _"USB-C for AI — one protocol that works across different tools."_
@@ -552,6 +602,8 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 <img src="assets/module-01/mcp-architecture.svg" alt="MCP architecture" />
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Why MCP Matters
 
@@ -584,6 +636,8 @@ _Concept · 8 minutes_
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Agent vs. Chatbot
 
 | Aspect          | Chatbot                              | Agent                             |
@@ -601,11 +655,15 @@ _Concept · 8 minutes_
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## The Agent Loop — Diagram
 
 <img src="assets/module-01/agent-loop.svg" alt="Agent loop diagram" />
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Levels of Agent Autonomy
 
@@ -619,6 +677,8 @@ _Concept · 8 minutes_
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## How Agents Change Your Role
 
 **Traditional:**
@@ -631,6 +691,8 @@ _Concept · 8 minutes_
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Developer Role Shift
 
 | Old Role       | New Role           |
@@ -642,6 +704,8 @@ _Concept · 8 minutes_
 | Problem solver | Problem framer     |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## When to Use Agents
 
@@ -658,6 +722,8 @@ _Concept · 8 minutes_
 - High cost of failure
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Module Summary
 
@@ -684,6 +750,8 @@ Cursor Training Program · Hands-on exercise · ~90 min
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Overview
 
 | Aspect | Details |
@@ -694,6 +762,8 @@ Cursor Training Program · Hands-on exercise · ~90 min
 | **Module Goal** | Master the core workflows of AI-assisted coding in Cursor |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Learning Objectives
 
@@ -709,6 +779,8 @@ By the end of this module, participants will be able to:
 - Let agents run terminal commands and react to output
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Agenda
 
@@ -745,6 +817,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 2.1 — Steps 1–2
 
 **Step 1:** Open an unfamiliar repository in Cursor
@@ -760,6 +834,8 @@ cursor .
 **Step 2:** Open the Agent panel — ``Ctrl+I``
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 2.1 — Step 3: Orientation Prompt
 
@@ -796,6 +872,8 @@ Create an ASCII diagram showing the module relationships in this codebase.
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Expected Agent Output (Sample)
 
@@ -841,6 +919,8 @@ Use **precise context** — select a function or class, then ask focused questio
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 2.2 — Steps 1–3
 
 **Step 1:** Open a specific file in your project
@@ -881,6 +961,8 @@ Trace the call chain two levels in each direction.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Inline Explanation Shortcut
 
 ```bash
@@ -914,6 +996,8 @@ Trace the call chain two levels in each direction.
 > *"Before AI changes your code, see exactly what will change and approve it."*
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 2.3 — Steps 1–2
 
@@ -1010,6 +1094,8 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 2.4 — Step 2: Describe Change
 
 **Step 2:** Describe a complex change:
@@ -1026,6 +1112,8 @@ Don't write code yet – just give me a plan.
 ```
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 2.4 — Step 3: Review the Plan
 
@@ -1084,6 +1172,8 @@ Skip email verification for this version. Proceed.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Model Selection Guide
 
 | Task Type | Recommended Model | Why |
@@ -1114,6 +1204,8 @@ Explain what a closure is in JavaScript with a practical example.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 2.5 — Comparison Table
 
 | Comparison Point | Composer 2.5 | GPT-5 Mini |
@@ -1124,6 +1216,8 @@ Explain what a closure is in JavaScript with a practical example.
 | Speed | | |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 2.5 — Cost & Decision Matrix
 
@@ -1153,6 +1247,8 @@ Explain what a closure is in JavaScript with a practical example.
 *Concept · 5 min · Exercise · 8 min*
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## @mention Types
 
@@ -1340,6 +1436,8 @@ Add input validation to all form handlers.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 2.8 — Steps 1–3
 
 **Demonstration (Windows):** **PowerShell** · Agent ``Ctrl+I``
@@ -1361,6 +1459,8 @@ Run `dir` and tell me which file looks like the main program.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 2.8 — Agent Terminal Loop
 
 <img src="assets/module-02/exercise-2-8-agent-terminal-loop.svg" alt="Exercise 2.8 — Agent Terminal Loop" />
@@ -1379,6 +1479,8 @@ Show me the command output.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 2.8 — Step 6: Multi-Step Workflow
 
 **Step 6:** Multi-step workflow (Windows PowerShell):
@@ -1395,6 +1497,8 @@ Confirm before each command that might affect the repo.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Terminal Command Safety Rules
 
 | Category | Commands |
@@ -1408,6 +1512,8 @@ Confirm before each command that might affect the repo.
 - Installed dependency · Executed multi-step workflow
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Module Summary
 
@@ -1423,6 +1529,8 @@ Confirm before each command that might affect the repo.
 | 2.8 | Terminal Integration | Command execution |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -1441,6 +1549,8 @@ Confirm before each command that might affect the repo.
 Cursor Training Program · ~60 min
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -1464,6 +1574,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Agenda
 
 | Lesson | Topic | Time |
@@ -1485,6 +1597,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## The Core Distinction
 
 | Aspect | Ask Mode | Agent Mode |
@@ -1498,6 +1612,8 @@ By the end of this module, participants will be able to:
 | **Best for** | Questions, learning, code review | Implementation, debugging, automation |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## When to Use Each Mode
 
@@ -1514,6 +1630,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Safety Implications
 
 | Risk | Ask Mode | Agent Mode |
@@ -1526,6 +1644,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## The Mode Continuum
 
 <img src="assets/module-03/the-mode-continuum.svg" alt="The Mode Continuum" />
@@ -1533,6 +1653,8 @@ By the end of this module, participants will be able to:
 > *"Not every AI interaction needs full agent capabilities."*
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -1597,6 +1719,8 @@ What edge cases does it handle?
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 3.1 — Step 6 & Success Criteria
 
 **Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
@@ -1636,6 +1760,8 @@ What edge cases does it handle?
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Browser Tool: With vs. Without
 
 | Scenario | Without Browser | With Browser |
@@ -1674,6 +1800,8 @@ Tell me what you see on the page.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 3.2 — Steps 3–4
 
 **Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
@@ -1702,6 +1830,8 @@ Are there any errors or warnings? If so, what are they?
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Expected Agent Actions
 
@@ -1736,6 +1866,8 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Browser Tool Limitations
 
 | Limitation | Workaround |
@@ -1768,6 +1900,8 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Terminal Tool Flow
 
 <img src="assets/module-03/terminal-tool-flow.svg" alt="Terminal Tool Flow" />
@@ -1790,6 +1924,8 @@ Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 3.3 — Step 1: Safe Command
 
 **Step 1 — Read-only command**
@@ -1808,6 +1944,8 @@ Summarize the output. Do not modify any files.
 **Look for:** Version strings in chat · no file edits
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 2: Run Passing Tests
 
@@ -1841,6 +1979,8 @@ Show full output: compilation OK? how many tests passed?
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 3.3 — Step 4: Diagnose Failure
 
 **Step 4 — Read terminal output**
@@ -1858,6 +1998,8 @@ Is the bug in the test or in add()? Explain only — do not fix yet.
 **Look for:** Names `test_add` · expects 6, got 5 · test is wrong
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.3 — Step 5: Fix and Verify
 
@@ -1879,6 +2021,8 @@ Show the diff before I accept changes.
 **Look for:** Two test runs · one-line fix · all tests pass
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 3.3 — Step 6: Approval Rules
 
@@ -1923,6 +2067,8 @@ Run git status. Summarize only — do not commit or push.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Bad Prompts vs. Good Prompts
 
 | Bad Prompt | Good Prompt |
@@ -1934,6 +2080,8 @@ Run git status. Summarize only — do not commit or push.
 | "Review my code" | "Review auth.py for SQL injection, password handling, session issues. Ignore style." |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## The "Boundaries" Technique
 
@@ -1950,6 +2098,8 @@ Change ONLY: the function body of calculate_total()
 ```
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Avoiding Scope Creep
 
@@ -1984,6 +2134,8 @@ User: "Wait, I just wanted the login bug fixed!"
 Use **`@calculator.c`** in every prompt below.
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 1: Constrained Prompt
 
@@ -2033,6 +2185,8 @@ Note: Did the Agent change more than `divide()`?
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Exercise 3.4 — Step 3: Plan Before Editing
 
 **Step 3 — Plan before editing**
@@ -2057,6 +2211,8 @@ Do not edit files yet — I will review first.
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Exercise 3.4 — Step 4: DO NOT List
 
 **Step 4 — DO NOT list**
@@ -2078,6 +2234,8 @@ DO NOT:
 **Look for:** Comment only — no logic changes.
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 3.4 — Step 5: One Change at a Time
 
@@ -2102,6 +2260,8 @@ Do not change main() or other functions.
 **Look for:** Message 1 = no edit · Message 2 = small diff.
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 6: Prompt Templates
 
@@ -2138,6 +2298,8 @@ Show diff before applying.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Takeaway |
@@ -2148,6 +2310,8 @@ Show diff before applying.
 | 3.4 | Effective Prompting | Boundaries prevent scope creep |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -2166,6 +2330,8 @@ Show diff before applying.
 Cursor Training Program · ~60 min
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -2190,6 +2356,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Agenda
 
 | Lesson | Topic | Time |
@@ -2211,6 +2379,8 @@ By the end of this module, participants will be able to:
 *Concept · 8 min · Exercise · 12 min*
 
 ---
+
+<!-- _class: fit-md -->
 
 ## What Are Rules?
 
@@ -2248,6 +2418,8 @@ Good: ...  Bad: ...
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Windows Exercise Environment
 
 All exercises in this module assume **Windows 10/11** with Cursor installed.
@@ -2264,6 +2436,8 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 4.1 — Step 1: Setup
 
@@ -2284,6 +2458,8 @@ General: no commented-out code, no console.log in prod
 ```
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 4.1 — Build & Test Rule
 
@@ -2344,6 +2520,8 @@ What are the security guardrails?
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Rules vs. Repository Instructions
 
 | Aspect | Rules | Repository Instructions |
@@ -2354,6 +2532,8 @@ What are the security guardrails?
 | **Use case** | Detailed standards | High-level project overview |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Repository Instructions Structure
 
@@ -2370,6 +2550,8 @@ What are the security guardrails?
 ```
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 4.2 — Create Instructions
 
@@ -2418,6 +2600,8 @@ How do I run the tests?
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## What Is a Skill?
 
 A reusable, specialized workflow the agent loads and follows — a **"prompt template with memory."**
@@ -2432,6 +2616,8 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 | Documentation | "Generate API Docs" |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 4.3 — PR Review Skill
 
@@ -2450,6 +2636,8 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 4.3 — Security Audit Skill
 
@@ -2513,6 +2701,8 @@ What skills are available in this project?
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## What Is MCP?
 
 MCP standardizes how AI agents discover and use external tools — **"USB port for AI."**
@@ -2527,6 +2717,8 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 | **Database** | Query databases, run migrations |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Hooks & Slash Workflows
 
@@ -2548,6 +2740,8 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 | `/bug-report` | Analyze error → create issue → assign on-call |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Walkthrough: MCP Configuration
 
@@ -2575,6 +2769,8 @@ Send a message to #deploys: "Deployment starting"
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Walkthrough: Slash Command Example
 
 Create `.cursor/commands/deploy.md`:
@@ -2597,6 +2793,8 @@ Usage: `/deploy staging`
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## What Are Subagents?
 
 Independent agent instances for specialized tasks — own context, tools, and instructions — then report back to the main agent.
@@ -2604,6 +2802,8 @@ Independent agent instances for specialized tasks — own context, tools, and in
 <img src="assets/module-04/what-are-subagents.svg" alt="What Are Subagents?" />
 
 ---
+
+<!-- _class: fit-md -->
 
 ## When to Use Subagents
 
@@ -2625,6 +2825,8 @@ Independent agent instances for specialized tasks — own context, tools, and in
 | **Subagent** | Parallel, isolated, specialized work |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Walkthrough: Subagents in Action
 
@@ -2650,6 +2852,8 @@ Meanwhile, I'll work on the frontend.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Output |
@@ -2661,6 +2865,8 @@ Meanwhile, I'll work on the frontend.
 | 4.5 | Subagents | Understanding of delegation |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -2679,6 +2885,8 @@ Meanwhile, I'll work on the frontend.
 Cursor Training Program · ~60 min
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -2701,6 +2909,8 @@ By the end of this module, participants will be able to:
 - List, resume, and manage concurrent sessions effectively
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -2736,6 +2946,8 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Interactive Mode Commands
 
 | Command | Purpose |
@@ -2750,6 +2962,8 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 | `/resume` | View and resume previous sessions |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -2792,6 +3006,8 @@ agent "Help me understand the current codebase structure"
 - `Ctrl+D` twice — exit
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 5.1 — Steps 3–5
 
@@ -2868,6 +3084,8 @@ agent /setup-terminal
 
 ---
 
+<!-- _class: fit-md -->
+
 ## One-Shot Command Structure
 
 ```bash
@@ -2881,6 +3099,8 @@ agent --non-interactive "run this task"     # No prompts, just output
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Use Cases for One-Shot CLI
 
 | Use Case | Example |
@@ -2892,6 +3112,8 @@ agent --non-interactive "run this task"     # No prompts, just output
 | **Pre-commit hooks** | `agent --mode=ask "Check for console.log statements"` |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 5.2 — Steps 1–2
 
@@ -2921,6 +3143,8 @@ agent --model claude-4.5-opus "Design a database schema for a task management sy
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 5.2 — Scriptable Code Reviewer
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -2940,6 +3164,8 @@ security issues, missing error handling. Be concise."
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 5.2 — Batch & Git Hooks
 
@@ -2991,6 +3217,8 @@ Send a local conversation to a Cloud Agent:
 **The `&` prefix:** Prepend any message with `&` to send it to the cloud.
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Cloud Handoff Flow
 
@@ -3068,6 +3296,8 @@ agent --resume [agent-id-from-cloud]
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Cloud Handoff Best Practices
 
 | When to Use | When Not to Use |
@@ -3091,6 +3321,8 @@ agent --resume [agent-id-from-cloud]
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Session Management Commands
 
 | Command | Purpose |
@@ -3108,6 +3340,8 @@ agent "Just say one word: auth-refactor"
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 5.4 — Steps 1–2
 
 **Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
@@ -3123,6 +3357,8 @@ agent "Just say one word: docs-update"
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 5.4 — Steps 1–2 (Part 2)
 
@@ -3195,6 +3431,8 @@ agent --resume abc123-def456-ghi789
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Skill |
@@ -3205,6 +3443,8 @@ agent --resume abc123-def456-ghi789
 | 5.4 | Session Management | Concurrent work handling |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Quick Reference Card
 
@@ -3246,6 +3486,8 @@ Cursor Training Program · Complete Course
 Cursor Training Program · ~90 min
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -3289,6 +3531,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Cloud Agents vs. Local Agent
 
 | Aspect | Local Agent | Cloud Agent |
@@ -3325,6 +3569,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Cloud Agent Dashboard
 
 ```
@@ -3341,6 +3587,8 @@ Failed (1)
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -3374,6 +3622,8 @@ open https://cursor.com/agents
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Exercise 6.1 — Steps 1–2 (Part 2)
 
 **Step 2:** Click **"+ New"** and fill out:
@@ -3390,6 +3640,8 @@ Auto-create PR: ☐
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 6.1 — Steps 3–4
 
@@ -3409,6 +3661,8 @@ Auto-create PR: ☐
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 6.1 — Steps 3–4 (Part 2)
 
 **Step 4:** Configure settings (gear icon):
@@ -3423,6 +3677,8 @@ Auto-create PR: ☐
 | Max Run Time | 5 min – 24 hrs |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 6.1 — Steps 5–6
 
@@ -3461,6 +3717,8 @@ https://cursor.com/agents/agt_abc123def456
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Types of Artifacts
 
 | Artifact Type | Examples |
@@ -3484,6 +3742,8 @@ https://cursor.com/agents/agt_abc123def456
 - Max **100MB** per file · **1GB** total per agent
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 6.2 — Steps 1–2
 
@@ -3535,6 +3795,8 @@ Place all in artifacts/ directory.
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Exercise 6.2 — API Access
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -3555,6 +3817,8 @@ curl -L -o report.md "$DOWNLOAD_URL"
 Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent ID.
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 6.2 — CI/CD Integration
 
@@ -3582,6 +3846,8 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Supported Integrations
 
 | Platform | Capabilities | Setup |
@@ -3594,11 +3860,15 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Messaging Integration Architecture
 
 <img src="assets/module-06/messaging-integration-architecture.svg" alt="Messaging Integration Architecture" />
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Demo: Slack Integration
 
@@ -3618,6 +3888,8 @@ Usage Hint: [prompt or command]
 - Posts completion summary when webhook fires
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Demo: Slack Usage
 
@@ -3640,6 +3912,8 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Demo: Jira Integration
 
 **Step 1:** Install the Jira integration from the Cursor dashboard (requires Cursor admin access).
@@ -3659,6 +3933,8 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Demo: Discord Integration
 
 ```python
@@ -3671,6 +3947,8 @@ async def cursor_command(ctx, *, prompt):
 Usage: `!cursor Add error handling to all API endpoints`
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Generic Webhook & Notifications
 
@@ -3700,6 +3978,8 @@ curl -X POST https://your-server.com/trigger-agent \
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Quick Reference Card
 
 <img src="assets/module-06/quick-reference-card.svg" alt="Quick Reference Card" />
@@ -3717,6 +3997,8 @@ curl -X POST https://your-server.com/trigger-agent \
 Cursor Training Program · ~60 min
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -3741,6 +4023,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Agenda
 
 | Lesson | Topic | Time |
@@ -3763,6 +4047,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-md -->
+
 ## The Five APIs
 
 | API | Endpoint | Purpose |
@@ -3774,6 +4060,8 @@ By the end of this module, participants will be able to:
 | **Webhooks** | `/v1/webhooks` | Register and manage webhook endpoints |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## API Comparison Matrix
 
@@ -3795,6 +4083,8 @@ By the end of this module, participants will be able to:
 - **Be notified when agents complete** → Webhooks API
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## OpenAI Compatibility
 
@@ -3826,6 +4116,8 @@ response = client.chat.completions.create(
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Authentication Methods
 
 | Method | Format | When to Use |
@@ -3836,6 +4128,8 @@ response = client.chat.completions.create(
 | **Admin API Key** | `admin_` prefixed | Admin API only |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## API Key Types
 
@@ -3851,6 +4145,8 @@ response = client.chat.completions.create(
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Security Best Practices
 
 - Never commit API keys to git
@@ -3862,6 +4158,8 @@ response = client.chat.completions.create(
 - Monitor key usage in dashboard
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -3911,6 +4209,8 @@ curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 7.2 — Steps 4–5
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -3928,6 +4228,8 @@ response = requests.get(
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 7.2 — Steps 4–5 (Part 2)
 
 **Step 5:** Test with OpenAI SDK:
@@ -3943,6 +4245,8 @@ response = client.chat.completions.create(
 ```
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 7.2 — Steps 6–7
 
@@ -3979,6 +4283,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Rate Limits by API
 
 | API | Limit | Window |
@@ -3990,6 +4296,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | Webhooks | 2000 requests | per minute |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## HTTP Status Codes to Handle
 
@@ -4004,6 +4312,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Rate Limit Headers
 
 | Header | Description | Example |
@@ -4014,6 +4324,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | `Retry-After` | Seconds to wait (on 429) | `60` |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 7.3 — Exponential Backoff
 
@@ -4070,11 +4382,15 @@ ETags are unique identifiers for API response versions.
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## ETag Flow
 
 <img src="assets/module-07/etag-flow.svg" alt="ETag Flow" />
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Endpoints Supporting ETags
 
@@ -4087,6 +4403,8 @@ ETags are unique identifiers for API response versions.
 | `/v1/agents` (list) | ⚠️ Partial | Changes frequently |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 7.4 — Basic ETag Usage
 
@@ -4132,6 +4450,8 @@ def get_with_etag(url, previous_etag=None):
 
 ---
 
+<!-- _class: fit-md -->
+
 ## The Models Endpoint
 
 ```bash
@@ -4170,6 +4490,8 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 7.5 — Steps 3–4
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -4201,6 +4523,8 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Skill |
@@ -4212,6 +4536,8 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 | 7.5 | Listing Models | Auth smoke-test |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -4230,6 +4556,8 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 Cursor Training Program · ~60 min
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -4254,6 +4582,8 @@ By the end of this module, participants will be able to:
 - Build an end-to-end automated agent workflow
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Agenda
 
@@ -4302,6 +4632,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Windows Exercise Environment
 
 All exercises in this module assume **Windows 10/11** with Cursor installed.
@@ -4318,6 +4650,8 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.1 — Create with curl
 
@@ -4348,6 +4682,8 @@ curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H 
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 8.1 — Capture IDs
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -4372,6 +4708,8 @@ Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
 Create with specific model: `"model": {"id": "claude-4.7-opus"}`
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.1 — Python Helper
 
@@ -4405,6 +4743,8 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## SSE Event Types
 
 | Event | When It Happens | Data Example |
@@ -4425,6 +4765,8 @@ SSE streams support the **`Last-Event-ID`** header — if your connection drops,
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 8.2 — Stream with curl
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -4444,6 +4786,8 @@ Set IDs first: `$env:AGENT_ID = "..."` · `$env:RUN_ID = "..."`
 Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.2 — Python SSE Client
 
@@ -4497,6 +4841,8 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Exercise 8.3 — Wait & List
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -4516,6 +4862,8 @@ def list_artifacts(agent_id):
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Exercise 8.3 — Download
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -4534,6 +4882,8 @@ download_url = response.json().get('url')
 **All artifacts:** loop items, create subdirs, download each via presigned URL
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 8.3 — CI Integration
 
@@ -4570,6 +4920,8 @@ def process_test_results(agent_id):
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Webhook Payload
 
 ```json
@@ -4584,6 +4936,8 @@ def process_test_results(agent_id):
 ```
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Exercise 8.4 — HMAC Verification
 
@@ -4601,6 +4955,8 @@ def verify_signature(raw_body, signature_header):
 Flask route: verify signature → parse payload → handle FINISHED/ERROR
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.4 — Configure Agent
 
@@ -4713,11 +5069,15 @@ Combine everything into `automated_workflow.py`:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Workflow Architecture
 
 <img src="assets/module-08/workflow-architecture.svg" alt="Workflow Architecture" />
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Run the Workflow
 
@@ -4735,6 +5095,8 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Workflow Output
 
 ```
@@ -4750,6 +5112,8 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Skill |
@@ -4762,6 +5126,8 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 | 8.6 | End-to-End Workflow | Complete automation |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Quick Reference Card
 
@@ -4794,6 +5160,8 @@ Cursor Training Program · ~75 min
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Overview
 
 | Aspect | Details |
@@ -4804,6 +5172,8 @@ Cursor Training Program · ~75 min
 | **Module Goal** | Master team management, usage analytics, cost governance, and safe admin operations |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Learning Objectives
 
@@ -4819,6 +5189,8 @@ By the end of this module, participants will be able to:
 - Safely remove team members with proper patterns (demonstration)
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Agenda
 
@@ -4845,6 +5217,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## User vs. Admin API Key
 
 | Aspect | User API Key | Admin API Key |
@@ -4858,6 +5232,8 @@ By the end of this module, participants will be able to:
 **Key endpoint:** `GET /v1/admin/members`
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -4875,6 +5251,8 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 9.1 — Setup & List
 
@@ -4895,6 +5273,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.1 — Pagination & Export
 
@@ -4938,6 +5318,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 > *"Finance asks: 'What did we spend yesterday?' Engineering leads ask: 'Who's using what?'"*
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.2 — Weekly Usage
 
@@ -4992,6 +5374,8 @@ Python `generate_cost_report()` for last 30 days:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 9.3 — Set Limits
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -5011,6 +5395,8 @@ curl -X PATCH ".../policies/users/$USER_ID/limits" \
 Check current limit: `GET .../policies/users/{userId}/limits`
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.3 — Bulk Limits
 
@@ -5047,6 +5433,8 @@ lead@company.com,200,alert
 > *"Which models are actually being used? Is Opus worth the cost? Should you train people on cheaper alternatives?"*
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 9.4 — Model Breakdown
 
@@ -5103,6 +5491,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Exercise 9.5 — DAU Report
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -5135,6 +5525,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Responsible Leaderboard Principles
 
 | Principle | Implementation |
@@ -5145,6 +5537,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | **Include context** | Show team size, role differences |
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.6 — Three Leaderboards
 
@@ -5187,6 +5581,8 @@ def anonymize_email(email):
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Demo: Intent Analysis
 
 <img src="assets/module-09/demo-intent-analysis.svg" alt="Demo: Intent Analysis" />
@@ -5227,6 +5623,8 @@ def anonymize_email(email):
 
 ---
 
+<!-- _class: fit-xs -->
+
 ## Demo: SafeRemovalDemo Workflow
 
 <img src="assets/module-09/demo-saferemovaldemo-workflow.svg" alt="Demo: SafeRemovalDemo Workflow" />
@@ -5236,6 +5634,8 @@ def anonymize_email(email):
 **Success Criteria:** 5-step pattern · audit-first · soft vs hard delete · resource transfer
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Module Summary
 
@@ -5251,6 +5651,8 @@ def anonymize_email(email):
 | 9.8 | Destructive Operations | Demo |
 
 ---
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
@@ -5269,6 +5671,8 @@ def anonymize_email(email):
 Cursor Training Program · ~20 min + take-home
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -5291,6 +5695,8 @@ By the end of this module, participants will be able to:
 - Build a complete reporting dashboard combining all data sources
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -5326,6 +5732,8 @@ By the end of this module, participants will be able to:
 
 ---
 
+<!-- _class: fit-sm -->
+
 ## Windows Exercise Environment
 
 All exercises in this module assume **Windows 10/11** with Cursor installed.
@@ -5343,6 +5751,8 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 10.1 — Fetch Metrics
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -5359,6 +5769,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Exercise 10.1 — AI Contribution %
 
@@ -5378,6 +5790,8 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.1 — ROI Analysis
 
@@ -5418,6 +5832,8 @@ AI usage cost → Net ROI
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Exercise 10.2 — Stream to File
 
 **Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
@@ -5433,6 +5849,8 @@ head -10 cursor_commits_export.csv
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 ---
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.2 — BI Integration
 
@@ -5516,6 +5934,8 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Dashboard Components
 
 | Component | Data Source | Purpose |
@@ -5541,6 +5961,8 @@ Run with: `streamlit run cursor_dashboard.py`
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Project Deliverables
 
 | Deliverable | Description |
@@ -5554,6 +5976,8 @@ Run with: `streamlit run cursor_dashboard.py`
 
 ---
 
+<!-- _class: fit-md -->
+
 ## Module Summary
 
 | Lesson | Topic | Key Skill |
@@ -5564,6 +5988,8 @@ Run with: `streamlit run cursor_dashboard.py`
 | 10.4 | Dashboard Architecture | Complete dashboard |
 
 ---
+
+<!-- _class: fit-xs -->
 
 ## Quick Reference Card
 
@@ -5584,7 +6010,7 @@ DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: lead fit-md -->
 
 # Course Complete
 

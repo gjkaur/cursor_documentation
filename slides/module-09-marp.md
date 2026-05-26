@@ -12,7 +12,14 @@ header: "Module 9 — Admin and Analytics APIs"
 
 Cursor Training Program · ~75 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,16 @@ Cursor Training Program · ~75 min
 | **Prerequisites** | Admin API key (not User key), Python 3.8+, Modules 7–8 completed |
 | **Module Goal** | Master team management, usage analytics, cost governance, and safe admin operations |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Learning Objectives
 
@@ -38,7 +54,16 @@ By the end of this module, participants will be able to:
 - Analyze conversation intent and complexity (demonstration)
 - Safely remove team members with proper patterns (demonstration)
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Agenda
 
@@ -53,7 +78,15 @@ By the end of this module, participants will be able to:
 | 9.7 | Conversation Insights | 6 min | Demo |
 | 9.8 | Destructive Admin Operations | 6 min | Demo |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -63,7 +96,16 @@ By the end of this module, participants will be able to:
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## User vs. Admin API Key
 
@@ -77,7 +119,16 @@ By the end of this module, participants will be able to:
 
 **Key endpoint:** `GET /v1/admin/members`
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -94,7 +145,16 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 9.1 — Setup & List
 
@@ -114,7 +174,14 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.1 — Pagination & Export
 
@@ -135,7 +202,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **Success Criteria:** Authenticated · listed members · handled pagination · exported CSV
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -145,7 +220,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 *Concept · 5 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoint
 
@@ -157,7 +240,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 > *"Finance asks: 'What did we spend yesterday?' Engineering leads ask: 'Who's using what?'"*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.2 — Weekly Usage
 
@@ -174,7 +266,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 9.2 — Cost Report
 
@@ -189,7 +289,15 @@ Python `generate_cost_report()` for last 30 days:
 
 **Success Criteria:** Retrieved date range · calculated trends · generated readable report
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -199,7 +307,15 @@ Python `generate_cost_report()` for last 30 days:
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoint
 
@@ -210,7 +326,16 @@ Python `generate_cost_report()` for last 30 days:
 | `alert` | Send notification but allow usage |
 | `block` | Prevent any further requests for the month |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 9.3 — Set Limits
 
@@ -230,7 +355,14 @@ curl -X PATCH ".../policies/users/$USER_ID/limits" \
 
 Check current limit: `GET .../policies/users/{userId}/limits`
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.3 — Bulk Limits
 
@@ -248,7 +380,15 @@ lead@company.com,200,alert
 
 **Success Criteria:** Retrieved user ID · set limit · verified · bulk setting implemented
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -258,7 +398,15 @@ lead@company.com,200,alert
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoint
 
@@ -266,7 +414,16 @@ lead@company.com,200,alert
 
 > *"Which models are actually being used? Is Opus worth the cost? Should you train people on cheaper alternatives?"*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 9.4 — Model Breakdown
 
@@ -285,7 +442,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 9.4 — Optimization Report
 
@@ -300,7 +465,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **Success Criteria:** Retrieved model breakdown · identified expensive users · generated recommendations
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -310,7 +483,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 *Concept · 4 min · Exercise · 6 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Why DAU Matters
 
@@ -321,7 +502,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **Source:** `activeUsers` field from `/admin/analytics/usage/daily`
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 9.5 — DAU Report
 
@@ -343,7 +533,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **Success Criteria:** Calculated DAU · adoption metrics · leadership-ready report
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -353,7 +551,14 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 *Concept · 5 min · Exercise · 6 min*
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Responsible Leaderboard Principles
 
@@ -364,7 +569,14 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | **Opt-in only** | Allow users to choose public visibility |
 | **Include context** | Show team size, role differences |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 9.6 — Three Leaderboards
 
@@ -384,7 +596,15 @@ def anonymize_email(email):
 
 **Success Criteria:** Anonymized · efficiency-focused · savings-focused leaderboards
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -394,7 +614,15 @@ def anonymize_email(email):
 
 *Concept · 6 min · Demonstration*
 
+
+
+
+
 ---
+
+
+
+
 
 ## What Conversation Insights Reveal
 
@@ -405,13 +633,30 @@ def anonymize_email(email):
 
 **Endpoint:** `GET /v1/admin/analytics/conversations` (may require Enterprise plan)
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Demo: Intent Analysis
 
 <img src="assets/module-09/demo-intent-analysis.svg" alt="Demo: Intent Analysis" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Demo: Complexity & Categories
 
@@ -425,7 +670,15 @@ def anonymize_email(email):
 
 **Success Criteria:** Understood capabilities · intent/complexity/category tracking · stuck patterns
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -435,7 +688,15 @@ def anonymize_email(email):
 
 *Concept · 6 min · Demonstration*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Safe Removal Playbook
 
@@ -445,7 +706,16 @@ def anonymize_email(email):
 4. **Log everything** — compliance audit trail
 5. **Confirm before hard delete** — GDPR/security only
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Demo: SafeRemovalDemo Workflow
 
@@ -455,7 +725,16 @@ def anonymize_email(email):
 
 **Success Criteria:** 5-step pattern · audit-first · soft vs hard delete · resource transfer
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Module Summary
 
@@ -470,13 +749,30 @@ def anonymize_email(email):
 | 9.7 | Conversation Insights | Demo |
 | 9.8 | Destructive Operations | Demo |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
 <img src="assets/module-09/quick-reference-card.svg" alt="Quick Reference Card" />
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -487,3 +783,7 @@ def anonymize_email(email):
 > Now that you can manage your team and analyze usage, **Module 10** covers attributing AI contributions per commit, exporting metrics to BI tools, and building complete dashboards.
 
 *End of Module 9*
+
+
+
+

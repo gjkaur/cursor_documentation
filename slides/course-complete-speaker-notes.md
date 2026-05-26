@@ -13546,11 +13546,11 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 
 ### Slide 433 — Course Complete
 
-**Type:** module_intro · **Lesson:** 10.4
+**Type:** bullets · **Lesson:** 10.4
 
 **Script**
 
-Module 10 closes with AI code tracking — measuring adoption and change in your codebase.
+This slide lists key points under Course Complete.
 
 The slide title is: Course Complete.
 

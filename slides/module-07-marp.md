@@ -12,7 +12,14 @@ header: "Module 7 — Cursor API Foundations"
 
 Cursor Training Program · ~60 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · ~60 min
 | **Prerequisites** | Cursor account, basic API familiarity, Python 3.8+ installed |
 | **Module Goal** | Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -35,7 +50,16 @@ By the end of this module, participants will be able to:
 - Use ETag caching for efficient repeat queries
 - Test authentication by listing available models
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -47,7 +71,15 @@ By the end of this module, participants will be able to:
 | 7.4 | ETag Caching | 18 min |
 | 7.5 | Listing Available Models | 10 min |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -57,7 +89,16 @@ By the end of this module, participants will be able to:
 
 *Concept · 10 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## The Five APIs
 
@@ -69,7 +110,16 @@ By the end of this module, participants will be able to:
 | **Admin** | `/v1/admin/*` | Team management, analytics, policies |
 | **Webhooks** | `/v1/webhooks` | Register and manage webhook endpoints |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## API Comparison Matrix
 
@@ -81,7 +131,15 @@ By the end of this module, participants will be able to:
 | **Admin** | Admin API key | Higher limits | Included in plan | Team management |
 | **Webhooks** | User API key | Per-minute | Free | Notifications |
 
+
+
+
+
 ---
+
+
+
+
 
 ## When to Use Which API
 
@@ -90,7 +148,16 @@ By the end of this module, participants will be able to:
 - **Manage team usage and limits** → Admin API
 - **Be notified when agents complete** → Webhooks API
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## OpenAI Compatibility
 
@@ -110,7 +177,15 @@ response = client.chat.completions.create(
 
 **Success Criteria:** Understand five APIs · select correct API · understand OpenAI compatibility
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -120,7 +195,14 @@ response = client.chat.completions.create(
 
 *Concept · 8 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Authentication Methods
 
@@ -131,7 +213,14 @@ response = client.chat.completions.create(
 | **User API Key** | Regular key | Agents, Chat, Files APIs |
 | **Admin API Key** | `admin_` prefixed | Admin API only |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## API Key Types
 
@@ -145,7 +234,14 @@ response = client.chat.completions.create(
 - Format: `cursor_admin_xxxxxxxxxxxx`
 - Can access: Admin API + everything User can
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Security Best Practices
 
@@ -157,7 +253,16 @@ response = client.chat.completions.create(
 - Use Admin API keys only when necessary
 - Monitor key usage in dashboard
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -174,7 +279,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.2 — Steps 1–3
 
@@ -183,7 +296,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Step 1:** Generate User API Key — **Where:** **Cursor app** → **Settings** → **API Keys** → **Generate New Key** (copy the key; you will not see it again)
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.2 — Steps 1–3 (Part 2)
 
@@ -194,7 +315,15 @@ $env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
 $env:CURSOR_USER_API_KEY
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.2 — Steps 1–3 (Part 3)
 
@@ -205,7 +334,16 @@ curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
   https://api.cursor.com/v1/models | Select-Object -First 20
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 7.2 — Steps 4–5
 
@@ -222,7 +360,16 @@ response = requests.get(
 )
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 7.2 — Steps 4–5 (Part 2)
 
@@ -238,7 +385,14 @@ response = client.chat.completions.create(
 )
 ```
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 7.2 — Steps 6–7
 
@@ -254,7 +408,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
   https://api.cursor.com/v1/admin/organization | jq '.'
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.2 — Steps 6–7 (Part 2)
 
@@ -263,7 +425,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **Success Criteria:** Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -273,7 +443,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 *Concept · 10 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Rate Limits by API
 
@@ -285,7 +464,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | Admin API | 500 requests | per minute |
 | Webhooks | 2000 requests | per minute |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## HTTP Status Codes to Handle
 
@@ -298,7 +486,14 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | **429** | Too Many Requests | Implement backoff |
 | **500/503** | Server Error | Retry with backoff |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Rate Limit Headers
 
@@ -309,7 +504,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 | `X-RateLimit-Reset` | Window reset (Unix timestamp) | `1700000000` |
 | `Retry-After` | Seconds to wait (on 429) | `60` |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 7.3 — Exponential Backoff
 
@@ -330,7 +534,15 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
     return None
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.3 — Rate Limiter & Client
 
@@ -344,7 +556,15 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 **Success Criteria:** Backoff · header monitoring · rate limiter · robust client class
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -354,7 +574,15 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 *Concept · 8 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## What Are ETags?
 
@@ -364,13 +592,31 @@ ETags are unique identifiers for API response versions.
 2. Server returns `304 Not Modified` if unchanged
 3. No data transfer, no rate limit consumption
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## ETag Flow
 
 <img src="assets/module-07/etag-flow.svg" alt="ETag Flow" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Endpoints Supporting ETags
 
@@ -382,7 +628,16 @@ ETags are unique identifiers for API response versions.
 | `/v1/analytics/usage` | ✅ Yes | Daily changes |
 | `/v1/agents` (list) | ⚠️ Partial | Changes frequently |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 7.4 — Basic ETag Usage
 
@@ -399,7 +654,15 @@ def get_with_etag(url, previous_etag=None):
         return response.json(), response.headers.get('ETag')
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.4 — ETagCache & CachedClient
 
@@ -416,7 +679,15 @@ def get_with_etag(url, previous_etag=None):
 
 **Success Criteria:** Basic ETag request · persistent cache · analytics workload caching
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -426,7 +697,14 @@ def get_with_etag(url, previous_etag=None):
 
 *Concept · 4 min · Exercise · 6 min*
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## The Models Endpoint
 
@@ -441,7 +719,15 @@ GET /v1/models
 
 > *"Simplest API call — perfect for verifying your API key works."*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.5 — Steps 1–2
 
@@ -457,14 +743,31 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
   | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.5 — Steps 1–2 (Part 2)
 
 **Step 2:** Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support
 **Terminal:** **PowerShell** — `python script.py`
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 7.5 — Steps 3–4
 
@@ -482,7 +785,15 @@ large_context = [m for m in models if m.get('context_window', 0) >= 100000]
 cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 7.5 — Steps 3–4 (Part 2)
 
@@ -495,7 +806,16 @@ select_model("simple_fix", "low")        # → gpt-5-mini
 select_model("frontend_ui", "high")      # → gemini-3.1-pro
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Module Summary
 
@@ -507,13 +827,30 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 | 7.4 | ETag Caching | Efficient queries |
 | 7.5 | Listing Models | Auth smoke-test |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
 <img src="assets/module-07/quick-reference-card.svg" alt="Quick Reference Card" />
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -524,3 +861,7 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 > Now that you understand API foundations, **Module 8** covers programmatically creating agents, streaming responses, and setting up notifications.
 
 *End of Module 7*
+
+
+
+

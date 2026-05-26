@@ -12,7 +12,14 @@ header: "Module 2 — Cursor Editor Essentials"
 
 Cursor Training Program · Hands-on exercise · ~90 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,16 @@ Cursor Training Program · Hands-on exercise · ~90 min
 | **Prerequisites** | Module 1 completed, Cursor installed, Git repository access |
 | **Module Goal** | Master the core workflows of AI-assisted coding in Cursor |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Learning Objectives
 
@@ -38,7 +54,16 @@ By the end of this module, participants will be able to:
 - Navigate checkpoints as a safety net
 - Let agents run terminal commands and react to output
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Agenda
 
@@ -53,7 +78,15 @@ By the end of this module, participants will be able to:
 | 2.7 | Checkpoints | 8 min |
 | 2.8 | Terminal Integration | 13 min |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -63,7 +96,15 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Problem & The Solution
 
@@ -73,7 +114,14 @@ By the end of this module, participants will be able to:
 
 > *"Drop an agent into a codebase you've never seen and get a coherent explanation of how it works."*
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 2.1 — Steps 1–2
 
@@ -89,7 +137,16 @@ cursor .
 
 **Step 2:** Open the Agent panel — ``Ctrl+I``
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 2.1 — Step 3: Orientation Prompt
 
@@ -104,7 +161,15 @@ Specifically tell me:
 5. What files should I read first to understand the architecture?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.1 — Step 4: Trace Data Flow
 
@@ -115,7 +180,15 @@ Based on what you just told me, trace the flow of data from input
 to output. What functions get called in order?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.1 — Step 5: Visual Overview
 
@@ -125,13 +198,30 @@ to output. What functions get called in order?
 Create an ASCII diagram showing the module relationships in this codebase.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Expected Agent Output (Sample)
 
 <img src="assets/module-02/expected-agent-output-sample.svg" alt="Expected Agent Output (Sample)" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Pro Tip — Save the Overview
 
@@ -142,7 +232,15 @@ Save this explanation as .cursor/project-overview.md so future
 team members can read it.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.1 — Success Criteria
 
@@ -151,7 +249,15 @@ team members can read it.
 - Agent identified entry points and key modules
 - Agent suggested first files to read
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -161,7 +267,15 @@ team members can read it.
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Targeted Explanations
 
@@ -169,7 +283,16 @@ team members can read it.
 
 Use **precise context** — select a function or class, then ask focused questions.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 2.2 — Steps 1–3
 
@@ -187,7 +310,15 @@ Explain the function I have selected. For each major section, tell me:
 - How it could be improved
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.2 — Step 4: Example I/O
 
@@ -198,7 +329,15 @@ Give me a concrete example of inputs and outputs for this function.
 Show me what happens in the normal case and one edge case.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.2 — Step 5: Dependencies
 
@@ -209,7 +348,14 @@ What other functions does this call? What calls this function?
 Trace the call chain two levels in each direction.
 ```
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Inline Explanation Shortcut
 
@@ -222,7 +368,15 @@ Trace the call chain two levels in each direction.
 - Selected specific code · Agent explained the selection
 - Agent provided input/output examples · Agent traced call dependencies
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -232,7 +386,15 @@ Trace the call chain two levels in each direction.
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Diff Review Workflow
 
@@ -243,7 +405,16 @@ Trace the call chain two levels in each direction.
 
 > *"Before AI changes your code, see exactly what will change and approve it."*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 2.3 — Steps 1–2
 
@@ -265,7 +436,15 @@ to "Welcome to My App"
 Accept? [Yes] [No] [Edit]
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.3 — Review Questions
 
@@ -278,7 +457,15 @@ Before accepting, ask yourself:
 
 **Step 4:** Accept · **Step 5:** Test manually
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.3 — Test After Accept
 
@@ -292,7 +479,15 @@ npm start                 # Node/React dev server
 
 **Other platforms:** Mac — `open index.html` · same `python` / `npm` commands.
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.3 — If Something Goes Wrong
 
@@ -305,7 +500,15 @@ Please explain what happened and suggest a fix.
 - Agent proposed a change · Reviewed diff before accepting
 - Accepted only after verification · Tested the change
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -315,7 +518,15 @@ Please explain what happened and suggest a fix.
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Design Before You Code
 
@@ -327,7 +538,15 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 - You're not 100% sure of the best approach
 - The change is risky or hard to undo
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.4 — Step 1: Enable Plan Mode
 
@@ -338,7 +557,16 @@ Plan Mode makes the agent create a **detailed plan BEFORE writing any code**.
 # The input border changes color to indicate Plan Mode
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 2.4 — Step 2: Describe Change
 
@@ -355,7 +583,16 @@ Requirements:
 Don't write code yet – just give me a plan.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 2.4 — Step 3: Review the Plan
 
@@ -379,7 +616,15 @@ Questions for you:
 Ready to proceed? [Yes] [No] [Modify Plan]
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.4 — Approve & Execute
 
@@ -392,7 +637,15 @@ Skip email verification for this version. Proceed.
 
 **Step 5:** Watch the agent execute the plan step by step
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.4 — Success Criteria
 
@@ -402,7 +655,15 @@ Skip email verification for this version. Proceed.
 - Agent asked clarifying questions
 - Approved plan before code was written
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -412,7 +673,16 @@ Skip email verification for this version. Proceed.
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Model Selection Guide
 
@@ -426,7 +696,15 @@ Skip email verification for this version. Proceed.
 
 **Model reference:** [`docs-content-readmes/010-docs-models-cursor-composer-2-5.md`](../docs-content-readmes/010-docs-models-cursor-composer-2-5.md)
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.5 — Compare Two Models
 
@@ -442,7 +720,14 @@ Explain what a closure is in JavaScript with a practical example.
 
 **Step 4:** Compare responses side by side
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 2.5 — Comparison Table
 
@@ -453,7 +738,16 @@ Explain what a closure is in JavaScript with a practical example.
 | Explanation clarity | | |
 | Speed | | |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 2.5 — Cost & Decision Matrix
 
@@ -463,7 +757,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 <img src="assets/module-02/exercise-2-5-cost-decision-matrix.svg" alt="Exercise 2.5 — Cost & Decision Matrix" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.5 — Success Criteria
 
@@ -472,7 +774,15 @@ Explain what a closure is in JavaScript with a practical example.
 - Compared quality and speed
 - Created personal model-selection guide
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -482,7 +792,16 @@ Explain what a closure is in JavaScript with a practical example.
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## @mention Types
 
@@ -497,7 +816,15 @@ Explain what a closure is in JavaScript with a practical example.
 
 > *"Laser-targeting instead of spraying the whole codebase."*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.6 — Steps 1–2
 
@@ -513,7 +840,15 @@ Explain what a closure is in JavaScript with a practical example.
 @calculate_total This function is returning NaN sometimes. Why?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.6 — Step 3: Multiple @mentions
 
@@ -524,7 +859,15 @@ Explain what a closure is in JavaScript with a practical example.
 Are there any race conditions or timing attacks?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.6 — Step 4: @branch
 
@@ -535,7 +878,15 @@ Compare @main and @feature/payment branches.
 What are the key differences in the payment handling code?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.6 — Step 5: @chat
 
@@ -546,7 +897,15 @@ What are the key differences in the payment handling code?
 implement the fix we agreed on.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.6 — Steps 6–7: @folder & @web
 
@@ -562,7 +921,15 @@ implement the fix we agreed on.
 @web React 19 useTransition hook How do I use it?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## @mention Pro Tips
 
@@ -570,7 +937,15 @@ implement the fix we agreed on.
 - You can @mention **multiple items** in one message
 - @mentions work in both **Agent** and **Chat** modes
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.6 — Success Criteria
 
@@ -580,7 +955,15 @@ implement the fix we agreed on.
 - Used multiple @mentions together
 - Used @web for external search
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -590,7 +973,15 @@ implement the fix we agreed on.
 
 *Concept · 4 min · Exercise · 4 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## A Safety Net for Experiments
 
@@ -602,7 +993,15 @@ implement the fix we agreed on.
 - Before complex changes · At milestones (Step 2 of 5)
 - Before risky experiments · Before terminal commands
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.7 — Create & Restore
 
@@ -613,7 +1012,15 @@ implement the fix we agreed on.
 # Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``)
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.7 — Steps 2–3
 
@@ -625,7 +1032,15 @@ implement the fix we agreed on.
 Add input validation to all form handlers.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.7 — Steps 4–5
 
@@ -633,7 +1048,15 @@ Add input validation to all form handlers.
 
 **Step 5:** View history via the clock icon in Agent panel
 
+
+
+
+
 ---
+
+
+
+
 
 ## Checkpoint Best Practices
 
@@ -645,7 +1068,15 @@ Add input validation to all form handlers.
 **Success Criteria:**
 - Created checkpoint · Made changes · Restored · Verified restoration
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -655,7 +1086,15 @@ Add input validation to all form handlers.
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## What the Agent Can Do
 
@@ -668,7 +1107,14 @@ Add input validation to all form handlers.
 - Commands appear in terminal for you to see
 - You can reject dangerous commands
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 2.8 — Steps 1–3
 
@@ -689,13 +1135,30 @@ Tell me what versions we're using.
 Run `dir` and tell me which file looks like the main program.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 2.8 — Agent Terminal Loop
 
 <img src="assets/module-02/exercise-2-8-agent-terminal-loop.svg" alt="Exercise 2.8 — Agent Terminal Loop" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 2.8 — Step 5: Install Dependency
 
@@ -707,7 +1170,16 @@ Use: py -m pip install requests
 Show me the command output.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 2.8 — Step 6: Multi-Step Workflow
 
@@ -723,7 +1195,16 @@ Summarize what you see after each command.
 Confirm before each command that might affect the repo.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Terminal Command Safety Rules
 
@@ -737,7 +1218,16 @@ Confirm before each command that might affect the repo.
 - Ran version check · Ran tests and reacted to output
 - Installed dependency · Executed multi-step workflow
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Module Summary
 
@@ -752,13 +1242,30 @@ Confirm before each command that might affect the repo.
 | 2.7 | Checkpoints | Safety net |
 | 2.8 | Terminal Integration | Command execution |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
 <img src="assets/module-02/quick-reference-card.svg" alt="Quick Reference Card" />
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -769,3 +1276,7 @@ Confirm before each command that might affect the repo.
 > Now that you've mastered essential Cursor workflows, **Module 3: Agent Modes and Tools** covers Ask, Agent, and custom modes plus browser and terminal tools.
 
 *End of Module 2*
+
+
+
+

@@ -12,7 +12,14 @@ header: "Module 3 — Agent Modes and Tools"
 
 Cursor Training Program · ~60 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · ~60 min
 | **Prerequisites** | Module 2 completed, live web app available (or sample provided) |
 | **Module Goal** | Master different agent modes and the core tools that make agents powerful |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -34,7 +49,14 @@ By the end of this module, participants will be able to:
 - Run terminal commands through the agent and diagnose failures
 - Write effective, constrained prompts that avoid scope creep
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -45,7 +67,15 @@ By the end of this module, participants will be able to:
 | 3.3 | Terminal Tool | 20 min |
 | 3.4 | Effective Prompting in Practice | 22 min |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -55,7 +85,16 @@ By the end of this module, participants will be able to:
 
 *Concept · 10 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## The Core Distinction
 
@@ -69,7 +108,14 @@ By the end of this module, participants will be able to:
 | **Safety level** | Very high (read-only) | Moderate (needs oversight) |
 | **Best for** | Questions, learning, code review | Implementation, debugging, automation |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## When to Use Each Mode
 
@@ -84,7 +130,16 @@ By the end of this module, participants will be able to:
 - Multi-step tasks · Development environment
 - You're prepared to review changes
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Safety Implications
 
@@ -96,7 +151,16 @@ By the end of this module, participants will be able to:
 | Data leakage | Low | Medium (can read files) |
 | API cost | Low (no tool calls) | Higher (multiple tool calls) |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## The Mode Continuum
 
@@ -104,7 +168,16 @@ By the end of this module, participants will be able to:
 
 > *"Not every AI interaction needs full agent capabilities."*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -121,7 +194,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.1 — Steps 1–2
 
@@ -131,7 +212,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 **Step 1:** Open Agent panel (`Cmd+I` / `Ctrl+I`) — note mode indicator at bottom
 **Where:** **Agent panel** — ``Ctrl+I``
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.1 — Steps 1–2 (Part 2)
 
@@ -142,7 +231,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 Change the variable name 'temp' to 'temperature' in the current file.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.1 — Steps 3–5
 
@@ -157,7 +254,15 @@ Explain the purpose of the main() function in this file.
 What edge cases does it handle?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.1 — Steps 3–5 (Part 2)
 
@@ -167,7 +272,16 @@ What edge cases does it handle?
 **Step 5:** Repeat the rename request — agent shows diff for approval
 **Where:** **Agent panel** — ``Ctrl+I``
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 3.1 — Step 6 & Success Criteria
 
@@ -185,7 +299,15 @@ What edge cases does it handle?
 - Used Ask Mode for questions · Observed Ask Mode cannot make changes
 - Switched to Agent Mode · Made a change with diff review
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -195,7 +317,15 @@ What edge cases does it handle?
 
 *Concept · 8 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## What the Browser Tool Can Do
 
@@ -206,7 +336,14 @@ What edge cases does it handle?
 
 > *"See what your app actually looks like in a browser — not just the source code."*
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Browser Tool: With vs. Without
 
@@ -217,7 +354,15 @@ What edge cases does it handle?
 | "What console errors?" | Asks you | Reads console directly |
 | "Does responsive layout work?" | Trusts CSS | Views at different sizes |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.2 — Steps 1–2
 
@@ -232,7 +377,15 @@ python -m http.server 8000
 # Or use a public test page
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.2 — Steps 1–2 (Part 2)
 
@@ -244,7 +397,16 @@ Use the browser tool to open http://localhost:8000
 Tell me what you see on the page.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 3.2 — Steps 3–4
 
@@ -261,7 +423,15 @@ On that same page, find:
 3. Any error messages visible
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.2 — Steps 3–4 (Part 2)
 
@@ -273,13 +443,30 @@ Now open the browser developer console.
 Are there any errors or warnings? If so, what are they?
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Expected Agent Actions
 
 <img src="assets/module-03/expected-agent-actions.svg" alt="Expected Agent Actions" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.2 — Steps 5–6
 
@@ -294,7 +481,15 @@ The login button is partially hidden on mobile sizes.
 Use the browser tool to check what's happening.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.2 — Steps 5–6 (Part 2)
 
@@ -306,7 +501,14 @@ Go to https://example.com/pricing
 Extract all pricing plan names and their monthly costs into a table.
 ```
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Browser Tool Limitations
 
@@ -319,7 +521,15 @@ Extract all pricing plan names and their monthly costs into a table.
 
 **Success Criteria:** Opened URL · Read content · Checked console · Extracted data
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -329,7 +539,15 @@ Extract all pricing plan names and their monthly costs into a table.
 
 *Concept · 8 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## What the Terminal Tool Can Do
 
@@ -338,13 +556,30 @@ Extract all pricing plan names and their monthly costs into a table.
 - Read command output as context for next actions
 - Chain commands based on previous results
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Terminal Tool Flow
 
 <img src="assets/module-03/terminal-tool-flow.svg" alt="Terminal Tool Flow" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.3 — Setup
 
@@ -360,7 +595,14 @@ Extract all pricing plan names and their monthly costs into a table.
 
 Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 1: Safe Command
 
@@ -379,7 +621,14 @@ Summarize the output. Do not modify any files.
 
 **Look for:** Version strings in chat · no file edits
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 2: Run Passing Tests
 
@@ -397,7 +646,15 @@ Show full output: compilation OK? how many tests passed?
 
 **Look for:** Four `PASS:` lines · `All tests passed!`
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.3 — Step 3: Break a Test
 
@@ -411,7 +668,16 @@ Show full output: compilation OK? how many tests passed?
 
 **Look for:** File saved with wrong expected value
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 4: Diagnose Failure
 
@@ -429,7 +695,16 @@ Is the bug in the test or in add()? Explain only — do not fix yet.
 
 **Look for:** Names `test_add` · expects 6, got 5 · test is wrong
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.3 — Step 5: Fix and Verify
 
@@ -450,7 +725,16 @@ Show the diff before I accept changes.
 
 **Look for:** Two test runs · one-line fix · all tests pass
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 3.3 — Step 6: Approval Rules
 
@@ -473,7 +757,15 @@ Run git status. Summarize only — do not commit or push.
 - Failure introduced · Diagnosis from terminal output
 - Fix verified by re-run · Approval rules understood
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -483,7 +775,15 @@ Run git status. Summarize only — do not commit or push.
 
 *Concept · 10 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Anatomy of an Effective Prompt
 
@@ -493,7 +793,16 @@ Run git status. Summarize only — do not commit or push.
 4. **OUTPUT FORMAT** — "Show me the diff and explain your change…"
 5. **SUCCESS CRITERIA** — "Function should return 0 for empty input…"
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Bad Prompts vs. Good Prompts
 
@@ -505,7 +814,16 @@ Run git status. Summarize only — do not commit or push.
 | "Make it faster" | "Optimize find_user() from O(n²) to O(n log n). Don't change signature." |
 | "Review my code" | "Review auth.py for SQL injection, password handling, session issues. Ignore style." |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## The "Boundaries" Technique
 
@@ -521,7 +839,16 @@ BOUNDARIES:
 Change ONLY: the function body of calculate_total()
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Avoiding Scope Creep
 
@@ -540,7 +867,15 @@ User: "Wait, I just wanted the login bug fixed!"
 | **Use checkpoints** | Create checkpoint before complex requests |
 | **Prefer diffs** | "Show me the diff, don't replace the whole file" |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.4 — Setup
 
@@ -555,7 +890,16 @@ User: "Wait, I just wanted the login bug fixed!"
 
 Use **`@calculator.c`** in every prompt below.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 1: Constrained Prompt
 
@@ -583,7 +927,15 @@ Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5.
 
 **Look for:** Diff limited to `divide()` — not a full refactor.
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 3.4 — Step 2: Vague vs. Constrained
 
@@ -603,7 +955,16 @@ Note: Did the Agent change more than `divide()`?
 
 **Look for:** Constrained prompt → smaller, reviewable diff.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 3: Plan Before Editing
 
@@ -627,7 +988,16 @@ Do not edit files yet — I will review first.
 
 **Look for:** Written plan, **no diff** until you approve.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 4: DO NOT List
 
@@ -649,7 +1019,16 @@ DO NOT:
 
 **Look for:** Comment only — no logic changes.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 3.4 — Step 5: One Change at a Time
 
@@ -673,7 +1052,16 @@ Do not change main() or other functions.
 
 **Look for:** Message 1 = no edit · Message 2 = small diff.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 6: Prompt Templates
 
@@ -708,7 +1096,14 @@ Show diff before applying.
 - Plan before edit · DO NOT list used · Two-message flow tried
 - `.cursor/prompt-templates.md` created
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Summary
 
@@ -719,13 +1114,30 @@ Show diff before applying.
 | 3.3 | Terminal Tool | Agent can run commands and react |
 | 3.4 | Effective Prompting | Boundaries prevent scope creep |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
 <img src="assets/module-03/quick-reference-card.svg" alt="Quick Reference Card" />
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -736,3 +1148,7 @@ Show diff before applying.
 > Now that you understand agent modes and core tools, **Module 4: Customizing Cursor for Your Team** covers rules, skills, MCP integrations, and subagents for team workflows.
 
 *End of Module 3*
+
+
+
+

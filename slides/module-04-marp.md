@@ -12,7 +12,14 @@ header: "Module 4 — Customizing Cursor for Your Team"
 
 Cursor Training Program · ~60 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · ~60 min
 | **Prerequisites** | Modules 1–3 completed, team repository access, Cursor installed |
 | **Module Goal** | Customize Cursor for team workflows with rules, skills, MCP, and subagents |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -35,7 +50,16 @@ By the end of this module, participants will be able to:
 - Connect external tools via MCP and create slash workflows
 - Understand when and how to use Subagents for delegation
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -47,7 +71,15 @@ By the end of this module, participants will be able to:
 | 4.4 | MCP, Hooks, and Slash Workflows | 10 min |
 | 4.5 | Subagents | 6 min |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -57,7 +89,16 @@ By the end of this module, participants will be able to:
 
 *Concept · 8 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## What Are Rules?
 
@@ -70,19 +111,43 @@ Rules are Markdown files (`.cursor/rules/*.mdc`) with persistent instructions th
 | **File pattern** | Matching files | When editing those files | "For `*.py` files, use type hints" |
 | **User** | Your account | Always across all projects | "Explain like I'm a junior developer" |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Rule Structure
 
 ```markdown
 
+
+
+
+
 ---
+
+
+
+
 
 description: Brief description of what this rule does
 globs: *.py, src/**/*.js
 alwaysApply: true
 
+
+
+
+
 ---
+
+
+
+
 
 # Rule Title
 
@@ -93,7 +158,16 @@ Write your instructions here in natural language.
 Good: ...  Bad: ...
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -110,7 +184,16 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 4.1 — Step 1: Setup
 
@@ -130,7 +213,16 @@ JS/TS: const over let, arrow functions, optional chaining
 General: no commented-out code, no console.log in prod
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 4.1 — Build & Test Rule
 
@@ -152,7 +244,15 @@ Always: input validation, rate limiting, HTTPS, safe error messages
 Flag: exec/eval with user input, password/secret in variable names
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.1 — Test & File-Specific Rules
 
@@ -167,7 +267,15 @@ Based on the project rules, what are the coding standards I should follow?
 What are the security guardrails?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.1 — Test & File-Specific Rules (Part 2)
 
@@ -179,7 +287,15 @@ What are the security guardrails?
 
 **Success Criteria:** Created rules directory · coding, build, security rules · verified application
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -189,7 +305,14 @@ What are the security guardrails?
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Rules vs. Repository Instructions
 
@@ -200,7 +323,16 @@ What are the security guardrails?
 | **Granularity** | Per-file patterns | Entire repository |
 | **Use case** | Detailed standards | High-level project overview |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Repository Instructions Structure
 
@@ -216,7 +348,16 @@ What are the security guardrails?
 ## Contact
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 4.2 — Create Instructions
 
@@ -226,7 +367,15 @@ Create `.cursor/repository-instructions.md`:
 
 <img src="assets/module-04/exercise-4-2-create-instructions.svg" alt="Exercise 4.2 — Create Instructions" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.2 — Verify & Maintain
 
@@ -241,7 +390,15 @@ What are the key technologies used in this project?
 How do I run the tests?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.2 — Verify & Maintain (Part 2)
 
@@ -253,7 +410,15 @@ How do I run the tests?
 
 **Success Criteria:** Created instructions · included purpose, stack, commands · verified agent access
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -263,7 +428,16 @@ How do I run the tests?
 
 *Concept · 8 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## What Is a Skill?
 
@@ -278,7 +452,16 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 | Domain-specific | "Security Audit" |
 | Documentation | "Generate API Docs" |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 4.3 — PR Review Skill
 
@@ -296,7 +479,16 @@ Step 3: Output formatted review with Critical / Warning / Suggestion
 Verdict: APPROVE / REQUEST CHANGES / COMMENT
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 4.3 — Security Audit Skill
 
@@ -313,7 +505,15 @@ Scan for:
 Output: report with line numbers, fix suggestions, overall risk rating
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.3 — Invoke Skills
 
@@ -328,7 +528,15 @@ Output: report with line numbers, fix suggestions, overall risk rating
 /pr-review feature/payment-integration
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.3 — Invoke Skills (Part 2)
 
@@ -339,7 +547,15 @@ Output: report with line numbers, fix suggestions, overall risk rating
 What skills are available in this project?
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 4.3 — Invoke Skills (Part 3)
 
@@ -348,7 +564,15 @@ What skills are available in this project?
 
 **Success Criteria:** Created skills · built PR Review + Security Audit · invoked via slash command
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -358,7 +582,16 @@ What skills are available in this project?
 
 *Concept · 10 min · Walkthrough*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## What Is MCP?
 
@@ -373,7 +606,16 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 | **Jira** | Create tickets, update status |
 | **Database** | Query databases, run migrations |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Hooks & Slash Workflows
 
@@ -394,7 +636,16 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 | `/deploy staging` | Tests → build → deploy → notify team |
 | `/bug-report` | Analyze error → create issue → assign on-call |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Walkthrough: MCP Configuration
 
@@ -420,7 +671,16 @@ Create a PR from feature/payment and request review from @alice
 Send a message to #deploys: "Deployment starting"
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Walkthrough: Slash Command Example
 
@@ -432,7 +692,15 @@ Usage: `/deploy staging`
 
 **Success Criteria:** Understood MCP, hooks, slash commands · saw configuration examples
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -442,7 +710,16 @@ Usage: `/deploy staging`
 
 *Concept · 6 min · Walkthrough*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## What Are Subagents?
 
@@ -450,7 +727,14 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 <img src="assets/module-04/what-are-subagents.svg" alt="What Are Subagents?" />
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## When to Use Subagents
 
@@ -461,7 +745,15 @@ Independent agent instances for specialized tasks — own context, tools, and in
 | **Specialization** | Different instructions | Security expert vs. UI designer |
 | **Sandboxing** | Limit tool access | Read-only subagent for unknown code |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Subagent vs. Tool vs. Skill
 
@@ -471,7 +763,16 @@ Independent agent instances for specialized tasks — own context, tools, and in
 | **Skill** | Multi-step workflow, same context |
 | **Subagent** | Parallel, isolated, specialized work |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Walkthrough: Subagents in Action
 
@@ -495,7 +796,16 @@ Meanwhile, I'll work on the frontend.
 
 **Success Criteria:** Understood concept · parallel execution · recognized templates
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Module Summary
 
@@ -507,13 +817,30 @@ Meanwhile, I'll work on the frontend.
 | 4.4 | MCP & Slash Commands | MCP config, slash commands |
 | 4.5 | Subagents | Understanding of delegation |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
 <img src="assets/module-04/quick-reference-card.svg" alt="Quick Reference Card" />
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -524,3 +851,7 @@ Meanwhile, I'll work on the frontend.
 > Now that you've customized Cursor for your team, **Module 5: Cursor CLI and Local Automation** covers terminal-based AI sessions, one-shot commands, and cloud handoff.
 
 *End of Module 4*
+
+
+
+

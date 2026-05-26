@@ -12,7 +12,14 @@ header: "Module 1 — Mental Models for AI-Assisted Development"
 
 Cursor Training Program · Concept block · ~60 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · Concept block · ~60 min
 | **Prerequisites** | None – this is the starting point                                                                                 |
 | **Module Goal**   | Build accurate mental models of how AI coding assistants work, their limitations, and how to use them effectively |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -36,7 +51,15 @@ By the end of this module, participants will be able to:
 - Distinguish between tool calling, MCP, and autonomous agents
 - Define the developer's evolving role with AI agents
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -46,7 +69,15 @@ By the end of this module, participants will be able to:
 
 _Concept · 12 minutes_
 
+
+
+
+
 ---
+
+
+
+
 
 ## Why Outputs Are Probabilistic
 
@@ -56,13 +87,29 @@ At its simplest, an LLM is a **next-token prediction engine**.
 
 Given a sequence of tokens, it predicts what comes next — then samples, appends, repeats.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Next-Token Prediction
 
 <img src="assets/module-01/next-token-prediction.svg" alt="Next-token prediction probabilities" />
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Traditional Code vs. AI Model
 
@@ -73,19 +120,44 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 | Errors are bugs                          | Errors are features of probability         |
 | Predictable behavior                     | Needs management via parameters            |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Traditional vs. AI — Implication
 
 **Implication:** Never trust a single run as ground truth.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## What Determines AI Output?
 
 <img src="assets/module-01/factors-output.svg" alt="Factors that shape AI output" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Parameters You Control
 
@@ -95,7 +167,15 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 | **Top-p**       | Nucleus sampling – limits token pool         | Balanced responses                    |
 | **Max Tokens**  | Limits response length                       | Controlling cost                      |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Parameters — Example Values
 
@@ -105,7 +185,16 @@ top_p: 0.9         # balanced
 max_tokens: 4000   # cap length
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Temperature Impact
 
@@ -125,7 +214,15 @@ def reverse_string(s):
 def flip_the_text(text): ...
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Training Gap
 
@@ -138,7 +235,15 @@ Models are frozen at their training cutoff date. They don't know:
 
 **Implication:** You must provide this information in the prompt or context.
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -148,7 +253,15 @@ Models are frozen at their training cutoff date. They don't know:
 
 _Concept · 10 minutes_
 
+
+
+
+
 ---
+
+
+
+
 
 ## What Are Hallucinations?
 
@@ -156,7 +269,16 @@ _Concept · 10 minutes_
 
 Most dangerous form: the model sounds **completely confident** while being **completely wrong**.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Hallucinations in Code
 
@@ -168,13 +290,31 @@ Most dangerous form: the model sounds **completely confident** while being **com
 | **Confident nonsense** | "This is the standard way to…" | Cross-reference           |
 | **Outdated syntax**    | Old Python 2 style             | Know version differences  |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Why Models Hallucinate
 
 <img src="assets/module-01/hallucination-causes.svg" alt="Root causes of hallucination" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Example: Confident Wrong
 
@@ -189,7 +329,16 @@ response = await async_requests.get('https://api.example.com')
 # Correct answer: Use httpx or aiohttp
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Hallucination Mitigation Strategies
 
@@ -202,7 +351,15 @@ response = await async_requests.get('https://api.example.com')
 | **Low temperature**      | Reduce randomness           | `temperature: 0.1`                   |
 | **Tool use**             | Let model search/lookup     | Enable web search for docs           |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Hallucination Detection Checklist
 
@@ -215,7 +372,15 @@ Before accepting AI-generated code, verify:
 - Would this code actually run?
 - Does the model cite sources you can verify?
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Developer's Mindset
 
@@ -226,7 +391,15 @@ Before accepting AI-generated code, verify:
 - You are the human-in-the-loop responsible for verification
 - Experience helps you "smell" potential hallucinations
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -236,7 +409,14 @@ Before accepting AI-generated code, verify:
 
 _Concept · 10 minutes_
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## What Is a Token?
 
@@ -247,7 +427,15 @@ _Concept · 10 minutes_
 | Code     | `function calculateTotal()` | ~5 tokens (~2–4 chars/token) |
 | Chinese  | "你好世界"                  | 4–8 tokens                   |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Why Tokens Matter
 
@@ -255,7 +443,15 @@ A token is the atomic unit of processing for LLMs — not a word, not a characte
 
 You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see"
 
+
+
+
+
 ---
+
+
+
+
 
 ## Input vs. Output Pricing
 
@@ -263,7 +459,16 @@ You pay per token · Context windows are measured in tokens · Token limits dete
 
 Output is often **5–8× more expensive** — generation is more compute-intensive than reading.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Model Pricing Examples
 
@@ -277,7 +482,14 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 | Claude 4.7 Opus   |          $5.00 |          $25.00 |           5× |
 | GPT-5.5           |          $5.00 |          $30.00 |           6× |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## What 1 Million Tokens Looks Like
 
@@ -288,7 +500,16 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 | Average conversation | 5–10 sessions                 |
 | Full codebase        | Small to medium project       |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Cost Calculation Example
 
@@ -305,7 +526,16 @@ output_cost = (2000 / 1_000_000) * 15.00
 total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Cost Optimization Strategies
 
@@ -318,7 +548,14 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 | **Monitor usage**      | Track spending per user     | Prevents surprises |
 | **Set limits**         | Monthly spending caps       | Budget protection  |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Real-World Cost Bounds
 
@@ -329,7 +566,16 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 | Heavy       | $200–500     | Full-time AI assistance, multiple agents |
 | Enterprise  | $1000+       | Team usage, automation, CI/CD            |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## The Cache Effect
 
@@ -345,7 +591,15 @@ Models can cache frequently used content:
 
 Context discipline = cost discipline.
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -355,7 +609,16 @@ Context discipline = cost discipline.
 
 _Concept · 12 minutes · The single most valuable AI skill_
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## What Is Context?
 
@@ -363,7 +626,15 @@ Context = all the information the model has access to when generating a response
 
 <img src="assets/module-01/context-inputs.svg" alt="What goes into context" />
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Context Window Limit
 
@@ -372,7 +643,15 @@ Context = all the information the model has access to when generating a response
 | Claude 4 (Haiku / Sonnet / Opus) |           200k |          ~150 |       ~50,000 |
 | GPT-5 Mini / GPT-5.3 Codex       |           272k |          ~200 |       ~70,000 |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Context Window — What Happens When Full
 
@@ -380,7 +659,14 @@ Context = all the information the model has access to when generating a response
 
 **Context engineering** = knowing what to put in, what to leave out, and how to structure it.
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Context Checklist
 
@@ -394,7 +680,15 @@ Before every AI interaction, ask:
 - Have I included relevant error messages?
 - Have I specified constraints (libraries, version, style)?
 
+
+
+
+
 ---
+
+
+
+
 
 ## Good vs. Bad Context — Bad Example
 
@@ -404,7 +698,14 @@ Before every AI interaction, ask:
 "Fix this bug: my code doesn't work"
 ```
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Good vs. Bad Context — Good Example
 
@@ -417,13 +718,31 @@ Input: [{'name': 'Alice'}, {'age': 30}]
 Using Python 3.11. Expected: skip dicts without the key.
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Context Prioritization Pyramid
 
 <img src="assets/module-01/context-pyramid.svg" alt="Context prioritization pyramid" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Context Window Management
 
@@ -435,7 +754,16 @@ Using Python 3.11. Expected: skip dicts without the key.
 | **Hierarchical**        | Summaries + details on demand        | Complex projects     |
 | **Vector retrieval**    | Semantic search for relevant context | Very large codebases |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## The "Lost in the Middle" Problem
 
@@ -445,7 +773,15 @@ Models pay **most attention to the beginning and end** of context, and **less to
 
 **Implication:** Put critical information at the beginning OR end, not the middle.
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -455,7 +791,16 @@ Models pay **most attention to the beginning and end** of context, and **less to
 
 _Concept · 8 minutes_
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## What Is Tool Calling?
 
@@ -465,7 +810,16 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 <img src="assets/module-01/tool-calling-flow.svg" alt="Tool calling flow" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Common Tool Types in Development
 
@@ -479,7 +833,16 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 | **browser**      | Browse web pages   | "Open the PR and review it"      |
 | **git**          | Version control    | "Create a branch and commit"     |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## MCP (Model Context Protocol)
 
@@ -491,7 +854,14 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 <img src="assets/module-01/mcp-architecture.svg" alt="MCP architecture" />
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Why MCP Matters
 
@@ -502,7 +872,15 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 | **Standardization**  | One protocol, not dozens of custom APIs    |
 | **Extensibility**    | Add new tools without changing AI logic    |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Tool Calling Best Practices
 
@@ -512,7 +890,15 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 4. **Log all tool calls** — audit trail for debugging
 5. **Require human approval** for destructive actions — never auto-run writes/deletes
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -522,7 +908,16 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 _Concept · 8 minutes_
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Agent vs. Chatbot
 
@@ -535,17 +930,43 @@ _Concept · 8 minutes_
 | **Autonomy**    | None                                 | Goal-directed autonomy            |
 | **Example**     | "Explain this code"                  | "Fix all bugs in this repository" |
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Agent Loop
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## The Agent Loop — Diagram
 
 <img src="assets/module-01/agent-loop.svg" alt="Agent loop diagram" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Levels of Agent Autonomy
 
@@ -557,7 +978,16 @@ _Concept · 8 minutes_
 | **L4** | Autonomous  | Self-directed, minimal supervision     | CI/CD agent                |
 | **L5** | Full Agent  | Complete task ownership                | Enterprise automation      |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## How Agents Change Your Role
 
@@ -569,7 +999,16 @@ _Concept · 8 minutes_
 
 <img src="assets/module-01/role-flow-agent-assisted.svg" alt="Agent-assisted developer workflow" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Developer Role Shift
 
@@ -581,7 +1020,14 @@ _Concept · 8 minutes_
 | Manual testing | Acceptance testing |
 | Problem solver | Problem framer     |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## When to Use Agents
 
@@ -597,7 +1043,16 @@ _Concept · 8 minutes_
 - Poorly defined goals · Real-time requirements
 - High cost of failure
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Module Summary
 
@@ -610,7 +1065,15 @@ _Concept · 8 minutes_
 | 1.5    | Tool Calling & MCP | AI requests actions, you control execution                 |
 | 1.6    | Agents             | Goal-directed action – changes developer role              |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -621,3 +1084,7 @@ _Concept · 8 minutes_
 > Now that you understand how AI models think, what they cost, and how agents work, **Module 2: Cursor Editor Essentials** covers core editor workflows — codebase orientation, diffs, Plan Mode, @mentions, and terminal integration.
 
 _End of Module 1_
+
+
+
+

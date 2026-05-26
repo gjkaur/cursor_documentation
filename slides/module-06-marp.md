@@ -12,7 +12,14 @@ header: "Module 6 — Cloud Agents in the UI"
 
 Cursor Training Program · ~90 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · ~90 min
 | **Prerequisites** | Cursor account, GitHub repository access, Modules 1–5 completed |
 | **Module Goal** | Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -34,7 +49,15 @@ By the end of this module, participants will be able to:
 - Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira)
 - Manage cloud agent history and settings
 
+
+
+
+
 ---
+
+
+
+
 
 ## Agenda
 
@@ -44,7 +67,15 @@ By the end of this module, participants will be able to:
 | 6.2 | Cloud Agent Artifacts | 23 min |
 | 6.3 | Cloud Agents from Messaging Platforms | 20 min |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -54,7 +85,16 @@ By the end of this module, participants will be able to:
 
 *Concept · 10 min · Exercise · 15 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Cloud Agents vs. Local Agent
 
@@ -67,7 +107,15 @@ By the end of this module, participants will be able to:
 | **File access** | Local files | GitHub repos only |
 | **Best for** | Interactive work | Batch, scheduled, hands-off |
 
+
+
+
+
 ---
+
+
+
+
 
 ## When to Use Cloud Agents
 
@@ -80,7 +128,15 @@ By the end of this module, participants will be able to:
 - Interactive debugging · Local-only files
 - Security-sensitive code · Quick questions
 
+
+
+
+
 ---
+
+
+
+
 
 ## Accessing Cloud Agents UI
 
@@ -90,7 +146,16 @@ By the end of this module, participants will be able to:
 | **From Web** | https://cursor.com/agents |
 | **From Mobile** | cursor.com/agents (responsive web) |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Cloud Agent Dashboard
 
@@ -107,7 +172,16 @@ Failed (1)
   ❌ deploy-staging          ERROR • Auth token expired
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -124,7 +198,15 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 6.1 — Steps 1–2
 
@@ -139,7 +221,16 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 open https://cursor.com/agents
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 6.1 — Steps 1–2 (Part 2)
 
@@ -156,7 +247,16 @@ Model: claude-4.6-sonnet
 Auto-create PR: ☐
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 6.1 — Steps 3–4
 
@@ -174,7 +274,16 @@ Auto-create PR: ☐
 [10:45:40] Generating summary...
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 6.1 — Steps 3–4 (Part 2)
 
@@ -189,7 +298,14 @@ Auto-create PR: ☐
 | Webhook URL | POST completion events |
 | Max Run Time | 5 min – 24 hrs |
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 6.1 — Steps 5–6
 
@@ -205,7 +321,15 @@ Auto-create PR: ✅ Yes
 Branch prefix: docs/contributing
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 6.1 — Steps 5–6 (Part 2)
 
@@ -216,7 +340,15 @@ Branch prefix: docs/contributing
 https://cursor.com/agents/agt_abc123def456
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -226,7 +358,16 @@ https://cursor.com/agents/agt_abc123def456
 
 *Concept · 8 min · Exercise · 15 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Types of Artifacts
 
@@ -241,7 +382,15 @@ https://cursor.com/agents/agt_abc123def456
 
 > *"Files produced by the agent that you can download or view in the UI."*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Artifact Storage
 
@@ -250,7 +399,16 @@ https://cursor.com/agents/agt_abc123def456
 - Download URLs expire after **15 minutes**
 - Max **100MB** per file · **1GB** total per agent
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 6.2 — Steps 1–2
 
@@ -270,14 +428,30 @@ Generate:
 Place all in artifacts/ directory.
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 6.2 — Steps 1–2 (Part 2)
 
 **Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
 **Where:** **Agent panel** — ``Ctrl+I``
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 6.2 — Steps 3–5
 
@@ -290,7 +464,15 @@ Place all in artifacts/ directory.
 **Step 4:** Download all as zip
 **Where:** **Agent panel** — ``Ctrl+I``
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 6.2 — Steps 3–5 (Part 2)
 
@@ -300,7 +482,16 @@ Place all in artifacts/ directory.
 - Images → inline preview
 - JSON → formatted tree view
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 6.2 — API Access
 
@@ -321,7 +512,16 @@ curl -L -o report.md "$DOWNLOAD_URL"
 
 Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent ID.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 6.2 — CI/CD Integration
 
@@ -337,7 +537,15 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 **Success Criteria:** Generated artifacts · downloaded single + zip · accessed via API
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -347,7 +555,16 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 *Concept · 10 min · Demonstration*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Supported Integrations
 
@@ -359,13 +576,31 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 | **Discord** | Command triggering, webhook responses | Medium (Bot token) |
 | **Generic Webhook** | POST-triggered agents | Low (any platform) |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Messaging Integration Architecture
 
 <img src="assets/module-06/messaging-integration-architecture.svg" alt="Messaging Integration Architecture" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Demo: Slack Integration
 
@@ -384,7 +619,16 @@ Usage Hint: [prompt or command]
 - Acknowledges immediately with agent URL
 - Posts completion summary when webhook fires
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Demo: Slack Usage
 
@@ -405,7 +649,14 @@ Summary: 3 commits — fixed login bug, added tests, updated README.
 PR: https://github.com/your-org/your-repo/pull/43
 ```
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Demo: Jira Integration
 
@@ -424,7 +675,14 @@ PR: https://github.com/your-org/your-repo/pull/43
 - Agent implements the fix and opens a pull request
 - Jira receives a completion update with a link to the PR
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Demo: Discord Integration
 
@@ -437,7 +695,14 @@ async def cursor_command(ctx, *, prompt):
 
 Usage: `!cursor Add error handling to all API endpoints`
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Generic Webhook & Notifications
 
@@ -455,7 +720,15 @@ curl -X POST https://your-server.com/trigger-agent \
 
 **Success Criteria:** Understood architecture · saw Slack/Jira/Discord demos · webhook triggering
 
+
+
+
+
 ---
+
+
+
+
 
 ## Module Summary
 
@@ -465,13 +738,30 @@ curl -X POST https://your-server.com/trigger-agent \
 | 6.2 | Cloud Agent Artifacts | Output collection |
 | 6.3 | Messaging Integrations | Chat-triggered agents |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Quick Reference Card
 
 <img src="assets/module-06/quick-reference-card.svg" alt="Quick Reference Card" />
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -482,3 +772,7 @@ curl -X POST https://your-server.com/trigger-agent \
 > Now that you've mastered Cloud Agents in the UI, **Module 7: Cursor API Foundations** covers the API ecosystem, authentication, rate limits, and efficient request patterns.
 
 *End of Module 6*
+
+
+
+

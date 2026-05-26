@@ -3,16 +3,68 @@
 @import 'default';
 
 :root {
-  --bespoke-marp-note-font-scale: 1.182;
+  --bespoke-marp-note-font-scale: 1.456;
 }
 
+/* Default body text: +4px from prior 28px base. Headings stay ~62/47/36px via em. */
 section {
+  --slide-base: 32px;
+  --body-font: 32px;
+  --table-font: 30px;
+  --pre-font: 30px;
+  --pre-small-font: 28px;
+  --header-footer-font: 32px;
+  --h1-scale: 1.95em;
+  --h2-scale: 1.46em;
+  --h3-scale: 1.14em;
+  --image-max-height: 560px;
+
   background: #ffffff;
   color: #000000;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 26px;
+  font-size: var(--slide-base);
   line-height: 1.5;
   color-scheme: light;
+}
+
+/* Dense slides only: step body down while keeping heading pixel sizes fixed. */
+section.fit-md {
+  --slide-base: 28px;
+  --body-font: 28px;
+  --table-font: 26px;
+  --pre-font: 26px;
+  --pre-small-font: 24px;
+  --header-footer-font: 28px;
+  --h1-scale: 2.23em;
+  --h2-scale: 1.67em;
+  --h3-scale: 1.3em;
+  --image-max-height: 520px;
+}
+
+section.fit-sm {
+  --slide-base: 24px;
+  --body-font: 24px;
+  --table-font: 22px;
+  --pre-font: 22px;
+  --pre-small-font: 20px;
+  --header-footer-font: 24px;
+  --h1-scale: 2.6em;
+  --h2-scale: 1.95em;
+  --h3-scale: 1.52em;
+  --image-max-height: 480px;
+}
+
+section.fit-xs {
+  --slide-base: 22px;
+  --body-font: 22px;
+  --table-font: 20px;
+  --pre-font: 20px;
+  --pre-small-font: 18px;
+  --header-footer-font: 22px;
+  --h1-scale: 2.84em;
+  --h2-scale: 2.13em;
+  --h3-scale: 1.65em;
+  --image-max-height: 420px;
 }
 
 section.lead {
@@ -95,17 +147,17 @@ section.center img {
 }
 
 h1 {
-  font-size: 2.4em;
+  font-size: var(--h1-scale);
   color: #cc0000;
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: var(--h2-scale);
   color: #cc0000;
 }
 
 h3 {
-  font-size: 1.4em;
+  font-size: var(--h3-scale);
   color: #cc0000;
 }
 
@@ -115,31 +167,31 @@ strong {
 
 header {
   color: #cc0000;
-  font-size: 26px;
+  font-size: var(--header-footer-font);
 }
 
 footer {
   color: #000000;
-  font-size: 26px;
+  font-size: var(--header-footer-font);
 }
 
 p,
 li,
 em {
-  font-size: 26px;
+  font-size: var(--body-font);
   line-height: 1.5;
   color: #000000;
 }
 
 blockquote {
-  font-size: 26px;
+  font-size: var(--body-font);
   line-height: 1.5;
   border-left: 4px solid #cc0000;
   color: #000000;
 }
 
 table {
-  font-size: 24px;
+  font-size: var(--table-font);
   line-height: 1;
   margin: 0 auto;
   color: #000000;
@@ -162,7 +214,7 @@ tr:nth-child(even) td {
 }
 
 pre {
-  font-size: 24px;
+  font-size: var(--pre-font);
   line-height: 1;
   color: #1a1a1a;
   background: #f4f4f4;
@@ -190,7 +242,7 @@ pre code {
 pre code.language-text,
 pre code.language-ascii,
 pre code.language-diagram {
-  font-size: 22px;
+  font-size: var(--pre-small-font);
   line-height: 1;
 }
 
@@ -198,7 +250,7 @@ section img {
   display: block;
   margin: 0.65em auto 0;
   max-width: 100%;
-  max-height: 560px;
+  max-height: var(--image-max-height);
 }
 
 code {

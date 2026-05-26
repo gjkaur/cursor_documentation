@@ -12,7 +12,14 @@ header: "Module 10 — AI Code Tracking and Reporting"
 
 Cursor Training Program · ~20 min + take-home
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · ~20 min + take-home
 | **Prerequisites** | Admin API key, Git repository access, Modules 8–9 completed |
 | **Module Goal** | Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -34,7 +49,14 @@ By the end of this module, participants will be able to:
 - Access granular AI change events for compliance
 - Build a complete reporting dashboard combining all data sources
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Agenda
 
@@ -45,7 +67,15 @@ By the end of this module, participants will be able to:
 | 10.3 | Granular AI Change Events | 7 min |
 | 10.4 | Reporting Dashboard Architecture | 4 min + take-home |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -55,7 +85,15 @@ By the end of this module, participants will be able to:
 
 *Concept · 3 min · Exercise · 5 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoint
 
@@ -68,7 +106,16 @@ By the end of this module, participants will be able to:
 
 > *"The 'ROI of AI' metric — how much code was AI-generated vs. human-written."*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -85,7 +132,16 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.1 — Fetch Metrics
 
@@ -102,7 +158,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 10.1 — AI Contribution %
 
@@ -121,7 +186,16 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.1 — ROI Analysis
 
@@ -140,7 +214,15 @@ AI usage cost → Net ROI
 
 **Success Criteria:** Retrieved metrics · calculated AI % · generated ROI analysis
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -150,7 +232,15 @@ AI usage cost → Net ROI
 
 *Concept · 3 min · Exercise · 4 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoint
 
@@ -160,7 +250,14 @@ AI usage cost → Net ROI
 
 **Export types:** `commits` · `events` · `usage`
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.2 — Stream to File
 
@@ -176,7 +273,16 @@ head -10 cursor_commits_export.csv
 
 **PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 10.2 — BI Integration
 
@@ -195,7 +301,15 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 **Success Criteria:** Streamed CSV · loaded into DataFrame · created BI-ready files
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -205,7 +319,15 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 *Concept · 3 min · Exercise · 4 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoint
 
@@ -217,7 +339,15 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 > *"Essential for SOC2, ISO, and internal audits."*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 10.3 — Query Events
 
@@ -233,7 +363,15 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 Acceptance rate by model: group events → total vs. accepted per model
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 10.3 — Compliance Report
 
@@ -248,7 +386,15 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 **Success Criteria:** Retrieved events · calculated acceptance rates · compliance export
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -258,7 +404,16 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 *Concept · 4 min · Take-Home Project*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Dashboard Components
 
@@ -270,7 +425,15 @@ Acceptance rate by model: group events → total vs. accepted per model
 | Team Activity | Members API | Onboarding, licensing |
 | Compliance | Events + Audit | Audit trail, security |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Take-Home: Streamlit Dashboard
 
@@ -283,7 +446,14 @@ Run with: `streamlit run cursor_dashboard.py`
 4. **Team Management** — member table
 5. **Compliance Export** — download events CSV
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Project Deliverables
 
@@ -296,7 +466,14 @@ Run with: `streamlit run cursor_dashboard.py`
 
 **Bonus:** cost alerts · spend limit UI · model A/B comparison · cloud deployment
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Summary
 
@@ -307,7 +484,16 @@ Run with: `streamlit run cursor_dashboard.py`
 | 10.3 | Granular Change Events | Compliance reporting |
 | 10.4 | Dashboard Architecture | Complete dashboard |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Quick Reference Card
 
@@ -326,9 +512,17 @@ KEY METRICS:
 DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
 ```
 
+
+
+
+
 ---
 
-<!-- _class: lead -->
+
+
+
+
+<!-- _class: lead fit-md -->
 
 # Course Complete
 
@@ -345,3 +539,7 @@ DEPLOY:  Streamlit · Metabase · PowerBI · Custom React
 **Next steps:** Complete take-home dashboard · set up scheduled exports · implement cost alerts
 
 *End of Module 10 — End of Day 2 Training Program*
+
+
+
+

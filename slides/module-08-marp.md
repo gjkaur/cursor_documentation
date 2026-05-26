@@ -12,7 +12,14 @@ header: "Module 8 — Cloud Agents API and Webhooks"
 
 Cursor Training Program · ~60 min
 
+
+
+
+
 ---
+
+
+<!-- _class: fit-md -->
 
 ## Module Overview
 
@@ -23,7 +30,15 @@ Cursor Training Program · ~60 min
 | **Prerequisites** | User API key (Module 7), Python 3.8+, ngrok installed, GitHub repository |
 | **Module Goal** | Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Learning Objectives
 
@@ -36,7 +51,16 @@ By the end of this module, participants will be able to:
 - Test webhooks locally using ngrok
 - Build an end-to-end automated agent workflow
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Agenda
 
@@ -49,7 +73,15 @@ By the end of this module, participants will be able to:
 | 8.5 | Testing Webhooks Locally with ngrok | 13 min |
 | 8.6 | End-to-End Automated Agent Workflow | 17 min |
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -59,7 +91,15 @@ By the end of this module, participants will be able to:
 
 *Concept · 5 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Agent + Runs
 
@@ -70,7 +110,15 @@ By the end of this module, participants will be able to:
 
 **Key endpoint:** `POST /v1/agents`
 
+
+
+
+
 ---
+
+
+
+
 
 ## Request Fields
 
@@ -83,7 +131,16 @@ By the end of this module, participants will be able to:
 
 **Optional:** `autoCreatePR` · `model.id` · `webhookUrl` · `webhookSecret`
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
 
@@ -100,7 +157,16 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.1 — Create with curl
 
@@ -129,7 +195,16 @@ export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
 curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 8.1 — Capture IDs
 
@@ -146,7 +221,15 @@ Write-Host "Agent ID: $($env:AGENT_ID)"
 Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 8.1 — Capture IDs (Part 2)
 
@@ -154,7 +237,16 @@ Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
 
 Create with specific model: `"model": {"id": "claude-4.7-opus"}`
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.1 — Python Helper
 
@@ -176,7 +268,15 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 **Success Criteria:** Agent created · IDs captured · appears in dashboard · Python function works
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -186,7 +286,16 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 
 *Concept · 5 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## SSE Event Types
 
@@ -200,13 +309,30 @@ def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
 | `error` | Something went wrong | `{"message":"..."}` |
 | `done` | Stream ends | `{}` |
 
+
+
+
+
 ---
+
+
+
+
 
 ## Resume Support
 
 SSE streams support the **`Last-Event-ID`** header — if your connection drops, resume from the last received event.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 8.2 — Stream with curl
 
@@ -226,7 +352,16 @@ Set IDs first: `$env:AGENT_ID = "..."` · `$env:RUN_ID = "..."`
 
 Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.2 — Python SSE Client
 
@@ -245,7 +380,15 @@ def stream_agent_response(agent_id, run_id, on_event=None):
                 on_event(current_event, data)
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 8.2 — ResumableSSEClient
 
@@ -257,7 +400,15 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 **Success Criteria:** Stream connected · received events · Python client works · resume implemented
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -267,7 +418,15 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 *Concept · 5 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Key Endpoints
 
@@ -278,7 +437,16 @@ Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on rec
 
 **Important:** Download URLs expire after **15 minutes**.
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.3 — Wait & List
 
@@ -297,7 +465,16 @@ def list_artifacts(agent_id):
     return response.json().get('items', [])
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.3 — Download
 
@@ -316,7 +493,16 @@ download_url = response.json().get('url')
 
 **All artifacts:** loop items, create subdirs, download each via presigned URL
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-md -->
 
 ## Exercise 8.3 — CI Integration
 
@@ -331,7 +517,15 @@ def process_test_results(agent_id):
 
 **Success Criteria:** Listed artifacts · downloaded single + all · CI workflow integration
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -341,7 +535,15 @@ def process_test_results(agent_id):
 
 *Concept · 5 min · Exercise · 10 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## Webhook Headers
 
@@ -351,7 +553,16 @@ def process_test_results(agent_id):
 | `X-Webhook-ID` | Unique delivery ID |
 | `X-Webhook-Event` | Event type (`statusChange`) |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Webhook Payload
 
@@ -366,7 +577,16 @@ def process_test_results(agent_id):
 }
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Exercise 8.4 — HMAC Verification
 
@@ -383,7 +603,16 @@ def verify_signature(raw_body, signature_header):
 
 Flask route: verify signature → parse payload → handle FINISHED/ERROR
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Exercise 8.4 — Configure Agent
 
@@ -406,7 +635,15 @@ curl -X POST https://api.cursor.com/v1/agents \
 
 **Success Criteria:** Server running · signature verified · payload parsed · agent configured
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -416,7 +653,15 @@ curl -X POST https://api.cursor.com/v1/agents \
 
 *Concept · 5 min · Exercise · 8 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## What Is ngrok?
 
@@ -425,7 +670,15 @@ Creates a secure tunnel from a public URL to your local server.
 - Test webhooks without deploying
 - Debug locally · Demo to stakeholders
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 8.5 — Steps 1–3
 
@@ -440,14 +693,30 @@ ngrok http 5000
 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 8.5 — Steps 1–3 (Part 2)
 
 **Step 2:** Copy HTTPS URL
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 8.5 — Steps 1–3 (Part 3)
 
@@ -459,7 +728,15 @@ curl -X POST https://api.cursor.com/v1/agents ... \
   -d '{"webhookUrl": "https://abc123.ngrok.io/webhook/cursor", ...}'
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 ## Exercise 8.5 — Inspect & Replay
 
@@ -473,7 +750,15 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 **Success Criteria:** Tunnel established · webhook received · signature verified · inspected in ngrok UI
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -483,7 +768,15 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 *Concept · 5 min · Exercise · 12 min*
 
+
+
+
+
 ---
+
+
+
+
 
 ## The Capstone Integration
 
@@ -494,13 +787,31 @@ Combine everything into `automated_workflow.py`:
 3. **Download artifacts**
 4. **Process results** (CI exit codes, notifications)
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Workflow Architecture
 
 <img src="assets/module-08/workflow-architecture.svg" alt="Workflow Architecture" />
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Run the Workflow
 
@@ -516,7 +827,16 @@ python automated_workflow.py \
 python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 ```
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Workflow Output
 
@@ -531,7 +851,16 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 
 **Success Criteria:** Creates agent · waits (webhook/polling) · downloads artifacts · end-to-end run
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-sm -->
 
 ## Module Summary
 
@@ -544,7 +873,16 @@ python automated_workflow.py --repo "..." --prompt "..." --no-webhook
 | 8.5 | Testing Webhooks with ngrok | Local tunnel debugging |
 | 8.6 | End-to-End Workflow | Complete automation |
 
+
+
+
+
 ---
+
+
+
+
+<!-- _class: fit-xs -->
 
 ## Quick Reference Card
 
@@ -563,7 +901,15 @@ SSE:  status · assistant · thinking · tool_call · result · error · done
 NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
 ```
 
+
+
+
+
 ---
+
+
+
+
 
 <!-- _class: lead -->
 
@@ -574,3 +920,7 @@ NGROK:  ngrok http 5000  |  inspect at http://127.0.0.1:4040
 > Now that you can programmatically launch and monitor agents, **Module 9** covers team management and usage insights.
 
 *End of Module 8*
+
+
+
+
