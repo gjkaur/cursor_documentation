@@ -1,9 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 248" width="920" height="248">
-<rect width="920" height="248" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Usr: &quot;Rn thetestsand ix anyfaiures&quot;</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  →Agen: Excute pytesttest/&quot;</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  →Resut: Eit coe 1, 2 faied, 5passd&quot;</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  →Agen: Reds falures,fixescode</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  →Agen: Reuns tsts</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  →Agen: &quot;Al tess pased.&quot;</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 467" width="920" height="467">
+<rect width="920" height="467" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="40.410583941605836" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">User: &quot;Run the tests and fix any failures&quot;</text>
+<text x="24" y="68.40510948905109" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="96.39963503649633" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Agent: I&#x27;ll run pytest</text>
+<text x="24" y="124.39416058394158" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="152.38868613138683" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Tool: Execute &quot;pytest tests/&quot;</text>
+<text x="24" y="180.38321167883208" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="208.37773722627733" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Tool returns: Exit code 1, &quot;2 failed, 5 passed&quot;</text>
+<text x="24" y="236.37226277372258" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="264.36678832116786" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Agent: Two tests failed. Let me read them.</text>
+<text x="24" y="292.36131386861314" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="320.3558394160584" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Agent: Fixes the code</text>
+<text x="24" y="348.3503649635037" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="376.34489051094897" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Agent: Rerunning tests...</text>
+<text x="24" y="404.33941605839425" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">        ↓</text>
+<text x="24" y="432.3339416058395" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="19.31" fill="#1a1a1a">Agent: All tests passed.</text>
 </svg>

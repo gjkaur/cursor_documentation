@@ -19,7 +19,9 @@ Cursor Training Program · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -44,7 +46,9 @@ Cursor Training Program · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -67,7 +71,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -92,7 +98,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -116,7 +124,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -141,7 +151,9 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 
 
 
+
 ---
+
 
 
 
@@ -170,7 +182,9 @@ The Cursor CLI brings AI-powered coding directly to your command line.
 
 
 
+
 ---
+
 
 
 
@@ -201,7 +215,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -228,7 +244,9 @@ agent "Help me understand the current codebase structure"
 
 
 
+
 ---
+
 
 
 
@@ -250,7 +268,9 @@ agent "Help me understand the current codebase structure"
 
 
 
+
 ---
+
 
 
 
@@ -280,7 +300,9 @@ agent --list-models
 
 
 
+
 ---
+
 
 
 
@@ -304,7 +326,9 @@ agent --mode=ask "What does this project's main function do?"
 
 
 
+
 ---
+
 
 
 
@@ -327,7 +351,9 @@ agent --mode=plan "Add user authentication to this API"
 
 
 
+
 ---
+
 
 
 
@@ -354,7 +380,9 @@ npx -y cursor-statusline
 
 
 
+
 ---
+
 
 
 
@@ -377,7 +405,9 @@ agent /setup-terminal
 
 
 
+
 ---
+
 
 
 
@@ -401,7 +431,9 @@ agent /setup-terminal
 
 
 
+
 ---
+
 
 
 
@@ -428,7 +460,9 @@ agent --non-interactive "run this task"     # No prompts, just output
 
 
 
+
 ---
+
 
 
 
@@ -454,7 +488,9 @@ agent --non-interactive "run this task"     # No prompts, just output
 
 
 
+
 ---
+
 
 
 
@@ -484,7 +520,9 @@ agent --mode=ask "Explain the git rebase command with examples"
 
 
 
+
 ---
+
 
 
 
@@ -508,7 +546,9 @@ agent --model claude-4.5-opus "Design a database schema for a task management sy
 
 
 
+
 ---
+
 
 
 
@@ -542,7 +582,9 @@ security issues, missing error handling. Be concise."
 
 
 
+
 ---
+
 
 
 
@@ -573,7 +615,9 @@ done
 
 
 
+
 ---
+
 
 
 
@@ -597,7 +641,9 @@ done
 
 
 
+
 ---
+
 
 
 
@@ -621,7 +667,9 @@ done
 
 
 
+
 ---
+
 
 
 
@@ -645,7 +693,9 @@ Send a local conversation to a Cloud Agent:
 
 
 
+
 ---
+
 
 
 
@@ -665,7 +715,9 @@ Send a local conversation to a Cloud Agent:
 
 
 
+
 ---
+
 
 
 
@@ -692,7 +744,9 @@ agent
 
 
 
+
 ---
+
 
 
 
@@ -716,7 +770,9 @@ agent
 
 
 
+
 ---
+
 
 
 
@@ -735,7 +791,9 @@ agent
 
 
 
+
 ---
+
 
 
 
@@ -761,7 +819,9 @@ agent
 
 
 
+
 ---
+
 
 
 
@@ -784,7 +844,9 @@ agent "& Refactor the auth module to use JWT. Update all tests and docs."
 
 
 
+
 ---
+
 
 
 
@@ -807,7 +869,9 @@ agent --resume [agent-id-from-cloud]
 
 
 
+
 ---
+
 
 
 
@@ -834,7 +898,9 @@ agent --resume [agent-id-from-cloud]
 
 
 
+
 ---
+
 
 
 
@@ -858,7 +924,9 @@ agent --resume [agent-id-from-cloud]
 
 
 
+
 ---
+
 
 
 
@@ -889,7 +957,9 @@ agent "Just say one word: auth-refactor"
 
 
 
+
 ---
+
 
 
 
@@ -919,7 +989,9 @@ agent "Just say one word: docs-update"
 
 
 
+
 ---
+
 
 
 
@@ -947,7 +1019,9 @@ agent "Just say one word: docs-update"
 
 
 
+
 ---
+
 
 
 
@@ -973,7 +1047,9 @@ agent --resume abc123-def456-ghi789
 
 
 
+
 ---
+
 
 
 
@@ -997,7 +1073,9 @@ agent --resume abc123-def456-ghi789
 
 
 
+
 ---
+
 
 
 
@@ -1020,7 +1098,9 @@ agent --resume abc123-def456-ghi789
 
 
 
+
 ---
+
 
 
 
@@ -1052,7 +1132,9 @@ agent --resume abc123-def456-ghi789
 
 
 
+
 ---
+
 
 
 
@@ -1077,7 +1159,9 @@ agent --resume abc123-def456-ghi789
 
 
 
+
 ---
+
 
 
 
@@ -1097,7 +1181,9 @@ agent --resume abc123-def456-ghi789
 
 
 
+
 ---
+
 
 
 
@@ -1114,6 +1200,7 @@ agent --resume abc123-def456-ghi789
 > Now that you've mastered terminal-based AI workflows, **Module 6: Cloud Agents in the UI** covers launching cloud agents, collecting artifacts, and messaging integrations.
 
 *End of Module 5*
+
 
 
 

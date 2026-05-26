@@ -19,7 +19,9 @@ Cursor Training Program · ~90 min
 
 
 
+
 ---
+
 
 
 
@@ -44,7 +46,9 @@ Cursor Training Program · ~90 min
 
 
 
+
 ---
+
 
 
 
@@ -67,7 +71,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -89,7 +95,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -113,7 +121,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -140,7 +150,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -165,7 +177,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -187,7 +201,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -207,7 +223,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -238,7 +256,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -265,7 +285,9 @@ open https://cursor.com/agents
 
 
 
+
 ---
+
 
 
 
@@ -296,7 +318,9 @@ Auto-create PR: ☐
 
 
 
+
 ---
+
 
 
 
@@ -328,7 +352,9 @@ Auto-create PR: ☐
 
 
 
+
 ---
+
 
 
 
@@ -357,7 +383,9 @@ Auto-create PR: ☐
 
 
 
+
 ---
+
 
 
 
@@ -387,7 +415,9 @@ Branch prefix: docs/contributing
 
 
 
+
 ---
+
 
 
 
@@ -410,7 +440,9 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
+
 ---
+
 
 
 
@@ -434,7 +466,9 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
+
 ---
+
 
 
 
@@ -463,7 +497,9 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
+
 ---
+
 
 
 
@@ -484,7 +520,9 @@ https://cursor.com/agents/agt_abc123def456
 
 
 
+
 ---
+
 
 
 
@@ -518,7 +556,9 @@ Place all in artifacts/ directory.
 
 
 
+
 ---
+
 
 
 
@@ -537,7 +577,9 @@ Place all in artifacts/ directory.
 
 
 
+
 ---
+
 
 
 
@@ -562,7 +604,9 @@ Place all in artifacts/ directory.
 
 
 
+
 ---
+
 
 
 
@@ -584,7 +628,9 @@ Place all in artifacts/ directory.
 
 
 
+
 ---
+
 
 
 
@@ -619,7 +665,9 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
+
 ---
+
 
 
 
@@ -649,7 +697,9 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
+
 ---
+
 
 
 
@@ -671,7 +721,9 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
+
 ---
+
 
 
 
@@ -697,7 +749,9 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
+
 ---
+
 
 
 
@@ -717,7 +771,9 @@ Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent I
 
 
 
+
 ---
+
 
 
 
@@ -750,7 +806,9 @@ Usage Hint: [prompt or command]
 
 
 
+
 ---
+
 
 
 
@@ -785,7 +843,9 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 
 
+
 ---
+
 
 
 
@@ -818,7 +878,9 @@ PR: https://github.com/your-org/your-repo/pull/43
 
 
 
+
 ---
+
 
 
 
@@ -845,7 +907,9 @@ Usage: `!cursor Add error handling to all API endpoints`
 
 
 
+
 ---
+
 
 
 
@@ -877,7 +941,9 @@ curl -X POST https://your-server.com/trigger-agent \
 
 
 
+
 ---
+
 
 
 
@@ -899,7 +965,9 @@ curl -X POST https://your-server.com/trigger-agent \
 
 
 
+
 ---
+
 
 
 
@@ -919,7 +987,9 @@ curl -X POST https://your-server.com/trigger-agent \
 
 
 
+
 ---
+
 
 
 
@@ -936,6 +1006,7 @@ curl -X POST https://your-server.com/trigger-agent \
 > Now that you've mastered Cloud Agents in the UI, **Module 7: Cursor API Foundations** covers the API ecosystem, authentication, rate limits, and efficient request patterns.
 
 *End of Module 6*
+
 
 
 

@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from marp_svg_common import BORDER, FONT, FS_BODY, FS_SMALL, MONO, MUTED, PANEL, RED, TEXT
+from marp_svg_common import BORDER, FONT, FS_BODY, FS_SMALL, MONO, MUTED, PANEL, RED, TEXT, monospace_panel_svg
 
 
 def _markers() -> str:
@@ -154,7 +154,29 @@ def cloud_handoff_flow_svg(width: int = 920) -> str:
     return "\n".join(parts)
 
 
+def terminal_tool_flow_svg(width: int = 920) -> str:
+    lines = [
+        'User: "Run the tests and fix any failures"',
+        "        ↓",
+        "Agent: I'll run pytest",
+        "        ↓",
+        'Tool: Execute "pytest tests/"',
+        "        ↓",
+        'Tool returns: Exit code 1, "2 failed, 5 passed"',
+        "        ↓",
+        "Agent: Two tests failed. Let me read them.",
+        "        ↓",
+        "Agent: Fixes the code",
+        "        ↓",
+        "Agent: Rerunning tests...",
+        "        ↓",
+        "Agent: All tests passed.",
+    ]
+    return monospace_panel_svg(lines, width=width, max_panel_height=460)
+
+
 CUSTOM_DIAGRAMS: dict[str, callable] = {
     "module-03/the-mode-continuum.svg": mode_continuum_svg,
+    "module-03/terminal-tool-flow.svg": terminal_tool_flow_svg,
     "module-05/cloud-handoff-flow.svg": cloud_handoff_flow_svg,
 }

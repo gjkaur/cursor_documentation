@@ -22,7 +22,9 @@ Cursor Training Program · ~75 min
 
 
 
+
 ---
+
 
 
 
@@ -52,7 +54,9 @@ Cursor Training Program · ~75 min
 
 
 
+
 ---
+
 
 
 
@@ -88,7 +92,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -124,7 +130,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -156,7 +164,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -191,7 +201,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -229,7 +241,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -270,7 +284,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -310,7 +326,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -342,7 +360,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -374,7 +394,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -412,7 +434,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -447,7 +471,9 @@ Python `generate_cost_report()` for last 30 days:
 
 
 
+
 ---
+
 
 
 
@@ -479,7 +505,9 @@ Python `generate_cost_report()` for last 30 days:
 
 
 
+
 ---
+
 
 
 
@@ -510,7 +538,9 @@ Python `generate_cost_report()` for last 30 days:
 
 
 
+
 ---
+
 
 
 
@@ -551,7 +581,9 @@ Check current limit: `GET .../policies/users/{userId}/limits`
 
 
 
+
 ---
+
 
 
 
@@ -588,7 +620,9 @@ lead@company.com,200,alert
 
 
 
+
 ---
+
 
 
 
@@ -620,7 +654,9 @@ lead@company.com,200,alert
 
 
 
+
 ---
+
 
 
 
@@ -648,7 +684,9 @@ lead@company.com,200,alert
 
 
 
+
 ---
+
 
 
 
@@ -688,7 +726,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -723,7 +763,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -755,7 +797,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -786,7 +830,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -829,7 +875,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -861,7 +909,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -891,7 +941,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -930,7 +982,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -960,7 +1014,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -991,7 +1047,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1018,7 +1076,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1052,7 +1112,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1082,7 +1144,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1112,7 +1176,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1143,7 +1209,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1179,7 +1247,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1206,7 +1276,9 @@ def anonymize_email(email):
 
 
 
+
 ---
+
 
 
 
@@ -1227,6 +1299,7 @@ def anonymize_email(email):
 > Now that you can manage your team and analyze usage, **Module 10** covers attributing AI contributions per commit, exporting metrics to BI tools, and building complete dashboards.
 
 *End of Module 9*
+
 
 
 

@@ -19,7 +19,9 @@ Cursor Training Program · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -44,7 +46,9 @@ Cursor Training Program · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -68,7 +72,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -94,7 +100,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -118,7 +126,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -145,7 +155,9 @@ Rules are Markdown files (`.cursor/rules/*.mdc`) with persistent instructions th
 
 
 
+
 ---
+
 
 
 
@@ -163,7 +175,9 @@ Rules are Markdown files (`.cursor/rules/*.mdc`) with persistent instructions th
 
 
 
+
 ---
+
 
 
 
@@ -181,7 +195,9 @@ alwaysApply: true
 
 
 
+
 ---
+
 
 
 
@@ -204,7 +220,9 @@ Good: ...  Bad: ...
 
 
 
+
 ---
+
 
 
 
@@ -235,7 +253,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -269,7 +289,9 @@ General: no commented-out code, no console.log in prod
 
 
 
+
 ---
+
 
 
 
@@ -305,7 +327,9 @@ Flag: exec/eval with user input, password/secret in variable names
 
 
 
+
 ---
+
 
 
 
@@ -332,7 +356,9 @@ What are the security guardrails?
 
 
 
+
 ---
+
 
 
 
@@ -356,7 +382,9 @@ What are the security guardrails?
 
 
 
+
 ---
+
 
 
 
@@ -380,7 +408,9 @@ What are the security guardrails?
 
 
 
+
 ---
+
 
 
 
@@ -405,7 +435,9 @@ What are the security guardrails?
 
 
 
+
 ---
+
 
 
 
@@ -435,7 +467,9 @@ What are the security guardrails?
 
 
 
+
 ---
+
 
 
 
@@ -459,7 +493,9 @@ Create `.cursor/repository-instructions.md`:
 
 
 
+
 ---
+
 
 
 
@@ -486,7 +522,9 @@ How do I run the tests?
 
 
 
+
 ---
+
 
 
 
@@ -510,7 +548,9 @@ How do I run the tests?
 
 
 
+
 ---
+
 
 
 
@@ -534,7 +574,9 @@ How do I run the tests?
 
 
 
+
 ---
+
 
 
 
@@ -563,7 +605,9 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 
 
 
+
 ---
+
 
 
 
@@ -595,7 +639,9 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 
 
 
+
 ---
+
 
 
 
@@ -626,7 +672,9 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 
 
+
 ---
+
 
 
 
@@ -653,7 +701,9 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 
 
+
 ---
+
 
 
 
@@ -676,7 +726,9 @@ What skills are available in this project?
 
 
 
+
 ---
+
 
 
 
@@ -697,7 +749,9 @@ What skills are available in this project?
 
 
 
+
 ---
+
 
 
 
@@ -719,7 +773,9 @@ What skills are available in this project?
 
 
 
+
 ---
+
 
 
 
@@ -748,7 +804,9 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 
 
 
+
 ---
+
 
 
 
@@ -783,7 +841,9 @@ MCP standardizes how AI agents discover and use external tools — **"USB port f
 
 
 
+
 ---
+
 
 
 
@@ -823,7 +883,9 @@ Send a message to #deploys: "Deployment starting"
 
 
 
+
 ---
+
 
 
 
@@ -849,7 +911,9 @@ Usage: `/deploy staging`
 
 
 
+
 ---
+
 
 
 
@@ -871,7 +935,9 @@ Usage: `/deploy staging`
 
 
 
+
 ---
+
 
 
 
@@ -893,7 +959,9 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 
 
+
 ---
+
 
 
 
@@ -918,7 +986,9 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 
 
+
 ---
+
 
 
 
@@ -940,7 +1010,9 @@ Independent agent instances for specialized tasks — own context, tools, and in
 
 
 
+
 ---
+
 
 
 
@@ -973,7 +1045,9 @@ Meanwhile, I'll work on the frontend.
 
 
 
+
 ---
+
 
 
 
@@ -999,7 +1073,9 @@ Meanwhile, I'll work on the frontend.
 
 
 
+
 ---
+
 
 
 
@@ -1019,7 +1095,9 @@ Meanwhile, I'll work on the frontend.
 
 
 
+
 ---
+
 
 
 
@@ -1036,6 +1114,7 @@ Meanwhile, I'll work on the frontend.
 > Now that you've customized Cursor for your team, **Module 5: Cursor CLI and Local Automation** covers terminal-based AI sessions, one-shot commands, and cloud handoff.
 
 *End of Module 4*
+
 
 
 

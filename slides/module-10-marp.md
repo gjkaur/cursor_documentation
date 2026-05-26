@@ -19,7 +19,9 @@ Cursor Training Program · ~20 min + take-home
 
 
 
+
 ---
+
 
 
 
@@ -44,7 +46,9 @@ Cursor Training Program · ~20 min + take-home
 
 
 
+
 ---
+
 
 
 
@@ -67,7 +71,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -92,7 +98,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -116,7 +124,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -141,7 +151,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -172,7 +184,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -203,7 +217,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -236,7 +252,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -269,7 +287,9 @@ AI usage cost → Net ROI
 
 
 
+
 ---
+
 
 
 
@@ -293,7 +313,9 @@ AI usage cost → Net ROI
 
 
 
+
 ---
+
 
 
 
@@ -315,7 +337,9 @@ AI usage cost → Net ROI
 
 
 
+
 ---
+
 
 
 
@@ -345,7 +369,9 @@ head -10 cursor_commits_export.csv
 
 
 
+
 ---
+
 
 
 
@@ -378,7 +404,9 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
+
 ---
+
 
 
 
@@ -402,7 +430,9 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
+
 ---
+
 
 
 
@@ -426,7 +456,9 @@ Upload to Metabase, PowerBI, or Tableau via CSV import
 
 
 
+
 ---
+
 
 
 
@@ -454,7 +486,9 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
 ---
+
 
 
 
@@ -481,7 +515,9 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
 ---
+
 
 
 
@@ -507,7 +543,9 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
 ---
+
 
 
 
@@ -533,7 +571,9 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 
 
+
 ---
+
 
 
 
@@ -558,7 +598,9 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
 ---
+
 
 
 
@@ -585,7 +627,9 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
 ---
+
 
 
 
@@ -610,7 +654,9 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
 ---
+
 
 
 
@@ -630,7 +676,9 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
+
 ---
+
 
 
 
@@ -655,6 +703,7 @@ Run with: `streamlit run cursor_dashboard.py`
 **Next steps:** Complete take-home dashboard · set up scheduled exports · implement cost alerts
 
 *End of Module 10 — End of Day 2 Training Program*
+
 
 
 

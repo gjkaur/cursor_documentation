@@ -22,7 +22,9 @@ Cursor Training Program · Concept block · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -52,7 +54,9 @@ Cursor Training Program · Concept block · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -85,7 +89,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -115,7 +121,9 @@ _Concept · 12 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -145,7 +153,9 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 
 
+
 ---
+
 
 
 
@@ -172,7 +182,9 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 
 
+
 ---
+
 
 
 
@@ -202,7 +214,9 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 
 
+
 ---
+
 
 
 
@@ -228,7 +242,9 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 
 
+
 ---
+
 
 
 
@@ -255,7 +271,9 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 
 
+
 ---
+
 
 
 
@@ -285,7 +303,9 @@ Given a sequence of tokens, it predicts what comes next — then samples, append
 
 
 
+
 ---
+
 
 
 
@@ -315,7 +335,9 @@ max_tokens: 4000   # cap length
 
 
 
+
 ---
+
 
 
 
@@ -356,7 +378,9 @@ def flip_the_text(text): ...
 
 
 
+
 ---
+
 
 
 
@@ -389,7 +413,9 @@ Models are frozen at their training cutoff date. They don't know:
 
 
 
+
 ---
+
 
 
 
@@ -419,7 +445,9 @@ _Concept · 10 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -447,7 +475,9 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 
 
+
 ---
+
 
 
 
@@ -480,7 +510,9 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 
 
+
 ---
+
 
 
 
@@ -507,7 +539,9 @@ Most dangerous form: the model sounds **completely confident** while being **com
 
 
 
+
 ---
+
 
 
 
@@ -543,7 +577,9 @@ response = await async_requests.get('https://api.example.com')
 
 
 
+
 ---
+
 
 
 
@@ -577,7 +613,9 @@ response = await async_requests.get('https://api.example.com')
 
 
 
+
 ---
+
 
 
 
@@ -610,7 +648,9 @@ Before accepting AI-generated code, verify:
 
 
 
+
 ---
+
 
 
 
@@ -641,7 +681,9 @@ Before accepting AI-generated code, verify:
 
 
 
+
 ---
+
 
 
 
@@ -671,7 +713,9 @@ _Concept · 10 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -701,7 +745,9 @@ _Concept · 10 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -729,7 +775,9 @@ You pay per token · Context windows are measured in tokens · Token limits dete
 
 
 
+
 ---
+
 
 
 
@@ -757,7 +805,9 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 
 
 
+
 ---
+
 
 
 
@@ -792,7 +842,9 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 
 
 
+
 ---
+
 
 
 
@@ -822,7 +874,9 @@ Output is often **5–8× more expensive** — generation is more compute-intens
 
 
 
+
 ---
+
 
 
 
@@ -860,7 +914,9 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 
 
 
+
 ---
+
 
 
 
@@ -894,7 +950,9 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 
 
 
+
 ---
+
 
 
 
@@ -924,7 +982,9 @@ total_cost  = input_cost + output_cost   # ~$0.045 (4.5 cents)
 
 
 
+
 ---
+
 
 
 
@@ -961,7 +1021,9 @@ Context discipline = cost discipline.
 
 
 
+
 ---
+
 
 
 
@@ -991,7 +1053,9 @@ _Concept · 12 minutes · The single most valuable AI skill_
 
 
 
+
 ---
+
 
 
 
@@ -1020,7 +1084,9 @@ Context = all the information the model has access to when generating a response
 
 
 
+
 ---
+
 
 
 
@@ -1049,7 +1115,9 @@ Context = all the information the model has access to when generating a response
 
 
 
+
 ---
+
 
 
 
@@ -1077,7 +1145,9 @@ Context = all the information the model has access to when generating a response
 
 
 
+
 ---
+
 
 
 
@@ -1110,7 +1180,9 @@ Before every AI interaction, ask:
 
 
 
+
 ---
+
 
 
 
@@ -1140,7 +1212,9 @@ Before every AI interaction, ask:
 
 
 
+
 ---
+
 
 
 
@@ -1172,7 +1246,9 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 
 
+
 ---
+
 
 
 
@@ -1199,7 +1275,9 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 
 
+
 ---
+
 
 
 
@@ -1232,7 +1310,9 @@ Using Python 3.11. Expected: skip dicts without the key.
 
 
 
+
 ---
+
 
 
 
@@ -1263,7 +1343,9 @@ Models pay **most attention to the beginning and end** of context, and **less to
 
 
 
+
 ---
+
 
 
 
@@ -1293,7 +1375,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1324,7 +1408,9 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 
 
+
 ---
+
 
 
 
@@ -1359,7 +1445,9 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 
 
+
 ---
+
 
 
 
@@ -1392,7 +1480,9 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 
 
+
 ---
+
 
 
 
@@ -1422,7 +1512,9 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 
 
+
 ---
+
 
 
 
@@ -1452,7 +1544,9 @@ The AI **doesn't execute code** — it outputs a structured request that **your 
 
 
 
+
 ---
+
 
 
 
@@ -1482,7 +1576,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1516,7 +1612,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1540,7 +1638,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1567,7 +1667,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1600,7 +1702,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1633,7 +1737,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1666,7 +1772,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1701,7 +1809,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1735,7 +1845,9 @@ _Concept · 8 minutes_
 
 
 
+
 ---
+
 
 
 
@@ -1756,6 +1868,7 @@ _Concept · 8 minutes_
 > Now that you understand how AI models think, what they cost, and how agents work, **Module 2: Cursor Editor Essentials** covers core editor workflows — codebase orientation, diffs, Plan Mode, @mentions, and terminal integration.
 
 _End of Module 1_
+
 
 
 

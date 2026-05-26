@@ -22,7 +22,9 @@ Cursor Training Program · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -52,7 +54,9 @@ Cursor Training Program · ~60 min
 
 
 
+
 ---
+
 
 
 
@@ -84,7 +88,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -117,7 +123,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -147,7 +155,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -180,7 +190,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -213,7 +225,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -242,7 +256,9 @@ By the end of this module, participants will be able to:
 
 
 
+
 ---
+
 
 
 
@@ -283,7 +299,9 @@ response = client.chat.completions.create(
 
 
 
+
 ---
+
 
 
 
@@ -315,7 +333,9 @@ response = client.chat.completions.create(
 
 
 
+
 ---
+
 
 
 
@@ -345,7 +365,9 @@ response = client.chat.completions.create(
 
 
 
+
 ---
+
 
 
 
@@ -378,7 +400,9 @@ response = client.chat.completions.create(
 
 
 
+
 ---
+
 
 
 
@@ -409,7 +433,9 @@ response = client.chat.completions.create(
 
 
 
+
 ---
+
 
 
 
@@ -447,7 +473,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -476,7 +504,9 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 
 
+
 ---
+
 
 
 
@@ -507,7 +537,9 @@ $env:CURSOR_USER_API_KEY
 
 
 
+
 ---
+
 
 
 
@@ -538,7 +570,9 @@ curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
 
 
 
+
 ---
+
 
 
 
@@ -576,7 +610,9 @@ response = requests.get(
 
 
 
+
 ---
+
 
 
 
@@ -613,7 +649,9 @@ response = client.chat.completions.create(
 
 
 
+
 ---
+
 
 
 
@@ -648,7 +686,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -677,7 +717,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -709,7 +751,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -742,7 +786,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -776,7 +822,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -806,7 +854,9 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -848,7 +898,9 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 
 
+
 ---
+
 
 
 
@@ -882,7 +934,9 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 
 
+
 ---
+
 
 
 
@@ -914,7 +968,9 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 
 
+
 ---
+
 
 
 
@@ -944,7 +1000,9 @@ ETags are unique identifiers for API response versions.
 
 
 
+
 ---
+
 
 
 
@@ -971,7 +1029,9 @@ ETags are unique identifiers for API response versions.
 
 
 
+
 ---
+
 
 
 
@@ -1004,7 +1064,9 @@ ETags are unique identifiers for API response versions.
 
 
 
+
 ---
+
 
 
 
@@ -1042,7 +1104,9 @@ def get_with_etag(url, previous_etag=None):
 
 
 
+
 ---
+
 
 
 
@@ -1079,7 +1143,9 @@ def get_with_etag(url, previous_etag=None):
 
 
 
+
 ---
+
 
 
 
@@ -1111,7 +1177,9 @@ def get_with_etag(url, previous_etag=None):
 
 
 
+
 ---
+
 
 
 
@@ -1145,7 +1213,9 @@ GET /v1/models
 
 
 
+
 ---
+
 
 
 
@@ -1181,7 +1251,9 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -1208,7 +1280,9 @@ curl -s -u "$CURSOR_USER_API_KEY:" \
 
 
 
+
 ---
+
 
 
 
@@ -1247,7 +1321,9 @@ cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]
 
 
 
+
 ---
+
 
 
 
@@ -1280,7 +1356,9 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 
 
+
 ---
+
 
 
 
@@ -1313,7 +1391,9 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 
 
+
 ---
+
 
 
 
@@ -1340,7 +1420,9 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 
 
 
+
 ---
+
 
 
 
@@ -1361,6 +1443,7 @@ select_model("frontend_ui", "high")      # → gemini-3.1-pro
 > Now that you understand API foundations, **Module 8** covers programmatically creating agents, streaming responses, and setting up notifications.
 
 *End of Module 7*
+
 
 
 

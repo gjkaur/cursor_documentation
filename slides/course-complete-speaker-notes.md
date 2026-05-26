@@ -2,7 +2,7 @@
 
 Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) (433 slides). **Script** walks through every line on the slide, expands abbreviations, defines technical terms, then adds brief teaching context where helpful.
 
-*Generated: 2026-05-25*
+*Generated: 2026-05-26*
 
 ## How to use
 
