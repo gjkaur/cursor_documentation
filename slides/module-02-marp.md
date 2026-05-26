@@ -79,7 +79,7 @@ By the end of this module, participants will be able to:
 
 **Step 1:** Open an unfamiliar repository in Cursor
 
-Use **PowerShell**, **Git Bash**, or **CMD** in Cursor's integrated terminal (Ctrl+`):
+**Windows (PowerShell)** in Cursor's integrated terminal (``Ctrl+` `` → **PowerShell**):
 
 ```bash
 git clone https://github.com/facebookresearch/detectron2
@@ -87,7 +87,7 @@ cd detectron2
 cursor .
 ```
 
-**Step 2:** Open the Agent (Ctrl+I on Windows/Linux · Cmd+I on Mac)
+**Step 2:** Open the Agent panel — ``Ctrl+I``
 
 ---
 
@@ -282,17 +282,15 @@ Before accepting, ask yourself:
 
 ## Exercise 2.3 — Test After Accept
 
-```bash
-# Windows (PowerShell)
-start index.html          # web
-python script.py          # Python
-npm start                 # React
+**Windows (PowerShell) — use these in the demo:**
 
-# Mac
-open index.html
-python script.py
-npm start
+```powershell
+start index.html          # open HTML in default browser
+python script.py          # run Python script
+npm start                 # Node/React dev server
 ```
+
+**Other platforms:** Mac — `open index.html` · same `python` / `npm` commands.
 
 ---
 
@@ -612,7 +610,7 @@ implement the fix we agreed on.
 
 ```bash
 # Click checkpoint icon in Agent panel
-# Windows/Linux: Ctrl+Shift+S · Mac: Cmd+Shift+S
+# Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``)
 ```
 
 ---
@@ -674,19 +672,21 @@ Add input validation to all form handlers.
 
 ## Exercise 2.8 — Steps 1–3
 
+**Demonstration (Windows):** **PowerShell** · Agent ``Ctrl+I``
+
 **Step 1:** Check the environment:
 
 ```
-Run `python --version` and tell me what Python version we're using.
+Run `python --version` and `gcc --version` in PowerShell.
+Tell me what versions we're using.
 ```
 
 **Step 2:** Approve the command when prompted
 
-**Step 3:** Run tests and fix failures:
+**Step 3:** List project files:
 
 ```
-Run the test suite. If any tests fail, fix them.
-Show me what you're changing.
+Run `dir` and tell me which file looks like the main program.
 ```
 
 ---
@@ -699,24 +699,27 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Step 5: Install Dependency
 
-**Step 5:** Install a dependency:
+**Step 5:** Install a dependency (Windows):
 
 ```
-Install the 'requests' library if it's not already installed.
+Install the requests library with pip if it's not already installed.
+Use: py -m pip install requests
+Show me the command output.
 ```
 
 ---
 
 ## Exercise 2.8 — Step 6: Multi-Step Workflow
 
-**Step 6:** Multi-step workflow:
+**Step 6:** Multi-step workflow (Windows PowerShell):
 
 ```
 Run these commands in order:
-1. git checkout main  2. git pull
-3. git checkout -b feature/analytics
-4. Create analytics.py  5. Run flake8  6. Fix style issues
+1. git status
+2. git branch
+3. dir
 
+Summarize what you see after each command.
 Confirm before each command that might affect the repo.
 ```
 
@@ -726,9 +729,9 @@ Confirm before each command that might affect the repo.
 
 | Category | Commands |
 |----------|----------|
-| **Always approve first** | `rm`, `sudo`, `git push --force`, production changes |
-| **Review carefully** | `npm install`, `pip install`, git branch changes, docker |
-| **Safe to auto-approve** | `python --version`, `ls`, `pwd`, `cat`, `pytest`, `npm test` |
+| **Always approve first** | `Remove-Item`, `sudo`, `git push --force`, production changes |
+| **Review carefully** | `pip install`, `npm install`, git branch changes, docker |
+| **Safe to auto-approve (Windows demo)** | `python --version`, `dir`, `Get-Location`, `Get-Content`, `pytest`, `npm test` |
 
 **Success Criteria:**
 - Ran version check · Ran tests and reacted to output

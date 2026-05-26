@@ -120,7 +120,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -160,11 +160,11 @@ Auto-create PR: ☐
 
 ## Exercise 6.1 — Steps 3–4
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 3:** Monitor live log in real time:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 [10:45:01] Agent starting...
@@ -179,7 +179,7 @@ Auto-create PR: ☐
 ## Exercise 6.1 — Steps 3–4 (Part 2)
 
 **Step 4:** Configure settings (gear icon):
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 | Setting | Purpose |
 |---------|---------|
@@ -193,11 +193,11 @@ Auto-create PR: ☐
 
 ## Exercise 6.1 — Steps 5–6
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 5:** Launch with PR creation:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
@@ -210,7 +210,7 @@ Branch prefix: docs/contributing
 ## Exercise 6.1 — Steps 5–6 (Part 2)
 
 **Step 6:** Share agent URL with team:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 https://cursor.com/agents/agt_abc123def456
@@ -254,11 +254,11 @@ https://cursor.com/agents/agt_abc123def456
 
 ## Exercise 6.2 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 1:** Launch agent that generates artifacts:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Generate:
@@ -275,20 +275,20 @@ Place all in artifacts/ directory.
 ## Exercise 6.2 — Steps 1–2 (Part 2)
 
 **Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
 ## Exercise 6.2 — Steps 3–5
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 
 **Step 3:** Download individual artifacts
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 4:** Download all as zip
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 

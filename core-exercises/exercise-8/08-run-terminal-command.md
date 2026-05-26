@@ -6,9 +6,7 @@
 
 **Time:** 10 minutes
 
-**Setup:** Any code project (continue with `calculator.c` from previous exercises)
-
-**This folder:** Open `core-exercises/exercise-8/` in Cursor. A matching [`calculator.c`](calculator.c) is included here so this exercise stays in its own subfolder.
+**Setup:** Open `core-exercises/exercise-8/` in Cursor with **PowerShell** as your terminal. A matching [`calculator.c`](calculator.c) is included in this folder.
 
 ---
 
@@ -16,11 +14,11 @@
 
 | Step | Action | Expected Result |
 |------|--------|-----------------|
-| 1 | Open Cursor and your project folder | Your code files appear in the Explorer sidebar |
-| 2 | Press `Ctrl+I` (or `Cmd+I` on Mac) to open Agent | Agent panel opens |
-| 3 | Ask the Agent to run a simple terminal command | Agent proposes the command |
-| 4 | Review and approve the command | Command executes |
-| 5 | View the output in the chat | Output appears directly in conversation |
+| 1 | **File → Open Folder** → `core-exercises/exercise-8/` | Files appear in Explorer |
+| 2 | Press **`Ctrl+I`** to open Agent | Agent panel opens |
+| 3 | Ask the Agent to run `dir` | Agent proposes the command |
+| 4 | Review and approve the command | Command executes in PowerShell |
+| 5 | View the output in the chat | Output appears in conversation |
 
 ---
 
@@ -40,9 +38,11 @@ math_utils.c (if created)
 
 ## Sample Terminal Commands to Run
 
+**Demonstration (Windows):** Use these PowerShell prompts in the Agent panel.
+
 ### Command 1: List Files (Safest)
 
-> *"Run `ls -la` (Mac/Linux) or `dir` (Windows) to show me all files in this directory"*
+> *"Run `dir` to show me all files in this directory"*
 
 **What it does:** Lists all files and folders in the current directory
 
@@ -50,7 +50,7 @@ math_utils.c (if created)
 
 ### Command 2: Show Current Path
 
-> *"Run `pwd` (Mac/Linux) or `cd` (Windows) to show me the current directory path"*
+> *"Run `Get-Location` to show me the current directory path"*
 
 **What it does:** Displays the full path of your current working directory
 
@@ -58,7 +58,7 @@ math_utils.c (if created)
 
 ### Command 3: Compile the Code
 
-> *"Compile `calculator.c` using `gcc -o calculator calculator.c`"*
+> *"Compile `calculator.c` using `gcc -o calculator.exe calculator.c`"*
 
 **What it does:** Compiles the calculator program (requires GCC installed)
 
@@ -66,7 +66,7 @@ math_utils.c (if created)
 
 ### Command 4: Run the Compiled Program
 
-> *"Run `./calculator` (Mac/Linux) or `calculator.exe` (Windows) to test the program"*
+> *"Run `.\\calculator.exe` to test the program"*
 
 **What it does:** Executes the compiled calculator program
 
@@ -76,7 +76,7 @@ math_utils.c (if created)
 
 ### Command 5: Check File Contents
 
-> *"Run `cat calculator.c` (Mac/Linux) or `type calculator.c` (Windows) to show me the file content"*
+> *"Run `Get-Content calculator.c` to show me the file content"*
 
 **What it does:** Displays the entire content of the file
 
@@ -86,19 +86,19 @@ math_utils.c (if created)
 
 ### Option A: List Files
 
-> *"Run `ls -la` and tell me what files you see. Which one looks like the main program file?"*
+> *"Run `dir` and tell me what files you see. Which one looks like the main program file?"*
 
 ### Option B: Check Disk Space
 
-> *"Run `df -h` (Mac/Linux) or `wmic logicaldisk get size,freespace,caption` (Windows) to show available disk space"*
+> *"Run `Get-PSDrive -PSProvider FileSystem` to show available disk space on Windows"*
 
 ### Option C: Compile and Check for Errors
 
-> *"Compile `calculator.c` with `gcc -o calculator calculator.c`. If there are errors, explain what they mean."*
+> *"Compile `calculator.c` with `gcc -o calculator.exe calculator.c`. If there are errors, explain what they mean."*
 
 ### Option D: Run Tests (if you have tests)
 
-> *"Run `make test` or `npm test` and show me the results"*
+> *"Run `npm test` or `pytest` and show me the results"*
 
 ### Option E: Show Git Status
 
@@ -110,20 +110,19 @@ math_utils.c (if created)
 
 Using Option A (List files):
 
-I'll run `ls -la` to list the files in this directory.
+I'll run `dir` to list the files in this directory.
 
-**Command:** `ls -la`
+**Command:** `dir`
 
 **Output:**
 
 ```text
-total 32
-drwxr-xr-x  5 user  staff   160 Dec 10 10:00 .
-drwxr-xr-x  4 user  staff   128 Dec 10 09:30 ..
--rw-r--r--  1 user  staff  1452 Dec 10 10:00 calculator.c
--rw-r--r--  1 user  staff   512 Dec 10 09:45 math_utils.c
--rw-r--r--  1 user  staff   385 Dec 10 09:45 math_utils.h
--rwxr-xr-x  1 user  staff  9872 Dec 10 10:00 calculator
+ Directory of D:\...\exercise-8
+
+calculator.c
+math_utils.c
+math_utils.h
+calculator.exe
 ```
 
 **Analysis:**
@@ -140,9 +139,9 @@ drwxr-xr-x  4 user  staff   128 Dec 10 09:30 ..
 │                    COMMAND APPROVAL FLOW                        │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  You: "Run `ls -la`"                                           │
+│  You: "Run `dir`"                                              │
 │                    ↓                                           │
-│  Agent: "I'll run `ls -la`. Approve? (y/n)"                    │
+│  Agent: "I'll run `dir`. Approve? (y/n)"                       │
 │                    ↓                                           │
 │  You: "y" (or press Enter)                                     │
 │                    ↓                                           │
@@ -166,11 +165,9 @@ When the Agent runs a command, you'll see:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  🔧 Running: ls -la                                             │
+│  🔧 Running: dir                                                │
 │  ┌─────────────────────────────────────────────────────────┐    │
-│  │ total 32                                                 │    │
-│  │ drwxr-xr-x  5 user  staff   160 Dec 10 10:00 .          │    │
-│  │ -rw-r--r--  1 user  staff  1452 Dec 10 10:00 calculator.c│    │
+│  │ calculator.c    math_utils.c    calculator.exe          │    │
 │  └─────────────────────────────────────────────────────────┘    │
 │  ✅ Command completed (exit code 0)                             │
 │                                                                 │
@@ -194,16 +191,16 @@ When the Agent runs a command, you'll see:
 
 ## Platform-Specific Commands
 
-| Task | Mac/Linux | Windows |
-|------|-----------|---------|
-| List files | `ls -la` | `dir` |
-| Show current path | `pwd` | `cd` |
-| Show file content | `cat filename` | `type filename` |
-| Compile C | `gcc -o out file.c` | `gcc -o out.exe file.c` |
-| Show disk space | `df -h` | `wmic logicaldisk get size,freespace,caption` |
-| Show running processes | `ps aux` | `tasklist` |
+**Windows demo (PowerShell):**
+
+| Task | Windows (demo) | Mac/Linux (optional) |
+|------|----------------|----------------------|
+| List files | `dir` | `ls` |
+| Show current path | `Get-Location` | `pwd` |
+| Show file content | `Get-Content file` | `cat file` |
+| Compile C | `gcc -o out.exe file.c` | `gcc -o out file.c` |
+| Show disk space | `Get-PSDrive -PSProvider FileSystem` | `df -h` |
 | Git status | `git status` | `git status` |
-| Make directory | `mkdir folder` | `mkdir folder` |
 
 ---
 
@@ -238,7 +235,7 @@ When the Agent runs a command, you'll see:
 
 Ask the Agent to chain multiple commands:
 
-> *"Run `gcc -o calculator calculator.c`, then if that succeeds, run `ls -la calculator` to show the compiled file, then run `./calculator` to test it"*
+> *"Compile `calculator.c` with `gcc -o calculator.exe calculator.c`, then run `dir calculator.exe`, then run `.\\calculator.exe` to test it"*
 
 Or create a reusable command:
 
@@ -267,11 +264,11 @@ Check off when done:
 │                    TERMINAL TOOL CHEAT SHEET                    │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  BASIC COMMANDS:                                                │
-│  "Run `ls -la`" - List files                                    │
-│  "Run `pwd`" - Show current directory                           │
-│  "Run `cat calculator.c`" - Show file contents                  │
-│  "Run `gcc -o calc calculator.c`" - Compile                     │
+│  BASIC COMMANDS (Windows PowerShell demo):                      │
+│  "Run `dir`" - List files                                       │
+│  "Run `Get-Location`" - Show current directory                  │
+│  "Run `Get-Content calculator.c`" - Show file contents          │
+│  "Run `gcc -o calculator.exe calculator.c`" - Compile           │
 │  "Run `git status`" - Check git status                          │
 │                                                                 │
 │  APPROVAL OPTIONS:                                              │
@@ -283,9 +280,9 @@ Check off when done:
 │  ALLOWLIST FILE: .cursor/permissions.json                       │
 │  {                                                              │
 │    "terminalAllowlist": [                                       │
-│      "ls -la",                                                  │
+│      "dir",                                                     │
 │      "git status",                                              │
-│      "gcc -o calculator calculator.c"                          │
+│      "gcc -o calculator.exe calculator.c"                       │
 │    ]                                                            │
 │  }                                                              │
 │                                                                 │

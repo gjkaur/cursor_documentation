@@ -11,15 +11,20 @@
 
 ## Cloud Agents in the UI (read this first)
 
+**Demonstration (Windows):**
+
 1. Sign in to Cursor with a plan that includes **Cloud Agents**.
-2. Open the **Cloud Agents** view from the Cursor sidebar (or Command Palette → "Cloud Agents").
-3. Keep the web dashboard open in a browser tab if the exercise references cursor.com/agents.
-4. Use the **Agent panel** (`Ctrl+I`) for local prompts; use Cloud UI for remote runs.
+2. Open the **Cloud Agents** view from the Cursor sidebar (or **Command Palette** → "Cloud Agents").
+3. Keep the web dashboard open in your browser: [cursor.com/agents](https://cursor.com/agents).
+4. Use the **Agent panel** (`Ctrl+I`) for local prompts; use the Cloud UI for remote runs.
+5. API steps in related modules use **PowerShell** with `$env:VAR` and `curl.exe`.
 
 
 ---
 
 ## Steps from the training slides
+
+**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
 
 Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
@@ -50,10 +55,10 @@ Auto-create PR: ☐
 
 ---
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Step 3:** Monitor live log in real time:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 [10:45:01] Agent starting...
@@ -66,7 +71,7 @@ Auto-create PR: ☐
 ---
 
 **Step 4:** Configure settings (gear icon):
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 | Setting | Purpose |
 |---------|---------|
@@ -78,10 +83,10 @@ Auto-create PR: ☐
 
 ---
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Step 5:** Launch with PR creation:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
@@ -92,7 +97,7 @@ Branch prefix: docs/contributing
 ---
 
 **Step 6:** Share agent URL with team:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 https://cursor.com/agents/agt_abc123def456
@@ -360,7 +365,10 @@ Check off when done:
 | Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
 | No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
 | Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| Wrong terminal shell | ``Ctrl+` `` → **Terminal: Select Default Profile** → **PowerShell** |
+| `curl` fails or behaves oddly | Use **`curl.exe`** in PowerShell, not the `curl` alias |
+| `gcc` not found | Install [MinGW-w64](https://www.mingw-w64.org/) or MSVC build tools; restart terminal |
+| `.sh` script won't run | On Windows use the matching `.bat` file or PowerShell commands |
 | API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
 | API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
 

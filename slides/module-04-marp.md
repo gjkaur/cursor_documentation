@@ -106,7 +106,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -134,7 +134,7 @@ General: no commented-out code, no console.log in prod
 
 ## Exercise 4.1 — Build & Test Rule
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/rules/build-and-test.mdc`:
 
@@ -156,11 +156,11 @@ Flag: exec/eval with user input, password/secret in variable names
 
 ## Exercise 4.1 — Test & File-Specific Rules
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 5:** Verify rules are applied:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Based on the project rules, what are the coding standards I should follow?
@@ -172,7 +172,7 @@ What are the security guardrails?
 ## Exercise 4.1 — Test & File-Specific Rules (Part 2)
 
 **Step 6:** Create `.cursor/rules/react-components.mdc` for `**/*.jsx, **/*.tsx`:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 - Component structure, naming (PascalCase, handleSubmit)
 - Performance: React.memo, useCallback, useMemo
 - Accessibility: keyboard nav, alt text, semantic HTML
@@ -220,7 +220,7 @@ What are the security guardrails?
 
 ## Exercise 4.2 — Create Instructions
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/repository-instructions.md`:
 
@@ -230,11 +230,11 @@ Create `.cursor/repository-instructions.md`:
 
 ## Exercise 4.2 — Verify & Maintain
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 2:** Ask the Agent:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 What are the key technologies used in this project?
@@ -246,7 +246,7 @@ How do I run the tests?
 ## Exercise 4.2 — Verify & Maintain (Part 2)
 
 **Step 3:** Update instructions when:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 - New team members join → add contact info
 - Architecture changes → update structure
 - New dependencies or common issues discovered
@@ -282,7 +282,7 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 
 ## Exercise 4.3 — PR Review Skill
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/skills/pr-review/SKILL.md`:
 
@@ -300,7 +300,7 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 
 ## Exercise 4.3 — Security Audit Skill
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/skills/security-audit/SKILL.md`:
 
@@ -317,11 +317,11 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 ## Exercise 4.3 — Invoke Skills
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 4:** Invoke via slash command:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 /pr-review PR #42
@@ -333,7 +333,7 @@ Output: report with line numbers, fix suggestions, overall risk rating
 ## Exercise 4.3 — Invoke Skills (Part 2)
 
 **Step 5:** List available skills:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 What skills are available in this project?
@@ -344,7 +344,7 @@ What skills are available in this project?
 ## Exercise 4.3 — Invoke Skills (Part 3)
 
 **Step 6:** Create **Onboarding** skill — generates setup checklist from repo instructions
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Success Criteria:** Created skills · built PR Review + Security Audit · invoked via slash command
 

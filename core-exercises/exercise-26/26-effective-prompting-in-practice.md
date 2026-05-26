@@ -26,9 +26,10 @@
 ## Before You Start
 
 1. **File → Open Folder** → select `core-exercises/exercise-3/` in this repo.
-2. Press **`Ctrl+I`** (Windows/Linux) or **`Cmd+I`** (Mac) to open the **Agent** panel.
+2. Press **`Ctrl+I`** to open the **Agent** panel.
 3. Confirm the mode footer shows **Agent** (use `/agent` if needed).
-4. In prompts, type **`@calculator.c`** so the Agent reads the correct file.
+4. Use **PowerShell** as your terminal (``Ctrl+` `` → **PowerShell**).
+5. In prompts, type **`@calculator.c`** so the Agent reads the correct file.
 
 ---
 

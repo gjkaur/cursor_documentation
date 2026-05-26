@@ -749,7 +749,7 @@ By the end of this module, participants will be able to:
 
 **Step 1:** Open an unfamiliar repository in Cursor
 
-Use **PowerShell**, **Git Bash**, or **CMD** in Cursor's integrated terminal (Ctrl+`):
+**Windows (PowerShell)** in Cursor's integrated terminal (``Ctrl+` `` → **PowerShell**):
 
 ```bash
 git clone https://github.com/facebookresearch/detectron2
@@ -757,7 +757,7 @@ cd detectron2
 cursor .
 ```
 
-**Step 2:** Open the Agent (Ctrl+I on Windows/Linux · Cmd+I on Mac)
+**Step 2:** Open the Agent panel — ``Ctrl+I``
 
 ---
 
@@ -952,17 +952,15 @@ Before accepting, ask yourself:
 
 ## Exercise 2.3 — Test After Accept
 
-```bash
-# Windows (PowerShell)
-start index.html          # web
-python script.py          # Python
-npm start                 # React
+**Windows (PowerShell) — use these in the demo:**
 
-# Mac
-open index.html
-python script.py
-npm start
+```powershell
+start index.html          # open HTML in default browser
+python script.py          # run Python script
+npm start                 # Node/React dev server
 ```
+
+**Other platforms:** Mac — `open index.html` · same `python` / `npm` commands.
 
 ---
 
@@ -1282,7 +1280,7 @@ implement the fix we agreed on.
 
 ```bash
 # Click checkpoint icon in Agent panel
-# Windows/Linux: Ctrl+Shift+S · Mac: Cmd+Shift+S
+# Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``)
 ```
 
 ---
@@ -1344,19 +1342,21 @@ Add input validation to all form handlers.
 
 ## Exercise 2.8 — Steps 1–3
 
+**Demonstration (Windows):** **PowerShell** · Agent ``Ctrl+I``
+
 **Step 1:** Check the environment:
 
 ```
-Run `python --version` and tell me what Python version we're using.
+Run `python --version` and `gcc --version` in PowerShell.
+Tell me what versions we're using.
 ```
 
 **Step 2:** Approve the command when prompted
 
-**Step 3:** Run tests and fix failures:
+**Step 3:** List project files:
 
 ```
-Run the test suite. If any tests fail, fix them.
-Show me what you're changing.
+Run `dir` and tell me which file looks like the main program.
 ```
 
 ---
@@ -1369,24 +1369,27 @@ Show me what you're changing.
 
 ## Exercise 2.8 — Step 5: Install Dependency
 
-**Step 5:** Install a dependency:
+**Step 5:** Install a dependency (Windows):
 
 ```
-Install the 'requests' library if it's not already installed.
+Install the requests library with pip if it's not already installed.
+Use: py -m pip install requests
+Show me the command output.
 ```
 
 ---
 
 ## Exercise 2.8 — Step 6: Multi-Step Workflow
 
-**Step 6:** Multi-step workflow:
+**Step 6:** Multi-step workflow (Windows PowerShell):
 
 ```
 Run these commands in order:
-1. git checkout main  2. git pull
-3. git checkout -b feature/analytics
-4. Create analytics.py  5. Run flake8  6. Fix style issues
+1. git status
+2. git branch
+3. dir
 
+Summarize what you see after each command.
 Confirm before each command that might affect the repo.
 ```
 
@@ -1396,9 +1399,9 @@ Confirm before each command that might affect the repo.
 
 | Category | Commands |
 |----------|----------|
-| **Always approve first** | `rm`, `sudo`, `git push --force`, production changes |
-| **Review carefully** | `npm install`, `pip install`, git branch changes, docker |
-| **Safe to auto-approve** | `python --version`, `ls`, `pwd`, `cat`, `pytest`, `npm test` |
+| **Always approve first** | `Remove-Item`, `sudo`, `git push --force`, production changes |
+| **Review carefully** | `pip install`, `npm install`, git branch changes, docker |
+| **Safe to auto-approve (Windows demo)** | `python --version`, `dir`, `Get-Location`, `Get-Content`, `pytest`, `npm test` |
 
 **Success Criteria:**
 - Ran version check · Ran tests and reacted to output
@@ -1542,7 +1545,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -1550,18 +1553,18 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 ## Exercise 3.1 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 1:** Open Agent panel (`Cmd+I` / `Ctrl+I`) — note mode indicator at bottom
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
 ## Exercise 3.1 — Steps 1–2 (Part 2)
 
 **Step 2:** Try to make a change in **Ask Mode**:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Change the variable name 'temp' to 'temperature' in the current file.
@@ -1571,11 +1574,11 @@ Change the variable name 'temp' to 'temperature' in the current file.
 
 ## Exercise 3.1 — Steps 3–5
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 3:** Ask a question Ask Mode handles well:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Explain the purpose of the main() function in this file.
@@ -1587,19 +1590,19 @@ What edge cases does it handle?
 ## Exercise 3.1 — Steps 3–5 (Part 2)
 
 **Step 4:** Switch to **Agent Mode** via the dropdown
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 5:** Repeat the rename request — agent shows diff for approval
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
 ## Exercise 3.1 — Step 6 & Success Criteria
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Step 6:** Practice mode-switching mid-conversation:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 # Start in Ask Mode: What does this function return?
@@ -1646,7 +1649,7 @@ What edge cases does it handle?
 
 ## Exercise 3.2 — Steps 1–2
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent ``Ctrl+I``
 
 
 **Step 1:** Start a local web app (or use a public test page)
@@ -1673,11 +1676,11 @@ Tell me what you see on the page.
 
 ## Exercise 3.2 — Steps 3–4
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 
 **Step 3:** Find specific elements:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 On that same page, find:
@@ -1691,7 +1694,7 @@ On that same page, find:
 ## Exercise 3.2 — Steps 3–4 (Part 2)
 
 **Step 4:** Check the console:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Now open the browser developer console.
@@ -1708,11 +1711,11 @@ Are there any errors or warnings? If so, what are they?
 
 ## Exercise 3.2 — Steps 5–6
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 
 **Step 5:** Diagnose a layout issue:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 The login button is partially hidden on mobile sizes.
@@ -1724,7 +1727,7 @@ Use the browser tool to check what's happening.
 ## Exercise 3.2 — Steps 5–6 (Part 2)
 
 **Step 6:** Extract data from a page:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Go to https://example.com/pricing
@@ -1771,95 +1774,132 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ---
 
-## Exercise 3.3 — Steps 1–2
+## Exercise 3.3 — Setup
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Before you start**
 
+**Goal:** Use the terminal tool on the calculator test project in this repo.
 
-**Step 1:** Check your environment:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Do this first:**
+1. **File → Open Folder** → `core-exercises/exercise-11/`
+2. Open **Agent panel** — ``Ctrl+I``
+3. Confirm **Agent Mode** (`/agent`)
+4. Need **`gcc`** installed (compile C tests)
 
-```
-Run these commands and tell me what versions we're using:
-- python --version
-- node --version (if applicable)
-- git --version
-```
-
----
-
-## Exercise 3.3 — Steps 1–2 (Part 2)
-
-**Step 2:** Run the test suite:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
-
-```
-Run the test suite. Show me which tests pass and which fail.
-```
+Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
 ---
 
-## Exercise 3.3 — Steps 3–4
+## Exercise 3.3 — Step 1: Safe Command
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 1 — Read-only command**
 
+**Goal:** Approve a low-risk terminal command.
 
-**Step 3:** Diagnose failures:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
-One or more tests failed. What's causing these failures?
-Look at the specific error messages.
+Check whether gcc and git are available.
+
+Run gcc --version and git --version.
+Summarize the output. Do not modify any files.
 ```
+
+**Look for:** Version strings in chat · no file edits
 
 ---
 
-## Exercise 3.3 — Steps 3–4 (Part 2)
+## Exercise 3.3 — Step 2: Run Passing Tests
 
-**Step 4:** Fix and verify:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Step 2 — Run test suite**
 
+**Goal:** Compile and run tests — all should pass first.
+
+**Windows (demo — PowerShell):**
 ```
-Based on your diagnosis, fix the failing tests.
-Show me what you're changing before you run again.
+Run .\run_tests.bat in this folder.
+Show full output: compilation OK? how many tests passed?
 ```
+
+**Other platforms (optional):** Mac/Linux — `./run_tests.sh`
+
+**Look for:** Four `PASS:` lines · `All tests passed!`
 
 ---
 
-## Exercise 3.3 — Debug Workflow (Step 5)
+## Exercise 3.3 — Step 3: Break a Test
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 3 — Introduce a failure (you edit)**
 
-```
-I found a bug where the app crashes when input is empty.
+**Goal:** Create a known bug before debugging.
 
-1. First, run the app to reproduce the crash
-2. Then, add logging to understand why
-3. Finally, fix the bug and verify it works
-```
+1. Open **`test_calculator.c`**
+2. Change `assert(add(2, 3) == 5);` → **`== 6`**
+3. Save — **do not ask Agent to edit yet**
 
-<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Exercise 3.3 — Debug Workflow (Step 5)" />
+**Look for:** File saved with wrong expected value
 
 ---
 
-## Exercise 3.3 — Step 6 & Safety Rules
+## Exercise 3.3 — Step 4: Diagnose Failure
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 4 — Read terminal output**
 
-**Step 6:** React to long-running commands:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Goal:** Agent explains the failure without fixing yet.
 
 ```
-Run npm install or pip install. Watch the output.
-If there's a warning about deprecated packages, note it and suggest fixes.
+@test_calculator.c
+
+Run the test suite again.
+Which test failed? What assertion failed?
+Is the bug in the test or in add()? Explain only — do not fix yet.
 ```
 
-| Approval Required | No Approval Needed |
-|-------------------|-------------------|
-| Writes files, `sudo`, `git push --force` | Version checks, `cat`, `ls` |
-| `npm install -g`, start servers | `pytest`, `npm test`, `git status` |
+**Look for:** Names `test_add` · expects 6, got 5 · test is wrong
 
-**Success Criteria:** Ran tests · Diagnosed failure · Fixed code · Verified fix
+---
+
+## Exercise 3.3 — Step 5: Fix and Verify
+
+**Step 5 — Debug workflow**
+
+**Goal:** Run → fix → re-run until green.
+
+```
+@test_calculator.c
+
+1. Run tests and confirm the failure
+2. Fix the incorrect assertion in test_add() only
+3. Re-run tests and confirm all pass
+Show the diff before I accept changes.
+```
+
+<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Debug workflow: run → analyze → fix → verify" />
+
+**Look for:** Two test runs · one-line fix · all tests pass
+
+---
+
+## Exercise 3.3 — Step 6: Approval Rules
+
+**Step 6 — Safe vs. risky commands**
+
+**Goal:** Know what to review before approving.
+
+**Optional prompt:**
+```
+Run git status. Summarize only — do not commit or push.
+```
+
+| Review carefully | Usually lower risk |
+|------------------|-------------------|
+| Deletes, `sudo`, `git push --force` | `gcc --version`, `git status`, `ls` |
+| Global installs, servers | Project test scripts, local compile |
+
+**Success Criteria:**
+- Read-only command run · Tests run with output shown
+- Failure introduced · Diagnosis from terminal output
+- Fix verified by re-run · Approval rules understood
 
 ---
 
@@ -1938,7 +1978,7 @@ User: "Wait, I just wanted the login bug fixed!"
 
 **Do this first:**
 1. **File → Open Folder** → `core-exercises/exercise-3/`
-2. Open **Agent panel** — ``Ctrl+I`` (Mac: ``Cmd+I``)
+2. Open **Agent panel** — ``Ctrl+I``
 3. Confirm **Agent Mode** (footer shows Agent, or type `/agent`)
 
 Use **`@calculator.c`** in every prompt below.
@@ -2219,7 +2259,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -2247,7 +2287,7 @@ General: no commented-out code, no console.log in prod
 
 ## Exercise 4.1 — Build & Test Rule
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/rules/build-and-test.mdc`:
 
@@ -2269,11 +2309,11 @@ Flag: exec/eval with user input, password/secret in variable names
 
 ## Exercise 4.1 — Test & File-Specific Rules
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 5:** Verify rules are applied:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Based on the project rules, what are the coding standards I should follow?
@@ -2285,7 +2325,7 @@ What are the security guardrails?
 ## Exercise 4.1 — Test & File-Specific Rules (Part 2)
 
 **Step 6:** Create `.cursor/rules/react-components.mdc` for `**/*.jsx, **/*.tsx`:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 - Component structure, naming (PascalCase, handleSubmit)
 - Performance: React.memo, useCallback, useMemo
 - Accessibility: keyboard nav, alt text, semantic HTML
@@ -2333,7 +2373,7 @@ What are the security guardrails?
 
 ## Exercise 4.2 — Create Instructions
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/repository-instructions.md`:
 
@@ -2343,11 +2383,11 @@ Create `.cursor/repository-instructions.md`:
 
 ## Exercise 4.2 — Verify & Maintain
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 2:** Ask the Agent:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 What are the key technologies used in this project?
@@ -2359,7 +2399,7 @@ How do I run the tests?
 ## Exercise 4.2 — Verify & Maintain (Part 2)
 
 **Step 3:** Update instructions when:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 - New team members join → add contact info
 - Architecture changes → update structure
 - New dependencies or common issues discovered
@@ -2395,7 +2435,7 @@ A reusable, specialized workflow the agent loads and follows — a **"prompt tem
 
 ## Exercise 4.3 — PR Review Skill
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/skills/pr-review/SKILL.md`:
 
@@ -2413,7 +2453,7 @@ Verdict: APPROVE / REQUEST CHANGES / COMMENT
 
 ## Exercise 4.3 — Security Audit Skill
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Create `.cursor/skills/security-audit/SKILL.md`:
 
@@ -2430,11 +2470,11 @@ Output: report with line numbers, fix suggestions, overall risk rating
 
 ## Exercise 4.3 — Invoke Skills
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 4:** Invoke via slash command:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 /pr-review PR #42
@@ -2446,7 +2486,7 @@ Output: report with line numbers, fix suggestions, overall risk rating
 ## Exercise 4.3 — Invoke Skills (Part 2)
 
 **Step 5:** List available skills:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 What skills are available in this project?
@@ -2457,7 +2497,7 @@ What skills are available in this project?
 ## Exercise 4.3 — Invoke Skills (Part 3)
 
 **Step 6:** Create **Onboarding** skill — generates setup checklist from repo instructions
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Success Criteria:** Created skills · built PR Review + Security Audit · invoked via slash command
 
@@ -2722,7 +2762,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -2772,7 +2812,7 @@ agent --list-models
 ## Exercise 5.1 — Steps 3–5 (Part 2)
 
 **Step 4:** Ask Mode (read-only):
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```bash
 agent --mode=ask "What does this project's main function do?"
@@ -2784,7 +2824,7 @@ agent --mode=ask "What does this project's main function do?"
 ## Exercise 5.1 — Steps 3–5 (Part 3)
 
 **Step 5:** Plan Mode:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```bash
 agent --mode=plan "Add user authentication to this API"
@@ -2921,7 +2961,7 @@ done
 ## Exercise 5.2 — Batch & Git Hooks (Part 2)
 
 **Step 5:** Pre-commit hook — review staged diff for secrets, debug statements, merge markers
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 6:** CI/CD — analyze test output and suggest fixes for failures
 **Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
@@ -3115,7 +3155,7 @@ agent --resume abc123-def456-ghi789
 ## Exercise 5.4 — Steps 3–5 (Part 2)
 
 **Step 4:** Concurrent sessions in different terminals:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```bash
 # Terminal 1: agent --resume frontend-cleanup
@@ -3137,13 +3177,13 @@ agent --resume abc123-def456-ghi789
 
 ## Exercise 5.4 — Steps 6–7 & Best Practices
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Step 6:** Export session summary as markdown
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 7:** Create `bin/cursor-sessions.sh` to list and manage sessions
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)
 
@@ -3313,7 +3353,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -3353,11 +3393,11 @@ Auto-create PR: ☐
 
 ## Exercise 6.1 — Steps 3–4
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 3:** Monitor live log in real time:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 [10:45:01] Agent starting...
@@ -3372,7 +3412,7 @@ Auto-create PR: ☐
 ## Exercise 6.1 — Steps 3–4 (Part 2)
 
 **Step 4:** Configure settings (gear icon):
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 | Setting | Purpose |
 |---------|---------|
@@ -3386,11 +3426,11 @@ Auto-create PR: ☐
 
 ## Exercise 6.1 — Steps 5–6
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 5:** Launch with PR creation:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
@@ -3403,7 +3443,7 @@ Branch prefix: docs/contributing
 ## Exercise 6.1 — Steps 5–6 (Part 2)
 
 **Step 6:** Share agent URL with team:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 https://cursor.com/agents/agt_abc123def456
@@ -3447,11 +3487,11 @@ https://cursor.com/agents/agt_abc123def456
 
 ## Exercise 6.2 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 1:** Launch agent that generates artifacts:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Generate:
@@ -3468,20 +3508,20 @@ Place all in artifacts/ directory.
 ## Exercise 6.2 — Steps 1–2 (Part 2)
 
 **Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
 ## Exercise 6.2 — Steps 3–5
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 
 **Step 3:** Download individual artifacts
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 4:** Download all as zip
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
@@ -3834,7 +3874,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -3998,7 +4038,7 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 ## Exercise 7.3 — Rate Limiter & Client
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Monitor headers:** warn when `X-RateLimit-Remaining` < 10% of limit
 
@@ -4067,7 +4107,7 @@ def get_with_etag(url, previous_etag=None):
 
 ## Exercise 7.4 — ETagCache & CachedClient
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **ETagCache:** persistent pickle-based cache keyed by URL hash
 
@@ -4273,7 +4313,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -4426,7 +4466,7 @@ def stream_agent_response(agent_id, run_id, on_event=None):
 
 ## Exercise 8.2 — ResumableSSEClient
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on reconnect
 
@@ -4640,7 +4680,7 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 ## Exercise 8.5 — Inspect & Replay
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 **Step 4:** Inspect requests at `http://127.0.0.1:4040`
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL
@@ -4830,7 +4870,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -4918,7 +4958,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Exercise 9.2 — Cost Report
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Python `generate_cost_report()` for last 30 days:
 
@@ -4974,7 +5014,7 @@ Check current limit: `GET .../policies/users/{userId}/limits`
 
 ## Exercise 9.3 — Bulk Limits
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **CSV bulk set:** `email, monthly_limit, action`
 
@@ -5029,7 +5069,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Exercise 9.4 — Optimization Report
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 `generate_optimization_report()`:
 
@@ -5297,7 +5337,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -5341,7 +5381,7 @@ curl -s -u "$CURSOR_ADMIN_API_KEY:" \
 
 ## Exercise 10.1 — ROI Analysis
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Python `calculate_ai_roi()`:
 
@@ -5453,7 +5493,7 @@ Acceptance rate by model: group events → total vs. accepted per model
 
 ## Exercise 10.3 — Compliance Report
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 `generate_compliance_report()` for last 90 days:
 

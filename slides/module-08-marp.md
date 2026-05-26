@@ -96,7 +96,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -249,7 +249,7 @@ def stream_agent_response(agent_id, run_id, on_event=None):
 
 ## Exercise 8.2 — ResumableSSEClient
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on reconnect
 
@@ -463,7 +463,7 @@ curl -X POST https://api.cursor.com/v1/agents ... \
 
 ## Exercise 8.5 — Inspect & Replay
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 **Step 4:** Inspect requests at `http://127.0.0.1:4040`
 **Terminal:** **PowerShell** — unless step notes Git Bash or WSL

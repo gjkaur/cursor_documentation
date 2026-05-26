@@ -170,7 +170,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -334,7 +334,7 @@ def call_with_retry(url, max_retries=5, base_delay=1.0):
 
 ## Exercise 7.3 — Rate Limiter & Client
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Monitor headers:** warn when `X-RateLimit-Remaining` < 10% of limit
 
@@ -403,7 +403,7 @@ def get_with_etag(url, previous_etag=None):
 
 ## Exercise 7.4 — ETagCache & CachedClient
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **ETagCache:** persistent pickle-based cache keyed by URL hash
 

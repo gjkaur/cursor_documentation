@@ -11,21 +11,26 @@
 
 ## API basics (read this first)
 
-1. Use **PowerShell** or **Git Bash** in Cursor's terminal (``Ctrl+` ``).
-2. Store keys in environment variables — never commit them:
+**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
+
+1. Store keys in environment variables — never commit them:
 
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
 $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 ```
 
-3. Prefer `curl.exe` on Windows (not the `curl` alias) or Python `requests`.
-4. Run scripts from a dedicated folder inside this repo or your own sandbox project.
+2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
+3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
+4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
+5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
 
 
 ---
 
 ## Steps from the training slides
+
+**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
 
 Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
@@ -546,7 +551,10 @@ Check off when done:
 | Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
 | No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
 | Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| Wrong terminal shell | ``Ctrl+` `` → **Terminal: Select Default Profile** → **PowerShell** |
+| `curl` fails or behaves oddly | Use **`curl.exe`** in PowerShell, not the `curl` alias |
+| `gcc` not found | Install [MinGW-w64](https://www.mingw-w64.org/) or MSVC build tools; restart terminal |
+| `.sh` script won't run | On Windows use the matching `.bat` file or PowerShell commands |
 | API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
 | API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
 

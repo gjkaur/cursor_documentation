@@ -151,50 +151,146 @@ EXERCISE_META: dict[tuple[int, int], dict] = {
 
 CURSOR_BASICS = """## Cursor basics (read this first)
 
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
+**Demonstration environment:** These exercises assume **Windows 10/11**. Open the integrated terminal with ``Ctrl+` `` and select **PowerShell** as the default profile.
+
+| Task | Windows (demo) | Mac (optional) | Where in Cursor |
+|------|----------------|----------------|-----------------|
 | Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
 | Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
 | Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
+| Integrated terminal | ``Ctrl+` `` → **PowerShell** | ``Ctrl+` `` | Bottom panel |
 | Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
 | Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
 | Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
 | Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
 | Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
 
+**Windows terminal commands (common in exercises):**
+
+| Task | PowerShell command |
+|------|-------------------|
+| List files | `dir` or `Get-ChildItem` |
+| Show file contents | `Get-Content .\\file.txt` or `type file.txt` |
+| Run a local `.bat` script | `.\\run_tests.bat` |
+| Run compiled program | `.\\calculator.exe` or `calculator.exe` |
+| Set env var (session) | `$env:MY_VAR = "value"` |
+| Open HTML in browser | `start index.html` |
+
 **Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
 """
 
 CLI_BASICS = """## CLI basics (read this first)
 
+**Demonstration (Windows):**
+
 1. Open **PowerShell** in Cursor: ``Ctrl+` `` → select **PowerShell**.
 2. Confirm the CLI is installed: `agent --version`
-3. If missing, install from Cursor: **Command Palette** → `Shell Command: Install 'cursor' command in PATH` (or follow Cursor docs for `agent` CLI).
+3. If missing, install Cursor CLI for Windows:
+   ```powershell
+   irm 'https://cursor.com/install?win32=true' | iex
+   ```
+   Or use **Command Palette** → `Shell Command: Install 'cursor' command in PATH`.
 4. Run commands from your **project root** unless the exercise says otherwise.
+
+**Note:** Bash script examples (`.sh`) in reference sections are optional on Windows — use PowerShell or ask the Agent to adapt commands.
 """
 
 API_BASICS = """## API basics (read this first)
 
-1. Use **PowerShell** or **Git Bash** in Cursor's terminal (``Ctrl+` ``).
-2. Store keys in environment variables — never commit them:
+**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
+
+1. Store keys in environment variables — never commit them:
 
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
 $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 ```
 
-3. Prefer `curl.exe` on Windows (not the `curl` alias) or Python `requests`.
-4. Run scripts from a dedicated folder inside this repo or your own sandbox project.
+2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
+3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
+4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
+5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
 """
 
 CLOUD_BASICS = """## Cloud Agents in the UI (read this first)
 
+**Demonstration (Windows):**
+
 1. Sign in to Cursor with a plan that includes **Cloud Agents**.
-2. Open the **Cloud Agents** view from the Cursor sidebar (or Command Palette → "Cloud Agents").
-3. Keep the web dashboard open in a browser tab if the exercise references cursor.com/agents.
-4. Use the **Agent panel** (`Ctrl+I`) for local prompts; use Cloud UI for remote runs.
+2. Open the **Cloud Agents** view from the Cursor sidebar (or **Command Palette** → "Cloud Agents").
+3. Keep the web dashboard open in your browser: [cursor.com/agents](https://cursor.com/agents).
+4. Use the **Agent panel** (`Ctrl+I`) for local prompts; use the Cloud UI for remote runs.
+5. API steps in related modules use **PowerShell** with `$env:VAR` and `curl.exe`.
 """
+
+WINDOWS_STEPS_INTRO = """**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``."""
+
+WINDOWS_REWRITE_SUBS = [
+    (
+        "**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)",
+        "**Where:** **Agent panel** — ``Ctrl+I``",
+    ),
+    (
+        "**Where:** **Cursor Agent panel** — ``Ctrl+L``",
+        "**Where:** **Agent panel** — ``Ctrl+I``",
+    ),
+    (
+        "Open **Agent panel** — ``Ctrl+I`` (Mac: ``Cmd+I``)",
+        "Open **Agent panel** — ``Ctrl+I``",
+    ),
+    (
+        "**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**",
+        "**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** ``Ctrl+` `` · Diffs in editor",
+    ),
+    (
+        "> *\"Run `ls -la` (Mac/Linux) or `dir` (Windows) to show me all files in this directory\"*",
+        "> *\"Run `dir` to show me all files in this directory (Windows PowerShell)\"*",
+    ),
+    (
+        "> *\"Run `pwd` (Mac/Linux) or `cd` (Windows) to show me the current directory path\"*",
+        "> *\"Run `Get-Location` (or `cd` with no args) to show the current directory path\"*",
+    ),
+    (
+        "> *\"Run `./calculator` (Mac/Linux) or `calculator.exe` (Windows) to test the program\"*",
+        "> *\"Run `.\\calculator.exe` to test the program\"*",
+    ),
+    (
+        "> *\"Run `cat calculator.c` (Mac/Linux) or `type calculator.c` (Windows) to show me the file content\"*",
+        "> *\"Run `Get-Content calculator.c` to show me the file content\"*",
+    ),
+    (
+        "I'll run `ls -la` to list the files in this directory.",
+        "I'll run `dir` to list the files in this directory.",
+    ),
+    (
+        "**Command:** `ls -la`",
+        "**Command:** `dir`",
+    ),
+    (
+        "Command: gcc test_calculator.c -o test_calculator && ./test_calculator",
+        "Command: gcc test_calculator.c -o test_calculator.exe && .\\test_calculator.exe",
+    ),
+    (
+        "**Mac/Linux prompt:**",
+        "**Other platforms (optional):**",
+    ),
+    (
+        "Run the test suite again (run_tests.bat on Windows or ./run_tests.sh on Mac/Linux).",
+        "Run the test suite again with `.\\run_tests.bat` (Windows PowerShell).",
+    ),
+    (
+        "**Command:** `run_tests.bat` (Windows) or `./run_tests.sh` (Mac/Linux)",
+        "**Command:** `.\\run_tests.bat` (Windows PowerShell)",
+    ),
+]
+
+
+def rewrite_windows_demo_instructions(text: str) -> str:
+    if not text:
+        return text
+    for old, new in WINDOWS_REWRITE_SUBS:
+        text = text.replace(old, new)
+    return text
 
 
 def slugify(text: str) -> str:
@@ -376,9 +472,11 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
     else:
         basics = CURSOR_BASICS
 
-    slide_body = "\n\n---\n\n".join(clean_slide_for_doc(s) for s in slide_chunks if clean_slide_for_doc(s))
+    slide_body = rewrite_windows_demo_instructions(
+        "\n\n---\n\n".join(clean_slide_for_doc(s) for s in slide_chunks if clean_slide_for_doc(s))
+    )
     criteria = extract_success_criteria(slide_chunks)
-    reference = load_reference(meta)
+    reference = rewrite_windows_demo_instructions(load_reference(meta))
 
     lines = [
         f"# Exercise {module_num}.{ex_num}: {title}",
@@ -397,6 +495,8 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
         "---",
         "",
         "## Steps from the training slides",
+        "",
+        WINDOWS_STEPS_INTRO,
         "",
         "Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.",
         "",
@@ -432,7 +532,10 @@ def build_document(module_num: int, ex_num: int, meta: dict, slide_chunks: list[
         "| Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |",
         "| No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |",
         "| Agent can't see my files | **File → Open Folder** (not a single file) |",
-        "| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |",
+        "| Wrong terminal shell | ``Ctrl+` `` → **Terminal: Select Default Profile** → **PowerShell** |",
+        "| `curl` fails or behaves oddly | Use **`curl.exe`** in PowerShell, not the `curl` alias |",
+        "| `gcc` not found | Install [MinGW-w64](https://www.mingw-w64.org/) or MSVC build tools; restart terminal |",
+        "| `.sh` script won't run | On Windows use the matching `.bat` file or PowerShell commands |",
         "| API returns 401 | Re-copy API key; check `Authorization: Bearer` header |",
         "| API returns 429 | Wait and retry; see Exercise 7.3 for backoff |",
         "",

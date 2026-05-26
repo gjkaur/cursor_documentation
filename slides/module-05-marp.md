@@ -96,7 +96,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -146,7 +146,7 @@ agent --list-models
 ## Exercise 5.1 — Steps 3–5 (Part 2)
 
 **Step 4:** Ask Mode (read-only):
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```bash
 agent --mode=ask "What does this project's main function do?"
@@ -158,7 +158,7 @@ agent --mode=ask "What does this project's main function do?"
 ## Exercise 5.1 — Steps 3–5 (Part 3)
 
 **Step 5:** Plan Mode:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```bash
 agent --mode=plan "Add user authentication to this API"
@@ -295,7 +295,7 @@ done
 ## Exercise 5.2 — Batch & Git Hooks (Part 2)
 
 **Step 5:** Pre-commit hook — review staged diff for secrets, debug statements, merge markers
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 6:** CI/CD — analyze test output and suggest fixes for failures
 **Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
@@ -489,7 +489,7 @@ agent --resume abc123-def456-ghi789
 ## Exercise 5.4 — Steps 3–5 (Part 2)
 
 **Step 4:** Concurrent sessions in different terminals:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```bash
 # Terminal 1: agent --resume frontend-cleanup
@@ -511,13 +511,13 @@ agent --resume abc123-def456-ghi789
 
 ## Exercise 5.4 — Steps 6–7 & Best Practices
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Step 6:** Export session summary as markdown
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 7:** Create `bin/cursor-sessions.sh` to list and manage sessions
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)
 

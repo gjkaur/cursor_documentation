@@ -117,7 +117,7 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 | **Command Prompt** | Legacy `.bat` files only | Terminal menu → **Command Prompt** |
 | **Ubuntu (WSL)** | Linux-only tools or native bash without Git Bash | Terminal menu → **Ubuntu (WSL)** |
 
-**Cursor Agent panel** (`Ctrl+L`) is for natural-language prompts — not a shell.
+**Agent panel** (``Ctrl+I``) is for prompts and tool use · **Chat** (``Ctrl+L``) is read-only Q&A.
 
 **Set default profile:** Settings → `terminal.integrated.defaultProfile.windows` → **PowerShell**
 
@@ -125,18 +125,18 @@ All exercises in this module assume **Windows 10/11** with Cursor installed.
 
 ## Exercise 3.1 — Steps 1–2
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 1:** Open Agent panel (`Cmd+I` / `Ctrl+I`) — note mode indicator at bottom
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
 ## Exercise 3.1 — Steps 1–2 (Part 2)
 
 **Step 2:** Try to make a change in **Ask Mode**:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Change the variable name 'temp' to 'temperature' in the current file.
@@ -146,11 +146,11 @@ Change the variable name 'temp' to 'temperature' in the current file.
 
 ## Exercise 3.1 — Steps 3–5
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 
 **Step 3:** Ask a question Ask Mode handles well:
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Explain the purpose of the main() function in this file.
@@ -162,19 +162,19 @@ What edge cases does it handle?
 ## Exercise 3.1 — Steps 3–5 (Part 2)
 
 **Step 4:** Switch to **Agent Mode** via the dropdown
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 5:** Repeat the rename request — agent shows diff for approval
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ---
 
 ## Exercise 3.1 — Step 6 & Success Criteria
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
 
 **Step 6:** Practice mode-switching mid-conversation:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 # Start in Ask Mode: What does this function return?
@@ -221,7 +221,7 @@ What edge cases does it handle?
 
 ## Exercise 3.2 — Steps 1–2
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent ``Ctrl+I``
 
 
 **Step 1:** Start a local web app (or use a public test page)
@@ -248,11 +248,11 @@ Tell me what you see on the page.
 
 ## Exercise 3.2 — Steps 3–4
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 
 **Step 3:** Find specific elements:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 On that same page, find:
@@ -266,7 +266,7 @@ On that same page, find:
 ## Exercise 3.2 — Steps 3–4 (Part 2)
 
 **Step 4:** Check the console:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Now open the browser developer console.
@@ -283,11 +283,11 @@ Are there any errors or warnings? If so, what are they?
 
 ## Exercise 3.2 — Steps 5–6
 
-**Platform:** Windows 10/11 · Agent → ``Ctrl+L`` · Shell → **PowerShell** · Browser for dashboards
+**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
 
 
 **Step 5:** Diagnose a layout issue:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 The login button is partially hidden on mobile sizes.
@@ -299,7 +299,7 @@ Use the browser tool to check what's happening.
 ## Exercise 3.2 — Steps 5–6 (Part 2)
 
 **Step 6:** Extract data from a page:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
 Go to https://example.com/pricing
@@ -346,95 +346,132 @@ Extract all pricing plan names and their monthly costs into a table.
 
 ---
 
-## Exercise 3.3 — Steps 1–2
+## Exercise 3.3 — Setup
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Before you start**
 
+**Goal:** Use the terminal tool on the calculator test project in this repo.
 
-**Step 1:** Check your environment:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Do this first:**
+1. **File → Open Folder** → `core-exercises/exercise-11/`
+2. Open **Agent panel** — ``Ctrl+I``
+3. Confirm **Agent Mode** (`/agent`)
+4. Need **`gcc`** installed (compile C tests)
 
-```
-Run these commands and tell me what versions we're using:
-- python --version
-- node --version (if applicable)
-- git --version
-```
-
----
-
-## Exercise 3.3 — Steps 1–2 (Part 2)
-
-**Step 2:** Run the test suite:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
-
-```
-Run the test suite. Show me which tests pass and which fail.
-```
+Files in folder: `test_calculator.c`, `run_tests.bat`, `run_tests.sh`
 
 ---
 
-## Exercise 3.3 — Steps 3–4
+## Exercise 3.3 — Step 1: Safe Command
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 1 — Read-only command**
 
+**Goal:** Approve a low-risk terminal command.
 
-**Step 3:** Diagnose failures:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Where:** **Agent panel** — ``Ctrl+I``
 
 ```
-One or more tests failed. What's causing these failures?
-Look at the specific error messages.
+Check whether gcc and git are available.
+
+Run gcc --version and git --version.
+Summarize the output. Do not modify any files.
 ```
+
+**Look for:** Version strings in chat · no file edits
 
 ---
 
-## Exercise 3.3 — Steps 3–4 (Part 2)
+## Exercise 3.3 — Step 2: Run Passing Tests
 
-**Step 4:** Fix and verify:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Step 2 — Run test suite**
 
+**Goal:** Compile and run tests — all should pass first.
+
+**Windows (demo — PowerShell):**
 ```
-Based on your diagnosis, fix the failing tests.
-Show me what you're changing before you run again.
+Run .\run_tests.bat in this folder.
+Show full output: compilation OK? how many tests passed?
 ```
+
+**Other platforms (optional):** Mac/Linux — `./run_tests.sh`
+
+**Look for:** Four `PASS:` lines · `All tests passed!`
 
 ---
 
-## Exercise 3.3 — Debug Workflow (Step 5)
+## Exercise 3.3 — Step 3: Break a Test
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 3 — Introduce a failure (you edit)**
 
-```
-I found a bug where the app crashes when input is empty.
+**Goal:** Create a known bug before debugging.
 
-1. First, run the app to reproduce the crash
-2. Then, add logging to understand why
-3. Finally, fix the bug and verify it works
-```
+1. Open **`test_calculator.c`**
+2. Change `assert(add(2, 3) == 5);` → **`== 6`**
+3. Save — **do not ask Agent to edit yet**
 
-<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Exercise 3.3 — Debug Workflow (Step 5)" />
+**Look for:** File saved with wrong expected value
 
 ---
 
-## Exercise 3.3 — Step 6 & Safety Rules
+## Exercise 3.3 — Step 4: Diagnose Failure
 
-**Platform:** Windows 10/11 · Prompts → **Agent panel** ``Ctrl+L`` · Diffs → **Editor**
+**Step 4 — Read terminal output**
 
-**Step 6:** React to long-running commands:
-**Where:** **Cursor Agent panel** — ``Ctrl+L``
+**Goal:** Agent explains the failure without fixing yet.
 
 ```
-Run npm install or pip install. Watch the output.
-If there's a warning about deprecated packages, note it and suggest fixes.
+@test_calculator.c
+
+Run the test suite again.
+Which test failed? What assertion failed?
+Is the bug in the test or in add()? Explain only — do not fix yet.
 ```
 
-| Approval Required | No Approval Needed |
-|-------------------|-------------------|
-| Writes files, `sudo`, `git push --force` | Version checks, `cat`, `ls` |
-| `npm install -g`, start servers | `pytest`, `npm test`, `git status` |
+**Look for:** Names `test_add` · expects 6, got 5 · test is wrong
 
-**Success Criteria:** Ran tests · Diagnosed failure · Fixed code · Verified fix
+---
+
+## Exercise 3.3 — Step 5: Fix and Verify
+
+**Step 5 — Debug workflow**
+
+**Goal:** Run → fix → re-run until green.
+
+```
+@test_calculator.c
+
+1. Run tests and confirm the failure
+2. Fix the incorrect assertion in test_add() only
+3. Re-run tests and confirm all pass
+Show the diff before I accept changes.
+```
+
+<img src="assets/module-03/exercise-3-3-debug-workflow-step-5.svg" alt="Debug workflow: run → analyze → fix → verify" />
+
+**Look for:** Two test runs · one-line fix · all tests pass
+
+---
+
+## Exercise 3.3 — Step 6: Approval Rules
+
+**Step 6 — Safe vs. risky commands**
+
+**Goal:** Know what to review before approving.
+
+**Optional prompt:**
+```
+Run git status. Summarize only — do not commit or push.
+```
+
+| Review carefully | Usually lower risk |
+|------------------|-------------------|
+| Deletes, `sudo`, `git push --force` | `gcc --version`, `git status`, `ls` |
+| Global installs, servers | Project test scripts, local compile |
+
+**Success Criteria:**
+- Read-only command run · Tests run with output shown
+- Failure introduced · Diagnosis from terminal output
+- Fix verified by re-run · Approval rules understood
 
 ---
 
@@ -513,7 +550,7 @@ User: "Wait, I just wanted the login bug fixed!"
 
 **Do this first:**
 1. **File → Open Folder** → `core-exercises/exercise-3/`
-2. Open **Agent panel** — ``Ctrl+I`` (Mac: ``Cmd+I``)
+2. Open **Agent panel** — ``Ctrl+I``
 3. Confirm **Agent Mode** (footer shows Agent, or type `/agent`)
 
 Use **`@calculator.c`** in every prompt below.

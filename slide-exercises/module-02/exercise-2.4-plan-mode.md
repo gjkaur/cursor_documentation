@@ -11,17 +11,30 @@
 
 ## Cursor basics (read this first)
 
-| Task | Windows / Linux | Mac | Where in Cursor |
-|------|-----------------|-----|-----------------|
+**Demonstration environment:** These exercises assume **Windows 10/11**. Open the integrated terminal with ``Ctrl+` `` and select **PowerShell** as the default profile.
+
+| Task | Windows (demo) | Mac (optional) | Where in Cursor |
+|------|----------------|----------------|-----------------|
 | Open a project folder | `Ctrl+K Ctrl+O` or **File → Open Folder** | `Cmd+O` | Title bar / Explorer |
 | Open **Agent** panel | `Ctrl+I` | `Cmd+I` | Right side panel |
 | Open **Chat** panel | `Ctrl+L` | `Cmd+L` | Side panel (Ask/Chat) |
-| Integrated terminal | ``Ctrl+` `` | ``Ctrl+` `` | Bottom panel |
+| Integrated terminal | ``Ctrl+` `` → **PowerShell** | ``Ctrl+` `` | Bottom panel |
 | Command Palette | `Ctrl+Shift+P` | `Cmd+Shift+P` | Search any command |
 | Accept Agent diff | Click **Accept** / **Accept All** | Same | Inline diff in editor |
 | Reject Agent diff | Click **Reject** | Same | Inline diff in editor |
 | Switch Agent mode | Mode dropdown at bottom of Agent panel | Same | Agent panel footer |
 | Toggle Plan Mode | `Shift+Tab` in Agent | Same | Agent panel |
+
+**Windows terminal commands (common in exercises):**
+
+| Task | PowerShell command |
+|------|-------------------|
+| List files | `dir` or `Get-ChildItem` |
+| Show file contents | `Get-Content .\file.txt` or `type file.txt` |
+| Run a local `.bat` script | `.\run_tests.bat` |
+| Run compiled program | `.\calculator.exe` or `calculator.exe` |
+| Set env var (session) | `$env:MY_VAR = "value"` |
+| Open HTML in browser | `start index.html` |
 
 **Tip for beginners:** Keep the **Explorer** (left), **editor** (center), and **Agent** (right) visible. Send prompts in the Agent panel; review every diff before accepting.
 
@@ -29,6 +42,8 @@
 ---
 
 ## Steps from the training slides
+
+**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
 
 Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
@@ -418,7 +433,10 @@ Check off when done:
 | Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
 | No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
 | Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| Wrong terminal shell | ``Ctrl+` `` → **Terminal: Select Default Profile** → **PowerShell** |
+| `curl` fails or behaves oddly | Use **`curl.exe`** in PowerShell, not the `curl` alias |
+| `gcc` not found | Install [MinGW-w64](https://www.mingw-w64.org/) or MSVC build tools; restart terminal |
+| `.sh` script won't run | On Windows use the matching `.bat` file or PowerShell commands |
 | API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
 | API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
 

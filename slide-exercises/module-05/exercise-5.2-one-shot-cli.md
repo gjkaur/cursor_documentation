@@ -11,15 +11,25 @@
 
 ## CLI basics (read this first)
 
+**Demonstration (Windows):**
+
 1. Open **PowerShell** in Cursor: ``Ctrl+` `` → select **PowerShell**.
 2. Confirm the CLI is installed: `agent --version`
-3. If missing, install from Cursor: **Command Palette** → `Shell Command: Install 'cursor' command in PATH` (or follow Cursor docs for `agent` CLI).
+3. If missing, install Cursor CLI for Windows:
+   ```powershell
+   irm 'https://cursor.com/install?win32=true' | iex
+   ```
+   Or use **Command Palette** → `Shell Command: Install 'cursor' command in PATH`.
 4. Run commands from your **project root** unless the exercise says otherwise.
+
+**Note:** Bash script examples (`.sh`) in reference sections are optional on Windows — use PowerShell or ask the Agent to adapt commands.
 
 
 ---
 
 ## Steps from the training slides
+
+**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
 
 Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
 
@@ -79,7 +89,7 @@ done
 ---
 
 **Step 5:** Pre-commit hook — review staged diff for secrets, debug statements, merge markers
-**Where:** **Cursor Agent panel** — ``Ctrl+L`` (or ``Ctrl+I`` for inline Agent)
+**Where:** **Agent panel** — ``Ctrl+I``
 
 **Step 6:** CI/CD — analyze test output and suggest fixes for failures
 **Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
@@ -396,7 +406,10 @@ Check off when done:
 | Agent panel won't open | Click inside Cursor first; try `Ctrl+Shift+P` → **Open Agent** |
 | No diff appears | Switch from Ask Mode to **Agent Mode** in the panel footer |
 | Agent can't see my files | **File → Open Folder** (not a single file) |
-| Terminal command fails on Windows | Use **PowerShell**; use `curl.exe` instead of `curl` |
+| Wrong terminal shell | ``Ctrl+` `` → **Terminal: Select Default Profile** → **PowerShell** |
+| `curl` fails or behaves oddly | Use **`curl.exe`** in PowerShell, not the `curl` alias |
+| `gcc` not found | Install [MinGW-w64](https://www.mingw-w64.org/) or MSVC build tools; restart terminal |
+| `.sh` script won't run | On Windows use the matching `.bat` file or PowerShell commands |
 | API returns 401 | Re-copy API key; check `Authorization: Bearer` header |
 | API returns 429 | Wait and retry; see Exercise 7.3 for backoff |
 
