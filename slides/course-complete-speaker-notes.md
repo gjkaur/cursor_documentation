@@ -1,13 +1,13 @@
 # Cursor Training Program — Speaker Scripts
 
-Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) (433 slides). **Script** = teaching narrative; **Facilitator notes** = pacing and room management.
+Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) (433 slides). **Script** = read aloud verbatim. **Facilitator notes** = pacing and troubleshooting only.
 
 *Generated: 2026-05-25*
 
 ## How to use
 
 - Match **Slide N** to the page number in the deck footer or Marp presenter view (`p`).
-- **Script** = what to teach (examples, pitfalls, debriefs) — not a verbatim repeat of the slide.
+- **Script** = exactly what to say to the room. No improvisation required.
 - Hands-on slides reference lab guides in [`slide-exercises/`](../slide-exercises/).
 - Embedded presenter notes: [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md).
 
@@ -63,9 +63,9 @@ Today's modules in one breath: Module 1 (Foundations), Module 2 (Hands-On), Modu
 
 Day two assumes yesterday's habits stuck — API keys ready, PowerShell working, and realistic expectations about agent autonomy.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
 Today's modules in one breath: Module 6 (Hands-On + Demonstration), Module 7 (Concept + Hands-On), Module 8 (Hands-On), Module 9 (Hands-On + Demonstrations). Details are on the slide.
 
@@ -79,9 +79,9 @@ Today's modules in one breath: Module 6 (Hands-On + Demonstration), Module 7 (Co
 
 **Script**
 
-Module 1 is deliberately conceptual — no Cursor setup required. We are building shared vocabulary so Module 2 hands-on work makes sense instead of feeling like magic.
+Welcome to Module 1. This block is about sixty minutes of concepts — keep Cursor closed for now.
 
-If anyone feels impatient for 'real Cursor tips,' tell them the probabilistic mindset prevents the worst production mistakes later.
+We are building vocabulary so tomorrow's hands-on work feels predictable instead of magical.
 
 Timing on slide: Cursor Training Program · Concept block · ~60 min
 
@@ -93,9 +93,9 @@ Timing on slide: Cursor Training Program · Concept block · ~60 min
 
 **Script**
 
-The module goal in plain language: Build accurate mental models of how AI coding assistants work, their limitations, and how to use them effectively
+Our goal for this module: Build accurate mental models of how AI coding assistants work, their limitations, and how to use them effectively
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -105,13 +105,19 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 1 — not a reading list, but skills you will practice.
+By the end of Module 1, you should be able to do the following.
 
-Highlight three that matter for your role: Explain why AI outputs are probabilistic, not deterministic; Identify and mitigate hallucinations in coding contexts; Understand token-based pricing and cost optimization; plus more on screen.
+1. Explain why AI outputs are probabilistic, not deterministic.
 
-Next: learning objectives.
+2. Identify and mitigate hallucinations in coding contexts.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Understand token-based pricing and cost optimization.
+
+4. Master context as the single most valuable AI skill.
+
+5. Distinguish between tool calling, MCP, and autonomous agents.
+
+6. Define the developer's evolving role with AI agents.
 
 ---
 
@@ -121,11 +127,11 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Lesson 1.1: How AI Models Work. Concept · 12 minutes Participation: listen and take notes — you do not need to type along yet.
+Lesson 1.1: How AI Models Work. Concept · 12 minutes For this lesson, listen and take notes — you do not need to type along yet.
 
-This lesson installs the engine-under-the-hood mental model — no Cursor shortcuts yet. Participants should leave understanding why the same prompt can produce different code.
+In this lesson we look under the hood at how large language models actually produce text. You won't need Cursor open yet — just listen and connect this to the Agent behavior you'll see all day tomorrow.
 
-Connect forward: Module 2 failures often trace back to treating the Agent like a deterministic compiler.
+The key takeaway is this: the same prompt can produce different code on different runs. That is normal, not a broken tool.
 
 **Facilitator notes**
 
@@ -139,19 +145,15 @@ Connect forward: Module 2 failures often trace back to treating the Agent like a
 
 **Script**
 
-Start with the line on screen: "Unlike traditional software that gives the same output for the same input, AI models generate responses based on probability distributions."
+Read with me: "Unlike traditional software that gives the same output for the same input, AI models generate responses based on probability distributions."
 
-Expand in your own words — do not read the bullet text verbatim: At its simplest, an LLM is a next-token prediction engine. Given a sequence of tokens, it predicts what comes next — then samples, appends, repeats.
+At its simplest, an LLM is a next-token prediction engine. Given a sequence of tokens, it predicts what comes next — then samples, appends, repeats.
 
-Next: Why Outputs Are Probabilistic.
+Run the same unit test twice and you get the same result every time. Run the same prompt in Cursor twice and you may get different wording, structure, or even logic.
 
-Open with a concrete contrast: run the same unit test twice — same result every time. Run the same prompt twice in ChatGPT or Cursor — you may get different wording, structure, or even logic.
+An LLM is not executing a program you wrote. It predicts the next token, samples one, appends it, and repeats — millions of times per answer. That is why we never treat a single Agent run as final without review.
 
-The mental model to install today: LLMs do not execute a stored program. They roll weighted dice for the next token, millions of times per answer. That is why we never ship the first output without review.
-
-Ask the room: where has non-determinism already burned you — flaky tests, or flaky AI summaries?
-
-Pause after the quote — let it land before you add examples.
+Has anyone been burned by that — a summary that changed overnight, or code that worked once and not the second time?
 
 ---
 
@@ -161,21 +163,9 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-This slide shows Next-token prediction probabilities.
+Look at the diagram. The model reads everything so far, ranks possible next tokens by probability, picks one, appends it, and runs the loop again. That is the entire answer — autocomplete at scale.
 
-The model reads the text so far, assigns a probability to each possible next token, samples one, appends it, and repeats. That loop is how an entire answer is generated.
-
-Next: Next-Token Prediction.
-
-Use the diagram to demystify the magic. Each step is not 'understanding' in the human sense — it is picking the most likely next piece of text given everything so far.
-
-Analogy: autocomplete on your phone, extended for pages of code. The model does not re-read your intent; it extends the pattern.
-
-If someone asks 'but it feels intelligent' — agree, then redirect: pattern completion at scale can look like reasoning, but the mechanism is still probabilistic completion.
-
-On screen: Next-token prediction probabilities
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+It can feel like reasoning, but the mechanism is still pattern completion. Keeping that in mind will save you hours of false expectations later today.
 
 ---
 
@@ -185,15 +175,11 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Traditional Code vs. AI Model.
+Traditional software is deterministic — same input, same output. You own every branch and bug fix.
 
-Do not read the table row by row. Frame it as a mindset shift: yesterday you debugged logic; with AI you debug inputs — prompt, context, model, and parameters.
+AI models are probabilistic — you influence them through prompts, context, and settings, but you do not fully control them.
 
-The row about errors being 'features of probability' lands hard — give an example: a confident wrong import is not a bug in your repo; it is the model filling a gap.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Deterministic (same input → same output): Probabilistic (different outputs possible). You control the logic: You influence, but don't control. Errors are bugs: Errors are features of probability. Predictable behavior: Needs management via parameters.
+When the model invents a wrong import, that is not a bug in your repo the way a null pointer is — it is the model filling a gap. You manage that with review, grounding, and constraints — not only more prompts.
 
 ---
 
@@ -203,9 +189,9 @@ Slide reference (skim, do not read every cell): Deterministic (same input → sa
 
 **Script**
 
-Next: Traditional vs. AI — Implication.
+The practical rule is on the slide: never trust a single run as ground truth. Run the code, read the diff, check the docs — every time.
 
-Never trust a single run as ground truth.
+Teams that skip verification accumulate AI debt — code that looked fine in chat but fails in CI.
 
 ---
 
@@ -215,19 +201,9 @@ Never trust a single run as ground truth.
 
 **Script**
 
-This slide shows Factors that shape AI output.
+When output quality drops, walk through these inputs: your prompt, system instructions, open files, model choice, and parameters like temperature. One of them changed — not necessarily the model itself.
 
-Your prompt, system instructions, attached files, model choice, and parameters such as temperature all feed into the same response. When quality shifts, one of these inputs usually changed.
-
-Next: What Determines AI Output?.
-
-When a participant says 'the model got worse today,' walk this diagram mentally: did the model change, or did the context shrink, the prompt get vaguer, or the temperature rise?
-
-Practical tip: before blaming the model, diff your prompt and attached files against yesterday's session.
-
-On screen: Factors that shape AI output
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Before you switch models, compare today's prompt and attachments to yesterday's session. That diff often explains the regression.
 
 ---
 
@@ -237,15 +213,9 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Key Parameters You Control.
+Temperature controls randomness — keep it low for bug fixes, slightly higher for brainstorming, then back down before you merge.
 
-Developers rarely tune these directly in Cursor day to day, but admins and API users do. Knowing they exist explains why two teammates get different styles from the 'same' prompt.
-
-Rule of thumb for coding: lower temperature when fixing bugs; slightly higher when exploring design alternatives — then turn it back down before merging.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Temperature: Randomness (0 = deterministic, 1 = creative). Use this when Bug fixes (low), brainstorming (high). Top-p: Nucleus sampling – limits token pool. Use this when Balanced responses. Max Tokens: Limits response length. Use this when Controlling cost.
+Top-p and max tokens shape breadth and length. Two teammates with the same prompt can still differ if their settings differ.
 
 ---
 
@@ -255,11 +225,7 @@ Slide reference (skim, do not read every cell): Temperature: Randomness (0 = det
 
 **Script**
 
-Key Parameters — Example Values
-
-These are sensible defaults for focused coding work: a low temperature around 0.2, top-p near 0.9 for balance, and a max token cap to control cost.
-
-Next: Key Parameters — Example Values.
+On the slide are sensible defaults for focused coding: temperature around 0.2, top-p near 0.9, and a max token cap to control cost.
 
 ---
 
@@ -271,11 +237,9 @@ Next: Key Parameters — Example Values.
 
 Same prompt: _"Write a function to reverse a string"_
 
-These are sensible defaults for focused coding work: a low temperature around 0.2, top-p near 0.9 for balance, and a max token cap to control cost.
+The same prompt produces different code at different temperatures — lower stays close to the obvious fix; higher adds variation and sometimes instability.
 
-Next: Temperature Impact.
-
-Run this verbally if you have time: same ask, three temperatures. Point out that high temperature did not get 'more creative' — it got less predictable, which is not always desirable in production code.
+Same ask, three temperatures on the slide. Notice low temperature stays close to the obvious solution; high temperature adds variation — and sometimes instability you do not want in production code.
 
 ---
 
@@ -285,21 +249,11 @@ Run this verbally if you have time: same ask, three temperatures. Point out that
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
+On The Training Gap, here is what I want you to take away. Code written after their training date; Your company's internal APIs; Your specific architecture decisions; Recent library updates (unless in context).
 
-First: Code written after their training date.
+Models are frozen at a training cutoff. They do not automatically know your internal APIs, your architecture decisions, or libraries released last month unless you put that information in context.
 
-Second: Your company's internal APIs — this one usually matters most in practice.
-
-Also on screen: Your specific architecture decisions, Recent library updates (unless in context).
-
-Next: The Training Gap.
-
-This slide prevents the most expensive misconception: 'the model should know our internal API.' It will not unless you put it in context — paste docs, open files, or add rules.
-
-Story beat: a team once debugged for an hour because the model used a deprecated SDK — the fix was attaching the current internal README, not switching models.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+If the Agent guesses wrong about your stack, the fix is usually better context — not a different model.
 
 Models are frozen at their training cutoff date. They don't know: - Code written after their training date
 
@@ -311,7 +265,7 @@ Models are frozen at their training cutoff date. They don't know: - Code written
 
 **Script**
 
-Lesson 1.2: Hallucinations. Concept · 10 minutes Participation: listen and take notes — you do not need to type along yet.
+Lesson 1.2: Hallucinations. Concept · 10 minutes For this lesson, listen and take notes — you do not need to type along yet.
 
 **Facilitator notes**
 
@@ -325,17 +279,13 @@ Lesson 1.2: Hallucinations. Concept · 10 minutes Participation: listen and take
 
 **Script**
 
-Start with the line on screen: "Confident-sounding outputs that are factually wrong, made up, or don't exist."
+Read with me: "Confident-sounding outputs that are factually wrong, made up, or don't exist."
 
-Expand in your own words — do not read the bullet text verbatim: Most dangerous form: the model sounds completely confident while being completely wrong.
+Most dangerous form: the model sounds completely confident while being completely wrong.
 
-Next: What Are Hallucinations?.
+A hallucination is a confident answer that is wrong — a library that does not exist, a method that was never in the API, outdated syntax presented as current best practice.
 
-Emphasize confidence: the model's tone is not calibrated to truth. A wrong answer can sound like a senior engineer.
-
-In code review, treat AI output like a junior's first PR — polite, thorough review required.
-
-Pause after the quote — let it land before you add examples.
+The danger is the tone: the model sounds as sure as a senior engineer in a code review.
 
 ---
 
@@ -345,15 +295,9 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Next: Hallucinations in Code.
+Fake imports and invented methods show up constantly. Your fastest checks are: does it import, does the type checker agree, does the official doc mention this API?
 
-Walk one row deeply — fake APIs are the most common in this room. Mention that Python's import error is your friend; TypeScript often catches invented methods faster than runtime.
-
-Encourage a team norm: if the Agent cites a library method, one person verifies in official docs before merge.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Fake APIs: import nonexistent_library. Use this when Check docs; import fails. Wrong parameters: Incorrect function signature. Use this when Type checking. Invented methods: list.reverse_in_place(). Use this when Know the standard library. Confident nonsense: "This is the standar
+Build a team habit: if the Agent cites an API, someone verifies it before merge.
 
 ---
 
@@ -363,15 +307,9 @@ Slide reference (skim, do not read every cell): Fake APIs: import nonexistent_li
 
 **Script**
 
-This slide shows Root causes of hallucination.
+Turn to the diagram — Root causes of hallucination.
 
-Hallucinations come from gaps in training data, missing context, overconfidence, and pressure to answer even when the model should say it does not know.
-
-Next: Why Models Hallucinate.
-
-Root causes of hallucination
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Gaps in training data, missing context, and pressure to answer even when uncertain all push the model toward invented details.
 
 ---
 
@@ -381,11 +319,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Example: Confident Wrong
-
-The top snippet looks plausible but invents an API that does not exist. The correct approach is to use httpx or aiohttp for async HTTP in Python.
-
-Next: Example: Confident Wrong.
+The snippet on screen invents requests.async — that API does not exist. For async HTTP in Python, use httpx or aiohttp.
 
 ---
 
@@ -395,15 +329,9 @@ Next: Example: Confident Wrong.
 
 **Script**
 
-Next: Hallucination Mitigation Strategies.
+Ground the model with docs and @mentions. Ask it to cite sources. Use structured outputs when you need predictable shape.
 
-Grounding and verification are the habits to take home. Rules and @mentions are how Cursor makes grounding automatic.
-
-Ask: which strategy could your team adopt Monday — paste docs, require citations, or JSON-only outputs?
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Grounding: Provide source material. Use this when Paste library docs into context. Verification: Ask for citations. Use this when "Which line of the docs shows this?". Constrained decoding: Limit possible outputs. Use this when JSON mode, regex patterns. Self-consistency: Ask mul
+Which of these can your team adopt Monday — paste docs, require citations, or JSON-only responses for scripts?
 
 ---
 
@@ -413,17 +341,7 @@ Slide reference (skim, do not read every cell): Grounding: Provide source materi
 
 **Script**
 
-There are 6 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Do the imported libraries exist?.
-
-Second: Are function signatures correct? — this one usually matters most in practice.
-
-Also on screen: Does the syntax match my language version?, Are there obvious logic errors?….
-
-Next: Hallucination Detection Checklist.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On Hallucination Detection Checklist, here is what I want you to take away. Do the imported libraries exist?; Are function signatures correct?; Does the syntax match my language version?; and several more points on the slide you can scan as we go.
 
 Before accepting AI-generated code, verify: - Do the imported libraries exist?
 
@@ -435,13 +353,9 @@ Before accepting AI-generated code, verify: - Do the imported libraries exist?
 
 **Script**
 
-Start with the line on screen: "_"Trust, but verify – especially when the AI sounds most confident."_"
+Read with me: "_"Trust, but verify – especially when the AI sounds most confident."_"
 
-Expand in your own words — do not read the bullet text verbatim: - Hallucinations decrease with better prompts and context - They never fully disappear
-
-Next: The Developer's Mindset.
-
-Pause after the quote — let it land before you add examples.
+- Hallucinations decrease with better prompts and context - They never fully disappear - You are the human-in-the-loop responsible for verification - Experience helps you "smell" potential hallucinations
 
 ---
 
@@ -451,11 +365,11 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Lesson 1.3: Tokens and Pricing. Concept · 10 minutes Participation: listen and take notes — you do not need to type along yet.
+Lesson 1.3: Tokens and Pricing. Concept · 10 minutes For this lesson, listen and take notes — you do not need to type along yet.
 
-Tokens are how vendors meter and limit context — not characters, not lines. Rough guide: 100 tokens ≈ 75 words of English.
+Tokens are how models meter context and cost — roughly three quarters of a word in English.
 
-Why instructors cover this: without token awareness, people attach entire repos and wonder why answers degrade or bills spike.
+Small chat prompts are cheap; agent loops over large repos are not. Narrow context saves money and often improves quality.
 
 **Facilitator notes**
 
@@ -469,15 +383,9 @@ Why instructors cover this: without token awareness, people attach entire repos 
 
 **Script**
 
-Next: What Is a Token?.
+Tokens are how models meter context and cost — roughly three quarters of a word in English.
 
-Tokens are how vendors meter and limit context — not characters, not lines. Rough guide: 100 tokens ≈ 75 words of English.
-
-Why instructors cover this: without token awareness, people attach entire repos and wonder why answers degrade or bills spike.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Language: Example. Use this when Token Count. English: "Hello world". Use this when 2 tokens (~0.75 words/token). English: "Congratulations". Use this when 1 token. Code: function calculateTotal(). Use this when ~5 tokens (~2–4 chars/token). Chinese: "你好世界". Use this when 4–8 tok
+Small chat prompts are cheap; agent loops over large repos are not. Narrow context saves money and often improves quality.
 
 ---
 
@@ -487,9 +395,7 @@ Slide reference (skim, do not read every cell): Language: Example. Use this when
 
 **Script**
 
-Next: Why Tokens Matter.
-
-A token is the atomic unit of processing for LLMs — not a word, not a character. You pay per token · Context windows are measured in tokens · Token limits determine how much code… (see slide)
+A token is the atomic unit of processing for LLMs — not a word, not a character. You pay per token · Context windows are measured in tokens · Token limits determine how much code the AI can "see"
 
 ---
 
@@ -498,8 +404,6 @@ A token is the atomic unit of processing for LLMs — not a word, not a characte
 **Type:** content · **Lesson:** 1.3
 
 **Script**
-
-Next: Input vs. Output Pricing.
 
 Input tokens (prompt, code context, retrieved docs) cost less than output tokens (generated code and explanations). Output is often 5–8× more expensive — generation is more compute-intensive than reading.
 
@@ -511,11 +415,7 @@ Input tokens (prompt, code context, retrieved docs) cost less than output tokens
 
 **Script**
 
-Next: Model Pricing Examples.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Model: Input (per 1M). Use this when Output (per 1M). GPT-5 Mini: $0.25. Use this when $2.00. Claude 4.5 Haiku: $1.00. Use this when $5.00. GPT-5.3 Codex: $1.75. Use this when $14.00. Gemini 3.1 Pro: $2.00. Use this when $12.00. Claude 4.6 Sonnet: $3.00. Use this when $15.00. Cla
+Model: Input (per 1M). Use this when Output (per 1M). GPT-5 Mini: $0.25. Use this when $2.00. Claude 4.5 Haiku: $1.00. Use this when $5.00. GPT-5.3 Codex: $1.75. Use this when $14.00. Gemini 3.1 Pro: $2.00. Use this when $12.00. Claude 4.6 Sonnet: $3.00. Use this when $15.00. Claude 4.7 Opus: $5.00. Use this when $25.00. GPT-5.5: $5.00. Use this when $30.00.
 
 ---
 
@@ -525,11 +425,7 @@ Slide reference (skim, do not read every cell): Model: Input (per 1M). Use this 
 
 **Script**
 
-Next: What 1 Million Tokens Looks Like.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Plain English text: ~750,000 words (~1,500 pages). Python code: ~250,000–500,000 lines. Average conversation: 5–10 sessions. Full codebase: Small to medium project.
+Plain English text. With AI models, ~750,000 words (~1,500 pages). Python code. With AI models, ~250,000–500,000 lines. Average conversation. With AI models, 5–10 sessions. Full codebase. With AI models, small to medium project.
 
 ---
 
@@ -539,15 +435,11 @@ Slide reference (skim, do not read every cell): Plain English text: ~750,000 wor
 
 **Script**
 
-Cost Calculation Example
+The code on screen shows: prompt_tokens = 5000    # instructions + context; output_tokens = 2000    # AI response; model = "claude-4.6-sonnet".
 
-Focus on the first few lines — for example: prompt_tokens = 5000    # instructions + context.
+Bound your tasks: specific @mentions, clear stop conditions, checkpoints before long agent runs.
 
-Next: Cost Calculation Example.
-
-Connect to business reality: a daily standup prompt is cheap; an agent loop over 200 files is not.
-
-Teach bounded tasks: narrow @mentions, clear stop conditions, and checkpoints before long agent runs.
+A five-minute agent loop on two files beats a twenty-minute loop on the whole tree.
 
 ---
 
@@ -557,15 +449,9 @@ Teach bounded tasks: narrow @mentions, clear stop conditions, and checkpoints be
 
 **Script**
 
-Next: Cost Optimization Strategies.
+Bound your tasks: specific @mentions, clear stop conditions, checkpoints before long agent runs.
 
-Connect to business reality: a daily standup prompt is cheap; an agent loop over 200 files is not.
-
-Teach bounded tasks: narrow @mentions, clear stop conditions, and checkpoints before long agent runs.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Use cheaper models: Mini/Haiku for simple tasks. Use this when 5–20× reduction. Reduce context: Only send relevant code. Use this when 2–5× reduction. Cache responses: Reuse common answers. Use this when Variable. Batch operations: Combine multiple tasks. Use this when 30–50% red
+A five-minute agent loop on two files beats a twenty-minute loop on the whole tree.
 
 ---
 
@@ -575,11 +461,7 @@ Slide reference (skim, do not read every cell): Use cheaper models: Mini/Haiku f
 
 **Script**
 
-Next: Real-World Cost Bounds.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Usage Level: Monthly Cost. Use this when What You Can Do. Light: $10–20. Use this when Occasional questions, small fixes. Medium: $50–100. Use this when Daily coding, regular agent use. Heavy: $200–500. Use this when Full-time AI assistance, multiple agents. Enterprise: $1000+. U
+Usage Level: Monthly Cost. Use this when What You Can Do. Light: $10–20. Use this when Occasional questions, small fixes. Medium: $50–100. Use this when Daily coding, regular agent use. Heavy: $200–500. Use this when Full-time AI assistance, multiple agents. Enterprise: $1000+. Use this when Team usage, automation, CI/CD.
 
 ---
 
@@ -589,11 +471,7 @@ Slide reference (skim, do not read every cell): Usage Level: Monthly Cost. Use t
 
 **Script**
 
-Models can cache frequently used content: - Cache Write: Cost to initially store - Cache Read: Much cheaper than fresh input (80–95% savings)
-
-The important lines are: .
-
-Next: The Cache Effect.
+Models can cache frequently used content: - Cache Write: Cost to initially store
 
 ---
 
@@ -603,7 +481,7 @@ Next: The Cache Effect.
 
 **Script**
 
-Lesson 1.4: Context. Concept · 12 minutes · The single most valuable AI skill Participation: listen and take notes — you do not need to type along yet.
+Lesson 1.4: Context. Concept · 12 minutes · The single most valuable AI skill For this lesson, listen and take notes — you do not need to type along yet.
 
 **Facilitator notes**
 
@@ -617,15 +495,9 @@ Lesson 1.4: Context. Concept · 12 minutes · The single most valuable AI skill 
 
 **Script**
 
-This slide shows What goes into context.
+Turn to the diagram — What goes into context.
 
 Context = all the information the model has access to when generating a response. <img src="assets/module-01/context-inputs.svg" alt="What goes into context" />
-
-Next: What Is Context?.
-
-What goes into context
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -635,11 +507,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: The Context Window Limit.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Model: Context Window. Use this when Pages of Text. Claude 4 (Haiku / Sonnet / Opus): 200k. Use this when ~150. GPT-5 Mini / GPT-5.3 Codex: 272k. Use this when ~200.
+Model: Context Window. Use this when Pages of Text. Claude 4 (Haiku / Sonnet / Opus): 200k. Use this when ~150. GPT-5 Mini / GPT-5.3 Codex: 272k. Use this when ~200.
 
 ---
 
@@ -648,8 +516,6 @@ Slide reference (skim, do not read every cell): Model: Context Window. Use this 
 **Type:** content · **Lesson:** 1.4
 
 **Script**
-
-Next: Context Window — What Happens When Full.
 
 When you exceed context: Oldest content gets truncated · Critical information may be dropped Context engineering = knowing what to put in, what to leave out, and how to structure it.
 
@@ -661,17 +527,7 @@ When you exceed context: Oldest content gets truncated · Critical information m
 
 **Script**
 
-There are 7 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: What problem am I trying to solve?.
-
-Second: What files/code does the model need to see? — this one usually matters most in practice.
-
-Also on screen: What would a human need to know to help me?, What information can I safely leave out?….
-
-Next: Context Checklist.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On Context Checklist, here is what I want you to take away. What problem am I trying to solve?; What files/code does the model need to see?; What would a human need to know to help me?; and several more points on the slide you can scan as we go.
 
 Before every AI interaction, ask: - What problem am I trying to solve?
 
@@ -685,9 +541,7 @@ Before every AI interaction, ask: - What problem am I trying to solve?
 
 BAD (vague):
 
-The important lines are: "Fix this bug: my code doesn't work".
-
-Next: Good vs. Bad Context — Bad Example.
+The code on screen shows: "Fix this bug: my code doesn't work".
 
 ---
 
@@ -699,9 +553,7 @@ Next: Good vs. Bad Context — Bad Example.
 
 GOOD (specific):
 
-The important lines are: Python function sorts dicts by key but raises KeyError.; Code: def sort_by_key(data, key): ...; Input: [{'name': 'Alice'}, {'age': 30}].
-
-Next: Good vs. Bad Context — Good Example.
+The code on screen shows: Python function sorts dicts by key but raises KeyError.; Code: def sort_by_key(data, key): ...; Input: [{'name': 'Alice'}, {'age': 30}].
 
 ---
 
@@ -711,19 +563,7 @@ Next: Good vs. Bad Context — Good Example.
 
 **Script**
 
-This slide shows Context prioritization pyramid.
-
-Not all context is equal. Recent messages, open files, rules, and repository structure compete for the same token budget — put the most important material where the model will actually use it.
-
-Next: Context Prioritization Pyramid.
-
-Use this when teaching @mentions in Module 2: pointing at three files beats pasting ten files 'just in case.'
-
-The pyramid is a prioritization exercise — what must the model see versus what is nice to have?
-
-On screen: Context prioritization pyramid
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Not all context is equal. Recent messages, open files, and rules compete for the same token budget. Three precise @mentions beat ten files attached just in case.
 
 ---
 
@@ -733,11 +573,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Context Window Management.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Summarization: Compress earlier conversation. Use this when Long sessions. Selective inclusion: Only relevant files. Use this when Large codebases. Chunking: Split across multiple calls. Use this when Exceeding limit. Hierarchical: Summaries + details on demand. Use this when Com
+Summarization: Compress earlier conversation. Use this when Long sessions. Selective inclusion: Only relevant files. Use this when Large codebases. Chunking: Split across multiple calls. Use this when Exceeding limit. Hierarchical: Summaries + details on demand. Use this when Complex projects. Vector retrieval: Semantic search for relevant context. Use this when Very large codebases.
 
 ---
 
@@ -747,17 +583,7 @@ Slide reference (skim, do not read every cell): Summarization: Compress earlier 
 
 **Script**
 
-This slide shows Lost in the middle attention chart.
-
-Models pay most attention to the beginning and end of context, and less to the middle. <img src="assets/module-01/lost-in-middle.svg" alt="Lost in the middle attention chart" /> Implication: Put critical information at the beginning OR end, not the middle.
-
-Next: The "Lost in the Middle" Problem.
-
-Research finding: models attend strongly to the start and end of context, weaker in the middle. Put critical constraints at the top of the prompt and repeat them after long pasted logs.
-
-On screen: Lost in the middle attention chart
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Models attend strongly to the beginning and end of context and weaker to the middle. Put critical constraints at the top of your prompt and repeat them after large pasted logs.
 
 ---
 
@@ -767,15 +593,13 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Lesson 1.5: Tool Calling and MCP. Concept · 8 minutes Participation: listen and take notes — you do not need to type along yet.
+Lesson 1.5: Tool Calling and MCP. Concept · 8 minutes For this lesson, listen and take notes — you do not need to type along yet.
 
-Tool calling is how the model stops guessing and starts acting — read file, run terminal, fetch URL.
+Tool calling is how the model stops guessing and starts acting — read a file, run a terminal command, fetch a URL.
 
-Contrast with plain chat: chat only produces text; tools close the loop with real environment feedback.
+Plain chat only produces text. Tools close the loop with real feedback from your environment.
 
-MCP is plumbing: one standard way to plug databases, browsers, and internal services into Cursor without custom hacks per vendor.
-
-You will see MCP again in team customization — rules tell the model how to behave; MCP gives it new hands.
+MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 
 **Facilitator notes**
 
@@ -789,19 +613,9 @@ You will see MCP again in team customization — rules tell the model how to beh
 
 **Script**
 
-This slide shows Tool calling flow.
+Tool calling is how the model stops guessing and starts acting — read a file, run a terminal command, fetch a URL.
 
-The agent proposes an action, Cursor runs the tool, the result returns to the model, and the loop continues until the task is done or you stop it.
-
-Next: What Is Tool Calling?.
-
-Tool calling is how the model stops guessing and starts acting — read file, run terminal, fetch URL.
-
-Contrast with plain chat: chat only produces text; tools close the loop with real environment feedback.
-
-On screen: Tool calling flow
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Plain chat only produces text. Tools close the loop with real feedback from your environment.
 
 ---
 
@@ -811,11 +625,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Common Tool Types in Development.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Tool: Purpose. Use this when Example. read_file: Read code files. Use this when "Show me the auth module". edit_file: Modify code. Use this when "Add error handling to line 42". search_code: Find patterns. Use this when "Find all uses of this function". run_terminal: Execute comm
+Tool: Purpose. Use this when Example. read_file: Read code files. Use this when "Show me the auth module". edit_file: Modify code. Use this when "Add error handling to line 42". search_code: Find patterns. Use this when "Find all uses of this function". run_terminal: Execute commands. Use this when "Run the tests". web_search: Find documentation. Use this when "Look up pandas DataFrame API". browser: Browse web pages. Use this when "Open the PR and review it". git: Version control. Use this when "Create a branch and commit".
 
 ---
 
@@ -825,19 +635,7 @@ Slide reference (skim, do not read every cell): Tool: Purpose. Use this when Exa
 
 **Script**
 
-This slide shows MCP architecture.
-
-MCP connects Cursor to external systems through a standard protocol so tools stay outside the model but still appear in the agent loop.
-
-Next: MCP (Model Context Protocol).
-
-MCP is plumbing: one standard way to plug databases, browsers, and internal services into Cursor without custom hacks per vendor.
-
-You will see MCP again in team customization — rules tell the model how to behave; MCP gives it new hands.
-
-On screen: MCP architecture
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 
 ---
 
@@ -847,15 +645,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Why MCP Matters.
-
-MCP is plumbing: one standard way to plug databases, browsers, and internal services into Cursor without custom hacks per vendor.
-
-You will see MCP again in team customization — rules tell the model how to behave; MCP gives it new hands.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Interoperability: Same tools work across different AI models. Discoverability: AI can learn what tools are available. Standardization: One protocol, not dozens of custom APIs. Extensibility: Add new tools without changing AI logic.
+MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 
 ---
 
@@ -865,13 +655,9 @@ Slide reference (skim, do not read every cell): Interoperability: Same tools wor
 
 **Script**
 
-Next: Tool Calling Best Practices.
+Tool calling is how the model stops guessing and starts acting — read a file, run a terminal command, fetch a URL.
 
-Tool calling is how the model stops guessing and starts acting — read file, run terminal, fetch URL.
-
-Contrast with plain chat: chat only produces text; tools close the loop with real environment feedback.
-
-On screen: 1. Define clear tool schemas — name, description, parameters 2. Validate tool calls before execution — allowlist + parameter checks 3. Set timeouts — e.g., 30 seconds max per tool 4. Log all tool calls… (see slide)
+Plain chat only produces text. Tools close the loop with real feedback from your environment.
 
 ---
 
@@ -881,7 +667,7 @@ On screen: 1. Define clear tool schemas — name, description, parameters 2. Val
 
 **Script**
 
-Lesson 1.6: Agents. Concept · 8 minutes Participation: listen and take notes — you do not need to type along yet.
+Lesson 1.6: Agents. Concept · 8 minutes For this lesson, listen and take notes — you do not need to type along yet.
 
 **Facilitator notes**
 
@@ -895,15 +681,9 @@ Lesson 1.6: Agents. Concept · 8 minutes Participation: listen and take notes �
 
 **Script**
 
-Next: Agent vs. Chatbot.
+Chatbots answer questions. Agents pursue outcomes across multiple steps — edits, commands, follow-ups.
 
-Chatbots answer questions; agents pursue outcomes across multiple steps. That difference drives cost, risk, and review burden.
-
-Ask the room where they are today — mostly chat, or already letting the agent edit and run commands?
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Interaction: Single turn or simple back-and-forth. Use this when Multi-step, goal-oriented. Control: User drives each step. Use this when Agent plans and executes. Memory: Limited to conversation. Use this when Can maintain state across steps. Actions: None (text only). Use this 
+That difference drives cost, risk, and how carefully you review each step.
 
 ---
 
@@ -913,8 +693,6 @@ Slide reference (skim, do not read every cell): Interaction: Single turn or simp
 
 **Script**
 
-Next: The Agent Loop.
-
 ---
 
 ### Slide 55 — The Agent Loop — Diagram
@@ -923,19 +701,7 @@ Next: The Agent Loop.
 
 **Script**
 
-This slide shows Agent loop diagram.
-
-The agent proposes an action, Cursor runs the tool, the result returns to the model, and the loop continues until the task is done or you stop it.
-
-Next: The Agent Loop — Diagram.
-
-Narrate one full cycle slowly: user goal → model plans → tool runs → output returns → model continues.
-
-Safety hook: each cycle is a chance to stop — checkpoints and diff review exist because loops can run far.
-
-On screen: Agent loop diagram
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Follow the loop on the slide: you state a goal, the model plans, Cursor runs a tool, results return, and the cycle repeats until the task finishes or you stop it. Each cycle is a chance to review before more changes land.
 
 ---
 
@@ -945,15 +711,9 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Levels of Agent Autonomy.
+Chatbots answer questions. Agents pursue outcomes across multiple steps — edits, commands, follow-ups.
 
-Chatbots answer questions; agents pursue outcomes across multiple steps. That difference drives cost, risk, and review burden.
-
-Ask the room where they are today — mostly chat, or already letting the agent edit and run commands?
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Level: Name. Use this when Description. L1: Assistant. Use this when Responds, needs step-by-step guidance. L2: Tool-caller. Use this when Can request tools, human approves. L3: Planner. Use this when Makes plans, executes with supervision. L4: Autonomous. Use this when Self-dire
+That difference drives cost, risk, and how carefully you review each step.
 
 ---
 
@@ -963,15 +723,9 @@ Slide reference (skim, do not read every cell): Level: Name. Use this when Descr
 
 **Script**
 
-This slide shows Traditional developer workflow.
+Turn to the diagram — Traditional developer workflow.
 
-Traditional: <img src="assets/module-01/role-flow-traditional.svg" alt="Traditional developer workflow" /> Agent-Assisted: <img src="assets/module-01/role-flow-agent-assisted.svg" alt="Agent-assisted developer workflow" />
-
-Next: How Agents Change Your Role.
-
-Traditional developer workflow
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Traditional: <img src="assets/module-01/role-flow-traditional.svg" alt="Traditional developer workflow" />
 
 ---
 
@@ -981,11 +735,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Developer Role Shift.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Code writer: Intent specifier. Debugger: Quality reviewer. Implementation: Orchestration. Manual testing: Acceptance testing. Problem solver: Problem framer.
+Code writer. With AI models, intent specifier. Debugger. With AI models, quality reviewer. Implementation. With AI models, orchestration. Manual testing. With AI models, acceptance testing. Problem solver. With AI models, problem framer.
 
 ---
 
@@ -995,17 +745,7 @@ Slide reference (skim, do not read every cell): Code writer: Intent specifier. D
 
 **Script**
 
-There are 6 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Large, multi-step tasks · Repetitive patterns.
-
-Second: Well-defined with clear success criteria — this one usually matters most in practice.
-
-Also on screen: Low-risk changes · Documentation updates, Security-critical systems · Unrecoverable actions….
-
-Next: When to Use Agents.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On When to Use Agents, here is what I want you to take away. Large, multi-step tasks · Repetitive patterns; Well-defined with clear success criteria; Low-risk changes · Documentation updates; and several more points on the slide you can scan as we go.
 
 Good for agents: - Large, multi-step tasks · Repetitive patterns
 
@@ -1031,9 +771,7 @@ What will you do differently on Monday? I will take two or three answers before 
 
 **Script**
 
-Module 2 is the longest hands-on block today. Laptops open, repo loaded, Agent panel ready — Ctrl+I on Windows.
-
-Success here is not memorizing shortcuts; it is comfort with orientation, safe diffs, and knowing when to stop the Agent.
+Module 2 is our longest hands-on block. Open Cursor now, load your repo with File → Open Folder, and keep the Agent panel ready — Ctrl+I on Windows.
 
 Timing on slide: Cursor Training Program · Hands-on exercise · ~90 min
 
@@ -1045,9 +783,9 @@ Timing on slide: Cursor Training Program · Hands-on exercise · ~90 min
 
 **Script**
 
-The module goal in plain language: Master the core workflows of AI-assisted coding in Cursor
+Our goal for this module: Master the core workflows of AI-assisted coding in Cursor
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -1057,13 +795,19 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 2 — not a reading list, but skills you will practice.
+By the end of Module 2, you should be able to do the following.
 
-Highlight three that matter for your role: Orient an AI agent to an unfamiliar codebase; Get targeted explanations of specific files or symbols; Make safe, reviewable changes using diff review; plus more on screen.
+1. Orient an AI agent to an unfamiliar codebase.
 
-Next: learning objectives.
+2. Get targeted explanations of specific files or symbols.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Make safe, reviewable changes using diff review.
+
+4. Design complex changes with Plan Mode.
+
+5. Compare models to choose the right one for each task.
+
+6. Use @mentions for precise context control.
 
 ---
 
@@ -1087,11 +831,11 @@ Here is how we will spend our time: Lesson 2.1, Codebase Understanding, about 20
 
 **Script**
 
-Lesson 2.1: Codebase Understanding. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.1: Codebase Understanding. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Use the Cursor Agent to orient yourself in an unfamiliar repository.
+Use the Cursor Agent to orient yourself in an unfamiliar repository.
 
-Lab reference: slide-exercises/module-02/exercise-2.1-codebase-understanding.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.1-codebase-understanding.md.
 
 ---
 
@@ -1101,17 +845,11 @@ Lab reference: slide-exercises/module-02/exercise-2.1-codebase-understanding.md
 
 **Script**
 
-Start with the line on screen: "Drop an agent into a codebase you've never seen and get a coherent explanation of how it works."
+Read with me: "Drop an agent into a codebase you've never seen and get a coherent explanation of how it works."
 
-Expand in your own words — do not read the bullet text verbatim: The Problem: Opening a new codebase is overwhelming. Where do you start? What's the entry point? The Cursor Solution: Ask the agent to explain the codebase. It reads files, traces connections, and returns a roadmap.
+The Problem: Opening a new codebase is overwhelming. Where do you start? What's the entry point? The Cursor Solution: Ask the agent to explain the codebase. It reads files, traces connections, and returns a roadmap.
 
-Next: The Problem & The Solution.
-
-This is the emotional hook for Module 2: onboarding panic is normal. The Agent is a tour guide, not a replacement for reading code.
-
-Set expectation: the first answer will be imperfect — the skill is follow-up prompts that narrow and verify.
-
-Pause after the quote — let it land before you add examples.
+Every one of us has opened a repo and wondered where to start. The Agent can produce a roadmap in minutes — but the first answer is a draft, not gospel. Your job is to verify and follow up.
 
 ---
 
@@ -1121,23 +859,23 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 2.1 — Codebase Understanding. 20 min scheduled.
+We are starting Exercise 2.1 — Codebase Understanding. We have about 20 min for this lab.
 
 Use the Cursor Agent to orient yourself in an unfamiliar repository.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.1-codebase-understanding.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.1-codebase-understanding.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-For this exercise, any unfamiliar repo works — detectron2 is large on purpose; smaller repos are fine if time is tight.
+Any unfamiliar repository works here — detectron2 is on the slide, but a smaller repo is fine if we are short on time.
 
-Verify File → Open Folder, not a single file — the Agent needs the tree to orient.
+Use File → Open Folder, not a single file, so the Agent can see the project tree.
 
 Step 1: Open an unfamiliar repository in Cursor.
 
 Step 2: Open the Agent panel — `Ctrl+I`.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1152,15 +890,17 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 3: Orientation Prompt.
+Now for Step 3: Orientation Prompt.
 
-Paste this into the Agent — constraints matter as much as the ask: "Explain this codebase to me as if I'm a new team member. Specifically tell me: 1. What is the main purpose of this project? 2. What are the entry points (main scripts, CLI, API)? 3. What are the key modules and how do they relate? 4. What are the main dependencies? 5. What files should I read first to understand the architecture?"
+Copy this into the Agent chat: "Explain this codebase to me as if I'm a new team member. Specifically tell me: 1. What is the main purpose of this project? 2. What are the entry points (main scripts, CLI, API)? 3. What are the key modules and how do they relate? 4. What are the main dependencies? 5. What files should I read first to understand the architecture?"
 
-A strong answer names entry points and a reading order, not a file dump. If the Agent lists fifty files, follow up: 'Which three should I read first?'
+You want a reading order and named entry points — not a flat list of every filename.
 
-Debrief question: what did the Agent get wrong about dependencies or architecture?
+If the Agent dumps dozens of files, reply in chat: which three should I read first?
 
-Pause here — most groups need a few minutes before the next step.
+When we debrief, I will ask what the Agent got wrong about dependencies or architecture.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1175,17 +915,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 4: Trace Data Flow.
+Now for Step 4: Trace Data Flow.
 
-Step 4: Follow up — trace data flow:.
+Copy this into the Agent chat: "Based on what you just told me, trace the flow of data from input to output. What functions get called in order?"
 
-Paste this into the Agent — constraints matter as much as the ask: "Based on what you just told me, trace the flow of data from input to output. What functions get called in order?"
+The first answer was a map; this follow-up tests whether the Agent can chain function calls logically.
 
-Follow-up prompts are the skill — the first answer is a map; this step tests whether the Agent can chain calls logically.
+If the trace looks wrong, ask it to cite file and line for each hop — that is a verification habit worth keeping.
 
-If the trace is wrong, ask the Agent to cite file:line for each hop — cheap verification habit.
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1200,15 +938,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 5: Visual Overview.
+Now for Step 5: Visual Overview.
 
-Step 5: Ask for a visual overview:.
+Copy this into the Agent chat: "Create an ASCII diagram showing the module relationships in this codebase."
 
-Paste this into the Agent — constraints matter as much as the ask: "Create an ASCII diagram showing the module relationships in this codebase."
+An ASCII diagram is enough for onboarding — we care about communicating structure, not graphic design.
 
-ASCII diagrams are good enough for onboarding docs — the point is communicating structure, not pretty graphics.
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1223,15 +959,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-This slide shows Expected Agent Output (Sample).
+Turn to the diagram — Expected Agent Output (Sample).
 
 <img src="assets/module-02/expected-agent-output-sample.svg" alt="Expected Agent Output (Sample)" />
-
-Next: Expected Agent Output (Sample).
-
-Expected Agent Output (Sample)
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -1243,9 +973,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 Pro Tip: Save the agent's explanation as a project note:
 
-The important lines are: Save this explanation as .cursor/project-overview.md so future; team members can read it..
-
-Next: Pro Tip — Save the Overview.
+The code on screen shows: Save this explanation as .cursor/project-overview.md so future; team members can read it..
 
 ---
 
@@ -1255,17 +983,17 @@ Next: Pro Tip — Save the Overview.
 
 **Script**
 
-Let's debrief Exercise 2.1 — Codebase Understanding.
+That finishes Exercise 2.1 — Codebase Understanding.
 
-Check off what you actually completed — not what the Agent claimed: Agent described project purpose; Agent identified entry points and key modules; Agent suggested first files to read.
+Check off what you actually did: Agent described project purpose; Agent identified entry points and key modules; Agent suggested first files to read.
 
-Close by comparing two groups: who trusted the first answer blindly vs who verified one claim in the repo?
+Who completed all three parts? What did the Agent get wrong, and what prompt change fixed it?
 
-Ask two volunteers: what did the Agent get wrong, and what prompt change fixed it? That reflection is the learning outcome.
+Raise your hand if you finished. What did the Agent get wrong, and what prompt change fixed it?
 
 **Facilitator notes**
 
-- Common issues: If Agent panel doesn't open: Make sure Cursor is the active window. Try `Ctrl+Shift+I` or click the Agent icon in the left sidebar; If Agent not responding: Check your internet connection. The Agent requires an internet connection to access AI models; If "No codebase found" error: Make sure you opened a folder (File → Open Folder), not just a single file
+- If stuck: If Agent panel doesn't open: Make sure Cursor is the active window. Try `Ctrl+Shift+I` or click the Agent icon in the left sidebar; If Agent not responding: Check your internet connection. The Agent requires an internet connection to access AI models; If "No codebase found" error: Make sure you opened a folder (File → Open Folder), not just a single file
 
 ---
 
@@ -1275,11 +1003,11 @@ Ask two volunteers: what did the Agent get wrong, and what prompt change fixed i
 
 **Script**
 
-Lesson 2.2: Explaining a Specific File or Symbol. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.2: Explaining a Specific File or Symbol. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Get targeted explanations of one file or symbol without reading the whole repo.
+Get targeted explanations of one file or symbol without reading the whole repo.
 
-Lab reference: slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md.
 
 ---
 
@@ -1289,13 +1017,9 @@ Lab reference: slide-exercises/module-02/exercise-2.2-explaining-a-specific-file
 
 **Script**
 
-Start with the line on screen: "Don't make the agent read the whole codebase when you just need to understand one function."
+Read with me: "Don't make the agent read the whole codebase when you just need to understand one function."
 
-Expand in your own words — do not read the bullet text verbatim: Use precise context — select a function or class, then ask focused questions.
-
-Next: Targeted Explanations.
-
-Pause after the quote — let it land before you add examples.
+Use precise context — select a function or class, then ask focused questions.
 
 ---
 
@@ -1305,13 +1029,13 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 2.2 — Explaining a Specific File or Symbol. 13 min scheduled.
+We are starting Exercise 2.2 — Explaining a Specific File or Symbol. We have about 13 min for this lab.
 
 Get targeted explanations of one file or symbol without reading the whole repo.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Open a specific file in your project.
 
@@ -1319,9 +1043,9 @@ Step 2: Select a function or class you want explained.
 
 Step 3: Use the Agent with precise context:.
 
-Paste this into the Agent — constraints matter as much as the ask: "Explain the function I have selected. For each major section, tell me: - What it does - Why it's designed that way (trade-offs) - Potential edge cases or bugs - How it could be improved"
+Copy this into the Agent chat: "Explain the function I have selected. For each major section, tell me: - What it does - Why it's designed that way (trade-offs) - Potential edge cases or bugs - How it could be improved"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1336,13 +1060,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Step 4: Example I/O.
+Now for Step 4: Example I/O.
 
-Step 4: Ask for a concrete example:.
+Copy this into the Agent chat: "Give me a concrete example of inputs and outputs for this function. Show me what happens in the normal case and one edge case."
 
-Paste this into the Agent — constraints matter as much as the ask: "Give me a concrete example of inputs and outputs for this function. Show me what happens in the normal case and one edge case."
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1357,13 +1079,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 5: Dependencies.
+Now for Step 5: Dependencies.
 
-Step 5: Ask about dependencies:.
+Copy this into the Agent chat: "What other functions does this call? What calls this function? Trace the call chain two levels in each direction."
 
-Paste this into the Agent — constraints matter as much as the ask: "What other functions does this call? What calls this function? Trace the call chain two levels in each direction."
-
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1378,11 +1098,7 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Success Criteria: - Selected specific code · Agent explained the selection - Agent provided input/output examples · Agent traced call dependencies
-
-The important lines are: .
-
-Next: Inline Explanation Shortcut.
+Inline Explanation Shortcut
 
 ---
 
@@ -1392,11 +1108,11 @@ Next: Inline Explanation Shortcut.
 
 **Script**
 
-Lesson 2.3: Making a Safe, Reviewable Change. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.3: Making a Safe, Reviewable Change. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Let the Agent propose a small change and review the diff before accepting.
+Let the Agent propose a small change and review the diff before accepting.
 
-Lab reference: slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md.
 
 ---
 
@@ -1406,13 +1122,9 @@ Lab reference: slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-c
 
 **Script**
 
-Start with the line on screen: "Before AI changes your code, see exactly what will change and approve it."
+Read with me: "Before AI changes your code, see exactly what will change and approve it."
 
-Expand in your own words — do not read the bullet text verbatim: 1. Ask agent to propose a change 2. Review the diff (what's added/removed)
-
-Next: The Diff Review Workflow.
-
-Pause after the quote — let it land before you add examples.
+1. Ask agent to propose a change 2. Review the diff (what's added/removed) 3. Accept or reject changes 4. Test after acceptance
 
 ---
 
@@ -1422,25 +1134,25 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 2.3 — Making a Safe, Reviewable Change. 13 min scheduled.
+We are starting Exercise 2.3 — Making a Safe, Reviewable Change. We have about 13 min for this lab.
 
 Let the Agent propose a small change and review the diff before accepting.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-This exercise trains review discipline — the change is tiny on purpose. If someone accepts without reading the diff, stop and redo the step.
+The change is tiny on purpose — read every line of the diff before you click Accept. If you accepted without reading, undo and do it again; that is the exercise.
 
 Step 1: Ask for a small, safe change:.
 
 Step 2: Watch the agent generate the diff:.
 
-Paste this into the Agent — constraints matter as much as the ask: "Change the welcome message in index.html from "Hello World" to "Welcome to My App""
+Copy this into the Agent chat: "Change the welcome message in index.html from "Hello World" to "Welcome to My App""
 
-Paste this into the Agent — constraints matter as much as the ask: "📝 Changes to index.html: <h1>- Hello World</h1> <h1>+ Welcome to My App</h1> Accept? [Yes] [No] [Edit]"
+Copy this into the Agent chat: "📝 Changes to index.html: <h1>- Hello World</h1> <h1>+ Welcome to My App</h1> Accept? [Yes] [No] [Edit]"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1455,13 +1167,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Review Questions.
+Now for Review Questions.
 
 Step 4: Accept · Step 5: Test manually.
 
-This exercise trains review discipline — the change is tiny on purpose. If someone accepts without reading the diff, stop and redo the step.
+The change is tiny on purpose — read every line of the diff before you click Accept. If you accepted without reading, undo and do it again; that is the exercise.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1476,13 +1188,13 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Test After Accept.
+Now for Test After Accept.
 
-Paste this into the Agent — constraints matter as much as the ask: "start index.html # open HTML in default browser python script.py # run Python script npm start # Node/React dev server"
+Copy this into the Agent chat: "start index.html # open HTML in default browser python script.py # run Python script npm start # Node/React dev server"
 
-This exercise trains review discipline — the change is tiny on purpose. If someone accepts without reading the diff, stop and redo the step.
+The change is tiny on purpose — read every line of the diff before you click Accept. If you accepted without reading, undo and do it again; that is the exercise.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1497,13 +1209,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — If Something Goes Wrong.
+Now for If Something Goes Wrong.
 
-Paste this into the Agent — constraints matter as much as the ask: "That change didn't work. The button disappeared. Please explain what happened and suggest a fix."
+Copy this into the Agent chat: "That change didn't work. The button disappeared. Please explain what happened and suggest a fix."
 
-This exercise trains review discipline — the change is tiny on purpose. If someone accepts without reading the diff, stop and redo the step.
+The change is tiny on purpose — read every line of the diff before you click Accept. If you accepted without reading, undo and do it again; that is the exercise.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1518,15 +1230,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 2.4: Plan Mode. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.4: Plan Mode. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Use Plan Mode to design a change before the Agent edits files.
+Use Plan Mode to design a change before the Agent edits files.
 
-Plan Mode buys review time before files change — use it for multi-file refactors and unfamiliar code.
+Plan Mode shows you the design before files change. Use it for multi-file work and unfamiliar codebases — plans are cheaper to throw away than bad diffs.
 
-Compare to jumping straight to Agent: plans are cheaper to throw away than bad diffs.
-
-Lab reference: slide-exercises/module-02/exercise-2.4-plan-mode.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.4-plan-mode.md.
 
 ---
 
@@ -1536,17 +1246,7 @@ Lab reference: slide-exercises/module-02/exercise-2.4-plan-mode.md
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Changing multiple files · Adding a new feature.
-
-Second: Refactoring existing code — this one usually matters most in practice.
-
-Also on screen: You're not 100% sure of the best approach, The change is risky or hard to undo.
-
-Next: Design Before You Code.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On Design Before You Code, here is what I want you to take away. Changing multiple files · Adding a new feature; Refactoring existing code; You're not 100% sure of the best approach; The change is risky or hard to undo.
 
 Plan Mode makes the agent create a detailed plan BEFORE writing any code. When to use Plan Mode:
 
@@ -1558,19 +1258,19 @@ Plan Mode makes the agent create a detailed plan BEFORE writing any code. When t
 
 **Script**
 
-Starting Exercise 2.4 — Plan Mode. 13 min scheduled.
+We are starting Exercise 2.4 — Plan Mode. We have about 13 min for this lab.
 
 Use Plan Mode to design a change before the Agent edits files.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.4-plan-mode.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.4-plan-mode.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Enable Plan Mode (Shift+Tab in the Agent input):.
 
-Paste this into the Agent — constraints matter as much as the ask: "# Press Shift+Tab in the Agent input # The input border changes color to indicate Plan Mode"
+Copy this into the Agent chat: "# Press Shift+Tab in the Agent input # The input border changes color to indicate Plan Mode"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1585,13 +1285,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 2: Describe Change.
+Now for Step 2: Describe Change.
 
-Step 2: Describe a complex change:.
+Copy this into the Agent chat: "Add user authentication to this web app. Requirements: - Email/password login · Session management - Protected routes (dashboard, settings) - Logout functionality · "Remember me" option Don't write code yet – just give me a plan."
 
-Paste this into the Agent — constraints matter as much as the ask: "Add user authentication to this web app. Requirements: - Email/password login · Session management - Protected routes (dashboard, settings) - Logout functionality · "Remember me" option Don't write code yet – just give me a plan."
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1606,13 +1304,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 3: Review the Plan.
+Now for Step 3: Review the Plan.
 
-Step 3: Review the agent's plan — a good plan includes:.
+Copy this into the Agent chat: "📋 IMPLEMENTATION PLAN Step 1: Create User Model — models/user.js Step 2: Auth Routes — routes/auth.js (login, logout, register) Step 3: Session Management — middleware/session.js Step 4: Protected Route Middleware — middleware/auth.js Step 5: Update Frontend — pages/login.html, dashboard.html Step 6: Environment Variables — .env (SESSION_SECRET, REDIS_URL) Questions for you: 1. JWT or server-side sessions? 2. Existing user database? 3. Include email verification? Ready to proceed? [Yes] [No] [Modify Plan]"
 
-Paste this into the Agent — constraints matter as much as the ask: "📋 IMPLEMENTATION PLAN Step 1: Create User Model — models/user.js Step 2: Auth Routes — routes/auth.js (login, logout, register) Step 3: Session Management — middleware/session.js Step 4: Protected Route Middleware — middleware/auth.js Step 5: Update Frontend — pages/login.html, dashboard.html Step 6: Environment Variables — .env (SESSION_SECRET, REDIS_URL) Questions for you: 1. JWT or server-side sessions? 2. Existing user database? 3. Include email verification? Ready to proceed? [Yes] [No] [Modify Plan]"
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1627,15 +1323,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Approve & Execute.
+Now for Approve & Execute.
 
 Step 4: Answer questions and approve:.
 
 Step 5: Watch the agent execute the plan step by step.
 
-Paste this into the Agent — constraints matter as much as the ask: "Use JWT for simplicity. No existing database yet – use SQLite for now. Skip email verification for this version. Proceed."
+Copy this into the Agent chat: "Use JWT for simplicity. No existing database yet – use SQLite for now. Skip email verification for this version. Proceed."
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1650,15 +1346,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Let's debrief Exercise 2.4 — Plan Mode.
+That finishes Exercise 2.4 — Plan Mode.
 
-Check off what you actually completed — not what the Agent claimed: Enabled Plan Mode (Shift+Tab); Agent created structured plan; Agent asked clarifying questions; Approved plan before code was written.
+Check off what you actually did: Enabled Plan Mode (Shift+Tab); Agent created structured plan; Agent asked clarifying questions; Approved plan before code was written.
 
-Ask two volunteers: what did the Agent get wrong, and what prompt change fixed it? That reflection is the learning outcome.
+Raise your hand if you finished. What did the Agent get wrong, and what prompt change fixed it?
 
 **Facilitator notes**
 
-- Common issues: If Plan Mode not activating: Press `Shift+Tab` again. Check chat input shows "Plan"; If Agent starts coding immediately: Ask: *"I'm in Plan Mode. Please plan first, don't write code yet"*; If Plan is too vague: Ask: *"Be more specific. What files will you change? What functions?"*
+- If stuck: If Plan Mode not activating: Press `Shift+Tab` again. Check chat input shows "Plan"; If Agent starts coding immediately: Ask: *"I'm in Plan Mode. Please plan first, don't write code yet"*; If Plan is too vague: Ask: *"Be more specific. What files will you change? What functions?"*
 
 ---
 
@@ -1668,15 +1364,13 @@ Ask two volunteers: what did the Agent get wrong, and what prompt change fixed i
 
 **Script**
 
-Lesson 2.5: Comparing Two Models. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.5: Comparing Two Models. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Run the same prompt on two models and compare quality, speed, and cost.
+Run the same prompt on two models and compare quality, speed, and cost.
 
-Same prompt, two models — compare correctness first, speed second, cost third. Fancy answers that fail tests lose.
+Run the same prompt on two models. Judge correctness first, then speed, then cost. The prettiest answer that fails tests loses.
 
-Encourage documenting 'default model per task' for the team after this exercise.
-
-Lab reference: slide-exercises/module-02/exercise-2.5-comparing-two-models.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.5-comparing-two-models.md.
 
 ---
 
@@ -1686,11 +1380,7 @@ Lab reference: slide-exercises/module-02/exercise-2.5-comparing-two-models.md
 
 **Script**
 
-Next: Model Selection Guide.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Task Type: Recommended Model. Use this when Why. Typo fixes, simple edits: GPT-5 Mini. Use this when Cheap, fast, good enough. Daily coding, bug fixes: Composer 2.5 or GPT-5.3 Codex. Use this when Best value in Cursor; built for agent tools. Complex logic, architecture: Claude Op
+Task Type: Recommended Model. Use this when Why. Typo fixes, simple edits: GPT-5 Mini. Use this when Cheap, fast, good enough. Daily coding, bug fixes: Composer 2.5 or GPT-5.3 Codex. Use this when Best value in Cursor; built for agent tools. Complex logic, architecture: Claude Opus or GPT-5.5. Use this when Smartest, but expensive. Frontend/visual work: Gemini 3.1 Pro. Use this when Can see images. Fast, simple questions: Claude Haiku. Use this when Fastest responses.
 
 ---
 
@@ -1700,13 +1390,13 @@ Slide reference (skim, do not read every cell): Task Type: Recommended Model. Us
 
 **Script**
 
-Starting Exercise 2.5 — Comparing Two Models. 13 min scheduled.
+We are starting Exercise 2.5 — Comparing Two Models. We have about 13 min for this lab.
 
 Run the same prompt on two models and compare quality, speed, and cost.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.5-comparing-two-models.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.5-comparing-two-models.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Set model to Composer 2.5 (/model composer-2.5), ask:.
 
@@ -1716,9 +1406,9 @@ Step 3: Switch to GPT-5 Mini — ask the same question.
 
 Step 4: Compare responses side by side.
 
-Paste this into the Agent — constraints matter as much as the ask: "Explain what a closure is in JavaScript with a practical example."
+Copy this into the Agent chat: "Explain what a closure is in JavaScript with a practical example."
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1733,9 +1423,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Comparison Table.
+Now for Comparison Table.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1750,13 +1440,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Cost & Decision Matrix.
+Now for Cost & Decision Matrix.
 
 Step 5: Check token usage at bottom of chat after each request.
 
 Step 6: Create a personal decision matrix:.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1771,15 +1461,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Let's debrief Exercise 2.5 — Comparing Two Models.
+That finishes Exercise 2.5 — Comparing Two Models.
 
-Check off what you actually completed — not what the Agent claimed: Same question to two models; Compared quality and speed; Created personal model-selection guide.
+Check off what you actually did: Same question to two models; Compared quality and speed; Created personal model-selection guide.
 
-Ask two volunteers: what did the Agent get wrong, and what prompt change fixed it? That reflection is the learning outcome.
+Raise your hand if you finished. What did the Agent get wrong, and what prompt change fixed it?
 
 **Facilitator notes**
 
-- Common issues: If Model not available: Check your plan – some models require Pro or higher; If `/model` command not working: Type it in the Agent chat, not in terminal; If Can't tell which model is active: Look at the model name in the chat input dropdown
+- If stuck: If Model not available: Check your plan – some models require Pro or higher; If `/model` command not working: Type it in the Agent chat, not in terminal; If Can't tell which model is active: Look at the model name in the chat input dropdown
 
 ---
 
@@ -1789,11 +1479,11 @@ Ask two volunteers: what did the Agent get wrong, and what prompt change fixed i
 
 **Script**
 
-Lesson 2.6: Precise Context with @mentions. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.6: Precise Context with @mentions. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Use @mentions to point the Agent at exact files, symbols, and context.
+Use @mentions to point the Agent at exact files, symbols, and context.
 
-Lab reference: slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md.
 
 ---
 
@@ -1803,11 +1493,7 @@ Lab reference: slide-exercises/module-02/exercise-2.6-precise-context-with-menti
 
 **Script**
 
-Next: @mention Types.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): @mention: What It Does. Use this when Example. @filename: Include specific file. Use this when @auth.py. @symbol: Include function/class. Use this when @UserModel. @branch: Reference git branch. Use this when @main. @chat: Reference past conversation. Use this when @previous-chat
+@mention: What It Does. Use this when Example. @filename: Include specific file. Use this when @auth.py. @symbol: Include function/class. Use this when @UserModel. @branch: Reference git branch. Use this when @main. @chat: Reference past conversation. Use this when @previous-chat. @folder: Reference entire directory. Use this when @/src/utils. @web: Search the web. Use this when @web pandas DataFrame.
 
 ---
 
@@ -1817,23 +1503,23 @@ Slide reference (skim, do not read every cell): @mention: What It Does. Use this
 
 **Script**
 
-Starting Exercise 2.6 — Precise Context with @mentions. 13 min scheduled.
+We are starting Exercise 2.6 — Precise Context with @mentions. We have about 13 min for this lab.
 
 Use @mentions to point the Agent at exact files, symbols, and context.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Use @filename to point at a specific file:.
 
 Step 2: Use @symbol to reference a specific function:.
 
-Paste this into the Agent — constraints matter as much as the ask: "@database.py What are the security vulnerabilities in this database connection?"
+Copy this into the Agent chat: "@database.py What are the security vulnerabilities in this database connection?"
 
-Paste this into the Agent — constraints matter as much as the ask: "@calculate_total This function is returning NaN sometimes. Why?"
+Copy this into the Agent chat: "@calculate_total This function is returning NaN sometimes. Why?"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1848,13 +1534,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 3: Multiple @mentions.
+Now for Step 3: Multiple @mentions.
 
-Step 3: Combine multiple @mentions:.
+Copy this into the Agent chat: "@auth.py @UserModel @login_handler Review the authentication flow. Are there any race conditions or timing attacks?"
 
-Paste this into the Agent — constraints matter as much as the ask: "@auth.py @UserModel @login_handler Review the authentication flow. Are there any race conditions or timing attacks?"
-
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1869,13 +1553,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Step 4: @branch.
+Now for Step 4: @branch.
 
-Step 4: Use @branch to reference a different branch:.
+Copy this into the Agent chat: "Compare @main and @feature/payment branches. What are the key differences in the payment handling code?"
 
-Paste this into the Agent — constraints matter as much as the ask: "Compare @main and @feature/payment branches. What are the key differences in the payment handling code?"
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1890,13 +1572,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 5: @chat.
+Now for Step 5: @chat.
 
-Step 5: Use @chat to refer to a previous conversation:.
+Copy this into the Agent chat: "@chat(authentication-discussion) Based on that discussion, implement the fix we agreed on."
 
-Paste this into the Agent — constraints matter as much as the ask: "@chat(authentication-discussion) Based on that discussion, implement the fix we agreed on."
-
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1911,17 +1591,17 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 6–7: @folder & @web.
+Now for Steps 6–7: @folder & @web.
 
 Step 6: Use @folder for directory-level context:.
 
 Step 7: Use @web for external documentation:.
 
-Paste this into the Agent — constraints matter as much as the ask: "@src/components Find all components that don't have loading states."
+Copy this into the Agent chat: "@src/components Find all components that don't have loading states."
 
-Paste this into the Agent — constraints matter as much as the ask: "@web React 19 useTransition hook How do I use it?"
+Copy this into the Agent chat: "@web React 19 useTransition hook How do I use it?"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -1936,15 +1616,7 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Point 1: Start typing @ — Cursor auto-suggests available mentions.
-
-Point 2: You can @mention multiple items in one message.
-
-Point 3: @mentions work in both Agent and Chat modes.
-
-Next: @mention Pro Tips.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On @mention Pro Tips, here is what I want you to take away. Start typing @ — Cursor auto-suggests available mentions; You can @mention multiple items in one message; @mentions work in both Agent and Chat modes.
 
 - Start typing @ — Cursor auto-suggests available mentions - You can @mention multiple items in one message
 
@@ -1956,15 +1628,15 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Let's debrief Exercise 2.6 — Precise Context with @mentions.
+That finishes Exercise 2.6 — Precise Context with @mentions.
 
-Check off what you actually completed — not what the Agent claimed: Used @filename to target a specific file; Used @symbol to target a function or class; Used multiple @mentions together; Used @web for external search.
+Check off what you actually did: Used @filename to target a specific file; Used @symbol to target a function or class; Used multiple @mentions together; Used @web for external search.
 
-Ask two volunteers: what did the Agent get wrong, and what prompt change fixed it? That reflection is the learning outcome.
+Raise your hand if you finished. What did the Agent get wrong, and what prompt change fixed it?
 
 **Facilitator notes**
 
-- Common issues: If `@` doesn't show suggestions: Make sure you're in the Agent chat, not a code file; If Wrong file appears: Type more letters to narrow down the suggestion; If @mention not working: Put a space after the @mention before your question
+- If stuck: If `@` doesn't show suggestions: Make sure you're in the Agent chat, not a code file; If Wrong file appears: Type more letters to narrow down the suggestion; If @mention not working: Put a space after the @mention before your question
 
 ---
 
@@ -1974,15 +1646,13 @@ Ask two volunteers: what did the Agent get wrong, and what prompt change fixed i
 
 **Script**
 
-Lesson 2.7: Checkpoints. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.7: Checkpoints. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Create and restore checkpoints before risky Agent experiments.
+Create and restore checkpoints before risky Agent experiments.
 
-Checkpoints are undo for agent experiments — use before risky prompts or broad @folder mentions.
+Checkpoints are undo for agent experiments — create one before risky prompts or broad @folder mentions.
 
-Analogy: git stash for conversation state when you want to explore without fear.
-
-Lab reference: slide-exercises/module-02/exercise-2.7-checkpoints.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.7-checkpoints.md.
 
 ---
 
@@ -1992,17 +1662,7 @@ Lab reference: slide-exercises/module-02/exercise-2.7-checkpoints.md
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Code changes made by the agent.
-
-Second: Conversation history · File states — this one usually matters most in practice.
-
-Also on screen: Before complex changes · At milestones (Step 2 of 5), Before risky experiments · Before terminal commands.
-
-Next: A Safety Net for Experiments.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On A Safety Net for Experiments, here is what I want you to take away. Code changes made by the agent; Conversation history · File states; Before complex changes · At milestones (Step 2 of 5); Before risky experiments · Before terminal commands.
 
 What Checkpoints Save: - Code changes made by the agent
 
@@ -2014,19 +1674,19 @@ What Checkpoints Save: - Code changes made by the agent
 
 **Script**
 
-Starting Exercise 2.7 — Checkpoints. 8 min scheduled.
+We are starting Exercise 2.7 — Checkpoints. We have about 8 min for this lab.
 
 Create and restore checkpoints before risky Agent experiments.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.7-checkpoints.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.7-checkpoints.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Create a checkpoint before making a change.
 
-Paste this into the Agent — constraints matter as much as the ask: "# Click checkpoint icon in Agent panel # Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``)"
+Copy this into the Agent chat: "# Click checkpoint icon in Agent panel # Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``)"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2041,15 +1701,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 2–3.
+Now for Steps 2–3.
 
 Step 2: Name it descriptively: "Before auth refactor - safe point".
 
 Step 3: Let the agent make changes:.
 
-Paste this into the Agent — constraints matter as much as the ask: "Add input validation to all form handlers."
+Copy this into the Agent chat: "Add input validation to all form handlers."
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2064,13 +1724,13 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 4–5.
+Now for Steps 4–5.
 
 Step 4: If something goes wrong → Restore to checkpoint.
 
 Step 5: View history via the clock icon in Agent panel.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2085,21 +1745,9 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-There are 5 items on this slide. I'll emphasize the first two, then you can scan the rest.
+On Checkpoint Best Practices, here is what I want you to take away. Create checkpoints every 5–10 minutes during complex work; Use descriptive names, not "checkpoint1"; Test the restored state before continuing; and several more points on the slide you can scan as we go.
 
-First: Create checkpoints every 5–10 minutes during complex work.
-
-Second: Use descriptive names, not "checkpoint1" — this one usually matters most in practice.
-
-Also on screen: Test the restored state before continuing, Clean up old checkpoints periodically….
-
-Next: Checkpoint Best Practices.
-
-Checkpoints are undo for agent experiments — use before risky prompts or broad @folder mentions.
-
-Analogy: git stash for conversation state when you want to explore without fear.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+Checkpoints are undo for agent experiments — create one before risky prompts or broad @folder mentions.
 
 - Create checkpoints every 5–10 minutes during complex work - Use descriptive names, not "checkpoint1"
 
@@ -2111,11 +1759,11 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Lesson 2.8: Terminal Integration. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 2.8: Terminal Integration. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Let the Agent run terminal commands and react to command output.
+Let the Agent run terminal commands and react to command output.
 
-Lab reference: slide-exercises/module-02/exercise-2.8-terminal-integration.md
+The detailed lab guide is slide-exercises/module-02/exercise-2.8-terminal-integration.md.
 
 ---
 
@@ -2125,17 +1773,7 @@ Lab reference: slide-exercises/module-02/exercise-2.8-terminal-integration.md
 
 **Script**
 
-There are 6 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Run shell commands · See stdout, stderr, exit codes.
-
-Second: React to command output · Install dependencies — this one usually matters most in practice.
-
-Also on screen: Run tests · Start/stop services, You approve each command before execution….
-
-Next: What the Agent Can Do.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On What the Agent Can Do, here is what I want you to take away. Run shell commands · See stdout, stderr, exit codes; React to command output · Install dependencies; Run tests · Start/stop services; and several more points on the slide you can scan as we go.
 
 - Run shell commands · See stdout, stderr, exit codes - React to command output · Install dependencies
 
@@ -2147,13 +1785,13 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Starting Exercise 2.8 — Terminal Integration. 13 min scheduled.
+We are starting Exercise 2.8 — Terminal Integration. We have about 13 min for this lab.
 
 Let the Agent run terminal commands and react to command output.
 
-The full lab guide with troubleshooting is in slide-exercises/module-02/exercise-2.8-terminal-integration.md.
+The full lab guide is in slide-exercises/module-02/exercise-2.8-terminal-integration.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Check the environment:.
 
@@ -2161,11 +1799,11 @@ Step 2: Approve the command when prompted.
 
 Step 3: List project files:.
 
-Paste this into the Agent — constraints matter as much as the ask: "Run `python --version` and `gcc --version` in PowerShell. Tell me what versions we're using."
+Copy this into the Agent chat: "Run `python --version` and `gcc --version` in PowerShell. Tell me what versions we're using."
 
-Paste this into the Agent — constraints matter as much as the ask: "Run `dir` and tell me which file looks like the main program."
+Copy this into the Agent chat: "Run `dir` and tell me which file looks like the main program."
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2180,9 +1818,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Agent Terminal Loop.
+Now for Agent Terminal Loop.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2197,13 +1835,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 5: Install Dependency.
+Now for Step 5: Install Dependency.
 
-Step 5: Install a dependency (Windows):.
+Copy this into the Agent chat: "Install the requests library with pip if it's not already installed. Use: py -m pip install requests Show me the command output."
 
-Paste this into the Agent — constraints matter as much as the ask: "Install the requests library with pip if it's not already installed. Use: py -m pip install requests Show me the command output."
-
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2218,13 +1854,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 6: Multi-Step Workflow.
+Now for Step 6: Multi-Step Workflow.
 
-Step 6: Multi-step workflow (Windows PowerShell):.
+Copy this into the Agent chat: "Run these commands in order: 1. git status 2. git branch 3. dir Summarize what you see after each command. Confirm before each command that might affect the repo."
 
-Paste this into the Agent — constraints matter as much as the ask: "Run these commands in order: 1. git status 2. git branch 3. dir Summarize what you see after each command. Confirm before each command that might affect the repo."
-
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2239,11 +1873,7 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next: Terminal Command Safety Rules.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Always approve first: Remove-Item, sudo, git push --force, production changes. Review carefully: pip install, npm install, git branch changes, docker. Safe to auto-approve (Windows demo): python --version, dir, Get-Location, Get-Content, pytest, npm test.
+Always approve first. With AI models, remove-Item, sudo, git push --force, production changes. Review carefully. With AI models, pip install, npm install, git branch changes, docker. Safe to auto-approve (Windows demo). With AI models, python --version, dir, Get-Location, Get-Content, pytest, npm test.
 
 ---
 
@@ -2283,7 +1913,7 @@ Quick Reference Card
 
 **Script**
 
-Module 3 connects modes and tools to the mental models from Module 1 — Ask vs Agent, browser, terminal, prompting craft.
+Module 3 connects Ask Mode, Agent Mode, the browser, the terminal, and prompting craft to the mental models from Module 1.
 
 Timing on slide: Cursor Training Program · ~60 min
 
@@ -2295,9 +1925,9 @@ Timing on slide: Cursor Training Program · ~60 min
 
 **Script**
 
-The module goal in plain language: Master different agent modes and the core tools that make agents powerful
+Our goal for this module: Master different agent modes and the core tools that make agents powerful
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -2307,13 +1937,15 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 3 — not a reading list, but skills you will practice.
+By the end of Module 3, you should be able to do the following.
 
-Highlight three that matter for your role: Choose between Ask Mode and Agent Mode based on task and safety needs; Use the Browser Tool to inspect live pages and read console output; Run terminal commands through the agent and diagnose failures; plus more on screen.
+1. Choose between Ask Mode and Agent Mode based on task and safety needs.
 
-Next: learning objectives.
+2. Use the Browser Tool to inspect live pages and read console output.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Run terminal commands through the agent and diagnose failures.
+
+4. Write effective, constrained prompts that avoid scope creep.
 
 ---
 
@@ -2337,15 +1969,15 @@ Here is how we will spend our time: Lesson 3.1, Ask Mode vs. Agent Mode, about 1
 
 **Script**
 
-Lesson 3.1: Ask Mode vs. Agent Mode. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 3.1: Ask Mode vs. Agent Mode. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Learn when Ask Mode is read-only and when Agent Mode can edit files.
+Learn when Ask Mode is read-only and when Agent Mode can edit files.
 
-Ask Mode is your safe inspection lane — architecture questions, code reading, no surprise diffs.
+Ask Mode is read-only — great for architecture questions and understanding code without surprise diffs.
 
-Demo the footer toggle live: same question in Ask vs Agent and show that only Agent proposes edits.
+Agent Mode can edit files. Same question, different risk profile. Watch the mode indicator in the panel footer before you send.
 
-Lab reference: slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md
+The detailed lab guide is slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md.
 
 ---
 
@@ -2355,11 +1987,7 @@ Lab reference: slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md
 
 **Script**
 
-Next: The Core Distinction.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Can read files: ✅ Yes (with @mentions). Use this when ✅ Yes. Can edit files: ❌ No. Use this when ✅ Yes. Can run terminal: ❌ No. Use this when ✅ Yes. Can browse web: ❌ No (limited). Use this when ✅ Yes (with tool). Can call tools: ❌ No. Use this when ✅ Yes. Safety level: Very high
+Can read files: ✅ Yes (with @mentions). Use this when ✅ Yes. Can edit files: ❌ No. Use this when ✅ Yes. Can run terminal: ❌ No. Use this when ✅ Yes. Can browse web: ❌ No (limited). Use this when ✅ Yes (with tool). Can call tools: ❌ No. Use this when ✅ Yes. Safety level: Very high (read-only). Use this when Moderate (needs oversight). Best for: Questions, learning, code review. Use this when Implementation, debugging, automation.
 
 ---
 
@@ -2369,17 +1997,7 @@ Slide reference (skim, do not read every cell): Can read files: ✅ Yes (with @m
 
 **Script**
 
-There are 7 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: You have a question about code · Exploring a codebase.
-
-Second: You want a second opinion on design — this one usually matters most in practice.
-
-Also on screen: You're not ready to make changes · Production environment, You want the AI to write/change code….
-
-Next: When to Use Each Mode.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On When to Use Each Mode, here is what I want you to take away. You have a question about code · Exploring a codebase; You want a second opinion on design; You're not ready to make changes · Production environment; and several more points on the slide you can scan as we go.
 
 USE ASK MODE when: - You have a question about code · Exploring a codebase
 
@@ -2391,11 +2009,9 @@ USE ASK MODE when: - You have a question about code · Exploring a codebase
 
 **Script**
 
-Next: Safety Implications.
+The practical rule is on the slide: never trust a single run as ground truth. Run the code, read the diff, check the docs — every time.
 
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Risk: Ask Mode. Use this when Agent Mode. Unintended code changes: None. Use this when Moderate (requires review). File deletion: None. Use this when Possible (needs approval). Malicious commands: None. Use this when Possible (needs approval). Data leakage: Low. Use this when Med
+Teams that skip verification accumulate AI debt — code that looked fine in chat but fails in CI.
 
 ---
 
@@ -2405,15 +2021,9 @@ Slide reference (skim, do not read every cell): Risk: Ask Mode. Use this when Ag
 
 **Script**
 
-This slide shows The Mode Continuum.
+Turn to the diagram — The Mode Continuum.
 
 <img src="assets/module-03/the-mode-continuum.svg" alt="The Mode Continuum" />
-
-Next: The Mode Continuum.
-
-The Mode Continuum
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -2443,19 +2053,19 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 3.1 — Ask Mode vs. Agent Mode. 18 min scheduled.
+We are starting Exercise 3.1 — Ask Mode vs. Agent Mode. We have about 18 min for this lab.
 
 Learn when Ask Mode is read-only and when Agent Mode can edit files.
 
-The full lab guide with troubleshooting is in slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md.
+The full lab guide is in slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Open Agent panel (Cmd+I / Ctrl+I) — note mode indicator at bottom.
 
 Where: Agent panel — `Ctrl+I`.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2470,15 +2080,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: Try to make a change in Ask Mode:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Change the variable name 'temp' to 'temperature' in the current file."
+Copy this into the Agent chat: "Change the variable name 'temp' to 'temperature' in the current file."
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2493,15 +2103,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 3–5.
+Now for Steps 3–5.
 
 Step 3: Ask a question Ask Mode handles well:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Explain the purpose of the main() function in this file. What edge cases does it handle?"
+Copy this into the Agent chat: "Explain the purpose of the main() function in this file. What edge cases does it handle?"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2516,7 +2126,7 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 3–5 (Part 2).
+Now for Steps 3–5 (Part 2).
 
 Step 4: Switch to Agent Mode via the dropdown.
 
@@ -2526,7 +2136,7 @@ Step 5: Repeat the rename request — agent shows diff for approval.
 
 Where: Agent panel — `Ctrl+I`.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2541,15 +2151,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Let's debrief Exercise 3.1 — Ask Mode vs. Agent Mode.
+That finishes Exercise 3.1 — Ask Mode vs. Agent Mode.
 
-Check off what you actually completed — not what the Agent claimed: Used Ask Mode for questions · Observed Ask Mode cannot make changes; Switched to Agent Mode · Made a change with diff review.
+Check off what you actually did: Used Ask Mode for questions · Observed Ask Mode cannot make changes; Switched to Agent Mode · Made a change with diff review.
 
-Ask two volunteers: what did the Agent get wrong, and what prompt change fixed it? That reflection is the learning outcome.
+Raise your hand if you finished. What did the Agent get wrong, and what prompt change fixed it?
 
 **Facilitator notes**
 
-- Common issues: If Can't switch modes: Type `/ask` or `/agent` exactly. Use `Shift+Tab` as alternative; If Agent still makes changes in Ask Mode: You might not be in Ask Mode. Check the mode indicator; If Don't see mode indicator: Look near the chat input – it shows "Ask", "Agent", or "Plan"
+- If stuck: If Can't switch modes: Type `/ask` or `/agent` exactly. Use `Shift+Tab` as alternative; If Agent still makes changes in Ask Mode: You might not be in Ask Mode. Check the mode indicator; If Don't see mode indicator: Look near the chat input – it shows "Ask", "Agent", or "Plan"
 
 ---
 
@@ -2559,15 +2169,13 @@ Ask two volunteers: what did the Agent get wrong, and what prompt change fixed i
 
 **Script**
 
-Lesson 3.2: Browser Tool. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 3.2: Browser Tool. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Use the Browser tool so the Agent can inspect live web pages.
+Use the Browser tool so the Agent can inspect live web pages.
 
-Frontend developers love this — CSS lies, the rendered page does not. The Agent can see what users see.
+The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 
-Caveat: dynamic SPAs may need wait instructions; mention that if the page looks empty in the demo.
-
-Lab reference: slide-exercises/module-03/exercise-3.2-browser-tool.md
+The detailed lab guide is slide-exercises/module-03/exercise-3.2-browser-tool.md.
 
 ---
 
@@ -2577,17 +2185,11 @@ Lab reference: slide-exercises/module-03/exercise-3.2-browser-tool.md
 
 **Script**
 
-Start with the line on screen: "See what your app actually looks like in a browser — not just the source code."
+Read with me: "See what your app actually looks like in a browser — not just the source code."
 
-Expand in your own words — do not read the bullet text verbatim: - Navigate to URLs · Read page content and DOM structure - See console logs and errors · Take screenshots (depending on model)
+- Navigate to URLs · Read page content and DOM structure - See console logs and errors · Take screenshots (depending on model) - Click elements and interact with pages - Extract data from live pages
 
-Next: What the Browser Tool Can Do.
-
-Frontend developers love this — CSS lies, the rendered page does not. The Agent can see what users see.
-
-Caveat: dynamic SPAs may need wait instructions; mention that if the page looks empty in the demo.
-
-Pause after the quote — let it land before you add examples.
+The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 
 ---
 
@@ -2597,15 +2199,7 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Next: Browser Tool: With vs. Without.
-
-Frontend developers love this — CSS lies, the rendered page does not. The Agent can see what users see.
-
-Caveat: dynamic SPAs may need wait instructions; mention that if the page looks empty in the demo.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): "Why is the button not showing?": Guesses from CSS. Use this when Sees the rendered page. "Is the API returning data?": Checks code. Use this when Sees network tab. "What console errors?": Asks you. Use this when Reads console directly. "Does responsive layout work?": Trusts CSS.
+The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 
 ---
 
@@ -2615,21 +2209,21 @@ Slide reference (skim, do not read every cell): "Why is the button not showing?"
 
 **Script**
 
-Starting Exercise 3.2 — Browser Tool. 18 min scheduled.
+We are starting Exercise 3.2 — Browser Tool. We have about 18 min for this lab.
 
 Use the Browser tool so the Agent can inspect live web pages.
 
-The full lab guide with troubleshooting is in slide-exercises/module-03/exercise-3.2-browser-tool.md.
+The full lab guide is in slide-exercises/module-03/exercise-3.2-browser-tool.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Start a local web app (or use a public test page).
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "python -m http.server 8000 # Or use a public test page"
+Copy this into the Agent chat: "python -m http.server 8000 # Or use a public test page"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2644,15 +2238,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: In Agent Mode:.
 
 Terminal: PowerShell — `Ctrl+ `` in Cursor.
 
-Paste this into the Agent — constraints matter as much as the ask: "Use the browser tool to open http://localhost:8000 Tell me what you see on the page."
+Copy this into the Agent chat: "Use the browser tool to open http://localhost:8000 Tell me what you see on the page."
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2667,15 +2261,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 3–4.
+Now for Steps 3–4.
 
 Step 3: Find specific elements:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "On that same page, find: 1. The main heading text 2. The number of buttons 3. Any error messages visible"
+Copy this into the Agent chat: "On that same page, find: 1. The main heading text 2. The number of buttons 3. Any error messages visible"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2690,15 +2284,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 3–4 (Part 2).
+Now for Steps 3–4 (Part 2).
 
 Step 4: Check the console:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Now open the browser developer console. Are there any errors or warnings? If so, what are they?"
+Copy this into the Agent chat: "Now open the browser developer console. Are there any errors or warnings? If so, what are they?"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2713,15 +2307,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-This slide shows Expected Agent Actions.
+Turn to the diagram — Expected Agent Actions.
 
 <img src="assets/module-03/expected-agent-actions.svg" alt="Expected Agent Actions" />
-
-Next: Expected Agent Actions.
-
-Expected Agent Actions
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -2731,15 +2319,15 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next step — Steps 5–6.
+Now for Steps 5–6.
 
 Step 5: Diagnose a layout issue:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "The login button is partially hidden on mobile sizes. Use the browser tool to check what's happening."
+Copy this into the Agent chat: "The login button is partially hidden on mobile sizes. Use the browser tool to check what's happening."
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2754,15 +2342,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 5–6 (Part 2).
+Now for Steps 5–6 (Part 2).
 
 Step 6: Extract data from a page:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Go to https://example.com/pricing Extract all pricing plan names and their monthly costs into a table."
+Copy this into the Agent chat: "Go to https://example.com/pricing Extract all pricing plan names and their monthly costs into a table."
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2777,15 +2365,7 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next: Browser Tool Limitations.
-
-Frontend developers love this — CSS lies, the rendered page does not. The Agent can see what users see.
-
-Caveat: dynamic SPAs may need wait instructions; mention that if the page looks empty in the demo.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Cannot log in to sites: Provide login instructions or session cookies. JavaScript-heavy sites may load slowly: Add wait instructions. Rate limits on some sites: Space out requests. Cannot upload files: Not supported yet.
+The Browser tool lets the Agent see what users see — rendered pages, console errors, layout issues CSS alone won't reveal.
 
 ---
 
@@ -2795,15 +2375,13 @@ Slide reference (skim, do not read every cell): Cannot log in to sites: Provide 
 
 **Script**
 
-Lesson 3.3: Terminal Tool. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 3.3: Terminal Tool. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Use the Terminal tool to run tests, read output, and fix failures.
+Use the Terminal tool to run tests, read output, and fix failures.
 
-This closes the loop: tests and builds become ground truth. The Agent should read stderr, not invent success.
+The Terminal tool lets the Agent run tests and builds and read real output. That is how we turn guesses into evidence.
 
-Windows note: prefer `.un_tests.bat` and `curl.exe` — say that once, not every slide.
-
-Lab reference: slide-exercises/module-03/exercise-3.3-terminal-tool.md
+The detailed lab guide is slide-exercises/module-03/exercise-3.3-terminal-tool.md.
 
 ---
 
@@ -2813,21 +2391,9 @@ Lab reference: slide-exercises/module-03/exercise-3.3-terminal-tool.md
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
+On What the Terminal Tool Can Do, here is what I want you to take away. Run any shell command (with approval); See stdout, stderr, exit codes; Read command output as context for next actions; Chain commands based on previous results.
 
-First: Run any shell command (with approval).
-
-Second: See stdout, stderr, exit codes — this one usually matters most in practice.
-
-Also on screen: Read command output as context for next actions, Chain commands based on previous results.
-
-Next: What the Terminal Tool Can Do.
-
-This closes the loop: tests and builds become ground truth. The Agent should read stderr, not invent success.
-
-Windows note: prefer `.un_tests.bat` and `curl.exe` — say that once, not every slide.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+The Terminal tool lets the Agent run tests and builds and read real output. That is how we turn guesses into evidence.
 
 - Run any shell command (with approval) - See stdout, stderr, exit codes
 
@@ -2839,19 +2405,7 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-This slide shows Terminal Tool Flow.
-
-<img src="assets/module-03/terminal-tool-flow.svg" alt="Terminal Tool Flow" />
-
-Next: Terminal Tool Flow.
-
-This closes the loop: tests and builds become ground truth. The Agent should read stderr, not invent success.
-
-Windows note: prefer `.un_tests.bat` and `curl.exe` — say that once, not every slide.
-
-On screen: Terminal Tool Flow
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+The Terminal tool lets the Agent run tests and builds and read real output. That is how we turn guesses into evidence.
 
 ---
 
@@ -2861,21 +2415,19 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Starting Exercise 3.3 — Terminal Tool. 20 min scheduled.
+We are starting Exercise 3.3 — Terminal Tool. We have about 20 min for this lab.
 
 Use the Terminal tool to run tests, read output, and fix failures.
 
-The full lab guide with troubleshooting is in slide-exercises/module-03/exercise-3.3-terminal-tool.md.
+The full lab guide is in slide-exercises/module-03/exercise-3.3-terminal-tool.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
+Use the terminal tool on the calculator test project in this repo.
 
-Goal for this step: Use the terminal tool on the calculator test project in this repo.
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2890,21 +2442,19 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 1: Safe Command.
+Now for Step 1: Safe Command.
 
-Goal for this step: Learn which commands usually need careful review.
+Learn which commands usually need careful review.
 
 Step 1 — Read-only command.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Check whether gcc and git are available. Run gcc --version and git --version. Summarize the output. Do not modify any files."
+Copy this into the Agent chat: "Check whether gcc and git are available. Run gcc --version and git --version. Summarize the output. Do not modify any files."
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2919,21 +2469,19 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 2: Run Passing Tests.
+Now for Step 2: Run Passing Tests.
 
-Goal for this step: Compile and run tests — all should pass first.
+Compile and run tests — all should pass first.
 
-A good result looks like: Four PASS: lines · All tests passed!
+You should see: Four PASS: lines · All tests passed!
 
 Step 2 — Run test suite.
 
-Paste this into the Agent — constraints matter as much as the ask: "Run .\run_tests.bat in this folder. Show full output: compilation OK? how many tests passed?"
+Copy this into the Agent chat: "Run .\run_tests.bat in this folder. Show full output: compilation OK? how many tests passed?"
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
-
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2948,19 +2496,17 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Step 3: Break a Test.
+Now for Step 3: Break a Test.
 
-Goal for this step: Compile and run tests — all should pass first.
+Compile and run tests — all should pass first.
 
-A good result looks like: Four PASS: lines · All tests passed!
+You should see: Four PASS: lines · All tests passed!
 
 Step 3 — Introduce a failure (you edit).
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
-
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -2975,21 +2521,19 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 4: Diagnose Failure.
+Now for Step 4: Diagnose Failure.
 
-Goal for this step: Use the terminal tool on the calculator test project in this repo.
+Use the terminal tool on the calculator test project in this repo.
 
 Step 4 — Read terminal output.
 
-Paste this into the Agent — constraints matter as much as the ask: "@test_calculator.c Run the test suite again. Which test failed? What assertion failed? Is the bug in the test or in add()? Explain only — do not fix yet."
+Copy this into the Agent chat: "@test_calculator.c Run the test suite again. Which test failed? What assertion failed? Is the bug in the test or in add()? Explain only — do not fix yet."
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
-
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3004,21 +2548,19 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 5: Fix and Verify.
+Now for Step 5: Fix and Verify.
 
-Goal for this step: Use the terminal tool on the calculator test project in this repo.
+Use the terminal tool on the calculator test project in this repo.
 
 Step 5 — Debug workflow.
 
-Paste this into the Agent — constraints matter as much as the ask: "@test_calculator.c 1. Run tests and confirm the failure 2. Fix the incorrect assertion in test_add() only 3. Re-run tests and confirm all pass Show the diff before I accept changes."
+Copy this into the Agent chat: "@test_calculator.c 1. Run tests and confirm the failure 2. Fix the incorrect assertion in test_add() only 3. Re-run tests and confirm all pass Show the diff before I accept changes."
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
-
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3033,19 +2575,17 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Step 6: Approval Rules.
+Now for Step 6: Approval Rules.
 
-Goal for this step: Use the terminal tool on the calculator test project in this repo.
+Use the terminal tool on the calculator test project in this repo.
 
 Step 6 — Safe vs. risky commands.
 
-Paste this into the Agent — constraints matter as much as the ask: "Run git status. Summarize only — do not commit or push."
+Copy this into the Agent chat: "Run git status. Summarize only — do not commit or push."
 
-Break the test on purpose if the lab says so — the Agent should read failing output, not guess.
+If the lab asked you to break a test, the Agent should read the failing output — not guess the fix.
 
-If tests pass immediately, ask what command the Agent ran and whether output matched stderr/stdout.
-
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3060,15 +2600,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 3.4: Effective Prompting in Practice. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 3.4: Effective Prompting in Practice. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Write constrained prompts and reusable templates for real tasks.
+Write constrained prompts and reusable templates for real tasks.
 
-The through-line: vague prompts produce vague, wide diffs. Constraints — files, functions, output format — shrink the blast radius.
+Vague prompts produce wide diffs. Constraints — which file, which function, what format — shrink the blast radius.
 
-Exercise 3.4 on calculator.c is deliberately small so you can see how one vague sentence refactors half the file.
+In the next exercise we use calculator.c on purpose: you will see one vague sentence refactor half the file.
 
-Lab reference: slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md
+The detailed lab guide is slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md.
 
 ---
 
@@ -3078,9 +2618,7 @@ Lab reference: slide-exercises/module-03/exercise-3.4-effective-prompting-in-pra
 
 **Script**
 
-Next: Anatomy of an Effective Prompt.
-
-1. ROLE / CONTEXT — "You are a senior Python developer…" 2. TASK — "Fix the bug in calculate_total()…" 3. CONSTRAINTS — "Do not change the function signature…" 4. OUTPUT FORMAT — "Show me the… (see slide)
+1. ROLE / CONTEXT — "You are a senior Python developer…" 2. TASK — "Fix the bug in calculate_total()…" 3. CONSTRAINTS — "Do not change the function signature…" 4. OUTPUT FORMAT — "Show me the diff and explain your change…" 5. SUCCESS CRITERIA — "Function should return 0 for empty input…"
 
 ---
 
@@ -3090,11 +2628,7 @@ Next: Anatomy of an Effective Prompt.
 
 **Script**
 
-Next: Bad Prompts vs. Good Prompts.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): "Fix this code": "Fix the IndexError in process_list() when list is empty. Do not change return type.". @calculator.c Fix divide: @calculator.c Improve divide() for division by zero. Change ONLY divide(). Show diff + cause.. "Add logging": "Add INFO-level logging to calculate() u
+"Fix this code". With AI models, "Fix the IndexError in process_list() when list is empty. Do not change return type.". @calculator.c Fix divide. With AI models, @calculator.c Improve divide() for division by zero. Change ONLY divide(). Show diff + cause.. "Add logging". With AI models, "Add INFO-level logging to calculate() using existing logger config.". "Make it faster". With AI models, "Optimize find_user() from O(n²) to O(n log n). Don't change signature.". "Review my code". With AI models, "Review auth.py for SQL injection, password handling, session issues. Ignore style.".
 
 ---
 
@@ -3106,9 +2640,7 @@ Slide reference (skim, do not read every cell): "Fix this code": "Fix the IndexE
 
 Always tell the agent what NOT to touch:
 
-Focus on the first few lines — for example: BOUNDARIES:.
-
-Next: The "Boundaries" Technique.
+The code on screen shows: BOUNDARIES:; - Do NOT change: function signatures, return types, existing tests; - Do NOT touch: config files, database schemas, other modules.
 
 ---
 
@@ -3118,11 +2650,7 @@ Next: The "Boundaries" Technique.
 
 **Script**
 
-Next: Avoiding Scope Creep.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Explicit boundaries: "Change ONLY login.js lines 42–56". One thing at a time: "First, just identify the issue. Don't fix yet.". Ask for plan first: "Plan Mode: Show me what you'll change before doing it". Use checkpoints: Create checkpoint before complex requests. Prefer diffs: "
+Explicit boundaries. With AI models, "Change ONLY login.js lines 42–56". One thing at a time. With AI models, "First, just identify the issue. Don't fix yet.". Ask for plan first. With AI models, "Plan Mode: Show me what you'll change before doing it". Use checkpoints. With AI models, create checkpoint before complex requests. Prefer diffs. With AI models, "Show me the diff, don't replace the whole file".
 
 ---
 
@@ -3132,21 +2660,21 @@ Slide reference (skim, do not read every cell): Explicit boundaries: "Change ONL
 
 **Script**
 
-Starting Exercise 3.4 — Effective Prompting in Practice. 22 min scheduled.
+We are starting Exercise 3.4 — Effective Prompting in Practice. We have about 22 min for this lab.
 
 Write constrained prompts and reusable templates for real tasks.
 
-The full lab guide with troubleshooting is in slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md.
+The full lab guide is in slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Goal for this step: Practice six prompting techniques on calculator.c from earlier exercises.
+Practice six prompting techniques on calculator.c from earlier exercises.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3161,25 +2689,25 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 1: Constrained Prompt.
+Now for Step 1: Constrained Prompt.
 
-Goal for this step: Task + boundaries + output format + success criteria.
+Task + boundaries + output format + success criteria.
 
-A good result looks like: Diff limited to divide() — not a full refactor.
+You should see: Diff limited to divide() — not a full refactor.
 
 Step 1 — Constrained prompt.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "@calculator.c Task: Improve divide() so it handles division by zero safely inside the function itself. Constraints: - Do NOT change any function signatures - Do NOT add new #include lines - Do NOT modify main() or other functions - Change ONLY the divide() function body Output format: Show the exact diff and explain the root cause in 2–3 sentences. Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5."
+Copy this into the Agent chat: "@calculator.c Task: Improve divide() so it handles division by zero safely inside the function itself. Constraints: - Do NOT change any function signatures - Do NOT add new #include lines - Do NOT modify main() or other functions - Change ONLY the divide() function body Output format: Show the exact diff and explain the root cause in 2–3 sentences. Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5."
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3194,23 +2722,23 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 2: Vague vs. Constrained.
+Now for Step 2: Vague vs. Constrained.
 
-Goal for this step: Task + boundaries + output format + success criteria.
+Task + boundaries + output format + success criteria.
 
-A good result looks like: Diff limited to divide() — not a full refactor.
+You should see: Diff limited to divide() — not a full refactor.
 
 Step 2 — Vague vs. constrained.
 
-Paste this into the Agent — constraints matter as much as the ask: "@calculator.c Fix the divide function."
+Copy this into the Agent chat: "@calculator.c Fix the divide function."
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3225,25 +2753,25 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Step 3: Plan Before Editing.
+Now for Step 3: Plan Before Editing.
 
-Goal for this step: Approve a plan before any file changes.
+Approve a plan before any file changes.
 
-A good result looks like: Written plan, no diff until you approve.
+You should see: Written plan, no diff until you approve.
 
 Step 3 — Plan before editing.
 
 Where: Ask Mode (/ask) or Agent with "do not edit yet".
 
-Paste this into the Agent — constraints matter as much as the ask: "@calculator.c Before making any changes, answer: 1. What is the smallest change needed for divide()? 2. Which lines would you change? 3. What could go wrong? 4. What will you NOT change? Do not edit files yet — I will review first."
+Copy this into the Agent chat: "@calculator.c Before making any changes, answer: 1. What is the smallest change needed for divide()? 2. Which lines would you change? 3. What could go wrong? 4. What will you NOT change? Do not edit files yet — I will review first."
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3258,23 +2786,23 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Step 4: DO NOT List.
+Now for Step 4: DO NOT List.
 
-Goal for this step: Forbid scope creep explicitly.
+Forbid scope creep explicitly.
 
-A good result looks like: Comment only — no logic changes.
+You should see: Comment only — no logic changes.
 
 Step 4 — DO NOT list.
 
-Paste this into the Agent — constraints matter as much as the ask: "@calculator.c Add a one-line comment above divide() explaining it performs integer division. DO NOT: - Change any function bodies - Rename functions - Add new functions - Modify main()"
+Copy this into the Agent chat: "@calculator.c Add a one-line comment above divide() explaining it performs integer division. DO NOT: - Change any function bodies - Rename functions - Add new functions - Modify main()"
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3289,25 +2817,25 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 5: One Change at a Time.
+Now for Step 5: One Change at a Time.
 
-Goal for this step: Two messages — propose, then apply.
+Two messages — propose, then apply.
 
-A good result looks like: Message 1 = no edit · Message 2 = small diff.
+You should see: Message 1 = no edit · Message 2 = small diff.
 
 Step 5 — One change at a time.
 
-Paste this into the Agent — constraints matter as much as the ask: "@calculator.c Show me the validation you would add inside divide() for division by zero. Do not edit the file yet."
+Copy this into the Agent chat: "@calculator.c Show me the validation you would add inside divide() for division by zero. Do not edit the file yet."
 
-Keep @calculator.c in the prompt so the Agent cannot wander to other files.
+Keep @calculator.c in the prompt so the Agent stays in the right file.
 
-Paste this into the Agent — constraints matter as much as the ask: "Now add only that validation to divide(). Show the diff before I accept. Do not change main() or other functions."
+Copy this into the Agent chat: "Now add only that validation to divide(). Show the diff before I accept. Do not change main() or other functions."
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3322,19 +2850,19 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Step 6: Prompt Templates.
+Now for Step 6: Prompt Templates.
 
-Goal for this step: Create prompts you can copy on real projects.
+Create prompts you can copy on real projects.
 
 Step 6 — Prompt templates.
 
-Paste this into the Agent — constraints matter as much as the ask: "## Bug Fix Template @{{file}} Task: [Describe bug] Constraints: Do NOT change [signatures / other files] Output: Show diff + root cause Success: [How to verify] ## Plan-First Template @{{file}} Before editing: list files, risks, and what you will NOT touch. Wait for my approval. ## Small Change Template @{{file}} Change ONLY: [function or lines] DO NOT: [forbidden changes] Show diff before applying."
+Copy this into the Agent chat: "## Bug Fix Template @{{file}} Task: [Describe bug] Constraints: Do NOT change [signatures / other files] Output: Show diff + root cause Success: [How to verify] ## Plan-First Template @{{file}} Before editing: list files, risks, and what you will NOT touch. Wait for my approval. ## Small Change Template @{{file}} Change ONLY: [function or lines] DO NOT: [forbidden changes] Show diff before applying."
 
-Step 2's vague prompt is the lesson — expect a wide diff. Step 1's constrained prompt should touch only divide().
+Step two's vague prompt may refactor more than divide() — that is the lesson.
 
-Use @calculator.c every time; without it the Agent may edit the wrong file.
+Keep @calculator.c in every prompt so the Agent stays in the right file.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3379,7 +2907,7 @@ Quick Reference Card
 
 **Script**
 
-Module 4 is about scaling Cursor across a team — rules travel with the repo, skills encode repeat workflows.
+Module 4 is about scaling Cursor for your team — rules, repository instructions, and reusable skills.
 
 Timing on slide: Cursor Training Program · ~60 min
 
@@ -3391,9 +2919,9 @@ Timing on slide: Cursor Training Program · ~60 min
 
 **Script**
 
-The module goal in plain language: Customize Cursor for team workflows with rules, skills, MCP, and subagents
+Our goal for this module: Customize Cursor for team workflows with rules, skills, MCP, and subagents
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -3403,13 +2931,17 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 4 — not a reading list, but skills you will practice.
+By the end of Module 4, you should be able to do the following.
 
-Highlight three that matter for your role: Create Rules that encode team conventions and guardrails; Write Repository Instructions for lightweight project guidance; Build and invoke reusable Skills for specialized workflows; plus more on screen.
+1. Create Rules that encode team conventions and guardrails.
 
-Next: learning objectives.
+2. Write Repository Instructions for lightweight project guidance.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Build and invoke reusable Skills for specialized workflows.
+
+4. Connect external tools via MCP and create slash workflows.
+
+5. Understand when and how to use Subagents for delegation.
 
 ---
 
@@ -3433,15 +2965,13 @@ Here is how we will spend our time: Lesson 4.1, Creating a Rule, about 20 min; L
 
 **Script**
 
-Lesson 4.1: Creating a Rule. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 4.1: Creating a Rule. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Create Cursor rules that persist coding standards for your team.
+Create Cursor rules that persist coding standards for your team.
 
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
-
-Lab reference: slide-exercises/module-04/exercise-4.1-creating-a-rule.md
+The detailed lab guide is slide-exercises/module-04/exercise-4.1-creating-a-rule.md.
 
 ---
 
@@ -3451,11 +2981,7 @@ Lab reference: slide-exercises/module-04/exercise-4.1-creating-a-rule.md
 
 **Script**
 
-Next: What Are Rules?.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Rule Type: Scope. Use this when When Applied. Global: All projects. Use this when Always. Project: Specific repo. Use this when When opening that project. File pattern: Matching files. Use this when When editing those files. User: Your account. Use this when Always across all pro
+Rule Type: Scope. Use this when When Applied. Global: All projects. Use this when Always. Project: Specific repo. Use this when When opening that project. File pattern: Matching files. Use this when When editing those files. User: Your account. Use this when Always across all projects.
 
 ---
 
@@ -3467,8 +2993,6 @@ Slide reference (skim, do not read every cell): Rule Type: Scope. Use this when 
 
 Rule Structure
 
-Next: Rule Structure.
-
 ---
 
 ### Slide 180 — description: Brief description of what this rule does globs: .py, src//.js alway…
@@ -3476,8 +3000,6 @@ Next: Rule Structure.
 **Type:** content · **Lesson:** 4.1
 
 **Script**
-
-Next: description: Brief description of what this rule does globs: .py, src//.js alway….
 
 description: Brief description of what this rule does globs: .py, src//.js alwaysApply: true
 
@@ -3490,8 +3012,6 @@ description: Brief description of what this rule does globs: .py, src//.js alway
 **Script**
 
 Write your instructions here in natural language. Good: ...  Bad: ...
-
-Next: Rule Title.
 
 ---
 
@@ -3521,19 +3041,19 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 4.1 — Creating a Rule. 20 min scheduled.
+We are starting Exercise 4.1 — Creating a Rule. We have about 20 min for this lab.
 
 Create Cursor rules that persist coding standards for your team.
 
-The full lab guide with troubleshooting is in slide-exercises/module-04/exercise-4.1-creating-a-rule.md.
+The full lab guide is in slide-exercises/module-04/exercise-4.1-creating-a-rule.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Paste this into the Agent — constraints matter as much as the ask: "mkdir -p .cursor/rules"
+Copy this into the Agent chat: "mkdir -p .cursor/rules"
 
-Paste this into the Agent — constraints matter as much as the ask: "globs: **/*.{js,ts,py} | alwaysApply: true Python: type hints, Black (88 chars), Google docstrings JS/TS: const over let, arrow functions, optional chaining General: no commented-out code, no console.log in prod"
+Copy this into the Agent chat: "globs: **/*.{js,ts,py} | alwaysApply: true Python: type hints, Black (88 chars), Google docstrings JS/TS: const over let, arrow functions, optional chaining General: no commented-out code, no console.log in prod"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3548,13 +3068,13 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Build & Test Rule.
+Now for Build & Test Rule.
 
-Paste this into the Agent — constraints matter as much as the ask: "Before changes: git status, git diff After changes: make test / pytest / npm test → make lint Do NOT suggest changes that break tests or need undocumented API keys"
+Copy this into the Agent chat: "Before changes: git status, git diff After changes: make test / pytest / npm test → make lint Do NOT suggest changes that break tests or need undocumented API keys"
 
-Paste this into the Agent — constraints matter as much as the ask: "Never: hardcoded secrets, eval() on user input, SQL concatenation Always: input validation, rate limiting, HTTPS, safe error messages Flag: exec/eval with user input, password/secret in variable names"
+Copy this into the Agent chat: "Never: hardcoded secrets, eval() on user input, SQL concatenation Always: input validation, rate limiting, HTTPS, safe error messages Flag: exec/eval with user input, password/secret in variable names"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3569,15 +3089,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Test & File-Specific Rules.
+Now for Test & File-Specific Rules.
 
 Step 5: Verify rules are applied:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Based on the project rules, what are the coding standards I should follow? What are the security guardrails?"
+Copy this into the Agent chat: "Based on the project rules, what are the coding standards I should follow? What are the security guardrails?"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3592,13 +3112,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Test & File-Specific Rules (Part 2).
+Now for Test & File-Specific Rules (Part 2).
 
 Step 6: Create .cursor/rules/react-components.mdc for */.jsx, */.tsx:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3613,15 +3133,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 4.2: Repository Instructions. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 4.2: Repository Instructions. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Add repository instructions the Agent reads automatically.
+Add repository instructions the Agent reads automatically.
 
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
-
-Lab reference: slide-exercises/module-04/exercise-4.2-repository-instructions.md
+The detailed lab guide is slide-exercises/module-04/exercise-4.2-repository-instructions.md.
 
 ---
 
@@ -3631,15 +3149,7 @@ Lab reference: slide-exercises/module-04/exercise-4.2-repository-instructions.md
 
 **Script**
 
-Next: Rules vs. Repository Instructions.
-
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
-
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Location: .cursor/rules/*.mdc. Use this when .cursor/repository-instructions.md. Complexity: Multiple files, scoped. Use this when Single file, global. Granularity: Per-file patterns. Use this when Entire repository. Use case: Detailed standards. Use this when High-level project 
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
 ---
 
@@ -3651,13 +3161,7 @@ Slide reference (skim, do not read every cell): Location: .cursor/rules/*.mdc. U
 
 Repository Instructions Structure
 
-The important lines are: .
-
-Next: Repository Instructions Structure.
-
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
-
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
 ---
 
@@ -3667,15 +3171,15 @@ Who owns these on a real team? Usually tech lead or platform — not every devel
 
 **Script**
 
-Starting Exercise 4.2 — Repository Instructions. 13 min scheduled.
+We are starting Exercise 4.2 — Repository Instructions. We have about 13 min for this lab.
 
 Add repository instructions the Agent reads automatically.
 
-The full lab guide with troubleshooting is in slide-exercises/module-04/exercise-4.2-repository-instructions.md.
+The full lab guide is in slide-exercises/module-04/exercise-4.2-repository-instructions.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3690,15 +3194,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Verify & Maintain.
+Now for Verify & Maintain.
 
 Step 2: Ask the Agent:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "What are the key technologies used in this project? How do I run the tests?"
+Copy this into the Agent chat: "What are the key technologies used in this project? How do I run the tests?"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3713,13 +3217,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Verify & Maintain (Part 2).
+Now for Verify & Maintain (Part 2).
 
 Step 3: Update instructions when:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3734,15 +3238,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 4.3: Creating and Invoking a Skill. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 4.3: Creating and Invoking a Skill. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Build and invoke reusable Agent skills for repeated workflows.
+Build and invoke reusable Agent skills for repeated workflows.
 
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
-
-Lab reference: slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md
+The detailed lab guide is slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md.
 
 ---
 
@@ -3752,19 +3254,7 @@ Lab reference: slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-sk
 
 **Script**
 
-This slide shows What Is a Skill?.
-
-A reusable, specialized workflow the agent loads and follows — a "prompt template with memory." <img src="assets/module-04/what-is-a-skill.svg" alt="What Is a Skill?" />
-
-Next: What Is a Skill?.
-
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
-
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
-
-On screen: What Is a Skill?
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
 ---
 
@@ -3774,17 +3264,17 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Starting Exercise 4.3 — Creating and Invoking a Skill. 20 min scheduled.
+We are starting Exercise 4.3 — Creating and Invoking a Skill. We have about 20 min for this lab.
 
 Build and invoke reusable Agent skills for repeated workflows.
 
-The full lab guide with troubleshooting is in slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md.
+The full lab guide is in slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Paste this into the Agent — constraints matter as much as the ask: "name: pr-review description: Review a PR for code quality, security, and team standards Step 1: Fetch diff (git fetch + git diff main...FETCH_HEAD) Step 2: Review — code quality, security, testing, docs, style Step 3: Output formatted review with Critical / Warning / Suggestion Verdict: APPROVE / REQUEST CHANGES / COMMENT"
+Copy this into the Agent chat: "name: pr-review description: Review a PR for code quality, security, and team standards Step 1: Fetch diff (git fetch + git diff main...FETCH_HEAD) Step 2: Review — code quality, security, testing, docs, style Step 3: Output formatted review with Critical / Warning / Suggestion Verdict: APPROVE / REQUEST CHANGES / COMMENT"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3799,11 +3289,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Security Audit Skill.
+Now for Security Audit Skill.
 
-Paste this into the Agent — constraints matter as much as the ask: "Scan for: Critical: hardcoded secrets, SQL injection, command injection, eval() Medium: no input validation, weak crypto, missing CSRF Low: debug endpoints, verbose errors, outdated deps Output: report with line numbers, fix suggestions, overall risk rating"
+Copy this into the Agent chat: "Scan for: Critical: hardcoded secrets, SQL injection, command injection, eval() Medium: no input validation, weak crypto, missing CSRF Low: debug endpoints, verbose errors, outdated deps Output: report with line numbers, fix suggestions, overall risk rating"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3818,15 +3308,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Invoke Skills.
+Now for Invoke Skills.
 
 Step 4: Invoke via slash command:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "/pr-review PR #42 /pr-review feature/payment-integration"
+Copy this into the Agent chat: "/pr-review PR #42 /pr-review feature/payment-integration"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3841,15 +3331,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Invoke Skills (Part 2).
+Now for Invoke Skills (Part 2).
 
 Step 5: List available skills:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "What skills are available in this project?"
+Copy this into the Agent chat: "What skills are available in this project?"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3864,13 +3354,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Invoke Skills (Part 3).
+Now for Invoke Skills (Part 3).
 
 Step 6: Create Onboarding skill — generates setup checklist from repo instructions.
 
 Where: Agent panel — `Ctrl+I`.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -3885,11 +3375,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 4.4: MCP, Hooks, and Slash Workflows. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 4.4: MCP, Hooks, and Slash Workflows. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-MCP is plumbing: one standard way to plug databases, browsers, and internal services into Cursor without custom hacks per vendor.
-
-You will see MCP again in team customization — rules tell the model how to behave; MCP gives it new hands.
+MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 
 ---
 
@@ -3899,19 +3387,7 @@ You will see MCP again in team customization — rules tell the model how to beh
 
 **Script**
 
-This slide shows What Is MCP?.
-
-MCP connects Cursor to external systems through a standard protocol so tools stay outside the model but still appear in the agent loop.
-
-Next: What Is MCP?.
-
-MCP is plumbing: one standard way to plug databases, browsers, and internal services into Cursor without custom hacks per vendor.
-
-You will see MCP again in team customization — rules tell the model how to behave; MCP gives it new hands.
-
-On screen: What Is MCP?
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+MCP is standard plumbing for connecting Cursor to databases, browsers, and internal services — one protocol instead of a custom integration per tool.
 
 ---
 
@@ -3921,11 +3397,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Hooks & Slash Workflows.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Hook: When It Runs. Use this when Use Case. pre-tool-use: Before tool call. Use this when Validate permissions, log. post-tool-use: After tool returns. Use this when Transform results, audit. pre-prompt: Before sending to model. Use this when Inject context, redact secrets. post-
+Hook: When It Runs. Use this when Use Case. pre-tool-use: Before tool call. Use this when Validate permissions, log. post-tool-use: After tool returns. Use this when Transform results, audit. pre-prompt: Before sending to model. Use this when Inject context, redact secrets. post-response: After agent responds. Use this when Format output, log.
 
 ---
 
@@ -3955,7 +3427,7 @@ In this walkthrough we will look at Slash Command Example. Create .cursor/comman
 
 **Script**
 
-Lesson 4.5: Subagents. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 4.5: Subagents. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
 ---
 
@@ -3965,15 +3437,9 @@ Lesson 4.5: Subagents. Participation: listen, participate, or follow along as in
 
 **Script**
 
-This slide shows What Are Subagents?.
+Turn to the diagram — What Are Subagents?.
 
 Independent agent instances for specialized tasks — own context, tools, and instructions — then report back to the main agent. <img src="assets/module-04/what-are-subagents.svg" alt="What Are Subagents?" />
-
-Next: What Are Subagents?.
-
-What Are Subagents?
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -3983,11 +3449,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: When to Use Subagents.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Parallel work: Multiple tasks simultaneously. Use this when Scan security AND generate docs. Isolation: Separate context. Use this when Analyze large file independently. Specialization: Different instructions. Use this when Security expert vs. UI designer. Sandboxing: Limit tool 
+Parallel work: Multiple tasks simultaneously. Use this when Scan security AND generate docs. Isolation: Separate context. Use this when Analyze large file independently. Specialization: Different instructions. Use this when Security expert vs. UI designer. Sandboxing: Limit tool access. Use this when Read-only subagent for unknown code.
 
 ---
 
@@ -3997,15 +3459,7 @@ Slide reference (skim, do not read every cell): Parallel work: Multiple tasks si
 
 **Script**
 
-Next: Subagent vs. Tool vs. Skill.
-
-Team leverage slide: rules and AGENTS.md scale your standards without repeating them in every prompt.
-
-Who owns these on a real team? Usually tech lead or platform — not every developer inventing their own.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Tool: Single action (read file, run command). Skill: Multi-step workflow, same context. Subagent: Parallel, isolated, specialized work.
+Rules and AGENTS.md travel with the repo so the whole team gets the same standards without repeating them in every prompt.
 
 ---
 
@@ -4055,7 +3509,7 @@ Quick Reference Card
 
 **Script**
 
-Module 5 moves automation to the terminal — same agent brain, different interface for scripts and CI.
+Module 5 moves the same agent to the terminal and to scripts you can automate.
 
 Timing on slide: Cursor Training Program · ~60 min
 
@@ -4067,9 +3521,9 @@ Timing on slide: Cursor Training Program · ~60 min
 
 **Script**
 
-The module goal in plain language: Master the Cursor CLI for terminal-based AI workflows and automation
+Our goal for this module: Master the Cursor CLI for terminal-based AI workflows and automation
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -4079,13 +3533,15 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 5 — not a reading list, but skills you will practice.
+By the end of Module 5, you should be able to do the following.
 
-Highlight three that matter for your role: Use the Cursor CLI in interactive mode for real-time AI collaboration; Run one-shot CLI commands for scripting and CI/CD integration; Hand off local sessions to Cloud Agents for remote execution; plus more on screen.
+1. Use the Cursor CLI in interactive mode for real-time AI collaboration.
 
-Next: learning objectives.
+2. Run one-shot CLI commands for scripting and CI/CD integration.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Hand off local sessions to Cloud Agents for remote execution.
+
+4. List, resume, and manage concurrent sessions effectively.
 
 ---
 
@@ -4109,11 +3565,11 @@ Here is how we will spend our time: Lesson 5.1, Interactive CLI, about 20 min; L
 
 **Script**
 
-Lesson 5.1: Interactive CLI. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 5.1: Interactive CLI. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Start an interactive Cursor CLI session from the terminal.
+Start an interactive Cursor CLI session from the terminal.
 
-Lab reference: slide-exercises/module-05/exercise-5.1-interactive-cli.md
+The detailed lab guide is slide-exercises/module-05/exercise-5.1-interactive-cli.md.
 
 ---
 
@@ -4123,17 +3579,7 @@ Lab reference: slide-exercises/module-05/exercise-5.1-interactive-cli.md
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Start AI sessions from your terminal.
-
-Second: Get code assistance without leaving your workflow — this one usually matters most in practice.
-
-Also on screen: Automate coding tasks with scripts, Integrate AI into existing CLI tools.
-
-Next: What Is the Cursor CLI?.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On What Is the Cursor CLI?, here is what I want you to take away. Start AI sessions from your terminal; Get code assistance without leaving your workflow; Automate coding tasks with scripts; Integrate AI into existing CLI tools.
 
 The Cursor CLI brings AI-powered coding directly to your command line. - Start AI sessions from your terminal
 
@@ -4145,11 +3591,7 @@ The Cursor CLI brings AI-powered coding directly to your command line. - Start A
 
 **Script**
 
-Next: Interactive Mode Commands.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): /model: Switch between AI models interactively. /compress: Summarize conversation, free up context window. /rules: Create and edit rules directly from CLI. /commands: Create and modify custom commands. /mcp enable/disable: Manage MCP servers. /usage: View Cursor usage stats. /abo
+/model. With AI models, switch between AI models interactively. /compress. With AI models, summarize conversation, free up context window. /rules. With AI models, create and edit rules directly from CLI. /commands. With AI models, create and modify custom commands. /mcp enable/disable. With AI models, manage MCP servers. /usage. With AI models, view Cursor usage stats. /about. With AI models, view environment and CLI configuration. /resume. With AI models, view and resume previous sessions.
 
 ---
 
@@ -4179,21 +3621,21 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 5.1 — Interactive CLI. 20 min scheduled.
+We are starting Exercise 5.1 — Interactive CLI. We have about 20 min for this lab.
 
 Start an interactive Cursor CLI session from the terminal.
 
-The full lab guide with troubleshooting is in slide-exercises/module-05/exercise-5.1-interactive-cli.md.
+The full lab guide is in slide-exercises/module-05/exercise-5.1-interactive-cli.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Start an interactive session.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent agent "Help me understand the current codebase structure""
+Copy this into the Agent chat: "agent agent "Help me understand the current codebase structure""
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4207,11 +3649,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: Navigate the session (inside the running agent session — same terminal window) — unless step notes Git Bash or WSL.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4225,15 +3667,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–5.
+Now for Steps 3–5.
 
 Step 3: Switch models:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "/model # Or list models outside session: agent --list-models"
+Copy this into the Agent chat: "/model # Or list models outside session: agent --list-models"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4247,15 +3689,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–5 (Part 2).
+Now for Steps 3–5 (Part 2).
 
 Step 4: Ask Mode (read-only):.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent --mode=ask "What does this project's main function do?" # Or inside session: /ask"
+Copy this into the Agent chat: "agent --mode=ask "What does this project's main function do?" # Or inside session: /ask"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4269,15 +3711,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–5 (Part 3).
+Now for Steps 3–5 (Part 3).
 
 Step 5: Plan Mode:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent --mode=plan "Add user authentication to this API""
+Copy this into the Agent chat: "agent --mode=plan "Add user authentication to this API""
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4291,15 +3733,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 6–7.
+Now for Steps 6–7.
 
 Step 6: Configure status line:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "npx -y cursor-statusline # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]"
+Copy this into the Agent chat: "npx -y cursor-statusline # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4313,15 +3755,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 6–7 (Part 2).
+Now for Steps 6–7 (Part 2).
 
 Step 7: Terminal key bindings:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent /setup-terminal"
+Copy this into the Agent chat: "agent /setup-terminal"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4335,11 +3777,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 5.2: One-Shot CLI. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 5.2: One-Shot CLI. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Run single-shot Agent commands from scripts and CI.
+Run single-shot Agent commands from scripts and CI.
 
-Lab reference: slide-exercises/module-05/exercise-5.2-one-shot-cli.md
+The detailed lab guide is slide-exercises/module-05/exercise-5.2-one-shot-cli.md.
 
 ---
 
@@ -4349,11 +3791,7 @@ Lab reference: slide-exercises/module-05/exercise-5.2-one-shot-cli.md
 
 **Script**
 
-Start with the line on screen: "Perfect for automation, CI/CD pipelines, and batch operations."
-
-Next: One-Shot Command Structure.
-
-Pause after the quote — let it land before you add examples.
+Read with me: "Perfect for automation, CI/CD pipelines, and batch operations."
 
 ---
 
@@ -4363,11 +3801,7 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Next: Use Cases for One-Shot CLI.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Code generation: agent "Create a React component for a login form". Documentation: agent "Generate JSDoc comments for src/api.js". CI/CD tasks: agent "Review this PR diff for security issues". Batch processing: Loop through files with agent commands. Pre-commit hooks: agent --mod
+Code generation. With AI models, agent "Create a React component for a login form". Documentation. With AI models, agent "Generate JSDoc comments for src/api.js". CI/CD tasks. With AI models, agent "Review this PR diff for security issues". Batch processing. With AI models, loop through files with agent commands. Pre-commit hooks. With AI models, agent --mode=ask "Check for console.log statements".
 
 ---
 
@@ -4377,21 +3811,21 @@ Slide reference (skim, do not read every cell): Code generation: agent "Create a
 
 **Script**
 
-Starting Exercise 5.2 — One-Shot CLI. 20 min scheduled.
+We are starting Exercise 5.2 — One-Shot CLI. We have about 20 min for this lab.
 
 Run single-shot Agent commands from scripts and CI.
 
-The full lab guide with troubleshooting is in slide-exercises/module-05/exercise-5.2-one-shot-cli.md.
+The full lab guide is in slide-exercises/module-05/exercise-5.2-one-shot-cli.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Basic one-shot commands:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent "What is the difference between let and const in JavaScript?" agent "Write a bash function that checks if a port is in use" agent --mode=ask "Explain the git rebase command with examples""
+Copy this into the Agent chat: "agent "What is the difference between let and const in JavaScript?" agent "Write a bash function that checks if a port is in use" agent --mode=ask "Explain the git rebase command with examples""
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4405,15 +3839,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: Specify models:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent --model gpt-5-mini "What does this command do: ls -la | grep .txt" agent --model claude-4.5-opus "Design a database schema for a task management system""
+Copy this into the Agent chat: "agent --model gpt-5-mini "What does this command do: ls -la | grep .txt" agent --model claude-4.5-opus "Design a database schema for a task management system""
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4427,11 +3861,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Scriptable Code Reviewer.
+Now for Scriptable Code Reviewer.
 
-Paste this into the Agent — constraints matter as much as the ask: "#!/bin/bash STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ') agent --mode=ask "Review these staged files for common issues: Files: $STAGED_FILES Check for: debugging statements, unused imports, security issues, missing error handling. Be concise.""
+Copy this into the Agent chat: "#!/bin/bash STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ') agent --mode=ask "Review these staged files for common issues: Files: $STAGED_FILES Check for: debugging statements, unused imports, security issues, missing error handling. Be concise.""
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4445,15 +3879,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Batch & Git Hooks.
+Now for Batch & Git Hooks.
 
 Step 4: Batch process files:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "for file in src/**/*.py; do agent --mode=ask --non-interactive \ "Summarize this Python file in one sentence: $(head -50 $file)" done"
+Copy this into the Agent chat: "for file in src/**/*.py; do agent --mode=ask --non-interactive \ "Summarize this Python file in one sentence: $(head -50 $file)" done"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4467,7 +3901,7 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Batch & Git Hooks (Part 2).
+Now for Batch & Git Hooks (Part 2).
 
 Step 5: Pre-commit hook — review staged diff for secrets, debug statements, merge markers.
 
@@ -4477,7 +3911,7 @@ Step 6: CI/CD — analyze test output and suggest fixes for failures.
 
 Terminal: PowerShell — clone/open repo, then continue in Agent panel.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4491,15 +3925,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 5.3: Cloud Handoff. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 5.3: Cloud Handoff. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Hand off a local CLI task to a Cloud Agent with &.
+Hand off a local CLI task to a Cloud Agent with &.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
-Lab reference: slide-exercises/module-05/exercise-5.3-cloud-handoff.md
+The detailed lab guide is slide-exercises/module-05/exercise-5.3-cloud-handoff.md.
 
 ---
 
@@ -4509,19 +3943,11 @@ Lab reference: slide-exercises/module-05/exercise-5.3-cloud-handoff.md
 
 **Script**
 
-Point 1: Continue from web or mobile (cursor.com/agents).
+On What Is Cloud Handoff?, here is what I want you to take away. Continue from web or mobile (cursor.com/agents); Let the agent run long tasks while you're away; Resume the session later from any device.
 
-Point 2: Let the agent run long tasks while you're away.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Point 3: Resume the session later from any device.
-
-Next: What Is Cloud Handoff?.
-
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+When the PR comes back, the same review discipline applies.
 
 Send a local conversation to a Cloud Agent: - Continue from web or mobile (cursor.com/agents)
 
@@ -4533,19 +3959,9 @@ Send a local conversation to a Cloud Agent: - Continue from web or mobile (curso
 
 **Script**
 
-This slide shows Cloud Handoff Flow.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-<img src="assets/module-05/cloud-handoff-flow.svg" alt="Cloud Handoff Flow" />
-
-Next: Cloud Handoff Flow.
-
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
-
-On screen: Cloud Handoff Flow
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+When the PR comes back, the same review discipline applies.
 
 ---
 
@@ -4555,21 +3971,21 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Starting Exercise 5.3 — Cloud Handoff. 18 min scheduled.
+We are starting Exercise 5.3 — Cloud Handoff. We have about 18 min for this lab.
 
 Hand off a local CLI task to a Cloud Agent with &.
 
-The full lab guide with troubleshooting is in slide-exercises/module-05/exercise-5.3-cloud-handoff.md.
+The full lab guide is in slide-exercises/module-05/exercise-5.3-cloud-handoff.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Start local session and hand off:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent & "Analyze the entire codebase and create a dependency graph.""
+Copy this into the Agent chat: "agent & "Analyze the entire codebase and create a dependency graph.""
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4583,15 +3999,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 1–3 (Part 2).
+Now for Steps 1–3 (Part 2).
 
 Step 2: Verify handoff:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "🚀 Handing off to Cloud Agent... ✅ Session running at: https://cursor.com/agents/[agent-id]"
+Copy this into the Agent chat: "🚀 Handing off to Cloud Agent... ✅ Session running at: https://cursor.com/agents/[agent-id]"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4605,13 +4021,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 1–3 (Part 3).
+Now for Steps 1–3 (Part 3).
 
 Step 3: Check status via browser or CLI.
 
 Where: Web browser — Edge or Chrome.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4625,15 +4041,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 4–6.
+Now for Steps 4–6.
 
 Step 4: Push existing conversation:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "& "Continue this conversation in the cloud. I need to log off.""
+Copy this into the Agent chat: "& "Continue this conversation in the cloud. I need to log off.""
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4647,15 +4063,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 4–6 (Part 2).
+Now for Steps 4–6 (Part 2).
 
 Step 5: Long-running task:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent "& Refactor the auth module to use JWT. Update all tests and docs.""
+Copy this into the Agent chat: "agent "& Refactor the auth module to use JWT. Update all tests and docs.""
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4669,15 +4085,15 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 4–6 (Part 3).
+Now for Steps 4–6 (Part 3).
 
 Step 6: Resume later:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent --resume [agent-id-from-cloud]"
+Copy this into the Agent chat: "agent --resume [agent-id-from-cloud]"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4691,15 +4107,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next: Cloud Handoff Best Practices.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Long-running tasks (>5 min): Quick questions. When you need to close laptop: Interactive debugging. Overnight batch processing: Tasks needing terminal access. Parallel work streams: Security-sensitive code (local only).
+When the PR comes back, the same review discipline applies.
 
 ---
 
@@ -4709,11 +4119,11 @@ Slide reference (skim, do not read every cell): Long-running tasks (>5 min): Qui
 
 **Script**
 
-Lesson 5.4: Listing and Resuming Sessions. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 5.4: Listing and Resuming Sessions. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: List, name, resume, and compress CLI Agent sessions.
+List, name, resume, and compress CLI Agent sessions.
 
-Lab reference: slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md
+The detailed lab guide is slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md.
 
 ---
 
@@ -4723,11 +4133,7 @@ Lab reference: slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessi
 
 **Script**
 
-Next: Session Management Commands.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): /resume: List all previous sessions and resume one. agent --resume [id]: Resume a specific session by ID. agent --list: List available sessions (alternative).
+/resume. With AI models, list all previous sessions and resume one. agent --resume [id]. With AI models, resume a specific session by ID. agent --list. With AI models, list available sessions (alternative).
 
 ---
 
@@ -4737,21 +4143,21 @@ Slide reference (skim, do not read every cell): /resume: List all previous sessi
 
 **Script**
 
-Starting Exercise 5.4 — Listing and Resuming Sessions. 20 min scheduled.
+We are starting Exercise 5.4 — Listing and Resuming Sessions. We have about 20 min for this lab.
 
 List, name, resume, and compress CLI Agent sessions.
 
-The full lab guide with troubleshooting is in slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md.
+The full lab guide is in slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Create multiple named sessions:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent "Just say one word: frontend-cleanup" # do work, exit agent "Just say one word: db-optimization" # do work, exit agent "Just say one word: docs-update""
+Copy this into the Agent chat: "agent "Just say one word: frontend-cleanup" # do work, exit agent "Just say one word: db-optimization" # do work, exit agent "Just say one word: docs-update""
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4765,15 +4171,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: List all sessions:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "/resume # 1. frontend-cleanup Agent (2 hours ago) # 2. db-optimization Agent (1 hour ago) # 3. docs-update Agent (30 minutes ago)"
+Copy this into the Agent chat: "/resume # 1. frontend-cleanup Agent (2 hours ago) # 2. db-optimization Agent (1 hour ago) # 3. docs-update Agent (30 minutes ago)"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4787,15 +4193,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–5.
+Now for Steps 3–5.
 
 Step 3: Resume by ID:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "agent --resume abc123-def456-ghi789"
+Copy this into the Agent chat: "agent --resume abc123-def456-ghi789"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4809,15 +4215,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–5 (Part 2).
+Now for Steps 3–5 (Part 2).
 
 Step 4: Concurrent sessions in different terminals:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "# Terminal 1: agent --resume frontend-cleanup # Terminal 2: agent --resume db-optimization"
+Copy this into the Agent chat: "# Terminal 1: agent --resume frontend-cleanup # Terminal 2: agent --resume db-optimization"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4831,15 +4237,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–5 (Part 3).
+Now for Steps 3–5 (Part 3).
 
 Step 5: Context management:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "/compress # Summarize conversation, free context window"
+Copy this into the Agent chat: "/compress # Summarize conversation, free context window"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4853,7 +4259,7 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 6–7 & Best Practices.
+Now for Steps 6–7 & Best Practices.
 
 Step 6: Export session summary as markdown.
 
@@ -4863,7 +4269,7 @@ Step 7: Create bin/cursor-sessions.sh to list and manage sessions.
 
 Where: Agent panel — `Ctrl+I`.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -4921,11 +4327,11 @@ Before we continue, make sure API keys are available where needed and that you c
 
 **Script**
 
-Module 6 introduces Cloud Agents in the product UI — watch runs, artifacts, and handoffs from local work.
+Module 6 introduces Cloud Agents in the Cursor UI — launching runs, tracking progress, and collecting artifacts.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
 Timing on slide: Cursor Training Program · ~90 min
 
@@ -4937,9 +4343,9 @@ Timing on slide: Cursor Training Program · ~90 min
 
 **Script**
 
-The module goal in plain language: Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations
+Our goal for this module: Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -4949,13 +4355,15 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 6 — not a reading list, but skills you will practice.
+By the end of Module 6, you should be able to do the following.
 
-Highlight three that matter for your role: Launch and monitor Cloud Agents from the Cursor UI; Collect and download artifacts from completed cloud runs; Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira); plus more on screen.
+1. Launch and monitor Cloud Agents from the Cursor UI.
 
-Next: learning objectives.
+2. Collect and download artifacts from completed cloud runs.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira).
+
+4. Manage cloud agent history and settings.
 
 ---
 
@@ -4979,15 +4387,15 @@ Here is how we will spend our time: Lesson 6.1, Launching a Cloud Agent, about 2
 
 **Script**
 
-Lesson 6.1: Launching a Cloud Agent. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 6.1: Launching a Cloud Agent. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Launch a Cloud Agent from the Cursor UI and track its run.
+Launch a Cloud Agent from the Cursor UI and track its run.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
-Lab reference: slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md
+The detailed lab guide is slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md.
 
 ---
 
@@ -4997,15 +4405,9 @@ Lab reference: slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md
 
 **Script**
 
-Next: Cloud Agents vs. Local Agent.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Runs on: Your machine. Use this when Cursor's infrastructure. Persistence: Ends when you quit. Use this when Continues indefinitely. Access: Local only. Use this when Web, mobile, API. Terminal access: Your terminal. Use this when Simulated/scripted. File access: Local files. Use
+When the PR comes back, the same review discipline applies.
 
 ---
 
@@ -5015,21 +4417,11 @@ Slide reference (skim, do not read every cell): Runs on: Your machine. Use this 
 
 **Script**
 
-There are 5 items on this slide. I'll emphasize the first two, then you can scan the rest.
+On When to Use Cloud Agents, here is what I want you to take away. Long-running tasks (>10 min) · Scheduled jobs; Tasks while offline · Parallel execution; Team-accessible results (share agent URL); and several more points on the slide you can scan as we go.
 
-First: Long-running tasks (>10 min) · Scheduled jobs.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Second: Tasks while offline · Parallel execution — this one usually matters most in practice.
-
-Also on screen: Team-accessible results (share agent URL), Interactive debugging · Local-only files….
-
-Next: When to Use Cloud Agents.
-
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+When the PR comes back, the same review discipline applies.
 
 Good for: - Long-running tasks (>10 min) · Scheduled jobs
 
@@ -5041,15 +4433,9 @@ Good for: - Long-running tasks (>10 min) · Scheduled jobs
 
 **Script**
 
-Next: Accessing Cloud Agents UI.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): From Cursor Editor: View → Cloud Agents (or cloud icon in sidebar). From Web: https://cursor.com/agents. From Mobile: cursor.com/agents (responsive web).
+When the PR comes back, the same review discipline applies.
 
 ---
 
@@ -5059,15 +4445,11 @@ Slide reference (skim, do not read every cell): From Cursor Editor: View → Clo
 
 **Script**
 
-Cloud Agent Dashboard
+The code on screen shows: Active (2);   🔄 security-audit-2024    running • 12 min elapsed;   🔄 doc-generator           running • 3 min elapsed.
 
-Focus on the first few lines — for example: Active (2).
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Next: Cloud Agent Dashboard.
-
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
-
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
 ---
 
@@ -5097,21 +4479,21 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 6.1 — Launching a Cloud Agent. 25 min scheduled.
+We are starting Exercise 6.1 — Launching a Cloud Agent. We have about 25 min for this lab.
 
 Launch a Cloud Agent from the Cursor UI and track its run.
 
-The full lab guide with troubleshooting is in slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md.
+The full lab guide is in slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Navigate to Cloud Agents.
 
 Terminal: PowerShell — `Ctrl+ `` in Cursor.
 
-Paste this into the Agent — constraints matter as much as the ask: "# Cursor Editor: cloud icon or View → Cloud Agents open https://cursor.com/agents"
+Copy this into the Agent chat: "# Cursor Editor: cloud icon or View → Cloud Agents open https://cursor.com/agents"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5126,15 +4508,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: Click "+ New" and fill out:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "Repository: https://github.com/YOUR_ORG/YOUR_REPO Branch: main Prompt: Read README and main source files. Summarize: - What this project does - Key dependencies · How to run locally · Common issues Model: claude-4.6-sonnet Auto-create PR: ☐"
+Copy this into the Agent chat: "Repository: https://github.com/YOUR_ORG/YOUR_REPO Branch: main Prompt: Read README and main source files. Summarize: - What this project does - Key dependencies · How to run locally · Common issues Model: claude-4.6-sonnet Auto-create PR: ☐"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5149,15 +4531,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 3–4.
+Now for Steps 3–4.
 
 Step 3: Monitor live log in real time:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "[10:45:01] Agent starting... [10:45:02] Cloning repository... [10:45:15] Repository cloned [10:45:16] Reading README.md [10:45:40] Generating summary..."
+Copy this into the Agent chat: "[10:45:01] Agent starting... [10:45:02] Cloning repository... [10:45:15] Repository cloned [10:45:16] Reading README.md [10:45:40] Generating summary..."
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5172,13 +4554,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 3–4 (Part 2).
+Now for Steps 3–4 (Part 2).
 
 Step 4: Configure settings (gear icon):.
 
 Where: Agent panel — `Ctrl+I`.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5193,15 +4575,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 5–6.
+Now for Steps 5–6.
 
 Step 5: Launch with PR creation:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style Auto-create PR: ✅ Yes Branch prefix: docs/contributing"
+Copy this into the Agent chat: "Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style Auto-create PR: ✅ Yes Branch prefix: docs/contributing"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5216,15 +4598,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 5–6 (Part 2).
+Now for Steps 5–6 (Part 2).
 
 Step 6: Share agent URL with team:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "https://cursor.com/agents/agt_abc123def456"
+Copy this into the Agent chat: "https://cursor.com/agents/agt_abc123def456"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5239,15 +4621,15 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 6.2: Cloud Agent Artifacts. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 6.2: Cloud Agent Artifacts. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Collect and download artifacts produced by Cloud Agents.
+Collect and download artifacts produced by Cloud Agents.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
-Lab reference: slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md
+The detailed lab guide is slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md.
 
 ---
 
@@ -5257,11 +4639,7 @@ Lab reference: slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md
 
 **Script**
 
-Next: Types of Artifacts.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Artifact Type: Examples. Log files: agent.log, debug.log. Code files: .py, .js, *.html. Documents: .md, .txt, *.json. Images: .png, .jpg, *.svg. Archives: .zip, .tar.gz. Test results: junit.xml, coverage.json.
+Artifact Type. With AI models, examples. Log files. With AI models, agent.log, debug.log. Code files. With AI models, .py, .js, *.html. Documents. With AI models, .md, .txt, *.json. Images. With AI models, .png, .jpg, *.svg. Archives. With AI models, .zip, .tar.gz. Test results. With AI models, junit.xml, coverage.json.
 
 ---
 
@@ -5271,17 +4649,7 @@ Slide reference (skim, do not read every cell): Artifact Type: Examples. Log fil
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Stored for 30 days.
-
-Second: Multiple artifacts per agent — this one usually matters most in practice.
-
-Also on screen: Download URLs expire after 15 minutes, Max 100MB per file · 1GB total per agent.
-
-Next: Artifact Storage.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On Artifact Storage, here is what I want you to take away. Stored for 30 days; Multiple artifacts per agent; Download URLs expire after 15 minutes; Max 100MB per file · 1GB total per agent.
 
 - Stored for 30 days - Multiple artifacts per agent
 
@@ -5293,21 +4661,21 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Starting Exercise 6.2 — Cloud Agent Artifacts. 25 min scheduled.
+We are starting Exercise 6.2 — Cloud Agent Artifacts. We have about 25 min for this lab.
 
 Collect and download artifacts produced by Cloud Agents.
 
-The full lab guide with troubleshooting is in slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md.
+The full lab guide is in slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Launch agent that generates artifacts:.
 
 Where: Agent panel — `Ctrl+I`.
 
-Paste this into the Agent — constraints matter as much as the ask: "Generate: 1. api_documentation.md — OpenAPI-style docs for all endpoints 2. test_report.json — test suite summary 3. screenshot.png — main UI screenshot (if applicable) 4. dependencies.txt — all packages and versions Place all in artifacts/ directory."
+Copy this into the Agent chat: "Generate: 1. api_documentation.md — OpenAPI-style docs for all endpoints 2. test_report.json — test suite summary 3. screenshot.png — main UI screenshot (if applicable) 4. dependencies.txt — all packages and versions Place all in artifacts/ directory."
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5322,13 +4690,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: After completion, view artifact list in UI with Download buttons and Download All (zip).
 
 Where: Agent panel — `Ctrl+I`.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5343,7 +4711,7 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 3–5.
+Now for Steps 3–5.
 
 Step 3: Download individual artifacts.
 
@@ -5353,7 +4721,7 @@ Step 4: Download all as zip.
 
 Where: Agent panel — `Ctrl+I`.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5368,13 +4736,13 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Steps 3–5 (Part 2).
+Now for Steps 3–5 (Part 2).
 
 Step 5: Preview in browser:.
 
 Where: Web browser — Edge or Chrome.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5389,9 +4757,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — API Access.
+Now for API Access.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5406,9 +4774,9 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — CI/CD Integration.
+Now for CI/CD Integration.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5423,11 +4791,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 6.3: Cloud Agents from Messaging Platforms. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 6.3: Cloud Agents from Messaging Platforms. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
 ---
 
@@ -5437,11 +4805,7 @@ Trust boundary: they need repo access and clear task descriptions — same revie
 
 **Script**
 
-Next: Supported Integrations.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Platform: Capabilities. Use this when Setup. Slack: @Cursor mentions, command triggering, notifications. Use this when Medium (Slack app). Microsoft Teams: @Cursor in channels, delegate tasks to cloud agents. Use this when Medium (Teams integration). Jira: Assign issues to Cursor
+Platform: Capabilities. Use this when Setup. Slack: @Cursor mentions, command triggering, notifications. Use this when Medium (Slack app). Microsoft Teams: @Cursor in channels, delegate tasks to cloud agents. Use this when Medium (Teams integration). Jira: Assign issues to Cursor, @Cursor in comments, PR updates in Jira. Use this when Medium (requires Rovo). Discord: Command triggering, webhook responses. Use this when Medium (Bot token). Generic Webhook: POST-triggered agents. Use this when Low (any platform).
 
 ---
 
@@ -5451,15 +4815,9 @@ Slide reference (skim, do not read every cell): Platform: Capabilities. Use this
 
 **Script**
 
-This slide shows Messaging Integration Architecture.
+Turn to the diagram — Messaging Integration Architecture.
 
 <img src="assets/module-06/messaging-integration-architecture.svg" alt="Messaging Integration Architecture" />
-
-Next: Messaging Integration Architecture.
-
-Messaging Integration Architecture
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -5533,15 +4891,11 @@ When the demo finishes, we will discuss when discord integration belongs in prod
 
 **Script**
 
-Any HTTP POST can trigger agents: Use cases: GitHub webhook on PR · Cron jobs · CI/CD post-deploy · Internal dashboard Status notifications: configure notifyOnStart, notifyOnComplete, notifyOnError
+Any HTTP POST can trigger agents: Use cases: GitHub webhook on PR · Cron jobs · CI/CD post-deploy · Internal dashboard
 
 Run this from PowerShell with your key in an environment variable. Never paste live credentials into chat or commit them to git.
 
-Next: Generic Webhook & Notifications.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -5581,7 +4935,7 @@ Quick Reference Card
 
 **Script**
 
-Module 7 is API foundations — keys, errors, caching. Boring infrastructure that keeps integrations alive in production.
+Module 7 covers API foundations — keys, errors, and caching — the infrastructure that keeps integrations running.
 
 Timing on slide: Cursor Training Program · ~60 min
 
@@ -5593,9 +4947,9 @@ Timing on slide: Cursor Training Program · ~60 min
 
 **Script**
 
-The module goal in plain language: Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests
+Our goal for this module: Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -5605,13 +4959,17 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 7 — not a reading list, but skills you will practice.
+By the end of Module 7, you should be able to do the following.
 
-Highlight three that matter for your role: Identify the five Cursor APIs and their use cases; Generate and securely manage API keys; Implement rate limit handling and error recovery; plus more on screen.
+1. Identify the five Cursor APIs and their use cases.
 
-Next: learning objectives.
+2. Generate and securely manage API keys.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Implement rate limit handling and error recovery.
+
+4. Use ETag caching for efficient repeat queries.
+
+5. Test authentication by listing available models.
 
 ---
 
@@ -5635,7 +4993,7 @@ Here is how we will spend our time: Lesson 7.1, The Cursor API Landscape, about 
 
 **Script**
 
-Lesson 7.1: The Cursor API Landscape. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 7.1: The Cursor API Landscape. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
 ---
 
@@ -5645,11 +5003,7 @@ Lesson 7.1: The Cursor API Landscape. Participation: listen, participate, or fol
 
 **Script**
 
-Next: The Five APIs.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): API: Endpoint. Use this when Purpose. Chat Completions: /v1/chat/completions. Use this when OpenAI-compatible chat interface. Agents: /v1/agents. Use this when Create and manage Cloud Agents. Files: /v1/files. Use this when Upload/download files for agents. Admin: /v1/admin/*. Us
+API: Endpoint. Use this when Purpose. Chat Completions: /v1/chat/completions. Use this when OpenAI-compatible chat interface. Agents: /v1/agents. Use this when Create and manage Cloud Agents. Files: /v1/files. Use this when Upload/download files for agents. Admin: /v1/admin/*. Use this when Team management, analytics, policies. Webhooks: /v1/webhooks. Use this when Register and manage webhook endpoints.
 
 ---
 
@@ -5659,11 +5013,7 @@ Slide reference (skim, do not read every cell): API: Endpoint. Use this when Pur
 
 **Script**
 
-Next: API Comparison Matrix.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): API: Auth Type. Use this when Rate Limit. Chat Completions: User or API key. Use this when Per-minute token. Agents: User API key. Use this when Per-minute requests. Files: User API key. Use this when Per-minute. Admin: Admin API key. Use this when Higher limits. Webhooks: User A
+API: Auth Type. Use this when Rate Limit. Chat Completions: User or API key. Use this when Per-minute token. Agents: User API key. Use this when Per-minute requests. Files: User API key. Use this when Per-minute. Admin: Admin API key. Use this when Higher limits. Webhooks: User API key. Use this when Per-minute.
 
 ---
 
@@ -5673,17 +5023,7 @@ Slide reference (skim, do not read every cell): API: Auth Type. Use this when Ra
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Call a model directly → Chat Completions API (OpenAI-compatible).
-
-Second: Run a long task that writes code → Agents API — this one usually matters most in practice.
-
-Also on screen: Manage team usage and limits → Admin API, Be notified when agents complete → Webhooks API.
-
-Next: When to Use Which API.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On When to Use Which API, here is what I want you to take away. Call a model directly → Chat Completions API (OpenAI-compatible); Run a long task that writes code → Agents API; Manage team usage and limits → Admin API; Be notified when agents complete → Webhooks API.
 
 - Call a model directly → Chat Completions API (OpenAI-compatible) - Run a long task that writes code → Agents API
 
@@ -5695,11 +5035,7 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Success Criteria: Understand five APIs · select correct API · understand OpenAI compatibility
-
 Run this from PowerShell with your key in an environment variable. Never paste live credentials into chat or commit them to git.
-
-Next: OpenAI Compatibility.
 
 ---
 
@@ -5709,11 +5045,11 @@ Next: OpenAI Compatibility.
 
 **Script**
 
-Lesson 7.2: Authentication. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 7.2: Authentication. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Create Admin and User API keys and verify authentication.
+Create Admin and User API keys and verify authentication.
 
-Lab reference: slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md
+The detailed lab guide is slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md.
 
 ---
 
@@ -5723,11 +5059,7 @@ Lab reference: slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys
 
 **Script**
 
-Next: Authentication Methods.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Method: Format. Use this when When to Use. HTTP Basic: -u "api_key:". Use this when CLI, curl, most SDKs. Bearer Token: Authorization: Bearer <key>. Use this when OAuth-style clients. User API Key: Regular key. Use this when Agents, Chat, Files APIs. Admin API Key: admin_ prefixe
+Method: Format. Use this when When to Use. HTTP Basic: -u "api_key:". Use this when CLI, curl, most SDKs. Bearer Token: Authorization: Bearer <key>. Use this when OAuth-style clients. User API Key: Regular key. Use this when Agents, Chat, Files APIs. Admin API Key: admin_ prefixed. Use this when Admin API only.
 
 ---
 
@@ -5737,21 +5069,9 @@ Slide reference (skim, do not read every cell): Method: Format. Use this when Wh
 
 **Script**
 
-There are 6 items on this slide. I'll emphasize the first two, then you can scan the rest.
+On API Key Types, here is what I want you to take away. Generated in: Cursor Settings → API Keys; Format: cursor_xxxxxxxxxxxx; Can access: Agents, Chat, Files, Webhooks; and several more points on the slide you can scan as we go.
 
-First: Generated in: Cursor Settings → API Keys.
-
-Second: Format: cursor_xxxxxxxxxxxx — this one usually matters most in practice.
-
-Also on screen: Can access: Agents, Chat, Files, Webhooks, Generated in: Organization Settings → API Keys….
-
-Next: API Key Types.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 User API Key - Generated in: Cursor Settings → API Keys
 
@@ -5763,17 +5083,7 @@ User API Key - Generated in: Cursor Settings → API Keys
 
 **Script**
 
-There are 7 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Never commit API keys to git.
-
-Second: Use environment variables or secret managers — this one usually matters most in practice.
-
-Also on screen: Rotate keys periodically (every 90 days), Use different keys for dev and production….
-
-Next: Security Best Practices.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On Security Best Practices, here is what I want you to take away. Never commit API keys to git; Use environment variables or secret managers; Rotate keys periodically (every 90 days); and several more points on the slide you can scan as we go.
 
 - Never commit API keys to git - Use environment variables or secret managers
 
@@ -5805,21 +5115,21 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 7.2 — Generate and Test API Keys. 15 min scheduled.
+We are starting Exercise 7.2 — Generate and Test API Keys. We have about 15 min for this lab.
 
 Create Admin and User API keys and verify authentication.
 
-The full lab guide with troubleshooting is in slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md.
+The full lab guide is in slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
 Step 1: Generate User API Key — Where: Cursor app → Settings → API Keys → Generate New Key (copy the key; you will not see it again).
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5835,17 +5145,17 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 1–3 (Part 2).
+Now for Steps 1–3 (Part 2).
 
 Step 2: Set environment variable — Terminal: PowerShell (`Ctrl+ ``).
 
-Paste this into the Agent — constraints matter as much as the ask: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx" $env:CURSOR_USER_API_KEY"
+Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx" $env:CURSOR_USER_API_KEY"
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5861,15 +5171,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 1–3 (Part 3).
+Now for Steps 1–3 (Part 3).
 
 Step 3: Test with curl — Terminal: PowerShell.
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5885,19 +5195,19 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 4–5.
+Now for Steps 4–5.
 
 Step 4: Test with Python requests:.
 
 Terminal: PowerShell — save as test_models.py, then python test_models.py — `Ctrl+L`.
 
-Paste this into the Agent — constraints matter as much as the ask: "response = requests.get( "https://api.cursor.com/v1/models", auth=(API_KEY, "") # Empty password )"
+Copy this into the Agent chat: "response = requests.get( "https://api.cursor.com/v1/models", auth=(API_KEY, "") # Empty password )"
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5913,19 +5223,19 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 4–5 (Part 2).
+Now for Steps 4–5 (Part 2).
 
 Step 5: Test with OpenAI SDK:.
 
 Terminal: PowerShell — python test_openai_sdk.py — `Ctrl+L`.
 
-Paste this into the Agent — constraints matter as much as the ask: "client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY) response = client.chat.completions.create( model="gpt-5-mini", messages=[{"role": "user", "content": "Say 'API works!'"}], max_tokens=10 )"
+Copy this into the Agent chat: "client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY) response = client.chat.completions.create( model="gpt-5-mini", messages=[{"role": "user", "content": "Say 'API works!'"}], max_tokens=10 )"
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5941,17 +5251,17 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 6–7.
+Now for Steps 6–7.
 
 Step 6: Generate and test Admin API Key:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5967,17 +5277,17 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 6–7 (Part 2).
+Now for Steps 6–7 (Part 2).
 
 Step 7: Revoke compromised keys via API or Settings → API Keys → Revoke.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Admin keys and User keys are not interchangeable — 401 often means wrong key type, not a bad copy-paste.
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
-First success is a 200 with expected JSON — celebrate that before moving to harder exercises.
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -5993,15 +5303,13 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 7.3: Rate Limits and Error Handling. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 7.3: Rate Limits and Error Handling. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Handle 429 responses with backoff and rate-limit headers.
+Handle 429 responses with backoff and rate-limit headers.
 
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Lab reference: slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md
+The detailed lab guide is slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md.
 
 ---
 
@@ -6011,15 +5319,7 @@ Lab reference: slide-exercises/module-07/exercise-7.3-rate-limits-and-error-hand
 
 **Script**
 
-Next: Rate Limits by API.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): API: Limit. Use this when Window. Chat Completions: 1000 requests. Use this when per minute. Chat Completions (tokens): 500k tokens. Use this when per minute. Agents (create): 100 requests. Use this when per minute. Admin API: 500 requests. Use this when per minute. Webhooks: 200
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6029,11 +5329,7 @@ Slide reference (skim, do not read every cell): API: Limit. Use this when Window
 
 **Script**
 
-Next: HTTP Status Codes to Handle.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Code: Meaning. Use this when Action. 200: Success. Use this when Process response. 400: Bad Request. Use this when Fix request parameters. 401: Unauthorized. Use this when Check API key. 403: Forbidden. Use this when Check permissions. 429: Too Many Requests. Use this when Implem
+Code: Meaning. Use this when Action. 200: Success. Use this when Process response. 400: Bad Request. Use this when Fix request parameters. 401: Unauthorized. Use this when Check API key. 403: Forbidden. Use this when Check permissions. 429: Too Many Requests. Use this when Implement backoff. 500/503: Server Error. Use this when Retry with backoff.
 
 ---
 
@@ -6043,15 +5339,7 @@ Slide reference (skim, do not read every cell): Code: Meaning. Use this when Act
 
 **Script**
 
-Next: Rate Limit Headers.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Header: Description. Use this when Example. X-RateLimit-Limit: Max requests per window. Use this when 1000. X-RateLimit-Remaining: Requests left. Use this when 942. X-RateLimit-Reset: Window reset (Unix timestamp). Use this when 1700000000. Retry-After: Seconds to wait (on 429). 
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6061,15 +5349,15 @@ Slide reference (skim, do not read every cell): Header: Description. Use this wh
 
 **Script**
 
-Starting Exercise 7.3 — Rate Limits and Error Handling. 15 min scheduled.
+We are starting Exercise 7.3 — Rate Limits and Error Handling. We have about 15 min for this lab.
 
 Handle 429 responses with backoff and rate-limit headers.
 
-The full lab guide with troubleshooting is in slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md.
+The full lab guide is in slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6085,9 +5373,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Rate Limiter & Client.
+Now for Rate Limiter & Client.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6103,15 +5391,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 7.4: ETag Caching. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 7.4: ETag Caching. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Use ETags to avoid re-downloading unchanged API data.
+Use ETags to avoid re-downloading unchanged API data.
 
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Lab reference: slide-exercises/module-07/exercise-7.4-etag-caching.md
+The detailed lab guide is slide-exercises/module-07/exercise-7.4-etag-caching.md.
 
 ---
 
@@ -6121,13 +5407,7 @@ Lab reference: slide-exercises/module-07/exercise-7.4-etag-caching.md
 
 **Script**
 
-Next: What Are ETags?.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-On screen: ETags are unique identifiers for API response versions. 1. Send If-None-Match header with previous ETag 2. Server returns 304 Not Modified if unchanged 3. No data transfer, no rate limit consumption
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6137,19 +5417,7 @@ On screen: ETags are unique identifiers for API response versions. 1. Send If-No
 
 **Script**
 
-This slide shows ETag Flow.
-
-<img src="assets/module-07/etag-flow.svg" alt="ETag Flow" />
-
-Next: ETag Flow.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-On screen: ETag Flow
-
-Trace the diagram once with your finger or cursor — motion helps retention.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6159,15 +5427,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Next: Endpoints Supporting ETags.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Endpoint: ETag Support. Use this when Cache Freshness. /v1/models: ✅ Yes. Use this when Changes rarely. /v1/admin/members: ✅ Yes. Use this when Changes occasionally. /v1/agents/{id}: ✅ Yes. Use this when Changes during run. /v1/analytics/usage: ✅ Yes. Use this when Daily changes.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6177,15 +5437,15 @@ Slide reference (skim, do not read every cell): Endpoint: ETag Support. Use this
 
 **Script**
 
-Starting Exercise 7.4 — ETag Caching. 15 min scheduled.
+We are starting Exercise 7.4 — ETag Caching. We have about 15 min for this lab.
 
 Use ETags to avoid re-downloading unchanged API data.
 
-The full lab guide with troubleshooting is in slide-exercises/module-07/exercise-7.4-etag-caching.md.
+The full lab guide is in slide-exercises/module-07/exercise-7.4-etag-caching.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6201,9 +5461,9 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — ETagCache & CachedClient.
+Now for ETagCache & CachedClient.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6219,11 +5479,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 7.5: Listing Available Models. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 7.5: Listing Available Models. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Query available models and pick the right one programmatically.
+Query available models and pick the right one programmatically.
 
-Lab reference: slide-exercises/module-07/exercise-7.5-list-available-models.md
+The detailed lab guide is slide-exercises/module-07/exercise-7.5-list-available-models.md.
 
 ---
 
@@ -6233,13 +5493,9 @@ Lab reference: slide-exercises/module-07/exercise-7.5-list-available-models.md
 
 **Script**
 
-Start with the line on screen: "Simplest API call — perfect for verifying your API key works."
+Read with me: "Simplest API call — perfect for verifying your API key works."
 
-Expand in your own words — do not read the bullet text verbatim: Response includes: - Model ID · Display name · Context window size
-
-Next: The Models Endpoint.
-
-Pause after the quote — let it land before you add examples.
+Response includes: - Model ID · Display name · Context window size - Pricing (input/output per 1M tokens) - Capabilities (vision, tool calling, etc.)
 
 ---
 
@@ -6249,19 +5505,19 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 7.5 — List Available Models. 10 min scheduled.
+We are starting Exercise 7.5 — List Available Models. We have about 10 min for this lab.
 
 Query available models and pick the right one programmatically.
 
-The full lab guide with troubleshooting is in slide-exercises/module-07/exercise-7.5-list-available-models.md.
+The full lab guide is in slide-exercises/module-07/exercise-7.5-list-available-models.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: List with curl:.
 
 Terminal: PowerShell — `Ctrl+ `` in Cursor.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6277,13 +5533,13 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 1–2 (Part 2).
+Now for Steps 1–2 (Part 2).
 
 Step 2: Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support.
 
 Terminal: PowerShell — python script.py.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6299,15 +5555,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–4.
+Now for Steps 3–4.
 
 Step 3: Filter models:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "# Models with 100k+ context large_context = [m for m in models if m.get('context_window', 0) >= 100000] # Cheapest by input price cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]"
+Copy this into the Agent chat: "# Models with 100k+ context large_context = [m for m in models if m.get('context_window', 0) >= 100000] # Cheapest by input price cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6323,15 +5579,15 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — Steps 3–4 (Part 2).
+Now for Steps 3–4 (Part 2).
 
 Step 4: Model selection helper:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "select_model("code_review", "balanced") # → claude-4.6-sonnet select_model("simple_fix", "low") # → gpt-5-mini select_model("frontend_ui", "high") # → gemini-3.1-pro"
+Copy this into the Agent chat: "select_model("code_review", "balanced") # → claude-4.6-sonnet select_model("simple_fix", "low") # → gpt-5-mini select_model("frontend_ui", "high") # → gemini-3.1-pro"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6377,13 +5633,13 @@ Quick Reference Card
 
 **Script**
 
-Module 8 wires Cloud Agents programmatically — create runs, stream events, verify webhooks.
+Module 8 wires Cloud Agents programmatically: create runs, stream events, and verify webhooks.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 Timing on slide: Cursor Training Program · ~60 min
 
@@ -6395,9 +5651,9 @@ Timing on slide: Cursor Training Program · ~60 min
 
 **Script**
 
-The module goal in plain language: Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications
+Our goal for this module: Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -6407,13 +5663,19 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 8 — not a reading list, but skills you will practice.
+By the end of Module 8, you should be able to do the following.
 
-Highlight three that matter for your role: Create a Cloud Agent programmatically using the API; Stream agent responses in real-time using SSE with resume support; List and download artifacts from a completed agent; plus more on screen.
+1. Create a Cloud Agent programmatically using the API.
 
-Next: learning objectives.
+2. Stream agent responses in real-time using SSE with resume support.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. List and download artifacts from a completed agent.
+
+4. Create a webhook endpoint with HMAC verification.
+
+5. Test webhooks locally using ngrok.
+
+6. Build an end-to-end automated agent workflow.
 
 ---
 
@@ -6437,15 +5699,15 @@ Here is how we will spend our time: Lesson 8.1, Creating a Cloud Agent Programma
 
 **Script**
 
-Lesson 8.1: Creating a Cloud Agent Programmatically. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 8.1: Creating a Cloud Agent Programmatically. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Create a Cloud Agent run using curl or Python.
+Create a Cloud Agent run using curl or Python.
 
-Cloud Agents run where your laptop is closed — long tasks, CI handoffs, parallel work.
+Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
 
-Trust boundary: they need repo access and clear task descriptions — same review discipline when the PR returns.
+When the PR comes back, the same review discipline applies.
 
-Lab reference: slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md
+The detailed lab guide is slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md.
 
 ---
 
@@ -6455,11 +5717,7 @@ Lab reference: slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-a
 
 **Script**
 
-Next: Agent + Runs.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Agent: Durable entity with conversation history and workspace state. Run: Single execution (one prompt/response cycle).
+Agent. With AI models, durable entity with conversation history and workspace state. Run. With AI models, single execution (one prompt/response cycle).
 
 ---
 
@@ -6469,11 +5727,7 @@ Slide reference (skim, do not read every cell): Agent: Durable entity with conve
 
 **Script**
 
-Next: Request Fields.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): prompt.text: "Add a README.md file". repos[].url: "https://github.com/org/repo".
+prompt.text. With AI models, "Add a README.md file". repos[].url. With AI models, "https://github.com/org/repo".
 
 ---
 
@@ -6503,21 +5757,21 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 8.1 — Create a Cloud Agent via API. 15 min scheduled.
+We are starting Exercise 8.1 — Create a Cloud Agent via API. We have about 15 min for this lab.
 
 Create a Cloud Agent run using curl or Python.
 
-The full lab guide with troubleshooting is in slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md.
+The full lab guide is in slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1 — set API key · Terminal: PowerShell.
 
 Step 2 — create agent · Terminal: PowerShell.
 
-Paste this into the Agent — constraints matter as much as the ask: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx""
+Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx""
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6533,11 +5787,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Capture IDs.
+Now for Capture IDs.
 
 Step 1: Save the JSON from the create-agent call — Terminal: PowerShell.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6553,11 +5807,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Capture IDs (Part 2).
+Now for Capture IDs (Part 2).
 
 Step 2: Optional model override in create payload — Where: edit JSON before POST (any terminal).
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6573,9 +5827,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Python Helper.
+Now for Python Helper.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6591,11 +5845,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 8.2: Streaming Agent Responses (SSE). Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 8.2: Streaming Agent Responses (SSE). For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Stream Cloud Agent events with Server-Sent Events.
+Stream Cloud Agent events with Server-Sent Events.
 
-Lab reference: slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md
+The detailed lab guide is slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md.
 
 ---
 
@@ -6605,11 +5859,7 @@ Lab reference: slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse
 
 **Script**
 
-Next: SSE Event Types.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Event: When It Happens. Use this when Data Example. status: Run status changes. Use this when {"status":"RUNNING"}. assistant: Agent speaks. Use this when {"text":"I'll read the file..."}. thinking: Agent is reasoning. Use this when {"text":"Let me consider..."}. tool_call: Agent
+Event: When It Happens. Use this when Data Example. status: Run status changes. Use this when {"status":"RUNNING"}. assistant: Agent speaks. Use this when {"text":"I'll read the file..."}. thinking: Agent is reasoning. Use this when {"text":"Let me consider..."}. tool_call: Agent uses a tool. Use this when {"name":"read_file","status":"started"}. result: Run completes. Use this when {"status":"FINISHED"}. error: Something went wrong. Use this when {"message":"..."}. done: Stream ends. Use this when {}.
 
 ---
 
@@ -6618,8 +5868,6 @@ Slide reference (skim, do not read every cell): Event: When It Happens. Use this
 **Type:** content · **Lesson:** 8.2
 
 **Script**
-
-Next: Resume Support.
 
 SSE streams support the Last-Event-ID header — if your connection drops, resume from the last received event.
 
@@ -6631,17 +5879,17 @@ SSE streams support the Last-Event-ID header — if your connection drops, resum
 
 **Script**
 
-Starting Exercise 8.2 — Stream Agent Responses (SSE). 15 min scheduled.
+We are starting Exercise 8.2 — Stream Agent Responses (SSE). We have about 15 min for this lab.
 
 Stream Cloud Agent events with Server-Sent Events.
 
-The full lab guide with troubleshooting is in slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md.
+The full lab guide is in slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Terminal: PowerShell.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6657,9 +5905,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Python SSE Client.
+Now for Python SSE Client.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6675,9 +5923,9 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — ResumableSSEClient.
+Now for ResumableSSEClient.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6693,11 +5941,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 8.3: Listing and Downloading Artifacts. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 8.3: Listing and Downloading Artifacts. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Wait for completion, list artifacts, and download outputs.
+Wait for completion, list artifacts, and download outputs.
 
-Lab reference: slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md
+The detailed lab guide is slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md.
 
 ---
 
@@ -6707,11 +5955,7 @@ Lab reference: slide-exercises/module-08/exercise-8.3-list-and-download-artifact
 
 **Script**
 
-Next: Key Endpoints.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Endpoint: Method. Use this when Purpose. /v1/agents/{id}/artifacts: GET. Use this when List all artifacts. /v1/agents/{id}/artifacts/download: GET. Use this when Get presigned URL for download.
+Endpoint: Method. Use this when Purpose. /v1/agents/{id}/artifacts: GET. Use this when List all artifacts. /v1/agents/{id}/artifacts/download: GET. Use this when Get presigned URL for download.
 
 ---
 
@@ -6721,15 +5965,15 @@ Slide reference (skim, do not read every cell): Endpoint: Method. Use this when 
 
 **Script**
 
-Starting Exercise 8.3 — List and Download Artifacts. 15 min scheduled.
+We are starting Exercise 8.3 — List and Download Artifacts. We have about 15 min for this lab.
 
 Wait for completion, list artifacts, and download outputs.
 
-The full lab guide with troubleshooting is in slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md.
+The full lab guide is in slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6745,9 +5989,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Download.
+Now for Download.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6763,9 +6007,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — CI Integration.
+Now for CI Integration.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6781,15 +6025,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 8.4: Creating a Webhook Endpoint. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 8.4: Creating a Webhook Endpoint. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Receive webhooks and verify HMAC signatures.
+Receive webhooks and verify HMAC signatures.
 
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Lab reference: slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md
+The detailed lab guide is slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md.
 
 ---
 
@@ -6799,15 +6041,7 @@ Lab reference: slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verifica
 
 **Script**
 
-Next: Webhook Headers.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): X-Webhook-Signature: HMAC-SHA256 signature for verification. X-Webhook-ID: Unique delivery ID. X-Webhook-Event: Event type (statusChange).
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6817,15 +6051,9 @@ Slide reference (skim, do not read every cell): X-Webhook-Signature: HMAC-SHA256
 
 **Script**
 
-Webhook Payload
+The code on screen shows: {;   "event": "statusChange",;   "id": "agent_abc123",.
 
-Focus on the first few lines — for example: {.
-
-Next: Webhook Payload.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -6835,15 +6063,15 @@ Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting
 
 **Script**
 
-Starting Exercise 8.4 — Webhooks and HMAC Verification. 15 min scheduled.
+We are starting Exercise 8.4 — Webhooks and HMAC Verification. We have about 15 min for this lab.
 
 Receive webhooks and verify HMAC signatures.
 
-The full lab guide with troubleshooting is in slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md.
+The full lab guide is in slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6859,9 +6087,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Configure Agent.
+Now for Configure Agent.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6877,15 +6105,13 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 8.5: Testing Webhooks Locally with ngrok. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 8.5: Testing Webhooks Locally with ngrok. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Expose a local server with ngrok and inspect webhook payloads.
+Expose a local server with ngrok and inspect webhook payloads.
 
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Lab reference: slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md
+The detailed lab guide is slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md.
 
 ---
 
@@ -6895,13 +6121,7 @@ Lab reference: slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.m
 
 **Script**
 
-Point 1: Test webhooks without deploying.
-
-Point 2: Debug locally · Demo to stakeholders.
-
-Next: What Is ngrok?.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On What Is ngrok?, here is what I want you to take away. Test webhooks without deploying; Debug locally · Demo to stakeholders.
 
 Creates a secure tunnel from a public URL to your local server. - Test webhooks without deploying
 
@@ -6913,21 +6133,21 @@ Creates a secure tunnel from a public URL to your local server. - Test webhooks 
 
 **Script**
 
-Starting Exercise 8.5 — Test Webhooks with ngrok. 15 min scheduled.
+We are starting Exercise 8.5 — Test Webhooks with ngrok. We have about 15 min for this lab.
 
 Expose a local server with ngrok and inspect webhook payloads.
 
-The full lab guide with troubleshooting is in slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md.
+The full lab guide is in slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
 Step 1: Start tunnel:.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Paste this into the Agent — constraints matter as much as the ask: "ngrok http 5000 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000"
+Copy this into the Agent chat: "ngrok http 5000 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000"
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6943,13 +6163,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 1–3 (Part 2).
+Now for Steps 1–3 (Part 2).
 
 Step 2: Copy HTTPS URL.
 
 Terminal: PowerShell — unless step notes Git Bash or WSL.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6965,13 +6185,13 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Steps 1–3 (Part 3).
+Now for Steps 1–3 (Part 3).
 
 Step 3: Create agent with ngrok URL:.
 
 Terminal: PowerShell — `Ctrl+ `` in Cursor.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -6987,7 +6207,7 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Inspect & Replay.
+Now for Inspect & Replay.
 
 Step 4: Inspect requests at http://127.0.0.1:4040.
 
@@ -6997,7 +6217,7 @@ Step 5: Replay failed webhooks (ngrok premium) — inspect raw body and headers.
 
 Terminal: Git Bash or Ubuntu (WSL) — bash syntax required.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7013,7 +6233,7 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 8.6: End-to-End Automated Agent Workflow. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 8.6: End-to-End Automated Agent Workflow. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
 ---
 
@@ -7022,8 +6242,6 @@ Lesson 8.6: End-to-End Automated Agent Workflow. Participation: listen, particip
 **Type:** content · **Lesson:** 8.6
 
 **Script**
-
-Next: The Capstone Integration.
 
 Combine everything into automated_workflow.py: 1. Create agent (with optional webhook URL) 2. Wait for completion (webhook or polling) 3. Download artifacts 4. Process results (CI exit codes, notifications)
 
@@ -7035,15 +6253,9 @@ Combine everything into automated_workflow.py: 1. Create agent (with optional we
 
 **Script**
 
-This slide shows Workflow Architecture.
+Turn to the diagram — Workflow Architecture.
 
 <img src="assets/module-08/workflow-architecture.svg" alt="Workflow Architecture" />
-
-Next: Workflow Architecture.
-
-Workflow Architecture
-
-Trace the diagram once with your finger or cursor — motion helps retention.
 
 ---
 
@@ -7053,11 +6265,7 @@ Trace the diagram once with your finger or cursor — motion helps retention.
 
 **Script**
 
-Run the Workflow
-
-Focus on the first few lines — for example: export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx".
-
-Next: Run the Workflow.
+The code on screen shows: export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"; python automated_workflow.py \;   --repo "https://github.com/YOUR_ORG/YOUR_REPO" \.
 
 ---
 
@@ -7067,11 +6275,7 @@ Next: Run the Workflow.
 
 **Script**
 
-Success Criteria: Creates agent · waits (webhook/polling) · downloads artifacts · end-to-end run
-
-Focus on the first few lines — for example: 🚀 CLOUD AGENT AUTOMATED WORKFLOW.
-
-Next: Workflow Output.
+The code on screen shows: 🚀 CLOUD AGENT AUTOMATED WORKFLOW; 📝 Creating agent... Agent ID: agt_abc123; ⏳ Waiting for completion....
 
 ---
 
@@ -7111,7 +6315,7 @@ Quick Reference Card
 
 **Script**
 
-Module 9 is admin analytics — who uses Cursor, spend, models. Enterprise audience; pair if someone lacks admin keys.
+Module 9 is admin and analytics — usage, spend, and models across your organization.
 
 Timing on slide: Cursor Training Program · ~75 min
 
@@ -7123,9 +6327,9 @@ Timing on slide: Cursor Training Program · ~75 min
 
 **Script**
 
-The module goal in plain language: Master team management, usage analytics, cost governance, and safe admin operations
+Our goal for this module: Master team management, usage analytics, cost governance, and safe admin operations
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -7135,13 +6339,19 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 9 — not a reading list, but skills you will practice.
+By the end of Module 9, you should be able to do the following.
 
-Highlight three that matter for your role: List and manage team members programmatically; Retrieve daily usage data for cost tracking and reporting; Set user spend limits for budget governance; plus more on screen.
+1. List and manage team members programmatically.
 
-Next: learning objectives.
+2. Retrieve daily usage data for cost tracking and reporting.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Set user spend limits for budget governance.
+
+4. Analyze model usage for cost optimization insights.
+
+5. Track daily active users for leadership reporting.
+
+6. Build responsible leaderboards without privacy violations.
 
 ---
 
@@ -7165,11 +6375,11 @@ Here is how we will spend our time: Lesson 9.1, Listing Team Members, about 8 mi
 
 **Script**
 
-Lesson 9.1: Listing Team Members. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.1: Listing Team Members. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: List team members with pagination and export to CSV.
+List team members with pagination and export to CSV.
 
-Lab reference: slide-exercises/module-09/exercise-9.1-list-team-members.md
+The detailed lab guide is slide-exercises/module-09/exercise-9.1-list-team-members.md.
 
 ---
 
@@ -7179,15 +6389,7 @@ Lab reference: slide-exercises/module-09/exercise-9.1-list-team-members.md
 
 **Script**
 
-Next: User vs. Admin API Key.
-
-Production API work is boring on purpose: auth, retries, caching, verified signatures.
-
-Windows labs use `$env:VAR` and `curl.exe` — if a command fails, check quoting before re-generating the key.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Scope: Your user only. Use this when Entire organization. Can list members: ❌ No. Use this when ✅ Yes. Can view others' usage: ❌ No. Use this when ✅ Yes. Can modify policies: ❌ No. Use this when ✅ Yes. Format: cursor_xxx.... Use this when cursor_admin_xxx....
+Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 
 ---
 
@@ -7217,15 +6419,15 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 9.1 — List Team Members. 13 min scheduled.
+We are starting Exercise 9.1 — List Team Members. We have about 13 min for this lab.
 
 List team members with pagination and export to CSV.
 
-The full lab guide with troubleshooting is in slide-exercises/module-09/exercise-9.1-list-team-members.md.
+The full lab guide is in slide-exercises/module-09/exercise-9.1-list-team-members.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7241,9 +6443,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Pagination & Export.
+Now for Pagination & Export.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7259,11 +6461,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 9.2: Daily Usage Data. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.2: Daily Usage Data. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Pull daily usage and build a weekly cost report.
+Pull daily usage and build a weekly cost report.
 
-Lab reference: slide-exercises/module-09/exercise-9.2-daily-usage-data.md
+The detailed lab guide is slide-exercises/module-09/exercise-9.2-daily-usage-data.md.
 
 ---
 
@@ -7273,13 +6475,9 @@ Lab reference: slide-exercises/module-09/exercise-9.2-daily-usage-data.md
 
 **Script**
 
-Start with the line on screen: "Finance asks: 'What did we spend yesterday?' Engineering leads ask: 'Who's using what?"
+Read with me: "Finance asks: 'What did we spend yesterday?' Engineering leads ask: 'Who's using what?"
 
-Expand in your own words — do not read the bullet text verbatim: GET /v1/admin/analytics/usage/daily Returns:
-
-Next: Key Endpoint.
-
-Pause after the quote — let it land before you add examples.
+GET /v1/admin/analytics/usage/daily Returns: - Cost per day · Input/output token counts - Active users per day · Breakdown by user and model (optional)
 
 ---
 
@@ -7289,15 +6487,15 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 9.2 — Daily Usage Data. 15 min scheduled.
+We are starting Exercise 9.2 — Daily Usage Data. We have about 15 min for this lab.
 
 Pull daily usage and build a weekly cost report.
 
-The full lab guide with troubleshooting is in slide-exercises/module-09/exercise-9.2-daily-usage-data.md.
+The full lab guide is in slide-exercises/module-09/exercise-9.2-daily-usage-data.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7313,9 +6511,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Cost Report.
+Now for Cost Report.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7331,11 +6529,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 9.3: Setting User Spend Limits. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.3: Setting User Spend Limits. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Set and bulk-update per-user spending limits.
+Set and bulk-update per-user spending limits.
 
-Lab reference: slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md
+The detailed lab guide is slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md.
 
 ---
 
@@ -7345,11 +6543,7 @@ Lab reference: slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md
 
 **Script**
 
-Next: Key Endpoint.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): alert: Send notification but allow usage. block: Prevent any further requests for the month.
+alert. With AI models, send notification but allow usage. block. With AI models, prevent any further requests for the month.
 
 ---
 
@@ -7359,15 +6553,15 @@ Slide reference (skim, do not read every cell): alert: Send notification but all
 
 **Script**
 
-Starting Exercise 9.3 — Set User Spend Limits. 13 min scheduled.
+We are starting Exercise 9.3 — Set User Spend Limits. We have about 13 min for this lab.
 
 Set and bulk-update per-user spending limits.
 
-The full lab guide with troubleshooting is in slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md.
+The full lab guide is in slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7383,11 +6577,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Bulk Limits.
+Now for Bulk Limits.
 
-Paste this into the Agent — constraints matter as much as the ask: "intern@company.com,20,block contractor@company.com,50,alert lead@company.com,200,alert"
+Copy this into the Agent chat: "intern@company.com,20,block contractor@company.com,50,alert lead@company.com,200,alert"
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7403,11 +6597,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 9.4: Model Usage Analytics. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.4: Model Usage Analytics. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Analyze model usage and identify optimization opportunities.
+Analyze model usage and identify optimization opportunities.
 
-Lab reference: slide-exercises/module-09/exercise-9.4-model-usage-analytics.md
+The detailed lab guide is slide-exercises/module-09/exercise-9.4-model-usage-analytics.md.
 
 ---
 
@@ -7417,13 +6611,9 @@ Lab reference: slide-exercises/module-09/exercise-9.4-model-usage-analytics.md
 
 **Script**
 
-Start with the line on screen: "Which models are actually being used? Is Opus worth the cost? Should you train people on cheaper alternatives?"
+Read with me: "Which models are actually being used? Is Opus worth the cost? Should you train people on cheaper alternatives?"
 
-Expand in your own words — do not read the bullet text verbatim: GET /v1/admin/analytics/usage/models
-
-Next: Key Endpoint.
-
-Pause after the quote — let it land before you add examples.
+GET /v1/admin/analytics/usage/models
 
 ---
 
@@ -7433,15 +6623,15 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 9.4 — Model Usage Analytics. 13 min scheduled.
+We are starting Exercise 9.4 — Model Usage Analytics. We have about 13 min for this lab.
 
 Analyze model usage and identify optimization opportunities.
 
-The full lab guide with troubleshooting is in slide-exercises/module-09/exercise-9.4-model-usage-analytics.md.
+The full lab guide is in slide-exercises/module-09/exercise-9.4-model-usage-analytics.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7457,9 +6647,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — Optimization Report.
+Now for Optimization Report.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7475,11 +6665,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Lesson 9.5: Daily Active Users (DAU). Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.5: Daily Active Users (DAU). For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Report daily active users over a date range.
+Report daily active users over a date range.
 
-Lab reference: slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md
+The detailed lab guide is slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md.
 
 ---
 
@@ -7489,17 +6679,7 @@ Lab reference: slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Track adoption after rollout.
-
-Second: Identify unused licenses for reallocation — this one usually matters most in practice.
-
-Also on screen: Measure impact of training sessions, Justify renewal and expansion.
-
-Next: Why DAU Matters.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On Why DAU Matters, here is what I want you to take away. Track adoption after rollout; Identify unused licenses for reallocation; Measure impact of training sessions; Justify renewal and expansion.
 
 - Track adoption after rollout - Identify unused licenses for reallocation
 
@@ -7511,15 +6691,15 @@ Ask who has seen the opposite problem in production — one story beats five bul
 
 **Script**
 
-Starting Exercise 9.5 — Daily Active Users (DAU). 10 min scheduled.
+We are starting Exercise 9.5 — Daily Active Users (DAU). We have about 10 min for this lab.
 
 Report daily active users over a date range.
 
-The full lab guide with troubleshooting is in slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md.
+The full lab guide is in slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7534,11 +6714,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 9.6: Leaderboards. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.6: Leaderboards. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Build leaderboards for tabs, AI lines, and agent runs.
+Build leaderboards for tabs, AI lines, and agent runs.
 
-Lab reference: slide-exercises/module-09/exercise-9.6-leaderboards.md
+The detailed lab guide is slide-exercises/module-09/exercise-9.6-leaderboards.md.
 
 ---
 
@@ -7548,11 +6728,7 @@ Lab reference: slide-exercises/module-09/exercise-9.6-leaderboards.md
 
 **Script**
 
-Next: Responsible Leaderboard Principles.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Anonymize: Roles or anonymized names, not full emails. Focus on positive metrics: Show savings, not spending. Opt-in only: Allow users to choose public visibility. Include context: Show team size, role differences.
+Anonymize. With AI models, roles or anonymized names, not full emails. Focus on positive metrics. With AI models, show savings, not spending. Opt-in only. With AI models, allow users to choose public visibility. Include context. With AI models, show team size, role differences.
 
 ---
 
@@ -7562,15 +6738,15 @@ Slide reference (skim, do not read every cell): Anonymize: Roles or anonymized n
 
 **Script**
 
-Starting Exercise 9.6 — Leaderboards. 11 min scheduled.
+We are starting Exercise 9.6 — Leaderboards. We have about 11 min for this lab.
 
 Build leaderboards for tabs, AI lines, and agent runs.
 
-The full lab guide with troubleshooting is in slide-exercises/module-09/exercise-9.6-leaderboards.md.
+The full lab guide is in slide-exercises/module-09/exercise-9.6-leaderboards.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7586,7 +6762,7 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 9.7: Conversation Insights. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.7: Conversation Insights. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
 ---
 
@@ -7596,17 +6772,7 @@ Lesson 9.7: Conversation Insights. Participation: listen, participate, or follow
 
 **Script**
 
-There are 4 items on this slide. I'll emphasize the first two, then you can scan the rest.
-
-First: Simple questions vs. complex refactors?.
-
-Second: Most common task categories — this one usually matters most in practice.
-
-Also on screen: Where users get stuck, Which models perform best for which task types.
-
-Next: What Conversation Insights Reveal.
-
-Ask who has seen the opposite problem in production — one story beats five bullets.
+On What Conversation Insights Reveal, here is what I want you to take away. Simple questions vs. complex refactors?; Most common task categories; Where users get stuck; Which models perform best for which task types.
 
 - Simple questions vs. complex refactors? - Most common task categories
 
@@ -7650,7 +6816,7 @@ When the demo finishes, we will discuss when complexity & categories belongs in 
 
 **Script**
 
-Lesson 9.8: Destructive Admin Operations. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 9.8: Destructive Admin Operations. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
 ---
 
@@ -7660,9 +6826,7 @@ Lesson 9.8: Destructive Admin Operations. Participation: listen, participate, or
 
 **Script**
 
-Next: Safe Removal Playbook.
-
-1. Audit first — active agents, runs, API keys 2. Soft delete — deactivate (no new agents; existing continue) 3. Transfer ownership — critical agents, webhooks 4. Log everything — compliance audit trail 5. Confirm… (see slide)
+1. Audit first — active agents, runs, API keys 2. Soft delete — deactivate (no new agents; existing continue) 3. Transfer ownership — critical agents, webhooks 4. Log everything — compliance audit trail 5. Confirm before hard delete — GDPR/security only
 
 ---
 
@@ -7718,7 +6882,7 @@ Quick Reference Card
 
 **Script**
 
-Module 10 closes with AI code tracking — measuring adoption and change, not just vibes.
+Module 10 closes with AI code tracking — measuring adoption and change in your codebase.
 
 Timing on slide: Cursor Training Program · ~20 min + take-home
 
@@ -7730,9 +6894,9 @@ Timing on slide: Cursor Training Program · ~20 min + take-home
 
 **Script**
 
-The module goal in plain language: Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards
+Our goal for this module: Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards
 
-Glance at duration and prerequisites on screen — raise a hand if anything blocks you.
+Check duration and prerequisites on the slide — raise your hand if anything would block you.
 
 ---
 
@@ -7742,13 +6906,15 @@ Glance at duration and prerequisites on screen — raise a hand if anything bloc
 
 **Script**
 
-These outcomes define success for Module 10 — not a reading list, but skills you will practice.
+By the end of Module 10, you should be able to do the following.
 
-Highlight three that matter for your role: Attribute AI vs. human contributions per commit; Stream metrics to BI tools via CSV export; Access granular AI change events for compliance; plus more on screen.
+1. Attribute AI vs. human contributions per commit.
 
-Next: learning objectives.
+2. Stream metrics to BI tools via CSV export.
 
-Ask who has seen the opposite problem in production — one story beats five bullets.
+3. Access granular AI change events for compliance.
+
+4. Build a complete reporting dashboard combining all data sources.
 
 ---
 
@@ -7772,11 +6938,11 @@ Here is how we will spend our time: Lesson 10.1, AI Commit Metrics, about 8 min;
 
 **Script**
 
-Lesson 10.1: AI Commit Metrics. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 10.1: AI Commit Metrics. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Fetch AI commit metrics and calculate contribution percentage.
+Fetch AI commit metrics and calculate contribution percentage.
 
-Lab reference: slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md
+The detailed lab guide is slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md.
 
 ---
 
@@ -7786,13 +6952,9 @@ Lab reference: slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md
 
 **Script**
 
-Start with the line on screen: "The 'ROI of AI' metric — how much code was AI-generated vs. human-written."
+Read with me: "The 'ROI of AI' metric — how much code was AI-generated vs. human-written."
 
-Expand in your own words — do not read the bullet text verbatim: GET /v1/admin/analytics/commits What this measures:
-
-Next: Key Endpoint.
-
-Pause after the quote — let it land before you add examples.
+GET /v1/admin/analytics/commits What this measures: - Lines added by AI vs. human - Files modified by agent vs. manual - Commit-level attribution · Per-developer breakdown
 
 ---
 
@@ -7822,15 +6984,15 @@ Once your test call succeeds, give me a thumbs-up and we will continue.
 
 **Script**
 
-Starting Exercise 10.1 — AI Commit Metrics. 8 min scheduled.
+We are starting Exercise 10.1 — AI Commit Metrics. We have about 8 min for this lab.
 
 Fetch AI commit metrics and calculate contribution percentage.
 
-The full lab guide with troubleshooting is in slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md.
+The full lab guide is in slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7846,9 +7008,9 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Next step — AI Contribution %.
+Now for AI Contribution %.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7864,11 +7026,11 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — ROI Analysis.
+Now for ROI Analysis.
 
-Paste this into the Agent — constraints matter as much as the ask: "AI-generated lines vs. human-written lines (%) Estimated time saved (10 lines/min assumption) Estimated cost saved ($100/hr developer cost) AI usage cost → Net ROI"
+Copy this into the Agent chat: "AI-generated lines vs. human-written lines (%) Estimated time saved (10 lines/min assumption) Estimated cost saved ($100/hr developer cost) AI usage cost → Net ROI"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7884,11 +7046,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 10.2: Bulk Export via CSV Streaming. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 10.2: Bulk Export via CSV Streaming. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Stream large CSV exports for BI tools.
+Stream large CSV exports for BI tools.
 
-Lab reference: slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md
+The detailed lab guide is slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md.
 
 ---
 
@@ -7898,13 +7060,9 @@ Lab reference: slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-strea
 
 **Script**
 
-Start with the line on screen: "Wire metrics into BI tools (Tableau, PowerBI, Looker, Metabase) without timeouts."
+Read with me: "Wire metrics into BI tools (Tableau, PowerBI, Looker, Metabase) without timeouts."
 
-Expand in your own words — do not read the bullet text verbatim: GET /v1/admin/analytics/export/csv (streaming) Export types: commits · events · usage
-
-Next: Key Endpoint.
-
-Pause after the quote — let it land before you add examples.
+GET /v1/admin/analytics/export/csv (streaming) Export types: commits · events · usage
 
 ---
 
@@ -7914,15 +7072,15 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 10.2 — Bulk Export via CSV Streaming. 7 min scheduled.
+We are starting Exercise 10.2 — Bulk Export via CSV Streaming. We have about 7 min for this lab.
 
 Stream large CSV exports for BI tools.
 
-The full lab guide with troubleshooting is in slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md.
+The full lab guide is in slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7938,11 +7096,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Next step — BI Integration.
+Now for BI Integration.
 
-Paste this into the Agent — constraints matter as much as the ask: "export_for_bi(): bi_commits.csv # commit data bi_events.csv # event data bi_usage.csv # usage data"
+Copy this into the Agent chat: "export_for_bi(): bi_commits.csv # commit data bi_events.csv # event data bi_usage.csv # usage data"
 
-Work for about two to four minutes — I'll answer questions when hands go up.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -7958,11 +7116,11 @@ Work for about two to four minutes — I'll answer questions when hands go up.
 
 **Script**
 
-Lesson 10.3: Granular AI Change Events. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 10.3: Granular AI Change Events. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Query per-change AI events for compliance reporting.
+Query per-change AI events for compliance reporting.
 
-Lab reference: slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md
+The detailed lab guide is slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md.
 
 ---
 
@@ -7972,13 +7130,9 @@ Lab reference: slide-exercises/module-10/exercise-10.3-granular-ai-change-events
 
 **Script**
 
-Start with the line on screen: "Essential for SOC2, ISO, and internal audits."
+Read with me: "Essential for SOC2, ISO, and internal audits."
 
-Expand in your own words — do not read the bullet text verbatim: GET /v1/admin/analytics/events Tracks per event:
-
-Next: Key Endpoint.
-
-Pause after the quote — let it land before you add examples.
+GET /v1/admin/analytics/events Tracks per event: - File, line range, model used, timestamp - User, accepted/rejected status
 
 ---
 
@@ -7988,15 +7142,15 @@ Pause after the quote — let it land before you add examples.
 
 **Script**
 
-Starting Exercise 10.3 — Granular AI Change Events. 7 min scheduled.
+We are starting Exercise 10.3 — Granular AI Change Events. We have about 7 min for this lab.
 
 Query per-change AI events for compliance reporting.
 
-The full lab guide with troubleshooting is in slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md.
+The full lab guide is in slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md if you need extra detail.
 
-Windows setup: PowerShell terminal — Ctrl+backtick — Agent panel — Ctrl+I. Open the repo folder, not a single file.
+On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Pause here — most groups need a few minutes before the next step.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -8012,9 +7166,9 @@ Pause here — most groups need a few minutes before the next step.
 
 **Script**
 
-Next step — Compliance Report.
+Now for Compliance Report.
 
-Try it now; if you finish early, help a neighbor or refine your follow-up prompt.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
 **Facilitator notes**
 
@@ -8030,11 +7184,11 @@ Try it now; if you finish early, help a neighbor or refine your follow-up prompt
 
 **Script**
 
-Lesson 10.4: Reporting Dashboard Architecture. Participation: listen, participate, or follow along as indicated on the next slides.
+Lesson 10.4: Reporting Dashboard Architecture. For this lesson, listen, participate, or follow along as indicated on the next slides.
 
-Why this lesson exists: Design a leadership dashboard combining analytics APIs.
+Design a leadership dashboard combining analytics APIs.
 
-Lab reference: slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md
+The detailed lab guide is slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md.
 
 ---
 
@@ -8044,11 +7198,7 @@ Lab reference: slide-exercises/module-10/exercise-10.4-reporting-dashboard-archi
 
 **Script**
 
-Next: Dashboard Components.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Component: Data Source. Use this when Purpose. Usage Overview: Usage API. Use this when Cost, tokens, active users. AI Contribution: Commits API. Use this when ROI, adoption metrics. Model Performance: Events API. Use this when Acceptance rates, efficiency. Team Activity: Members
+Component: Data Source. Use this when Purpose. Usage Overview: Usage API. Use this when Cost, tokens, active users. AI Contribution: Commits API. Use this when ROI, adoption metrics. Model Performance: Events API. Use this when Acceptance rates, efficiency. Team Activity: Members API. Use this when Onboarding, licensing. Compliance: Events + Audit. Use this when Audit trail, security.
 
 ---
 
@@ -8058,9 +7208,7 @@ Slide reference (skim, do not read every cell): Component: Data Source. Use this
 
 **Script**
 
-Next: Take-Home: Streamlit Dashboard.
-
-Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — cost, DAU, AI %, team size 2. Usage Analytics — daily cost trend (Plotly line chart) 3. AI Code Impact — AI vs human… (see slide)
+Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — cost, DAU, AI %, team size 2. Usage Analytics — daily cost trend (Plotly line chart) 3. AI Code Impact — AI vs human bar chart + acceptance by model 4. Team Management — member table 5. Compliance Export — download events CSV
 
 ---
 
@@ -8070,11 +7218,7 @@ Run with: streamlit run cursor_dashboard.py 5 panels: 1. Executive Summary — c
 
 **Script**
 
-Next: Project Deliverables.
-
-Pick one row that matches your audience's stack and go deep; skim the rest.
-
-Slide reference (skim, do not read every cell): Working dashboard: Streamlit, Metabase, or custom frontend. Documentation: Setup instructions and data source descriptions. One insight: Key finding from your team's data. Export script: Automated CSV export for compliance.
+Working dashboard. With AI models, streamlit, Metabase, or custom frontend. Documentation. With AI models, setup instructions and data source descriptions. One insight. With AI models, key finding from your team's data. Export script. With AI models, automated CSV export for compliance.
 
 ---
 
@@ -8112,6 +7256,6 @@ Quick Reference Card
 
 **Script**
 
-Module 10 closes with AI code tracking — measuring adoption and change, not just vibes.
+Module 10 closes with AI code tracking — measuring adoption and change in your codebase.
 
 ---
