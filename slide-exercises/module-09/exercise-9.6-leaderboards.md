@@ -35,8 +35,6 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 **Before API calls:** set your key (replace with your real key):
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
