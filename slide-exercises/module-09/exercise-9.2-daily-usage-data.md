@@ -30,36 +30,61 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-END=$(date +%Y-%m-%d)
-START=$(date -d "7 days ago" +%Y-%m-%d)
-
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/analytics/usage/daily?startDate=$START&endDate=$END" \
-  | jq '.daily[] | {date: .date, cost: .cost, tokens: .totalTokens, users: .activeUsers}'
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Date range in PowerShell
+
+**Do this:**
+
+```powershell
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+Write-Host "Start: $start End: $end"
+```
+
+**Expected result:** Seven-day window printed (not bash `date -d`).
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Fetch daily usage
 
-Python `generate_cost_report()` for last 30 days:
+**Do this:** Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape:
 
-- Total cost · total tokens · average daily cost/users
-- Week-over-week change · top 5 costliest days
-- Daily breakdown table (last 14 days)
-- Budget alerts at $300 / $500 thresholds
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/teams/daily-usage-data?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
 
-**Success Criteria:** Retrieved date range · calculated trends · generated readable report
+**Expected result:** JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
 
+---
+
+### Step 3 — Interpret one day
+
+**Do this:** Pick one date and read tokens, requests, or cost fields shown.
+
+**Expected result:** You can explain one day’s usage in plain language.
+
+---
+
+### Step 4 — Optional report script
+
+**Do this:** Sketch `generate_cost_report()` outputs (totals, top users) per lab guide.
+
+**Expected result:** List of metrics you would show a manager.
+
+**Success criteria:** Windows dates · API returned data · explained one day
 ---
 
 ## Success criteria

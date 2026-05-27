@@ -30,35 +30,47 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/events?startDate=$START&endDate=$END&limit=100" \
-  | jq '.events[] | {user: .user.email, file: .filePath, model: .modelId, accepted: .accepted}'
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-Acceptance rate by model: group events → total vs. accepted per model
+### Step 1 — Fetch change events
+
+```powershell
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/ai-code/changes?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+
+**Expected result:** List of granular edit events (file, lines, model, accepted flag).
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Acceptance rate
 
-`generate_compliance_report()` for last 90 days:
+**Do this:** From one page of data, estimate accepted vs rejected ratio.
 
-- Acceptance rate by model (table)
-- Top 10 files with most AI changes (needs review)
-- Export `compliance_export.csv` for auditors:
-  - timestamp, user_email, model_id, file_path, line_start, line_end, accepted
+**Expected result:** Rough acceptance percentage.
 
-**Success Criteria:** Retrieved events · calculated acceptance rates · compliance export
+---
 
+### Step 3 — Compliance use case
+
+**Do this:** Name one audit question this API can answer.
+
+**Expected result:** e.g. “Which AI model edited file X on date Y?”
+
+**Success criteria:** Events retrieved · acceptance discussed · compliance example
 ---
 
 ## Success criteria

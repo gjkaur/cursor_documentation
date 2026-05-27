@@ -30,38 +30,62 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def get_with_etag(url, previous_etag=None):
-    headers = {'If-None-Match': previous_etag} if previous_etag else {}
-    response = requests.get(url, auth=AUTH, headers=headers)
-
-    if response.status_code == 304:
-        return None, response.headers.get('ETag')  # Use cached data
-    if response.status_code == 200:
-        return response.json(), response.headers.get('ETag')
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
+
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — First request (no cache)
+
+**Do this:**
+
+```powershell
+curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  https://api.cursor.com/v1/teams/members
+Select-String -Path headers.txt -Pattern "ETag|HTTP/"
+```
+
+**Expected result:** `200` and an `ETag:` header value in `headers.txt`.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Second request with If-None-Match
 
-**ETagCache:** persistent pickle-based cache keyed by URL hash
+**Do this:** Copy the ETag value (without quotes issues), then:
 
-**CachedCursorClient:**
-- Check local cache → send `If-None-Match`
-- On 304 → return cached data (Cache HIT)
-- On 200 → update cache (Cache MISS)
+```powershell
+$etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim()
+curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  -H "If-None-Match: $etag" https://api.cursor.com/v1/teams/members
+Select-String -Path headers2.txt -Pattern "HTTP/"
+```
 
-**Batch analytics:** fetch 30 days of usage — unchanged days return 304 instantly
+**Expected result:** Often `304 Not Modified` (smaller/faster); same data as before.
 
-**Success Criteria:** Basic ETag request · persistent cache · analytics workload caching
+---
 
+### Step 3 — Python ETag helper (optional)
+
+**Do this:** Implement `get_with_etag(url, previous_etag)` from the slides in a short script; call twice.
+
+**Expected result:** Second call returns `None` for body on `304` and reuses cached JSON in code.
+
+---
+
+### Step 4 — When to use ETags
+
+**Do this:** Name one Analytics or Admin poll that should use ETags (daily usage, member list).
+
+**Expected result:** You save bandwidth on unchanged responses.
+
+**Success criteria:** Captured ETag · got 200 then 304 · explained use case
 ---
 
 ## Success criteria

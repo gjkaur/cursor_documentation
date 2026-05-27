@@ -30,42 +30,53 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-USER_ID=$(curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/members?email=developer@company.com" \
-  | jq -r '.members[0].id')
-
-curl -X PATCH ".../policies/users/$USER_ID/limits" \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -d '{"monthlyLimit": 50.00, "exceedanceAction": "block"}'
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-Check current limit: `GET .../policies/users/{userId}/limits`
+### Step 1 — Get a user ID
+
+**Do this:** From 9.1 member list, copy one `userId` or email identifier.
+
+```powershell
+$env:TARGET_USER_ID = "paste_user_id"
+```
+
+**Expected result:** ID stored in a variable.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Set spend limit
 
-**CSV bulk set:** `email, monthly_limit, action`
+**Do this:** Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
 
-```csv
-intern@company.com,20,block
-contractor@company.com,50,alert
-lead@company.com,200,alert
-```
+**Expected result:** `200`/`204` or clear validation message.
 
-**Find heavy users:** query `/analytics/usage/users` for current month → filter cost > threshold
+---
 
-**Success Criteria:** Retrieved user ID · set limit · verified · bulk setting implemented
+### Step 3 — Verify in dashboard
 
+**Do this:** Open team admin UI → member → spending limit.
+
+**Expected result:** UI matches the limit you set (may take a minute).
+
+---
+
+### Step 4 — Bulk CSV format (discussion)
+
+**Do this:** Review CSV columns: `email, monthly_limit_usd` from slides.
+
+**Expected result:** You could automate onboarding limits from HR export.
+
+**Success criteria:** Set one limit · verified · understand bulk pattern
 ---
 
 ## Success criteria

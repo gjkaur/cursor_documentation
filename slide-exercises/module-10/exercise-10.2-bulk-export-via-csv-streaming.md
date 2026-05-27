@@ -30,39 +30,49 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-curl -N -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/export/csv?startDate=$START&endDate=$END&type=commits" \
-  -o cursor_commits_export.csv
-
-head -10 cursor_commits_export.csv
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Stream CSV download
+
+```powershell
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/ai-code/commits.csv?startDate=$start&endDate=$end" `
+  -o cursor_commits_export.csv
+```
+
+**Expected result:** File `cursor_commits_export.csv` created in current directory.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 2 — Preview rows
 
-Python `stream_to_dataframe()` → pandas DataFrame:
-
-```python
-export_for_bi():
-  bi_commits.csv   # commit data
-  bi_events.csv    # event data
-  bi_usage.csv     # usage data
+```powershell
+Get-Content .\cursor_commits_export.csv -Head 10
 ```
 
-Upload to Metabase, PowerBI, or Tableau via CSV import
+**Expected result:** Header row + data rows visible in PowerShell.
 
-**Success Criteria:** Streamed CSV · loaded into DataFrame · created BI-ready files
+---
 
+### Step 3 — Open in Excel
+
+**Do this:** Double-click CSV or **Open with** Excel.
+
+**Expected result:** Columns sortable; suitable for pivot tables.
+
+**Success criteria:** CSV downloaded · previewed · opened in spreadsheet tool
 ---
 
 ## Success criteria

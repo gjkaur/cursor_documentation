@@ -24,85 +24,84 @@
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows · **Cursor app** + web browser (Edge or Chrome)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+| Where | What |
+|-------|------|
+| Cursor sidebar | **Cloud** / cloud icon, or **Command Palette** (`Ctrl+Shift+P`) → **Cloud Agents** |
+| Browser | [https://cursor.com/agents](https://cursor.com/agents) |
 
-**Step 1:** Navigate to Cloud Agents
-**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
+### Step 1 — Open Cloud Agents
 
-```bash
-# Cursor Editor: cloud icon or View → Cloud Agents
-open https://cursor.com/agents
-```
+**Do this:** In Cursor, open **Cloud Agents**. Also open [cursor.com/agents](https://cursor.com/agents) in your browser.
 
----
-
-**Step 2:** Click **"+ New"** and fill out:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
-
-```
-Repository: https://github.com/YOUR_ORG/YOUR_REPO
-Branch: main
-Prompt: Read README and main source files. Summarize:
-  - What this project does
-  - Key dependencies · How to run locally · Common issues
-Model: claude-4.6-sonnet
-Auto-create PR: ☐
-```
+**Expected result:** Empty list or previous runs; **+ New** (or **New Agent**) is visible.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Create a new agent
 
-**Step 3:** Monitor live log in real time:
-**Where:** **Agent panel** — ``Ctrl+I``
+**Do this:** Click **+ New** and fill in:
+
+| Field | Example |
+|-------|---------|
+| Repository | `https://github.com/YOUR_ORG/YOUR_REPO` |
+| Branch | `main` |
+| Prompt | See below |
+| Model | `claude-4.6-sonnet` (or course default) |
+| Auto-create PR | Off for first try |
+
+**Prompt to paste:**
 
 ```
-[10:45:01] Agent starting...
-[10:45:02] Cloning repository...
-[10:45:15] Repository cloned
-[10:45:16] Reading README.md
-[10:45:40] Generating summary...
+Read README and main source files. Summarize:
+- What this project does
+- Key dependencies
+- How to run locally
+- Common issues
 ```
+
+**Expected result:** Agent status **Running**; log lines appear (clone repo, read files, etc.).
 
 ---
 
-**Step 4:** Configure settings (gear icon):
-**Where:** **Agent panel** — ``Ctrl+I``
+### Step 3 — Watch the live log
 
-| Setting | Purpose |
-|---------|---------|
-| Default Model | Preferred model for new agents |
-| Auto-create PR | Create PRs on completion |
-| Notification Email | Completion notifications |
-| Webhook URL | POST completion events |
-| Max Run Time | 5 min – 24 hrs |
+**Do this:** Keep the run page open 2–5 minutes.
+
+**Expected result:** Timestamped log lines; eventual **Completed** (or clear error).
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 4 — Review settings (gear icon)
 
-**Step 5:** Launch with PR creation:
-**Where:** **Agent panel** — ``Ctrl+I``
+**Do this:** Open settings and note: default model, auto-PR, notifications, webhook URL, max runtime.
 
-```
-Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
-Auto-create PR: ✅ Yes
-Branch prefix: docs/contributing
-```
+**Expected result:** You know where to change defaults for the next run.
 
 ---
 
-**Step 6:** Share agent URL with team:
-**Where:** **Agent panel** — ``Ctrl+I``
+### Step 5 — Optional: run with auto-PR
+
+**Do this:** New agent with **Auto-create PR** on and prompt:
 
 ```
-https://cursor.com/agents/agt_abc123def456
+Add CONTRIBUTING.md with dev setup, tests, PR process, and code style
 ```
 
+**Expected result:** Completed run may show a PR link on the dashboard.
+
+---
+
+### Step 6 — Share the run URL
+
+**Do this:** Copy the agent URL from the browser address bar for a teammate.
+
+**Expected result:** URL format like `https://cursor.com/agents/agt_...` opens the same run when signed in.
+
+**Success criteria:** Launched agent · watched log · understand settings · optional PR run
 ---
 
 ## Detailed reference (expanded instructions)

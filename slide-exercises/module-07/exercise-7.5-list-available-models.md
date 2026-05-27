@@ -30,52 +30,58 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**Step 1:** List with curl:
-**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
-
-```bash
-curl -s -u "$CURSOR_USER_API_KEY:" \
-  https://api.cursor.com/v1/models \
-  | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
+
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — List models with curl.exe
+
+**Do this:**
+
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
+```
+
+**Expected result:** JSON listing model IDs (shape may be `items` or `data` — inspect once).
 
 ---
 
-**Step 2:** Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support
-**Terminal:** **PowerShell** — `python script.py`
+### Step 2 — Pretty-print in PowerShell
+
+**Do this:**
+
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |
+  ConvertFrom-Json | ConvertTo-Json -Depth 5
+```
+
+**Expected result:** Readable list in the console.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 3 — Python table (optional)
 
-**Step 3:** Filter models:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:** Loop models and print columns: ID, context window, pricing if present.
 
-```python
-# Models with 100k+ context
-large_context = [m for m in models if m.get('context_window', 0) >= 100000]
-
-# Cheapest by input price
-cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]
-```
+**Expected result:** Table of at least 3 models.
 
 ---
 
-**Step 4:** Model selection helper:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 4 — Pick a model for a task
 
-```python
-select_model("code_review", "balanced")  # → claude-4.6-sonnet
-select_model("simple_fix", "low")        # → gpt-5-mini
-select_model("frontend_ui", "high")      # → gemini-3.1-pro
-```
+**Do this:** Choose one model for “quick fix” and one for “hard refactor”; say why (speed vs quality).
 
+**Expected result:** Two model names + one-line rationale each.
+
+**Success criteria:** Listed models · formatted output · reasoned selection
 ---
 
 ## Detailed reference (expanded instructions)

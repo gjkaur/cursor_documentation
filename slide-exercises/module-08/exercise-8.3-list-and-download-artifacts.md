@@ -30,55 +30,62 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def wait_for_completion(agent_id, timeout=300, poll_interval=5):
-    while time.time() - start < timeout:
-        status = get_agent_status(agent_id).get('status')
-        if status == 'FINISHED': return True
-        elif status == 'ERROR': return False
-        time.sleep(poll_interval)
-
-def list_artifacts(agent_id):
-    response = requests.get(f"{BASE_URL}/agents/{agent_id}/artifacts", auth=AUTH)
-    return response.json().get('items', [])
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
+
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Use a completed agent ID
+
+**Do this:** Pick a **Completed** cloud agent from the dashboard (yours or demo).
+
+```powershell
+$env:AGENT_ID = "paste_completed_agent_id"
+```
+
+**Expected result:** Agent is not still running (artifacts ready).
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 2 — Poll status (optional)
 
-**Single artifact:**
+**Do this:** Call status endpoint until `completed` (see lab guide Python `wait_for_completion`).
 
-```python
-response = requests.get(
-    f"{BASE_URL}/agents/{agent_id}/artifacts/download",
-    auth=AUTH, params={"path": artifact_path}
-)
-download_url = response.json().get('url')
-# curl download_url → save to disk
-```
-
-**All artifacts:** loop items, create subdirs, download each via presigned URL
+**Expected result:** You know how to wait programmatically.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 3 — List artifacts
 
-```python
-def process_test_results(agent_id):
-    wait_for_completion(agent_id, timeout=600)
-    download_artifact(agent_id, "artifacts/junit.xml", "test_results.xml")
-    # Parse XML → exit 1 if failures/errors, else exit 0
+**Do this:**
+
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts" | ConvertFrom-Json
 ```
 
-**Success Criteria:** Listed artifacts · downloaded single + all · CI workflow integration
+**Expected result:** List of paths or artifact objects.
 
+---
+
+### Step 4 — Download one file
+
+**Do this:** Request download URL for one path (per API docs in lab guide), then:
+
+```powershell
+curl.exe -L -o downloaded_file.txt "PASTE_PRESIGNED_URL"
+```
+
+**Expected result:** File on disk matches artifact from UI.
+
+**Success criteria:** Listed artifacts · downloaded one file · understand wait/list/download order
 ---
 
 ## Success criteria

@@ -30,53 +30,60 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+```
 
-**Terminal:** **PowerShell**
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Set IDs from Exercise 8.1
+
+**Do this:**
+
+```powershell
+$env:AGENT_ID = "paste_agent_id"
+$env:RUN_ID = "paste_run_id"
+```
+
+**Expected result:** Both variables set (from create-agent response or dashboard).
+
+---
+
+### Step 2 — Stream events (curl.exe)
+
+**Do this:**
 
 ```powershell
 curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
   -H "Accept: text/event-stream" `
-  "https://api.cursor.com/v1/agents/$env:AGENT_ID/runs/$env:RUN_ID/stream"
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream"
 ```
 
-Set IDs first: `$env:AGENT_ID = "..."` · `$env:RUN_ID = "..."`
-
-**Terminal (alternative):** **Git Bash** / **WSL** — bash `curl -N` block above.
-
-Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
+**Expected result:** Lines starting with `event:` and `data:` scroll in the terminal until the run finishes.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 3 — Read the stream
 
-```python
-def stream_agent_response(agent_id, run_id, on_event=None):
-    url = f"{BASE_URL}/agents/{agent_id}/runs/{run_id}/stream"
-    response = requests.get(url, auth=AUTH, stream=True)
-    for line in response.iter_lines():
-        if line.startswith(b'event:'):
-            current_event = line[6:].strip().decode()
-        elif line.startswith(b'data:'):
-            data = json.loads(line[5:].strip())
-            if on_event:
-                on_event(current_event, data)
-```
+**Do this:** Identify at least: one **assistant** text chunk, one **tool** or status event, and a **completed** or **failed** event.
+
+**Expected result:** You can narrate what the agent did from the log alone.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 4 — Resume with Last-Event-ID (concept)
 
-Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on reconnect
+**Do this:** Note an `id:` line from the stream; discuss reconnecting with header `Last-Event-ID` (see lab guide).
 
-**Also:** `stream_to_file()` saves full SSE log for later review
+**Expected result:** You understand SSE resume after network drop.
 
-**Success Criteria:** Stream connected · received events · Python client works · resume implemented
-
+**Success criteria:** Stream connected · parsed event types · IDs were set first
 ---
 
 ## Success criteria

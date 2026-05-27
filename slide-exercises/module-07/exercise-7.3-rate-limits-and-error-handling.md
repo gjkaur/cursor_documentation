@@ -30,39 +30,64 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def call_with_retry(url, max_retries=5, base_delay=1.0):
-    for attempt in range(max_retries):
-        response = requests.get(url, auth=AUTH)
-        if response.status_code == 200:
-            return response.json()
-        if 400 <= response.status_code < 500:
-            return None  # Don't retry client errors
-        if response.status_code in [429, 500, 502, 503, 504]:
-            delay = int(response.headers.get('Retry-After',
-                      min(base_delay * (2 ** attempt), 60)))
-            time.sleep(delay)
-    return None
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
+
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Make one successful call
+
+**Do this:**
+
+```powershell
+curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit"
+```
+
+**Expected result:** `HTTP/1.1 200` and rate-limit headers if present.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Read rate-limit headers
 
-**Monitor headers:** warn when `X-RateLimit-Remaining` < 10% of limit
+**Do this:** Run the call again and note `X-RateLimit-Limit`, `Remaining`, `Reset` (names may vary slightly).
 
-**Token bucket rate limiter:** space requests evenly across the minute window
+**Expected result:** You can state how many calls remain in the window.
 
-**CursorAPIClient:** combines rate limiting, retries on 429/5xx, timeout handling, and typed methods like `get_models()` and `create_agent()`
+---
 
-**Success Criteria:** Backoff · header monitoring · rate limiter · robust client class
+### Step 3 — Add retry logic (Python)
 
+**Do this:** Save `retry_demo.py` from the slide deck / lab guide pattern: retry on `429` and `5xx`, honor `Retry-After`, do **not** retry most `4xx`.
+
+Run against `/v1/models` with your user key.
+
+**Expected result:** Script exits cleanly on `200`; on forced errors, backs off instead of crashing.
+
+---
+
+### Step 4 — Discuss client errors
+
+**Do this:** With a partner, explain why `401` should not be retried with the same key.
+
+**Expected result:** One-sentence rule: fix auth, then call again.
+
+---
+
+### Step 5 — Optional: slow down requests
+
+**Do this:** Add `Start-Sleep -Seconds 3` between five curl calls in a loop.
+
+**Expected result:** No `429` during normal class pacing.
+
+**Success criteria:** Saw headers · retry on 429/5xx · no infinite retry on 401
 ---
 
 ## Success criteria

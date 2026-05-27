@@ -24,81 +24,75 @@
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows · **Cursor app** + web browser (Edge or Chrome)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+**Before API calls:** set your key (replace with your real key):
 
-**Step 1:** Launch agent that generates artifacts:
-**Where:** **Agent panel** — ``Ctrl+I``
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+```
+
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Launch an agent that creates artifacts
+
+**Do this:** New Cloud Agent with this prompt:
 
 ```
 Generate:
-1. api_documentation.md — OpenAPI-style docs for all endpoints
-2. test_report.json — test suite summary
-3. screenshot.png — main UI screenshot (if applicable)
-4. dependencies.txt — all packages and versions
+1. api_documentation.md — API-style docs for main endpoints
+2. test_report.json — test summary (real or plausible for demo)
+3. dependencies.txt — packages and versions
 
-Place all in artifacts/ directory.
+Place all files in an artifacts/ folder in the repo.
 ```
 
----
-
-**Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
-**Where:** **Agent panel** — ``Ctrl+I``
+**Expected result:** Run completes; **Artifacts** tab or section lists files.
 
 ---
 
-**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
+### Step 2 — Download from the UI
 
-**Step 3:** Download individual artifacts
-**Where:** **Agent panel** — ``Ctrl+I``
+**Do this:** On the completed run: download **one file**, then try **Download All (zip)** if shown.
 
-**Step 4:** Download all as zip
-**Where:** **Agent panel** — ``Ctrl+I``
+**Expected result:** Files save to your **Downloads** folder; zip opens in File Explorer.
 
 ---
 
-**Step 5:** Preview in browser:
-**Where:** **Web browser** — Edge or Chrome
-- Markdown → rendered HTML
-- Images → inline preview
-- JSON → formatted tree view
+### Step 3 — Preview in browser
+
+**Do this:** Open `.md` / `.json` from the UI preview if available.
+
+**Expected result:** Markdown renders; JSON is readable.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 4 — List artifacts via API (PowerShell)
 
-```bash
-# List artifacts
-curl -s -u "$CURSOR_USER_API_KEY:" \
-  "https://api.cursor.com/v1/agents/$AGENT_ID/artifacts" | jq '.'
+**Do this:** Set IDs from the dashboard, then:
 
-# Download specific artifact
-DOWNLOAD_URL=$(curl -s -u "$CURSOR_USER_API_KEY:" \
-  ".../artifacts/download?path=artifacts/report.md" | jq -r '.url')
-curl -L -o report.md "$DOWNLOAD_URL"
+```powershell
+$env:AGENT_ID = "your_agent_id_here"
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent ID.
+**Expected result:** JSON listing artifact paths (use `ConvertFrom-Json` if helpful).
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 5 — Download one artifact via API (optional)
 
-```yaml
-# GitHub Actions — download test results from completed agent
-- name: Download Cloud Agent artifacts
-  run: |
-    curl -s -u "${{ secrets.CURSOR_API_KEY }}:" \
-      ".../artifacts/download?path=test_results.xml" > test_results.xml
-```
+**Do this:** Follow the lab guide’s presigned-URL pattern with `curl.exe -L -o filename ...`.
 
-**Success Criteria:** Generated artifacts · downloaded single + zip · accessed via API
+**Expected result:** File saved locally; matches UI download.
 
+**Success criteria:** Artifacts created · downloaded in UI · listed via API
 ---
 
 ## Success criteria

@@ -29,64 +29,79 @@
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 1 — Start CLI and hand off to Cloud
 
-**Step 1:** Start local session and hand off:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:**
 
-```bash
+```powershell
 agent
-& "Analyze the entire codebase and create a dependency graph."
 ```
+
+At the `>` prompt, type (note the **`&` at the start**):
+
+```
+& Analyze the entire codebase and create a dependency graph.
+```
+
+**Expected result:** Message that a **Cloud Agent** started, plus an **Agent ID** and a `https://cursor.com/agents/...` link.
 
 ---
 
-**Step 2:** Verify handoff:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 2 — Verify in the browser
 
-```
-🚀 Handing off to Cloud Agent...
-✅ Session running at: https://cursor.com/agents/[agent-id]
-```
+**Do this:** Open the link in **Edge** or **Chrome**.
+
+**Expected result:** Dashboard shows the agent **Running** (or **Completed** later).
 
 ---
 
-**Step 3:** Check status via browser or CLI
-**Where:** **Web browser** — Edge or Chrome
+### Step 3 — Close terminal safely
+
+**Do this:** You may close the terminal or type `/quit`. The cloud task should keep running.
+
+**Expected result:** Status on the web dashboard still progresses without your laptop CLI attached.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 4 — Hand off an existing conversation
 
-**Step 4:** Push existing conversation:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:** In a new `agent` session, after some local messages:
 
 ```
-& "Continue this conversation in the cloud. I need to log off."
+& Continue this conversation in the cloud. I need to log off.
 ```
+
+**Expected result:** Handoff confirmation and cloud URL.
 
 ---
 
-**Step 5:** Long-running task:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 5 — One-shot cloud handoff
 
-```bash
-agent "& Refactor the auth module to use JWT. Update all tests and docs."
+**Do this:**
+
+```powershell
+agent -p "& Refactor the auth module to use JWT. Update all tests and docs."
 ```
+
+**Expected result:** Cloud agent launched from a single command (same `&` semantics).
 
 ---
 
-**Step 6:** Resume later:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 6 — Resume later
 
-```bash
-agent --resume [agent-id-from-cloud]
+**Do this:** Copy the agent ID from the dashboard, then:
+
+```powershell
+agent --resume YOUR_AGENT_ID_HERE
 ```
 
+**Expected result:** Session resumes or shows cloud status (per your plan/features).
+
+**Success criteria:** Handoff with `&` · dashboard link · agent continues after terminal closed
 ---
 
 ## Detailed reference (expanded instructions)

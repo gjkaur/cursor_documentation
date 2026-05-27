@@ -30,80 +30,88 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**Step 1:** Generate User API Key — **Where:** **Cursor app** → **Settings** → **API Keys** → **Generate New Key** (copy the key; you will not see it again)
-
----
-
-**Step 2:** Set environment variable — **Terminal:** **PowerShell** (``Ctrl+` ``)
+**Before API calls:** set your key (replace with your real key):
 
 ```powershell
-$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
-$env:CURSOR_USER_API_KEY
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
+
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Create a User API key (UI)
+
+**Do this:** **Cursor** → **Settings** → **API Keys** (or team dashboard per your plan) → **Generate** → copy the key once.
+
+**Expected result:** Key string starting with `cursor_...` (you cannot view it again later).
 
 ---
 
-**Step 3:** Test with curl — **Terminal:** **PowerShell**
+### Step 2 — Store in PowerShell session
+
+**Do this:**
 
 ```powershell
-curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
-  https://api.cursor.com/v1/models | Select-Object -First 20
+$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+$env:CURSOR_USER_API_KEY.Substring(0, 12) + "..."
 ```
+
+**Expected result:** First line sets variable; second prints a short prefix (not the full secret).
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 3 — Test with curl.exe
 
-**Step 4:** Test with Python requests:
-**Terminal:** **PowerShell** — save as `test_models.py`, then `python test_models.py` — ``Ctrl+L``
+**Do this:**
+
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
+```
+
+**Expected result:** JSON with model names (or `items` array). Not `401 Unauthorized`.
+
+---
+
+### Step 4 — Test with Python (optional)
+
+**Do this:** Save `test_models.py`:
 
 ```python
-response = requests.get(
-    "https://api.cursor.com/v1/models",
-    auth=(API_KEY, "")  # Empty password
-)
+import os, requests
+key = os.environ["CURSOR_USER_API_KEY"]
+r = requests.get("https://api.cursor.com/v1/models", auth=(key, ""), timeout=30)
+print(r.status_code, r.text[:500])
 ```
+
+Run: `python test_models.py`
+
+**Expected result:** Status `200` and JSON body.
 
 ---
 
-**Step 5:** Test with OpenAI SDK:
-**Terminal:** **PowerShell** — `python test_openai_sdk.py` — ``Ctrl+L``
+### Step 5 — Admin key (Enterprise only)
 
-```python
-client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY)
-response = client.chat.completions.create(
-    model="gpt-5-mini",
-    messages=[{"role": "user", "content": "Say 'API works!'"}],
-    max_tokens=10
-)
+**Do this:** Generate **Admin API key** in dashboard →:
+
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/members
 ```
+
+**Expected result:** `200` with team data, or clear message if your plan lacks Admin API.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 6 — Revocation (know how)
 
-**Step 6:** Generate and test Admin API Key:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:** In **Settings → API Keys**, find **Revoke** for a test key (only if instructor allows).
 
-```bash
-export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx"
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  https://api.cursor.com/v1/admin/organization | jq '.'
-```
+**Expected result:** Old key returns `401` on next API call.
 
----
-
-**Step 7:** Revoke compromised keys via API or Settings → API Keys → Revoke
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
-
-**Success Criteria:** Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
-
+**Success criteria:** User key works in curl · optional Admin key · keys only in `$env:`, not in git
 ---
 
 ## Success criteria

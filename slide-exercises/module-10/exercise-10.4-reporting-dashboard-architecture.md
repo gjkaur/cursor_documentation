@@ -30,40 +30,54 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows · **Cursor app** + web browser (Edge or Chrome)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-| Component | Data Source | Purpose |
-|-----------|-------------|---------|
-| Usage Overview | Usage API | Cost, tokens, active users |
-| AI Contribution | Commits API | ROI, adoption metrics |
-| Model Performance | Events API | Acceptance rates, efficiency |
-| Team Activity | Members API | Onboarding, licensing |
-| Compliance | Events + Audit | Audit trail, security |
+### Step 1 — Review architecture options
+
+**Do this:** Read the slide table: Streamlit vs Metabase vs custom frontend.
+
+**Expected result:** You pick one option and justify for a small team.
 
 ---
 
-Run with: `streamlit run cursor_dashboard.py`
+### Step 2 — Define five panels
 
-**5 panels:**
-1. **Executive Summary** — cost, DAU, AI %, team size
-2. **Usage Analytics** — daily cost trend (Plotly line chart)
-3. **AI Code Impact** — AI vs human bar chart + acceptance by model
-4. **Team Management** — member table
-5. **Compliance Export** — download events CSV
+**Do this:** List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
+
+**Expected result:** Each panel maps to an API from modules 9–10.
 
 ---
 
-| Deliverable | Description |
-|-------------|-------------|
-| **Working dashboard** | Streamlit, Metabase, or custom frontend |
-| **Documentation** | Setup instructions and data source descriptions |
-| **One insight** | Key finding from your team's data |
-| **Export script** | Automated CSV export for compliance |
+### Step 3 — Data flow
 
-**Bonus:** cost alerts · spend limit UI · model A/B comparison · cloud deployment
+**Do this:** Sketch: nightly CSV export → database → dashboard refresh.
 
+**Expected result:** One diagram or bullet pipeline.
+
+---
+
+### Step 4 — Windows setup for Streamlit (take-home)
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install streamlit pandas requests
+streamlit run dashboard.py
+```
+
+**Expected result:** Local dashboard URL opens in browser (when `dashboard.py` exists).
+
+---
+
+### Step 5 — Deliverables checklist
+
+**Do this:** Note deliverables: working demo, setup doc, one insight, export script.
+
+**Expected result:** Take-home scope is clear.
+
+**Success criteria:** Architecture choice · five panels · data flow · optional Streamlit run
 ---
 
 ## Detailed reference (expanded instructions)

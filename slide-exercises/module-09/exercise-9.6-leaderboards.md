@@ -30,26 +30,47 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**1. Engagement leaderboard** — rank by request count (anonymized emails)
-
-**2. Efficiency leaderboard** — tokens per dollar spent
-
-**3. Savings leaderboard** — users who saved by choosing efficient models over Opus
-
-```python
-def anonymize_email(email):
-    local = email.split('@')[0]
-    return local[:2] + "..." + local[-2:]
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**Success Criteria:** Anonymized · efficiency-focused · savings-focused leaderboards
+Follow each step in order. Confirm the **Expected result** before moving on.
 
+### Step 1 — Fetch leaderboard
+
+```powershell
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/team/leaderboard?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+
+**Expected result:** Ranked users by chosen metric (tokens, accepts, etc.).
+
+---
+
+### Step 2 — Privacy
+
+**Do this:** Discuss anonymizing emails before showing leaderboard company-wide.
+
+**Expected result:** Policy: hash or redact emails in exported reports.
+
+---
+
+### Step 3 — Use case
+
+**Do this:** One appropriate use (adoption champion) and one inappropriate use (public shaming).
+
+**Expected result:** Two clear examples.
+
+**Success criteria:** Leaderboard data · privacy discussion · use cases
 ---
 
 ## Success criteria

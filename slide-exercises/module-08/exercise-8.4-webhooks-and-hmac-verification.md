@@ -30,44 +30,49 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def verify_signature(raw_body, signature_header):
-    received = signature_header[7:]  # strip "sha256="
-    expected = hmac.new(
-        WEBHOOK_SECRET.encode(), raw_body, hashlib.sha256
-    ).hexdigest()
-    return hmac.compare_digest(expected, received)
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-Flask route: verify signature → parse payload → handle FINISHED/ERROR
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Understand the webhook flow
+
+**Do this:** Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
+
+**Expected result:** You can explain why returning 200 quickly matters.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 2 — Review verify_signature (Python)
 
-```bash
-curl -X POST https://api.cursor.com/v1/agents \
-  -u "$CURSOR_USER_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": {"text": "Add a CONTRIBUTING.md file"},
-    "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO"}],
-    "webhookUrl": "https://your-domain.com/webhook/cursor",
-    "webhookSecret": "your-secret-here",
-    "autoCreatePR": true
-  }'
-```
+**Do this:** Open the `verify_signature` snippet in the lab guide; identify: raw body, header name, secret.
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+**Expected result:** You know tampering breaks the HMAC match.
 
-**Success Criteria:** Server running · signature verified · payload parsed · agent configured
+---
 
+### Step 3 — Create agent with webhook URL (when server ready)
+
+**Do this:** After Exercise 8.5 tunnel exists, POST agent JSON including `webhookUrl` (PowerShell `curl.exe` like 8.1).
+
+**Expected result:** Agent accepts URL (or validation error you can fix).
+
+---
+
+### Step 4 — Security rules
+
+**Do this:** List three checks: HTTPS, HMAC verify, idempotent handler.
+
+**Expected result:** Checklist you would use in code review.
+
+**Success criteria:** Explained flow · understand HMAC · ready for ngrok test in 8.5
 ---
 
 ## Success criteria

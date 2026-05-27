@@ -30,38 +30,58 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/usage/models?startDate=$START&endDate=$END" \
-  | jq '.models[] | {model: .modelId, cost: .cost, requests: .requestCount}'
-
-# Find Opus overuse per user
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/usage/users?startDate=$START&endDate=$END" \
-  | jq '.users[] | select(.modelBreakdown."claude-4.7-opus" != null)'
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Date range
+
+```powershell
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+```
+
+**Expected result:** 30-day window for analytics.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 2 — Fetch model usage
 
-`generate_optimization_report()`:
+**Do this:** Call team model-usage endpoint from lab guide:
 
-- Model cost breakdown (% of total)
-- Users on Claude Opus → suggest Sonnet for non-critical tasks
-- High Sonnet usage → suggest GPT-5.3 Codex (40% savings)
-- Estimated monthly savings if guidelines applied
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/team/models?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
 
-**Success Criteria:** Retrieved model breakdown · identified expensive users · generated recommendations
+**Expected result:** Per-model token or cost breakdown (field names per API response).
 
+---
+
+### Step 3 — Find top model
+
+**Do this:** Identify highest-cost or highest-token model.
+
+**Expected result:** One model name + number you can cite.
+
+---
+
+### Step 4 — Optimization idea
+
+**Do this:** Write two bullets: what to change if costs are too high.
+
+**Expected result:** Actionable suggestions (cheaper model for simple tasks, etc.).
+
+**Success criteria:** Retrieved analytics · named top model · one optimization
 ---
 
 ## Success criteria

@@ -30,75 +30,71 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**Step 1 — set API key · Terminal:** **PowerShell**
+**Before API calls:** set your key (replace with your real key):
 
 ```powershell
-$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**Step 2 — create agent · Terminal:** **PowerShell**
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Set User API key
+
+**Do this:**
 
 ```powershell
-curl.exe -X POST https://api.cursor.com/v1/agents `
-  -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Content-Type: application/json" `
-  -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' `
-  | ConvertFrom-Json
+$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
 ```
 
-**Terminal (alternative):** **Git Bash** / **WSL** — bash block below.
-
-```bash
-export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
-curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'
-```
+**Expected result:** Variable set for this PowerShell session.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 2 — Create agent (POST)
 
-**Step 1:** Save the JSON from the create-agent call — **Terminal:** **PowerShell**
+**Do this:** Replace `YOUR_ORG/YOUR_REPO` with a repo you are allowed to use:
 
 ```powershell
-$response = curl.exe ... | ConvertFrom-Json   # reuse create-agent command
+$body = @{
+  prompt = @{ text = "Add a README.md with setup instructions" }
+  repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startingRef = "main" })
+  autoCreatePR = $true
+} | ConvertTo-Json -Depth 5
+
+$response = curl.exe -s -X POST https://api.cursor.com/v1/agents `
+  -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Content-Type: application/json" `
+  -d $body | ConvertFrom-Json
+
 $env:AGENT_ID = $response.agent.id
 $env:RUN_ID = $response.run.id
 Write-Host "Agent ID: $($env:AGENT_ID)"
-Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
+Write-Host "Open: https://cursor.com/agents/$($env:AGENT_ID)"
 ```
+
+**Expected result:** JSON with `agent.id` and `run.id`; dashboard shows **Running**.
 
 ---
 
-**Step 2:** Optional model override in create payload — **Where:** edit JSON before POST (any terminal)
+### Step 3 — Confirm on dashboard
 
-Create with specific model: `"model": {"id": "claude-4.7-opus"}`
+**Do this:** Open the printed URL in the browser.
+
+**Expected result:** Same agent ID; log activity visible.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 4 — Optional model in JSON
 
-```python
-def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
-    payload = {
-        "prompt": {"text": prompt},
-        "repos": [{"url": repo_url}],
-        "autoCreatePR": auto_create_pr
-    }
-    if model:
-        payload["model"] = {"id": model}
-    response = requests.post(f"{BASE_URL}/agents", auth=AUTH, json=payload)
-    data = response.json()
-    return data["agent"]["id"], data["run"]["id"]
-```
+**Do this:** Add `"model": @{ id = "claude-4.6-sonnet" }` to `$body` and create a second test agent.
 
-**Success Criteria:** Agent created · IDs captured · appears in dashboard · Python function works
+**Expected result:** Run uses the named model (or API error explaining restriction).
 
+**Success criteria:** POST succeeded · IDs saved · visible on cursor.com/agents
 ---
 
 ## Success criteria

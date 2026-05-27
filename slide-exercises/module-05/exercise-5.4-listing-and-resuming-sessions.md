@@ -29,81 +29,81 @@
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 1 — Create three short sessions
 
-**Step 1:** Create multiple named sessions:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:** Run three separate one-shot sessions (each exits automatically):
 
-```bash
-agent "Just say one word: frontend-cleanup"   # do work, exit
-agent "Just say one word: db-optimization"  # do work, exit
-agent "Just say one word: docs-update"
+```powershell
+agent -p "Reply with exactly one word: frontend-cleanup"
+agent -p "Reply with exactly one word: db-optimization"
+agent -p "Reply with exactly one word: docs-update"
 ```
+
+**Expected result:** Three one-word replies; three saved sessions in history.
 
 ---
 
-**Step 2:** List all sessions:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 2 — List sessions
+
+**Do this:** Start interactive CLI:
+
+```powershell
+agent
+```
+
+Then type:
 
 ```
 /resume
-# 1. frontend-cleanup Agent (2 hours ago)
-# 2. db-optimization Agent (1 hour ago)
-# 3. docs-update Agent (30 minutes ago)
 ```
+
+**Expected result:** Numbered list of recent sessions with names or timestamps.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 3 — Resume by ID
 
-**Step 3:** Resume by ID:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:** From the list, copy a session ID, exit (`/quit`), then:
 
-```bash
-agent --resume abc123-def456-ghi789
+```powershell
+agent --resume PASTE_SESSION_ID_HERE
 ```
+
+**Expected result:** Prior conversation context is available; Agent remembers earlier messages.
 
 ---
 
-**Step 4:** Concurrent sessions in different terminals:
-**Where:** **Agent panel** — ``Ctrl+I``
+### Step 4 — Two terminals (optional)
 
-```bash
-# Terminal 1: agent --resume frontend-cleanup
-# Terminal 2: agent --resume db-optimization
-```
+**Do this:** Open two PowerShell terminals. Resume different sessions in each.
+
+**Expected result:** Two independent CLI conversations at once.
 
 ---
 
-**Step 5:** Context management:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 5 — Compress long context
+
+**Do this:** Inside a long `agent` session:
 
 ```
-/compress   # Summarize conversation, free context window
+/compress
 ```
+
+**Expected result:** Conversation summarized; more context window free.
 
 ---
 
-**Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent panel ``Ctrl+I`` · shortcuts use **Ctrl**
+### Step 6 — Naming convention (practice)
 
-**Step 6:** Export session summary as markdown
-**Where:** **Agent panel** — ``Ctrl+I``
+**Do this:** When starting real work, use descriptive first prompts, e.g. `api-auth-fix` or `docs-update`.
 
-**Step 7:** Create `scripts/cursor-sessions.ps1` to list and manage sessions (optional `.sh` on Mac/Linux)
-**Where:** **Agent panel** — ``Ctrl+I``
+**Expected result:** `/resume` list is readable a week later.
 
-**Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)
-
-**Context:** Use `/compress` on long sessions · cloud handoff for very long tasks
-
-**Cleanup:** Sessions persist indefinitely — manually complete or discard finished ones
-
-**Success Criteria:** Created named sessions · listed with `/resume` · resumed · used `/compress`
-
+**Success criteria:** Created sessions · listed with `/resume` · resumed one · tried `/compress`
 ---
 
 ## Success criteria

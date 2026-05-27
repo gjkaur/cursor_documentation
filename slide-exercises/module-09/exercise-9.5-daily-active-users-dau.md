@@ -30,28 +30,46 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/usage/daily?startDate=$START&endDate=$END" \
-  | jq '{avg_weekly: ([.daily[-7:] | .[].activeUsers] | add / length),
-         peak: ([.daily[] | .activeUsers] | max)}'
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-**Python leadership report:**
-- Average/median/peak DAU · adoption rate (% of team)
-- WoW growth rate · weekly averages
-- Health assessment: >80% excellent · >50% good · <30% investigate
+### Step 1 — Date range (7 days)
 
-**Success Criteria:** Calculated DAU · adoption metrics · leadership-ready report
+```powershell
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+```
 
+---
+
+### Step 2 — Fetch DAU
+
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+
+**Expected result:** Daily active user counts per day.
+
+---
+
+### Step 3 — Trend
+
+**Do this:** State whether DAU went up, down, or flat across the week.
+
+**Expected result:** One-sentence trend for leadership.
+
+**Success criteria:** DAU data retrieved · trend stated
 ---
 
 ## Success criteria

@@ -30,45 +30,63 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```bash
-export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx"
-
-# Verify admin access
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  https://api.cursor.com/v1/admin/organization | jq '.'
-
-# List all team members
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/members" | jq '.'
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+Follow each step in order. Confirm the **Expected result** before moving on.
+
+### Step 1 — Set Admin API key
+
+**Do this:**
+
+```powershell
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
+```
+
+**Expected result:** Key set for this session only.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 2 — List team members
 
-**Pagination:**
+**Do this:**
 
-```bash
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/members?limit=10&offset=0"
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  https://api.cursor.com/v1/teams/members | ConvertFrom-Json
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+**Expected result:** `200` and member records (emails, roles, etc.).
 
-**Python:** loop with offset until empty → export to `team_roster.csv` (email, role, status, joined, lastActiveAt)
+---
 
-**Helper:** `get_user_id_by_email(email)` for downstream admin calls
+### Step 3 — Pagination
 
-**Success Criteria:** Authenticated · listed members · handled pagination · exported CSV
+**Do this:**
 
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/teams/members?limit=10&offset=0"
+```
+
+**Expected result:** First page of members; note if more pages needed.
+
+---
+
+### Step 4 — Export to CSV (optional)
+
+**Do this:** Use lab guide Python to write `team_roster.csv`.
+
+**Expected result:** CSV opens in Excel with columns you chose.
+
+**Success criteria:** Admin auth works · listed members · tried pagination
 ---
 
 ## Success criteria

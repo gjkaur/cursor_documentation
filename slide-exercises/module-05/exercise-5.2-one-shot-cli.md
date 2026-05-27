@@ -29,73 +29,77 @@
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 1 — Run a simple one-shot question
 
-**Step 1:** Basic one-shot commands:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this (PowerShell):**
 
-```bash
-agent "What is the difference between let and const in JavaScript?"
-agent "Write a bash function that checks if a port is in use"
-agent --mode=ask "Explain the git rebase command with examples"
+```powershell
+agent -p "What is the difference between let and const in JavaScript?"
 ```
+
+**Expected result:** Answer prints in the terminal; command exits back to `PS>`.
 
 ---
 
-**Step 2:** Specify models:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 2 — Run another one-shot (code / shell help)
 
-```bash
-agent --model gpt-5-mini "What does this command do: ls -la | grep .txt"
-agent --model claude-4.5-opus "Design a database schema for a task management system"
+**Do this:**
+
+```powershell
+agent -p "Write a PowerShell function that checks if a TCP port is in use"
 ```
+
+**Expected result:** Function code or clear steps print; no interactive `>` prompt stays open.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 3 — Ask Mode in one shot
 
-Create `bin/ai-review.sh`:
+**Do this:**
 
-```bash
-#!/bin/bash
-STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ')
-
-agent --mode=ask "Review these staged files for common issues:
-Files: $STAGED_FILES
-Check for: debugging statements, unused imports,
-security issues, missing error handling. Be concise."
+```powershell
+agent --mode=ask -p "Explain the git rebase command with examples"
 ```
 
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+**Expected result:** Explanation only (read-only).
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+### Step 4 — Pick a specific model
 
-**Step 4:** Batch process files:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:**
 
-```bash
-for file in src/**/*.py; do
-    agent --mode=ask --non-interactive \
-      "Summarize this Python file in one sentence: $(head -50 $file)"
-done
+```powershell
+agent --model gpt-5-mini -p "What does Get-ChildItem do in PowerShell?"
 ```
+
+**Expected result:** Answer from the model you named (or an error if that model is unavailable on your plan).
 
 ---
 
-**Step 5:** Pre-commit hook — review staged diff for secrets, debug statements, merge markers
-**Where:** **Agent panel** — ``Ctrl+I``
+### Step 5 — Understand scriptable review (concept)
 
-**Step 6:** CI/CD — analyze test output and suggest fixes for failures
-**Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
+**Do this:** In Cursor Agent (`Ctrl+I`), ask it to help you draft a **PowerShell** pre-commit script that runs:
 
-**Success Criteria:** Ran one-shots · specified models · created reviewer script · understood CI/CD use
+```powershell
+agent --mode=ask -p "Review these staged files for debug statements and missing error handling"
+```
 
+**Expected result:** You have a `.ps1` sketch you could wire to `git diff --cached` later (full hook optional for this lab).
+
+---
+
+### Step 6 — CI/CD idea (discussion)
+
+**Discuss:** In GitHub Actions you would set `CURSOR_API_KEY` as a secret and run `agent -p "..."` on the runner.
+
+**Expected result:** You can explain one use case (PR review, test log summary) without breaking production CI in class.
+
+**Success criteria:** Ran one-shots · specified a model · understand script/CI use cases
 ---
 
 ## Success criteria

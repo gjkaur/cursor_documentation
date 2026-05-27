@@ -84,6 +84,8 @@ Use [`FINAL_TABLE_OF_CONTENTS.md`](FINAL_TABLE_OF_CONTENTS.md) for module goals,
 | [`scripts/trim-repetitive-slides.py`](scripts/trim-repetitive-slides.py) | Remove duplicate agenda/summary slides (keeps lesson dividers) |
 | [`scripts/restore-lesson-dividers.py`](scripts/restore-lesson-dividers.py) | Re-insert `# Lesson X.Y` section slides from git history |
 | [`scripts/inject-lab-guide-links.py`](scripts/inject-lab-guide-links.py) | Add lab guide links on first exercise slide per lab |
+| [`scripts/apply-beginner-steps-modules-5-10.py`](scripts/apply-beginner-steps-modules-5-10.py) | Rewrite module 5–10 lab steps for Windows beginners |
+| [`scripts/sync-exercise-steps-to-slides.py`](scripts/sync-exercise-steps-to-slides.py) | Sync key steps into first exercise slide per lab |
 | [`scripts/export-editable-pptx.ps1`](scripts/export-editable-pptx.ps1) | Optional PowerPoint export |
 
 Edit the combined deck directly; per-module Marp sources are not kept in this repo.

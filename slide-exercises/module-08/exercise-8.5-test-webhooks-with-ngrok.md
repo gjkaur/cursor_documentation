@@ -30,47 +30,74 @@ $env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+**Before API calls:** set your key (replace with your real key):
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+# Admin exercises use:
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+```
 
-**Step 1:** Start tunnel:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-```bash
+### Step 0 — Prerequisites
+
+**Do this:** Complete webhook receiver setup from 8.4 (Flask/FastAPI on port **5000**). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or `winget install ngrok.ngrok`.
+
+**Expected result:** Local server responds on `http://127.0.0.1:5000/health` (or your route).
+
+---
+
+### Step 1 — Terminal A: run your webhook server
+
+**Do this:** In PowerShell:
+
+```powershell
+cd D:/path/to/your/webhook-project
+python -m flask run --port 5000
+```
+
+**Expected result:** Server listening on port 5000.
+
+---
+
+### Step 2 — Terminal B: start ngrok
+
+**Do this:** New PowerShell window:
+
+```powershell
 ngrok http 5000
-# Forwarding: https://abc123.ngrok.io -> http://localhost:5000
 ```
 
----
-
-**Step 2:** Copy HTTPS URL
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Expected result:** Line like `Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000`.
 
 ---
 
-**Step 3:** Create agent with ngrok URL:
-**Terminal:** **PowerShell** — ``Ctrl+` `` in Cursor
+### Step 3 — Copy HTTPS URL
 
-```bash
-curl -X POST https://api.cursor.com/v1/agents ... \
-  -d '{"webhookUrl": "https://abc123.ngrok.io/webhook/cursor", ...}'
-```
+**Do this:** Copy the `https://....ngrok-free.app` URL; append your path, e.g. `/webhook/cursor`.
+
+**Expected result:** Full webhook URL ready for agent create JSON.
 
 ---
 
-**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
+### Step 4 — Create agent with webhook
 
-**Step 4:** Inspect requests at `http://127.0.0.1:4040`
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:** POST `/v1/agents` with `webhookUrl` set to your ngrok URL (use `curl.exe` pattern from 8.1).
 
-**Step 5:** Replay failed webhooks (ngrok premium) — inspect raw body and headers
-**Terminal:** **Git Bash** or **Ubuntu (WSL)** — bash syntax required
+**Expected result:** Agent starts; your Flask terminal prints an incoming POST.
 
-**Success Criteria:** Tunnel established · webhook received · signature verified · inspected in ngrok UI
+---
 
+### Step 5 — Inspect in ngrok UI
+
+**Do this:** Open [http://127.0.0.1:4040](http://127.0.0.1:4040) in the browser.
+
+**Expected result:** Request list shows POST body and headers (including signature header).
+
+**Success criteria:** Tunnel up · webhook received · verified or logged signature · inspected in ngrok UI
 ---
 
 ## Success criteria

@@ -29,81 +29,131 @@
 
 ## Steps from the training slides
 
-**Demonstration (Windows):** Follow steps in **PowerShell** unless a step says otherwise. Agent panel: ``Ctrl+I`` · Terminal: ``Ctrl+` ``.
+**Environment:** Windows 10/11 · **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-Follow these steps in order. Copy prompts exactly unless the exercise tells you to adapt them.
+Follow each step in order. Confirm the **Expected result** before moving on.
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+| Shortcut | Action |
+|----------|--------|
+| ``Ctrl+` `` | Open terminal → choose **PowerShell** |
+| `Ctrl+I` | Open **Agent** panel (editor UI — separate from CLI) |
 
-**Step 1:** Start an interactive session
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 1 — Verify CLI installation
 
-```bash
-agent
-agent "Help me understand the current codebase structure"
+**Do this (PowerShell):**
+
+```powershell
+agent --version
 ```
 
----
-
-**Step 2:** Navigate the session (inside the running `agent` session — same terminal window) — unless step notes Git Bash or WSL
-- Type prompts naturally
-- `Shift+Enter` — new line without submitting
-- `Enter` — submit prompt
-- `Ctrl+D` twice — exit
+**Expected result:** Version text prints (not `command not found`). If missing, run the install command in **CLI basics** above, then close and reopen the terminal.
 
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 2 — Start an interactive session
 
-**Step 3:** Switch models:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:**
+
+```powershell
+cd D:/path/to/your/repo
+agent
+```
+
+**Expected result:** You see a `>` prompt and a welcome message. Working directory should be your project folder.
+
+---
+
+### Step 3 — Ask your first question
+
+**Do this:** At the `>` prompt, paste and press **Enter**:
+
+```
+Help me understand the current codebase structure
+```
+
+**Expected result:** The Agent lists main files, entry points, or asks one clarifying question.
+
+---
+
+### Step 4 — Session controls (same terminal window)
+
+| Key / command | What it does |
+|---------------|--------------|
+| Type normally | Your prompt text |
+| `Shift+Enter` | New line without sending |
+| `Enter` | Send prompt |
+| `/help` | List CLI commands |
+| `/quit` or `Ctrl+C` twice | Exit CLI |
+
+**Expected result:** `/help` shows commands; `/quit` returns you to the normal PowerShell prompt.
+
+---
+
+### Step 5 — Switch models
+
+**Do this:** Inside `agent`, type:
 
 ```
 /model
-# Or list models outside session:
+```
+
+Or from PowerShell (outside a session):
+
+```powershell
 agent --list-models
 ```
 
+**Expected result:** A list of available models or the current model name.
+
 ---
 
-**Step 4:** Ask Mode (read-only):
-**Where:** **Agent panel** — ``Ctrl+I``
+### Step 6 — Try Ask Mode (read-only)
 
-```bash
+**Do this (new PowerShell window or after `/quit`):**
+
+```powershell
 agent --mode=ask "What does this project's main function do?"
-# Or inside session: /ask
 ```
 
+**Expected result:** Text answer only — no file edits.
+
 ---
 
-**Step 5:** Plan Mode:
-**Where:** **Agent panel** — ``Ctrl+I``
+### Step 7 — Try Plan Mode
 
-```bash
+**Do this:**
+
+```powershell
 agent --mode=plan "Add user authentication to this API"
 ```
 
+**Expected result:** A plan outline before any file changes (may ask questions first).
+
 ---
 
-**Platform:** Windows 10/11 · **PowerShell** ``Ctrl+` `` (Git Bash/WSL for `.sh` scripts)
+### Step 8 — Optional: status line helper
 
-**Step 6:** Configure status line:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+**Do this:**
 
-```bash
+```powershell
 npx -y cursor-statusline
-# Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]
 ```
+
+**Expected result:** Extra status info in the terminal (model, path, context) if the package runs successfully.
 
 ---
 
-**Step 7:** Terminal key bindings:
-**Terminal:** **PowerShell** — unless step notes Git Bash or WSL
+### Step 9 — Optional: terminal setup
 
-```bash
-agent /setup-terminal
+**Do this (inside `agent`):**
+
+```
+/setup-terminal
 ```
 
+**Expected result:** Setup completes or prints instructions for your shell.
+
+**Success criteria:** CLI verified · interactive session · follow-up prompt · `/help` · tried Ask or Plan mode
 ---
 
 ## Detailed reference (expanded instructions)
