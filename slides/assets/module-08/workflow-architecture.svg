@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 181" width="920" height="181">
-<rect width="920" height="181" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">crate_aent()→ wat (wehook R poling)→ dowload_rtifcts()</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 974 181" width="974" height="181">
+<rect width="974" height="181" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">create_agent() → wait (webhook OR polling) → download_artifacts()</text>
 <text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">      ↑                ↑</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  lask ebhok serer   ompleion_vent.et()</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  backgoundthrea)    n FINSHEDstatus</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Flask webhook server   completion_event.set()</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">background thread      on FINISHED status</text>
 </svg>

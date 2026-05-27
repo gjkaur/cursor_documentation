@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 414" width="920" height="414">
-<rect width="920" height="414" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">MOES:</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  SK MOE   → Rea-only| Quetion, leaning</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GENT ODE → Fulltools| Imlemetatio, debgging</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">TOLS:</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ROWSER → avigae, red, cosole,screnshot</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ERMINL → xecutecommnds, ead utput</text>
-<text x="24" y="243.64999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ILE    → ead, dit, reate,delte</text>
-<text x="24" y="277.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  EARCH  → ode sarch,symbollooup</text>
-<text x="24" y="310.35" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">PRMPTIN:</text>
-<text x="24" y="343.70000000000005" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  •Be secifc  • efineboundries • Pln firt forcompex taks</text>
-<text x="24" y="377.05000000000007" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  •Specfy otput ormat • Deine uccesscritria</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1017 414" width="1017" height="414">
+<rect width="1017" height="414" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">MODES:</text>
+<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ASK MODE   → Read-only | Questions, learning</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  AGENT MODE → Full tools | Implementation, debugging</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">TOOLS:</text>
+<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  BROWSER  → Navigate, read, console, screenshot</text>
+<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  TERMINAL → Execute commands, read output</text>
+<text x="24" y="243.64999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  FILE     → Read, edit, create, delete</text>
+<text x="24" y="277.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  SEARCH   → Code search, symbol lookup</text>
+<text x="24" y="310.35" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">PROMPTING:</text>
+<text x="24" y="343.70000000000005" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  • Be specific  • Define boundaries  • Plan first for complex tasks</text>
+<text x="24" y="377.05000000000007" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  • Specify output format  • Define success criteria</text>
 </svg>

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 248" width="920" height="248">
 <rect width="920" height="248" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→ rowse_navgate(rl=&quot;htp://ocalost:800&quot;)</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→ rowse_snashot()— pae strcturecaptred</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→ rowse_conole_mssage()</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  [WARNNG] eprected AI usedon ine 42</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  [ERRO] Faled toloadresouce: api/dta 404</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Agnt: Fund adeprcatedAPI wrningand a404 n /ap/data</text>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→ browse_navigate(url=&quot;http://localhost:8000&quot;)</text>
+<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→ browse_snapshot() — page structure captured</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">→ browse_console_messages()</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  [WARNING] deprecated API used on line 42</text>
+<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  [ERROR] Failed to load resource: api/data 404</text>
+<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Agent: Found a deprecated API warning and a 404 on /api/data</text>
 </svg>

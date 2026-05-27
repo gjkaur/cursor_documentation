@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 248" width="920" height="248">
-<rect width="920" height="248" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">RUES        → .crsor/ules/.mdc(stanards,securty, uild)</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">REO INSR.   → .crsor/eposiory-nstrutionsmd (pojectoveriew)</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">SKLLS       → .crsor/kills*/SKLL.md(invoe with/skll-nae)</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">MCP         → ~/curso/mcp.son GitHu, Slak, Jia, cstom)</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">SLSH CMS    → .crsor/ommans/*.d (/dploy,/onbord, triag)</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">SUAGENTS    → Paallel,isolted,specilizedexecuion</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1017 248" width="1017" height="248">
+<rect width="1017" height="248" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">RULES        → .cursor/rules/*.mdc (standards, security, build)</text>
+<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">REPO INSTR.  → .cursor/repository-instructions.md (project overview)</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">SKILLS       → .cursor/skills/*/SKILL.md (invoke with /skill-name)</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">MCP          → ~/.cursor/mcp.json (GitHub, Slack, Jira, custom)</text>
+<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">SLASH CMDS   → .cursor/commands/*.md (/deploy, /onboard, triage)</text>
+<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">SUBAGENTS    → Parallel, isolated, specialized execution</text>
 </svg>

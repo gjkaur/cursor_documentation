@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 248" width="920" height="248">
-<rect width="920" height="248" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Prject:TaskManagr API(FastPI +PostgeSQL +JWT)</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Arhitecure:api/ →servces/ →repsitores/ →model/</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Coventins: ependncy ijectin, aync/aait, ype hnts equird</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Rundev: uviorn sc.mai:app -relad</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Runtest: pyest -v</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Miratios: aembicupgrae head</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1003 248" width="1003" height="248">
+<rect width="1003" height="248" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Project: TaskManager API (FastAPI + PostgreSQL + JWT)</text>
+<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Architecture: api/ → services/ → repositories/ → models/</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Conventions: dependency injection, async/await, type hints required</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Run dev: uvicorn src.main:app --reload</text>
+<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Run tests: pytest -v</text>
+<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">Migrations: alembic upgrade head</text>
 </svg>

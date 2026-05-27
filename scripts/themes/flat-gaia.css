@@ -93,8 +93,14 @@ section.center h3 {
   width: 100%;
 }
 
+section.lead header {
+  font-size: 0.7em;
+  top: 0.4em;
+}
+
 section.lead h1 {
   color: #cc0000;
+  margin-top: 0.35em;
 }
 
 section.lead h2 {

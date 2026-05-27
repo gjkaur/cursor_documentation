@@ -686,7 +686,8 @@ Run with: `streamlit run cursor_dashboard.py`
 
 
 
-<!-- _class: lead fit-md -->
+<!-- _header: "" -->
+<!-- _class: lead fit-sm -->
 
 # Course Complete
 

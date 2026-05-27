@@ -108,7 +108,7 @@ def lines_from_monospace_svg(svg_text: str) -> list[str]:
         max_col = 0
         grid: dict[int, str] = {}
         for x, ch in chars:
-            col = round((x - pad_x - char_w / 2) / char_w)
+            col = round((x - pad_x) / char_w)
             grid[col] = ch
             max_col = max(max_col, col)
         line = "".join(grid.get(i, " ") for i in range(max_col + 1)).rstrip()

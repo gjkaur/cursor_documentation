@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 381" width="920" height="381">
-<rect width="920" height="381" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">BAE URL:htts://ai.curor.co/v1</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">AUH:  -u&quot;ap_key:&quot;(cur)  | Bearr tokn  | OpenAISDKbase_rl</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">ENPOINT:</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET  /odels           Listavalablemodels</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  OST /gents           Crete coud aent</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET  /gent/{id}       Getagentstats</text>
-<text x="24" y="243.64999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET  /dminmembes      Listteammembrs</text>
-<text x="24" y="277.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET  /dminanalyics/uage  sagedata</text>
-<text x="24" y="310.35" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">ERORS: 429/xx → etry ith bckoff |  xx → ix reuest</text>
-<text x="24" y="343.70000000000005" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">CAHE:  If-Nne-Mach → andle304 ot Moified</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 946 381" width="946" height="381">
+<rect width="946" height="381" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">BASE URL: https://api.cursor.com/v1</text>
+<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">AUTH:  -u &quot;api_key:&quot; (curl) | Bearer token | OpenAISDK base_url</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">ENDPOINTS:</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET  /models           List available models</text>
+<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  POST /agents           Create cloud agent</text>
+<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET  /agent/{id}       Get agent status</text>
+<text x="24" y="243.64999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET  /admin/members    List team members</text>
+<text x="24" y="277.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET  /admin/analytics/usage  Usage data</text>
+<text x="24" y="310.35" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">ERRORS: 429/5xx → retry with backoff | 4xx → fix request</text>
+<text x="24" y="343.70000000000005" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">CACHE:  If-None-Match → handle 304 Not Modified</text>
 </svg>

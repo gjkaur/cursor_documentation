@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 348" width="920" height="348">
-<rect width="920" height="348" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
-<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">ENPOINT:</text>
-<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET   admi/membrs                 ist mmbers</text>
-<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET   admi/analtics/sage/aily     aily sage</text>
-<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET   admi/analtics/sage/odels    odel sage</text>
-<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET   admi/analtics/sage/sers     er-usr usae</text>
-<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ATCH admi/poliies/uers/{d}/lmits et spnd liits</text>
-<text x="24" y="243.64999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  ET   admi/membrs/{i}/resurces    ser rsourcs</text>
-<text x="24" y="277.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">LEDERBORDS: Anonmize ·posiive etrics· op-in ·rolecontet</text>
-<text x="24" y="310.35" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">REOVAL:     Audit→ Dectivae → ransfr → Lg → Cnfirmdelee</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 989 348" width="989" height="348">
+<rect width="989" height="348" rx="10" ry="10" fill="#f7f7f7" stroke="#d0d0d0" stroke-width="2"/>
+<text x="24" y="43.55" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">ENDPOINTS:</text>
+<text x="24" y="76.9" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET    /admin/members                 List members</text>
+<text x="24" y="110.25" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET    /admin/analytics/usage/daily   Daily usage</text>
+<text x="24" y="143.6" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET    /admin/analytics/usage/models  Model usage</text>
+<text x="24" y="176.95" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET    /admin/analytics/usage/users   Per-user usage</text>
+<text x="24" y="210.29999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  PATCH  /admin/policies/users/{id}/limits Set spend limits</text>
+<text x="24" y="243.64999999999998" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">  GET    /admin/members/{id}/resources  User resources</text>
+<text x="24" y="277.0" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">LEADERBOARDS: Anonymize · positive metrics · opt-in · role context</text>
+<text x="24" y="310.35" text-anchor="start" font-family="Consolas, 'Courier New', monospace" font-size="23.00" fill="#1a1a1a">REMOVAL:     Audit → Deactivate → Transfer → Log → Confirm delete</text>
 </svg>
