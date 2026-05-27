@@ -1,7 +1,7 @@
 # Exercise 2.1: Codebase Understanding
 
 **Module 2:** Cursor Editor Essentials  
-**Slides:** `slides/module-02-marp.md` (Lesson 2.1)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 2, Lesson 2.1)  
 **Time:** 20 min  
 **Difficulty:** Beginner
 

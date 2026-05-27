@@ -1,7 +1,7 @@
 # Exercise 9.2: Daily Usage Data
 
 **Module 9:** Admin and Analytics APIs  
-**Slides:** `slides/module-09-marp.md` (Lesson 9.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 9, Lesson 9.2)  
 **Time:** 15 min  
 **Difficulty:** Beginner
 

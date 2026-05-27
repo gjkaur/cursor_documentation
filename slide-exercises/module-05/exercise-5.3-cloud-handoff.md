@@ -1,7 +1,7 @@
 # Exercise 5.3: Cloud Handoff
 
 **Module 5:** Cursor CLI and Local Automation  
-**Slides:** `slides/module-05-marp.md` (Lesson 5.3)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 5, Lesson 5.3)  
 **Time:** 18 min  
 **Difficulty:** Beginner
 

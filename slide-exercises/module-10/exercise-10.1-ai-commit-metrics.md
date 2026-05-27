@@ -1,7 +1,7 @@
 # Exercise 10.1: AI Commit Metrics
 
 **Module 10:** AI Code Tracking and Reporting  
-**Slides:** `slides/module-10-marp.md` (Lesson 10.1)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 10, Lesson 10.1)  
 **Time:** 8 min  
 **Difficulty:** Beginner
 

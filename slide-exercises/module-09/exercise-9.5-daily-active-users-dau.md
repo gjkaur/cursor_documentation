@@ -1,7 +1,7 @@
 # Exercise 9.5: Daily Active Users (DAU)
 
 **Module 9:** Admin and Analytics APIs  
-**Slides:** `slides/module-09-marp.md` (Lesson 9.5)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 9, Lesson 9.5)  
 **Time:** 10 min  
 **Difficulty:** Beginner
 

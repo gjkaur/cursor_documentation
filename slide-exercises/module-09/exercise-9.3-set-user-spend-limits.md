@@ -1,7 +1,7 @@
 # Exercise 9.3: Set User Spend Limits
 
 **Module 9:** Admin and Analytics APIs  
-**Slides:** `slides/module-09-marp.md` (Lesson 9.3)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 9, Lesson 9.3)  
 **Time:** 13 min  
 **Difficulty:** Beginner
 

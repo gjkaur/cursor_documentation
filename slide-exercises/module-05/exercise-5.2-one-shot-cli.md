@@ -1,7 +1,7 @@
 # Exercise 5.2: One-Shot CLI
 
 **Module 5:** Cursor CLI and Local Automation  
-**Slides:** `slides/module-05-marp.md` (Lesson 5.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 5, Lesson 5.2)  
 **Time:** 20 min  
 **Difficulty:** Beginner
 

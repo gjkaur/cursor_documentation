@@ -1,7 +1,7 @@
 # Exercise 7.2: Generate and Test API Keys
 
 **Module 7:** Cursor API Foundations  
-**Slides:** `slides/module-07-marp.md` (Lesson 7.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 7, Lesson 7.2)  
 **Time:** 15 min  
 **Difficulty:** Beginner
 

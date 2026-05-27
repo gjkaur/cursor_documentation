@@ -267,7 +267,11 @@ def build() -> str:
     append("| **Lessons** | 52 total |")
     append("| **Slide exercises** | 40 written lab guides in `slide-exercises/` |")
     append("| **Core exercises** | 25 optional hands-on labs in `core-exercises/` |")
-    append("| **Slide decks** | `slides/module-01-marp.md` … `slides/module-10-marp.md` |")
+    append(
+        "| **Slide deck** | "
+        "`slides/course-complete-marp-with-notes.md` · "
+        "`slides/course-complete-marp.md` |"
+    )
     append("| **Combined deck** | `slides/course-complete-marp.md` |")
     append("")
     append("### Day 1 — Cursor Editor and Agent Fluency")

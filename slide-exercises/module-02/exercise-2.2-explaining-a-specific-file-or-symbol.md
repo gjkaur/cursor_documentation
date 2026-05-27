@@ -1,7 +1,7 @@
 # Exercise 2.2: Explaining a Specific File or Symbol
 
 **Module 2:** Cursor Editor Essentials  
-**Slides:** `slides/module-02-marp.md` (Lesson 2.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 2, Lesson 2.2)  
 **Time:** 13 min  
 **Difficulty:** Beginner
 

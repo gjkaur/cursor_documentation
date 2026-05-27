@@ -1,7 +1,7 @@
 # Exercise 3.3: Terminal Tool
 
 **Module 3:** Agent Modes and Tools  
-**Slides:** `slides/module-03-marp.md` (Lesson 3.3)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 3, Lesson 3.3)  
 **Time:** 20 min  
 **Difficulty:** Beginner
 

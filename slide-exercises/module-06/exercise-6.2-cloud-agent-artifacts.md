@@ -1,7 +1,7 @@
 # Exercise 6.2: Cloud Agent Artifacts
 
 **Module 6:** Cloud Agents in the UI  
-**Slides:** `slides/module-06-marp.md` (Lesson 6.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 6, Lesson 6.2)  
 **Time:** 25 min  
 **Difficulty:** Beginner
 

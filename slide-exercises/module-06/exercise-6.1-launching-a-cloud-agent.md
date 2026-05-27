@@ -1,7 +1,7 @@
 # Exercise 6.1: Launching a Cloud Agent
 
 **Module 6:** Cloud Agents in the UI  
-**Slides:** `slides/module-06-marp.md` (Lesson 6.1)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 6, Lesson 6.1)  
 **Time:** 25 min  
 **Difficulty:** Beginner
 

@@ -1,7 +1,7 @@
 # Exercise 4.1: Creating a Rule
 
 **Module 4:** Customizing Cursor for Your Team  
-**Slides:** `slides/module-04-marp.md` (Lesson 4.1)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 4, Lesson 4.1)  
 **Time:** 20 min  
 **Difficulty:** Beginner
 

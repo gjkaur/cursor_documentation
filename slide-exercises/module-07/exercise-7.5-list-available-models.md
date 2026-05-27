@@ -1,7 +1,7 @@
 # Exercise 7.5: List Available Models
 
 **Module 7:** Cursor API Foundations  
-**Slides:** `slides/module-07-marp.md` (Lesson 7.5)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 7, Lesson 7.5)  
 **Time:** 10 min  
 **Difficulty:** Beginner
 

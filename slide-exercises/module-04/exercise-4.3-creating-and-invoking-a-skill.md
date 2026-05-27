@@ -1,7 +1,7 @@
 # Exercise 4.3: Creating and Invoking a Skill
 
 **Module 4:** Customizing Cursor for Your Team  
-**Slides:** `slides/module-04-marp.md` (Lesson 4.3)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 4, Lesson 4.3)  
 **Time:** 20 min  
 **Difficulty:** Beginner
 

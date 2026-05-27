@@ -1,7 +1,7 @@
 # Exercise 7.4: ETag Caching
 
 **Module 7:** Cursor API Foundations  
-**Slides:** `slides/module-07-marp.md` (Lesson 7.4)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 7, Lesson 7.4)  
 **Time:** 18 min  
 **Difficulty:** Beginner
 

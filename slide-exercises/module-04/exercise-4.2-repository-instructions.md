@@ -1,7 +1,7 @@
 # Exercise 4.2: Repository Instructions
 
 **Module 4:** Customizing Cursor for Your Team  
-**Slides:** `slides/module-04-marp.md` (Lesson 4.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 4, Lesson 4.2)  
 **Time:** 13 min  
 **Difficulty:** Beginner
 

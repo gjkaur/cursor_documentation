@@ -1,6 +1,6 @@
 # Cursor Training Program — Final Table of Contents
 
-Complete reference for all **10 modules**, **52 lessons**, and **40 hands-on slide exercises** in the Cursor Training Program. Generated from instructor slide decks (`slides/module-*-marp.md`) and step-by-step lab guides (`slide-exercises/`).
+Complete reference for all **10 modules**, **52 lessons**, and **40 hands-on slide exercises** in the Cursor Training Program. Generated from the combined slide deck (`slides/course-complete-marp-with-notes.md`) and step-by-step lab guides (`slide-exercises/`).
 
 *Generated: 2026-05-22*
 
@@ -17,8 +17,8 @@ Complete reference for all **10 modules**, **52 lessons**, and **40 hands-on sli
 | **Lessons** | 52 total |
 | **Slide exercises** | 40 written lab guides in `slide-exercises/` |
 | **Core exercises** | 25 optional hands-on labs in `core-exercises/` |
-| **Slide decks** | `slides/module-01-marp.md` … `slides/module-10-marp.md` |
-| **Combined deck** | `slides/course-complete-marp.md` |
+| **Slide deck (present)** | [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) |
+| **Slide deck (source)** | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · [`slides/course-complete-marp.md`](slides/course-complete-marp.md) |
 
 ### Day 1 — Cursor Editor and Agent Fluency
 
@@ -34,16 +34,16 @@ Modules 6–10: cloud agents UI, API foundations, Cloud Agents API/webhooks, adm
 
 | # | Day | Module | Format | Duration | Lessons | Exercises | Slide deck |
 |---|-----|--------|--------|----------|---------|-----------|------------|
-| **1** | Day 1 | Mental Models for AI-Assisted Development | Concept block (foundational theory) | ~60 minutes | 6 | 0 | [`module-01-marp.md`](slides/module-01-marp.md) |
-| **2** | Day 1 | Cursor Editor Essentials | Hands-on exercise | ~90 minutes | 8 | 8 | [`module-02-marp.md`](slides/module-02-marp.md) |
-| **3** | Day 1 | Agent Modes and Tools | Hands-on exercise + concept | ~60 minutes | 4 | 4 | [`module-03-marp.md`](slides/module-03-marp.md) |
-| **4** | Day 1 | Customizing Cursor for Your Team | Hands-on exercise + walkthrough | ~60 minutes | 5 | 3 | [`module-04-marp.md`](slides/module-04-marp.md) |
-| **5** | Day 1 | Cursor CLI and Local Automation | Hands-on exercise | ~60 minutes | 4 | 4 | [`module-05-marp.md`](slides/module-05-marp.md) |
-| **6** | Day 2 | Cloud Agents in the UI | Hands-on exercise + demonstration | ~90 minutes | 3 | 2 | [`module-06-marp.md`](slides/module-06-marp.md) |
-| **7** | Day 2 | Cursor API Foundations | Concept + hands-on exercise | ~60 minutes | 5 | 4 | [`module-07-marp.md`](slides/module-07-marp.md) |
-| **8** | Day 2 | Cloud Agents API and Webhooks | Hands-on exercise | ~60 minutes | 6 | 5 | [`module-08-marp.md`](slides/module-08-marp.md) |
-| **9** | Day 2 | Admin and Analytics APIs | Hands-on exercise + demonstrations | ~75 minutes | 8 | 6 | [`module-09-marp.md`](slides/module-09-marp.md) |
-| **10** | Day 2 | AI Code Tracking and Reporting | Hands-on exercise + take-home project | ~20 minutes (plus take-home project) | 4 | 4 | [`module-10-marp.md`](slides/module-10-marp.md) |
+| **1** | Day 1 | Mental Models for AI-Assisted Development | Concept block (foundational theory) | ~60 minutes | 6 | 0 | [`course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) |
+| **2** | Day 1 | Cursor Editor Essentials | Hands-on exercise | ~90 minutes | 8 | 8 | [`module-02-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **3** | Day 1 | Agent Modes and Tools | Hands-on exercise + concept | ~60 minutes | 4 | 4 | [`module-03-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **4** | Day 1 | Customizing Cursor for Your Team | Hands-on exercise + walkthrough | ~60 minutes | 5 | 3 | [`module-04-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **5** | Day 1 | Cursor CLI and Local Automation | Hands-on exercise | ~60 minutes | 4 | 4 | [`module-05-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **6** | Day 2 | Cloud Agents in the UI | Hands-on exercise + demonstration | ~90 minutes | 3 | 2 | [`module-06-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **7** | Day 2 | Cursor API Foundations | Concept + hands-on exercise | ~60 minutes | 5 | 4 | [`module-07-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **8** | Day 2 | Cloud Agents API and Webhooks | Hands-on exercise | ~60 minutes | 6 | 5 | [`module-08-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **9** | Day 2 | Admin and Analytics APIs | Hands-on exercise + demonstrations | ~75 minutes | 8 | 6 | [`module-09-marp.md`](slides/course-complete-marp-with-notes.md) |
+| **10** | Day 2 | AI Code Tracking and Reporting | Hands-on exercise + take-home project | ~20 minutes (plus take-home project) | 4 | 4 | [`module-10-marp.md`](slides/course-complete-marp-with-notes.md) |
 
 ---
 
@@ -55,7 +55,7 @@ Modules 6–10: cloud agents UI, API foundations, Cloud Agents API/webhooks, adm
 
 **Prerequisites:** None – this is the starting point
 
-**Slide deck:** [`slides/module-01-marp.md`](slides/module-01-marp.md) · **HTML:** [`slides/module-01-marp.html`](slides/module-01-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -126,7 +126,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Module 1 completed, Cursor installed, Git repository access
 
-**Slide deck:** [`slides/module-02-marp.md`](slides/module-02-marp.md) · **HTML:** [`slides/module-02-marp.html`](slides/module-02-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -154,7 +154,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Use the Cursor Agent to orient yourself in an unfamiliar repository. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.1-codebase-understanding.md`](slide-exercises/module-02/exercise-2.1-codebase-understanding.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.1) |
 | **Related core exercise** | [`core-exercises/exercise-1/01-open-agent-first-prompt.md`](core-exercises/exercise-1/01-open-agent-first-prompt.md) |
 
 **Slide sections covered:**
@@ -177,7 +177,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Get targeted explanations of one file or symbol without reading the whole repo. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md`](slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.2) |
 | **Related core exercise** | [`core-exercises/exercise-2/02-explain-a-specific-file.md`](core-exercises/exercise-2/02-explain-a-specific-file.md) |
 
 **Slide sections covered:**
@@ -198,7 +198,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Let the Agent propose a small change and review the diff before accepting. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md`](slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.3) |
 | **Related core exercise** | [`core-exercises/exercise-3/03-make-a-safe-change.md`](core-exercises/exercise-3/03-make-a-safe-change.md) |
 
 **Slide sections covered:**
@@ -220,7 +220,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Use Plan Mode to design a change before the Agent edits files. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.4-plan-mode.md`](slide-exercises/module-02/exercise-2.4-plan-mode.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.4) |
 | **Related core exercise** | [`core-exercises/exercise-4/04-use-plan-mode.md`](core-exercises/exercise-4/04-use-plan-mode.md) |
 
 **Slide sections covered:**
@@ -243,7 +243,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Run the same prompt on two models and compare quality, speed, and cost. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.5-comparing-two-models.md`](slide-exercises/module-02/exercise-2.5-comparing-two-models.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.5) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.5) |
 | **Related core exercise** | [`core-exercises/exercise-5/05-compare-two-models.md`](core-exercises/exercise-5/05-compare-two-models.md) |
 
 **Slide sections covered:**
@@ -265,7 +265,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Use @mentions to point the Agent at exact files, symbols, and context. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md`](slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.6) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.6) |
 | **Related core exercise** | [`core-exercises/exercise-6/06-use-mentions.md`](core-exercises/exercise-6/06-use-mentions.md) |
 
 **Slide sections covered:**
@@ -289,7 +289,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Create and restore checkpoints before risky Agent experiments. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.7-checkpoints.md`](slide-exercises/module-02/exercise-2.7-checkpoints.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.7) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.7) |
 | **Related core exercise** | [`core-exercises/exercise-7/07-use-checkpoints.md`](core-exercises/exercise-7/07-use-checkpoints.md) |
 
 **Slide sections covered:**
@@ -310,7 +310,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Let the Agent run terminal commands and react to command output. |
 | **Lab guide** | [`slide-exercises/module-02/exercise-2.8-terminal-integration.md`](slide-exercises/module-02/exercise-2.8-terminal-integration.md) |
-| **Slides** | `slides/module-02-marp.md` (Lesson 2.8) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 2.8) |
 | **Related core exercise** | [`core-exercises/exercise-8/08-run-terminal-command.md`](core-exercises/exercise-8/08-run-terminal-command.md) |
 
 **Slide sections covered:**
@@ -329,7 +329,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Module 2 completed, live web app available (or sample provided)
 
-**Slide deck:** [`slides/module-03-marp.md`](slides/module-03-marp.md) · **HTML:** [`slides/module-03-marp.html`](slides/module-03-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -353,7 +353,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Learn when Ask Mode is read-only and when Agent Mode can edit files. |
 | **Lab guide** | [`slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md`](slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md) |
-| **Slides** | `slides/module-03-marp.md` (Lesson 3.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 3.1) |
 | **Related core exercise** | [`core-exercises/exercise-13/13-ask-mode-vs-agent-mode.md`](core-exercises/exercise-13/13-ask-mode-vs-agent-mode.md) |
 
 **Slide sections covered:**
@@ -376,7 +376,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Use the Browser tool so the Agent can inspect live web pages. |
 | **Lab guide** | [`slide-exercises/module-03/exercise-3.2-browser-tool.md`](slide-exercises/module-03/exercise-3.2-browser-tool.md) |
-| **Slides** | `slides/module-03-marp.md` (Lesson 3.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 3.2) |
 | **Related core exercise** | [`core-exercises/exercise-9/09-browser-tool-view-page.md`](core-exercises/exercise-9/09-browser-tool-view-page.md) |
 
 **Slide sections covered:**
@@ -400,7 +400,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Use the Terminal tool to run tests, read output, and fix failures. |
 | **Lab guide** | [`slide-exercises/module-03/exercise-3.3-terminal-tool.md`](slide-exercises/module-03/exercise-3.3-terminal-tool.md) |
-| **Slides** | `slides/module-03-marp.md` (Lesson 3.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 3.3) |
 | **Related core exercise** | [`core-exercises/exercise-11/11-terminal-tool-run-tests.md`](core-exercises/exercise-11/11-terminal-tool-run-tests.md) |
 
 **Slide sections covered:**
@@ -425,7 +425,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Write constrained prompts and reusable templates for real tasks. |
 | **Lab guide** | [`slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md`](slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md) |
-| **Slides** | `slides/module-03-marp.md` (Lesson 3.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 3.4) |
 | **Related core exercise** | [`core-exercises/exercise-26/26-effective-prompting-in-practice.md`](core-exercises/exercise-26/26-effective-prompting-in-practice.md) |
 
 **Slide sections covered:**
@@ -447,7 +447,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Modules 1–3 completed, team repository access, Cursor installed
 
-**Slide deck:** [`slides/module-04-marp.md`](slides/module-04-marp.md) · **HTML:** [`slides/module-04-marp.html`](slides/module-04-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -472,7 +472,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Create Cursor rules that persist coding standards for your team. |
 | **Lab guide** | [`slide-exercises/module-04/exercise-4.1-creating-a-rule.md`](slide-exercises/module-04/exercise-4.1-creating-a-rule.md) |
-| **Slides** | `slides/module-04-marp.md` (Lesson 4.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 4.1) |
 | **Related core exercise** | [`core-exercises/exercise-14/14-create-a-rule.md`](core-exercises/exercise-14/14-create-a-rule.md) |
 
 **Slide sections covered:**
@@ -494,7 +494,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Add repository instructions the Agent reads automatically. |
 | **Lab guide** | [`slide-exercises/module-04/exercise-4.2-repository-instructions.md`](slide-exercises/module-04/exercise-4.2-repository-instructions.md) |
-| **Slides** | `slides/module-04-marp.md` (Lesson 4.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 4.2) |
 | **Related core exercise** | [`core-exercises/exercise-15/15-use-agents-md.md`](core-exercises/exercise-15/15-use-agents-md.md) |
 
 **Slide sections covered:**
@@ -515,7 +515,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Build and invoke reusable Agent skills for repeated workflows. |
 | **Lab guide** | [`slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md`](slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md) |
-| **Slides** | `slides/module-04-marp.md` (Lesson 4.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 4.3) |
 | **Related core exercise** | [`core-exercises/exercise-16/16-create-a-skill.md`](core-exercises/exercise-16/16-create-a-skill.md) · [`core-exercises/exercise-17/17-invoke-a-skill.md`](core-exercises/exercise-17/17-invoke-a-skill.md) |
 
 **Slide sections covered:**
@@ -554,7 +554,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Cursor CLI installed, terminal access, Modules 1–4 completed
 
-**Slide deck:** [`slides/module-05-marp.md`](slides/module-05-marp.md) · **HTML:** [`slides/module-05-marp.html`](slides/module-05-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -578,7 +578,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Start an interactive Cursor CLI session from the terminal. |
 | **Lab guide** | [`slide-exercises/module-05/exercise-5.1-interactive-cli.md`](slide-exercises/module-05/exercise-5.1-interactive-cli.md) |
-| **Slides** | `slides/module-05-marp.md` (Lesson 5.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 5.1) |
 | **Related core exercise** | [`core-exercises/exercise-19/19-cli-interactive-mode.md`](core-exercises/exercise-19/19-cli-interactive-mode.md) |
 
 **Slide sections covered:**
@@ -603,7 +603,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Run single-shot Agent commands from scripts and CI. |
 | **Lab guide** | [`slide-exercises/module-05/exercise-5.2-one-shot-cli.md`](slide-exercises/module-05/exercise-5.2-one-shot-cli.md) |
-| **Slides** | `slides/module-05-marp.md` (Lesson 5.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 5.2) |
 | **Related core exercise** | [`core-exercises/exercise-20/20-cli-one-shot-mode.md`](core-exercises/exercise-20/20-cli-one-shot-mode.md) |
 
 **Slide sections covered:**
@@ -626,7 +626,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Hand off a local CLI task to a Cloud Agent with &. |
 | **Lab guide** | [`slide-exercises/module-05/exercise-5.3-cloud-handoff.md`](slide-exercises/module-05/exercise-5.3-cloud-handoff.md) |
-| **Slides** | `slides/module-05-marp.md` (Lesson 5.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 5.3) |
 | **Related core exercise** | [`core-exercises/exercise-21/21-cli-cloud-handoff.md`](core-exercises/exercise-21/21-cli-cloud-handoff.md) |
 
 **Slide sections covered:**
@@ -650,7 +650,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | List, name, resume, and compress CLI Agent sessions. |
 | **Lab guide** | [`slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md`](slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md) |
-| **Slides** | `slides/module-05-marp.md` (Lesson 5.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 5.4) |
 | **Related core exercise** | [`core-exercises/exercise-22/22-cli-list-resume-sessions.md`](core-exercises/exercise-22/22-cli-list-resume-sessions.md) |
 
 **Slide sections covered:**
@@ -671,7 +671,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Cursor account, GitHub repository access, Modules 1–5 completed
 
-**Slide deck:** [`slides/module-06-marp.md`](slides/module-06-marp.md) · **HTML:** [`slides/module-06-marp.html`](slides/module-06-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -695,7 +695,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Launch a Cloud Agent from the Cursor UI and track its run. |
 | **Lab guide** | [`slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md`](slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md) |
-| **Slides** | `slides/module-06-marp.md` (Lesson 6.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 6.1) |
 | **Related core exercise** | [`core-exercises/exercise-23/23-cloud-agent-web-dashboard.md`](core-exercises/exercise-23/23-cloud-agent-web-dashboard.md) |
 
 **Slide sections covered:**
@@ -719,7 +719,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Collect and download artifacts produced by Cloud Agents. |
 | **Lab guide** | [`slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md`](slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md) |
-| **Slides** | `slides/module-06-marp.md` (Lesson 6.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 6.2) |
 | **Related core exercise** | [`core-exercises/exercise-25/25-cloud-agent-artifacts.md`](core-exercises/exercise-25/25-cloud-agent-artifacts.md) |
 
 **Slide sections covered:**
@@ -751,7 +751,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Cursor account, basic API familiarity, Python 3.8+ installed
 
-**Slide deck:** [`slides/module-07-marp.md`](slides/module-07-marp.md) · **HTML:** [`slides/module-07-marp.html`](slides/module-07-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -782,7 +782,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Create Admin and User API keys and verify authentication. |
 | **Lab guide** | [`slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md`](slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md) |
-| **Slides** | `slides/module-07-marp.md` (Lesson 7.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 7.2) |
 
 **Slide sections covered:**
 - Exercise 7.2 — Steps 1–3
@@ -806,7 +806,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Handle 429 responses with backoff and rate-limit headers. |
 | **Lab guide** | [`slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md`](slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md) |
-| **Slides** | `slides/module-07-marp.md` (Lesson 7.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 7.3) |
 
 **Slide sections covered:**
 - Exercise 7.3 — Exponential Backoff
@@ -825,7 +825,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Use ETags to avoid re-downloading unchanged API data. |
 | **Lab guide** | [`slide-exercises/module-07/exercise-7.4-etag-caching.md`](slide-exercises/module-07/exercise-7.4-etag-caching.md) |
-| **Slides** | `slides/module-07-marp.md` (Lesson 7.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 7.4) |
 
 **Slide sections covered:**
 - Exercise 7.4 — Basic ETag Usage
@@ -844,7 +844,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Query available models and pick the right one programmatically. |
 | **Lab guide** | [`slide-exercises/module-07/exercise-7.5-list-available-models.md`](slide-exercises/module-07/exercise-7.5-list-available-models.md) |
-| **Slides** | `slides/module-07-marp.md` (Lesson 7.5) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 7.5) |
 
 **Slide sections covered:**
 - Exercise 7.5 — Steps 1–2
@@ -862,7 +862,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** User API key (Module 7), Python 3.8+, ngrok installed, GitHub repository
 
-**Slide deck:** [`slides/module-08-marp.md`](slides/module-08-marp.md) · **HTML:** [`slides/module-08-marp.html`](slides/module-08-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -888,7 +888,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Create a Cloud Agent run using curl or Python. |
 | **Lab guide** | [`slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md`](slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md) |
-| **Slides** | `slides/module-08-marp.md` (Lesson 8.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 8.1) |
 
 **Slide sections covered:**
 - Exercise 8.1 — Create with curl
@@ -909,7 +909,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Stream Cloud Agent events with Server-Sent Events. |
 | **Lab guide** | [`slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md`](slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md) |
-| **Slides** | `slides/module-08-marp.md` (Lesson 8.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 8.2) |
 
 **Slide sections covered:**
 - Exercise 8.2 — Stream with curl
@@ -929,7 +929,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Wait for completion, list artifacts, and download outputs. |
 | **Lab guide** | [`slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md`](slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md) |
-| **Slides** | `slides/module-08-marp.md` (Lesson 8.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 8.3) |
 
 **Slide sections covered:**
 - Exercise 8.3 — Wait & List
@@ -949,7 +949,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Receive webhooks and verify HMAC signatures. |
 | **Lab guide** | [`slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md`](slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md) |
-| **Slides** | `slides/module-08-marp.md` (Lesson 8.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 8.4) |
 
 **Slide sections covered:**
 - Exercise 8.4 — HMAC Verification
@@ -968,7 +968,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Expose a local server with ngrok and inspect webhook payloads. |
 | **Lab guide** | [`slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md`](slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md) |
-| **Slides** | `slides/module-08-marp.md` (Lesson 8.5) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 8.5) |
 
 **Slide sections covered:**
 - Exercise 8.5 — Steps 1–3
@@ -992,7 +992,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Admin API key (not User key), Python 3.8+, Modules 7–8 completed
 
-**Slide deck:** [`slides/module-09-marp.md`](slides/module-09-marp.md) · **HTML:** [`slides/module-09-marp.html`](slides/module-09-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -1020,7 +1020,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | List team members with pagination and export to CSV. |
 | **Lab guide** | [`slide-exercises/module-09/exercise-9.1-list-team-members.md`](slide-exercises/module-09/exercise-9.1-list-team-members.md) |
-| **Slides** | `slides/module-09-marp.md` (Lesson 9.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 9.1) |
 
 **Slide sections covered:**
 - Exercise 9.1 — Setup & List
@@ -1039,7 +1039,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Pull daily usage and build a weekly cost report. |
 | **Lab guide** | [`slide-exercises/module-09/exercise-9.2-daily-usage-data.md`](slide-exercises/module-09/exercise-9.2-daily-usage-data.md) |
-| **Slides** | `slides/module-09-marp.md` (Lesson 9.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 9.2) |
 
 **Slide sections covered:**
 - Exercise 9.2 — Weekly Usage
@@ -1058,7 +1058,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Set and bulk-update per-user spending limits. |
 | **Lab guide** | [`slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md`](slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md) |
-| **Slides** | `slides/module-09-marp.md` (Lesson 9.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 9.3) |
 
 **Slide sections covered:**
 - Exercise 9.3 — Set Limits
@@ -1077,7 +1077,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Analyze model usage and identify optimization opportunities. |
 | **Lab guide** | [`slide-exercises/module-09/exercise-9.4-model-usage-analytics.md`](slide-exercises/module-09/exercise-9.4-model-usage-analytics.md) |
-| **Slides** | `slides/module-09-marp.md` (Lesson 9.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 9.4) |
 
 **Slide sections covered:**
 - Exercise 9.4 — Model Breakdown
@@ -1096,7 +1096,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Report daily active users over a date range. |
 | **Lab guide** | [`slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md`](slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md) |
-| **Slides** | `slides/module-09-marp.md` (Lesson 9.5) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 9.5) |
 
 **Slide sections covered:**
 - Exercise 9.5 — DAU Report
@@ -1114,7 +1114,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Build leaderboards for tabs, AI lines, and agent runs. |
 | **Lab guide** | [`slide-exercises/module-09/exercise-9.6-leaderboards.md`](slide-exercises/module-09/exercise-9.6-leaderboards.md) |
-| **Slides** | `slides/module-09-marp.md` (Lesson 9.6) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 9.6) |
 
 **Slide sections covered:**
 - Exercise 9.6 — Three Leaderboards
@@ -1148,7 +1148,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 
 **Prerequisites:** Admin API key, Git repository access, Modules 8–9 completed
 
-**Slide deck:** [`slides/module-10-marp.md`](slides/module-10-marp.md) · **HTML:** [`slides/module-10-marp.html`](slides/module-10-marp.html)
+**Slide deck:** [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · **HTML:** [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html)
 
 **Learning objectives**
 
@@ -1172,7 +1172,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Fetch AI commit metrics and calculate contribution percentage. |
 | **Lab guide** | [`slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md`](slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md) |
-| **Slides** | `slides/module-10-marp.md` (Lesson 10.1) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 10.1) |
 
 **Slide sections covered:**
 - Exercise 10.1 — Fetch Metrics
@@ -1192,7 +1192,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Stream large CSV exports for BI tools. |
 | **Lab guide** | [`slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md`](slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md) |
-| **Slides** | `slides/module-10-marp.md` (Lesson 10.2) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 10.2) |
 
 **Slide sections covered:**
 - Exercise 10.2 — Stream to File
@@ -1211,7 +1211,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Query per-change AI events for compliance reporting. |
 | **Lab guide** | [`slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md`](slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md) |
-| **Slides** | `slides/module-10-marp.md` (Lesson 10.3) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 10.3) |
 
 **Slide sections covered:**
 - Exercise 10.3 — Query Events
@@ -1230,7 +1230,7 @@ Agent vs. chatbot; the agent loop; levels of autonomy; how agents change the dev
 | **Difficulty** | Beginner |
 | **Objective** | Design a leadership dashboard combining analytics APIs. |
 | **Lab guide** | [`slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md`](slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md) |
-| **Slides** | `slides/module-10-marp.md` (Lesson 10.4) |
+| **Slides** | `slides/course-complete-marp-with-notes.md` (Lesson 10.4) |
 
 **Slide sections covered:**
 - Exercise 10.4 — Dashboard Components

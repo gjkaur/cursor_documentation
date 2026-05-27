@@ -142,15 +142,14 @@ Essential / Recommended / Optional classification and a per-exercise time plan: 
 
 ---
 
-## Module 6 — Slides (`slides/`)
+## Slides (`slides/`)
 
-Instructor presentation decks (Markdown source + HTML exports) used during the workshop.
+Single instructor deck for the full course (Markdown source + HTML export).
 
-- [`module-01-marp.md`](slides/module-01-marp.md) — AI foundations and Cursor mental models
-- [`module-02-marp.md`](slides/module-02-marp.md) through [`module-10-marp.md`](slides/module-10-marp.md) — product, CLI, cloud, and API tracks
-- [`course-complete-marp.md`](slides/course-complete-marp.md) — full combined deck (433 slides)
-
-Additional decks follow the `module-NN-marp.{md,html}` pattern under [`slides/`](slides/).
+- [`course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) — full course with embedded presenter notes (recommended)
+- [`course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) — open in a browser to present
+- [`course-complete-marp.md`](slides/course-complete-marp.md) — slides only (no presenter notes)
+- [`course-complete-speaker-notes.md`](slides/course-complete-speaker-notes.md) — standalone speaker script
 
 ---
 
@@ -175,7 +174,7 @@ Goal: build mental models (Module 1, lessons 001 – 009) and complete the core 
 
 | Time | Activity | Reference |
 |------|----------|-----------|
-| 9:00 – 9:15 | Setup & welcome — install Cursor, sign in, open project | [`slides/module-01-marp.md`](slides/module-01-marp.md) |
+| 9:00 – 9:15 | Setup & welcome — install Cursor, sign in, open project | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) |
 | 9:15 – 9:25 | Exercise 1: Codebase Understanding | [`core-exercises/exercise-1/`](core-exercises/exercise-1/) |
 | 9:25 – 9:35 | Exercise 2: Explain a Specific File | [`core-exercises/exercise-2/`](core-exercises/exercise-2/) |
 | 9:35 – 9:45 | Exercise 3: Make a Safe Change | [`core-exercises/exercise-3/`](core-exercises/exercise-3/) |
@@ -312,7 +311,7 @@ Goal: complete the Enterprise admin/reporting surface and capstone-level reporti
 
 | If you are… | Begin here |
 |-------------|------------|
-| A learner taking Track A | [`slides/module-01-marp.md`](slides/module-01-marp.md) → [`slides/module-02-marp.md`](slides/module-02-marp.md) → [`core-exercises/exercise-1/`](core-exercises/exercise-1/) |
+| A learner taking Track A | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) → [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) → [`core-exercises/exercise-1/`](core-exercises/exercise-1/) |
 | A learner taking Track B | [`api-content-readmes/001-api-overview.md`](api-content-readmes/001-api-overview.md) → [`api-exercises/exercise-1/`](api-exercises/exercise-1/) |
 | An instructor planning a session | [`core-exercises/optional-core-exercises-guide.md`](core-exercises/optional-core-exercises-guide.md) and [`api-exercises/optional-api-exercises-guide.md`](api-exercises/optional-api-exercises-guide.md) |
 | Someone reading on their own | The four index files: [Learn](learn/learn-readmes-index.md), [Docs](docs-content-readmes/docs-content-readmes-index.md), [APIs](api-content-readmes/api-content-readmes-index.md) |

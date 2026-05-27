@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Build a single Marp deck combining all training modules with course intro slides."""
+"""Build a single Marp deck combining all training modules with course intro slides.
+
+Requires per-module sources at slides/module-NN-marp.md. The repo ships only the
+combined deck (course-complete-marp.md); restore module files from git history to
+rebuild, or edit the combined deck directly.
+"""
 
 from __future__ import annotations
 

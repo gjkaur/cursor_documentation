@@ -1,7 +1,7 @@
 # Exercise 8.3: List and Download Artifacts
 
 **Module 8:** Cloud Agents API and Webhooks  
-**Slides:** `slides/module-08-marp.md` (Lesson 8.3)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 8, Lesson 8.3)  
 **Time:** 15 min  
 **Difficulty:** Beginner
 

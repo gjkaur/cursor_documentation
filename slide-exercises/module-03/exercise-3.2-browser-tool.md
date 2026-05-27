@@ -1,7 +1,7 @@
 # Exercise 3.2: Browser Tool
 
 **Module 3:** Agent Modes and Tools  
-**Slides:** `slides/module-03-marp.md` (Lesson 3.2)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 3, Lesson 3.2)  
 **Time:** 18 min  
 **Difficulty:** Beginner
 

@@ -1,7 +1,7 @@
 # Exercise 2.5: Comparing Two Models
 
 **Module 2:** Cursor Editor Essentials  
-**Slides:** `slides/module-02-marp.md` (Lesson 2.5)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 2, Lesson 2.5)  
 **Time:** 13 min  
 **Difficulty:** Beginner
 

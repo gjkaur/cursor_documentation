@@ -1,7 +1,7 @@
 # Exercise 7.3: Rate Limits and Error Handling
 
 **Module 7:** Cursor API Foundations  
-**Slides:** `slides/module-07-marp.md` (Lesson 7.3)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 7, Lesson 7.3)  
 **Time:** 15 min  
 **Difficulty:** Beginner
 

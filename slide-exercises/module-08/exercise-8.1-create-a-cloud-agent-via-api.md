@@ -1,7 +1,7 @@
 # Exercise 8.1: Create a Cloud Agent via API
 
 **Module 8:** Cloud Agents API and Webhooks  
-**Slides:** `slides/module-08-marp.md` (Lesson 8.1)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 8, Lesson 8.1)  
 **Time:** 15 min  
 **Difficulty:** Beginner
 

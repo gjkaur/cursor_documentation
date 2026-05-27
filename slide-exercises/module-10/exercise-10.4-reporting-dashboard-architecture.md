@@ -1,7 +1,7 @@
 # Exercise 10.4: Reporting Dashboard Architecture
 
 **Module 10:** AI Code Tracking and Reporting  
-**Slides:** `slides/module-10-marp.md` (Lesson 10.4)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 10, Lesson 10.4)  
 **Time:** Take-home  
 **Difficulty:** Beginner
 

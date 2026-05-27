@@ -1,7 +1,7 @@
 # Exercise 2.7: Checkpoints
 
 **Module 2:** Cursor Editor Essentials  
-**Slides:** `slides/module-02-marp.md` (Lesson 2.7)  
+**Slides:** `slides/course-complete-marp-with-notes.md` (Module 2, Lesson 2.7)  
 **Time:** 8 min  
 **Difficulty:** Beginner
 
