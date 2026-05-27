@@ -9,7 +9,7 @@ The materials are organized into **six modules**:
 3. [`api-content-readmes/`](api-content-readmes/) - beginner-friendly summaries of every Cursor API.
 4. [`core-exercises/`](core-exercises/) - 25 hands-on exercises covering the Cursor editor, Agent, CLI, and Cloud Agents.
 5. [`api-exercises/`](api-exercises/) - 23 hands-on exercises covering the Cloud Agents, Admin, Analytics, AI Code Tracking, and Webhooks APIs.
-6. [`slides/`](slides/) - presentation decks used during instruction (Markdown + PPTX + PDF).
+6. [`slides/`](slides/) - combined course presentation deck (Markdown + HTML).
 
 ---
 
@@ -26,7 +26,11 @@ Cursor_Docs_Slides/
 ├── api-exercises/              # 23 hands-on Cursor API exercises
 │   ├── exercise-1/  ...  exercise-23/
 │   └── optional-api-exercises-guide.md
-└── slides/                     # Instructor decks
+├── slides/                     # Combined course deck (Marp + HTML + speaker notes)
+├── slide-exercises/            # Slide-aligned lab guides (modules 2–10)
+├── assessment/                 # Pre- and post-course assessments
+├── scripts/                    # Deck maintenance (diagrams, speaker notes, Marp theme)
+└── FINAL_TABLE_OF_CONTENTS.md  # Full course index
 ```
 
 ---
@@ -146,10 +150,9 @@ Essential / Recommended / Optional classification and a per-exercise time plan: 
 
 Single instructor deck for the full course (Markdown source + HTML export).
 
-- [`course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) — full course with embedded presenter notes (recommended)
+- [`course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) — full course with embedded presenter notes (source)
 - [`course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) — open in a browser to present
-- [`course-complete-marp.md`](slides/course-complete-marp.md) — slides only (no presenter notes)
-- [`course-complete-speaker-notes.md`](slides/course-complete-speaker-notes.md) — standalone speaker script
+- [`course-complete-speaker-notes.md`](slides/course-complete-speaker-notes.md) — standalone speaker script (optional)
 
 ---
 
@@ -311,7 +314,7 @@ Goal: complete the Enterprise admin/reporting surface and capstone-level reporti
 
 | If you are… | Begin here |
 |-------------|------------|
-| A learner taking Track A | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) → [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) → [`core-exercises/exercise-1/`](core-exercises/exercise-1/) |
+| A learner taking Track A | [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) → [`core-exercises/exercise-1/`](core-exercises/exercise-1/) |
 | A learner taking Track B | [`api-content-readmes/001-api-overview.md`](api-content-readmes/001-api-overview.md) → [`api-exercises/exercise-1/`](api-exercises/exercise-1/) |
 | An instructor planning a session | [`core-exercises/optional-core-exercises-guide.md`](core-exercises/optional-core-exercises-guide.md) and [`api-exercises/optional-api-exercises-guide.md`](api-exercises/optional-api-exercises-guide.md) |
 | Someone reading on their own | The four index files: [Learn](learn/learn-readmes-index.md), [Docs](docs-content-readmes/docs-content-readmes-index.md), [APIs](api-content-readmes/api-content-readmes-index.md) |

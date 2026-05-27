@@ -4,8 +4,6 @@ Complete reference for all **10 modules**, **52 lessons**, and **40 hands-on sli
 
 *Generated: 2026-05-22*
 
-> **Note:** This is a supplementary index. The original [`TABLE_OF_CONTENTS.md`](TABLE_OF_CONTENTS.md) remains unchanged.
-
 ---
 
 ## At a Glance
@@ -18,7 +16,7 @@ Complete reference for all **10 modules**, **52 lessons**, and **40 hands-on sli
 | **Slide exercises** | 40 written lab guides in `slide-exercises/` |
 | **Core exercises** | 25 optional hands-on labs in `core-exercises/` |
 | **Slide deck (present)** | [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) |
-| **Slide deck (source)** | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) · [`slides/course-complete-marp.md`](slides/course-complete-marp.md) |
+| **Slide deck (source)** | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) |
 
 ### Day 1 — Cursor Editor and Agent Fluency
 
@@ -1333,9 +1331,8 @@ Optional calculator-based labs in `core-exercises/` that align with slide exerci
 
 | Resource | Location | Description |
 |----------|----------|-------------|
-| Original TOC | [`TABLE_OF_CONTENTS.md`](TABLE_OF_CONTENTS.md) | High-level program overview and sample schedule |
-| Combined slide deck | [`slides/course-complete-marp.md`](slides/course-complete-marp.md) | All modules in one Marp file |
-| Module source docs | [`modules-basedon-toc/`](modules-basedon-toc/) | Module planning documents (modules 1–10) |
+| Slide deck (presenter notes) | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) | Full course deck with embedded notes |
+| Speaker script | [`slides/course-complete-speaker-notes.md`](slides/course-complete-speaker-notes.md) | Standalone instructor script |
 | Learn readmes | [`learn/learn-readmes-index.md`](learn/learn-readmes-index.md) | Curated concept reading paths |
 | API content readmes | [`api-content-readmes/api-content-readmes-index.md`](api-content-readmes/api-content-readmes-index.md) | API reference reading paths |
 | Docs content readmes | [`docs-content-readmes/docs-content-readmes-index.md`](docs-content-readmes/docs-content-readmes-index.md) | Cursor docs reading paths |

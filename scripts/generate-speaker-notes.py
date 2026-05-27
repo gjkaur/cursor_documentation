@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import re
 import sys
 from dataclasses import dataclass
@@ -13,21 +12,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from exercise_meta import EXERCISE_META
 from marp_tables import extract_fenced_code_blocks, extract_markdown_tables, split_marp_slides
 from speaker_notes_enrichment import EnrichmentMatch, exercise_step_speech, match_enrichment
 from speaker_notes_glossary import glossary_notes_for_slide
 
-_spec = importlib.util.spec_from_file_location(
-    "generate_slide_exercises",
-    Path(__file__).resolve().parent / "generate-slide-exercises.py",
-)
-_mod = importlib.util.module_from_spec(_spec)
-assert _spec.loader is not None
-_spec.loader.exec_module(_mod)
-EXERCISE_META = _mod.EXERCISE_META
-
 REPO = Path(__file__).resolve().parent.parent
-DEFAULT_SOURCE = REPO / "slides" / "course-complete-marp.md"
+DEFAULT_SOURCE = REPO / "slides" / "course-complete-marp-with-notes.md"
 DEFAULT_NOTES = REPO / "slides" / "course-complete-speaker-notes.md"
 DEFAULT_MARP = REPO / "slides" / "course-complete-marp-with-notes.md"
 
@@ -55,6 +46,11 @@ class SlideContext:
     day: str | None = None
     exercise_briefing_for: tuple[int, int] | None = None
     prev_heading: str | None = None
+
+
+def _strip_presenter_notes(slide: str) -> str:
+    """Remove embedded instructor note blocks; keep Marp directives like `<!-- _class: lead -->`."""
+    return re.sub(r"\n<!--\n[\s\S]*?-->\s*", "\n", slide).rstrip()
 
 
 def _strip_directives(text: str) -> str:
@@ -995,7 +991,7 @@ def _script_for_slide(slide: str, slide_num: int, ctx: SlideContext) -> tuple[li
 
 def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, SlideContext, list[str], list[str]]]]:
     markdown = source.read_text(encoding="utf-8")
-    slides = split_marp_slides(markdown)
+    slides = [_strip_presenter_notes(s) for s in split_marp_slides(markdown)]
     ctx = SlideContext()
     entries: list[tuple[int, str, SlideContext, list[str], list[str]]] = []
 
@@ -1008,7 +1004,7 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
     lines = [
         "# Cursor Training Program — Speaker Scripts",
         "",
-        f"Full instructor scripts for [`course-complete-marp.md`](course-complete-marp.md) "
+        f"Full instructor scripts for [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md) "
         f"({len(slides)} slides). **Script** walks through every line on the slide, expands abbreviations, defines technical terms, then adds brief teaching context where helpful.",
         "",
         f"*Generated: {date.today().isoformat()}*",
@@ -1061,7 +1057,7 @@ def generate_notes_document(source: Path) -> tuple[str, list[tuple[int, str, Sli
 
 def inject_marp_notes(source: Path, entries: list[tuple[int, str, SlideContext, list[str], list[str]]]) -> str:
     markdown = source.read_text(encoding="utf-8")
-    slides = split_marp_slides(markdown)
+    slides = [_strip_presenter_notes(s) for s in split_marp_slides(markdown)]
 
     if len(slides) != len(entries):
         raise ValueError(f"Slide count mismatch: {len(slides)} slides vs {len(entries)} note entries")
@@ -1069,7 +1065,7 @@ def inject_marp_notes(source: Path, entries: list[tuple[int, str, SlideContext, 
     enriched: list[str] = []
     for slide, (_slide_num, _heading, _ctx, spoken, _facilitator) in zip(slides, entries):
         note_text = "\n\n".join(spoken)
-        body = slide.rstrip() + f"\n\n<!--\n{note_text}\n-->\n"
+        body = _strip_presenter_notes(slide).rstrip() + f"\n\n<!--\n{note_text}\n-->\n"
         enriched.append(body)
 
     frontmatter_end = markdown.find("\n---\n", 3)
