@@ -81,6 +81,9 @@ Use [`FINAL_TABLE_OF_CONTENTS.md`](FINAL_TABLE_OF_CONTENTS.md) for module goals,
 | [`scripts/fix-corrupted-diagram-svgs.py`](scripts/fix-corrupted-diagram-svgs.py) | Repair known-bad diagram SVGs |
 | [`scripts/regenerate-marp-diagram-svgs.py`](scripts/regenerate-marp-diagram-svgs.py) | Regenerate diagram assets |
 | [`scripts/generate-speaker-notes.py`](scripts/generate-speaker-notes.py) | Regenerate speaker notes / embedded notes from deck |
+| [`scripts/trim-repetitive-slides.py`](scripts/trim-repetitive-slides.py) | Remove duplicate agenda/summary slides (keeps lesson dividers) |
+| [`scripts/restore-lesson-dividers.py`](scripts/restore-lesson-dividers.py) | Re-insert `# Lesson X.Y` section slides from git history |
+| [`scripts/inject-lab-guide-links.py`](scripts/inject-lab-guide-links.py) | Add lab guide links on first exercise slide per lab |
 | [`scripts/export-editable-pptx.ps1`](scripts/export-editable-pptx.ps1) | Optional PowerPoint export |
 
 Edit the combined deck directly; per-module Marp sources are not kept in this repo.

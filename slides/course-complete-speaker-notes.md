@@ -1,6 +1,6 @@
 # Cursor Training Program — Speaker Scripts
 
-Full instructor scripts for [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md) (433 slides). **Script** walks through every line on the slide, expands abbreviations, defines technical terms, then adds brief teaching context where helpful.
+Full instructor scripts for [`course-complete-marp-with-notes.md`](course-complete-marp-with-notes.md) (393 slides). **Script** walks through every line on the slide, expands abbreviations, defines technical terms, then adds brief teaching context where helpful.
 
 *Generated: 2026-05-26*
 
@@ -85,77 +85,9 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 3 — Day 1 — Foundations & Editor Workflows
-
-**Type:** day_overview
-
-**Script**
-
-Day one focuses on editor confidence before we touch any APIs.
-
-The slide title is: Day 1 — Foundations & Editor Workflows.
-
-The slide says: Concept blocks, hands-on exercises, team customization, and CLI automation.
-
-The table header columns are: Module, Title, Focus, Duration.
-
-Table row: **1**, Mental Models for AI-Assisted Development, Foundations, ~60 min.
-
-Table row: **2**, Cursor Editor Essentials, Hands-On, ~90 min.
-
-Table row: **3**, Agent Modes and Tools, Hands-On + Concept, ~60 min.
-
-Table row: **4**, Customizing Cursor for Your Team, Hands-On + Walkthrough, ~60 min.
-
-Table row: **5**, Cursor CLI and Local Automation, Hands-On, ~60 min.
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
-
----
-
-### Slide 4 — Day 2 — Cloud Agents, APIs & Analytics
-
-**Type:** day_overview
-
-**Script**
-
-Day two builds on yesterday with Cloud Agents, APIs, and analytics.
-
-The slide title is: Day 2 — Cloud Agents, APIs & Analytics.
-
-The slide says: Cloud agents, programmatic APIs, admin analytics, and AI code tracking.
-
-The table header columns are: Module, Title, Focus, Duration.
-
-Table row: **6**, Cloud Agents in the UI, Hands-On + Demonstration, ~90 min.
-
-Table row: **7**, Cursor API Foundations, Concept + Hands-On, ~60 min.
-
-Table row: **8**, Cloud Agents API and Webhooks, Hands-On, ~60 min.
-
-Table row: **9**, Admin and Analytics APIs, Hands-On + Demonstrations, ~75 min.
-
-Table row: **10**, AI Code Tracking and Reporting, Hands-On + Take-Home, ~20 min.
-
-Terms on this slide — quick definitions for the room:
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
-
-When the PR comes back, the same review discipline applies.
-
----
-
 ## Module 1 — Mental Models for AI-Assisted Development
 
-### Slide 5 — Mental Models for AI-Assisted Development
+### Slide 3 — Mental Models for AI-Assisted Development
 
 **Type:** module_intro
 
@@ -173,7 +105,7 @@ The slide says: Cursor Training Program · Concept block · ~60 min.
 
 ---
 
-### Slide 6 — Module Overview
+### Slide 4 — Module Overview
 
 **Type:** module_overview
 
@@ -195,47 +127,7 @@ In the table, **Module Goal**: Build accurate mental models of how AI coding ass
 
 ---
 
-### Slide 7 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 1.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Explain why AI outputs are probabilistic, not deterministic.
-
-Bullet 2 on the slide: Identify and mitigate hallucinations in coding contexts.
-
-Bullet 3 on the slide: Understand token-based pricing and cost optimization.
-
-Bullet 4 on the slide: Master context as the single most valuable AI skill.
-
-Bullet 5 on the slide: Distinguish between tool calling, MCP, and autonomous agents.
-
-Bullet 6 on the slide: Define the developer's evolving role with AI agents.
-
-Terms on this slide — quick definitions for the room:
-
-Probabilistic means the same input can produce different outputs — unlike traditional code that always returns the same result.
-
-Deterministic means the same input always produces the same output — how conventional software behaves.
-
-A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
-
-Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
-
-MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
-
----
-
-### Slide 8 — Lesson 1.1
+### Slide 5 — Lesson 1.1
 
 **Type:** lesson_intro · **Lesson:** 1.1
 
@@ -259,7 +151,7 @@ The slide says: _Concept · 12 minutes_.
 
 ---
 
-### Slide 9 — Why Outputs Are Probabilistic
+### Slide 6 — Why Outputs Are Probabilistic
 
 **Type:** quote · **Lesson:** 1.1
 
@@ -291,7 +183,7 @@ An LLM is not executing a program you wrote. It predicts the next token, samples
 
 ---
 
-### Slide 10 — Next-Token Prediction
+### Slide 7 — Next-Token Prediction
 
 **Type:** diagram · **Lesson:** 1.1
 
@@ -315,7 +207,7 @@ It can feel like reasoning, but the mechanism is still pattern completion. Keepi
 
 ---
 
-### Slide 11 — Traditional Code vs. AI Model
+### Slide 8 — Traditional Code vs. AI Model
 
 **Type:** table · **Lesson:** 1.1
 
@@ -347,7 +239,7 @@ AI models are probabilistic — you influence them through prompts, context, and
 
 ---
 
-### Slide 12 — Traditional vs. AI — Implication
+### Slide 9 — Traditional vs. AI — Implication
 
 **Type:** content · **Lesson:** 1.1
 
@@ -365,7 +257,7 @@ Teams that skip verification accumulate AI debt — code that looked fine in cha
 
 ---
 
-### Slide 13 — What Determines AI Output?
+### Slide 10 — What Determines AI Output?
 
 **Type:** diagram · **Lesson:** 1.1
 
@@ -383,7 +275,7 @@ Before you switch models, compare today's prompt and attachments to yesterday's 
 
 ---
 
-### Slide 14 — Key Parameters You Control
+### Slide 11 — Key Parameters You Control
 
 **Type:** table · **Lesson:** 1.1
 
@@ -419,7 +311,7 @@ Top-p and max tokens shape breadth and length. Two teammates with the same promp
 
 ---
 
-### Slide 15 — Key Parameters — Example Values
+### Slide 12 — Key Parameters — Example Values
 
 **Type:** code · **Lesson:** 1.1
 
@@ -435,7 +327,7 @@ Temperature controls randomness — low values stay focused and repeatable; high
 
 ---
 
-### Slide 16 — Temperature Impact
+### Slide 13 — Temperature Impact
 
 **Type:** code · **Lesson:** 1.1
 
@@ -463,7 +355,7 @@ Same ask, three temperatures on the slide. Notice low temperature stays close to
 
 ---
 
-### Slide 17 — The Training Gap
+### Slide 14 — The Training Gap
 
 **Type:** bullets · **Lesson:** 1.1
 
@@ -495,7 +387,7 @@ If the Agent guesses wrong about your stack, the fix is usually better context �
 
 ---
 
-### Slide 18 — Lesson 1.2
+### Slide 15 — Lesson 1.2
 
 **Type:** lesson_intro · **Lesson:** 1.2
 
@@ -519,7 +411,7 @@ A hallucination is a confident answer that is wrong — for example an API or li
 
 ---
 
-### Slide 19 — What Are Hallucinations?
+### Slide 16 — What Are Hallucinations?
 
 **Type:** quote · **Lesson:** 1.2
 
@@ -543,7 +435,7 @@ The danger is the tone: the model sounds as sure as a senior engineer in a code 
 
 ---
 
-### Slide 20 — Hallucinations in Code
+### Slide 17 — Hallucinations in Code
 
 **Type:** table · **Lesson:** 1.2
 
@@ -575,7 +467,7 @@ Build a team habit: if the Agent cites an API, someone verifies it before merge.
 
 ---
 
-### Slide 21 — Why Models Hallucinate
+### Slide 18 — Why Models Hallucinate
 
 **Type:** diagram · **Lesson:** 1.2
 
@@ -593,7 +485,7 @@ A hallucination is a confident answer that is wrong — for example an API or li
 
 ---
 
-### Slide 22 — Example: Confident Wrong
+### Slide 19 — Example: Confident Wrong
 
 **Type:** code · **Lesson:** 1.2
 
@@ -617,7 +509,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 23 — Hallucination Mitigation Strategies
+### Slide 20 — Hallucination Mitigation Strategies
 
 **Type:** table · **Lesson:** 1.2
 
@@ -661,7 +553,7 @@ Which of these can your team adopt Monday — paste docs, require citations, or 
 
 ---
 
-### Slide 24 — Hallucination Detection Checklist
+### Slide 21 — Hallucination Detection Checklist
 
 **Type:** bullets · **Lesson:** 1.2
 
@@ -691,7 +583,7 @@ A hallucination is a confident answer that is wrong — for example an API or li
 
 ---
 
-### Slide 25 — The Developer's Mindset
+### Slide 22 — The Developer's Mindset
 
 **Type:** quote · **Lesson:** 1.2
 
@@ -719,7 +611,7 @@ A hallucination is a confident answer that is wrong — for example an API or li
 
 ---
 
-### Slide 26 — Lesson 1.3
+### Slide 23 — Lesson 1.3
 
 **Type:** lesson_intro · **Lesson:** 1.3
 
@@ -747,7 +639,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 27 — What Is a Token?
+### Slide 24 — What Is a Token?
 
 **Type:** table · **Lesson:** 1.3
 
@@ -777,7 +669,7 @@ Small chat prompts are cheap; agent loops over large repos are not. Narrow conte
 
 ---
 
-### Slide 28 — Why Tokens Matter
+### Slide 25 — Why Tokens Matter
 
 **Type:** content · **Lesson:** 1.3
 
@@ -797,7 +689,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 29 — Input vs. Output Pricing
+### Slide 26 — Input vs. Output Pricing
 
 **Type:** content · **Lesson:** 1.3
 
@@ -819,7 +711,7 @@ Input tokens are the prompt, attached files, and instructions you send — they 
 
 ---
 
-### Slide 30 — Model Pricing Examples
+### Slide 27 — Model Pricing Examples
 
 **Type:** table · **Lesson:** 1.3
 
@@ -847,7 +739,7 @@ Table row: GPT-5.5, $5.00, $30.00, 6×.
 
 ---
 
-### Slide 31 — What 1 Million Tokens Looks Like
+### Slide 28 — What 1 Million Tokens Looks Like
 
 **Type:** table · **Lesson:** 1.3
 
@@ -873,7 +765,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 32 — Cost Calculation Example
+### Slide 29 — Cost Calculation Example
 
 **Type:** code · **Lesson:** 1.3
 
@@ -893,7 +785,7 @@ A five-minute agent loop on two files beats a twenty-minute loop on the whole tr
 
 ---
 
-### Slide 33 — Cost Optimization Strategies
+### Slide 30 — Cost Optimization Strategies
 
 **Type:** table · **Lesson:** 1.3
 
@@ -923,7 +815,7 @@ A five-minute agent loop on two files beats a twenty-minute loop on the whole tr
 
 ---
 
-### Slide 34 — Real-World Cost Bounds
+### Slide 31 — Real-World Cost Bounds
 
 **Type:** table · **Lesson:** 1.3
 
@@ -951,7 +843,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 35 — The Cache Effect
+### Slide 32 — The Cache Effect
 
 **Type:** code · **Lesson:** 1.3
 
@@ -975,7 +867,7 @@ The code on the slide reads: # First request  → pays full input price # Second
 
 ---
 
-### Slide 36 — Lesson 1.4
+### Slide 33 — Lesson 1.4
 
 **Type:** lesson_intro · **Lesson:** 1.4
 
@@ -995,7 +887,7 @@ The slide says: _Concept · 12 minutes · The single most valuable AI skill_.
 
 ---
 
-### Slide 37 — What Is Context?
+### Slide 34 — What Is Context?
 
 **Type:** diagram · **Lesson:** 1.4
 
@@ -1011,7 +903,7 @@ The figure on this slide is titled: What goes into context.
 
 ---
 
-### Slide 38 — The Context Window Limit
+### Slide 35 — The Context Window Limit
 
 **Type:** table · **Lesson:** 1.4
 
@@ -1033,7 +925,7 @@ Context window is the maximum amount of text the model can consider at once — 
 
 ---
 
-### Slide 39 — Context Window — What Happens When Full
+### Slide 36 — Context Window — What Happens When Full
 
 **Type:** content · **Lesson:** 1.4
 
@@ -1055,7 +947,7 @@ Context window is the maximum amount of text the model can consider at once — 
 
 ---
 
-### Slide 40 — Context Checklist
+### Slide 37 — Context Checklist
 
 **Type:** bullets · **Lesson:** 1.4
 
@@ -1087,7 +979,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 41 — Good vs. Bad Context — Bad Example
+### Slide 38 — Good vs. Bad Context — Bad Example
 
 **Type:** code · **Lesson:** 1.4
 
@@ -1101,7 +993,7 @@ The code on the slide reads: "Fix this bug: my code doesn't work".
 
 ---
 
-### Slide 42 — Good vs. Bad Context — Good Example
+### Slide 39 — Good vs. Bad Context — Good Example
 
 **Type:** code · **Lesson:** 1.4
 
@@ -1115,7 +1007,7 @@ The code on the slide reads: Python function sorts dicts by key but raises KeyEr
 
 ---
 
-### Slide 43 — Context Prioritization Pyramid
+### Slide 40 — Context Prioritization Pyramid
 
 **Type:** diagram · **Lesson:** 1.4
 
@@ -1131,7 +1023,7 @@ Not all context is equal. Recent messages, open files, and rules compete for the
 
 ---
 
-### Slide 44 — Context Window Management
+### Slide 41 — Context Window Management
 
 **Type:** table · **Lesson:** 1.4
 
@@ -1163,7 +1055,7 @@ Context window is the maximum amount of text the model can consider at once — 
 
 ---
 
-### Slide 45 — The "Lost in the Middle" Problem
+### Slide 42 — The "Lost in the Middle" Problem
 
 **Type:** diagram · **Lesson:** 1.4
 
@@ -1187,7 +1079,7 @@ Models attend strongly to the beginning and end of context and weaker to the mid
 
 ---
 
-### Slide 46 — Lesson 1.5
+### Slide 43 — Lesson 1.5
 
 **Type:** lesson_intro · **Lesson:** 1.5
 
@@ -1219,7 +1111,7 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 
 ---
 
-### Slide 47 — What Is Tool Calling?
+### Slide 44 — What Is Tool Calling?
 
 **Type:** diagram · **Lesson:** 1.5
 
@@ -1245,7 +1137,7 @@ Plain chat only produces text. Tools close the loop with real feedback from your
 
 ---
 
-### Slide 48 — Common Tool Types in Development
+### Slide 45 — Common Tool Types in Development
 
 **Type:** table · **Lesson:** 1.5
 
@@ -1279,7 +1171,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 49 — MCP (Model Context Protocol)
+### Slide 46 — MCP (Model Context Protocol)
 
 **Type:** diagram · **Lesson:** 1.5
 
@@ -1305,7 +1197,7 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 
 ---
 
-### Slide 50 — Why MCP Matters
+### Slide 47 — Why MCP Matters
 
 **Type:** table · **Lesson:** 1.5
 
@@ -1333,7 +1225,7 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 
 ---
 
-### Slide 51 — Tool Calling Best Practices
+### Slide 48 — Tool Calling Best Practices
 
 **Type:** content · **Lesson:** 1.5
 
@@ -1373,7 +1265,7 @@ Plain chat only produces text. Tools close the loop with real feedback from your
 
 ---
 
-### Slide 52 — Lesson 1.6
+### Slide 49 — Lesson 1.6
 
 **Type:** lesson_intro · **Lesson:** 1.6
 
@@ -1393,7 +1285,7 @@ The slide says: _Concept · 8 minutes_.
 
 ---
 
-### Slide 53 — Agent vs. Chatbot
+### Slide 50 — Agent vs. Chatbot
 
 **Type:** table · **Lesson:** 1.6
 
@@ -1427,7 +1319,7 @@ That difference drives cost, risk, and how carefully you review each step.
 
 ---
 
-### Slide 54 — The Agent Loop
+### Slide 51 — The Agent Loop
 
 **Type:** content · **Lesson:** 1.6
 
@@ -1443,7 +1335,7 @@ The agent loop is plan, act with tools, observe results, and repeat until the ta
 
 ---
 
-### Slide 55 — The Agent Loop — Diagram
+### Slide 52 — The Agent Loop — Diagram
 
 **Type:** diagram · **Lesson:** 1.6
 
@@ -1463,7 +1355,7 @@ Follow the loop on the slide: you state a goal, the model plans, Cursor runs a t
 
 ---
 
-### Slide 56 — Levels of Agent Autonomy
+### Slide 53 — Levels of Agent Autonomy
 
 **Type:** table · **Lesson:** 1.6
 
@@ -1497,7 +1389,7 @@ That difference drives cost, risk, and how carefully you review each step.
 
 ---
 
-### Slide 57 — How Agents Change Your Role
+### Slide 54 — How Agents Change Your Role
 
 **Type:** diagram · **Lesson:** 1.6
 
@@ -1521,7 +1413,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 58 — Developer Role Shift
+### Slide 55 — Developer Role Shift
 
 **Type:** table · **Lesson:** 1.6
 
@@ -1545,7 +1437,7 @@ In the table, Problem solver: Problem framer.
 
 ---
 
-### Slide 59 — When to Use Agents
+### Slide 56 — When to Use Agents
 
 **Type:** bullets · **Lesson:** 1.6
 
@@ -1573,51 +1465,9 @@ Bullet 6 on the slide: High cost of failure.
 
 ---
 
-### Slide 60 — Module Summary
-
-**Type:** module_summary · **Lesson:** 1.6
-
-**Script**
-
-That wraps up Module 1. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Insight.
-
-In the table, 1.1 — How AI Models Work. Use case on slide: Probabilistic, not deterministic – manage with temperature.
-
-In the table, 1.2 — Hallucinations. Use case on slide: Models invent confidently – always verify.
-
-In the table, 1.3 — Tokens and Pricing. Use case on slide: Output costs more – optimize context, use cheaper models.
-
-In the table, 1.4 — Context. Use case on slide: Single most valuable skill – quality in = quality out.
-
-In the table, 1.5 — Tool Calling & MCP. Use case on slide: AI requests actions, you control execution.
-
-In the table, 1.6 — Agents. Use case on slide: Goal-directed action – changes developer role.
-
-Terms on this slide — quick definitions for the room:
-
-Probabilistic means the same input can produce different outputs — unlike traditional code that always returns the same result.
-
-Deterministic means the same input always produces the same output — how conventional software behaves.
-
-A hallucination is a confident answer that is wrong — for example an API or library that does not exist.
-
-Tool calling means the model requests an action — read a file, run a command — and the host executes it; the model does not run code itself.
-
-Temperature controls randomness — low values stay focused and repeatable; high values add creativity and variation.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
-
-MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
-
----
-
 ## Module 2 — Cursor Editor Essentials
 
-### Slide 61 — Cursor Editor Essentials
+### Slide 57 — Cursor Editor Essentials
 
 **Type:** module_intro
 
@@ -1633,7 +1483,7 @@ The slide says: Cursor Training Program · Hands-on exercise · ~90 min.
 
 ---
 
-### Slide 62 — Module Overview
+### Slide 58 — Module Overview
 
 **Type:** module_overview
 
@@ -1652,60 +1502,6 @@ In the table, **Format**: Hands-on exercise.
 In the table, **Prerequisites**: Module 1 completed, Cursor installed, Git repository access.
 
 In the table, **Module Goal**: Master the core workflows of AI-assisted coding in Cursor.
-
----
-
-### Slide 63 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 2.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Orient an AI agent to an unfamiliar codebase.
-
-Bullet 2 on the slide: Get targeted explanations of specific files or symbols.
-
-Bullet 3 on the slide: Make safe, reviewable changes using diff review.
-
-Bullet 4 on the slide: Design complex changes with Plan Mode.
-
-Bullet 5 on the slide: Compare models to choose the right one for each task.
-
-Bullet 6 on the slide: Use @mentions for precise context control.
-
-Bullet 7 on the slide: Navigate checkpoints as a safety net.
-
-Bullet 8 on the slide: Let agents run terminal commands and react to output.
-
-Terms on this slide — quick definitions for the room:
-
-Diff review is reading added and removed lines before you accept an AI edit — your primary quality gate.
-
-A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
-
-Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
-
-An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
----
-
-### Slide 64 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 2.
-
-The slide title is: Agenda.
 
 The table header columns are: Lesson, Topic, Time.
 
@@ -1733,13 +1529,9 @@ Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions
 
 An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 65 — Lesson 2.1
+### Slide 59 — Lesson 2.1
 
 **Type:** lesson_intro · **Lesson:** 2.1
 
@@ -1761,7 +1553,7 @@ The slide says: Lab guide: [`Exercise 2.1](../slide-exercises/module-02/exercise
 
 ---
 
-### Slide 66 — The Problem & The Solution
+### Slide 60 — The Problem & The Solution
 
 **Type:** quote · **Lesson:** 2.1
 
@@ -1785,7 +1577,7 @@ Every one of us has opened a repo and wondered where to start. The Agent can pro
 
 ---
 
-### Slide 67 — Exercise 2.1 — Steps 1–2
+### Slide 61 — Exercise 2.1 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1811,6 +1603,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.1 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 2.1](../slide-exercises/module-02/exercise-2.1-codebase-understanding.md).
+
 The slide says: Windows (PowerShell) in Cursor's integrated terminal (`Ctrl+ `` → PowerShell):.
 
 The code on the slide reads: git clone https://github.com/facebookresearch/detectron2 cd detectron2 cursor ..
@@ -1828,7 +1622,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 68 — Exercise 2.1 — Step 3: Orientation Prompt
+### Slide 62 — Exercise 2.1 — Step 3: Orientation Prompt
 
 **Type:** exercise · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1863,7 +1657,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 69 — Exercise 2.1 — Step 4: Trace Data Flow
+### Slide 63 — Exercise 2.1 — Step 4: Trace Data Flow
 
 **Type:** exercise · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1892,7 +1686,7 @@ The code on the slide reads: Based on what you just told me, trace the flow of d
 
 ---
 
-### Slide 70 — Exercise 2.1 — Step 5: Visual Overview
+### Slide 64 — Exercise 2.1 — Step 5: Visual Overview
 
 **Type:** exercise · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1919,7 +1713,7 @@ The code on the slide reads: Create an ASCII diagram showing the module relation
 
 ---
 
-### Slide 71 — Expected Agent Output (Sample)
+### Slide 65 — Expected Agent Output (Sample)
 
 **Type:** diagram · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1937,7 +1731,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 72 — Pro Tip — Save the Overview
+### Slide 66 — Pro Tip — Save the Overview
 
 **Type:** code · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1955,7 +1749,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 73 — Exercise 2.1 — Success Criteria
+### Slide 67 — Exercise 2.1 — Success Criteria
 
 **Type:** exercise · **Lesson:** 2.1 · **Exercise:** 2.1
 
@@ -1989,7 +1783,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 74 — Lesson 2.2
+### Slide 68 — Lesson 2.2
 
 **Type:** lesson_intro · **Lesson:** 2.2
 
@@ -2011,7 +1805,7 @@ The slide says: Lab guide: [`Exercise 2.2](../slide-exercises/module-02/exercise
 
 ---
 
-### Slide 75 — Targeted Explanations
+### Slide 69 — Targeted Explanations
 
 **Type:** quote · **Lesson:** 2.2
 
@@ -2031,7 +1825,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 76 — Exercise 2.2 — Steps 1–3
+### Slide 70 — Exercise 2.2 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 2.2 · **Exercise:** 2.2
 
@@ -2057,6 +1851,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.2 — Steps 1–3.
 
+The slide says: Lab guide: [Exercise 2.2](../slide-exercises/module-02/exercise-2.2-explaining-a-specific-file-or-symbol.md).
+
 Bullet 1 on the slide: What it does.
 
 Bullet 2 on the slide: Why it's designed that way (trade-offs).
@@ -2078,7 +1874,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 77 — Exercise 2.2 — Step 4: Example I/O
+### Slide 71 — Exercise 2.2 — Step 4: Example I/O
 
 **Type:** exercise · **Lesson:** 2.2 · **Exercise:** 2.2
 
@@ -2103,7 +1899,7 @@ The code on the slide reads: Give me a concrete example of inputs and outputs fo
 
 ---
 
-### Slide 78 — Exercise 2.2 — Step 5: Dependencies
+### Slide 72 — Exercise 2.2 — Step 5: Dependencies
 
 **Type:** exercise · **Lesson:** 2.2 · **Exercise:** 2.2
 
@@ -2128,7 +1924,7 @@ The code on the slide reads: What other functions does this call? What calls thi
 
 ---
 
-### Slide 79 — Inline Explanation Shortcut
+### Slide 73 — Inline Explanation Shortcut
 
 **Type:** code · **Lesson:** 2.2 · **Exercise:** 2.2
 
@@ -2154,7 +1950,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 80 — Lesson 2.3
+### Slide 74 — Lesson 2.3
 
 **Type:** lesson_intro · **Lesson:** 2.3
 
@@ -2176,7 +1972,7 @@ The slide says: Lab guide: [`Exercise 2.3](../slide-exercises/module-02/exercise
 
 ---
 
-### Slide 81 — The Diff Review Workflow
+### Slide 75 — The Diff Review Workflow
 
 **Type:** quote · **Lesson:** 2.3
 
@@ -2212,7 +2008,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 82 — Exercise 2.3 — Steps 1–2
+### Slide 76 — Exercise 2.3 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 2.3 · **Exercise:** 2.3
 
@@ -2240,6 +2036,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.3 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 2.3](../slide-exercises/module-02/exercise-2.3-making-a-safe-reviewable-change.md).
+
 The code on the slide reads: Change the welcome message in index.html from "Hello World" to "Welcome to My App".
 
 The code on the slide reads: 📝 Changes to index.html:   <h1>- Hello World</h1>   <h1>+ Welcome to My App</h1> Accept? [Yes] [No] [Edit].
@@ -2255,7 +2053,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 83 — Exercise 2.3 — Review Questions
+### Slide 77 — Exercise 2.3 — Review Questions
 
 **Type:** exercise · **Lesson:** 2.3 · **Exercise:** 2.3
 
@@ -2288,7 +2086,7 @@ Bullet 4 on the slide: Will this break anything else?.
 
 ---
 
-### Slide 84 — Exercise 2.3 — Test After Accept
+### Slide 78 — Exercise 2.3 — Test After Accept
 
 **Type:** exercise · **Lesson:** 2.3 · **Exercise:** 2.3
 
@@ -2321,7 +2119,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 85 — Exercise 2.3 — If Something Goes Wrong
+### Slide 79 — Exercise 2.3 — If Something Goes Wrong
 
 **Type:** exercise · **Lesson:** 2.3 · **Exercise:** 2.3
 
@@ -2356,7 +2154,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 86 — Lesson 2.4
+### Slide 80 — Lesson 2.4
 
 **Type:** lesson_intro · **Lesson:** 2.4
 
@@ -2384,7 +2182,7 @@ Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions
 
 ---
 
-### Slide 87 — Design Before You Code
+### Slide 81 — Design Before You Code
 
 **Type:** bullets · **Lesson:** 2.4
 
@@ -2414,7 +2212,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 88 — Exercise 2.4 — Step 1: Enable Plan Mode
+### Slide 82 — Exercise 2.4 — Step 1: Enable Plan Mode
 
 **Type:** exercise · **Lesson:** 2.4 · **Exercise:** 2.4
 
@@ -2440,6 +2238,8 @@ You will also see the heading: Press Shift+Tab in the Agent input.
 
 You will also see the heading: The input border changes color to indicate Plan Mode.
 
+The slide says: Lab guide: [Exercise 2.4](../slide-exercises/module-02/exercise-2.4-plan-mode.md).
+
 The code on the slide reads: # Press Shift+Tab in the Agent input # The input border changes color to indicate Plan Mode.
 
 Terms on this slide — quick definitions for the room:
@@ -2457,7 +2257,7 @@ Plan Mode shows you the design before files change. Use it for multi-file work a
 
 ---
 
-### Slide 89 — Exercise 2.4 — Step 2: Describe Change
+### Slide 83 — Exercise 2.4 — Step 2: Describe Change
 
 **Type:** exercise · **Lesson:** 2.4 · **Exercise:** 2.4
 
@@ -2488,7 +2288,7 @@ The code on the slide reads: Add user authentication to this web app. Requiremen
 
 ---
 
-### Slide 90 — Exercise 2.4 — Step 3: Review the Plan
+### Slide 84 — Exercise 2.4 — Step 3: Review the Plan
 
 **Type:** exercise · **Lesson:** 2.4 · **Exercise:** 2.4
 
@@ -2521,7 +2321,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 91 — Exercise 2.4 — Approve & Execute
+### Slide 85 — Exercise 2.4 — Approve & Execute
 
 **Type:** exercise · **Lesson:** 2.4 · **Exercise:** 2.4
 
@@ -2556,7 +2356,7 @@ JWT stands for JSON Web Token — a compact, signed token format often used for 
 
 ---
 
-### Slide 92 — Exercise 2.4 — Success Criteria
+### Slide 86 — Exercise 2.4 — Success Criteria
 
 **Type:** exercise · **Lesson:** 2.4 · **Exercise:** 2.4
 
@@ -2592,7 +2392,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 93 — Lesson 2.5
+### Slide 87 — Lesson 2.5
 
 **Type:** lesson_intro · **Lesson:** 2.5
 
@@ -2616,7 +2416,7 @@ The slide says: Lab guide: [`Exercise 2.5](../slide-exercises/module-02/exercise
 
 ---
 
-### Slide 94 — Model Selection Guide
+### Slide 88 — Model Selection Guide
 
 **Type:** table · **Lesson:** 2.5
 
@@ -2648,7 +2448,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 95 — Exercise 2.5 — Compare Two Models
+### Slide 89 — Exercise 2.5 — Compare Two Models
 
 **Type:** exercise · **Lesson:** 2.5 · **Exercise:** 2.5
 
@@ -2676,6 +2476,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.5 — Compare Two Models.
 
+The slide says: Lab guide: [Exercise 2.5](../slide-exercises/module-02/exercise-2.5-comparing-two-models.md).
+
 The code on the slide reads: Explain what a closure is in JavaScript with a practical example..
 
 Terms on this slide — quick definitions for the room:
@@ -2689,7 +2491,7 @@ Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding t
 
 ---
 
-### Slide 96 — Exercise 2.5 — Comparison Table
+### Slide 90 — Exercise 2.5 — Comparison Table
 
 **Type:** exercise · **Lesson:** 2.5 · **Exercise:** 2.5
 
@@ -2722,7 +2524,7 @@ Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding t
 
 ---
 
-### Slide 97 — Exercise 2.5 — Cost & Decision Matrix
+### Slide 91 — Exercise 2.5 — Cost & Decision Matrix
 
 **Type:** exercise · **Lesson:** 2.5 · **Exercise:** 2.5
 
@@ -2751,7 +2553,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 98 — Exercise 2.5 — Success Criteria
+### Slide 92 — Exercise 2.5 — Success Criteria
 
 **Type:** exercise · **Lesson:** 2.5 · **Exercise:** 2.5
 
@@ -2779,7 +2581,7 @@ Bullet 3 on the slide: Created personal model-selection guide.
 
 ---
 
-### Slide 99 — Lesson 2.6
+### Slide 93 — Lesson 2.6
 
 **Type:** lesson_intro · **Lesson:** 2.6
 
@@ -2805,7 +2607,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 100 — @mention Types
+### Slide 94 — @mention Types
 
 **Type:** table · **Lesson:** 2.6
 
@@ -2837,7 +2639,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 101 — Exercise 2.6 — Steps 1–2
+### Slide 95 — Exercise 2.6 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -2863,6 +2665,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.6 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 2.6](../slide-exercises/module-02/exercise-2.6-precise-context-with-mentions.md).
+
 The code on the slide reads: @database.py What are the security vulnerabilities in this database connection?.
 
 The code on the slide reads: @calculate_total This function is returning NaN sometimes. Why?.
@@ -2878,7 +2682,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 102 — Exercise 2.6 — Step 3: Multiple @mentions
+### Slide 96 — Exercise 2.6 — Step 3: Multiple @mentions
 
 **Type:** exercise · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -2907,7 +2711,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 103 — Exercise 2.6 — Step 4: @branch
+### Slide 97 — Exercise 2.6 — Step 4: @branch
 
 **Type:** exercise · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -2936,7 +2740,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 104 — Exercise 2.6 — Step 5: @chat
+### Slide 98 — Exercise 2.6 — Step 5: @chat
 
 **Type:** exercise · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -2961,7 +2765,7 @@ The code on the slide reads: @chat(authentication-discussion) Based on that disc
 
 ---
 
-### Slide 105 — Exercise 2.6 — Steps 6–7: @folder & @web
+### Slide 99 — Exercise 2.6 — Steps 6–7: @folder & @web
 
 **Type:** exercise · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -2996,7 +2800,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 106 — @mention Pro Tips
+### Slide 100 — @mention Pro Tips
 
 **Type:** bullets · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -3020,7 +2824,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 107 — Exercise 2.6 — Success Criteria
+### Slide 101 — Exercise 2.6 — Success Criteria
 
 **Type:** exercise · **Lesson:** 2.6 · **Exercise:** 2.6
 
@@ -3054,7 +2858,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 108 — Lesson 2.7
+### Slide 102 — Lesson 2.7
 
 **Type:** lesson_intro · **Lesson:** 2.7
 
@@ -3082,7 +2886,7 @@ A checkpoint is a saved snapshot of your code and conversation you can roll back
 
 ---
 
-### Slide 109 — A Safety Net for Experiments
+### Slide 103 — A Safety Net for Experiments
 
 **Type:** bullets · **Lesson:** 2.7
 
@@ -3112,7 +2916,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 110 — Exercise 2.7 — Create & Restore
+### Slide 104 — Exercise 2.7 — Create & Restore
 
 **Type:** exercise · **Lesson:** 2.7 · **Exercise:** 2.7
 
@@ -3138,6 +2942,8 @@ You will also see the heading: Click checkpoint icon in Agent panel.
 
 You will also see the heading: Windows: `Ctrl+Shift+S (Mac: Cmd+Shift+S`).
 
+The slide says: Lab guide: [Exercise 2.7](../slide-exercises/module-02/exercise-2.7-checkpoints.md).
+
 The code on the slide reads: # Click checkpoint icon in Agent panel # Windows: ``Ctrl+Shift+S`` (Mac: ``Cmd+Shift+S``).
 
 Terms on this slide — quick definitions for the room:
@@ -3153,7 +2959,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 111 — Exercise 2.7 — Steps 2–3
+### Slide 105 — Exercise 2.7 — Steps 2–3
 
 **Type:** exercise · **Lesson:** 2.7 · **Exercise:** 2.7
 
@@ -3184,7 +2990,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 112 — Exercise 2.7 — Steps 4–5
+### Slide 106 — Exercise 2.7 — Steps 4–5
 
 **Type:** exercise · **Lesson:** 2.7 · **Exercise:** 2.7
 
@@ -3213,7 +3019,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 113 — Checkpoint Best Practices
+### Slide 107 — Checkpoint Best Practices
 
 **Type:** bullets · **Lesson:** 2.7 · **Exercise:** 2.7
 
@@ -3243,7 +3049,7 @@ Checkpoints are undo for agent experiments — create one before risky prompts o
 
 ---
 
-### Slide 114 — Lesson 2.8
+### Slide 108 — Lesson 2.8
 
 **Type:** lesson_intro · **Lesson:** 2.8
 
@@ -3265,7 +3071,7 @@ The slide says: Lab guide: [`Exercise 2.8](../slide-exercises/module-02/exercise
 
 ---
 
-### Slide 115 — What the Agent Can Do
+### Slide 109 — What the Agent Can Do
 
 **Type:** bullets · **Lesson:** 2.8
 
@@ -3295,7 +3101,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 116 — Exercise 2.8 — Steps 1–3
+### Slide 110 — Exercise 2.8 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 2.8 · **Exercise:** 2.8
 
@@ -3323,6 +3129,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 2.8 — Steps 1–3.
 
+The slide says: Lab guide: [Exercise 2.8](../slide-exercises/module-02/exercise-2.8-terminal-integration.md).
+
 Environment note on the slide: Demonstration (Windows): PowerShell · Agent `Ctrl+I`.
 
 The code on the slide reads: Run `python --version` and `gcc --version` in PowerShell. Tell me what versions we're using..
@@ -3340,7 +3148,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 117 — Exercise 2.8 — Agent Terminal Loop
+### Slide 111 — Exercise 2.8 — Agent Terminal Loop
 
 **Type:** exercise · **Lesson:** 2.8 · **Exercise:** 2.8
 
@@ -3365,7 +3173,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 118 — Exercise 2.8 — Step 5: Install Dependency
+### Slide 112 — Exercise 2.8 — Step 5: Install Dependency
 
 **Type:** exercise · **Lesson:** 2.8 · **Exercise:** 2.8
 
@@ -3390,7 +3198,7 @@ The code on the slide reads: Install the requests library with pip if it's not a
 
 ---
 
-### Slide 119 — Exercise 2.8 — Step 6: Multi-Step Workflow
+### Slide 113 — Exercise 2.8 — Step 6: Multi-Step Workflow
 
 **Type:** exercise · **Lesson:** 2.8 · **Exercise:** 2.8
 
@@ -3415,7 +3223,7 @@ The code on the slide reads: Run these commands in order: 1. git status 2. git b
 
 ---
 
-### Slide 120 — Terminal Command Safety Rules
+### Slide 114 — Terminal Command Safety Rules
 
 **Type:** table · **Lesson:** 2.8 · **Exercise:** 2.8
 
@@ -3445,67 +3253,9 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 121 — Module Summary
-
-**Type:** module_summary · **Lesson:** 2.8 · **Exercise:** 2.8
-
-**Script**
-
-That wraps up Module 2. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Skill.
-
-In the table, 2.1 — Codebase Understanding. Use case on slide: Orient to new repo.
-
-In the table, 2.2 — Explaining Files/Symbols. Use case on slide: Targeted explanations.
-
-In the table, 2.3 — Safe Reviewable Changes. Use case on slide: Diff review workflow.
-
-In the table, 2.4 — Plan Mode. Use case on slide: Design before code.
-
-In the table, 2.5 — Comparing Models. Use case on slide: Model selection.
-
-In the table, 2.6 — @mentions. Use case on slide: Precise context.
-
-In the table, 2.7 — Checkpoints. Use case on slide: Safety net.
-
-In the table, 2.8 — Terminal Integration. Use case on slide: Command execution.
-
-Terms on this slide — quick definitions for the room:
-
-Diff review is reading added and removed lines before you accept an AI edit — your primary quality gate.
-
-A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
-
-Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
-
-An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
-
----
-
-### Slide 122 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 2.8 · **Exercise:** 2.8
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 3 — Agent Modes and Tools
 
-### Slide 123 — Agent Modes and Tools
+### Slide 115 — Agent Modes and Tools
 
 **Type:** module_intro
 
@@ -3525,7 +3275,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 124 — Module Overview
+### Slide 116 — Module Overview
 
 **Type:** module_overview
 
@@ -3544,54 +3294,6 @@ In the table, **Format**: Hands-on exercise + concept.
 In the table, **Prerequisites**: Module 2 completed, live web app available (or sample provided).
 
 In the table, **Module Goal**: Master different agent modes and the core tools that make agents powerful.
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
----
-
-### Slide 125 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 3.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Choose between Ask Mode and Agent Mode based on task and safety needs.
-
-Bullet 2 on the slide: Use the Browser Tool to inspect live pages and read console output.
-
-Bullet 3 on the slide: Run terminal commands through the agent and diagnose failures.
-
-Bullet 4 on the slide: Write effective, constrained prompts that avoid scope creep.
-
-Terms on this slide — quick definitions for the room:
-
-The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
-
-Scope creep is when the agent changes more files or behavior than you asked for — constrain with explicit DO NOT lists.
-
-Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
-
-Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
-
----
-
-### Slide 126 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 3.
-
-The slide title is: Agenda.
 
 The table header columns are: Lesson, Topic, Time.
 
@@ -3613,13 +3315,9 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 
 Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 127 — Lesson 3.1
+### Slide 117 — Lesson 3.1
 
 **Type:** lesson_intro · **Lesson:** 3.1
 
@@ -3651,7 +3349,7 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 
 ---
 
-### Slide 128 — The Core Distinction
+### Slide 118 — The Core Distinction
 
 **Type:** table · **Lesson:** 3.1
 
@@ -3687,7 +3385,7 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 
 ---
 
-### Slide 129 — When to Use Each Mode
+### Slide 119 — When to Use Each Mode
 
 **Type:** bullets · **Lesson:** 3.1
 
@@ -3723,7 +3421,7 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 
 ---
 
-### Slide 130 — Safety Implications
+### Slide 120 — Safety Implications
 
 **Type:** table · **Lesson:** 3.1
 
@@ -3759,7 +3457,7 @@ Teams that skip verification accumulate AI debt — code that looked fine in cha
 
 ---
 
-### Slide 131 — The Mode Continuum
+### Slide 121 — The Mode Continuum
 
 **Type:** diagram · **Lesson:** 3.1
 
@@ -3779,7 +3477,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 132 — Windows Exercise Environment
+### Slide 122 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 3.1
 
@@ -3827,7 +3525,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 133 — Exercise 3.1 — Steps 1–2
+### Slide 123 — Exercise 3.1 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 3.1 · **Exercise:** 3.1
 
@@ -3849,6 +3547,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 3.1 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 3.1](../slide-exercises/module-03/exercise-3.1-ask-mode-vs-agent-mode.md).
+
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 Terms on this slide — quick definitions for the room:
@@ -3862,7 +3562,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 134 — Exercise 3.1 — Steps 1–2 (Part 2)
+### Slide 124 — Exercise 3.1 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 3.1 · **Exercise:** 3.1
 
@@ -3897,7 +3597,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 135 — Exercise 3.1 — Steps 3–5
+### Slide 125 — Exercise 3.1 — Steps 3–5
 
 **Type:** exercise · **Lesson:** 3.1 · **Exercise:** 3.1
 
@@ -3932,7 +3632,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 136 — Exercise 3.1 — Steps 3–5 (Part 2)
+### Slide 126 — Exercise 3.1 — Steps 3–5 (Part 2)
 
 **Type:** exercise · **Lesson:** 3.1 · **Exercise:** 3.1
 
@@ -3963,7 +3663,7 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 
 ---
 
-### Slide 137 — Exercise 3.1 — Step 6 & Success Criteria
+### Slide 127 — Exercise 3.1 — Step 6 & Success Criteria
 
 **Type:** exercise · **Lesson:** 3.1 · **Exercise:** 3.1
 
@@ -4009,7 +3709,7 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 
 ---
 
-### Slide 138 — Lesson 3.2
+### Slide 128 — Lesson 3.2
 
 **Type:** lesson_intro · **Lesson:** 3.2
 
@@ -4037,7 +3737,7 @@ The Browser tool lets the agent open a live page, inspect the DOM, and read cons
 
 ---
 
-### Slide 139 — What the Browser Tool Can Do
+### Slide 129 — What the Browser Tool Can Do
 
 **Type:** quote · **Lesson:** 3.2
 
@@ -4067,7 +3767,7 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 
 ---
 
-### Slide 140 — Browser Tool: With vs. Without
+### Slide 130 — Browser Tool: With vs. Without
 
 **Type:** table · **Lesson:** 3.2
 
@@ -4097,7 +3797,7 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 
 ---
 
-### Slide 141 — Exercise 3.2 — Steps 1–2
+### Slide 131 — Exercise 3.2 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4123,6 +3823,8 @@ The slide title is: Exercise 3.2 — Steps 1–2.
 
 You will also see the heading: Or use a public test page.
 
+The slide says: Lab guide: [Exercise 3.2](../slide-exercises/module-03/exercise-3.2-browser-tool.md).
+
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent Ctrl+I`.
 
 The code on the slide reads: python -m http.server 8000 # Or use a public test page.
@@ -4142,7 +3844,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 142 — Exercise 3.2 — Steps 1–2 (Part 2)
+### Slide 132 — Exercise 3.2 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4177,7 +3879,7 @@ HTTP stands for Hypertext Transfer Protocol — the request/response protocol br
 
 ---
 
-### Slide 143 — Exercise 3.2 — Steps 3–4
+### Slide 133 — Exercise 3.2 — Steps 3–4
 
 **Type:** exercise · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4210,7 +3912,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 144 — Exercise 3.2 — Steps 3–4 (Part 2)
+### Slide 134 — Exercise 3.2 — Steps 3–4 (Part 2)
 
 **Type:** exercise · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4241,7 +3943,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 145 — Expected Agent Actions
+### Slide 135 — Expected Agent Actions
 
 **Type:** diagram · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4259,7 +3961,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 146 — Exercise 3.2 — Steps 5–6
+### Slide 136 — Exercise 3.2 — Steps 5–6
 
 **Type:** exercise · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4294,7 +3996,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 147 — Exercise 3.2 — Steps 5–6 (Part 2)
+### Slide 137 — Exercise 3.2 — Steps 5–6 (Part 2)
 
 **Type:** exercise · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4327,7 +4029,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 148 — Browser Tool Limitations
+### Slide 138 — Browser Tool Limitations
 
 **Type:** table · **Lesson:** 3.2 · **Exercise:** 3.2
 
@@ -4361,7 +4063,7 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 
 ---
 
-### Slide 149 — Lesson 3.3
+### Slide 139 — Lesson 3.3
 
 **Type:** lesson_intro · **Lesson:** 3.3
 
@@ -4389,7 +4091,7 @@ The Terminal tool lets the agent propose shell commands — you approve them, th
 
 ---
 
-### Slide 150 — What the Terminal Tool Can Do
+### Slide 140 — What the Terminal Tool Can Do
 
 **Type:** bullets · **Lesson:** 3.3
 
@@ -4415,7 +4117,7 @@ The Terminal tool lets the Agent run tests and builds and read real output. That
 
 ---
 
-### Slide 151 — Terminal Tool Flow
+### Slide 141 — Terminal Tool Flow
 
 **Type:** diagram · **Lesson:** 3.3
 
@@ -4435,7 +4137,7 @@ The Terminal tool lets the Agent run tests and builds and read real output. That
 
 ---
 
-### Slide 152 — Exercise 3.3 — Setup
+### Slide 142 — Exercise 3.3 — Setup
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4456,6 +4158,8 @@ Use the terminal tool on the calculator test project in this repo.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 3.3 — Setup.
+
+The slide says: Lab guide: [Exercise 3.3](../slide-exercises/module-03/exercise-3.3-terminal-tool.md).
 
 The slide says: Before you start.
 
@@ -4492,7 +4196,7 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 
 ---
 
-### Slide 153 — Exercise 3.3 — Step 1: Safe Command
+### Slide 143 — Exercise 3.3 — Step 1: Safe Command
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4531,7 +4235,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 154 — Exercise 3.3 — Step 2: Run Passing Tests
+### Slide 144 — Exercise 3.3 — Step 2: Run Passing Tests
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4568,7 +4272,7 @@ The code on the slide reads: Run .\run_tests.bat in this folder. Show full outpu
 
 ---
 
-### Slide 155 — Exercise 3.3 — Step 3: Break a Test
+### Slide 145 — Exercise 3.3 — Step 3: Break a Test
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4615,7 +4319,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 156 — Exercise 3.3 — Step 4: Diagnose Failure
+### Slide 146 — Exercise 3.3 — Step 4: Diagnose Failure
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4654,7 +4358,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 157 — Exercise 3.3 — Step 5: Fix and Verify
+### Slide 147 — Exercise 3.3 — Step 5: Fix and Verify
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4691,7 +4395,7 @@ The code on the slide reads: @test_calculator.c 1. Run tests and confirm the fai
 
 ---
 
-### Slide 158 — Exercise 3.3 — Step 6: Approval Rules
+### Slide 148 — Exercise 3.3 — Step 6: Approval Rules
 
 **Type:** exercise · **Lesson:** 3.3 · **Exercise:** 3.3
 
@@ -4738,7 +4442,7 @@ The code on the slide reads: Run git status. Summarize only — do not commit or
 
 ---
 
-### Slide 159 — Lesson 3.4
+### Slide 149 — Lesson 3.4
 
 **Type:** lesson_intro · **Lesson:** 3.4
 
@@ -4764,7 +4468,7 @@ The slide says: Lab guide: [`Exercise 3.4](../slide-exercises/module-03/exercise
 
 ---
 
-### Slide 160 — Anatomy of an Effective Prompt
+### Slide 150 — Anatomy of an Effective Prompt
 
 **Type:** content · **Lesson:** 3.4
 
@@ -4796,7 +4500,7 @@ Number 5 on the slide: SUCCESS CRITERIA — "Function should return 0 for empty 
 
 ---
 
-### Slide 161 — Bad Prompts vs. Good Prompts
+### Slide 151 — Bad Prompts vs. Good Prompts
 
 **Type:** table · **Lesson:** 3.4
 
@@ -4824,7 +4528,7 @@ SQL stands for Structured Query Language — the language relational databases u
 
 ---
 
-### Slide 162 — The "Boundaries" Technique
+### Slide 152 — The "Boundaries" Technique
 
 **Type:** diagram · **Lesson:** 3.4
 
@@ -4844,7 +4548,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 163 — Avoiding Scope Creep
+### Slide 153 — Avoiding Scope Creep
 
 **Type:** table · **Lesson:** 3.4
 
@@ -4884,7 +4588,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 164 — Exercise 3.4 — Setup
+### Slide 154 — Exercise 3.4 — Setup
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -4907,6 +4611,8 @@ Practice six prompting techniques on calculator.c from earlier exercises.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 3.4 — Setup.
+
+The slide says: Lab guide: [Exercise 3.4](../slide-exercises/module-03/exercise-3.4-effective-prompting-in-practice.md).
 
 The slide says: Before you start.
 
@@ -4937,7 +4643,7 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 
 ---
 
-### Slide 165 — Exercise 3.4 — Step 1: Constrained Prompt
+### Slide 155 — Exercise 3.4 — Step 1: Constrained Prompt
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -4988,7 +4694,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 166 — Exercise 3.4 — Step 2: Vague vs. Constrained
+### Slide 156 — Exercise 3.4 — Step 2: Vague vs. Constrained
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -5037,7 +4743,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 167 — Exercise 3.4 — Step 3: Plan Before Editing
+### Slide 157 — Exercise 3.4 — Step 3: Plan Before Editing
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -5082,7 +4788,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 168 — Exercise 3.4 — Step 4: DO NOT List
+### Slide 158 — Exercise 3.4 — Step 4: DO NOT List
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -5131,7 +4837,7 @@ Scope creep is when the agent changes more files or behavior than you asked for 
 
 ---
 
-### Slide 169 — Exercise 3.4 — Step 5: One Change at a Time
+### Slide 159 — Exercise 3.4 — Step 5: One Change at a Time
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -5176,7 +4882,7 @@ The code on the slide reads: Now add only that validation to divide(). Show the 
 
 ---
 
-### Slide 170 — Exercise 3.4 — Step 6: Prompt Templates
+### Slide 160 — Exercise 3.4 — Step 6: Prompt Templates
 
 **Type:** exercise · **Lesson:** 3.4 · **Exercise:** 3.4
 
@@ -5225,59 +4931,9 @@ The code on the slide begins: ## Bug Fix Template @{{file}} Task: [Describe bug]
 
 ---
 
-### Slide 171 — Module Summary
-
-**Type:** module_summary · **Lesson:** 3.4 · **Exercise:** 3.4
-
-**Script**
-
-That wraps up Module 3. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Takeaway.
-
-In the table, 3.1 — Ask vs Agent Mode. Use case on slide: Use Ask for questions, Agent for action.
-
-In the table, 3.2 — Browser Tool. Use case on slide: Agent can see live pages and console.
-
-In the table, 3.3 — Terminal Tool. Use case on slide: Agent can run commands and react.
-
-In the table, 3.4 — Effective Prompting. Use case on slide: Boundaries prevent scope creep.
-
-Terms on this slide — quick definitions for the room:
-
-The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
-
-The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
-
-Scope creep is when the agent changes more files or behavior than you asked for — constrain with explicit DO NOT lists.
-
-Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
-
----
-
-### Slide 172 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 3.4 · **Exercise:** 3.4
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 4 — Customizing Cursor for Your Team
 
-### Slide 173 — Customizing Cursor for Your Team
+### Slide 161 — Customizing Cursor for Your Team
 
 **Type:** module_intro
 
@@ -5293,7 +4949,7 @@ The slide says: Cursor Training Program · ~60 min.
 
 ---
 
-### Slide 174 — Module Overview
+### Slide 162 — Module Overview
 
 **Type:** module_overview
 
@@ -5312,56 +4968,6 @@ In the table, **Format**: Hands-on exercise + walkthrough.
 In the table, **Prerequisites**: Modules 1–3 completed, team repository access, Cursor installed.
 
 In the table, **Module Goal**: Customize Cursor for team workflows with rules, skills, MCP, and subagents.
-
-Terms on this slide — quick definitions for the room:
-
-A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
-
-MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
-
----
-
-### Slide 175 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 4.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Create Rules that encode team conventions and guardrails.
-
-Bullet 2 on the slide: Write Repository Instructions for lightweight project guidance.
-
-Bullet 3 on the slide: Build and invoke reusable Skills for specialized workflows.
-
-Bullet 4 on the slide: Connect external tools via MCP and create slash workflows.
-
-Bullet 5 on the slide: Understand when and how to use Subagents for delegation.
-
-Terms on this slide — quick definitions for the room:
-
-Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
-
-A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
-
-MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
-
----
-
-### Slide 176 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 4.
-
-The slide title is: Agenda.
 
 The table header columns are: Lesson, Topic, Time.
 
@@ -5383,13 +4989,9 @@ A subagent is a delegated specialist agent — often run in parallel or in isola
 
 MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 177 — Lesson 4.1
+### Slide 163 — Lesson 4.1
 
 **Type:** lesson_intro · **Lesson:** 4.1
 
@@ -5413,7 +5015,7 @@ The slide says: Lab guide: [`Exercise 4.1](../slide-exercises/module-04/exercise
 
 ---
 
-### Slide 178 — What Are Rules?
+### Slide 164 — What Are Rules?
 
 **Type:** table · **Lesson:** 4.1
 
@@ -5441,7 +5043,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 179 — Rule Structure
+### Slide 165 — Rule Structure
 
 **Type:** code · **Lesson:** 4.1
 
@@ -5451,7 +5053,7 @@ The slide title is: Rule Structure.
 
 ---
 
-### Slide 180 — description: Brief description of what this rule does globs: .py, src//.js alway…
+### Slide 166 — description: Brief description of what this rule does globs: .py, src//.js alway…
 
 **Type:** content · **Lesson:** 4.1
 
@@ -5469,7 +5071,7 @@ The slide says: alwaysApply: true.
 
 ---
 
-### Slide 181 — Rule Title
+### Slide 167 — Rule Title
 
 **Type:** code · **Lesson:** 4.1
 
@@ -5491,7 +5093,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 182 — Windows Exercise Environment
+### Slide 168 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 4.1
 
@@ -5539,7 +5141,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 183 — Exercise 4.1 — Step 1: Setup
+### Slide 169 — Exercise 4.1 — Step 1: Setup
 
 **Type:** exercise · **Lesson:** 4.1 · **Exercise:** 4.1
 
@@ -5561,6 +5163,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.1 — Step 1: Setup.
 
+The slide says: Lab guide: [Exercise 4.1](../slide-exercises/module-04/exercise-4.1-creating-a-rule.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The slide says: Create coding standards rule at .cursor/rules/coding-standards.mdc:.
@@ -5580,7 +5184,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 184 — Exercise 4.1 — Build & Test Rule
+### Slide 170 — Exercise 4.1 — Build & Test Rule
 
 **Type:** exercise · **Lesson:** 4.1 · **Exercise:** 4.1
 
@@ -5625,7 +5229,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 185 — Exercise 4.1 — Test & File-Specific Rules
+### Slide 171 — Exercise 4.1 — Test & File-Specific Rules
 
 **Type:** exercise · **Lesson:** 4.1 · **Exercise:** 4.1
 
@@ -5658,7 +5262,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 186 — Exercise 4.1 — Test & File-Specific Rules (Part 2)
+### Slide 172 — Exercise 4.1 — Test & File-Specific Rules (Part 2)
 
 **Type:** exercise · **Lesson:** 4.1 · **Exercise:** 4.1
 
@@ -5693,7 +5297,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 187 — Lesson 4.2
+### Slide 173 — Lesson 4.2
 
 **Type:** lesson_intro · **Lesson:** 4.2
 
@@ -5721,7 +5325,7 @@ Repository Instructions are a single project overview file the agent reads for s
 
 ---
 
-### Slide 188 — Rules vs. Repository Instructions
+### Slide 174 — Rules vs. Repository Instructions
 
 **Type:** table · **Lesson:** 4.2
 
@@ -5749,7 +5353,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 189 — Repository Instructions Structure
+### Slide 175 — Repository Instructions Structure
 
 **Type:** code · **Lesson:** 4.2
 
@@ -5783,7 +5387,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 190 — Exercise 4.2 — Create Instructions
+### Slide 176 — Exercise 4.2 — Create Instructions
 
 **Type:** exercise · **Lesson:** 4.2 · **Exercise:** 4.2
 
@@ -5800,6 +5404,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.2 — Create Instructions.
+
+The slide says: Lab guide: [Exercise 4.2](../slide-exercises/module-04/exercise-4.2-repository-instructions.md).
 
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
@@ -5818,7 +5424,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 191 — Exercise 4.2 — Verify & Maintain
+### Slide 177 — Exercise 4.2 — Verify & Maintain
 
 **Type:** exercise · **Lesson:** 4.2 · **Exercise:** 4.2
 
@@ -5851,7 +5457,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 192 — Exercise 4.2 — Verify & Maintain (Part 2)
+### Slide 178 — Exercise 4.2 — Verify & Maintain (Part 2)
 
 **Type:** exercise · **Lesson:** 4.2 · **Exercise:** 4.2
 
@@ -5886,7 +5492,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 193 — Lesson 4.3
+### Slide 179 — Lesson 4.3
 
 **Type:** lesson_intro · **Lesson:** 4.3
 
@@ -5910,7 +5516,7 @@ The slide says: Lab guide: [`Exercise 4.3](../slide-exercises/module-04/exercise
 
 ---
 
-### Slide 194 — What Is a Skill?
+### Slide 180 — What Is a Skill?
 
 **Type:** diagram · **Lesson:** 4.3
 
@@ -5946,7 +5552,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 195 — Exercise 4.3 — PR Review Skill
+### Slide 181 — Exercise 4.3 — PR Review Skill
 
 **Type:** exercise · **Lesson:** 4.3 · **Exercise:** 4.3
 
@@ -5965,6 +5571,8 @@ Copy this into the Agent chat: "name: pr-review description: Review a PR for cod
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.3 — PR Review Skill.
+
+The slide says: Lab guide: [Exercise 4.3](../slide-exercises/module-04/exercise-4.3-creating-and-invoking-a-skill.md).
 
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
@@ -5987,7 +5595,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 196 — Exercise 4.3 — Security Audit Skill
+### Slide 182 — Exercise 4.3 — Security Audit Skill
 
 **Type:** exercise · **Lesson:** 4.3 · **Exercise:** 4.3
 
@@ -6024,7 +5632,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 197 — Exercise 4.3 — Invoke Skills
+### Slide 183 — Exercise 4.3 — Invoke Skills
 
 **Type:** exercise · **Lesson:** 4.3 · **Exercise:** 4.3
 
@@ -6063,7 +5671,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 198 — Exercise 4.3 — Invoke Skills (Part 2)
+### Slide 184 — Exercise 4.3 — Invoke Skills (Part 2)
 
 **Type:** exercise · **Lesson:** 4.3 · **Exercise:** 4.3
 
@@ -6096,7 +5704,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 199 — Exercise 4.3 — Invoke Skills (Part 3)
+### Slide 185 — Exercise 4.3 — Invoke Skills (Part 3)
 
 **Type:** exercise · **Lesson:** 4.3 · **Exercise:** 4.3
 
@@ -6131,7 +5739,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 200 — Lesson 4.4
+### Slide 186 — Lesson 4.4
 
 **Type:** lesson_intro · **Lesson:** 4.4
 
@@ -6153,7 +5761,7 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 
 ---
 
-### Slide 201 — What Is MCP?
+### Slide 187 — What Is MCP?
 
 **Type:** diagram · **Lesson:** 4.4
 
@@ -6185,7 +5793,7 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 
 ---
 
-### Slide 202 — Hooks & Slash Workflows
+### Slide 188 — Hooks & Slash Workflows
 
 **Type:** table · **Lesson:** 4.4
 
@@ -6225,7 +5833,7 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 
 ---
 
-### Slide 203 — Walkthrough: MCP Configuration
+### Slide 189 — Walkthrough: MCP Configuration
 
 **Type:** walkthrough · **Lesson:** 4.4
 
@@ -6255,7 +5863,7 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 
 ---
 
-### Slide 204 — Walkthrough: Slash Command Example
+### Slide 190 — Walkthrough: Slash Command Example
 
 **Type:** walkthrough · **Lesson:** 4.4
 
@@ -6281,7 +5889,7 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 
 ---
 
-### Slide 205 — Lesson 4.5
+### Slide 191 — Lesson 4.5
 
 **Type:** lesson_intro · **Lesson:** 4.5
 
@@ -6301,7 +5909,7 @@ A subagent is a delegated specialist agent — often run in parallel or in isola
 
 ---
 
-### Slide 206 — What Are Subagents?
+### Slide 192 — What Are Subagents?
 
 **Type:** diagram · **Lesson:** 4.5
 
@@ -6323,7 +5931,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 207 — When to Use Subagents
+### Slide 193 — When to Use Subagents
 
 **Type:** table · **Lesson:** 4.5
 
@@ -6349,7 +5957,7 @@ A subagent is a delegated specialist agent — often run in parallel or in isola
 
 ---
 
-### Slide 208 — Subagent vs. Tool vs. Skill
+### Slide 194 — Subagent vs. Tool vs. Skill
 
 **Type:** table · **Lesson:** 4.5
 
@@ -6375,7 +5983,7 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 
 ---
 
-### Slide 209 — Walkthrough: Subagents in Action
+### Slide 195 — Walkthrough: Subagents in Action
 
 **Type:** walkthrough · **Lesson:** 4.5
 
@@ -6407,61 +6015,9 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 210 — Module Summary
-
-**Type:** module_summary · **Lesson:** 4.5
-
-**Script**
-
-That wraps up Module 4. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Output.
-
-In the table, 4.1 — Creating a Rule. Use case on slide: `.cursor/rules/*.mdc` files.
-
-In the table, 4.2 — Repository Instructions. Use case on slide: `.cursor/repository-instructions.md`.
-
-In the table, 4.3 — Creating Skills. Use case on slide: `.cursor/skills/*/SKILL.md`.
-
-In the table, 4.4 — MCP & Slash Commands. Use case on slide: MCP config, slash commands.
-
-In the table, 4.5 — Subagents. Use case on slide: Understanding of delegation.
-
-Terms on this slide — quick definitions for the room:
-
-Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
-
-A slash command is a typed shortcut — often backed by a skill — that triggers a repeatable workflow.
-
-A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
-
-MCP stands for Model Context Protocol — a standard for connecting AI assistants to external tools, databases, and APIs.
-
----
-
-### Slide 211 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 4.5
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 5 — Cursor CLI and Local Automation
 
-### Slide 212 — Cursor CLI and Local Automation
+### Slide 196 — Cursor CLI and Local Automation
 
 **Type:** module_intro
 
@@ -6481,7 +6037,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 213 — Module Overview
+### Slide 197 — Module Overview
 
 **Type:** module_overview
 
@@ -6501,50 +6057,6 @@ In the table, **Prerequisites**: Cursor CLI installed, terminal access, Modules 
 
 In the table, **Module Goal**: Master the Cursor CLI for terminal-based AI workflows and automation.
 
-Terms on this slide — quick definitions for the room:
-
-CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
-
----
-
-### Slide 214 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 5.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Use the Cursor CLI in interactive mode for real-time AI collaboration.
-
-Bullet 2 on the slide: Run one-shot CLI commands for scripting and CI/CD integration.
-
-Bullet 3 on the slide: Hand off local sessions to Cloud Agents for remote execution.
-
-Bullet 4 on the slide: List, resume, and manage concurrent sessions effectively.
-
-Terms on this slide — quick definitions for the room:
-
-One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
-
-CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
-
----
-
-### Slide 215 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 5.
-
-The slide title is: Agenda.
-
 The table header columns are: Lesson, Topic, Time.
 
 In the table, 5.1 — Interactive CLI. Use case on slide: 20 min.
@@ -6563,13 +6075,9 @@ Cloud handoff is when you prefix a message with ampersand in the CLI to continue
 
 One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 216 — Lesson 5.1
+### Slide 198 — Lesson 5.1
 
 **Type:** lesson_intro · **Lesson:** 5.1
 
@@ -6595,7 +6103,7 @@ Interactive CLI is a long-lived terminal session where you chat with agent, swit
 
 ---
 
-### Slide 217 — What Is the Cursor CLI?
+### Slide 199 — What Is the Cursor CLI?
 
 **Type:** bullets · **Lesson:** 5.1
 
@@ -6625,7 +6133,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 218 — Interactive Mode Commands
+### Slide 200 — Interactive Mode Commands
 
 **Type:** table · **Lesson:** 5.1
 
@@ -6663,7 +6171,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 219 — Windows Exercise Environment
+### Slide 201 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 5.1
 
@@ -6711,7 +6219,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 220 — Exercise 5.1 — Steps 1–2
+### Slide 202 — Exercise 5.1 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6735,6 +6243,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 5.1 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 5.1](../slide-exercises/module-05/exercise-5.1-interactive-cli.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent agent "Help me understand the current codebase structure".
@@ -6742,6 +6252,8 @@ The code on the slide reads: agent agent "Help me understand the current codebas
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 
 WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 
@@ -6751,7 +6263,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 221 — Exercise 5.1 — Steps 1–2 (Part 2)
+### Slide 203 — Exercise 5.1 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6785,7 +6297,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 222 — Exercise 5.1 — Steps 3–5
+### Slide 204 — Exercise 5.1 — Steps 3–5
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6821,7 +6333,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 223 — Exercise 5.1 — Steps 3–5 (Part 2)
+### Slide 205 — Exercise 5.1 — Steps 3–5 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6855,7 +6367,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 224 — Exercise 5.1 — Steps 3–5 (Part 3)
+### Slide 206 — Exercise 5.1 — Steps 3–5 (Part 3)
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6891,7 +6403,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 225 — Exercise 5.1 — Steps 6–7
+### Slide 207 — Exercise 5.1 — Steps 6–7
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6925,7 +6437,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 226 — Exercise 5.1 — Steps 6–7 (Part 2)
+### Slide 208 — Exercise 5.1 — Steps 6–7 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.1 · **Exercise:** 5.1
 
@@ -6957,7 +6469,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 227 — Lesson 5.2
+### Slide 209 — Lesson 5.2
 
 **Type:** lesson_intro · **Lesson:** 5.2
 
@@ -6983,7 +6495,7 @@ One-shot CLI means a single non-interactive agent command — ideal for scripts 
 
 ---
 
-### Slide 228 — One-Shot Command Structure
+### Slide 210 — One-Shot Command Structure
 
 **Type:** quote · **Lesson:** 5.2
 
@@ -7005,7 +6517,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 229 — Use Cases for One-Shot CLI
+### Slide 211 — Use Cases for One-Shot CLI
 
 **Type:** table · **Lesson:** 5.2
 
@@ -7041,7 +6553,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 230 — Exercise 5.2 — Steps 1–2
+### Slide 212 — Exercise 5.2 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 5.2 · **Exercise:** 5.2
 
@@ -7065,6 +6577,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 5.2 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 5.2](../slide-exercises/module-05/exercise-5.2-one-shot-cli.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent "What is the difference between let and const in JavaScript?" agent "Write a bash function that checks if a port is in use" agent --mode=ask "Explain the git rebase command with examples".
@@ -7072,6 +6586,8 @@ The code on the slide reads: agent "What is the difference between let and const
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 
 WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 
@@ -7081,7 +6597,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 231 — Exercise 5.2 — Steps 1–2 (Part 2)
+### Slide 213 — Exercise 5.2 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.2 · **Exercise:** 5.2
 
@@ -7113,7 +6629,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 232 — Exercise 5.2 — Scriptable Code Reviewer
+### Slide 214 — Exercise 5.2 — Scriptable Code Reviewer
 
 **Type:** exercise · **Lesson:** 5.2 · **Exercise:** 5.2
 
@@ -7147,7 +6663,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 233 — Exercise 5.2 — Batch & Git Hooks
+### Slide 215 — Exercise 5.2 — Batch & Git Hooks
 
 **Type:** exercise · **Lesson:** 5.2 · **Exercise:** 5.2
 
@@ -7183,7 +6699,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 234 — Exercise 5.2 — Batch & Git Hooks (Part 2)
+### Slide 216 — Exercise 5.2 — Batch & Git Hooks (Part 2)
 
 **Type:** exercise · **Lesson:** 5.2 · **Exercise:** 5.2
 
@@ -7217,7 +6733,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 235 — Lesson 5.3
+### Slide 217 — Lesson 5.3
 
 **Type:** lesson_intro · **Lesson:** 5.3
 
@@ -7247,7 +6763,7 @@ Cloud handoff is when you prefix a message with ampersand in the CLI to continue
 
 ---
 
-### Slide 236 — What Is Cloud Handoff?
+### Slide 218 — What Is Cloud Handoff?
 
 **Type:** bullets · **Lesson:** 5.3
 
@@ -7279,7 +6795,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 237 — Cloud Handoff Flow
+### Slide 219 — Cloud Handoff Flow
 
 **Type:** diagram · **Lesson:** 5.3
 
@@ -7301,7 +6817,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 238 — Exercise 5.3 — Steps 1–3
+### Slide 220 — Exercise 5.3 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7325,6 +6841,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 5.3 — Steps 1–3.
 
+The slide says: Lab guide: [Exercise 5.3](../slide-exercises/module-05/exercise-5.3-cloud-handoff.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent & "Analyze the entire codebase and create a dependency graph.".
@@ -7341,7 +6859,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 239 — Exercise 5.3 — Steps 1–3 (Part 2)
+### Slide 221 — Exercise 5.3 — Steps 1–3 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7375,7 +6893,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 240 — Exercise 5.3 — Steps 1–3 (Part 3)
+### Slide 222 — Exercise 5.3 — Steps 1–3 (Part 3)
 
 **Type:** exercise · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7401,7 +6919,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 241 — Exercise 5.3 — Steps 4–6
+### Slide 223 — Exercise 5.3 — Steps 4–6
 
 **Type:** exercise · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7433,7 +6951,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 242 — Exercise 5.3 — Steps 4–6 (Part 2)
+### Slide 224 — Exercise 5.3 — Steps 4–6 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7467,7 +6985,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 243 — Exercise 5.3 — Steps 4–6 (Part 3)
+### Slide 225 — Exercise 5.3 — Steps 4–6 (Part 3)
 
 **Type:** exercise · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7499,7 +7017,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 244 — Cloud Handoff Best Practices
+### Slide 226 — Cloud Handoff Best Practices
 
 **Type:** table · **Lesson:** 5.3 · **Exercise:** 5.3
 
@@ -7533,7 +7051,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 245 — Lesson 5.4
+### Slide 227 — Lesson 5.4
 
 **Type:** lesson_intro · **Lesson:** 5.4
 
@@ -7555,7 +7073,7 @@ The slide says: Lab guide: [`Exercise 5.4](../slide-exercises/module-05/exercise
 
 ---
 
-### Slide 246 — Session Management Commands
+### Slide 228 — Session Management Commands
 
 **Type:** table · **Lesson:** 5.4
 
@@ -7585,7 +7103,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 247 — Exercise 5.4 — Steps 1–2
+### Slide 229 — Exercise 5.4 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7609,6 +7127,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 5.4 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 5.4](../slide-exercises/module-05/exercise-5.4-listing-and-resuming-sessions.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: agent "Just say one word: frontend-cleanup"   # do work, exit agent "Just say one word: db-optimization"  # do work, exit agent "Just say one word: docs-update".
@@ -7625,7 +7145,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 248 — Exercise 5.4 — Steps 1–2 (Part 2)
+### Slide 230 — Exercise 5.4 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7663,7 +7183,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 249 — Exercise 5.4 — Steps 3–5
+### Slide 231 — Exercise 5.4 — Steps 3–5
 
 **Type:** exercise · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7697,7 +7217,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 250 — Exercise 5.4 — Steps 3–5 (Part 2)
+### Slide 232 — Exercise 5.4 — Steps 3–5 (Part 2)
 
 **Type:** exercise · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7731,7 +7251,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 251 — Exercise 5.4 — Steps 3–5 (Part 3)
+### Slide 233 — Exercise 5.4 — Steps 3–5 (Part 3)
 
 **Type:** exercise · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7763,7 +7283,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 252 — Exercise 5.4 — Steps 6–7 & Best Practices
+### Slide 234 — Exercise 5.4 — Steps 6–7 & Best Practices
 
 **Type:** exercise · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7807,55 +7327,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 253 — Module Summary
-
-**Type:** module_summary · **Lesson:** 5.4 · **Exercise:** 5.4
-
-**Script**
-
-That wraps up Module 5. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Skill.
-
-In the table, 5.1 — Interactive CLI. Use case on slide: Real-time terminal AI.
-
-In the table, 5.2 — One-Shot CLI. Use case on slide: Scripting & automation.
-
-In the table, 5.3 — Cloud Handoff. Use case on slide: Remote/long-running tasks.
-
-In the table, 5.4 — Session Management. Use case on slide: Concurrent work handling.
-
-Terms on this slide — quick definitions for the room:
-
-Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
-
-Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
-
-One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
-
----
-
-### Slide 254 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 5.4 · **Exercise:** 5.4
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
-### Slide 255 — Day 2
+### Slide 235 — Day 2
 
 **Type:** day_break · **Lesson:** 5.4 · **Exercise:** 5.4
 
@@ -7877,7 +7349,7 @@ The slide says: Cursor Training Program · Complete Course.
 
 ## Module 6 — Cloud Agents in the UI
 
-### Slide 256 — Cloud Agents in the UI
+### Slide 236 — Cloud Agents in the UI
 
 **Type:** module_intro
 
@@ -7897,7 +7369,7 @@ The slide says: Cursor Training Program · ~90 min.
 
 ---
 
-### Slide 257 — Module Overview
+### Slide 237 — Module Overview
 
 **Type:** module_overview
 
@@ -7917,50 +7389,6 @@ In the table, **Prerequisites**: Cursor account, GitHub repository access, Modul
 
 In the table, **Module Goal**: Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations.
 
-Terms on this slide — quick definitions for the room:
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
----
-
-### Slide 258 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 6.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Launch and monitor Cloud Agents from the Cursor UI.
-
-Bullet 2 on the slide: Collect and download artifacts from completed cloud runs.
-
-Bullet 3 on the slide: Trigger Cloud Agents from messaging platforms (Slack, Microsoft Teams, Discord) and project tools (Jira).
-
-Bullet 4 on the slide: Manage cloud agent history and settings.
-
-Terms on this slide — quick definitions for the room:
-
-A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
----
-
-### Slide 259 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 6.
-
-The slide title is: Agenda.
-
 The table header columns are: Lesson, Topic, Time.
 
 In the table, 6.1 — Launching a Cloud Agent. Use case on slide: 25 min.
@@ -7975,13 +7403,9 @@ A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a G
 
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 260 — Lesson 6.1
+### Slide 238 — Lesson 6.1
 
 **Type:** lesson_intro · **Lesson:** 6.1
 
@@ -8011,7 +7435,7 @@ A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a G
 
 ---
 
-### Slide 261 — Cloud Agents vs. Local Agent
+### Slide 239 — Cloud Agents vs. Local Agent
 
 **Type:** table · **Lesson:** 6.1
 
@@ -8047,7 +7471,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 262 — When to Use Cloud Agents
+### Slide 240 — When to Use Cloud Agents
 
 **Type:** bullets · **Lesson:** 6.1
 
@@ -8083,7 +7507,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 263 — Accessing Cloud Agents UI
+### Slide 241 — Accessing Cloud Agents UI
 
 **Type:** table · **Lesson:** 6.1
 
@@ -8111,7 +7535,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 264 — Cloud Agent Dashboard
+### Slide 242 — Cloud Agent Dashboard
 
 **Type:** diagram · **Lesson:** 6.1
 
@@ -8133,7 +7557,7 @@ When the PR comes back, the same review discipline applies.
 
 ---
 
-### Slide 265 — Windows Exercise Environment
+### Slide 243 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 6.1
 
@@ -8181,7 +7605,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 266 — Exercise 6.1 — Steps 1–2
+### Slide 244 — Exercise 6.1 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 6.1 · **Exercise:** 6.1
 
@@ -8207,6 +7631,8 @@ The slide title is: Exercise 6.1 — Steps 1–2.
 
 You will also see the heading: Cursor Editor: cloud icon or View → Cloud Agents.
 
+The slide says: Lab guide: [Exercise 6.1](../slide-exercises/module-06/exercise-6.1-launching-a-cloud-agent.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
 
 The code on the slide reads: # Cursor Editor: cloud icon or View → Cloud Agents open https://cursor.com/agents.
@@ -8214,6 +7640,8 @@ The code on the slide reads: # Cursor Editor: cloud icon or View → Cloud Agent
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 
@@ -8224,7 +7652,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 267 — Exercise 6.1 — Steps 1–2 (Part 2)
+### Slide 245 — Exercise 6.1 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 6.1 · **Exercise:** 6.1
 
@@ -8263,7 +7691,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 268 — Exercise 6.1 — Steps 3–4
+### Slide 246 — Exercise 6.1 — Steps 3–4
 
 **Type:** exercise · **Lesson:** 6.1 · **Exercise:** 6.1
 
@@ -8296,7 +7724,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 269 — Exercise 6.1 — Steps 3–4 (Part 2)
+### Slide 247 — Exercise 6.1 — Steps 3–4 (Part 2)
 
 **Type:** exercise · **Lesson:** 6.1 · **Exercise:** 6.1
 
@@ -8341,7 +7769,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 270 — Exercise 6.1 — Steps 5–6
+### Slide 248 — Exercise 6.1 — Steps 5–6
 
 **Type:** exercise · **Lesson:** 6.1 · **Exercise:** 6.1
 
@@ -8376,7 +7804,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 271 — Exercise 6.1 — Steps 5–6 (Part 2)
+### Slide 249 — Exercise 6.1 — Steps 5–6 (Part 2)
 
 **Type:** exercise · **Lesson:** 6.1 · **Exercise:** 6.1
 
@@ -8411,7 +7839,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 272 — Lesson 6.2
+### Slide 250 — Lesson 6.2
 
 **Type:** lesson_intro · **Lesson:** 6.2
 
@@ -8443,7 +7871,7 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 
 ---
 
-### Slide 273 — Types of Artifacts
+### Slide 251 — Types of Artifacts
 
 **Type:** table · **Lesson:** 6.2
 
@@ -8479,7 +7907,7 @@ JSON stands for JavaScript Object Notation — a text format for structured data
 
 ---
 
-### Slide 274 — Artifact Storage
+### Slide 252 — Artifact Storage
 
 **Type:** bullets · **Lesson:** 6.2
 
@@ -8505,7 +7933,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 275 — Exercise 6.2 — Steps 1–2
+### Slide 253 — Exercise 6.2 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 6.2 · **Exercise:** 6.2
 
@@ -8528,6 +7956,8 @@ Copy this into the Agent chat: "Generate: 1. api_documentation.md — OpenAPI-st
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 6.2 — Steps 1–2.
+
+The slide says: Lab guide: [Exercise 6.2](../slide-exercises/module-06/exercise-6.2-cloud-agent-artifacts.md).
 
 Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
@@ -8552,7 +7982,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 276 — Exercise 6.2 — Steps 1–2 (Part 2)
+### Slide 254 — Exercise 6.2 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 6.2 · **Exercise:** 6.2
 
@@ -8581,7 +8011,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 277 — Exercise 6.2 — Steps 3–5
+### Slide 255 — Exercise 6.2 — Steps 3–5
 
 **Type:** exercise · **Lesson:** 6.2 · **Exercise:** 6.2
 
@@ -8616,7 +8046,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 278 — Exercise 6.2 — Steps 3–5 (Part 2)
+### Slide 256 — Exercise 6.2 — Steps 3–5 (Part 2)
 
 **Type:** exercise · **Lesson:** 6.2 · **Exercise:** 6.2
 
@@ -8649,7 +8079,7 @@ JSON stands for JavaScript Object Notation — a text format for structured data
 
 ---
 
-### Slide 279 — Exercise 6.2 — API Access
+### Slide 257 — Exercise 6.2 — API Access
 
 **Type:** exercise · **Lesson:** 6.2 · **Exercise:** 6.2
 
@@ -8692,7 +8122,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 280 — Exercise 6.2 — CI/CD Integration
+### Slide 258 — Exercise 6.2 — CI/CD Integration
 
 **Type:** exercise · **Lesson:** 6.2 · **Exercise:** 6.2
 
@@ -8731,7 +8161,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 281 — Lesson 6.3
+### Slide 259 — Lesson 6.3
 
 **Type:** lesson_intro · **Lesson:** 6.3
 
@@ -8751,7 +8181,7 @@ The note on screen reads: Concept · 10 min · Demonstration.
 
 ---
 
-### Slide 282 — Supported Integrations
+### Slide 260 — Supported Integrations
 
 **Type:** table · **Lesson:** 6.3
 
@@ -8783,7 +8213,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 283 — Messaging Integration Architecture
+### Slide 261 — Messaging Integration Architecture
 
 **Type:** diagram · **Lesson:** 6.3
 
@@ -8797,7 +8227,7 @@ The figure on this slide is titled: Messaging Integration Architecture.
 
 ---
 
-### Slide 284 — Demo: Slack Integration
+### Slide 262 — Demo: Slack Integration
 
 **Type:** demo · **Lesson:** 6.3
 
@@ -8843,7 +8273,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 285 — Demo: Slack Usage
+### Slide 263 — Demo: Slack Usage
 
 **Type:** demo · **Lesson:** 6.3
 
@@ -8877,7 +8307,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 286 — Demo: Jira Integration
+### Slide 264 — Demo: Jira Integration
 
 **Type:** demo · **Lesson:** 6.3
 
@@ -8913,7 +8343,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 287 — Demo: Discord Integration
+### Slide 265 — Demo: Discord Integration
 
 **Type:** demo · **Lesson:** 6.3
 
@@ -8943,7 +8373,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 288 — Generic Webhook & Notifications
+### Slide 266 — Generic Webhook & Notifications
 
 **Type:** code · **Lesson:** 6.3
 
@@ -8981,53 +8411,9 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 289 — Module Summary
-
-**Type:** module_summary · **Lesson:** 6.3
-
-**Script**
-
-That wraps up Module 6. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Skill.
-
-In the table, 6.1 — Launching Cloud Agents. Use case on slide: Remote execution.
-
-In the table, 6.2 — Cloud Agent Artifacts. Use case on slide: Output collection.
-
-In the table, 6.3 — Messaging Integrations. Use case on slide: Chat-triggered agents.
-
-Terms on this slide — quick definitions for the room:
-
-A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
----
-
-### Slide 290 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 6.3
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 7 — Cursor API Foundations
 
-### Slide 291 — Cursor API Foundations
+### Slide 267 — Cursor API Foundations
 
 **Type:** module_intro
 
@@ -9047,7 +8433,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 292 — Module Overview
+### Slide 268 — Module Overview
 
 **Type:** module_overview
 
@@ -9066,54 +8452,6 @@ In the table, **Format**: Concept + hands-on exercise.
 In the table, **Prerequisites**: Cursor account, basic API familiarity, Python 3.8+ installed.
 
 In the table, **Module Goal**: Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests.
-
-Terms on this slide — quick definitions for the room:
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
----
-
-### Slide 293 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 7.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Identify the five Cursor APIs and their use cases.
-
-Bullet 2 on the slide: Generate and securely manage API keys.
-
-Bullet 3 on the slide: Implement rate limit handling and error recovery.
-
-Bullet 4 on the slide: Use ETag caching for efficient repeat queries.
-
-Bullet 5 on the slide: Test authentication by listing available models.
-
-Terms on this slide — quick definitions for the room:
-
-ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
-
-A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
----
-
-### Slide 294 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 7.
-
-The slide title is: Agenda.
 
 The table header columns are: Lesson, Topic, Time.
 
@@ -9135,13 +8473,9 @@ A rate limit caps how many API requests you can make in a time window — exceed
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 295 — Lesson 7.1
+### Slide 269 — Lesson 7.1
 
 **Type:** lesson_intro · **Lesson:** 7.1
 
@@ -9161,7 +8495,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 296 — The Five APIs
+### Slide 270 — The Five APIs
 
 **Type:** table · **Lesson:** 7.1
 
@@ -9191,7 +8525,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 297 — API Comparison Matrix
+### Slide 271 — API Comparison Matrix
 
 **Type:** table · **Lesson:** 7.1
 
@@ -9227,7 +8561,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 298 — When to Use Which API
+### Slide 272 — When to Use Which API
 
 **Type:** bullets · **Lesson:** 7.1
 
@@ -9253,7 +8587,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 299 — OpenAI Compatibility
+### Slide 273 — OpenAI Compatibility
 
 **Type:** code · **Lesson:** 7.1
 
@@ -9275,7 +8609,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 300 — Lesson 7.2
+### Slide 274 — Lesson 7.2
 
 **Type:** lesson_intro · **Lesson:** 7.2
 
@@ -9301,7 +8635,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 301 — Authentication Methods
+### Slide 275 — Authentication Methods
 
 **Type:** table · **Lesson:** 7.2
 
@@ -9337,7 +8671,7 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 
 ---
 
-### Slide 302 — API Key Types
+### Slide 276 — API Key Types
 
 **Type:** bullets · **Lesson:** 7.2
 
@@ -9375,7 +8709,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 303 — Security Best Practices
+### Slide 277 — Security Best Practices
 
 **Type:** bullets · **Lesson:** 7.2
 
@@ -9405,7 +8739,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 304 — Windows Exercise Environment
+### Slide 278 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 7.2
 
@@ -9453,7 +8787,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 305 — Exercise 7.2 — Steps 1–3
+### Slide 279 — Exercise 7.2 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9477,6 +8811,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.2 — Steps 1–3.
 
+The slide says: Lab guide: [Exercise 7.2](../slide-exercises/module-07/exercise-7.2-generate-and-test-api-keys.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 Terms on this slide — quick definitions for the room:
@@ -9491,7 +8827,7 @@ A User API Key is scoped to your account — for launching agents and calling us
 
 ---
 
-### Slide 306 — Exercise 7.2 — Steps 1–3 (Part 2)
+### Slide 280 — Exercise 7.2 — Steps 1–3 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9525,7 +8861,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 307 — Exercise 7.2 — Steps 1–3 (Part 3)
+### Slide 281 — Exercise 7.2 — Steps 1–3 (Part 3)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9559,7 +8895,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 308 — Exercise 7.2 — Steps 4–5
+### Slide 282 — Exercise 7.2 — Steps 4–5
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9599,7 +8935,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 309 — Exercise 7.2 — Steps 4–5 (Part 2)
+### Slide 283 — Exercise 7.2 — Steps 4–5 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9641,7 +8977,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 310 — Exercise 7.2 — Steps 6–7
+### Slide 284 — Exercise 7.2 — Steps 6–7
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9681,7 +9017,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 311 — Exercise 7.2 — Steps 6–7 (Part 2)
+### Slide 285 — Exercise 7.2 — Steps 6–7 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.2 · **Exercise:** 7.2
 
@@ -9719,7 +9055,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 312 — Lesson 7.3
+### Slide 286 — Lesson 7.3
 
 **Type:** lesson_intro · **Lesson:** 7.3
 
@@ -9747,7 +9083,7 @@ A rate limit caps how many API requests you can make in a time window — exceed
 
 ---
 
-### Slide 313 — Rate Limits by API
+### Slide 287 — Rate Limits by API
 
 **Type:** table · **Lesson:** 7.3
 
@@ -9783,7 +9119,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 314 — HTTP Status Codes to Handle
+### Slide 288 — HTTP Status Codes to Handle
 
 **Type:** table · **Lesson:** 7.3
 
@@ -9815,7 +9151,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 315 — Rate Limit Headers
+### Slide 289 — Rate Limit Headers
 
 **Type:** table · **Lesson:** 7.3
 
@@ -9843,7 +9179,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 316 — Exercise 7.3 — Exponential Backoff
+### Slide 290 — Exercise 7.3 — Exponential Backoff
 
 **Type:** exercise · **Lesson:** 7.3 · **Exercise:** 7.3
 
@@ -9860,6 +9196,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.3 — Exponential Backoff.
+
+The slide says: Lab guide: [Exercise 7.3](../slide-exercises/module-07/exercise-7.3-rate-limits-and-error-handling.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -9883,7 +9221,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 317 — Exercise 7.3 — Rate Limiter & Client
+### Slide 291 — Exercise 7.3 — Rate Limiter & Client
 
 **Type:** exercise · **Lesson:** 7.3 · **Exercise:** 7.3
 
@@ -9921,7 +9259,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 318 — Lesson 7.4
+### Slide 292 — Lesson 7.4
 
 **Type:** lesson_intro · **Lesson:** 7.4
 
@@ -9949,7 +9287,7 @@ ETag caching sends If-None-Match on repeat requests — if nothing changed, the 
 
 ---
 
-### Slide 319 — What Are ETags?
+### Slide 293 — What Are ETags?
 
 **Type:** content · **Lesson:** 7.4
 
@@ -9989,7 +9327,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 320 — ETag Flow
+### Slide 294 — ETag Flow
 
 **Type:** diagram · **Lesson:** 7.4
 
@@ -10009,7 +9347,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 321 — Endpoints Supporting ETags
+### Slide 295 — Endpoints Supporting ETags
 
 **Type:** table · **Lesson:** 7.4
 
@@ -10039,7 +9377,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 322 — Exercise 7.4 — Basic ETag Usage
+### Slide 296 — Exercise 7.4 — Basic ETag Usage
 
 **Type:** exercise · **Lesson:** 7.4 · **Exercise:** 7.4
 
@@ -10056,6 +9394,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.4 — Basic ETag Usage.
+
+The slide says: Lab guide: [Exercise 7.4](../slide-exercises/module-07/exercise-7.4-etag-caching.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -10085,7 +9425,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 323 — Exercise 7.4 — ETagCache & CachedClient
+### Slide 297 — Exercise 7.4 — ETagCache & CachedClient
 
 **Type:** exercise · **Lesson:** 7.4 · **Exercise:** 7.4
 
@@ -10135,7 +9475,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 324 — Lesson 7.5
+### Slide 298 — Lesson 7.5
 
 **Type:** lesson_intro · **Lesson:** 7.5
 
@@ -10157,7 +9497,7 @@ The slide says: Lab guide: [`Exercise 7.5](../slide-exercises/module-07/exercise
 
 ---
 
-### Slide 325 — The Models Endpoint
+### Slide 299 — The Models Endpoint
 
 **Type:** quote · **Lesson:** 7.5
 
@@ -10191,7 +9531,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 326 — Exercise 7.5 — Steps 1–2
+### Slide 300 — Exercise 7.5 — Steps 1–2
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -10213,6 +9553,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.5 — Steps 1–2.
 
+The slide says: Lab guide: [Exercise 7.5](../slide-exercises/module-07/exercise-7.5-list-available-models.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: curl -s -u "$CURSOR_USER_API_KEY:" \   https://api.cursor.com/v1/models \   | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'.
@@ -10231,7 +9573,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 327 — Exercise 7.5 — Steps 1–2 (Part 2)
+### Slide 301 — Exercise 7.5 — Steps 1–2 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -10255,7 +9597,7 @@ The slide title is: Exercise 7.5 — Steps 1–2 (Part 2).
 
 ---
 
-### Slide 328 — Exercise 7.5 — Steps 3–4
+### Slide 302 — Exercise 7.5 — Steps 3–4
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -10295,7 +9637,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 329 — Exercise 7.5 — Steps 3–4 (Part 2)
+### Slide 303 — Exercise 7.5 — Steps 3–4 (Part 2)
 
 **Type:** exercise · **Lesson:** 7.5 · **Exercise:** 7.5
 
@@ -10327,59 +9669,9 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 330 — Module Summary
-
-**Type:** module_summary · **Lesson:** 7.5 · **Exercise:** 7.5
-
-**Script**
-
-That wraps up Module 7. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Skill.
-
-In the table, 7.1 — API Landscape. Use case on slide: API selection.
-
-In the table, 7.2 — Authentication. Use case on slide: Key management.
-
-In the table, 7.3 — Rate Limits & Errors. Use case on slide: Robust clients.
-
-In the table, 7.4 — ETag Caching. Use case on slide: Efficient queries.
-
-In the table, 7.5 — Listing Models. Use case on slide: Auth smoke-test.
-
-Terms on this slide — quick definitions for the room:
-
-ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
-
-A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
----
-
-### Slide 331 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 7.5 · **Exercise:** 7.5
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 8 — Cloud Agents API and Webhooks
 
-### Slide 332 — Cloud Agents API and Webhooks
+### Slide 304 — Cloud Agents API and Webhooks
 
 **Type:** module_intro
 
@@ -10407,7 +9699,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 333 — Module Overview
+### Slide 305 — Module Overview
 
 **Type:** module_overview
 
@@ -10427,68 +9719,6 @@ In the table, **Prerequisites**: User API key (Module 7), Python 3.8+, ngrok ins
 
 In the table, **Module Goal**: Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications.
 
-Terms on this slide — quick definitions for the room:
-
-A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
----
-
-### Slide 334 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 8.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Create a Cloud Agent programmatically using the API.
-
-Bullet 2 on the slide: Stream agent responses in real-time using SSE with resume support.
-
-Bullet 3 on the slide: List and download artifacts from a completed agent.
-
-Bullet 4 on the slide: Create a webhook endpoint with HMAC verification.
-
-Bullet 5 on the slide: Test webhooks locally using ngrok.
-
-Bullet 6 on the slide: Build an end-to-end automated agent workflow.
-
-Terms on this slide — quick definitions for the room:
-
-A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
-
----
-
-### Slide 335 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 8.
-
-The slide title is: Agenda.
-
 The table header columns are: Lesson, Topic, Time.
 
 In the table, 8.1 — Creating a Cloud Agent Programmatically. Use case on slide: 15 min.
@@ -10505,6 +9735,8 @@ In the table, 8.6 — End-to-End Automated Agent Workflow. Use case on slide: 17
 
 Terms on this slide — quick definitions for the room:
 
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+
 A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
 
 Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
@@ -10517,13 +9749,9 @@ ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhook
 
 SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
-
 ---
 
-### Slide 336 — Lesson 8.1
+### Slide 306 — Lesson 8.1
 
 **Type:** lesson_intro · **Lesson:** 8.1
 
@@ -10555,7 +9783,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 337 — Agent + Runs
+### Slide 307 — Agent + Runs
 
 **Type:** table · **Lesson:** 8.1
 
@@ -10579,7 +9807,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 338 — Request Fields
+### Slide 308 — Request Fields
 
 **Type:** table · **Lesson:** 8.1
 
@@ -10607,7 +9835,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 339 — Windows Exercise Environment
+### Slide 309 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 8.1
 
@@ -10655,7 +9883,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 340 — Exercise 8.1 — Create with curl
+### Slide 310 — Exercise 8.1 — Create with curl
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -10678,6 +9906,8 @@ Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.1 — Create with curl.
+
+The slide says: Lab guide: [Exercise 8.1](../slide-exercises/module-08/exercise-8.1-create-a-cloud-agent-via-api.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -10711,7 +9941,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 341 — Exercise 8.1 — Capture IDs
+### Slide 311 — Exercise 8.1 — Capture IDs
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -10747,7 +9977,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 342 — Exercise 8.1 — Capture IDs (Part 2)
+### Slide 312 — Exercise 8.1 — Capture IDs (Part 2)
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -10775,7 +10005,7 @@ JSON stands for JavaScript Object Notation — a text format for structured data
 
 ---
 
-### Slide 343 — Exercise 8.1 — Python Helper
+### Slide 313 — Exercise 8.1 — Python Helper
 
 **Type:** exercise · **Lesson:** 8.1 · **Exercise:** 8.1
 
@@ -10813,7 +10043,7 @@ PR stands for Pull Request — a proposed code change others review before it me
 
 ---
 
-### Slide 344 — Lesson 8.2
+### Slide 314 — Lesson 8.2
 
 **Type:** lesson_intro · **Lesson:** 8.2
 
@@ -10843,7 +10073,7 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 
 ---
 
-### Slide 345 — SSE Event Types
+### Slide 315 — SSE Event Types
 
 **Type:** table · **Lesson:** 8.2
 
@@ -10877,7 +10107,7 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 
 ---
 
-### Slide 346 — Resume Support
+### Slide 316 — Resume Support
 
 **Type:** content · **Lesson:** 8.2
 
@@ -10897,7 +10127,7 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 
 ---
 
-### Slide 347 — Exercise 8.2 — Stream with curl
+### Slide 317 — Exercise 8.2 — Stream with curl
 
 **Type:** exercise · **Lesson:** 8.2 · **Exercise:** 8.2
 
@@ -10917,6 +10147,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.2 — Stream with curl.
 
+The slide says: Lab guide: [Exercise 8.2](../slide-exercises/module-08/exercise-8.2-stream-agent-responses-sse.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The slide says: Set IDs first: $env:AGENT_ID = "..." · $env:RUN_ID = "...".
@@ -10931,7 +10163,11 @@ Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
 
 WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 
@@ -10943,7 +10179,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 348 — Exercise 8.2 — Python SSE Client
+### Slide 318 — Exercise 8.2 — Python SSE Client
 
 **Type:** exercise · **Lesson:** 8.2 · **Exercise:** 8.2
 
@@ -10977,7 +10213,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 349 — Exercise 8.2 — ResumableSSEClient
+### Slide 319 — Exercise 8.2 — ResumableSSEClient
 
 **Type:** exercise · **Lesson:** 8.2 · **Exercise:** 8.2
 
@@ -11013,7 +10249,7 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 
 ---
 
-### Slide 350 — Lesson 8.3
+### Slide 320 — Lesson 8.3
 
 **Type:** lesson_intro · **Lesson:** 8.3
 
@@ -11039,7 +10275,7 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 
 ---
 
-### Slide 351 — Key Endpoints
+### Slide 321 — Key Endpoints
 
 **Type:** table · **Lesson:** 8.3
 
@@ -11065,7 +10301,7 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 
 ---
 
-### Slide 352 — Exercise 8.3 — Wait & List
+### Slide 322 — Exercise 8.3 — Wait & List
 
 **Type:** exercise · **Lesson:** 8.3 · **Exercise:** 8.3
 
@@ -11082,6 +10318,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.3 — Wait & List.
+
+The slide says: Lab guide: [Exercise 8.3](../slide-exercises/module-08/exercise-8.3-list-and-download-artifacts.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -11105,7 +10343,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 353 — Exercise 8.3 — Download
+### Slide 323 — Exercise 8.3 — Download
 
 **Type:** exercise · **Lesson:** 8.3 · **Exercise:** 8.3
 
@@ -11145,7 +10383,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 354 — Exercise 8.3 — CI Integration
+### Slide 324 — Exercise 8.3 — CI Integration
 
 **Type:** exercise · **Lesson:** 8.3 · **Exercise:** 8.3
 
@@ -11179,7 +10417,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 355 — Lesson 8.4
+### Slide 325 — Lesson 8.4
 
 **Type:** lesson_intro · **Lesson:** 8.4
 
@@ -11209,7 +10447,7 @@ HMAC stands for Hash-based Message Authentication Code — a signed digest that 
 
 ---
 
-### Slide 356 — Webhook Headers
+### Slide 326 — Webhook Headers
 
 **Type:** table · **Lesson:** 8.4
 
@@ -11237,7 +10475,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 357 — Webhook Payload
+### Slide 327 — Webhook Payload
 
 **Type:** code · **Lesson:** 8.4
 
@@ -11259,7 +10497,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 358 — Exercise 8.4 — HMAC Verification
+### Slide 328 — Exercise 8.4 — HMAC Verification
 
 **Type:** exercise · **Lesson:** 8.4 · **Exercise:** 8.4
 
@@ -11277,6 +10515,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.4 — HMAC Verification.
 
+The slide says: Lab guide: [Exercise 8.4](../slide-exercises/module-08/exercise-8.4-webhooks-and-hmac-verification.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The slide says: Flask route: verify signature → parse payload → handle FINISHED/ERROR.
@@ -11284,6 +10524,8 @@ The slide says: Flask route: verify signature → parse payload → handle FINIS
 The code on the slide reads: def verify_signature(raw_body, signature_header):     received = signature_header[7:]  # strip "sha256="     expected = hmac.new(         WEBHOOK_SECRET.encode(), raw_body, hashlib.sha256     ).hexdigest()     return hmac.compare_digest(expected, received).
 
 Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
 
 HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
 
@@ -11297,7 +10539,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 359 — Exercise 8.4 — Configure Agent
+### Slide 329 — Exercise 8.4 — Configure Agent
 
 **Type:** exercise · **Lesson:** 8.4 · **Exercise:** 8.4
 
@@ -11339,7 +10581,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 360 — Lesson 8.5
+### Slide 330 — Lesson 8.5
 
 **Type:** lesson_intro · **Lesson:** 8.5
 
@@ -11369,7 +10611,7 @@ ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhook
 
 ---
 
-### Slide 361 — What Is ngrok?
+### Slide 331 — What Is ngrok?
 
 **Type:** bullets · **Lesson:** 8.5
 
@@ -11395,7 +10637,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 362 — Exercise 8.5 — Steps 1–3
+### Slide 332 — Exercise 8.5 — Steps 1–3
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -11421,11 +10663,15 @@ The slide title is: Exercise 8.5 — Steps 1–3.
 
 You will also see the heading: Forwarding: https://abc123.ngrok.io -> http://localhost:5000.
 
+The slide says: Lab guide: [Exercise 8.5](../slide-exercises/module-08/exercise-8.5-test-webhooks-with-ngrok.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The code on the slide reads: ngrok http 5000 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000.
 
 Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
@@ -11445,7 +10691,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 363 — Exercise 8.5 — Steps 1–3 (Part 2)
+### Slide 333 — Exercise 8.5 — Steps 1–3 (Part 2)
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -11477,7 +10723,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 364 — Exercise 8.5 — Steps 1–3 (Part 3)
+### Slide 334 — Exercise 8.5 — Steps 1–3 (Part 3)
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -11517,7 +10763,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 365 — Exercise 8.5 — Inspect & Replay
+### Slide 335 — Exercise 8.5 — Inspect & Replay
 
 **Type:** exercise · **Lesson:** 8.5 · **Exercise:** 8.5
 
@@ -11561,7 +10807,7 @@ WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windo
 
 ---
 
-### Slide 366 — Lesson 8.6
+### Slide 336 — Lesson 8.6
 
 **Type:** lesson_intro · **Lesson:** 8.6
 
@@ -11581,7 +10827,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 367 — The Capstone Integration
+### Slide 337 — The Capstone Integration
 
 **Type:** content · **Lesson:** 8.6
 
@@ -11621,7 +10867,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ---
 
-### Slide 368 — Workflow Architecture
+### Slide 338 — Workflow Architecture
 
 **Type:** diagram · **Lesson:** 8.6
 
@@ -11635,7 +10881,7 @@ The figure on this slide is titled: Workflow Architecture.
 
 ---
 
-### Slide 369 — Run the Workflow
+### Slide 339 — Run the Workflow
 
 **Type:** code · **Lesson:** 8.6
 
@@ -11657,7 +10903,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 370 — Workflow Output
+### Slide 340 — Workflow Output
 
 **Type:** code · **Lesson:** 8.6
 
@@ -11679,69 +10925,9 @@ A webhook is an HTTP callback — when an event happens, the service POSTs a pay
 
 ---
 
-### Slide 371 — Module Summary
-
-**Type:** module_summary · **Lesson:** 8.6
-
-**Script**
-
-That wraps up Module 8. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Skill.
-
-In the table, 8.1 — Creating a Cloud Agent. Use case on slide: Programmatic agent launch.
-
-In the table, 8.2 — Streaming Agent Responses. Use case on slide: SSE with resume support.
-
-In the table, 8.3 — Listing and Downloading Artifacts. Use case on slide: CI pipeline integration.
-
-In the table, 8.4 — Creating a Webhook Endpoint. Use case on slide: HMAC verification.
-
-In the table, 8.5 — Testing Webhooks with ngrok. Use case on slide: Local tunnel debugging.
-
-In the table, 8.6 — End-to-End Workflow. Use case on slide: Complete automation.
-
-Terms on this slide — quick definitions for the room:
-
-A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
-Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
-
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
-
----
-
-### Slide 372 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 8.6
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 9 — Admin and Analytics APIs
 
-### Slide 373 — Admin and Analytics APIs
+### Slide 341 — Admin and Analytics APIs
 
 **Type:** module_intro
 
@@ -11757,7 +10943,7 @@ The slide says: Cursor Training Program · ~75 min.
 
 ---
 
-### Slide 374 — Module Overview
+### Slide 342 — Module Overview
 
 **Type:** module_overview
 
@@ -11776,56 +10962,6 @@ In the table, **Format**: Hands-on exercise + demonstrations.
 In the table, **Prerequisites**: Admin API key (not User key), Python 3.8+, Modules 7–8 completed.
 
 In the table, **Module Goal**: Master team management, usage analytics, cost governance, and safe admin operations.
-
-Terms on this slide — quick definitions for the room:
-
-An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
-
----
-
-### Slide 375 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 9.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: List and manage team members programmatically.
-
-Bullet 2 on the slide: Retrieve daily usage data for cost tracking and reporting.
-
-Bullet 3 on the slide: Set user spend limits for budget governance.
-
-Bullet 4 on the slide: Analyze model usage for cost optimization insights.
-
-Bullet 5 on the slide: Track daily active users for leadership reporting.
-
-Bullet 6 on the slide: Build responsible leaderboards without privacy violations.
-
-Bullet 7 on the slide: Analyze conversation intent and complexity (demonstration).
-
-Bullet 8 on the slide: Safely remove team members with proper patterns (demonstration).
-
-Terms on this slide — quick definitions for the room:
-
-A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
-
----
-
-### Slide 376 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 9.
-
-The slide title is: Agenda.
 
 The table header columns are: Lesson, Topic, Time, Type.
 
@@ -11847,15 +10983,13 @@ Table row: 9.8, Destructive Admin Operations, 6 min, Demo.
 
 Terms on this slide — quick definitions for the room:
 
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
 A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
-
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
 
 ---
 
-### Slide 377 — Lesson 9.1
+### Slide 343 — Lesson 9.1
 
 **Type:** lesson_intro · **Lesson:** 9.1
 
@@ -11877,7 +11011,7 @@ The slide says: Lab guide: [`Exercise 9.1](../slide-exercises/module-09/exercise
 
 ---
 
-### Slide 378 — User vs. Admin API Key
+### Slide 344 — User vs. Admin API Key
 
 **Type:** table · **Lesson:** 9.1
 
@@ -11909,7 +11043,7 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 ---
 
-### Slide 379 — Windows Exercise Environment
+### Slide 345 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 9.1
 
@@ -11957,7 +11091,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 380 — Exercise 9.1 — Setup & List
+### Slide 346 — Exercise 9.1 — Setup & List
 
 **Type:** exercise · **Lesson:** 9.1 · **Exercise:** 9.1
 
@@ -11979,6 +11113,8 @@ You will also see the heading: Verify admin access.
 
 You will also see the heading: List all team members.
 
+The slide says: Lab guide: [Exercise 9.1](../slide-exercises/module-09/exercise-9.1-list-team-members.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
@@ -11999,7 +11135,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 381 — Exercise 9.1 — Pagination & Export
+### Slide 347 — Exercise 9.1 — Pagination & Export
 
 **Type:** exercise · **Lesson:** 9.1 · **Exercise:** 9.1
 
@@ -12043,7 +11179,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 382 — Lesson 9.2
+### Slide 348 — Lesson 9.2
 
 **Type:** lesson_intro · **Lesson:** 9.2
 
@@ -12065,7 +11201,7 @@ The slide says: Lab guide: [`Exercise 9.2](../slide-exercises/module-09/exercise
 
 ---
 
-### Slide 383 — Key Endpoint
+### Slide 349 — Key Endpoint
 
 **Type:** quote · **Lesson:** 9.2
 
@@ -12091,7 +11227,7 @@ Output tokens are the text the model generates — explanations and code — and
 
 ---
 
-### Slide 384 — Exercise 9.2 — Weekly Usage
+### Slide 350 — Exercise 9.2 — Weekly Usage
 
 **Type:** exercise · **Lesson:** 9.2 · **Exercise:** 9.2
 
@@ -12108,6 +11244,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.2 — Weekly Usage.
+
+The slide says: Lab guide: [Exercise 9.2](../slide-exercises/module-09/exercise-9.2-daily-usage-data.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -12131,7 +11269,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 385 — Exercise 9.2 — Cost Report
+### Slide 351 — Exercise 9.2 — Cost Report
 
 **Type:** exercise · **Lesson:** 9.2 · **Exercise:** 9.2
 
@@ -12171,7 +11309,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ---
 
-### Slide 386 — Lesson 9.3
+### Slide 352 — Lesson 9.3
 
 **Type:** lesson_intro · **Lesson:** 9.3
 
@@ -12197,7 +11335,7 @@ A spend limit is a monthly cap on a user's Cursor usage — can alert or block w
 
 ---
 
-### Slide 387 — Key Endpoint
+### Slide 353 — Key Endpoint
 
 **Type:** table · **Lesson:** 9.3
 
@@ -12217,7 +11355,7 @@ In the table, `block`: Prevent any further requests for the month.
 
 ---
 
-### Slide 388 — Exercise 9.3 — Set Limits
+### Slide 354 — Exercise 9.3 — Set Limits
 
 **Type:** exercise · **Lesson:** 9.3 · **Exercise:** 9.3
 
@@ -12234,6 +11372,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.3 — Set Limits.
+
+The slide says: Lab guide: [Exercise 9.3](../slide-exercises/module-09/exercise-9.3-set-user-spend-limits.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -12257,7 +11397,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 389 — Exercise 9.3 — Bulk Limits
+### Slide 355 — Exercise 9.3 — Bulk Limits
 
 **Type:** exercise · **Lesson:** 9.3 · **Exercise:** 9.3
 
@@ -12295,7 +11435,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 390 — Lesson 9.4
+### Slide 356 — Lesson 9.4
 
 **Type:** lesson_intro · **Lesson:** 9.4
 
@@ -12317,7 +11457,7 @@ The slide says: Lab guide: [`Exercise 9.4](../slide-exercises/module-09/exercise
 
 ---
 
-### Slide 391 — Key Endpoint
+### Slide 357 — Key Endpoint
 
 **Type:** quote · **Lesson:** 9.4
 
@@ -12333,7 +11473,7 @@ The slide says: GET /v1/admin/analytics/usage/models.
 
 ---
 
-### Slide 392 — Exercise 9.4 — Model Breakdown
+### Slide 358 — Exercise 9.4 — Model Breakdown
 
 **Type:** exercise · **Lesson:** 9.4 · **Exercise:** 9.4
 
@@ -12353,6 +11493,8 @@ The slide title is: Exercise 9.4 — Model Breakdown.
 
 You will also see the heading: Find Opus overuse per user.
 
+The slide says: Lab guide: [Exercise 9.4](../slide-exercises/module-09/exercise-9.4-model-usage-analytics.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
@@ -12371,7 +11513,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 393 — Exercise 9.4 — Optimization Report
+### Slide 359 — Exercise 9.4 — Optimization Report
 
 **Type:** exercise · **Lesson:** 9.4 · **Exercise:** 9.4
 
@@ -12409,7 +11551,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ---
 
-### Slide 394 — Lesson 9.5
+### Slide 360 — Lesson 9.5
 
 **Type:** lesson_intro · **Lesson:** 9.5
 
@@ -12435,7 +11577,7 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 
 ---
 
-### Slide 395 — Why DAU Matters
+### Slide 361 — Why DAU Matters
 
 **Type:** bullets · **Lesson:** 9.5
 
@@ -12461,7 +11603,7 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 
 ---
 
-### Slide 396 — Exercise 9.5 — DAU Report
+### Slide 362 — Exercise 9.5 — DAU Report
 
 **Type:** exercise · **Lesson:** 9.5 · **Exercise:** 9.5
 
@@ -12478,6 +11620,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.5 — DAU Report.
+
+The slide says: Lab guide: [Exercise 9.5](../slide-exercises/module-09/exercise-9.5-daily-active-users-dau.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -12510,7 +11654,7 @@ WoW stands for Week over Week — comparing this week's metric to last week's.
 
 ---
 
-### Slide 397 — Lesson 9.6
+### Slide 363 — Lesson 9.6
 
 **Type:** lesson_intro · **Lesson:** 9.6
 
@@ -12532,7 +11676,7 @@ The slide says: Lab guide: [`Exercise 9.6](../slide-exercises/module-09/exercise
 
 ---
 
-### Slide 398 — Responsible Leaderboard Principles
+### Slide 364 — Responsible Leaderboard Principles
 
 **Type:** table · **Lesson:** 9.6
 
@@ -12554,7 +11698,7 @@ In the table, **Include context**: Show team size, role differences.
 
 ---
 
-### Slide 399 — Exercise 9.6 — Three Leaderboards
+### Slide 365 — Exercise 9.6 — Three Leaderboards
 
 **Type:** exercise · **Lesson:** 9.6 · **Exercise:** 9.6
 
@@ -12571,6 +11715,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.6 — Three Leaderboards.
+
+The slide says: Lab guide: [Exercise 9.6](../slide-exercises/module-09/exercise-9.6-leaderboards.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -12598,7 +11744,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 400 — Lesson 9.7
+### Slide 366 — Lesson 9.7
 
 **Type:** lesson_intro · **Lesson:** 9.7
 
@@ -12614,7 +11760,7 @@ The note on screen reads: 6 min total · Concept · 6 min · Demonstration.
 
 ---
 
-### Slide 401 — What Conversation Insights Reveal
+### Slide 367 — What Conversation Insights Reveal
 
 **Type:** bullets · **Lesson:** 9.7
 
@@ -12636,7 +11782,7 @@ Bullet 4 on the slide: Which models perform best for which task types.
 
 ---
 
-### Slide 402 — Demo: Intent Analysis
+### Slide 368 — Demo: Intent Analysis
 
 **Type:** demo · **Lesson:** 9.7
 
@@ -12656,7 +11802,7 @@ The figure on this slide is titled: Demo: Intent Analysis.
 
 ---
 
-### Slide 403 — Demo: Complexity & Categories
+### Slide 369 — Demo: Complexity & Categories
 
 **Type:** demo · **Lesson:** 9.7
 
@@ -12686,7 +11832,7 @@ Bullet 2 on the slide: backend 40% · frontend 29% · database 15% · devops 10%
 
 ---
 
-### Slide 404 — Lesson 9.8
+### Slide 370 — Lesson 9.8
 
 **Type:** lesson_intro · **Lesson:** 9.8
 
@@ -12702,7 +11848,7 @@ The note on screen reads: 6 min total · Concept · 6 min · Demonstration.
 
 ---
 
-### Slide 405 — Safe Removal Playbook
+### Slide 371 — Safe Removal Playbook
 
 **Type:** content · **Lesson:** 9.8
 
@@ -12746,7 +11892,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 406 — Demo: SafeRemovalDemo Workflow
+### Slide 372 — Demo: SafeRemovalDemo Workflow
 
 **Type:** demo · **Lesson:** 9.8
 
@@ -12774,61 +11920,9 @@ Hard delete permanently removes a user and associated data — irreversible and 
 
 ---
 
-### Slide 407 — Module Summary
-
-**Type:** module_summary · **Lesson:** 9.8
-
-**Script**
-
-That wraps up Module 9. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Type.
-
-In the table, 9.1 — Listing Team Members. Use case on slide: Exercise.
-
-In the table, 9.2 — Daily Usage Data. Use case on slide: Exercise.
-
-In the table, 9.3 — Setting User Spend Limits. Use case on slide: Exercise.
-
-In the table, 9.4 — Model Usage Analytics. Use case on slide: Exercise.
-
-In the table, 9.5 — Daily Active Users. Use case on slide: Exercise.
-
-In the table, 9.6 — Leaderboards. Use case on slide: Exercise.
-
-In the table, 9.7 — Conversation Insights. Use case on slide: Demo.
-
-In the table, 9.8 — Destructive Operations. Use case on slide: Demo.
-
-Terms on this slide — quick definitions for the room:
-
-A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
-
----
-
-### Slide 408 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 9.8
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
 ## Module 10 — AI Code Tracking and Reporting
 
-### Slide 409 — AI Code Tracking and Reporting
+### Slide 373 — AI Code Tracking and Reporting
 
 **Type:** module_intro
 
@@ -12844,7 +11938,7 @@ The slide says: Cursor Training Program · ~20 min + take-home.
 
 ---
 
-### Slide 410 — Module Overview
+### Slide 374 — Module Overview
 
 **Type:** module_overview
 
@@ -12864,52 +11958,6 @@ In the table, **Prerequisites**: Admin API key, Git repository access, Modules 8
 
 In the table, **Module Goal**: Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards.
 
-Terms on this slide — quick definitions for the room:
-
-An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
-
-BI stands for Business Intelligence — dashboards and reports built from exported usage data.
-
----
-
-### Slide 411 — Learning Objectives
-
-**Type:** learning_objectives
-
-**Script**
-
-These are the learning objectives for Module 10.
-
-The slide title is: Learning Objectives.
-
-The slide says: By the end of this module, participants will be able to:.
-
-Bullet 1 on the slide: Attribute AI vs. human contributions per commit.
-
-Bullet 2 on the slide: Stream metrics to BI tools via CSV export.
-
-Bullet 3 on the slide: Access granular AI change events for compliance.
-
-Bullet 4 on the slide: Build a complete reporting dashboard combining all data sources.
-
-Terms on this slide — quick definitions for the room:
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
-
-BI stands for Business Intelligence — dashboards and reports built from exported usage data.
-
----
-
-### Slide 412 — Agenda
-
-**Type:** module_agenda
-
-**Script**
-
-Here is the agenda for Module 10.
-
-The slide title is: Agenda.
-
 The table header columns are: Lesson, Topic, Time.
 
 In the table, 10.1 — AI Commit Metrics. Use case on slide: 8 min.
@@ -12924,17 +11972,17 @@ Terms on this slide — quick definitions for the room:
 
 AI commit metrics track how much committed code came from AI assistance versus human-only edits.
 
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
 Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
 
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 
-**Facilitator notes**
-
-- Announce when the next hands-on block starts so people can close email and open Cursor.
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 
 ---
 
-### Slide 413 — Lesson 10.1
+### Slide 375 — Lesson 10.1
 
 **Type:** lesson_intro · **Lesson:** 10.1
 
@@ -12960,7 +12008,7 @@ AI commit metrics track how much committed code came from AI assistance versus h
 
 ---
 
-### Slide 414 — Key Endpoint
+### Slide 376 — Key Endpoint
 
 **Type:** quote · **Lesson:** 10.1
 
@@ -12990,7 +12038,7 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 
 ---
 
-### Slide 415 — Windows Exercise Environment
+### Slide 377 — Windows Exercise Environment
 
 **Type:** exercise_setup · **Lesson:** 10.1
 
@@ -13038,7 +12086,7 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 ---
 
-### Slide 416 — Exercise 10.1 — Fetch Metrics
+### Slide 378 — Exercise 10.1 — Fetch Metrics
 
 **Type:** exercise · **Lesson:** 10.1 · **Exercise:** 10.1
 
@@ -13055,6 +12103,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.1 — Fetch Metrics.
+
+The slide says: Lab guide: [Exercise 10.1](../slide-exercises/module-10/exercise-10.1-ai-commit-metrics.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -13076,7 +12126,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 417 — Exercise 10.1 — AI Contribution %
+### Slide 379 — Exercise 10.1 — AI Contribution %
 
 **Type:** exercise · **Lesson:** 10.1 · **Exercise:** 10.1
 
@@ -13106,7 +12156,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 418 — Exercise 10.1 — ROI Analysis
+### Slide 380 — Exercise 10.1 — ROI Analysis
 
 **Type:** exercise · **Lesson:** 10.1 · **Exercise:** 10.1
 
@@ -13144,7 +12194,7 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 
 ---
 
-### Slide 419 — Lesson 10.2
+### Slide 381 — Lesson 10.2
 
 **Type:** lesson_intro · **Lesson:** 10.2
 
@@ -13172,7 +12222,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 420 — Key Endpoint
+### Slide 382 — Key Endpoint
 
 **Type:** quote · **Lesson:** 10.2
 
@@ -13198,7 +12248,7 @@ BI stands for Business Intelligence — dashboards and reports built from export
 
 ---
 
-### Slide 421 — Exercise 10.2 — Stream to File
+### Slide 383 — Exercise 10.2 — Stream to File
 
 **Type:** exercise · **Lesson:** 10.2 · **Exercise:** 10.2
 
@@ -13216,6 +12266,8 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.2 — Stream to File.
 
+The slide says: Lab guide: [Exercise 10.2](../slide-exercises/module-10/exercise-10.2-bulk-export-via-csv-streaming.md).
+
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
 The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
@@ -13223,6 +12275,8 @@ The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME
 The code on the slide reads: curl -N -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/export/csv?startDate=$START&endDate=$END&type=commits" \   -o cursor_commits_export.csv head -10 cursor_commits_export.csv.
 
 Terms on this slide — quick definitions for the room:
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
@@ -13236,7 +12290,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 422 — Exercise 10.2 — BI Integration
+### Slide 384 — Exercise 10.2 — BI Integration
 
 **Type:** exercise · **Lesson:** 10.2 · **Exercise:** 10.2
 
@@ -13276,7 +12330,7 @@ BI stands for Business Intelligence — dashboards and reports built from export
 
 ---
 
-### Slide 423 — Lesson 10.3
+### Slide 385 — Lesson 10.3
 
 **Type:** lesson_intro · **Lesson:** 10.3
 
@@ -13298,7 +12352,7 @@ The slide says: Lab guide: [`Exercise 10.3](../slide-exercises/module-10/exercis
 
 ---
 
-### Slide 424 — Key Endpoint
+### Slide 386 — Key Endpoint
 
 **Type:** quote · **Lesson:** 10.3
 
@@ -13326,7 +12380,7 @@ ISO refers to International Organization for Standardization frameworks — audi
 
 ---
 
-### Slide 425 — Exercise 10.3 — Query Events
+### Slide 387 — Exercise 10.3 — Query Events
 
 **Type:** exercise · **Lesson:** 10.3 · **Exercise:** 10.3
 
@@ -13343,6 +12397,8 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.3 — Query Events.
+
+The slide says: Lab guide: [Exercise 10.3](../slide-exercises/module-10/exercise-10.3-granular-ai-change-events.md).
 
 Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
 
@@ -13366,7 +12422,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ---
 
-### Slide 426 — Exercise 10.3 — Compliance Report
+### Slide 388 — Exercise 10.3 — Compliance Report
 
 **Type:** exercise · **Lesson:** 10.3 · **Exercise:** 10.3
 
@@ -13408,7 +12464,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 427 — Lesson 10.4
+### Slide 389 — Lesson 10.4
 
 **Type:** lesson_intro · **Lesson:** 10.4
 
@@ -13432,7 +12488,7 @@ The slide says: Lab guide: [Exercise 10.4](../slide-exercises/module-10/exercise
 
 ---
 
-### Slide 428 — Exercise 10.4 — Dashboard Components
+### Slide 390 — Exercise 10.4 — Dashboard Components
 
 **Type:** exercise · **Lesson:** 10.4 · **Exercise:** 10.4
 
@@ -13478,7 +12534,7 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 
 ---
 
-### Slide 429 — Exercise 10.4 — Streamlit Dashboard
+### Slide 391 — Exercise 10.4 — Streamlit Dashboard
 
 **Type:** exercise · **Lesson:** 10.4 · **Exercise:** 10.4
 
@@ -13489,6 +12545,8 @@ Now for Streamlit Dashboard.
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.4 — Streamlit Dashboard.
+
+The slide says: Lab guide: [Exercise 10.4](../slide-exercises/module-10/exercise-10.4-reporting-dashboard-architecture.md).
 
 The slide says: Run with: streamlit run cursor_dashboard.py.
 
@@ -13528,7 +12586,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 430 — Exercise 10.4 — Deliverables
+### Slide 392 — Exercise 10.4 — Deliverables
 
 **Type:** exercise · **Lesson:** 10.4 · **Exercise:** 10.4
 
@@ -13566,59 +12624,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ---
 
-### Slide 431 — Module Summary
-
-**Type:** module_summary · **Lesson:** 10.4 · **Exercise:** 10.4
-
-**Script**
-
-That wraps up Module 10. Here is the summary on screen.
-
-The slide title is: Module Summary.
-
-The table header columns are: Lesson, Topic, Key Skill.
-
-In the table, 10.1 — AI Commit Metrics. Use case on slide: ROI calculation.
-
-In the table, 10.2 — Bulk Export via CSV. Use case on slide: BI integration.
-
-In the table, 10.3 — Granular Change Events. Use case on slide: Compliance reporting.
-
-In the table, 10.4 — Dashboard Architecture. Use case on slide: Complete dashboard.
-
-Terms on this slide — quick definitions for the room:
-
-Granular change events are per-edit audit records — file, lines changed, model used, and whether the edit was accepted.
-
-AI commit metrics track how much committed code came from AI assistance versus human-only edits.
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
-
-ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
-
-BI stands for Business Intelligence — dashboards and reports built from exported usage data.
-
----
-
-### Slide 432 — Quick Reference Card
-
-**Type:** quick_reference · **Lesson:** 10.4 · **Exercise:** 10.4
-
-**Script**
-
-This quick reference slide is for you to keep after the course.
-
-The slide title is: Quick Reference Card.
-
-The figure on this slide is titled: Quick Reference Card.
-
-**Facilitator notes**
-
-- Allow about two minutes for final questions on this module.
-
----
-
-### Slide 433 — Course Complete
+### Slide 393 — Course Complete
 
 **Type:** bullets · **Lesson:** 10.4 · **Exercise:** 10.4
 
