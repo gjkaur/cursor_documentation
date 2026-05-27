@@ -11,70 +11,55 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Get a user ID
+### Step 1 — Pick a user ID
 
-**Do this:** From 9.1 member list, copy one `userId` or email identifier.
+**Do this:** From Exercise 9.1 output, copy one `userId`:
 
 ```powershell
 $env:TARGET_USER_ID = "paste_user_id"
 ```
 
-**Expected result:** ID stored in a variable.
+**Expected result:** ID in a variable.
 
 ---
 
-### Step 2 — Set spend limit
+### Step 2 — Set a limit (follow instructor URL)
 
-**Do this:** Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
+**Do this:** Use the spend-limit API from slides/lab guide (POST or PATCH with a monthly cap).
 
-**Expected result:** `200`/`204` or clear validation message.
-
----
-
-### Step 3 — Verify in dashboard
-
-**Do this:** Open team admin UI → member → spending limit.
-
-**Expected result:** UI matches the limit you set (may take a minute).
+**Expected result:** `200`/`204` or a clear error you can fix.
 
 ---
 
-### Step 4 — Bulk CSV format (discussion)
+### Step 3 — Confirm in admin UI
 
-**Do this:** Review CSV columns: `email, monthly_limit_usd` from slides.
+**Do this:** Open team settings → member → spending.
 
-**Expected result:** You could automate onboarding limits from HR export.
+**Expected result:** Limit matches what you set.
 
-**Success criteria:** Set one limit · verified · understand bulk pattern
+**Success criteria:** Set one limit · verified in UI
 ---
 
 ## Success criteria
@@ -82,6 +67,8 @@ $env:TARGET_USER_ID = "paste_user_id"
 - [ ] Retrieved user ID · set limit · verified · bulk setting implemented
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

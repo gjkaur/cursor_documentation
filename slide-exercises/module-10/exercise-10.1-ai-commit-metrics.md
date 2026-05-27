@@ -11,73 +11,49 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Date range (30 days)
+### Step 1 — Fetch AI commit metrics (30 days)
 
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
-```
-
----
-
-### Step 2 — Fetch commit metrics
-
-```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
 
-**Expected result:** Summary with AI vs human commit stats (field names per response).
+**Expected result:** Summary with AI vs human commit fields.
 
 ---
 
-### Step 3 — Calculate AI percentage
+### Step 2 — State AI percentage
 
-**Do this:** Compute `(ai_commits / total_commits) * 100` from summary fields.
+**Do this:** Compute or read `(AI commits / total commits) × 100` from the response.
 
-**Expected result:** One percentage you can state aloud.
+**Expected result:** One percentage you can say aloud.
 
----
-
-### Step 4 — ROI discussion
-
-**Do this:** List inputs for ROI: lines saved, hourly cost, API spend (qualitative OK).
-
-**Expected result:** Simple ROI story for a manager.
-
-**Success criteria:** Metrics fetched · AI % calculated · ROI narrative
+**Success criteria:** Metrics fetched · AI % stated
 ---
 
 ## Success criteria
@@ -85,6 +61,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 - [ ] Retrieved metrics · calculated AI % · generated ROI analysis
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

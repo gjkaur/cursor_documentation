@@ -11,52 +11,43 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Date range in PowerShell
-
-**Do this:**
+### Step 1 — Last 7 days (PowerShell dates)
 
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
-Write-Host "Start: $start End: $end"
+Write-Host "$start to $end"
 ```
 
-**Expected result:** Seven-day window printed (not bash `date -d`).
+**Expected result:** Date range printed.
 
 ---
 
-### Step 2 — Fetch daily usage
+### Step 2 — Fetch usage
 
-**Do this:** Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape:
+**Do this:** Call the daily-usage endpoint from your instructor (URL on slides):
 
 ```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
@@ -64,25 +55,17 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   ConvertFrom-Json
 ```
 
-**Expected result:** JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
+**Expected result:** JSON with per-day usage you can read aloud.
 
 ---
 
-### Step 3 — Interpret one day
+### Step 3 — Explain one day
 
-**Do this:** Pick one date and read tokens, requests, or cost fields shown.
+**Do this:** Pick one date and describe tokens or cost in plain language.
 
-**Expected result:** You can explain one day’s usage in plain language.
+**Expected result:** One sentence a manager would understand.
 
----
-
-### Step 4 — Optional report script
-
-**Do this:** Sketch `generate_cost_report()` outputs (totals, top users) per lab guide.
-
-**Expected result:** List of metrics you would show a manager.
-
-**Success criteria:** Windows dates · API returned data · explained one day
+**Success criteria:** Dates in PowerShell · data returned · one-day summary
 ---
 
 ## Success criteria
@@ -94,6 +77,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 - [ ] Retrieved date range · calculated trends · generated readable report
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

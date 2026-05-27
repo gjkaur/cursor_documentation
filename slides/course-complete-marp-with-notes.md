@@ -10450,9 +10450,12 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Create a User API key (UI)
-- **Cursor** → **Settings** → **API Keys** (or team dashboard per your plan) → **Generate** → copy the key once.
-- **Expected:** Key string starting with `cursor_...` (you cannot view it again later).
+**Step 1:** Create and store your User API key
+- Cursor **Settings** → **API Keys** → **Generate** → copy once, then:
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+```
+- **Expected:** Key saved in `$env:` for this terminal only (not in git).
 
 <!--
 We are starting Exercise 7.2 — Generate and Test API Keys. We have about 15 min for this lab.
@@ -10467,7 +10470,9 @@ A 401 usually means the wrong key type — Admin versus User — not a bad copy-
 
 Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Step 1: Create a User API key (UI).
+Step 1: Create and store your User API key.
+
+Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -10475,9 +10480,11 @@ The slide title is: Exercise 7.2 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Cursor → Settings → API Keys (or team dashboard per your plan) → Generate → copy the key once.
+Bullet 1 on the slide: Cursor Settings → API Keys → Generate → copy once, then:.
 
-Bullet 2 on the slide: Expected: Key string starting with cursor_... (you cannot view it again later).
+Bullet 2 on the slide: Expected: Key saved in $env: for this terminal only (not in git).
+
+The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here".
 
 Terms on this slide — quick definitions for the room:
 
@@ -10491,17 +10498,14 @@ A User API Key is scoped to your account — for launching agents and calling us
 
 ## Exercise 7.2 — Step 2 (cont.)
 
-**Step 2:** Store in PowerShell session
+**Step 2:** Test the key with one curl call
 ```powershell
-$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
-$env:CURSOR_USER_API_KEY.Substring(0, 12) + "..."
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
 ```
-- **Expected:** First line sets variable; second prints a short prefix (not the full secret).
+- **Expected:** JSON model list — not `401 Unauthorized`.
 
 <!--
 Now for Step 2 (cont.).
-
-Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here" $env:CURSOR_USER_API_KEY.Substring(0, 12) + "...""
 
 A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
@@ -10511,44 +10515,9 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.2 — Step 2 (cont.).
 
-Step 2: Store in PowerShell session.
+Step 2: Test the key with one curl call.
 
-Bullet 1 on the slide: Expected: First line sets variable; second prints a short prefix (not the full secret).
-
-The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here" $env:CURSOR_USER_API_KEY.Substring(0, 12) + "...".
-
-Terms on this slide — quick definitions for the room:
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 7.2 — Step 3 (cont.)
-
-**Step 3:** Test with curl.exe
-```powershell
-curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
-```
-- **Expected:** JSON with model names (or `items` array). Not `401 Unauthorized`.
-
-<!--
-Now for Step 3 (cont.).
-
-A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
-
-Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.2 — Step 3 (cont.).
-
-Step 3: Test with curl.exe.
-
-Bullet 1 on the slide: Expected: JSON with model names (or items array). Not 401 Unauthorized.
+Bullet 1 on the slide: Expected: JSON model list — not 401 Unauthorized.
 
 The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models.
 
@@ -10566,63 +10535,17 @@ API stands for Application Programming Interface — a defined way for programs 
 
 <!-- _class: fit-md -->
 
-## Exercise 7.2 — Step 4 (cont.)
+## Exercise 7.2 — Step 3 (cont.)
 
-**Step 4:** Test with Python (optional)
-- Save `test_models.py`: Run: `python test_models.py`
-```
-import os, requests
-key = os.environ["CURSOR_USER_API_KEY"]
-r = requests.get("https://api.cursor.com/v1/models", auth=(key, ""), timeout=30)
-print(r.status_code, r.text[:500])
-```
-- **Expected:** Status `200` and JSON body.
-
-<!--
-Now for Step 4 (cont.).
-
-A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
-
-Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.2 — Step 4 (cont.).
-
-Step 4: Test with Python (optional).
-
-Bullet 1 on the slide: Save test_models.py: Run: python test_models.py.
-
-Bullet 2 on the slide: Expected: Status 200 and JSON body.
-
-The code on the slide reads: import os, requests key = os.environ["CURSOR_USER_API_KEY"] r = requests.get("https://api.cursor.com/v1/models", auth=(key, ""), timeout=30) print(r.status_code, r.text[:500]).
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 7.2 — Step 5 (cont.)
-
-**Step 5:** Admin key (Enterprise only)
-- Generate **Admin API key** in dashboard →:
+**Step 3:** Admin key (only if you have Enterprise Admin API)
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/members
 ```
-- **Expected:** `200` with team data, or clear message if your plan lacks Admin API.
+- **Expected:** `200` with team data, or your instructor explains your plan uses User key only.
 
 <!--
-Now for Step 5 (cont.).
+Now for Step 3 (cont.).
 
 A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
@@ -10630,52 +10553,17 @@ Once you see a 200 with the expected JSON, you are ready for the rest of today's
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.2 — Step 5 (cont.).
+The slide title is: Exercise 7.2 — Step 3 (cont.).
 
-Step 5: Admin key (Enterprise only).
+Step 3: Admin key (only if you have Enterprise Admin API).
 
-Bullet 1 on the slide: Generate Admin API key in dashboard →:.
-
-Bullet 2 on the slide: Expected: 200 with team data, or clear message if your plan lacks Admin API.
+Bullet 1 on the slide: Expected: 200 with team data, or your instructor explains your plan uses User key only.
 
 The code on the slide reads: $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here" curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/members.
 
 Terms on this slide — quick definitions for the room:
 
-An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
-
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 7.2 — Step 6 (cont.)
-
-**Step 6:** Revocation (know how)
-- In **Settings → API Keys**, find **Revoke** for a test key (only if instructor allows).
-- **Expected:** Old key returns `401` on next API call.
-
-<!--
-Now for Step 6 (cont.).
-
-A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
-
-Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.2 — Step 6 (cont.).
-
-Step 6: Revocation (know how).
-
-Bullet 1 on the slide: In Settings → API Keys, find Revoke for a test key (only if instructor allows).
-
-Bullet 2 on the slide: Expected: Old key returns 401 on next API call.
-
-Terms on this slide — quick definitions for the room:
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -10687,7 +10575,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 7.2 — Success criteria
 
-**Check:** User key works in curl · optional Admin key · keys only in `$env:`, not in git
+**Check:** User key works · keys stay in `$env:` only
 
 <!--
 Now for Success criteria.
@@ -10700,7 +10588,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.2 — Success criteria.
 
-The slide says: Check: User key works in curl · optional Admin key · keys only in $env:, not in git.
+The slide says: Check: User key works · keys stay in $env: only.
 -->
 
 ---
@@ -10870,12 +10758,12 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Make one successful call
+**Step 1:** Make one successful Admin API call
 ```powershell
 curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit"
+  https://api.cursor.com/v1/teams/members 2>&1 | Select-String "HTTP/"
 ```
-- **Expected:** `HTTP/1.1 200` and rate-limit headers if present.
+- **Expected:** Line containing `HTTP/1.1 200`.
 
 <!--
 We are starting Exercise 7.3 — Rate Limits and Error Handling. We have about 15 min for this lab.
@@ -10886,7 +10774,7 @@ The full lab guide is in slide-exercises/module-07/exercise-7.3-rate-limits-and-
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Make one successful call.
+Step 1: Make one successful Admin API call.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -10894,9 +10782,9 @@ The slide title is: Exercise 7.3 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: HTTP/1.1 200 and rate-limit headers if present.
+Bullet 1 on the slide: Expected: Line containing HTTP/1.1 200.
 
-The code on the slide reads: curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit".
+The code on the slide reads: curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members 2>&1 | Select-String "HTTP/".
 
 Terms on this slide — quick definitions for the room:
 
@@ -10914,67 +10802,36 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 7.3 — Steps 2–3 (cont.)
 
-**Step 2:** Read rate-limit headers
-- Run the call again and note `X-RateLimit-Limit`, `Remaining`, `Reset` (names may vary slightly).
-- **Expected:** You can state how many calls remain in the window.
+**Step 2:** Know the common status codes
+- Learn these three: - **401** — bad or missing API key → fix `$env:CURSOR_*_API_KEY` (do **not** retry blindly) - **429** — too many requests → wait, then retry with backoff - **5xx** — server error → 
+- **Expected:** You can explain why `401` is different from `429`.
 
-**Step 3:** Add retry logic (Python)
-- Save `retry_demo.py` from the slide deck / lab guide pattern: retry on `429` and `5xx`, honor `Retry-After`, do **not** retry most `4xx`. Run against `/v1/models` with your user key.
-- **Expected:** Script exits cleanly on `200`; on forced errors, backs off instead of crashing.
+**Step 3:** Retry rule (discussion)
+- Say out loud: “Retry on **429** and **5xx**; fix auth on **401**.”
+- **Expected:** One-sentence rule you would use in a script (Python examples optional in **Detailed reference**).
 
 <!--
 Now for Steps 2–3 (cont.).
 
-Step 2: Read rate-limit headers.
+Step 2: Know the common status codes.
 
-Step 3: Add retry logic (Python).
+Step 3: Retry rule (discussion).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.3 — Steps 2–3 (cont.).
 
-Bullet 1 on the slide: Run the call again and note X-RateLimit-Limit, Remaining, Reset (names may vary slightly).
+Bullet 1 on the slide: Learn these three: - 401 — bad or missing API key → fix $env:CURSOR_*_API_KEY (do not retry blindly) - 429 — too many requests → wait, then retry with backoff - 5xx — server error →.
 
-Bullet 2 on the slide: Expected: You can state how many calls remain in the window.
+Bullet 2 on the slide: Expected: You can explain why 401 is different from 429.
 
-Bullet 3 on the slide: Save retry_demo.py from the slide deck / lab guide pattern: retry on 429 and 5xx, honor Retry-After, do not retry most 4xx. Run against /v1/models with your user key.
+Bullet 3 on the slide: Say out loud: “Retry on 429 and 5xx; fix auth on 401.”.
 
-Bullet 4 on the slide: Expected: Script exits cleanly on 200; on forced errors, backs off instead of crashing.
--->
+Bullet 4 on the slide: Expected: One-sentence rule you would use in a script (Python examples optional in Detailed reference).
 
----
+Terms on this slide — quick definitions for the room:
 
-
-<!-- _class: fit-sm -->
-
-## Exercise 7.3 — Steps 4–5 (cont.)
-
-**Step 4:** Discuss client errors
-- With a partner, explain why `401` should not be retried with the same key.
-- **Expected:** One-sentence rule: fix auth, then call again.
-
-**Step 5:** Optional: slow down requests
-- Add `Start-Sleep -Seconds 3` between five curl calls in a loop.
-- **Expected:** No `429` during normal class pacing.
-
-<!--
-Now for Steps 4–5 (cont.).
-
-Step 4: Discuss client errors.
-
-Step 5: Optional: slow down requests.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.3 — Steps 4–5 (cont.).
-
-Bullet 1 on the slide: With a partner, explain why 401 should not be retried with the same key.
-
-Bullet 2 on the slide: Expected: One-sentence rule: fix auth, then call again.
-
-Bullet 3 on the slide: Add Start-Sleep -Seconds 3 between five curl calls in a loop.
-
-Bullet 4 on the slide: Expected: No 429 during normal class pacing.
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -10984,7 +10841,7 @@ Bullet 4 on the slide: Expected: No 429 during normal class pacing.
 
 ## Exercise 7.3 — Success criteria
 
-**Check:** Saw headers · retry on 429/5xx · no infinite retry on 401
+**Check:** Got `200` once · explained 401 vs 429
 
 <!--
 Now for Success criteria.
@@ -10993,7 +10850,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.3 — Success criteria.
 
-The slide says: Check: Saw headers · retry on 429/5xx · no infinite retry on 401.
+The slide says: Check: Got 200 once · explained 401 vs 429.
 -->
 
 ---
@@ -11147,13 +11004,13 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** First request (no cache)
+**Step 1:** First request: save the ETag
 ```powershell
 curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
   https://api.cursor.com/v1/teams/members
 Select-String -Path headers.txt -Pattern "ETag|HTTP/"
 ```
-- **Expected:** `200` and an `ETag:` header value in `headers.txt`.
+- **Expected:** `200` and an `ETag:` line in `headers.txt`.
 
 <!--
 We are starting Exercise 7.4 — ETag Caching. We have about 18 min for this lab.
@@ -11164,7 +11021,7 @@ The full lab guide is in slide-exercises/module-07/exercise-7.4-etag-caching.md 
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: First request (no cache).
+Step 1: First request: save the ETag.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -11172,7 +11029,7 @@ The slide title is: Exercise 7.4 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: 200 and an ETag: header value in headers.txt.
+Bullet 1 on the slide: Expected: 200 and an ETag: line in headers.txt.
 
 The code on the slide reads: curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members Select-String -Path headers.txt -Pattern "ETag|HTTP/".
 
@@ -11196,15 +11053,14 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 7.4 — Step 2 (cont.)
 
-**Step 2:** Second request with If-None-Match
-- Copy the ETag value (without quotes issues), then:
+**Step 2:** Second request: send If-None-Match
 ```powershell
 $etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim()
 curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
   -H "If-None-Match: $etag" https://api.cursor.com/v1/teams/members
 Select-String -Path headers2.txt -Pattern "HTTP/"
 ```
-- **Expected:** Often `304 Not Modified` (smaller/faster); same data as before.
+- **Expected:** Often `304 Not Modified` — same data, less bandwidth.
 
 <!--
 Now for Step 2 (cont.).
@@ -11213,11 +11069,9 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.4 — Step 2 (cont.).
 
-Step 2: Second request with If-None-Match.
+Step 2: Second request: send If-None-Match.
 
-Bullet 1 on the slide: Copy the ETag value (without quotes issues), then:.
-
-Bullet 2 on the slide: Expected: Often 304 Not Modified (smaller/faster); same data as before.
+Bullet 1 on the slide: Expected: Often 304 Not Modified — same data, less bandwidth.
 
 The code on the slide reads: $etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim() curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_API_KEY):" `   -H "If-None-Match: $etag" https://api.cursor.com/v1/teams/members Select-String -Path headers2.txt -Pattern "HTTP/".
 
@@ -11241,46 +11095,26 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 7.4 — Steps 3–4 (cont.)
+## Exercise 7.4 — Step 3 (cont.)
 
-**Step 3:** Python ETag helper (optional)
-- Implement `get_with_etag(url, previous_etag)` from the slides in a short script; call twice.
-- **Expected:** Second call returns `None` for body on `304` and reuses cached JSON in code.
-
-**Step 4:** When to use ETags
-- Name one Analytics or Admin poll that should use ETags (daily usage, member list).
-- **Expected:** You save bandwidth on unchanged responses.
+**Step 3:** When to use ETags
+- Name one report you would poll often (member list, daily usage).
+- **Expected:** You skip re-downloading when nothing changed.
 
 <!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Python ETag helper (optional).
-
-Step 4: When to use ETags.
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.4 — Steps 3–4 (cont.).
+The slide title is: Exercise 7.4 — Step 3 (cont.).
 
-Bullet 1 on the slide: Implement get_with_etag(url, previous_etag) from the slides in a short script; call twice.
+Step 3: When to use ETags.
 
-Bullet 2 on the slide: Expected: Second call returns None for body on 304 and reuses cached JSON in code.
+Bullet 1 on the slide: Name one report you would poll often (member list, daily usage).
 
-Bullet 3 on the slide: Name one Analytics or Admin poll that should use ETags (daily usage, member list).
-
-Bullet 4 on the slide: Expected: You save bandwidth on unchanged responses.
-
-Terms on this slide — quick definitions for the room:
-
-HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
-
-ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+Bullet 2 on the slide: Expected: You skip re-downloading when nothing changed.
 -->
 
 ---
@@ -11290,7 +11124,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ## Exercise 7.4 — Success criteria
 
-**Check:** Captured ETag · got 200 then 304 · explained use case
+**Check:** Saw ETag · tried If-None-Match · named a use case
 
 <!--
 Now for Success criteria.
@@ -11299,11 +11133,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.4 — Success criteria.
 
-The slide says: Check: Captured ETag · got 200 then 304 · explained use case.
+The slide says: Check: Saw ETag · tried If-None-Match · named a use case.
 
 Terms on this slide — quick definitions for the room:
 
-HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
+If-None-Match is an HTTP header carrying your cached ETag — the server uses it to decide whether data changed.
 
 ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
 -->
@@ -11392,11 +11226,12 @@ API stands for Application Programming Interface — a defined way for programs 
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** List models with curl.exe
+**Step 1:** List models
 ```powershell
-curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |
+  ConvertFrom-Json | ConvertTo-Json -Depth 3
 ```
-- **Expected:** JSON listing model IDs (shape may be `items` or `data` — inspect once).
+- **Expected:** Readable JSON in the console.
 
 <!--
 We are starting Exercise 7.5 — List Available Models. We have about 10 min for this lab.
@@ -11407,7 +11242,7 @@ The full lab guide is in slide-exercises/module-07/exercise-7.5-list-available-m
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: List models with curl.exe.
+Step 1: List models.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -11415,9 +11250,11 @@ The slide title is: Exercise 7.5 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: JSON listing model IDs (shape may be items or data — inspect once).
+Step 1: List models.
 
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models.
+Bullet 1 on the slide: Expected: Readable JSON in the console.
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |   ConvertFrom-Json | ConvertTo-Json -Depth 3.
 
 Terms on this slide — quick definitions for the room:
 
@@ -11435,12 +11272,9 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 7.5 — Step 2 (cont.)
 
-**Step 2:** Pretty-print in PowerShell
-```powershell
-curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |
-  ConvertFrom-Json | ConvertTo-Json -Depth 5
-```
-- **Expected:** Readable list in the console.
+**Step 2:** Pick two models
+- Choose one model for a **quick fix** and one for a **hard refactor**; write one reason each.
+- **Expected:** Two model names + short rationale.
 
 <!--
 Now for Step 2 (cont.).
@@ -11449,58 +11283,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.5 — Step 2 (cont.).
 
-Step 2: Pretty-print in PowerShell.
+Step 2: Pick two models.
 
-Bullet 1 on the slide: Expected: Readable list in the console.
+Bullet 1 on the slide: Choose one model for a quick fix and one for a hard refactor; write one reason each.
 
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |   ConvertFrom-Json | ConvertTo-Json -Depth 5.
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 7.5 — Steps 3–4 (cont.)
-
-**Step 3:** Python table (optional)
-- Loop models and print columns: ID, context window, pricing if present.
-- **Expected:** Table of at least 3 models.
-
-**Step 4:** Pick a model for a task
-- Choose one model for “quick fix” and one for “hard refactor”; say why (speed vs quality).
-- **Expected:** Two model names + one-line rationale each.
-
-<!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Python table (optional).
-
-Step 4: Pick a model for a task.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.5 — Steps 3–4 (cont.).
-
-Bullet 1 on the slide: Loop models and print columns: ID, context window, pricing if present.
-
-Bullet 2 on the slide: Expected: Table of at least 3 models.
-
-Bullet 3 on the slide: Choose one model for “quick fix” and one for “hard refactor”; say why (speed vs quality).
-
-Bullet 4 on the slide: Expected: Two model names + one-line rationale each.
-
-Terms on this slide — quick definitions for the room:
-
-Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
+Bullet 2 on the slide: Expected: Two model names + short rationale.
 -->
 
 ---
@@ -11510,7 +11297,7 @@ Context window is the maximum amount of text the model can consider at once — 
 
 ## Exercise 7.5 — Success criteria
 
-**Check:** Listed models · formatted output · reasoned selection
+**Check:** Listed models · reasoned choice
 
 <!--
 Now for Success criteria.
@@ -11519,7 +11306,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 7.5 — Success criteria.
 
-The slide says: Check: Listed models · formatted output · reasoned selection.
+The slide says: Check: Listed models · reasoned choice.
 -->
 
 ---
@@ -11688,17 +11475,22 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 8.1 — Step 1
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Set User API key
+**Step 1:** Set key and create an agent
+- Replace `YOUR_ORG/YOUR_REPO`, then run:
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+$body = '{"prompt":{"text":"Add a short README with setup steps"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":false}'
+$r = curl.exe -s -X POST https://api.cursor.com/v1/agents -u "$($env:CURSOR_USER_API_KEY):" -H "Content-Type: application/json" -d $body | ConvertFrom-Json
+$env:AGENT_ID = $r.agent.id
+Write-Host "https://cursor.com/agents/$($env:AGENT_ID)"
 ```
-- **Expected:** Variable set for this PowerShell session.
+- **Expected:** Agent ID printed; dashboard shows **Running**.
 
 <!--
 We are starting Exercise 8.1 — Create a Cloud Agent via API. We have about 15 min for this lab.
@@ -11709,9 +11501,7 @@ The full lab guide is in slide-exercises/module-08/exercise-8.1-create-a-cloud-a
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Set User API key.
-
-Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here""
+Step 1: Set key and create an agent.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -11719,57 +11509,11 @@ The slide title is: Exercise 8.1 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: Variable set for this PowerShell session.
+Bullet 1 on the slide: Replace YOUR_ORG/YOUR_REPO, then run:.
 
-The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here".
+Bullet 2 on the slide: Expected: Agent ID printed; dashboard shows Running.
 
-Terms on this slide — quick definitions for the room:
-
-A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
--->
-
----
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 8.1 — Step 2 (cont.)
-
-**Step 2:** Create agent (POST)
-- Replace `YOUR_ORG/YOUR_REPO` with a repo you are allowed to use:
-```powershell
-$body = @{
-  prompt = @{ text = "Add a README.md with setup instructions" }
-  repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startingRef = "main" })
-  autoCreatePR = $true
-} | ConvertTo-Json -Depth 5
-
-$response = curl.exe -s -X POST https://api.cursor.com/v1/agents `
-  -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Content-Type: application/json" `
-  -d $body | ConvertFrom-Json
-
-$env:AGENT_ID = $response.agent.id
-$env:RUN_ID = $response.run.id
-Write-Host "Agent ID: $($env:AGENT_ID)"
-Write-Host "Open: https://cursor.com/agents/$($env:AGENT_ID)"
-```
-- **Expected:** JSON with `agent.id` and `run.id`; dashboard shows **Running**.
-
-<!--
-Now for Step 2 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.1 — Step 2 (cont.).
-
-Step 2: Create agent (POST).
-
-Bullet 1 on the slide: Replace YOUR_ORG/YOUR_REPO with a repo you are allowed to use:.
-
-Bullet 2 on the slide: Expected: JSON with agent.id and run.id; dashboard shows Running.
-
-The code on the slide begins: $body = @{   prompt = @{ text = "Add a README.md with setup instructions" }   repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startingRef = "main" })   autoCreatePR = $true } | ConvertTo-Json -Depth 5 $response = curl.exe -s -X POST https://api.cursor.com/v1/agents `. The rest of the block continues on the slide.
+The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here" $body = '{"prompt":{"text":"Add a short README with setup steps"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":false}' $r = curl.exe -s -X POST https://api.cursor.com/v1/agents -u "$($env:CURSOR_USER_API_KEY):" -H "Content-Type: application/json" -d $body | ConvertFrom-Json $env:AGENT_ID = $r.agent.id Write-Host "https://cursor.com/agents/$($env:AGENT_ID)".
 
 Terms on this slide — quick definitions for the room:
 
@@ -11787,44 +11531,28 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 8.1 — Steps 3–4 (cont.)
+## Exercise 8.1 — Step 2 (cont.)
 
-**Step 3:** Confirm on dashboard
-- Open the printed URL in the browser.
-- **Expected:** Same agent ID; log activity visible.
-
-**Step 4:** Optional model in JSON
-- Add `"model": @{ id = "claude-4.6-sonnet" }` to `$body` and create a second test agent.
-- **Expected:** Run uses the named model (or API error explaining restriction).
+**Step 2:** Watch on the dashboard
+- Open the printed URL in Edge or Chrome.
+- **Expected:** Log lines move; status becomes **Completed** or **Failed**.
 
 <!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Confirm on dashboard.
-
-Step 4: Optional model in JSON.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.1 — Steps 3–4 (cont.).
+The slide title is: Exercise 8.1 — Step 2 (cont.).
 
-Bullet 1 on the slide: Open the printed URL in the browser.
+Step 2: Watch on the dashboard.
 
-Bullet 2 on the slide: Expected: Same agent ID; log activity visible.
+Bullet 1 on the slide: Open the printed URL in Edge or Chrome.
 
-Bullet 3 on the slide: Add "model": @{ id = "claude-4.6-sonnet" } to $body and create a second test agent.
-
-Bullet 4 on the slide: Expected: Run uses the named model (or API error explaining restriction).
+Bullet 2 on the slide: Expected: Log lines move; status becomes Completed or Failed.
 
 Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
@@ -11836,7 +11564,7 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 ## Exercise 8.1 — Success criteria
 
-**Check:** POST succeeded · IDs saved · visible on cursor.com/agents
+**Check:** POST worked · opened dashboard
 
 <!--
 Now for Success criteria.
@@ -11845,7 +11573,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.1 — Success criteria.
 
-The slide says: Check: POST succeeded · IDs saved · visible on cursor.com/agents.
+The slide says: Check: POST worked · opened dashboard.
 -->
 
 ---
@@ -11960,12 +11688,13 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Set IDs from Exercise 8.1
+**Step 1:** Set agent and run IDs
+- From Exercise 8.1 (or dashboard):
 ```powershell
 $env:AGENT_ID = "paste_agent_id"
 $env:RUN_ID = "paste_run_id"
 ```
-- **Expected:** Both variables set (from create-agent response or dashboard).
+- **Expected:** Both variables set.
 
 <!--
 We are starting Exercise 8.2 — Stream Agent Responses (SSE). We have about 15 min for this lab.
@@ -11976,7 +11705,7 @@ The full lab guide is in slide-exercises/module-08/exercise-8.2-stream-agent-res
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Set IDs from Exercise 8.1.
+Step 1: Set agent and run IDs.
 
 Copy this into the Agent chat: "$env:AGENT_ID = "paste_agent_id" $env:RUN_ID = "paste_run_id""
 
@@ -11986,7 +11715,9 @@ The slide title is: Exercise 8.2 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: Both variables set (from create-agent response or dashboard).
+Bullet 1 on the slide: From Exercise 8.1 (or dashboard):.
+
+Bullet 2 on the slide: Expected: Both variables set.
 
 The code on the slide reads: $env:AGENT_ID = "paste_agent_id" $env:RUN_ID = "paste_run_id".
 
@@ -12004,13 +11735,13 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 8.2 — Step 2 (cont.)
 
-**Step 2:** Stream events (curl.exe)
+**Step 2:** Stream for one minute
+- Press **Ctrl+C** after ~60 seconds if the run is long.
 ```powershell
-curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Accept: text/event-stream" `
+curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" -H "Accept: text/event-stream" `
   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream"
 ```
-- **Expected:** Lines starting with `event:` and `data:` scroll in the terminal until the run finishes.
+- **Expected:** Lines with `event:` and `data:` appear in the terminal.
 
 <!--
 Now for Step 2 (cont.).
@@ -12019,11 +11750,13 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.2 — Step 2 (cont.).
 
-Step 2: Stream events (curl.exe).
+Step 2: Stream for one minute.
 
-Bullet 1 on the slide: Expected: Lines starting with event: and data: scroll in the terminal until the run finishes.
+Bullet 1 on the slide: Press Ctrl+C after ~60 seconds if the run is long.
 
-The code on the slide reads: curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `   -H "Accept: text/event-stream" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream".
+Bullet 2 on the slide: Expected: Lines with event: and data: appear in the terminal.
+
+The code on the slide reads: curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" -H "Accept: text/event-stream" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream".
 
 Terms on this slide — quick definitions for the room:
 
@@ -12035,44 +11768,26 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 8.2 — Steps 3–4 (cont.)
+## Exercise 8.2 — Step 3 (cont.)
 
-**Step 3:** Read the stream
-- Identify at least: one **assistant** text chunk, one **tool** or status event, and a **completed** or **failed** event.
-- **Expected:** You can narrate what the agent did from the log alone.
-
-**Step 4:** Resume with Last-Event-ID (concept)
-- Note an `id:` line from the stream; discuss reconnecting with header `Last-Event-ID` (see lab guide).
-- **Expected:** You understand SSE resume after network drop.
+**Step 3:** Name what you saw
+- Point to one **status** event and one **message** or **tool** event in the output.
+- **Expected:** You can tell the story of the run without opening the UI.
 
 <!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Read the stream.
-
-Step 4: Resume with Last-Event-ID (concept).
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.2 — Steps 3–4 (cont.).
+The slide title is: Exercise 8.2 — Step 3 (cont.).
 
-Bullet 1 on the slide: Identify at least: one assistant text chunk, one tool or status event, and a completed or failed event.
+Step 3: Name what you saw.
 
-Bullet 2 on the slide: Expected: You can narrate what the agent did from the log alone.
+Bullet 1 on the slide: Point to one status event and one message or tool event in the output.
 
-Bullet 3 on the slide: Note an id: line from the stream; discuss reconnecting with header Last-Event-ID (see lab guide).
-
-Bullet 4 on the slide: Expected: You understand SSE resume after network drop.
-
-Terms on this slide — quick definitions for the room:
-
-Last-Event-ID lets you resume an SSE stream after a disconnect — the server continues from the last event you received.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
+Bullet 2 on the slide: Expected: You can tell the story of the run without opening the UI.
 -->
 
 ---
@@ -12082,7 +11797,7 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 
 ## Exercise 8.2 — Success criteria
 
-**Check:** Stream connected · parsed event types · IDs were set first
+**Check:** Stream connected · named two event types
 
 <!--
 Now for Success criteria.
@@ -12091,7 +11806,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.2 — Success criteria.
 
-The slide says: Check: Stream connected · parsed event types · IDs were set first.
+The slide says: Check: Stream connected · named two event types.
 -->
 
 ---
@@ -12162,18 +11877,19 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
-## Exercise 8.3 — Step 1
+## Exercise 8.3 — Steps 1–2
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Use a completed agent ID
-- Pick a **Completed** cloud agent from the dashboard (yours or demo).
-```powershell
-$env:AGENT_ID = "paste_completed_agent_id"
-```
-- **Expected:** Agent is not still running (artifacts ready).
+**Step 1:** Open a completed agent
+- In [cursor.com/agents](https://cursor.com/agents), pick a **Completed** run (yours from 8.1 or a demo).
+- **Expected:** **Artifacts** tab or file list is visible.
+
+**Step 2:** Download in the UI
+- Download **one file**, then **Download all** (zip) if available.
+- **Expected:** Files in your **Downloads** folder.
 
 <!--
 We are starting Exercise 8.3 — List and Download Artifacts. We have about 15 min for this lab.
@@ -12184,27 +11900,31 @@ The full lab guide is in slide-exercises/module-08/exercise-8.3-list-and-downloa
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Use a completed agent ID.
+Step 1: Open a completed agent.
 
-Copy this into the Agent chat: "$env:AGENT_ID = "paste_completed_agent_id""
+Step 2: Download in the UI.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.3 — Step 1.
+The slide title is: Exercise 8.3 — Steps 1–2.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Pick a Completed cloud agent from the dashboard (yours or demo).
+Bullet 1 on the slide: In [cursor.com/agents](https://cursor.com/agents), pick a Completed run (yours from 8.1 or a demo).
 
-Bullet 2 on the slide: Expected: Agent is not still running (artifacts ready).
+Bullet 2 on the slide: Expected: Artifacts tab or file list is visible.
 
-The code on the slide reads: $env:AGENT_ID = "paste_completed_agent_id".
+Bullet 3 on the slide: Download one file, then Download all (zip) if available.
+
+Bullet 4 on the slide: Expected: Files in your Downloads folder.
 
 Terms on this slide — quick definitions for the room:
 
-A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -12214,39 +11934,15 @@ API stands for Application Programming Interface — a defined way for programs 
 
 <!-- _class: fit-md -->
 
-## Exercise 8.3 — Step 2 (cont.)
-
-**Step 2:** Poll status (optional)
-- Call status endpoint until `completed` (see lab guide Python `wait_for_completion`).
-- **Expected:** You know how to wait programmatically.
-
-<!--
-Now for Step 2 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.3 — Step 2 (cont.).
-
-Step 2: Poll status (optional).
-
-Bullet 1 on the slide: Call status endpoint until completed (see lab guide Python wait_for_completion).
-
-Bullet 2 on the slide: Expected: You know how to wait programmatically.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
 ## Exercise 8.3 — Step 3 (cont.)
 
-**Step 3:** List artifacts
+**Step 3:** Optional: list via API
 ```powershell
+$env:AGENT_ID = "paste_completed_agent_id"
 curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
-  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts" | ConvertFrom-Json
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts"
 ```
-- **Expected:** List of paths or artifact objects.
+- **Expected:** JSON list of artifact paths (same as UI).
 
 <!--
 Now for Step 3 (cont.).
@@ -12255,11 +11951,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.3 — Step 3 (cont.).
 
-Step 3: List artifacts.
+Step 3: Optional: list via API.
 
-Bullet 1 on the slide: Expected: List of paths or artifact objects.
+Bullet 1 on the slide: Expected: JSON list of artifact paths (same as UI).
 
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts" | ConvertFrom-Json.
+The code on the slide reads: $env:AGENT_ID = "paste_completed_agent_id" curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts".
 
 Terms on this slide — quick definitions for the room:
 
@@ -12277,47 +11973,9 @@ API stands for Application Programming Interface — a defined way for programs 
 
 <!-- _class: fit-md -->
 
-## Exercise 8.3 — Step 4 (cont.)
-
-**Step 4:** Download one file
-- Request download URL for one path (per API docs in lab guide), then:
-```powershell
-curl.exe -L -o downloaded_file.txt "PASTE_PRESIGNED_URL"
-```
-- **Expected:** File on disk matches artifact from UI.
-
-<!--
-Now for Step 4 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.3 — Step 4 (cont.).
-
-Step 4: Download one file.
-
-Bullet 1 on the slide: Request download URL for one path (per API docs in lab guide), then:.
-
-Bullet 2 on the slide: Expected: File on disk matches artifact from UI.
-
-The code on the slide reads: curl.exe -L -o downloaded_file.txt "PASTE_PRESIGNED_URL".
-
-Terms on this slide — quick definitions for the room:
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
 ## Exercise 8.3 — Success criteria
 
-**Check:** Listed artifacts · downloaded one file · understand wait/list/download order
+**Check:** Saw artifacts in UI · downloaded at least one file
 
 <!--
 Now for Success criteria.
@@ -12326,7 +11984,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.3 — Success criteria.
 
-The slide says: Check: Listed artifacts · downloaded one file · understand wait/list/download order.
+The slide says: Check: Saw artifacts in UI · downloaded at least one file.
 
 Terms on this slide — quick definitions for the room:
 
@@ -12446,13 +12104,13 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Understand the webhook flow
-- Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
-- **Expected:** You can explain why returning 200 quickly matters.
+**Step 1:** Webhook flow (30 seconds)
+- Finish this sentence: “When the agent finishes, Cursor sends an HTTPS **POST** to my URL with a signed body; I verify **HMAC** and return **200**.”
+- **Expected:** You can draw: Cursor → your server → 200 OK.
 
-**Step 2:** Review verify_signature (Python)
-- Open the `verify_signature` snippet in the lab guide; identify: raw body, header name, secret.
-- **Expected:** You know tampering breaks the HMAC match.
+**Step 2:** Three security checks
+- List: (1) HTTPS only, (2) verify signature, (3) handle duplicates safely.
+- **Expected:** Checklist of three items.
 
 <!--
 We are starting Exercise 8.4 — Webhooks and HMAC Verification. We have about 15 min for this lab.
@@ -12463,9 +12121,9 @@ The full lab guide is in slide-exercises/module-08/exercise-8.4-webhooks-and-hma
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Understand the webhook flow.
+Step 1: Webhook flow (30 seconds).
 
-Step 2: Review verify_signature (Python).
+Step 2: Three security checks.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -12473,58 +12131,13 @@ The slide title is: Exercise 8.4 — Steps 1–2.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
+Bullet 1 on the slide: Finish this sentence: “When the agent finishes, Cursor sends an HTTPS POST to my URL with a signed body; I verify HMAC and return 200.”.
 
-Bullet 2 on the slide: Expected: You can explain why returning 200 quickly matters.
+Bullet 2 on the slide: Expected: You can draw: Cursor → your server → 200 OK.
 
-Bullet 3 on the slide: Open the verify_signature snippet in the lab guide; identify: raw body, header name, secret.
+Bullet 3 on the slide: List: (1) HTTPS only, (2) verify signature, (3) handle duplicates safely.
 
-Bullet 4 on the slide: Expected: You know tampering breaks the HMAC match.
-
-Terms on this slide — quick definitions for the room:
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 8.4 — Steps 3–4 (cont.)
-
-**Step 3:** Create agent with webhook URL (when server ready)
-- After Exercise 8.5 tunnel exists, POST agent JSON including `webhookUrl` (PowerShell `curl.exe` like 8.1).
-- **Expected:** Agent accepts URL (or validation error you can fix).
-
-**Step 4:** Security rules
-- List three checks: HTTPS, HMAC verify, idempotent handler.
-- **Expected:** Checklist you would use in code review.
-
-<!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Create agent with webhook URL (when server ready).
-
-Step 4: Security rules.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.4 — Steps 3–4 (cont.).
-
-Bullet 1 on the slide: After Exercise 8.5 tunnel exists, POST agent JSON including webhookUrl (PowerShell curl.exe like 8.1).
-
-Bullet 2 on the slide: Expected: Agent accepts URL (or validation error you can fix).
-
-Bullet 3 on the slide: List three checks: HTTPS, HMAC verify, idempotent handler.
-
-Bullet 4 on the slide: Expected: Checklist you would use in code review.
+Bullet 4 on the slide: Expected: Checklist of three items.
 
 Terms on this slide — quick definitions for the room:
 
@@ -12536,7 +12149,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
 
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
@@ -12546,9 +12159,40 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 <!-- _class: fit-md -->
 
+## Exercise 8.4 — Step 3 (cont.)
+
+**Step 3:** Prepare for ngrok (next lab)
+- Confirm you have a tiny webhook app on port **5000** (from lab guide) or will pair with a demo.
+- **Expected:** Ready for Exercise 8.5 tunnel test.
+
+<!--
+Now for Step 3 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.4 — Step 3 (cont.).
+
+Step 3: Prepare for ngrok (next lab).
+
+Bullet 1 on the slide: Confirm you have a tiny webhook app on port 5000 (from lab guide) or will pair with a demo.
+
+Bullet 2 on the slide: Expected: Ready for Exercise 8.5 tunnel test.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
 ## Exercise 8.4 — Success criteria
 
-**Check:** Explained flow · understand HMAC · ready for ngrok test in 8.5
+**Check:** Explained flow · three security checks · ready for 8.5
 
 <!--
 Now for Success criteria.
@@ -12557,13 +12201,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.4 — Success criteria.
 
-The slide says: Check: Explained flow · understand HMAC · ready for ngrok test in 8.5.
-
-Terms on this slide — quick definitions for the room:
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+The slide says: Check: Explained flow · three security checks · ready for 8.5.
 -->
 
 ---
@@ -12638,13 +12276,16 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 <!-- _class: fit-md -->
 
-## Exercise 8.5 — Step 0
+## Exercise 8.5 — Step 1
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 0:** Prerequisites
-- Complete webhook receiver setup from 8.4 (Flask/FastAPI on port **5000**). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or `winget install ngrok.ngrok`.
-- **Expected:** Local server responds on `http://127.0.0.1:5000/health` (or your route).
+**Step 1:** Start your webhook server (Terminal A)
+```
+cd D:/path/to/webhook-project
+python -m flask run --port 5000
+```
+- **Expected:** Server listening on port 5000.
 
 <!--
 We are starting Exercise 8.5 — Test Webhooks with ngrok. We have about 15 min for this lab.
@@ -12655,27 +12296,23 @@ The full lab guide is in slide-exercises/module-08/exercise-8.5-test-webhooks-wi
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 0: Prerequisites.
+Step 1: Start your webhook server (Terminal A).
+
+Copy this into the Agent chat: "cd D:/path/to/webhook-project python -m flask run --port 5000"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.5 — Step 0.
+The slide title is: Exercise 8.5 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Complete webhook receiver setup from 8.4 (Flask/FastAPI on port 5000). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or winget install ngrok.ngrok.
+Bullet 1 on the slide: Expected: Server listening on port 5000.
 
-Bullet 2 on the slide: Expected: Local server responds on http://127.0.0.1:5000/health (or your route).
+The code on the slide reads: cd D:/path/to/webhook-project python -m flask run --port 5000.
 
 Terms on this slide — quick definitions for the room:
 
 A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -12685,51 +12322,14 @@ API stands for Application Programming Interface — a defined way for programs 
 
 <!-- _class: fit-md -->
 
-## Exercise 8.5 — Step 1 (cont.)
-
-**Step 1:** Terminal A: run your webhook server
-- In PowerShell:
-```
-cd D:/path/to/your/webhook-project
-python -m flask run --port 5000
-```
-- **Expected:** Server listening on port 5000.
-
-<!--
-Now for Step 1 (cont.).
-
-Copy this into the Agent chat: "cd D:/path/to/your/webhook-project python -m flask run --port 5000"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.5 — Step 1 (cont.).
-
-Step 1: Terminal A: run your webhook server.
-
-Bullet 1 on the slide: In PowerShell:.
-
-Bullet 2 on the slide: Expected: Server listening on port 5000.
-
-The code on the slide reads: cd D:/path/to/your/webhook-project python -m flask run --port 5000.
-
-Terms on this slide — quick definitions for the room:
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
 ## Exercise 8.5 — Step 2 (cont.)
 
-**Step 2:** Terminal B: start ngrok
-- New PowerShell window:
+**Step 2:** Start ngrok (Terminal B)
+- Copy the `https://....ngrok-free.app` URL + your path (e.g. `/webhook/cursor`).
 ```
 ngrok http 5000
 ```
-- **Expected:** Line like `Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000`.
+- **Expected:** Public HTTPS URL you can paste into agent JSON.
 
 <!--
 Now for Step 2 (cont.).
@@ -12738,56 +12338,13 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.5 — Step 2 (cont.).
 
-Step 2: Terminal B: start ngrok.
+Step 2: Start ngrok (Terminal B).
 
-Bullet 1 on the slide: New PowerShell window:.
+Bullet 1 on the slide: Copy the https://....ngrok-free.app URL + your path (e.g. /webhook/cursor).
 
-Bullet 2 on the slide: Expected: Line like Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000.
+Bullet 2 on the slide: Expected: Public HTTPS URL you can paste into agent JSON.
 
 The code on the slide reads: ngrok http 5000.
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
-
-HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
--->
-
----
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 8.5 — Steps 3–4 (cont.)
-
-**Step 3:** Copy HTTPS URL
-- Copy the `https://....ngrok-free.app` URL; append your path, e.g. `/webhook/cursor`.
-- **Expected:** Full webhook URL ready for agent create JSON.
-
-**Step 4:** Create agent with webhook
-- POST `/v1/agents` with `webhookUrl` set to your ngrok URL (use `curl.exe` pattern from 8.1).
-- **Expected:** Agent starts; your Flask terminal prints an incoming POST.
-
-<!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Copy HTTPS URL.
-
-Step 4: Create agent with webhook.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.5 — Steps 3–4 (cont.).
-
-Bullet 1 on the slide: Copy the https://....ngrok-free.app URL; append your path, e.g. /webhook/cursor.
-
-Bullet 2 on the slide: Expected: Full webhook URL ready for agent create JSON.
-
-Bullet 3 on the slide: POST /v1/agents with webhookUrl set to your ngrok URL (use curl.exe pattern from 8.1).
-
-Bullet 4 on the slide: Expected: Agent starts; your Flask terminal prints an incoming POST.
 
 Terms on this slide — quick definitions for the room:
 
@@ -12799,6 +12356,8 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
 
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
 JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
@@ -12809,30 +12368,40 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 
 <!-- _class: fit-md -->
 
-## Exercise 8.5 — Step 5 (cont.)
+## Exercise 8.5 — Step 3 (cont.)
 
-**Step 5:** Inspect in ngrok UI
-- Open [http://127.0.0.1:4040](http://127.0.0.1:4040) in the browser.
-- **Expected:** Request list shows POST body and headers (including signature header).
+**Step 3:** Trigger a webhook
+- Create a cloud agent (8.1 pattern) with `"webhookUrl": "https://YOUR-NGROK-URL/webhook/cursor"` in the JSON body.
+- **Expected:** Terminal A prints an incoming POST; [http://127.0.0.1:4040](http://127.0.0.1:4040) shows the request.
 
 <!--
-Now for Step 5 (cont.).
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.5 — Step 5 (cont.).
+The slide title is: Exercise 8.5 — Step 3 (cont.).
 
-Step 5: Inspect in ngrok UI.
+Step 3: Trigger a webhook.
 
-Bullet 1 on the slide: Open [http://127.0.0.1:4040](http://127.0.0.1:4040) in the browser.
+Bullet 1 on the slide: Create a cloud agent (8.1 pattern) with "webhookUrl": "https://YOUR-NGROK-URL/webhook/cursor" in the JSON body.
 
-Bullet 2 on the slide: Expected: Request list shows POST body and headers (including signature header).
+Bullet 2 on the slide: Expected: Terminal A prints an incoming POST; [http://127.0.0.1:4040](http://127.0.0.1:4040) shows the request.
 
 Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
 ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
 
 HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -12842,7 +12411,7 @@ HTTP stands for Hypertext Transfer Protocol — the request/response protocol br
 
 ## Exercise 8.5 — Success criteria
 
-**Check:** Tunnel up · webhook received · verified or logged signature · inspected in ngrok UI
+**Check:** ngrok tunnel up · webhook received once
 
 <!--
 Now for Success criteria.
@@ -12851,7 +12420,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 8.5 — Success criteria.
 
-The slide says: Check: Tunnel up · webhook received · verified or logged signature · inspected in ngrok UI.
+The slide says: Check: ngrok tunnel up · webhook received once.
 
 Terms on this slide — quick definitions for the room:
 
@@ -13246,11 +12815,11 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Set Admin API key
+**Step 1:** Set Admin key
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
 ```
-- **Expected:** Key set for this session only.
+- **Expected:** Variable set for this session.
 
 <!--
 We are starting Exercise 9.1 — List Team Members. We have about 13 min for this lab.
@@ -13261,7 +12830,7 @@ The full lab guide is in slide-exercises/module-09/exercise-9.1-list-team-member
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Set Admin API key.
+Step 1: Set Admin key.
 
 Copy this into the Agent chat: "$env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here""
 
@@ -13271,13 +12840,13 @@ The slide title is: Exercise 9.1 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: Key set for this session only.
+Bullet 1 on the slide: Expected: Variable set for this session.
 
 The code on the slide reads: $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here".
 
 Terms on this slide — quick definitions for the room:
 
-An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
@@ -13287,12 +12856,12 @@ An Admin API Key is org-wide — for team membership, usage analytics, and spend
 
 ## Exercise 9.1 — Step 2 (cont.)
 
-**Step 2:** List team members
+**Step 2:** List members
 ```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   https://api.cursor.com/v1/teams/members | ConvertFrom-Json
 ```
-- **Expected:** `200` and member records (emails, roles, etc.).
+- **Expected:** `200` and a list of team members.
 
 <!--
 Now for Step 2 (cont.).
@@ -13301,9 +12870,9 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.1 — Step 2 (cont.).
 
-Step 2: List team members.
+Step 2: List members.
 
-Bullet 1 on the slide: Expected: 200 and member records (emails, roles, etc.).
+Bullet 1 on the slide: Expected: 200 and a list of team members.
 
 The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members | ConvertFrom-Json.
 
@@ -13321,74 +12890,9 @@ API stands for Application Programming Interface — a defined way for programs 
 
 <!-- _class: fit-md -->
 
-## Exercise 9.1 — Step 3 (cont.)
-
-**Step 3:** Pagination
-```powershell
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  "https://api.cursor.com/v1/teams/members?limit=10&offset=0"
-```
-- **Expected:** First page of members; note if more pages needed.
-
-<!--
-Now for Step 3 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 9.1 — Step 3 (cont.).
-
-Step 3: Pagination.
-
-Bullet 1 on the slide: Expected: First page of members; note if more pages needed.
-
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/teams/members?limit=10&offset=0".
-
-Terms on this slide — quick definitions for the room:
-
-Pagination splits large result sets into pages — you walk them with offset and limit or cursor parameters.
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 9.1 — Step 4 (cont.)
-
-**Step 4:** Export to CSV (optional)
-- Use lab guide Python to write `team_roster.csv`.
-- **Expected:** CSV opens in Excel with columns you chose.
-
-<!--
-Now for Step 4 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 9.1 — Step 4 (cont.).
-
-Step 4: Export to CSV (optional).
-
-Bullet 1 on the slide: Use lab guide Python to write team_roster.csv.
-
-Bullet 2 on the slide: Expected: CSV opens in Excel with columns you chose.
-
-Terms on this slide — quick definitions for the room:
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
 ## Exercise 9.1 — Success criteria
 
-**Check:** Admin auth works · listed members · tried pagination
+**Check:** Admin key works · saw member list
 
 <!--
 Now for Success criteria.
@@ -13397,11 +12901,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.1 — Success criteria.
 
-The slide says: Check: Admin auth works · listed members · tried pagination.
-
-Terms on this slide — quick definitions for the room:
-
-Pagination splits large result sets into pages — you walk them with offset and limit or cursor parameters.
+The slide says: Check: Admin key works · saw member list.
 -->
 
 ---
@@ -13475,13 +12975,13 @@ Output tokens are the text the model generates — explanations and code — and
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Date range in PowerShell
+**Step 1:** Last 7 days (PowerShell dates)
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
-Write-Host "Start: $start End: $end"
+Write-Host "$start to $end"
 ```
-- **Expected:** Seven-day window printed (not bash `date -d`).
+- **Expected:** Date range printed.
 
 <!--
 We are starting Exercise 9.2 — Daily Usage Data. We have about 15 min for this lab.
@@ -13492,9 +12992,9 @@ The full lab guide is in slide-exercises/module-09/exercise-9.2-daily-usage-data
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Date range in PowerShell.
+Step 1: Last 7 days (PowerShell dates).
 
-Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "Start: $start End: $end""
+Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "$start to $end""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -13502,9 +13002,9 @@ The slide title is: Exercise 9.2 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: Seven-day window printed (not bash date -d).
+Bullet 1 on the slide: Expected: Date range printed.
 
-The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "Start: $start End: $end".
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "$start to $end".
 
 Terms on this slide — quick definitions for the room:
 
@@ -13518,14 +13018,14 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 9.2 — Step 2 (cont.)
 
-**Step 2:** Fetch daily usage
-- Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape:
+**Step 2:** Fetch usage
+- Call the daily-usage endpoint from your instructor (URL on slides):
 ```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/teams/daily-usage-data?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
-- **Expected:** JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
+- **Expected:** JSON with per-day usage you can read aloud.
 
 <!--
 Now for Step 2 (cont.).
@@ -13534,11 +13034,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.2 — Step 2 (cont.).
 
-Step 2: Fetch daily usage.
+Step 2: Fetch usage.
 
-Bullet 1 on the slide: Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape:.
+Bullet 1 on the slide: Call the daily-usage endpoint from your instructor (URL on slides):.
 
-Bullet 2 on the slide: Expected: JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
+Bullet 2 on the slide: Expected: JSON with per-day usage you can read aloud.
 
 The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/teams/daily-usage-data?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
@@ -13556,36 +13056,26 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 9.2 — Steps 3–4 (cont.)
+## Exercise 9.2 — Step 3 (cont.)
 
-**Step 3:** Interpret one day
-- Pick one date and read tokens, requests, or cost fields shown.
-- **Expected:** You can explain one day’s usage in plain language.
-
-**Step 4:** Optional report script
-- Sketch `generate_cost_report()` outputs (totals, top users) per lab guide.
-- **Expected:** List of metrics you would show a manager.
+**Step 3:** Explain one day
+- Pick one date and describe tokens or cost in plain language.
+- **Expected:** One sentence a manager would understand.
 
 <!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Interpret one day.
-
-Step 4: Optional report script.
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.2 — Steps 3–4 (cont.).
+The slide title is: Exercise 9.2 — Step 3 (cont.).
 
-Bullet 1 on the slide: Pick one date and read tokens, requests, or cost fields shown.
+Step 3: Explain one day.
 
-Bullet 2 on the slide: Expected: You can explain one day’s usage in plain language.
+Bullet 1 on the slide: Pick one date and describe tokens or cost in plain language.
 
-Bullet 3 on the slide: Sketch generate_cost_report() outputs (totals, top users) per lab guide.
-
-Bullet 4 on the slide: Expected: List of metrics you would show a manager.
+Bullet 2 on the slide: Expected: One sentence a manager would understand.
 
 Terms on this slide — quick definitions for the room:
 
@@ -13599,7 +13089,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ## Exercise 9.2 — Success criteria
 
-**Check:** Windows dates · API returned data · explained one day
+**Check:** Dates in PowerShell · data returned · one-day summary
 
 <!--
 Now for Success criteria.
@@ -13608,11 +13098,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.2 — Success criteria.
 
-The slide says: Check: Windows dates · API returned data · explained one day.
-
-Terms on this slide — quick definitions for the room:
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+The slide says: Check: Dates in PowerShell · data returned · one-day summary.
 -->
 
 ---
@@ -13683,12 +13169,12 @@ In the table, `block`: Prevent any further requests for the month.
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Get a user ID
-- From 9.1 member list, copy one `userId` or email identifier.
+**Step 1:** Pick a user ID
+- From Exercise 9.1 output, copy one `userId`:
 ```powershell
 $env:TARGET_USER_ID = "paste_user_id"
 ```
-- **Expected:** ID stored in a variable.
+- **Expected:** ID in a variable.
 
 <!--
 We are starting Exercise 9.3 — Set User Spend Limits. We have about 13 min for this lab.
@@ -13699,7 +13185,7 @@ The full lab guide is in slide-exercises/module-09/exercise-9.3-set-user-spend-l
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Get a user ID.
+Step 1: Pick a user ID.
 
 Copy this into the Agent chat: "$env:TARGET_USER_ID = "paste_user_id""
 
@@ -13709,9 +13195,9 @@ The slide title is: Exercise 9.3 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: From 9.1 member list, copy one userId or email identifier.
+Bullet 1 on the slide: From Exercise 9.1 output, copy one userId:.
 
-Bullet 2 on the slide: Expected: ID stored in a variable.
+Bullet 2 on the slide: Expected: ID in a variable.
 
 The code on the slide reads: $env:TARGET_USER_ID = "paste_user_id".
 
@@ -13727,67 +13213,38 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 9.3 — Steps 2–3 (cont.)
 
-**Step 2:** Set spend limit
-- Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
-- **Expected:** `200`/`204` or clear validation message.
+**Step 2:** Set a limit (follow instructor URL)
+- Use the spend-limit API from slides/lab guide (POST or PATCH with a monthly cap).
+- **Expected:** `200`/`204` or a clear error you can fix.
 
-**Step 3:** Verify in dashboard
-- Open team admin UI → member → spending limit.
-- **Expected:** UI matches the limit you set (may take a minute).
+**Step 3:** Confirm in admin UI
+- Open team settings → member → spending.
+- **Expected:** Limit matches what you set.
 
 <!--
 Now for Steps 2–3 (cont.).
 
-Step 2: Set spend limit.
+Step 2: Set a limit (follow instructor URL).
 
-Step 3: Verify in dashboard.
+Step 3: Confirm in admin UI.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.3 — Steps 2–3 (cont.).
 
-Bullet 1 on the slide: Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
+Bullet 1 on the slide: Use the spend-limit API from slides/lab guide (POST or PATCH with a monthly cap).
 
-Bullet 2 on the slide: Expected: 200/204 or clear validation message.
+Bullet 2 on the slide: Expected: 200/204 or a clear error you can fix.
 
-Bullet 3 on the slide: Open team admin UI → member → spending limit.
+Bullet 3 on the slide: Open team settings → member → spending.
 
-Bullet 4 on the slide: Expected: UI matches the limit you set (may take a minute).
+Bullet 4 on the slide: Expected: Limit matches what you set.
 
 Terms on this slide — quick definitions for the room:
-
-A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
 
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 9.3 — Step 4 (cont.)
-
-**Step 4:** Bulk CSV format (discussion)
-- Review CSV columns: `email, monthly_limit_usd` from slides.
-- **Expected:** You could automate onboarding limits from HR export.
-
-<!--
-Now for Step 4 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 9.3 — Step 4 (cont.).
-
-Step 4: Bulk CSV format (discussion).
-
-Bullet 1 on the slide: Review CSV columns: email, monthly_limit_usd from slides.
-
-Bullet 2 on the slide: Expected: You could automate onboarding limits from HR export.
-
-Terms on this slide — quick definitions for the room:
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
@@ -13797,7 +13254,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ## Exercise 9.3 — Success criteria
 
-**Check:** Set one limit · verified · understand bulk pattern
+**Check:** Set one limit · verified in UI
 
 <!--
 Now for Success criteria.
@@ -13806,7 +13263,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.3 — Success criteria.
 
-The slide says: Check: Set one limit · verified · understand bulk pattern.
+The slide says: Check: Set one limit · verified in UI.
 -->
 
 ---
@@ -13879,12 +13336,11 @@ The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Date range
+**Step 1:** Date range (30 days)
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
 ```
-- **Expected:** 30-day window for analytics.
 
 <!--
 We are starting Exercise 9.4 — Model Usage Analytics. We have about 13 min for this lab.
@@ -13895,7 +13351,7 @@ The full lab guide is in slide-exercises/module-09/exercise-9.4-model-usage-anal
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Date range.
+Step 1: Date range (30 days).
 
 Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")"
 
@@ -13904,10 +13360,6 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 The slide title is: Exercise 9.4 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
-
-Step 1: Date range.
-
-Bullet 1 on the slide: Expected: 30-day window for analytics.
 
 The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd").
 
@@ -13924,13 +13376,12 @@ API stands for Application Programming Interface — a defined way for programs 
 ## Exercise 9.4 — Step 2 (cont.)
 
 **Step 2:** Fetch model usage
-- Call team model-usage endpoint from lab guide:
 ```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/team/models?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
-- **Expected:** Per-model token or cost breakdown (field names per API response).
+- **Expected:** Per-model usage you can scan in the console.
 
 <!--
 Now for Step 2 (cont.).
@@ -13941,17 +13392,13 @@ The slide title is: Exercise 9.4 — Step 2 (cont.).
 
 Step 2: Fetch model usage.
 
-Bullet 1 on the slide: Call team model-usage endpoint from lab guide:.
-
-Bullet 2 on the slide: Expected: Per-model token or cost breakdown (field names per API response).
+Bullet 1 on the slide: Expected: Per-model usage you can scan in the console.
 
 The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/models?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 
 JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
@@ -13961,40 +13408,26 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 9.4 — Steps 3–4 (cont.)
+## Exercise 9.4 — Step 3 (cont.)
 
-**Step 3:** Find top model
-- Identify highest-cost or highest-token model.
-- **Expected:** One model name + number you can cite.
-
-**Step 4:** Optimization idea
-- Write two bullets: what to change if costs are too high.
-- **Expected:** Actionable suggestions (cheaper model for simple tasks, etc.).
+**Step 3:** One optimization
+- Name the **top** model and one way to reduce cost (e.g. cheaper model for small tasks).
+- **Expected:** Model name + one actionable tip.
 
 <!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Find top model.
-
-Step 4: Optimization idea.
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.4 — Steps 3–4 (cont.).
+The slide title is: Exercise 9.4 — Step 3 (cont.).
 
-Bullet 1 on the slide: Identify highest-cost or highest-token model.
+Step 3: One optimization.
 
-Bullet 2 on the slide: Expected: One model name + number you can cite.
+Bullet 1 on the slide: Name the top model and one way to reduce cost (e.g. cheaper model for small tasks).
 
-Bullet 3 on the slide: Write two bullets: what to change if costs are too high.
-
-Bullet 4 on the slide: Expected: Actionable suggestions (cheaper model for simple tasks, etc.).
-
-Terms on this slide — quick definitions for the room:
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+Bullet 2 on the slide: Expected: Model name + one actionable tip.
 -->
 
 ---
@@ -14004,7 +13437,7 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 
 ## Exercise 9.4 — Success criteria
 
-**Check:** Retrieved analytics · named top model · one optimization
+**Check:** Data retrieved · one optimization idea
 
 <!--
 Now for Success criteria.
@@ -14013,7 +13446,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.4 — Success criteria.
 
-The slide says: Check: Retrieved analytics · named top model · one optimization.
+The slide says: Check: Data retrieved · one optimization idea.
 -->
 
 ---
@@ -14128,17 +13561,21 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 9.5 — Step 1
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Date range (7 days)
+**Step 1:** Fetch DAU (7 days)
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
 ```
+- **Expected:** Daily active user counts.
 
 <!--
 We are starting Exercise 9.5 — Daily Active Users (DAU). We have about 10 min for this lab.
@@ -14149,9 +13586,7 @@ The full lab guide is in slide-exercises/module-09/exercise-9.5-daily-active-use
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Date range (7 days).
-
-Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")"
+Step 1: Fetch DAU (7 days).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -14159,40 +13594,9 @@ The slide title is: Exercise 9.5 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd").
+Bullet 1 on the slide: Expected: Daily active user counts.
 
-Terms on this slide — quick definitions for the room:
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 9.5 — Step 2 (cont.)
-
-**Step 2:** Fetch DAU
-```powershell
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |
-  ConvertFrom-Json
-```
-- **Expected:** Daily active user counts per day.
-
-<!--
-Now for Step 2 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 9.5 — Step 2 (cont.).
-
-Step 2: Fetch DAU.
-
-Bullet 1 on the slide: Expected: Daily active user counts per day.
-
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |   ConvertFrom-Json.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
@@ -14210,24 +13614,24 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 
 <!-- _class: fit-md -->
 
-## Exercise 9.5 — Step 3 (cont.)
+## Exercise 9.5 — Step 2 (cont.)
 
-**Step 3:** Trend
-- State whether DAU went up, down, or flat across the week.
-- **Expected:** One-sentence trend for leadership.
+**Step 2:** Trend in one sentence
+- Say if DAU went **up**, **down**, or **flat** this week.
+- **Expected:** One line for leadership.
 
 <!--
-Now for Step 3 (cont.).
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.5 — Step 3 (cont.).
+The slide title is: Exercise 9.5 — Step 2 (cont.).
 
-Step 3: Trend.
+Step 2: Trend in one sentence.
 
-Bullet 1 on the slide: State whether DAU went up, down, or flat across the week.
+Bullet 1 on the slide: Say if DAU went up, down, or flat this week.
 
-Bullet 2 on the slide: Expected: One-sentence trend for leadership.
+Bullet 2 on the slide: Expected: One line for leadership.
 
 Terms on this slide — quick definitions for the room:
 
@@ -14241,7 +13645,7 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 
 ## Exercise 9.5 — Success criteria
 
-**Check:** DAU data retrieved · trend stated
+**Check:** DAU data · trend stated
 
 <!--
 Now for Success criteria.
@@ -14250,7 +13654,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.5 — Success criteria.
 
-The slide says: Check: DAU data retrieved · trend stated.
+The slide says: Check: DAU data · trend stated.
 
 Terms on this slide — quick definitions for the room:
 
@@ -14346,7 +13750,7 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/team/leaderboard?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
-- **Expected:** Ranked users by chosen metric (tokens, accepts, etc.).
+- **Expected:** Ranked usage data.
 
 <!--
 We are starting Exercise 9.6 — Leaderboards. We have about 11 min for this lab.
@@ -14365,15 +13769,13 @@ The slide title is: Exercise 9.6 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: Ranked users by chosen metric (tokens, accepts, etc.).
+Bullet 1 on the slide: Expected: Ranked usage data.
 
 The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/leaderboard?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 
 JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
@@ -14383,40 +13785,26 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 9.6 — Steps 2–3 (cont.)
+## Exercise 9.6 — Step 2 (cont.)
 
-**Step 2:** Privacy
-- Discuss anonymizing emails before showing leaderboard company-wide.
-- **Expected:** Policy: hash or redact emails in exported reports.
-
-**Step 3:** Use case
-- One appropriate use (adoption champion) and one inappropriate use (public shaming).
-- **Expected:** Two clear examples.
+**Step 2:** Privacy and purpose
+- Give one **good** use (adoption coaching) and one **bad** use (public shaming); mention anonymizing emails.
+- **Expected:** Two examples + privacy note.
 
 <!--
-Now for Steps 2–3 (cont.).
-
-Step 2: Privacy.
-
-Step 3: Use case.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.6 — Steps 2–3 (cont.).
+The slide title is: Exercise 9.6 — Step 2 (cont.).
 
-Step 2: Privacy.
+Step 2: Privacy and purpose.
 
-Step 3: Use case.
+Bullet 1 on the slide: Give one good use (adoption coaching) and one bad use (public shaming); mention anonymizing emails.
 
-Bullet 1 on the slide: Discuss anonymizing emails before showing leaderboard company-wide.
-
-Bullet 2 on the slide: Expected: Policy: hash or redact emails in exported reports.
-
-Bullet 3 on the slide: One appropriate use (adoption champion) and one inappropriate use (public shaming).
-
-Bullet 4 on the slide: Expected: Two clear examples.
+Bullet 2 on the slide: Expected: Two examples + privacy note.
 -->
 
 ---
@@ -14426,7 +13814,7 @@ Bullet 4 on the slide: Expected: Two clear examples.
 
 ## Exercise 9.6 — Success criteria
 
-**Check:** Leaderboard data · privacy discussion · use cases
+**Check:** Leaderboard data · responsible use discussed
 
 <!--
 Now for Success criteria.
@@ -14435,7 +13823,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 9.6 — Success criteria.
 
-The slide says: Check: Leaderboard data · privacy discussion · use cases.
+The slide says: Check: Leaderboard data · responsible use discussed.
 -->
 
 ---
@@ -14900,17 +14288,21 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-md -->
+<!-- _class: fit-sm -->
 
 ## Exercise 10.1 — Step 1
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Date range (30 days)
+**Step 1:** Fetch AI commit metrics (30 days)
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
 ```
+- **Expected:** Summary with AI vs human commit fields.
 
 <!--
 We are starting Exercise 10.1 — AI Commit Metrics. We have about 8 min for this lab.
@@ -14921,9 +14313,7 @@ The full lab guide is in slide-exercises/module-10/exercise-10.1-ai-commit-metri
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Date range (30 days).
-
-Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")"
+Step 1: Fetch AI commit metrics (30 days).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -14931,42 +14321,13 @@ The slide title is: Exercise 10.1 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd").
+Bullet 1 on the slide: Expected: Summary with AI vs human commit fields.
+
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 10.1 — Step 2 (cont.)
-
-**Step 2:** Fetch commit metrics
-```powershell
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |
-  ConvertFrom-Json
-```
-- **Expected:** Summary with AI vs human commit stats (field names per response).
-
-<!--
-Now for Step 2 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 10.1 — Step 2 (cont.).
-
-Step 2: Fetch commit metrics.
-
-Bullet 1 on the slide: Expected: Summary with AI vs human commit stats (field names per response).
-
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |   ConvertFrom-Json.
-
-Terms on this slide — quick definitions for the room:
+AI commit metrics track how much committed code came from AI assistance versus human-only edits.
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
@@ -14978,42 +14339,26 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 10.1 — Steps 3–4 (cont.)
+## Exercise 10.1 — Step 2 (cont.)
 
-**Step 3:** Calculate AI percentage
-- Compute `(ai_commits / total_commits) * 100` from summary fields.
-- **Expected:** One percentage you can state aloud.
-
-**Step 4:** ROI discussion
-- List inputs for ROI: lines saved, hourly cost, API spend (qualitative OK).
-- **Expected:** Simple ROI story for a manager.
+**Step 2:** State AI percentage
+- Compute or read `(AI commits / total commits) × 100` from the response.
+- **Expected:** One percentage you can say aloud.
 
 <!--
-Now for Steps 3–4 (cont.).
-
-Step 3: Calculate AI percentage.
-
-Step 4: ROI discussion.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.1 — Steps 3–4 (cont.).
+The slide title is: Exercise 10.1 — Step 2 (cont.).
 
-Bullet 1 on the slide: Compute (ai_commits / total_commits) * 100 from summary fields.
+Step 2: State AI percentage.
 
-Bullet 2 on the slide: Expected: One percentage you can state aloud.
+Bullet 1 on the slide: Compute or read (AI commits / total commits) × 100 from the response.
 
-Bullet 3 on the slide: List inputs for ROI: lines saved, hourly cost, API spend (qualitative OK).
-
-Bullet 4 on the slide: Expected: Simple ROI story for a manager.
-
-Terms on this slide — quick definitions for the room:
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
+Bullet 2 on the slide: Expected: One percentage you can say aloud.
 -->
 
 ---
@@ -15023,7 +14368,7 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 
 ## Exercise 10.1 — Success criteria
 
-**Check:** Metrics fetched · AI % calculated · ROI narrative
+**Check:** Metrics fetched · AI % stated
 
 <!--
 Now for Success criteria.
@@ -15032,11 +14377,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.1 — Success criteria.
 
-The slide says: Check: Metrics fetched · AI % calculated · ROI narrative.
-
-Terms on this slide — quick definitions for the room:
-
-ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
+The slide says: Check: Metrics fetched · AI % stated.
 -->
 
 ---
@@ -15150,7 +14491,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Stream CSV download
+**Step 1:** Download CSV
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
@@ -15158,7 +14499,7 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/ai-code/commits.csv?startDate=$start&endDate=$end" `
   -o cursor_commits_export.csv
 ```
-- **Expected:** File `cursor_commits_export.csv` created in current directory.
+- **Expected:** File `cursor_commits_export.csv` in the current folder.
 
 <!--
 We are starting Exercise 10.2 — Bulk Export via CSV Streaming. We have about 7 min for this lab.
@@ -15169,7 +14510,7 @@ The full lab guide is in slide-exercises/module-10/exercise-10.2-bulk-export-via
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Stream CSV download.
+Step 1: Download CSV.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -15177,7 +14518,7 @@ The slide title is: Exercise 10.2 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: File cursor_commits_export.csv created in current directory.
+Bullet 1 on the slide: Expected: File cursor_commits_export.csv in the current folder.
 
 The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/commits.csv?startDate=$start&endDate=$end" `   -o cursor_commits_export.csv.
 
@@ -15193,40 +14534,33 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 10.2 — Steps 2–3 (cont.)
+## Exercise 10.2 — Step 2 (cont.)
 
-**Step 2:** Preview rows
+**Step 2:** Preview and open
+- Open the file in Excel.
 ```
-Get-Content .\cursor_commits_export.csv -Head 10
+Get-Content ./cursor_commits_export.csv -Head 5
 ```
-- **Expected:** Header row + data rows visible in PowerShell.
-
-**Step 3:** Open in Excel
-- Double-click CSV or **Open with** Excel.
-- **Expected:** Columns sortable; suitable for pivot tables.
+- **Expected:** Header row + data; columns sortable.
 
 <!--
-Now for Steps 2–3 (cont.).
+Now for Step 2 (cont.).
 
-Step 2: Preview rows.
-
-Step 3: Open in Excel.
-
-Copy this into the Agent chat: "Get-Content .\cursor_commits_export.csv -Head 10"
+Copy this into the Agent chat: "Get-Content ./cursor_commits_export.csv -Head 5"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.2 — Steps 2–3 (cont.).
+The slide title is: Exercise 10.2 — Step 2 (cont.).
 
-Bullet 1 on the slide: Expected: Header row + data rows visible in PowerShell.
+Step 2: Preview and open.
 
-Bullet 2 on the slide: Double-click CSV or Open with Excel.
+Bullet 1 on the slide: Open the file in Excel.
 
-Bullet 3 on the slide: Expected: Columns sortable; suitable for pivot tables.
+Bullet 2 on the slide: Expected: Header row + data; columns sortable.
 
-The code on the slide reads: Get-Content .\cursor_commits_export.csv -Head 10.
+The code on the slide reads: Get-Content ./cursor_commits_export.csv -Head 5.
 
 Terms on this slide — quick definitions for the room:
 
@@ -15240,7 +14574,7 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 ## Exercise 10.2 — Success criteria
 
-**Check:** CSV downloaded · previewed · opened in spreadsheet tool
+**Check:** CSV saved · opened in a spreadsheet
 
 <!--
 Now for Success criteria.
@@ -15249,7 +14583,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.2 — Success criteria.
 
-The slide says: Check: CSV downloaded · previewed · opened in spreadsheet tool.
+The slide says: Check: CSV saved · opened in a spreadsheet.
 
 Terms on this slide — quick definitions for the room:
 
@@ -15342,7 +14676,7 @@ The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Fetch change events
+**Step 1:** Fetch change events (7 days)
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
@@ -15350,7 +14684,7 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/ai-code/changes?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
-- **Expected:** List of granular edit events (file, lines, model, accepted flag).
+- **Expected:** List of per-edit events (file, model, accepted, etc.).
 
 <!--
 We are starting Exercise 10.3 — Granular AI Change Events. We have about 7 min for this lab.
@@ -15361,7 +14695,7 @@ The full lab guide is in slide-exercises/module-10/exercise-10.3-granular-ai-cha
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Fetch change events.
+Step 1: Fetch change events (7 days).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -15369,7 +14703,7 @@ The slide title is: Exercise 10.3 — Step 1.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Expected: List of granular edit events (file, lines, model, accepted flag).
+Bullet 1 on the slide: Expected: List of per-edit events (file, model, accepted, etc.).
 
 The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/changes?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
@@ -15385,42 +14719,26 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-<!-- _class: fit-sm -->
+<!-- _class: fit-md -->
 
-## Exercise 10.3 — Steps 2–3 (cont.)
+## Exercise 10.3 — Step 2 (cont.)
 
-**Step 2:** Acceptance rate
-- From one page of data, estimate accepted vs rejected ratio.
-- **Expected:** Rough acceptance percentage.
-
-**Step 3:** Compliance use case
-- Name one audit question this API can answer.
-- **Expected:** e.g. “Which AI model edited file X on date Y?”
+**Step 2:** Compliance question
+- Name one audit question this data answers (e.g. “What AI model touched file X?”).
+- **Expected:** One clear compliance or governance use case.
 
 <!--
-Now for Steps 2–3 (cont.).
-
-Step 2: Acceptance rate.
-
-Step 3: Compliance use case.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.3 — Steps 2–3 (cont.).
+The slide title is: Exercise 10.3 — Step 2 (cont.).
 
-Bullet 1 on the slide: From one page of data, estimate accepted vs rejected ratio.
+Step 2: Compliance question.
 
-Bullet 2 on the slide: Expected: Rough acceptance percentage.
+Bullet 1 on the slide: Name one audit question this data answers (e.g. “What AI model touched file X?”).
 
-Bullet 3 on the slide: Name one audit question this API can answer.
-
-Bullet 4 on the slide: Expected: e.g. “Which AI model edited file X on date Y?”.
-
-Terms on this slide — quick definitions for the room:
-
-Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+Bullet 2 on the slide: Expected: One clear compliance or governance use case.
 -->
 
 ---
@@ -15430,7 +14748,7 @@ API stands for Application Programming Interface — a defined way for programs 
 
 ## Exercise 10.3 — Success criteria
 
-**Check:** Events retrieved · acceptance discussed · compliance example
+**Check:** Events retrieved · one audit use case
 
 <!--
 Now for Success criteria.
@@ -15439,7 +14757,7 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.3 — Success criteria.
 
-The slide says: Check: Events retrieved · acceptance discussed · compliance example.
+The slide says: Check: Events retrieved · one audit use case.
 -->
 
 ---
@@ -15484,13 +14802,13 @@ The slide says: Lab guide: [Exercise 10.4](../slide-exercises/module-10/exercise
 
 **Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Step 1:** Review architecture options
-- Read the slide table: Streamlit vs Metabase vs custom frontend.
-- **Expected:** You pick one option and justify for a small team.
+**Step 1:** Pick a dashboard approach
+- Choose one: **Streamlit** (fast Python), **Metabase** (BI), or **custom** — one reason why.
+- **Expected:** One choice + one sentence justification.
 
-**Step 2:** Define five panels
-- List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
-- **Expected:** Each panel maps to an API from modules 9–10.
+**Step 2:** Map five panels to APIs
+- List five panels (e.g. DAU, model mix, AI %, spend, top users) and which Module 9–10 API feeds each.
+- **Expected:** Five rows: panel name → API endpoint family.
 
 <!--
 We are starting Exercise 10.4 — Reporting Dashboard Architecture. We have about Take-home for this lab.
@@ -15501,9 +14819,9 @@ The full lab guide is in slide-exercises/module-10/exercise-10.4-reporting-dashb
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Review architecture options.
+Step 1: Pick a dashboard approach.
 
-Step 2: Define five panels.
+Step 2: Map five panels to APIs.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -15511,19 +14829,21 @@ The slide title is: Exercise 10.4 — Steps 1–2.
 
 The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Bullet 1 on the slide: Read the slide table: Streamlit vs Metabase vs custom frontend.
+Bullet 1 on the slide: Choose one: Streamlit (fast Python), Metabase (BI), or custom — one reason why.
 
-Bullet 2 on the slide: Expected: You pick one option and justify for a small team.
+Bullet 2 on the slide: Expected: One choice + one sentence justification.
 
-Bullet 3 on the slide: List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
+Bullet 3 on the slide: List five panels (e.g. DAU, model mix, AI %, spend, top users) and which Module 9–10 API feeds each.
 
-Bullet 4 on the slide: Expected: Each panel maps to an API from modules 9–10.
+Bullet 4 on the slide: Expected: Five rows: panel name → API endpoint family.
 
 Terms on this slide — quick definitions for the room:
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+
+BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
@@ -15533,9 +14853,9 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 
 ## Exercise 10.4 — Step 3 (cont.)
 
-**Step 3:** Data flow
-- Sketch: nightly CSV export → database → dashboard refresh.
-- **Expected:** One diagram or bullet pipeline.
+**Step 3:** Data flow (take-home)
+- Sketch: nightly **CSV export** → database or folder → dashboard refresh.
+- **Expected:** Three-step pipeline in bullets (detail optional in **Detailed reference**).
 
 <!--
 Now for Step 3 (cont.).
@@ -15544,11 +14864,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.4 — Step 3 (cont.).
 
-Step 3: Data flow.
+Step 3: Data flow (take-home).
 
-Bullet 1 on the slide: Sketch: nightly CSV export → database → dashboard refresh.
+Bullet 1 on the slide: Sketch: nightly CSV export → database or folder → dashboard refresh.
 
-Bullet 2 on the slide: Expected: One diagram or bullet pipeline.
+Bullet 2 on the slide: Expected: Three-step pipeline in bullets (detail optional in Detailed reference).
 
 Terms on this slide — quick definitions for the room:
 
@@ -15560,70 +14880,9 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 
 <!-- _class: fit-md -->
 
-## Exercise 10.4 — Step 4 (cont.)
-
-**Step 4:** Windows setup for Streamlit (take-home)
-```
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install streamlit pandas requests
-streamlit run dashboard.py
-```
-- **Expected:** Local dashboard URL opens in browser (when `dashboard.py` exists).
-
-<!--
-Now for Step 4 (cont.).
-
-Copy this into the Agent chat: "python -m venv .venv .\.venv\Scripts\Activate.ps1 pip install streamlit pandas requests streamlit run dashboard.py"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 10.4 — Step 4 (cont.).
-
-Step 4: Windows setup for Streamlit (take-home).
-
-Bullet 1 on the slide: Expected: Local dashboard URL opens in browser (when dashboard.py exists).
-
-The code on the slide reads: python -m venv .venv .\.venv\Scripts\Activate.ps1 pip install streamlit pandas requests streamlit run dashboard.py.
-
-Terms on this slide — quick definitions for the room:
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
-## Exercise 10.4 — Step 5 (cont.)
-
-**Step 5:** Deliverables checklist
-- Note deliverables: working demo, setup doc, one insight, export script.
-- **Expected:** Take-home scope is clear.
-
-<!--
-Now for Step 5 (cont.).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 10.4 — Step 5 (cont.).
-
-Step 5: Deliverables checklist.
-
-Bullet 1 on the slide: Note deliverables: working demo, setup doc, one insight, export script.
-
-Bullet 2 on the slide: Expected: Take-home scope is clear.
--->
-
----
-
-
-<!-- _class: fit-md -->
-
 ## Exercise 10.4 — Success criteria
 
-**Check:** Architecture choice · five panels · data flow · optional Streamlit run
+**Check:** Tool choice · five panels mapped · data flow sketched
 
 <!--
 Now for Success criteria.
@@ -15632,5 +14891,5 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 10.4 — Success criteria.
 
-The slide says: Check: Architecture choice · five panels · data flow · optional Streamlit run.
+The slide says: Check: Tool choice · five panels mapped · data flow sketched.
 -->

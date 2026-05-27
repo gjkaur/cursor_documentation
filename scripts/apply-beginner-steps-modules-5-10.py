@@ -403,8 +403,23 @@ def _load_part2() -> dict[str, str]:
     return ns["STEPS_PART2"]
 
 
+def _load_easy_7_10() -> dict[str, str]:
+    from _module_7_10_easy_steps import build_steps as _bs
+
+    api = (
+        "**Environment:** Windows · PowerShell · **`curl.exe`** · keys in `$env:` only.\n\n"
+        "```powershell\n$env:CURSOR_USER_API_KEY = \"cursor_your_key_here\"\n"
+        '$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"\n```\n\n'
+        "Follow each step. Confirm **Expected result** before continuing.\n"
+    )
+    return _bs(api, api, CLOUD_UI, _steps)
+
+
 def apply_all() -> int:
-    all_steps = {**STEPS, **_load_part2()}
+    part2 = _load_part2()
+    for k, v in _load_easy_7_10().items():
+        part2[k] = v
+    all_steps = {**STEPS, **part2}
     updated = 0
     for rel, new_block in sorted(all_steps.items()):
         path = SE / rel

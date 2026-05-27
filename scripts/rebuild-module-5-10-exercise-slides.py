@@ -86,14 +86,16 @@ def _long_code(step: dict) -> bool:
     return any(len(c.splitlines()) > 7 for c in step.get("codes", []))
 
 
-def _chunk_steps(steps: list[dict]) -> list[list[dict]]:
+def _chunk_steps(steps: list[dict], mod: int = 0) -> list[list[dict]]:
+    """Pack steps onto slides; modules 7–10 use tighter limits (fewer steps per slide)."""
+    max_pair_weight = 8 if mod >= 7 else 10
     chunks: list[list[dict]] = []
     i = 0
     while i < len(steps):
         solo = _long_code(steps[i])
         if not solo and i + 1 < len(steps):
             pair_w = _step_weight(steps[i]) + _step_weight(steps[i + 1])
-            solo = pair_w > 10 or _long_code(steps[i + 1])
+            solo = pair_w > max_pair_weight or _long_code(steps[i + 1])
         if solo or i + 1 >= len(steps):
             chunks.append([steps[i]])
             i += 1
@@ -137,7 +139,7 @@ def _build_exercise_slides(
     if not steps:
         return []
     out: list[str] = []
-    chunks = _chunk_steps(steps)
+    chunks = _chunk_steps(steps, mod)
     for idx, part in enumerate(chunks):
         n0, n1 = part[0]["n"], part[-1]["n"]
         cont = " (cont.)" if idx else ""

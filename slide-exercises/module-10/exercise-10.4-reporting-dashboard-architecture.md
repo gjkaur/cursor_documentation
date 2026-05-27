@@ -11,74 +11,49 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows · **Cursor app** + web browser (Edge or Chrome)
+**Environment:** Windows · **Cursor app** + browser (Edge or Chrome).
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Review architecture options
+### Step 1 — Pick a dashboard approach
 
-**Do this:** Read the slide table: Streamlit vs Metabase vs custom frontend.
+**Do this:** Choose one: **Streamlit** (fast Python), **Metabase** (BI), or **custom** — one reason why.
 
-**Expected result:** You pick one option and justify for a small team.
-
----
-
-### Step 2 — Define five panels
-
-**Do this:** List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
-
-**Expected result:** Each panel maps to an API from modules 9–10.
+**Expected result:** One choice + one sentence justification.
 
 ---
 
-### Step 3 — Data flow
+### Step 2 — Map five panels to APIs
 
-**Do this:** Sketch: nightly CSV export → database → dashboard refresh.
+**Do this:** List five panels (e.g. DAU, model mix, AI %, spend, top users) and which Module 9–10 API feeds each.
 
-**Expected result:** One diagram or bullet pipeline.
-
----
-
-### Step 4 — Windows setup for Streamlit (take-home)
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install streamlit pandas requests
-streamlit run dashboard.py
-```
-
-**Expected result:** Local dashboard URL opens in browser (when `dashboard.py` exists).
+**Expected result:** Five rows: panel name → API endpoint family.
 
 ---
 
-### Step 5 — Deliverables checklist
+### Step 3 — Data flow (take-home)
 
-**Do this:** Note deliverables: working demo, setup doc, one insight, export script.
+**Do this:** Sketch: nightly **CSV export** → database or folder → dashboard refresh.
 
-**Expected result:** Take-home scope is clear.
+**Expected result:** Three-step pipeline in bullets (detail optional in **Detailed reference**).
 
-**Success criteria:** Architecture choice · five panels · data flow · optional Streamlit run
+**Success criteria:** Tool choice · five panels mapped · data flow sketched
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

@@ -11,80 +11,48 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Set Admin API key
-
-**Do this:**
+### Step 1 — Set Admin key
 
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
 ```
 
-**Expected result:** Key set for this session only.
+**Expected result:** Variable set for this session.
 
 ---
 
-### Step 2 — List team members
-
-**Do this:**
+### Step 2 — List members
 
 ```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   https://api.cursor.com/v1/teams/members | ConvertFrom-Json
 ```
 
-**Expected result:** `200` and member records (emails, roles, etc.).
+**Expected result:** `200` and a list of team members.
 
----
-
-### Step 3 — Pagination
-
-**Do this:**
-
-```powershell
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  "https://api.cursor.com/v1/teams/members?limit=10&offset=0"
-```
-
-**Expected result:** First page of members; note if more pages needed.
-
----
-
-### Step 4 — Export to CSV (optional)
-
-**Do this:** Use lab guide Python to write `team_roster.csv`.
-
-**Expected result:** CSV opens in Excel with columns you chose.
-
-**Success criteria:** Admin auth works · listed members · tried pagination
+**Success criteria:** Admin key works · saw member list
 ---
 
 ## Success criteria
@@ -92,6 +60,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 - [ ] Authenticated · listed members · handled pagination · exported CSV
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

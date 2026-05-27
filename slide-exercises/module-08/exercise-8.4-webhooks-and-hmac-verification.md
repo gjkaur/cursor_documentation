@@ -11,68 +11,51 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Understand the webhook flow
+### Step 1 — Webhook flow (30 seconds)
 
-**Do this:** Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
+**Do this:** Finish this sentence: “When the agent finishes, Cursor sends an HTTPS **POST** to my URL with a signed body; I verify **HMAC** and return **200**.”
 
-**Expected result:** You can explain why returning 200 quickly matters.
-
----
-
-### Step 2 — Review verify_signature (Python)
-
-**Do this:** Open the `verify_signature` snippet in the lab guide; identify: raw body, header name, secret.
-
-**Expected result:** You know tampering breaks the HMAC match.
+**Expected result:** You can draw: Cursor → your server → 200 OK.
 
 ---
 
-### Step 3 — Create agent with webhook URL (when server ready)
+### Step 2 — Three security checks
 
-**Do this:** After Exercise 8.5 tunnel exists, POST agent JSON including `webhookUrl` (PowerShell `curl.exe` like 8.1).
+**Do this:** List: (1) HTTPS only, (2) verify signature, (3) handle duplicates safely.
 
-**Expected result:** Agent accepts URL (or validation error you can fix).
+**Expected result:** Checklist of three items.
 
 ---
 
-### Step 4 — Security rules
+### Step 3 — Prepare for ngrok (next lab)
 
-**Do this:** List three checks: HTTPS, HMAC verify, idempotent handler.
+**Do this:** Confirm you have a tiny webhook app on port **5000** (from lab guide) or will pair with a demo.
 
-**Expected result:** Checklist you would use in code review.
+**Expected result:** Ready for Exercise 8.5 tunnel test.
 
-**Success criteria:** Explained flow · understand HMAC · ready for ngrok test in 8.5
+**Success criteria:** Explained flow · three security checks · ready for 8.5
 ---
 
 ## Success criteria
@@ -80,6 +63,8 @@ Follow each step in order. Confirm the **Expected result** before moving on.
 - [ ] Server running · signature verified · payload parsed · agent configured
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

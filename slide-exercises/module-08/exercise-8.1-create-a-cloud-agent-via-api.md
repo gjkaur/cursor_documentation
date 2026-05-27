@@ -11,90 +11,51 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Set User API key
+### Step 1 — Set key and create an agent
 
-**Do this:**
+**Do this:** Replace `YOUR_ORG/YOUR_REPO`, then run:
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+$body = '{"prompt":{"text":"Add a short README with setup steps"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":false}'
+$r = curl.exe -s -X POST https://api.cursor.com/v1/agents -u "$($env:CURSOR_USER_API_KEY):" -H "Content-Type: application/json" -d $body | ConvertFrom-Json
+$env:AGENT_ID = $r.agent.id
+Write-Host "https://cursor.com/agents/$($env:AGENT_ID)"
 ```
 
-**Expected result:** Variable set for this PowerShell session.
+**Expected result:** Agent ID printed; dashboard shows **Running**.
 
 ---
 
-### Step 2 — Create agent (POST)
+### Step 2 — Watch on the dashboard
 
-**Do this:** Replace `YOUR_ORG/YOUR_REPO` with a repo you are allowed to use:
+**Do this:** Open the printed URL in Edge or Chrome.
 
-```powershell
-$body = @{
-  prompt = @{ text = "Add a README.md with setup instructions" }
-  repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startingRef = "main" })
-  autoCreatePR = $true
-} | ConvertTo-Json -Depth 5
+**Expected result:** Log lines move; status becomes **Completed** or **Failed**.
 
-$response = curl.exe -s -X POST https://api.cursor.com/v1/agents `
-  -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Content-Type: application/json" `
-  -d $body | ConvertFrom-Json
-
-$env:AGENT_ID = $response.agent.id
-$env:RUN_ID = $response.run.id
-Write-Host "Agent ID: $($env:AGENT_ID)"
-Write-Host "Open: https://cursor.com/agents/$($env:AGENT_ID)"
-```
-
-**Expected result:** JSON with `agent.id` and `run.id`; dashboard shows **Running**.
-
----
-
-### Step 3 — Confirm on dashboard
-
-**Do this:** Open the printed URL in the browser.
-
-**Expected result:** Same agent ID; log activity visible.
-
----
-
-### Step 4 — Optional model in JSON
-
-**Do this:** Add `"model": @{ id = "claude-4.6-sonnet" }` to `$body` and create a second test agent.
-
-**Expected result:** Run uses the named model (or API error explaining restriction).
-
-**Success criteria:** POST succeeded · IDs saved · visible on cursor.com/agents
+**Success criteria:** POST worked · opened dashboard
 ---
 
 ## Success criteria
@@ -102,6 +63,8 @@ Write-Host "Open: https://cursor.com/agents/$($env:AGENT_ID)"
 - [ ] Agent created · IDs captured · appears in dashboard · Python function works
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

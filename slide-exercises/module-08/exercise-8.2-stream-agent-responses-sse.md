@@ -11,79 +11,63 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Set IDs from Exercise 8.1
+### Step 1 — Set agent and run IDs
 
-**Do this:**
+**Do this:** From Exercise 8.1 (or dashboard):
 
 ```powershell
 $env:AGENT_ID = "paste_agent_id"
 $env:RUN_ID = "paste_run_id"
 ```
 
-**Expected result:** Both variables set (from create-agent response or dashboard).
+**Expected result:** Both variables set.
 
 ---
 
-### Step 2 — Stream events (curl.exe)
+### Step 2 — Stream for one minute
 
 **Do this:**
 
 ```powershell
-curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Accept: text/event-stream" `
+curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" -H "Accept: text/event-stream" `
   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream"
 ```
 
-**Expected result:** Lines starting with `event:` and `data:` scroll in the terminal until the run finishes.
+Press **Ctrl+C** after ~60 seconds if the run is long.
+
+**Expected result:** Lines with `event:` and `data:` appear in the terminal.
 
 ---
 
-### Step 3 — Read the stream
+### Step 3 — Name what you saw
 
-**Do this:** Identify at least: one **assistant** text chunk, one **tool** or status event, and a **completed** or **failed** event.
+**Do this:** Point to one **status** event and one **message** or **tool** event in the output.
 
-**Expected result:** You can narrate what the agent did from the log alone.
+**Expected result:** You can tell the story of the run without opening the UI.
 
----
-
-### Step 4 — Resume with Last-Event-ID (concept)
-
-**Do this:** Note an `id:` line from the stream; discuss reconnecting with header `Last-Event-ID` (see lab guide).
-
-**Expected result:** You understand SSE resume after network drop.
-
-**Success criteria:** Stream connected · parsed event types · IDs were set first
+**Success criteria:** Stream connected · named two event types
 ---
 
 ## Success criteria
@@ -91,6 +75,8 @@ curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
 - [ ] Stream connected · received events · Python client works · resume implemented
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

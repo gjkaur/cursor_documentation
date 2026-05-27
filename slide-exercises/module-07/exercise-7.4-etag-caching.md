@@ -11,38 +11,29 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — First request (no cache)
+### Step 1 — First request: save the ETag
 
 **Do this:**
 
@@ -52,13 +43,13 @@ curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
 Select-String -Path headers.txt -Pattern "ETag|HTTP/"
 ```
 
-**Expected result:** `200` and an `ETag:` header value in `headers.txt`.
+**Expected result:** `200` and an `ETag:` line in `headers.txt`.
 
 ---
 
-### Step 2 — Second request with If-None-Match
+### Step 2 — Second request: send If-None-Match
 
-**Do this:** Copy the ETag value (without quotes issues), then:
+**Do this:**
 
 ```powershell
 $etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim()
@@ -67,25 +58,17 @@ curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
 Select-String -Path headers2.txt -Pattern "HTTP/"
 ```
 
-**Expected result:** Often `304 Not Modified` (smaller/faster); same data as before.
+**Expected result:** Often `304 Not Modified` — same data, less bandwidth.
 
 ---
 
-### Step 3 — Python ETag helper (optional)
+### Step 3 — When to use ETags
 
-**Do this:** Implement `get_with_etag(url, previous_etag)` from the slides in a short script; call twice.
+**Do this:** Name one report you would poll often (member list, daily usage).
 
-**Expected result:** Second call returns `None` for body on `304` and reuses cached JSON in code.
+**Expected result:** You skip re-downloading when nothing changed.
 
----
-
-### Step 4 — When to use ETags
-
-**Do this:** Name one Analytics or Admin poll that should use ETags (daily usage, member list).
-
-**Expected result:** You save bandwidth on unchanged responses.
-
-**Success criteria:** Captured ETag · got 200 then 304 · explained use case
+**Success criteria:** Saw ETag · tried If-None-Match · named a use case
 ---
 
 ## Success criteria
@@ -96,6 +79,8 @@ Select-String -Path headers2.txt -Pattern "HTTP/"
 - [ ] Basic ETag request · persistent cache · analytics workload caching
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

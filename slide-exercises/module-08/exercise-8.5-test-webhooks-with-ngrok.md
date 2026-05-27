@@ -11,51 +11,34 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 0 — Prerequisites
+### Step 1 — Start your webhook server (Terminal A)
 
-**Do this:** Complete webhook receiver setup from 8.4 (Flask/FastAPI on port **5000**). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or `winget install ngrok.ngrok`.
-
-**Expected result:** Local server responds on `http://127.0.0.1:5000/health` (or your route).
-
----
-
-### Step 1 — Terminal A: run your webhook server
-
-**Do this:** In PowerShell:
+**Do this:**
 
 ```powershell
-cd D:/path/to/your/webhook-project
+cd D:/path/to/webhook-project
 python -m flask run --port 5000
 ```
 
@@ -63,41 +46,27 @@ python -m flask run --port 5000
 
 ---
 
-### Step 2 — Terminal B: start ngrok
+### Step 2 — Start ngrok (Terminal B)
 
-**Do this:** New PowerShell window:
+**Do this:**
 
 ```powershell
 ngrok http 5000
 ```
 
-**Expected result:** Line like `Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000`.
+Copy the `https://....ngrok-free.app` URL + your path (e.g. `/webhook/cursor`).
+
+**Expected result:** Public HTTPS URL you can paste into agent JSON.
 
 ---
 
-### Step 3 — Copy HTTPS URL
+### Step 3 — Trigger a webhook
 
-**Do this:** Copy the `https://....ngrok-free.app` URL; append your path, e.g. `/webhook/cursor`.
+**Do this:** Create a cloud agent (8.1 pattern) with `"webhookUrl": "https://YOUR-NGROK-URL/webhook/cursor"` in the JSON body.
 
-**Expected result:** Full webhook URL ready for agent create JSON.
+**Expected result:** Terminal A prints an incoming POST; [http://127.0.0.1:4040](http://127.0.0.1:4040) shows the request.
 
----
-
-### Step 4 — Create agent with webhook
-
-**Do this:** POST `/v1/agents` with `webhookUrl` set to your ngrok URL (use `curl.exe` pattern from 8.1).
-
-**Expected result:** Agent starts; your Flask terminal prints an incoming POST.
-
----
-
-### Step 5 — Inspect in ngrok UI
-
-**Do this:** Open [http://127.0.0.1:4040](http://127.0.0.1:4040) in the browser.
-
-**Expected result:** Request list shows POST body and headers (including signature header).
-
-**Success criteria:** Tunnel up · webhook received · verified or logged signature · inspected in ngrok UI
+**Success criteria:** ngrok tunnel up · webhook received once
 ---
 
 ## Success criteria
@@ -105,6 +74,8 @@ ngrok http 5000
 - [ ] Tunnel established · webhook received · signature verified · inspected in ngrok UI
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

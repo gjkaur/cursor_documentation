@@ -11,63 +11,49 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Date range (7 days)
+### Step 1 — Fetch DAU (7 days)
 
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
-```
-
----
-
-### Step 2 — Fetch DAU
-
-```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
 
-**Expected result:** Daily active user counts per day.
+**Expected result:** Daily active user counts.
 
 ---
 
-### Step 3 — Trend
+### Step 2 — Trend in one sentence
 
-**Do this:** State whether DAU went up, down, or flat across the week.
+**Do this:** Say if DAU went **up**, **down**, or **flat** this week.
 
-**Expected result:** One-sentence trend for leadership.
+**Expected result:** One line for leadership.
 
-**Success criteria:** DAU data retrieved · trend stated
+**Success criteria:** DAU data · trend stated
 ---
 
 ## Success criteria
@@ -78,6 +64,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 - [ ] Calculated DAU · adoption metrics · leadership-ready report
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

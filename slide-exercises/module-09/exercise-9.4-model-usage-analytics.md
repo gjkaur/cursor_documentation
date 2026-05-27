@@ -11,49 +11,38 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Date range
+### Step 1 — Date range (30 days)
 
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
 ```
 
-**Expected result:** 30-day window for analytics.
-
 ---
 
 ### Step 2 — Fetch model usage
-
-**Do this:** Call team model-usage endpoint from lab guide:
 
 ```powershell
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
@@ -61,25 +50,17 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   ConvertFrom-Json
 ```
 
-**Expected result:** Per-model token or cost breakdown (field names per API response).
+**Expected result:** Per-model usage you can scan in the console.
 
 ---
 
-### Step 3 — Find top model
+### Step 3 — One optimization
 
-**Do this:** Identify highest-cost or highest-token model.
+**Do this:** Name the **top** model and one way to reduce cost (e.g. cheaper model for small tasks).
 
-**Expected result:** One model name + number you can cite.
+**Expected result:** Model name + one actionable tip.
 
----
-
-### Step 4 — Optimization idea
-
-**Do this:** Write two bullets: what to change if costs are too high.
-
-**Expected result:** Actionable suggestions (cheaper model for simple tasks, etc.).
-
-**Success criteria:** Retrieved analytics · named top model · one optimization
+**Success criteria:** Data retrieved · one optimization idea
 ---
 
 ## Success criteria
@@ -91,6 +72,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 - [ ] Retrieved model breakdown · identified expensive users · generated recommendations
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

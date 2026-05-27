@@ -11,78 +11,51 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — List models with curl.exe
-
-**Do this:**
-
-```powershell
-curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
-```
-
-**Expected result:** JSON listing model IDs (shape may be `items` or `data` — inspect once).
-
----
-
-### Step 2 — Pretty-print in PowerShell
+### Step 1 — List models
 
 **Do this:**
 
 ```powershell
 curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |
-  ConvertFrom-Json | ConvertTo-Json -Depth 5
+  ConvertFrom-Json | ConvertTo-Json -Depth 3
 ```
 
-**Expected result:** Readable list in the console.
+**Expected result:** Readable JSON in the console.
 
 ---
 
-### Step 3 — Python table (optional)
+### Step 2 — Pick two models
 
-**Do this:** Loop models and print columns: ID, context window, pricing if present.
+**Do this:** Choose one model for a **quick fix** and one for a **hard refactor**; write one reason each.
 
-**Expected result:** Table of at least 3 models.
+**Expected result:** Two model names + short rationale.
 
+**Success criteria:** Listed models · reasoned choice
 ---
 
-### Step 4 — Pick a model for a task
-
-**Do this:** Choose one model for “quick fix” and one for “hard refactor”; say why (speed vs quality).
-
-**Expected result:** Two model names + one-line rationale each.
-
-**Success criteria:** Listed models · formatted output · reasoned selection
----
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

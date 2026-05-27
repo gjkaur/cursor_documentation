@@ -11,59 +11,41 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Create a User API key (UI)
+### Step 1 — Create and store your User API key
 
-**Do this:** **Cursor** → **Settings** → **API Keys** (or team dashboard per your plan) → **Generate** → copy the key once.
-
-**Expected result:** Key string starting with `cursor_...` (you cannot view it again later).
-
----
-
-### Step 2 — Store in PowerShell session
-
-**Do this:**
+**Do this:** Cursor **Settings** → **API Keys** → **Generate** → copy once, then:
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
-$env:CURSOR_USER_API_KEY.Substring(0, 12) + "..."
 ```
 
-**Expected result:** First line sets variable; second prints a short prefix (not the full secret).
+**Expected result:** Key saved in `$env:` for this terminal only (not in git).
 
 ---
 
-### Step 3 — Test with curl.exe
+### Step 2 — Test the key with one curl call
 
 **Do this:**
 
@@ -71,47 +53,22 @@ $env:CURSOR_USER_API_KEY.Substring(0, 12) + "..."
 curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
 ```
 
-**Expected result:** JSON with model names (or `items` array). Not `401 Unauthorized`.
+**Expected result:** JSON model list — not `401 Unauthorized`.
 
 ---
 
-### Step 4 — Test with Python (optional)
+### Step 3 — Admin key (only if you have Enterprise Admin API)
 
-**Do this:** Save `test_models.py`:
-
-```python
-import os, requests
-key = os.environ["CURSOR_USER_API_KEY"]
-r = requests.get("https://api.cursor.com/v1/models", auth=(key, ""), timeout=30)
-print(r.status_code, r.text[:500])
-```
-
-Run: `python test_models.py`
-
-**Expected result:** Status `200` and JSON body.
-
----
-
-### Step 5 — Admin key (Enterprise only)
-
-**Do this:** Generate **Admin API key** in dashboard →:
+**Do this:**
 
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
 curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/members
 ```
 
-**Expected result:** `200` with team data, or clear message if your plan lacks Admin API.
+**Expected result:** `200` with team data, or your instructor explains your plan uses User key only.
 
----
-
-### Step 6 — Revocation (know how)
-
-**Do this:** In **Settings → API Keys**, find **Revoke** for a test key (only if instructor allows).
-
-**Expected result:** Old key returns `401` on next API call.
-
-**Success criteria:** User key works in curl · optional Admin key · keys only in `$env:`, not in git
+**Success criteria:** User key works · keys stay in `$env:` only
 ---
 
 ## Success criteria
@@ -119,6 +76,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/m
 - [ ] Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

@@ -11,38 +11,29 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Fetch change events
+### Step 1 — Fetch change events (7 days)
 
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
@@ -52,25 +43,17 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   ConvertFrom-Json
 ```
 
-**Expected result:** List of granular edit events (file, lines, model, accepted flag).
+**Expected result:** List of per-edit events (file, model, accepted, etc.).
 
 ---
 
-### Step 2 — Acceptance rate
+### Step 2 — Compliance question
 
-**Do this:** From one page of data, estimate accepted vs rejected ratio.
+**Do this:** Name one audit question this data answers (e.g. “What AI model touched file X?”).
 
-**Expected result:** Rough acceptance percentage.
+**Expected result:** One clear compliance or governance use case.
 
----
-
-### Step 3 — Compliance use case
-
-**Do this:** Name one audit question this API can answer.
-
-**Expected result:** e.g. “Which AI model edited file X on date Y?”
-
-**Success criteria:** Events retrieved · acceptance discussed · compliance example
+**Success criteria:** Events retrieved · one audit use case
 ---
 
 ## Success criteria
@@ -82,6 +65,8 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 - [ ] Retrieved events · calculated acceptance rates · compliance export
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 

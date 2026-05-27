@@ -11,83 +11,60 @@
 
 ## API basics (read this first)
 
-**Demonstration (Windows):** Use **PowerShell** in Cursor's terminal (``Ctrl+` ``).
-
-1. Store keys in environment variables — never commit them:
+**Windows:** PowerShell (``Ctrl+` ``) · **`curl.exe`** · store keys in `$env:` — **never** commit keys to git.
 
 ```powershell
-$env:CURSOR_ADMIN_API_KEY = "crsr_your_key_here"
-$env:CURSOR_USER_API_KEY = "cursor_user_your_key_here"
+$env:CURSOR_USER_API_KEY = "cursor_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"   # Admin labs (9–10)
 ```
 
-2. Use **`curl.exe`** (not the `curl` alias) or Python `requests`.
-3. Install **jq** for JSON parsing: `winget install jqlang.jq` or use Python instead.
-4. Bash `curl` examples below each have a **PowerShell** equivalent — use those on Windows.
-5. Run scripts from a dedicated folder inside this repo or your own sandbox project.
-
+More examples (Python, jq, bash): see **Detailed reference** below — optional for class.
 
 ---
 
 ## Steps from the training slides
 
-**Environment:** Windows 10/11 · **PowerShell** · use **`curl.exe`** (not the `curl` alias)
-
-**Before API calls:** set your key (replace with your real key):
+**Environment:** Windows · PowerShell (``Ctrl+` ``) · **`curl.exe`** · keys in `$env:` only (never commit).
 
 ```powershell
 $env:CURSOR_USER_API_KEY = "cursor_your_key_here"
-# Admin exercises use:
-$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"
+$env:CURSOR_ADMIN_API_KEY = "cursor_admin_your_key_here"  # Modules 9–10
 ```
 
 Follow each step in order. Confirm the **Expected result** before moving on.
 
-### Step 1 — Make one successful call
+### Step 1 — Make one successful Admin API call
 
 **Do this:**
 
 ```powershell
 curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit"
+  https://api.cursor.com/v1/teams/members 2>&1 | Select-String "HTTP/"
 ```
 
-**Expected result:** `HTTP/1.1 200` and rate-limit headers if present.
+**Expected result:** Line containing `HTTP/1.1 200`.
 
 ---
 
-### Step 2 — Read rate-limit headers
+### Step 2 — Know the common status codes
 
-**Do this:** Run the call again and note `X-RateLimit-Limit`, `Remaining`, `Reset` (names may vary slightly).
+**Do this:** Learn these three:
 
-**Expected result:** You can state how many calls remain in the window.
+- **401** — bad or missing API key → fix `$env:CURSOR_*_API_KEY` (do **not** retry blindly)
+- **429** — too many requests → wait, then retry with backoff
+- **5xx** — server error → retry a few times with delay
 
----
-
-### Step 3 — Add retry logic (Python)
-
-**Do this:** Save `retry_demo.py` from the slide deck / lab guide pattern: retry on `429` and `5xx`, honor `Retry-After`, do **not** retry most `4xx`.
-
-Run against `/v1/models` with your user key.
-
-**Expected result:** Script exits cleanly on `200`; on forced errors, backs off instead of crashing.
+**Expected result:** You can explain why `401` is different from `429`.
 
 ---
 
-### Step 4 — Discuss client errors
+### Step 3 — Retry rule (discussion)
 
-**Do this:** With a partner, explain why `401` should not be retried with the same key.
+**Do this:** Say out loud: “Retry on **429** and **5xx**; fix auth on **401**.”
 
-**Expected result:** One-sentence rule: fix auth, then call again.
+**Expected result:** One-sentence rule you would use in a script (Python examples optional in **Detailed reference**).
 
----
-
-### Step 5 — Optional: slow down requests
-
-**Do this:** Add `Start-Sleep -Seconds 3` between five curl calls in a loop.
-
-**Expected result:** No `429` during normal class pacing.
-
-**Success criteria:** Saw headers · retry on 429/5xx · no infinite retry on 401
+**Success criteria:** Got `200` once · explained 401 vs 429
 ---
 
 ## Success criteria
@@ -95,6 +72,8 @@ Run against `/v1/models` with your user key.
 - [ ] Backoff · header monitoring · rate limiter · robust client class
 
 ---
+
+> **Note:** The section below is optional deep dive — not required to finish the in-class steps.
 
 ## Detailed reference (expanded instructions)
 
