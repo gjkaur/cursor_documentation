@@ -9,6 +9,7 @@ A complete, instructor-led training program for the **Cursor AI code editor** an
 | **Primary delivery** | 2-day course, 10 modules, ~11.5 hours |
 | **Present** | [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) |
 | **Full index** | [`FINAL_TABLE_OF_CONTENTS.md`](FINAL_TABLE_OF_CONTENTS.md) — modules, lessons, exercises, links |
+| **Cheatsheet** | [`COURSE-CHEATSHEET.md`](COURSE-CHEATSHEET.md) — acronyms, full forms, module-wise glossary |
 | **In-class labs** | [`slide-exercises/`](slide-exercises/) — 40 step-by-step guides aligned to slides |
 | **Extra practice** | [`core-exercises/`](core-exercises/) (25) · [`api-exercises/`](api-exercises/) (23) |
 | **Assessments** | [`assessment/pre-assessment.md`](assessment/pre-assessment.md) · [`assessment/post-assessment.md`](assessment/post-assessment.md) |
@@ -23,6 +24,7 @@ A complete, instructor-led training program for the **Cursor AI code editor** an
 ```
 Cursor_Docs_Slides/
 ├── FINAL_TABLE_OF_CONTENTS.md  # Master index (modules 1–10, lessons, labs)
+├── COURSE-CHEATSHEET.md        # Module-wise glossary (acronyms, definitions)
 ├── learn/                        # Cursor Learn readmes (13 topics)
 ├── docs-content-readmes/         # Product documentation summaries (82 topics)
 ├── api-content-readmes/          # API reference summaries (5 topics)

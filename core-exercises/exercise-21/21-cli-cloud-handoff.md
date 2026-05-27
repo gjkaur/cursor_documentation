@@ -71,7 +71,7 @@ Agent ID: ca_abc123xyz
 You can monitor progress at: https://cursor.com/agents/ca_abc123xyz
 
 The agent will continue running even after you close this terminal.
-You will be notified when it completes.
+Monitor completion at https://cursor.com/agents (status → Completed or Failed).
 ```
 
 ---
@@ -87,6 +87,15 @@ The `&` works the same way – sends the task to the cloud.
 ---
 
 ## Monitoring Your Cloud Agent
+
+### When the agent finishes (notifications)
+
+| Channel | What to expect |
+|---------|----------------|
+| **Web dashboard** | Always — open your agent URL at `https://cursor.com/agents` and refresh until status is **Completed** or **Failed** |
+| **Email** | Optional — only if enabled in your Cursor / cloud-agent notification settings |
+| **Slack** | Optional — if your workspace has the Cursor Slack app configured |
+| **API / webhooks** | For automation — poll the API or configure webhooks |
 
 ### Web Dashboard
 
@@ -167,7 +176,7 @@ agent ls --cloud
 │  • Create a PR with changes                                    │
 │                                                                 │
 │  You can close this terminal. The agent will continue running. │
-│  You'll be notified via email/dashboard when complete.         │
+│  Check cursor.com/agents for status (email/Slack if enabled).  │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -284,7 +293,7 @@ Check off when done:
 │  WHAT YOU GET:                                                  │
 │  • Agent runs in cloud VM                                       │
 │  • Persists after terminal close                               │
-│  • Email/dashboard notifications                               │
+│  • Dashboard status (always); email/Slack if configured        │
 │  • PRs created automatically                                   │
 │  • Artifacts (screenshots, logs) available                     │
 │                                                                 │

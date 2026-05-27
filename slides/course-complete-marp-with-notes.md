@@ -8,27 +8,6 @@ header: 'Cursor Training Program — Complete Course'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Cursor Training Program
@@ -52,17 +31,6 @@ The slide says: Springpeople · 2-day instructor-led course · Modules 1–10.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Course Agenda
@@ -131,17 +99,6 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 1 — Mental Models for AI-Assisted Development' -->
 
 <!-- _class: lead -->
@@ -165,17 +122,6 @@ The slide says: Cursor Training Program · Concept block · ~60 min.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -208,13 +154,6 @@ In the table, **Module Goal**: Build accurate mental models of how AI coding ass
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 1.1
@@ -238,17 +177,6 @@ The slide says: _Concept · 12 minutes_.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Why Outputs Are Probabilistic
@@ -288,17 +216,6 @@ An LLM is not executing a program you wrote. It predicts the next token, samples
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Next-Token Prediction
@@ -324,17 +241,6 @@ It can feel like reasoning, but the mechanism is still pattern completion. Keepi
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -377,17 +283,6 @@ AI models are probabilistic — you influence them through prompts, context, and
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Traditional vs. AI — Implication
 
 **Implication:** Never trust a single run as ground truth.
@@ -405,17 +300,6 @@ Teams that skip verification accumulate AI debt — code that looked fine in cha
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -437,17 +321,6 @@ Before you switch models, compare today's prompt and attachments to yesterday's 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Key Parameters You Control
@@ -491,17 +364,6 @@ Top-p and max tokens shape breadth and length. Two teammates with the same promp
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Key Parameters — Example Values
 
 ```python
@@ -521,17 +383,6 @@ Temperature controls randomness — low values stay focused and repeatable; high
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -579,17 +430,6 @@ Same ask, three temperatures on the slide. Notice low temperature stays close to
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## The Training Gap
 
 Models are frozen at their training cutoff date. They don't know:
@@ -630,13 +470,6 @@ If the Agent guesses wrong about your stack, the fix is usually better context �
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 1.2
@@ -660,17 +493,6 @@ A hallucination is a confident answer that is wrong — for example an API or li
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## What Are Hallucinations?
@@ -698,17 +520,6 @@ The danger is the tone: the model sounds as sure as a senior engineer in a code 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -752,17 +563,6 @@ Build a team habit: if the Agent cites an API, someone verifies it before merge.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Why Models Hallucinate
@@ -782,17 +582,6 @@ A hallucination is a confident answer that is wrong — for example an API or li
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -829,17 +618,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -896,17 +674,6 @@ Which of these can your team adopt Monday — paste docs, require citations, or 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Hallucination Detection Checklist
 
 Before accepting AI-generated code, verify:
@@ -945,17 +712,6 @@ A hallucination is a confident answer that is wrong — for example an API or li
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## The Developer's Mindset
 
 > _"Trust, but verify – especially when the AI sounds most confident."_
@@ -990,13 +746,6 @@ A hallucination is a confident answer that is wrong — for example an API or li
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 1.3
@@ -1024,17 +773,6 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -1075,17 +813,6 @@ Small chat prompts are cheap; agent loops over large repos are not. Narrow conte
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Why Tokens Matter
 
 A token is the atomic unit of processing for LLMs — not a word, not a character.
@@ -1107,17 +834,6 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Input vs. Output Pricing
@@ -1143,17 +859,6 @@ Input tokens are the prompt, attached files, and instructions you send — they 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -1195,17 +900,6 @@ Table row: GPT-5.5, $5.00, $30.00, 6×.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## What 1 Million Tokens Looks Like
@@ -1240,17 +934,6 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Cost Calculation Example
@@ -1283,17 +966,6 @@ A five-minute agent loop on two files beats a twenty-minute loop on the whole tr
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -1336,17 +1008,6 @@ A five-minute agent loop on two files beats a twenty-minute loop on the whole tr
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Real-World Cost Bounds
@@ -1381,17 +1042,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -1431,13 +1081,6 @@ The code on the slide reads: # First request  → pays full input price # Second
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 1.4
@@ -1459,17 +1102,6 @@ The slide says: _Concept · 12 minutes · The single most valuable AI skill_.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## What Is Context?
@@ -1489,17 +1121,6 @@ The figure on this slide is titled: What goes into context.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## The Context Window Limit
@@ -1528,17 +1149,6 @@ Context window is the maximum amount of text the model can consider at once — 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Context Window — What Happens When Full
 
 **When you exceed context:** Oldest content gets truncated · Critical information may be dropped
@@ -1562,17 +1172,6 @@ Context window is the maximum amount of text the model can consider at once — 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -1618,17 +1217,6 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Good vs. Bad Context — Bad Example
 
 **BAD (vague):**
@@ -1646,17 +1234,6 @@ The code on the slide reads: "Fix this bug: my code doesn't work".
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -1683,17 +1260,6 @@ The code on the slide reads: Python function sorts dicts by key but raises KeyEr
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Context Prioritization Pyramid
@@ -1711,17 +1277,6 @@ Not all context is equal. Recent messages, open files, and rules compete for the
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -1765,17 +1320,6 @@ Context window is the maximum amount of text the model can consider at once — 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## The "Lost in the Middle" Problem
@@ -1805,13 +1349,6 @@ Models attend strongly to the beginning and end of context and weaker to the mid
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -1847,17 +1384,6 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## What Is Tool Calling?
@@ -1889,17 +1415,6 @@ Plain chat only produces text. Tools close the loop with real feedback from your
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -1947,17 +1462,6 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## MCP (Model Context Protocol)
@@ -1991,17 +1495,6 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -2038,17 +1531,6 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Tool Calling Best Practices
@@ -2096,13 +1578,6 @@ Plain chat only produces text. Tools close the loop with real feedback from your
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 1.6
@@ -2122,17 +1597,6 @@ The slide says: _Concept · 8 minutes_.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -2179,17 +1643,6 @@ That difference drives cost, risk, and how carefully you review each step.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## The Agent Loop
 
 <!--
@@ -2203,17 +1656,6 @@ The agent loop is plan, act with tools, observe results, and repeat until the ta
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -2237,17 +1679,6 @@ Follow the loop on the slide: you state a goal, the model plans, Cursor runs a t
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -2293,17 +1724,6 @@ That difference drives cost, risk, and how carefully you review each step.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## How Agents Change Your Role
@@ -2337,17 +1757,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Developer Role Shift
@@ -2379,17 +1788,6 @@ In the table, Problem solver: Problem framer.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -2433,17 +1831,6 @@ Bullet 6 on the slide: High cost of failure.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 2 — Cursor Editor Essentials' -->
 
 <!-- _class: lead -->
@@ -2465,17 +1852,6 @@ The slide says: Cursor Training Program · Hands-on exercise · ~90 min.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -2516,16 +1892,35 @@ In the table, **Format**: Hands-on exercise.
 In the table, **Prerequisites**: Module 1 completed, Cursor installed, Git repository access.
 
 In the table, **Module Goal**: Master the core workflows of AI-assisted coding in Cursor.
+
+The table header columns are: Lesson, Topic, Time.
+
+In the table, 2.1 — Codebase Understanding. Use case on slide: 20 min.
+
+In the table, 2.2 — Explaining Files/Symbols. Use case on slide: 13 min.
+
+In the table, 2.3 — Safe Reviewable Changes. Use case on slide: 13 min.
+
+In the table, 2.4 — Plan Mode. Use case on slide: 13 min.
+
+In the table, 2.5 — Comparing Models. Use case on slide: 13 min.
+
+In the table, 2.6 — @mentions. Use case on slide: 13 min.
+
+In the table, 2.7 — Checkpoints. Use case on slide: 8 min.
+
+In the table, 2.8 — Terminal Integration. Use case on slide: 13 min.
+
+Terms on this slide — quick definitions for the room:
+
+A checkpoint is a saved snapshot of your code and conversation you can roll back to after an experiment.
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+An @mention points the agent at specific context — a file, folder, symbol, branch, or the web.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -2557,17 +1952,6 @@ The slide says: Lab guide: [`Exercise 2.1](../slide-exercises/module-02/exercise
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## The Problem & The Solution
 
 **The Problem:** Opening a new codebase is overwhelming. Where do you start? What's the entry point?
@@ -2595,17 +1979,6 @@ Every one of us has opened a repo and wondered where to start. The Agent can pro
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -2659,17 +2032,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Exercise 2.1 — Step 3: Orientation Prompt
@@ -2712,17 +2074,6 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.1 — Step 4: Trace Data Flow
 
 **Step 4:** Follow up — trace data flow:
@@ -2753,17 +2104,6 @@ The code on the slide reads: Based on what you just told me, trace the flow of d
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.1 — Step 5: Visual Overview
 
 **Step 5:** Ask for a visual overview:
@@ -2791,17 +2131,6 @@ The code on the slide reads: Create an ASCII diagram showing the module relation
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Expected Agent Output (Sample)
@@ -2821,17 +2150,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Pro Tip — Save the Overview
@@ -2856,17 +2174,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.1 — Success Criteria
@@ -2903,13 +2210,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 2.2
@@ -2939,17 +2239,6 @@ The slide says: Lab guide: [`Exercise 2.2](../slide-exercises/module-02/exercise
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Targeted Explanations
 
 > *"Don't make the agent read the whole codebase when you just need to understand one function."*
@@ -2971,17 +2260,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -3041,17 +2319,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.2 — Step 4: Example I/O
 
 **Step 4:** Ask for a concrete example:
@@ -3078,17 +2345,6 @@ The code on the slide reads: Give me a concrete example of inputs and outputs fo
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.2 — Step 5: Dependencies
 
 **Step 5:** Ask about dependencies:
@@ -3113,17 +2369,6 @@ The code on the slide reads: What other functions does this call? What calls thi
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -3162,13 +2407,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 2.3
@@ -3196,17 +2434,6 @@ The slide says: Lab guide: [`Exercise 2.3](../slide-exercises/module-02/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## The Diff Review Workflow
@@ -3249,17 +2476,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -3319,17 +2535,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.3 — Review Questions
 
 Before accepting, ask yourself:
@@ -3364,17 +2569,6 @@ Bullet 4 on the slide: Will this break anything else?.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.3 — Test After Accept
@@ -3412,17 +2606,6 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.3 — If Something Goes Wrong
@@ -3463,13 +2646,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 2.4
@@ -3503,17 +2679,6 @@ Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Design Before You Code
@@ -3551,17 +2716,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.4 — Step 1: Enable Plan Mode
@@ -3608,17 +2762,6 @@ Plan Mode shows you the design before files change. Use it for multi-file work a
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Exercise 2.4 — Step 2: Describe Change
@@ -3657,17 +2800,6 @@ The code on the slide reads: Add user authentication to this web app. Requiremen
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -3719,17 +2851,6 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.4 — Approve & Execute
 
 **Step 4:** Answer questions and approve:
@@ -3766,17 +2887,6 @@ JWT stands for JSON Web Token — a compact, signed token format often used for 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.4 — Success Criteria
@@ -3816,13 +2926,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 2.5
@@ -3852,17 +2955,6 @@ The slide says: Lab guide: [`Exercise 2.5](../slide-exercises/module-02/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -3906,17 +2998,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.5 — Compare Two Models
@@ -3966,17 +3047,6 @@ Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding t
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Exercise 2.5 — Comparison Table
@@ -4013,17 +3083,6 @@ Composer 2.5 is Cursor's agent-optimized model — tuned for multi-step coding t
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Exercise 2.5 — Cost & Decision Matrix
@@ -4055,17 +3114,6 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.5 — Success Criteria
 
 **Success Criteria:**
@@ -4092,13 +3140,6 @@ Bullet 3 on the slide: Created personal model-selection guide.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -4132,17 +3173,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -4187,17 +3217,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.6 — Steps 1–2
@@ -4247,17 +3266,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.6 — Step 3: Multiple @mentions
 
 **Step 3:** Combine multiple @mentions:
@@ -4286,17 +3294,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.6 — Step 4: @branch
@@ -4329,17 +3326,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.6 — Step 5: @chat
 
 **Step 5:** Use @chat to refer to a previous conversation:
@@ -4364,17 +3350,6 @@ The code on the slide reads: @chat(authentication-discussion) Based on that disc
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.6 — Steps 6–7: @folder & @web
@@ -4418,17 +3393,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## @mention Pro Tips
 
 - Start typing **@** — Cursor auto-suggests available mentions
@@ -4454,17 +3418,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.6 — Success Criteria
@@ -4502,13 +3455,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 2.7
@@ -4542,17 +3488,6 @@ A checkpoint is a saved snapshot of your code and conversation you can roll back
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## A Safety Net for Experiments
@@ -4590,17 +3525,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.7 — Create & Restore
@@ -4645,17 +3569,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.7 — Steps 2–3
 
 **Step 2:** Name it descriptively: `"Before auth refactor - safe point"`
@@ -4689,17 +3602,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 2.7 — Steps 4–5
 
 **Step 4:** If something goes wrong → **Restore to checkpoint**
@@ -4725,17 +3627,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Checkpoint Best Practices
@@ -4775,13 +3666,6 @@ Checkpoints are undo for agent experiments — create one before risky prompts o
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 2.8
@@ -4809,17 +3693,6 @@ The slide says: Lab guide: [`Exercise 2.8](../slide-exercises/module-02/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## What the Agent Can Do
@@ -4858,17 +3731,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -4929,17 +3791,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Exercise 2.8 — Agent Terminal Loop
@@ -4961,17 +3812,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 2.8 — Step 5: Install Dependency
@@ -4999,17 +3839,6 @@ The code on the slide reads: Install the requests library with pip if it's not a
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -5043,17 +3872,6 @@ The code on the slide reads: Run these commands in order: 1. git status 2. git b
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -5097,17 +3915,6 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 3 — Agent Modes and Tools' -->
 
 <!-- _class: lead -->
@@ -5133,17 +3940,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -5181,19 +3977,28 @@ In the table, **Prerequisites**: Module 2 completed, live web app available (or 
 
 In the table, **Module Goal**: Master different agent modes and the core tools that make agents powerful.
 
+The table header columns are: Lesson, Topic, Time.
+
+In the table, 3.1 — Ask Mode vs. Agent Mode. Use case on slide: 18 min.
+
+In the table, 3.2 — Browser Tool. Use case on slide: 18 min.
+
+In the table, 3.3 — Terminal Tool. Use case on slide: 20 min.
+
+In the table, 3.4 — Effective Prompting in Practice. Use case on slide: 22 min.
+
 Terms on this slide — quick definitions for the room:
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+The Terminal tool lets the agent propose shell commands — you approve them, then it reads stdout and stderr.
+
+The Browser tool lets the agent open a live page, inspect the DOM, and read console or network activity.
+
+Agent Mode lets Cursor edit files, run terminal commands, and use tools — always with your review before changes land.
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -5233,17 +4038,6 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -5291,17 +4085,6 @@ An @mention points the agent at specific context — a file, folder, symbol, bra
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -5352,17 +4135,6 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Safety Implications
@@ -5408,17 +4180,6 @@ Teams that skip verification accumulate AI debt — code that looked fine in cha
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## The Mode Continuum
@@ -5442,17 +4203,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -5513,17 +4263,6 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 3.1 — Steps 1–2
 
 **Step 1:** Open Agent panel (`Cmd+I` / `Ctrl+I`) — note mode indicator at bottom
@@ -5540,13 +4279,11 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 
 Step 1: Open Agent panel (Cmd+I / Ctrl+I) — note mode indicator at bottom.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 3.1 — Steps 1–2.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 Terms on this slide — quick definitions for the room:
 
@@ -5554,17 +4291,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.1 — Steps 1–2 (Part 2)
@@ -5581,7 +4307,7 @@ Now for Steps 1–2 (Part 2).
 
 Step 2: Try to make a change in Ask Mode:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "Change the variable name 'temp' to 'temperature' in the current file."
 
@@ -5603,17 +4329,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 3.1 — Steps 3–5
 
 **Step 3:** Ask a question Ask Mode handles well:
@@ -5629,15 +4344,13 @@ Now for Steps 3–5.
 
 Step 3: Ask a question Ask Mode handles well:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "Explain the purpose of the main() function in this file. What edge cases does it handle?"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 3.1 — Steps 3–5.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: Explain the purpose of the main() function in this file. What edge cases does it handle?.
 
@@ -5649,17 +4362,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.1 — Steps 3–5 (Part 2)
@@ -5675,11 +4377,11 @@ Now for Steps 3–5 (Part 2).
 
 Step 4: Switch to Agent Mode via the dropdown.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Step 5: Repeat the rename request — agent shows diff for approval.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -5691,17 +4393,6 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -5733,11 +4424,9 @@ You will also see the heading: Start in Ask Mode: What does this function return
 
 You will also see the heading: Then: "Switch to Agent Mode and fix the off-by-one error".
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
 Step 6: Practice mode-switching mid-conversation:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Success criteria are listed on the slide as follows.
 
@@ -5757,13 +4446,6 @@ Ask Mode is Cursor's read-only mode — the model can answer questions but canno
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -5801,17 +4483,6 @@ The Browser tool lets the agent open a live page, inspect the DOM, and read cons
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## What the Browser Tool Can Do
 
 - Navigate to URLs · Read page content and DOM structure
@@ -5846,17 +4517,6 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -5897,17 +4557,6 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 3.2 — Steps 1–2
 
 **Demonstration (Windows):** **PowerShell** terminal (``Ctrl+` ``) · Agent ``Ctrl+I``
@@ -5930,8 +4579,6 @@ On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the 
 
 Step 1: Start a local web app (or use a public test page).
 
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
 Copy this into the Agent chat: "python -m http.server 8000 # Or use a public test page"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
@@ -5949,22 +4596,9 @@ Terms on this slide — quick definitions for the room:
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.2 — Steps 1–2 (Part 2)
@@ -5979,8 +4613,6 @@ Tell me what you see on the page.
 Now for Steps 1–2 (Part 2).
 
 Step 2: In Agent Mode:.
-
-Terminal: PowerShell — `Ctrl+ `` in Cursor.
 
 Copy this into the Agent chat: "Use the browser tool to open http://localhost:8000 Tell me what you see on the page."
 
@@ -6000,17 +4632,6 @@ HTTP stands for Hypertext Transfer Protocol — the request/response protocol br
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -6035,7 +4656,7 @@ Now for Steps 3–4.
 
 Step 3: Find specific elements:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "On that same page, find: 1. The main heading text 2. The number of buttons 3. Any error messages visible"
 
@@ -6055,17 +4676,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 3.2 — Steps 3–4 (Part 2)
 
 **Step 4:** Check the console:
@@ -6081,7 +4691,7 @@ Now for Steps 3–4 (Part 2).
 
 Step 4: Check the console:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "Now open the browser developer console. Are there any errors or warnings? If so, what are they?"
 
@@ -6097,17 +4707,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -6131,17 +4730,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 3.2 — Steps 5–6
 
 **Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
@@ -6160,7 +4748,7 @@ Now for Steps 5–6.
 
 Step 5: Diagnose a layout issue:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "The login button is partially hidden on mobile sizes. Use the browser tool to check what's happening."
 
@@ -6182,17 +4770,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 3.2 — Steps 5–6 (Part 2)
 
 **Step 6:** Extract data from a page:
@@ -6208,7 +4785,7 @@ Now for Steps 5–6 (Part 2).
 
 Step 6: Extract data from a page:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "Go to https://example.com/pricing Extract all pricing plan names and their monthly costs into a table."
 
@@ -6226,17 +4803,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -6283,13 +4849,6 @@ The Browser tool lets the Agent see what users see — rendered pages, console e
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 3.3
@@ -6325,17 +4884,6 @@ The Terminal tool lets the agent propose shell commands — you approve them, th
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## What the Terminal Tool Can Do
 
 - Run any shell command (with approval)
@@ -6366,17 +4914,6 @@ The Terminal tool lets the Agent run tests and builds and read real output. That
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Terminal Tool Flow
@@ -6398,17 +4935,6 @@ The Terminal tool lets the Agent run tests and builds and read real output. That
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.3 — Setup
@@ -6474,17 +5000,6 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 1: Safe Command
@@ -6511,7 +5026,7 @@ Learn which commands usually need careful review.
 
 Step 1 — Read-only command.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "Check whether gcc and git are available. Run gcc --version and git --version. Summarize the output. Do not modify any files."
 
@@ -6533,17 +5048,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -6591,17 +5095,6 @@ The code on the slide reads: Run .\run_tests.bat in this folder. Show full outpu
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.3 — Step 3: Break a Test
@@ -6655,17 +5148,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Exercise 3.3 — Step 4: Diagnose Failure
@@ -6713,17 +5195,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -6774,17 +5245,6 @@ The code on the slide reads: @test_calculator.c 1. Run tests and confirm the fai
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -6849,13 +5309,6 @@ The code on the slide reads: Run git status. Summarize only — do not commit or
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 3.4
@@ -6887,17 +5340,6 @@ The slide says: Lab guide: [`Exercise 3.4](../slide-exercises/module-03/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Anatomy of an Effective Prompt
@@ -6937,17 +5379,6 @@ Number 5 on the slide: SUCCESS CRITERIA — "Function should return 0 for empty 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Bad Prompts vs. Good Prompts
@@ -6985,17 +5416,6 @@ SQL stands for Structured Query Language — the language relational databases u
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## The "Boundaries" Technique
@@ -7019,17 +5439,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -7086,17 +5495,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.4 — Setup
@@ -7157,17 +5555,6 @@ Agent Mode lets Cursor edit files, run terminal commands, and use tools — alwa
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 1: Constrained Prompt
@@ -7205,7 +5592,7 @@ You should see: Diff limited to divide() — not a full refactor.
 
 Step 1 — Constrained prompt.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "@calculator.c Task: Improve divide() so it handles division by zero safely inside the function itself. Constraints: - Do NOT change any function signatures - Do NOT add new #include lines - Do NOT modify main() or other functions - Change ONLY the divide() function body Output format: Show the exact diff and explain the root cause in 2–3 sentences. Success criteria: divide(10, 0) returns safely; divide(10, 2) still returns 5."
 
@@ -7237,17 +5624,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 3.4 — Step 2: Vague vs. Constrained
@@ -7309,17 +5685,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Exercise 3.4 — Step 3: Plan Before Editing
@@ -7379,17 +5744,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -7455,17 +5809,6 @@ Scope creep is when the agent changes more files or behavior than you asked for 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Exercise 3.4 — Step 5: One Change at a Time
@@ -7525,17 +5868,6 @@ The code on the slide reads: Now add only that validation to divide(). Show the 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -7614,17 +5946,6 @@ The code on the slide begins: ## Bug Fix Template @{{file}} Task: [Describe bug]
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 4 — Customizing Cursor for Your Team' -->
 
 <!-- _class: lead -->
@@ -7646,17 +5967,6 @@ The slide says: Cursor Training Program · ~60 min.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -7695,7 +6005,21 @@ In the table, **Prerequisites**: Modules 1–3 completed, team repository access
 
 In the table, **Module Goal**: Customize Cursor for team workflows with rules, skills, MCP, and subagents.
 
+The table header columns are: Lesson, Topic, Time.
+
+In the table, 4.1 — Creating a Rule. Use case on slide: 20 min.
+
+In the table, 4.2 — Repository Instructions. Use case on slide: 13 min.
+
+In the table, 4.3 — Creating and Invoking a Skill. Use case on slide: 20 min.
+
+In the table, 4.4 — MCP, Hooks, and Slash Workflows. Use case on slide: 10 min.
+
+In the table, 4.5 — Subagents. Use case on slide: 6 min.
+
 Terms on this slide — quick definitions for the room:
+
+Repository Instructions are a single project overview file the agent reads for stack, commands, and conventions.
 
 A subagent is a delegated specialist agent — often run in parallel or in isolation for a subtask.
 
@@ -7703,13 +6027,6 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -7741,17 +6058,6 @@ The slide says: Lab guide: [`Exercise 4.1](../slide-exercises/module-04/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -7792,17 +6098,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Rule Structure
 
 ```markdown
@@ -7812,17 +6107,6 @@ The slide title is: Rule Structure.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 description: Brief description of what this rule does
@@ -7842,17 +6126,6 @@ The slide says: alwaysApply: true.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Rule Title
@@ -7881,17 +6154,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -7952,17 +6214,6 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Exercise 4.1 — Step 1: Setup
@@ -8000,31 +6251,16 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.1 — Step 1: Setup.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
 The slide says: Create coding standards rule at .cursor/rules/coding-standards.mdc:.
 
 The code on the slide reads: mkdir -p .cursor/rules.
 
 The code on the slide reads: globs: **/*.{js,ts,py}  |  alwaysApply: true Python: type hints, Black (88 chars), Google docstrings JS/TS: const over let, arrow functions, optional chaining General: no commented-out code, no console.log in prod.
-
-Terms on this slide — quick definitions for the room:
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -8058,8 +6294,6 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.1 — Build & Test Rule.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
 The slide says: Create .cursor/rules/build-and-test.mdc:.
 
 The slide says: Create .cursor/rules/security.mdc:.
@@ -8072,8 +6306,6 @@ Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 SQL stands for Structured Query Language — the language relational databases use for queries and updates.
@@ -8082,17 +6314,6 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 4.1 — Test & File-Specific Rules
@@ -8110,15 +6331,13 @@ Now for Test & File-Specific Rules.
 
 Step 5: Verify rules are applied:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "Based on the project rules, what are the coding standards I should follow? What are the security guardrails?"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.1 — Test & File-Specific Rules.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: Based on the project rules, what are the coding standards I should follow? What are the security guardrails?.
 
@@ -8128,17 +6347,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 4.1 — Test & File-Specific Rules (Part 2)
@@ -8157,7 +6365,7 @@ Now for Test & File-Specific Rules (Part 2).
 
 Step 6: Create .cursor/rules/react-components.mdc for */.jsx, */.tsx:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -8177,13 +6385,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -8221,17 +6422,6 @@ Repository Instructions are a single project overview file the agent reads for s
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Rules vs. Repository Instructions
@@ -8266,17 +6456,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -8326,17 +6505,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Exercise 4.2 — Create Instructions
@@ -8358,29 +6526,12 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.2 — Create Instructions.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
 The slide says: Create .cursor/repository-instructions.md:.
 
 The figure on this slide is titled: Exercise 4.2 — Create Instructions.
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 4.2 — Verify & Maintain
@@ -8398,15 +6549,13 @@ Now for Verify & Maintain.
 
 Step 2: Ask the Agent:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "What are the key technologies used in this project? How do I run the tests?"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.2 — Verify & Maintain.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: What are the key technologies used in this project? How do I run the tests?.
 
@@ -8416,17 +6565,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 4.2 — Verify & Maintain (Part 2)
@@ -8445,7 +6583,7 @@ Now for Verify & Maintain (Part 2).
 
 Step 3: Update instructions when:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -8465,13 +6603,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -8503,17 +6634,6 @@ The slide says: Lab guide: [`Exercise 4.3](../slide-exercises/module-04/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -8564,17 +6684,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Exercise 4.3 — PR Review Skill
@@ -8606,15 +6715,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.3 — PR Review Skill.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
 The slide says: Create .cursor/skills/pr-review/SKILL.md:.
 
 The code on the slide reads: name: pr-review description: Review a PR for code quality, security, and team standards Step 1: Fetch diff (git fetch + git diff main...FETCH_HEAD) Step 2: Review — code quality, security, testing, docs, style Step 3: Output formatted review with Critical / Warning / Suggestion Verdict: APPROVE / REQUEST CHANGES / COMMENT.
 
 Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 PR stands for Pull Request — a proposed code change others review before it merges.
 
@@ -8622,17 +6727,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -8659,15 +6753,11 @@ I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.3 — Security Audit Skill.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
 The slide says: Create .cursor/skills/security-audit/SKILL.md:.
 
 The code on the slide reads: Scan for:   Critical: hardcoded secrets, SQL injection, command injection, eval()   Medium:   no input validation, weak crypto, missing CSRF   Low:      debug endpoints, verbose errors, outdated deps Output: report with line numbers, fix suggestions, overall risk rating.
 
 Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 CSRF stands for Cross-Site Request Forgery — an attack where a malicious site triggers actions in another site you are logged into.
 
@@ -8677,17 +6767,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Exercise 4.3 — Invoke Skills
@@ -8705,15 +6784,13 @@ Now for Invoke Skills.
 
 Step 4: Invoke via slash command:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "/pr-review PR #42 /pr-review feature/payment-integration"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
 The slide title is: Exercise 4.3 — Invoke Skills.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
 
 The code on the slide reads: /pr-review PR #42 /pr-review feature/payment-integration.
 
@@ -8731,17 +6808,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 4.3 — Invoke Skills (Part 2)
 
 **Step 5:** List available skills:
@@ -8756,7 +6822,7 @@ Now for Invoke Skills (Part 2).
 
 Step 5: List available skills:.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 Copy this into the Agent chat: "What skills are available in this project?"
 
@@ -8776,17 +6842,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Exercise 4.3 — Invoke Skills (Part 3)
 
 **Step 6:** Create **Onboarding** skill — generates setup checklist from repo instructions
@@ -8799,7 +6854,7 @@ Now for Invoke Skills (Part 3).
 
 Step 6: Create Onboarding skill — generates setup checklist from repo instructions.
 
-Where: Agent panel — `Ctrl+I`.
+Where: Cursor Agent panel (Ctrl+I).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
@@ -8819,13 +6874,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -8853,17 +6901,6 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -8908,17 +6945,6 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -8979,17 +7005,6 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Walkthrough: MCP Configuration
@@ -9043,17 +7058,6 @@ MCP is standard plumbing for connecting Cursor to databases, browsers, and inter
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Walkthrough: Slash Command Example
@@ -9089,13 +7093,6 @@ MCP stands for Model Context Protocol — a standard for connecting AI assistant
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 4.5
@@ -9119,17 +7116,6 @@ A subagent is a delegated specialist agent — often run in parallel or in isola
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -9157,17 +7143,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -9204,17 +7179,6 @@ A subagent is a delegated specialist agent — often run in parallel or in isola
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Subagent vs. Tool vs. Skill
 
 | Concept | Best for |
@@ -9244,17 +7208,6 @@ Rules and AGENTS.md travel with the repo so the whole team gets the same standar
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -9305,17 +7258,6 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 5 — Cursor CLI and Local Automation' -->
 
 <!-- _class: lead -->
@@ -9341,17 +7283,6 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -9389,19 +7320,26 @@ In the table, **Prerequisites**: Cursor CLI installed, terminal access, Modules 
 
 In the table, **Module Goal**: Master the Cursor CLI for terminal-based AI workflows and automation.
 
+The table header columns are: Lesson, Topic, Time.
+
+In the table, 5.1 — Interactive CLI. Use case on slide: 20 min.
+
+In the table, 5.2 — One-Shot CLI. Use case on slide: 20 min.
+
+In the table, 5.3 — Cloud Handoff. Use case on slide: 18 min.
+
+In the table, 5.4 — Listing and Resuming Sessions. Use case on slide: 20 min.
+
 Terms on this slide — quick definitions for the room:
 
-CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
+
+Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
+
+One-shot CLI means a single non-interactive agent command — ideal for scripts and CI pipelines.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -9435,17 +7373,6 @@ Interactive CLI is a long-lived terminal session where you chat with agent, swit
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## What Is the Cursor CLI?
@@ -9484,17 +7411,6 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -9547,17 +7463,6 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Windows Exercise Environment
@@ -9616,30 +7521,18 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
+<!-- _class: fit-md -->
 
-
-
-## Exercise 5.1 — Steps 1–2
+## Exercise 5.1 — Step 1
 
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-**Follow along (Windows) — key steps:**
+**Step 1:** Verify CLI installation
+```powershell
+agent --version
+```
+- **Expected:** Version text prints (not `command not found`). If missing, run the install command in **CLI basics** above, then close and reopen the termin
 
-**Step 1 — Verify CLI installation**
-- **Do:** powershell agent --version
-- **Expected:** Version text prints (not `command not found`). If missing, run the install command in **CLI basics** above, then close and reopen the terminal.
-
-**Step 2 — Start an interactive session**
-- **Do:** powershell cd D:/path/to/your/repo agent
-- **Expected:** You see a `>` prompt and a welcome message. Working directory should be your project folder.
-
-**Step 3 — Ask your first question**
-- **Do:** At the `>` prompt, paste and press **Enter**:  Help me understand the current codebase structure
-- **Expected:** The Agent lists main files, entry points, or asks one clarifying question.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 5.1 — Interactive CLI. We have about 20 min for this lab.
 
@@ -9649,166 +7542,190 @@ The full lab guide is in slide-exercises/module-05/exercise-5.1-interactive-cli.
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Start an interactive session.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent agent "Help me understand the current codebase structure""
+Step 1: Verify CLI installation.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.1 — Steps 1–2.
+The slide title is: Exercise 5.1 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-The code on the slide reads: agent agent "Help me understand the current codebase structure".
+Bullet 1 on the slide: Expected: Version text prints (not command not found). If missing, run the install command in CLI basics above, then close and reopen the termin.
+
+The code on the slide reads: agent --version.
 
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 5.1 — Steps 1–2 (Part 2)
-
-**Step 2:** Navigate the session (inside the running `agent` session — same terminal window) — unless step notes Git Bash or WSL
-- Type prompts naturally
-- `Shift+Enter` — new line without submitting
-- `Enter` — submit prompt
-- `Ctrl+D` twice — exit
-
-<!--
-Now for Steps 1–2 (Part 2).
-
-Step 2: Navigate the session (inside the running agent session — same terminal window) — unless step notes Git Bash or WSL.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.1 — Steps 1–2 (Part 2).
-
-Bullet 1 on the slide: Type prompts naturally.
-
-Bullet 2 on the slide: Shift+Enter — new line without submitting.
-
-Bullet 3 on the slide: Enter — submit prompt.
-
-Bullet 4 on the slide: Ctrl+D twice — exit.
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Exercise 5.1 — Steps 3–5
+## Exercise 5.1 — Step 2 (cont.)
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Step 3:** Switch models:
+**Step 2:** Start an interactive session
+```powershell
+cd D:/path/to/your/repo
+agent
 ```
-/model
-# Or list models outside session:
-agent --list-models
-```
+- **Expected:** You see a `>` prompt and a welcome message. Working directory should be your project folder.
 
 <!--
-Now for Steps 3–5.
+Now for Step 2 (cont.).
 
-Step 3: Switch models:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "/model # Or list models outside session: agent --list-models"
+Copy this into the Agent chat: "cd D:/path/to/your/repo agent"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.1 — Steps 3–5.
+The slide title is: Exercise 5.1 — Step 2 (cont.).
 
-You will also see the heading: Or list models outside session:.
+Step 2: Start an interactive session.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+Bullet 1 on the slide: Expected: You see a > prompt and a welcome message. Working directory should be your project folder.
 
-The code on the slide reads: /model # Or list models outside session: agent --list-models.
+The code on the slide reads: cd D:/path/to/your/repo agent.
 
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.1 — Step 3 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.1 — Steps 3–5 (Part 2)
-
-**Step 4:** Ask Mode (read-only):
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-```powershell
-agent --mode=ask "What does this project's main function do?"
-# Or inside session: /ask
+**Step 3:** Ask your first question
+- At the `>` prompt, paste and press **Enter**:
 ```
+Help me understand the current codebase structure
+```
+- **Expected:** The Agent lists main files, entry points, or asks one clarifying question.
 
 <!--
-Now for Steps 3–5 (Part 2).
+Now for Step 3 (cont.).
 
-Step 4: Ask Mode (read-only):.
-
-Where: Agent panel — `Ctrl+I`.
-
-Copy this into the Agent chat: "agent --mode=ask "What does this project's main function do?" # Or inside session: /ask"
+Copy this into the Agent chat: "Help me understand the current codebase structure"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.1 — Steps 3–5 (Part 2).
+The slide title is: Exercise 5.1 — Step 3 (cont.).
 
-You will also see the heading: Or inside session: /ask.
+Step 3: Ask your first question.
 
-The code on the slide reads: agent --mode=ask "What does this project's main function do?" # Or inside session: /ask.
+Bullet 1 on the slide: At the > prompt, paste and press Enter:.
+
+Bullet 2 on the slide: Expected: The Agent lists main files, entry points, or asks one clarifying question.
+
+The code on the slide reads: Help me understand the current codebase structure.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.1 — Step 4 (cont.)
+
+**Step 4:** Session controls (same terminal window)
+- | Key / command | What it does | |---------------|--------------| | Type normally | Your prompt text | | `Shift+Enter` | New line without sending | | `Enter` | Send prompt | | `/help` | List CLI comma
+- **Expected:** `/help` shows commands; `/quit` returns you to the normal PowerShell prompt.
+
+<!--
+Now for Step 4 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.1 — Step 4 (cont.).
+
+Step 4: Session controls (same terminal window).
+
+Bullet 1 on the slide: | Key / command | What it does | |---------------|--------------| | Type normally | Your prompt text | | Shift+Enter | New line without sending | | Enter | Send prompt | | /help | List CLI comma.
+
+Bullet 2 on the slide: Expected: /help shows commands; /quit returns you to the normal PowerShell prompt.
+
+Terms on this slide — quick definitions for the room:
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.1 — Step 5 (cont.)
+
+**Step 5:** Switch models
+- Inside `agent`, type: Or from PowerShell (outside a session):
+```
+/model
+```
+```powershell
+agent --list-models
+```
+- **Expected:** A list of available models or the current model name.
+
+<!--
+Now for Step 5 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.1 — Step 5 (cont.).
+
+Step 5: Switch models.
+
+Bullet 1 on the slide: Inside agent, type: Or from PowerShell (outside a session):.
+
+Bullet 2 on the slide: Expected: A list of available models or the current model name.
+
+The code on the slide reads: /model.
+
+The code on the slide reads: agent --list-models.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.1 — Step 6 (cont.)
+
+**Step 6:** Try Ask Mode (read-only)
+```powershell
+agent --mode=ask "What does this project's main function do?"
+```
+- **Expected:** Text answer only — no file edits.
+
+<!--
+Now for Step 6 (cont.).
+
+Copy this into the Agent chat: "agent --mode=ask "What does this project's main function do?""
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.1 — Step 6 (cont.).
+
+Step 6: Try Ask Mode (read-only).
+
+Bullet 1 on the slide: Expected: Text answer only — no file edits.
+
+The code on the slide reads: agent --mode=ask "What does this project's main function do?".
 
 Terms on this slide — quick definitions for the room:
 
@@ -9820,40 +7737,28 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.1 — Step 7 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.1 — Steps 3–5 (Part 3)
-
-**Step 5:** Plan Mode:
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
+**Step 7:** Try Plan Mode
 ```powershell
 agent --mode=plan "Add user authentication to this API"
 ```
+- **Expected:** A plan outline before any file changes (may ask questions first).
 
 <!--
-Now for Steps 3–5 (Part 3).
-
-Step 5: Plan Mode:.
-
-Where: Agent panel — `Ctrl+I`.
+Now for Step 7 (cont.).
 
 Copy this into the Agent chat: "agent --mode=plan "Add user authentication to this API""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.1 — Steps 3–5 (Part 3).
+The slide title is: Exercise 5.1 — Step 7 (cont.).
 
-Step 5: Plan Mode:.
+Step 7: Try Plan Mode.
+
+Bullet 1 on the slide: Expected: A plan outline before any file changes (may ask questions first).
 
 The code on the slide reads: agent --mode=plan "Add user authentication to this API".
 
@@ -9869,102 +7774,85 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.1 — Step 8 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.1 — Steps 6–7
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Step 6:** Configure status line:
-```powershell
+**Step 8:** Optional: status line helper
+```
 npx -y cursor-statusline
-# Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]
 ```
+- **Expected:** Extra status info in the terminal (model, path, context) if the package runs successfully.
 
 <!--
-Now for Steps 6–7.
+Now for Step 8 (cont.).
 
-Step 6: Configure status line:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "npx -y cursor-statusline # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k]"
+Copy this into the Agent chat: "npx -y cursor-statusline"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.1 — Steps 6–7.
+The slide title is: Exercise 5.1 — Step 8 (cont.).
 
-You will also see the heading: Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k].
+Step 8: Optional: status line helper.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+Bullet 1 on the slide: Expected: Extra status info in the terminal (model, path, context) if the package runs successfully.
 
-The code on the slide reads: npx -y cursor-statusline # Shows: [model: claude-4.5-sonnet] [~/project] [main] [ctx: 45k/200k].
-
-Terms on this slide — quick definitions for the room:
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+The code on the slide reads: npx -y cursor-statusline.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.1 — Step 9 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.1 — Steps 6–7 (Part 2)
-
-**Step 7:** Terminal key bindings:
-```powershell
-agent /setup-terminal
+**Step 9:** Optional: terminal setup
 ```
+/setup-terminal
+```
+- **Expected:** Setup completes or prints instructions for your shell.
 
 <!--
-Now for Steps 6–7 (Part 2).
-
-Step 7: Terminal key bindings:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent /setup-terminal"
+Now for Step 9 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.1 — Steps 6–7 (Part 2).
+The slide title is: Exercise 5.1 — Step 9 (cont.).
 
-The code on the slide reads: agent /setup-terminal.
+Step 9: Optional: terminal setup.
 
-Terms on this slide — quick definitions for the room:
+Bullet 1 on the slide: Expected: Setup completes or prints instructions for your shell.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+The code on the slide reads: /setup-terminal.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.1 — Success criteria
 
+**Check:** CLI verified · interactive session · follow-up prompt · `/help` · tried Ask or Plan mode
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 5.1 — Success criteria.
+
+The slide says: Check: CLI verified · interactive session · follow-up prompt · /help · tried Ask or Plan mode.
+
+Terms on this slide — quick definitions for the room:
+
+Plan Mode makes the agent draft a step-by-step plan and ask clarifying questions before it writes code — toggle with Shift+Tab.
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -10000,17 +7888,6 @@ One-shot CLI means a single non-interactive agent command — ideal for scripts 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## One-Shot Command Structure
@@ -10041,17 +7918,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -10099,30 +7965,18 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
+<!-- _class: fit-md -->
 
-
-
-## Exercise 5.2 — Steps 1–2
+## Exercise 5.2 — Step 1
 
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Run a simple one-shot question**
-- **Do:** powershell agent -p "What is the difference between let and const in JavaScript?"
+**Step 1:** Run a simple one-shot question
+```powershell
+agent -p "What is the difference between let and const in JavaScript?"
+```
 - **Expected:** Answer prints in the terminal; command exits back to `PS>`.
 
-**Step 2 — Run another one-shot (code / shell help)**
-- **Do:** powershell agent -p "Write a PowerShell function that checks if a TCP port is in use"
-- **Expected:** Function code or clear steps print; no interactive `>` prompt stays open.
-
-**Step 3 — Ask Mode in one shot**
-- **Do:** powershell agent --mode=ask -p "Explain the git rebase command with examples"
-- **Expected:** Explanation only (read-only).
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 5.2 — One-Shot CLI. We have about 20 min for this lab.
 
@@ -10132,240 +7986,217 @@ The full lab guide is in slide-exercises/module-05/exercise-5.2-one-shot-cli.md 
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Basic one-shot commands:.
+Step 1: Run a simple one-shot question.
 
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent "What is the difference between let and const in JavaScript?" agent "Write a PowerShell function that checks if a TCP port is in use" agent --mode=ask "Explain the git rebase command with examples""
+Copy this into the Agent chat: "agent -p "What is the difference between let and const in JavaScript?""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.2 — Steps 1–2.
+The slide title is: Exercise 5.2 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-The code on the slide reads: agent "What is the difference between let and const in JavaScript?" agent "Write a PowerShell function that checks if a TCP port is in use" agent --mode=ask "Explain the git rebase command with examples".
+Bullet 1 on the slide: Expected: Answer prints in the terminal; command exits back to PS>.
+
+The code on the slide reads: agent -p "What is the difference between let and const in JavaScript?".
 
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 5.2 — Steps 1–2 (Part 2)
-
-**Step 2:** Specify models:
-```powershell
-agent --model gpt-5-mini "What does this command do: Get-ChildItem | Where-Object Name -like '*.txt'"
-agent --model claude-4.5-opus "Design a database schema for a task management system"
-```
-
-<!--
-Now for Steps 1–2 (Part 2).
-
-Step 2: Specify models:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent --model gpt-5-mini "What does this command do: Get-ChildItem | Where-Object Name -like '*.txt'" agent --model claude-4.5-opus "Design a database schema for a task management system""
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.2 — Steps 1–2 (Part 2).
-
-The code on the slide reads: agent --model gpt-5-mini "What does this command do: Get-ChildItem | Where-Object Name -like '*.txt'" agent --model claude-4.5-opus "Design a database schema for a task management system".
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 5.2 — Scriptable Code Reviewer
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-Create `bin/ai-review.sh`:
-
-```powershell
-#!/bin/bash
-STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ')
-
-agent --mode=ask "Review these staged files for common issues:
-Files: $STAGED_FILES
-Check for: debugging statements, unused imports,
-security issues, missing error handling. Be concise."
-```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-<!--
-Now for Scriptable Code Reviewer.
-
-Copy this into the Agent chat: "#!/bin/bash STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ') agent --mode=ask "Review these staged files for common issues: Files: $STAGED_FILES Check for: debugging statements, unused imports, security issues, missing error handling. Be concise.""
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.2 — Scriptable Code Reviewer.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-The slide says: Create bin/ai-review.sh:.
-
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
-
-The code on the slide reads: #!/bin/bash STAGED_FILES=$(git diff --cached --name-only | tr '\n' ', ') agent --mode=ask "Review these staged files for common issues: Files: $STAGED_FILES Check for: debugging statements, unused imports, security issues, missing error handling. Be concise.".
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Exercise 5.2 — Batch & Git Hooks
+## Exercise 5.2 — Step 2 (cont.)
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-
-**Step 4:** Batch process files:
+**Step 2:** Run another one-shot (code / shell help)
 ```powershell
-for file in src/**/*.py; do
-    agent --mode=ask --non-interactive \
-      "Summarize this Python file in one sentence: $(head -50 $file)"
-done
+agent -p "Write a PowerShell function that checks if a TCP port is in use"
 ```
+- **Expected:** Function code or clear steps print; no interactive `>` prompt stays open.
 
 <!--
-Now for Batch & Git Hooks.
+Now for Step 2 (cont.).
 
-Step 4: Batch process files:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "for file in src/**/*.py; do agent --mode=ask --non-interactive \ "Summarize this Python file in one sentence: $(head -50 $file)" done"
+Copy this into the Agent chat: "agent -p "Write a PowerShell function that checks if a TCP port is in use""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.2 — Batch & Git Hooks.
+The slide title is: Exercise 5.2 — Step 2 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Step 2: Run another one-shot (code / shell help).
 
-The code on the slide reads: for file in src/**/*.py; do     agent --mode=ask --non-interactive \       "Summarize this Python file in one sentence: $(head -50 $file)" done.
+Bullet 1 on the slide: Expected: Function code or clear steps print; no interactive > prompt stays open.
+
+The code on the slide reads: agent -p "Write a PowerShell function that checks if a TCP port is in use".
 
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.2 — Step 3 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.2 — Batch & Git Hooks (Part 2)
-
-**Step 5:** Pre-commit hook — review staged diff for secrets, debug statements, merge markers
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-**Step 6:** CI/CD — analyze test output and suggest fixes for failures
-**Terminal:** **PowerShell** — clone/open repo, then continue in Agent panel
-
-**Success Criteria:** Ran one-shots · specified models · created reviewer script · understood CI/CD use
+**Step 3:** Ask Mode in one shot
+```powershell
+agent --mode=ask -p "Explain the git rebase command with examples"
+```
+- **Expected:** Explanation only (read-only).
 
 <!--
-Now for Batch & Git Hooks (Part 2).
+Now for Step 3 (cont.).
 
-Step 5: Pre-commit hook — review staged diff for secrets, debug statements, merge markers.
-
-Where: Agent panel — `Ctrl+I`.
-
-Step 6: CI/CD — analyze test output and suggest fixes for failures.
-
-Terminal: PowerShell — clone/open repo, then continue in Agent panel.
+Copy this into the Agent chat: "agent --mode=ask -p "Explain the git rebase command with examples""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.2 — Batch & Git Hooks (Part 2).
+The slide title is: Exercise 5.2 — Step 3 (cont.).
 
-Success criteria listed: Ran one-shots · specified models · created reviewer script · understood CI/CD use.
+Step 3: Ask Mode in one shot.
+
+Bullet 1 on the slide: Expected: Explanation only (read-only).
+
+The code on the slide reads: agent --mode=ask -p "Explain the git rebase command with examples".
+
+Terms on this slide — quick definitions for the room:
+
+Ask Mode is Cursor's read-only mode — the model can answer questions but cannot edit files or run tools.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.2 — Step 4 (cont.)
+
+**Step 4:** Pick a specific model
+```powershell
+agent --model gpt-5-mini -p "What does Get-ChildItem do in PowerShell?"
+```
+- **Expected:** Answer from the model you named (or an error if that model is unavailable on your plan).
+
+<!--
+Now for Step 4 (cont.).
+
+Copy this into the Agent chat: "agent --model gpt-5-mini -p "What does Get-ChildItem do in PowerShell?""
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.2 — Step 4 (cont.).
+
+Step 4: Pick a specific model.
+
+Bullet 1 on the slide: Expected: Answer from the model you named (or an error if that model is unavailable on your plan).
+
+The code on the slide reads: agent --model gpt-5-mini -p "What does Get-ChildItem do in PowerShell?".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.2 — Step 5 (cont.)
+
+**Step 5:** Understand scriptable review (concept)
+- In Cursor Agent (`Ctrl+I`), ask it to help you draft a **PowerShell** pre-commit script that runs:
+```powershell
+agent --mode=ask -p "Review these staged files for debug statements and missing error handling"
+```
+- **Expected:** You have a `.ps1` sketch you could wire to `git diff --cached` later (full hook optional for this lab).
+
+<!--
+Now for Step 5 (cont.).
+
+Copy this into the Agent chat: "agent --mode=ask -p "Review these staged files for debug statements and missing error handling""
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.2 — Step 5 (cont.).
+
+Step 5: Understand scriptable review (concept).
+
+Bullet 1 on the slide: In Cursor Agent (Ctrl+I), ask it to help you draft a PowerShell pre-commit script that runs:.
+
+Bullet 2 on the slide: Expected: You have a .ps1 sketch you could wire to git diff --cached later (full hook optional for this lab).
+
+The code on the slide reads: agent --mode=ask -p "Review these staged files for debug statements and missing error handling".
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.2 — Step 6 (cont.)
+
+**Step 6:** CI/CD idea (discussion)
+- **Discuss:** In GitHub Actions you would set `CURSOR_API_KEY` as a secret and run `agent -p "..."` on the runner.
+- **Expected:** You can explain one use case (PR review, test log summary) without breaking production CI in class.
+
+<!--
+Now for Step 6 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.2 — Step 6 (cont.).
+
+Step 6: CI/CD idea (discussion).
+
+Bullet 1 on the slide: Discuss: In GitHub Actions you would set CURSOR_API_KEY as a secret and run agent -p "..." on the runner.
+
+Bullet 2 on the slide: Expected: You can explain one use case (PR review, test log summary) without breaking production CI in class.
 
 Terms on this slide — quick definitions for the room:
 
 CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.2 — Success criteria
 
+**Check:** Ran one-shots · specified a model · understand script/CI use cases
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 5.2 — Success criteria.
+
+The slide says: Check: Ran one-shots · specified a model · understand script/CI use cases.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -10405,17 +8236,6 @@ Cloud handoff is when you prefix a message with ampersand in the CLI to continue
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## What Is Cloud Handoff?
 
 Send a local conversation to a Cloud Agent:
@@ -10423,6 +8243,7 @@ Send a local conversation to a Cloud Agent:
 - Continue from web or mobile (`cursor.com/agents`)
 - Let the agent run long tasks while you're away
 - Resume the session later from any device
+- **When it finishes:** check the agent on **`cursor.com/agents`** (primary). Email or Slack only if enabled in your account settings
 
 **The `&` prefix:** Prepend any message with `&` to send it to the cloud.
 
@@ -10441,6 +8262,8 @@ Bullet 2 on the slide: Let the agent run long tasks while you're away.
 
 Bullet 3 on the slide: Resume the session later from any device.
 
+Bullet 4 on the slide: When it finishes: check the agent on cursor.com/agents (primary). Email or Slack only if enabled in your account settings.
+
 Terms on this slide — quick definitions for the room:
 
 Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
@@ -10453,17 +8276,6 @@ When the PR comes back, the same review discipline applies.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -10491,30 +8303,22 @@ When the PR comes back, the same review discipline applies.
 ---
 
 
+<!-- _class: fit-sm -->
 
-
-
-## Exercise 5.3 — Steps 1–2
+## Exercise 5.3 — Step 1
 
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Start CLI and hand off to Cloud**
-- **Do:** powershell agent  At the `>` prompt, type (note the **`&` at the start**):  & Analyze the entire codebase and create a dependency graph.
+**Step 1:** Start CLI and hand off to Cloud
+- At the `>` prompt, type (note the **`&` at the start**):
+```powershell
+agent
+```
+```
+& Analyze the entire codebase and create a dependency graph.
+```
 - **Expected:** Message that a **Cloud Agent** started, plus an **Agent ID** and a `https://cursor.com/agents/...` link.
 
-**Step 2 — Verify in the browser**
-- **Do:** Open the link in **Edge** or **Chrome**.
-- **Expected:** Dashboard shows the agent **Running** (or **Completed** later).
-
-**Step 3 — Close terminal safely**
-- **Do:** You may close the terminal or type `/quit`. The cloud task should keep running.
-- **Expected:** Status on the web dashboard still progresses without your laptop CLI attached.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 5.3 — Cloud Handoff. We have about 18 min for this lab.
 
@@ -10524,63 +8328,23 @@ The full lab guide is in slide-exercises/module-05/exercise-5.3-cloud-handoff.md
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Start local session and hand off:.
+Step 1: Start CLI and hand off to Cloud.
 
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent & "Analyze the entire codebase and create a dependency graph.""
+Copy this into the Agent chat: "& Analyze the entire codebase and create a dependency graph."
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.3 — Steps 1–3.
+The slide title is: Exercise 5.3 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-The code on the slide reads: agent & "Analyze the entire codebase and create a dependency graph.".
+Bullet 1 on the slide: At the > prompt, type (note the & at the start):.
 
-Terms on this slide — quick definitions for the room:
+Bullet 2 on the slide: Expected: Message that a Cloud Agent started, plus an Agent ID and a https://cursor.com/agents/... link.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+The code on the slide reads: agent.
 
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 5.3 — Steps 1–3 (Part 2)
-
-**Step 2:** Verify handoff:
-```
-🚀 Handing off to Cloud Agent...
-✅ Session running at: https://cursor.com/agents/[agent-id]
-```
-
-<!--
-Now for Steps 1–3 (Part 2).
-
-Step 2: Verify handoff:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "🚀 Handing off to Cloud Agent... ✅ Session running at: https://cursor.com/agents/[agent-id]"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.3 — Steps 1–3 (Part 2).
-
-The code on the slide reads: 🚀 Handing off to Cloud Agent... ✅ Session running at: https://cursor.com/agents/[agent-id].
+The code on the slide reads: & Analyze the entire codebase and create a dependency graph..
 
 Terms on this slide — quick definitions for the room:
 
@@ -10588,40 +8352,46 @@ A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a G
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 5.3 — Steps 2–3 (cont.)
 
+**Step 2:** Verify in the browser
+- Open the link in **Edge** or **Chrome**.
+- **Expected:** Dashboard shows the agent **Running** (or **Completed** later). This page is the **primary** way to know when the run finishes.
 
-
-
-
-
-
-
-
-
-## Exercise 5.3 — Steps 1–3 (Part 3)
-
-**Step 3:** Check status via browser or CLI
-**Where:** Web browser (Edge or Chrome)
+**Step 3:** Close terminal safely
+- You may close the terminal or type `/quit`. The cloud task should keep running.
+- **Expected:** Status on the web dashboard still progresses without your laptop CLI attached.
 
 <!--
-Now for Steps 1–3 (Part 3).
+Now for Steps 2–3 (cont.).
 
-Step 3: Check status via browser or CLI.
+Step 2: Verify in the browser.
 
-Where: Web browser — Edge or Chrome.
+Step 3: Close terminal safely.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.3 — Steps 1–3 (Part 3).
+The slide title is: Exercise 5.3 — Steps 2–3 (cont.).
+
+Bullet 1 on the slide: Open the link in Edge or Chrome.
+
+Bullet 2 on the slide: Expected: Dashboard shows the agent Running (or Completed later). This page is the primary way to know when the run finishes.
+
+Bullet 3 on the slide: You may close the terminal or type /quit. The cloud task should keep running.
+
+Bullet 4 on the slide: Expected: Status on the web dashboard still progresses without your laptop CLI attached.
 
 Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
 -->
@@ -10629,179 +8399,68 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.3 — Step 4 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.3 — Steps 4–6
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Step 4:** Push existing conversation:
+**Step 4:** Hand off an existing conversation
+- In a new `agent` session, after some local messages:
 ```
-& "Continue this conversation in the cloud. I need to log off."
+& Continue this conversation in the cloud. I need to log off.
 ```
+- **Expected:** Handoff confirmation and cloud URL.
 
 <!--
-Now for Steps 4–6.
+Now for Step 4 (cont.).
 
-Step 4: Push existing conversation:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "& "Continue this conversation in the cloud. I need to log off.""
+Copy this into the Agent chat: "& Continue this conversation in the cloud. I need to log off."
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.3 — Steps 4–6.
+The slide title is: Exercise 5.3 — Step 4 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+Step 4: Hand off an existing conversation.
 
-The code on the slide reads: & "Continue this conversation in the cloud. I need to log off.".
+Bullet 1 on the slide: In a new agent session, after some local messages:.
 
-Terms on this slide — quick definitions for the room:
+Bullet 2 on the slide: Expected: Handoff confirmation and cloud URL.
 
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 5.3 — Steps 4–6 (Part 2)
-
-**Step 5:** Long-running task:
-```powershell
-agent "& Refactor the auth module to use JWT. Update all tests and docs."
-```
-
-<!--
-Now for Steps 4–6 (Part 2).
-
-Step 5: Long-running task:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent "& Refactor the auth module to use JWT. Update all tests and docs.""
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.3 — Steps 4–6 (Part 2).
-
-The code on the slide reads: agent "& Refactor the auth module to use JWT. Update all tests and docs.".
+The code on the slide reads: & Continue this conversation in the cloud. I need to log off..
 
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
-JWT stands for JSON Web Token — a compact, signed token format often used for authentication.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 5.3 — Steps 4–6 (Part 3)
-
-**Step 6:** Resume later:
-```powershell
-agent --resume [agent-id-from-cloud]
-```
-
-<!--
-Now for Steps 4–6 (Part 3).
-
-Step 6: Resume later:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent --resume [agent-id-from-cloud]"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.3 — Steps 4–6 (Part 3).
-
-The code on the slide reads: agent --resume [agent-id-from-cloud].
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Cloud Handoff Best Practices
+## Exercise 5.3 — Step 5 (cont.)
 
-| When to Use | When Not to Use |
-|-------------|-----------------|
-| Long-running tasks (>5 min) | Quick questions |
-| When you need to close laptop | Interactive debugging |
-| Overnight batch processing | Tasks needing terminal access |
-| Parallel work streams | Security-sensitive code (local only) |
-
-**Success Criteria:** Sent `&` message · verified cloud agent · accessed via web
+**Step 5:** One-shot cloud handoff
+```powershell
+agent -p "& Refactor the auth module to use JWT. Update all tests and docs."
+```
+- **Expected:** Cloud agent launched from a single command (same `&` semantics).
 
 <!--
-This slide is a table — Cloud Handoff Best Practices.
+Now for Step 5 (cont.).
 
-The slide title is: Cloud Handoff Best Practices.
+Copy this into the Agent chat: "agent -p "& Refactor the auth module to use JWT. Update all tests and docs.""
 
-Success criteria listed: Sent & message · verified cloud agent · accessed via web.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The table header columns are: When to Use, When Not to Use.
+The slide title is: Exercise 5.3 — Step 5 (cont.).
 
-In the table, Long-running tasks (>5 min): Quick questions.
+Step 5: One-shot cloud handoff.
 
-In the table, When you need to close laptop: Interactive debugging.
+Bullet 1 on the slide: Expected: Cloud agent launched from a single command (same & semantics).
 
-In the table, Overnight batch processing: Tasks needing terminal access.
-
-In the table, Parallel work streams: Security-sensitive code (local only).
+The code on the slide reads: agent -p "& Refactor the auth module to use JWT. Update all tests and docs.".
 
 Terms on this slide — quick definitions for the room:
 
@@ -10809,19 +8468,69 @@ Cloud handoff is when you prefix a message with ampersand in the CLI to continue
 
 A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
 
-Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
-
-When the PR comes back, the same review discipline applies.
+JWT stands for JSON Web Token — a compact, signed token format often used for authentication.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
+
+## Exercise 5.3 — Step 6 (cont.)
+
+**Step 6:** Resume later
+- Copy the agent ID from the dashboard, then:
+```powershell
+agent --resume YOUR_AGENT_ID_HERE
+```
+- **Expected:** Session resumes or shows cloud status (per your plan/features).
+
+<!--
+Now for Step 6 (cont.).
+
+Copy this into the Agent chat: "agent --resume YOUR_AGENT_ID_HERE"
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.3 — Step 6 (cont.).
+
+Step 6: Resume later.
+
+Bullet 1 on the slide: Copy the agent ID from the dashboard, then:.
+
+Bullet 2 on the slide: Expected: Session resumes or shows cloud status (per your plan/features).
+
+The code on the slide reads: agent --resume YOUR_AGENT_ID_HERE.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.3 — Success criteria
 
+**Check:** Handoff with `&` · dashboard link · agent continues after terminal closed
 
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.3 — Success criteria.
+
+The slide says: Check: Handoff with & · dashboard link · agent continues after terminal closed.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -10851,17 +8560,6 @@ The slide says: Lab guide: [`Exercise 5.4](../slide-exercises/module-05/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -10908,30 +8606,21 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-sm -->
 
-
-
-## Exercise 5.4 — Steps 1–2
+## Exercise 5.4 — Step 1
 
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Create three short sessions**
-- **Do:** Run three separate one-shot sessions (each exits automatically): powershell agent -p "Reply with exactly one word: frontend-cleanup" agent -p "Reply with exactly one word: db-optimization" agent -p "Reply with exactly
+**Step 1:** Create three short sessions
+- Run three separate one-shot sessions (each exits automatically):
+```powershell
+agent -p "Reply with exactly one word: frontend-cleanup"
+agent -p "Reply with exactly one word: db-optimization"
+agent -p "Reply with exactly one word: docs-update"
+```
 - **Expected:** Three one-word replies; three saved sessions in history.
 
-**Step 2 — List sessions**
-- **Do:** Start interactive CLI: powershell agent  Then type:  /resume
-- **Expected:** Numbered list of recent sessions with names or timestamps.
-
-**Step 3 — Resume by ID**
-- **Do:** From the list, copy a session ID, exit (`/quit`), then: powershell agent --resume PASTE_SESSION_ID_HERE
-- **Expected:** Prior conversation context is available; Agent remembers earlier messages.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 5.4 — Listing and Resuming Sessions. We have about 20 min for this lab.
 
@@ -10941,170 +8630,98 @@ The full lab guide is in slide-exercises/module-05/exercise-5.4-listing-and-resu
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Create multiple named sessions:.
+Step 1: Create three short sessions.
 
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent "Just say one word: frontend-cleanup" # do work, exit agent "Just say one word: db-optimization" # do work, exit agent "Just say one word: docs-update""
+Copy this into the Agent chat: "agent -p "Reply with exactly one word: frontend-cleanup" agent -p "Reply with exactly one word: db-optimization" agent -p "Reply with exactly one word: docs-update""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.4 — Steps 1–2.
+The slide title is: Exercise 5.4 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-The code on the slide reads: agent "Just say one word: frontend-cleanup"   # do work, exit agent "Just say one word: db-optimization"  # do work, exit agent "Just say one word: docs-update".
+Bullet 1 on the slide: Run three separate one-shot sessions (each exits automatically):.
+
+Bullet 2 on the slide: Expected: Three one-word replies; three saved sessions in history.
+
+The code on the slide reads: agent -p "Reply with exactly one word: frontend-cleanup" agent -p "Reply with exactly one word: db-optimization" agent -p "Reply with exactly one word: docs-update".
 
 Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.4 — Step 2 (cont.)
 
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 5.4 — Steps 1–2 (Part 2)
-
-**Step 2:** List all sessions:
+**Step 2:** List sessions
+- Start interactive CLI: Then type:
+```powershell
+agent
+```
 ```
 /resume
-# 1. frontend-cleanup Agent (2 hours ago)
-# 2. db-optimization Agent (1 hour ago)
-# 3. docs-update Agent (30 minutes ago)
 ```
+- **Expected:** Numbered list of recent sessions with names or timestamps.
 
 <!--
-Now for Steps 1–2 (Part 2).
-
-Step 2: List all sessions:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "/resume # 1. frontend-cleanup Agent (2 hours ago) # 2. db-optimization Agent (1 hour ago) # 3. docs-update Agent (30 minutes ago)"
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.4 — Steps 1–2 (Part 2).
+The slide title is: Exercise 5.4 — Step 2 (cont.).
 
-You will also see the heading: 1. frontend-cleanup Agent (2 hours ago).
+Step 2: List sessions.
 
-You will also see the heading: 2. db-optimization Agent (1 hour ago).
+Bullet 1 on the slide: Start interactive CLI: Then type:.
 
-You will also see the heading: 3. docs-update Agent (30 minutes ago).
+Bullet 2 on the slide: Expected: Numbered list of recent sessions with names or timestamps.
 
-The code on the slide reads: /resume # 1. frontend-cleanup Agent (2 hours ago) # 2. db-optimization Agent (1 hour ago) # 3. docs-update Agent (30 minutes ago).
+The code on the slide reads: agent.
+
+The code on the slide reads: /resume.
 
 Terms on this slide — quick definitions for the room:
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+Interactive CLI is a long-lived terminal session where you chat with agent, switch models, and resume later.
 
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.4 — Step 3 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.4 — Steps 3–5
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Step 3:** Resume by ID:
+**Step 3:** Resume by ID
+- From the list, copy a session ID, exit (`/quit`), then:
 ```powershell
-agent --resume abc123-def456-ghi789
+agent --resume PASTE_SESSION_ID_HERE
 ```
+- **Expected:** Prior conversation context is available; Agent remembers earlier messages.
 
 <!--
-Now for Steps 3–5.
+Now for Step 3 (cont.).
 
-Step 3: Resume by ID:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "agent --resume abc123-def456-ghi789"
+Copy this into the Agent chat: "agent --resume PASTE_SESSION_ID_HERE"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.4 — Steps 3–5.
+The slide title is: Exercise 5.4 — Step 3 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+Step 3: Resume by ID.
 
-The code on the slide reads: agent --resume abc123-def456-ghi789.
+Bullet 1 on the slide: From the list, copy a session ID, exit (/quit), then:.
 
-Terms on this slide — quick definitions for the room:
+Bullet 2 on the slide: Expected: Prior conversation context is available; Agent remembers earlier messages.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 5.4 — Steps 3–5 (Part 2)
-
-**Step 4:** Concurrent sessions in different terminals:
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-```powershell
-# Terminal 1: agent --resume frontend-cleanup
-# Terminal 2: agent --resume db-optimization
-```
-
-<!--
-Now for Steps 3–5 (Part 2).
-
-Step 4: Concurrent sessions in different terminals:.
-
-Where: Agent panel — `Ctrl+I`.
-
-Copy this into the Agent chat: "# Terminal 1: agent --resume frontend-cleanup # Terminal 2: agent --resume db-optimization"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 5.4 — Steps 3–5 (Part 2).
-
-You will also see the heading: Terminal 1: agent --resume frontend-cleanup.
-
-You will also see the heading: Terminal 2: agent --resume db-optimization.
-
-The code on the slide reads: # Terminal 1: agent --resume frontend-cleanup # Terminal 2: agent --resume db-optimization.
+The code on the slide reads: agent --resume PASTE_SESSION_ID_HERE.
 
 Terms on this slide — quick definitions for the room:
 
@@ -11114,106 +8731,93 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.4 — Step 4 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.4 — Steps 3–5 (Part 3)
-
-**Step 5:** Context management:
-```
-/compress   # Summarize conversation, free context window
-```
+**Step 4:** Two terminals (optional)
+- Open two PowerShell terminals. Resume different sessions in each.
+- **Expected:** Two independent CLI conversations at once.
 
 <!--
-Now for Steps 3–5 (Part 3).
-
-Step 5: Context management:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "/compress # Summarize conversation, free context window"
+Now for Step 4 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.4 — Steps 3–5 (Part 3).
+The slide title is: Exercise 5.4 — Step 4 (cont.).
 
-The code on the slide reads: /compress   # Summarize conversation, free context window.
+Step 4: Two terminals (optional).
+
+Bullet 1 on the slide: Open two PowerShell terminals. Resume different sessions in each.
+
+Bullet 2 on the slide: Expected: Two independent CLI conversations at once.
+
+Terms on this slide — quick definitions for the room:
+
+CLI stands for Command-Line Interface — running Cursor or other tools from a terminal instead of the graphical editor.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 5.4 — Step 5 (cont.)
+
+**Step 5:** Compress long context
+- Inside a long `agent` session:
+```
+/compress
+```
+- **Expected:** Conversation summarized; more context window free.
+
+<!--
+Now for Step 5 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 5.4 — Step 5 (cont.).
+
+Step 5: Compress long context.
+
+Bullet 1 on the slide: Inside a long agent session:.
+
+Bullet 2 on the slide: Expected: Conversation summarized; more context window free.
+
+The code on the slide reads: /compress.
 
 Terms on this slide — quick definitions for the room:
 
 Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
 
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 5.4 — Step 6 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 5.4 — Steps 6–7 & Best Practices
-
-**Step 6:** Export session summary as markdown
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-**Step 7:** Create `scripts/cursor-sessions.ps1` to list and manage sessions (optional `.sh` on Mac/Linux)
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-**Naming:** Use `[area]-[task]` format (e.g., `api-auth-fix`)
-
-**Context:** Use `/compress` on long sessions · cloud handoff for very long tasks
-
-**Cleanup:** Sessions persist indefinitely — manually complete or discard finished ones
-
-**Success Criteria:** Created named sessions · listed with `/resume` · resumed · used `/compress`
+**Step 6:** Naming convention (practice)
+- When starting real work, use descriptive first prompts, e.g. `api-auth-fix` or `docs-update`.
+- **Expected:** `/resume` list is readable a week later.
 
 <!--
-Now for Steps 6–7 & Best Practices.
-
-Step 6: Export session summary as markdown.
-
-Where: Agent panel — `Ctrl+I`.
-
-Step 7: Create scripts/cursor-sessions.ps1 to list and manage sessions (optional .sh on Mac/Linux).
-
-Where: Agent panel — `Ctrl+I`.
+Now for Step 6 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 5.4 — Steps 6–7 & Best Practices.
+The slide title is: Exercise 5.4 — Step 6 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Step 6: Naming convention (practice).
 
-The slide says: Naming: Use [area]-[task] format (e.g., api-auth-fix).
+Bullet 1 on the slide: When starting real work, use descriptive first prompts, e.g. api-auth-fix or docs-update.
 
-The slide says: Context: Use /compress on long sessions · cloud handoff for very long tasks.
-
-The slide says: Cleanup: Sessions persist indefinitely — manually complete or discard finished ones.
-
-Success criteria listed: Created named sessions · listed with /resume · resumed · used /compress.
+Bullet 2 on the slide: Expected: /resume list is readable a week later.
 
 Terms on this slide — quick definitions for the room:
-
-Cloud handoff is when you prefix a message with ampersand in the CLI to continue the work as a Cloud Agent.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -11221,138 +8825,23 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: lead -->
-
-# Day 2
-
-## Cloud Agents, APIs & Analytics
-
-Cursor Training Program · Complete Course
-
-<!--
-Welcome back — Day 2.
-
-Yesterday we established how AI models behave and how to use Cursor safely in real repositories. Today we extend that work outside the IDE: the CLI, Cloud Agents, and production-grade API integration.
-
-Before we continue, make sure API keys are available where needed and that you can open PowerShell and reach api.cursor.com from this network. We will store every key in environment variables — never paste secrets on screen or into chat logs.
-
-The slide title is: Day 2.
-
-You will also see the heading: Cloud Agents, APIs & Analytics.
-
-The slide says: Cursor Training Program · Complete Course.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _header: 'Module 6 — Cloud Agents in the UI' -->
-
-<!-- _class: lead -->
-
-# Cloud Agents in the UI
-
-## Module 6 · Day 2 (Hands-On + Demonstration)
-
-Cursor Training Program · ~90 min
-
-<!--
-Module 6 introduces Cloud Agents in the Cursor UI — launching runs, tracking progress, and collecting artifacts.
-
-Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
-
-When the PR comes back, the same review discipline applies.
-
-The slide title is: Cloud Agents in the UI.
-
-You will also see the heading: Module 6 · Day 2 (Hands-On + Demonstration).
-
-The slide says: Cursor Training Program · ~90 min.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
-## Module Overview
+## Exercise 5.4 — Success criteria
 
-| Aspect | Details |
-|--------|---------|
-| **Duration** | ~90 minutes |
-| **Format** | Hands-on exercise + demonstration |
-| **Prerequisites** | Cursor account, GitHub repository access, Modules 1–5 completed |
-| **Module Goal** | Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations |
-
-### Lessons
-
-| Lesson | Topic | Time |
-|--------|-------|------|
-| 6.1 | Launching a Cloud Agent | 25 min |
-| 6.2 | Cloud Agent Artifacts | 23 min |
-| 6.3 | Cloud Agents from Messaging Platforms | 20 min |
+**Check:** Created sessions · listed with `/resume` · resumed one · tried `/compress`
 
 <!--
-Here is the overview for Module 6.
+Now for Success criteria.
 
-The slide title is: Module Overview.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The table header columns are: Aspect, Details.
+The slide title is: Exercise 5.4 — Success criteria.
 
-In the table, **Duration**: ~90 minutes.
-
-In the table, **Format**: Hands-on exercise + demonstration.
-
-In the table, **Prerequisites**: Cursor account, GitHub repository access, Modules 1–5 completed.
-
-In the table, **Module Goal**: Master Cloud Agents UI for remote execution, artifact collection, and messaging integrations.
-
-Terms on this slide — quick definitions for the room:
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+The slide says: Check: Created sessions · listed with /resume · resumed one · tried /compress.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -11390,17 +8879,6 @@ A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a G
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -11449,17 +8927,6 @@ When the PR comes back, the same review discipline applies.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## When to Use Cloud Agents
 
 **Good for:**
@@ -11504,17 +8971,6 @@ When the PR comes back, the same review discipline applies.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Accessing Cloud Agents UI
 
 | Method | Steps |
@@ -11548,17 +9004,6 @@ When the PR comes back, the same review discipline applies.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Cloud Agent Dashboard
@@ -11582,17 +9027,6 @@ When the PR comes back, the same review discipline applies.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -11653,30 +9087,16 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
+<!-- _class: fit-md -->
 
-
-
-## Exercise 6.1 — Steps 1–2
+## Exercise 6.1 — Step 1
 
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Open Cloud Agents**
-- **Do:** In Cursor, open **Cloud Agents**. Also open [cursor.com/agents](https://cursor.com/agents) in your browser.
+**Step 1:** Open Cloud Agents
+- In Cursor, open **Cloud Agents**. Also open [cursor.com/agents](https://cursor.com/agents) in your browser.
 - **Expected:** Empty list or previous runs; **+ New** (or **New Agent**) is visible.
 
-**Step 2 — Create a new agent**
-- **Do:** Click **+ New** and fill in: | Field | Example | |-------|---------| | Repository | `https://github.com/YOUR_ORG/YOUR_REPO` | | Branch | `main` | | Prompt | See below | | Model | `claude-4.6-sonnet` (or course default) |
-- **Expected:** Agent status **Running**; log lines appear (clone repo, read files, etc.).
-
-**Step 3 — Watch the live log**
-- **Do:** Keep the run page open 2–5 minutes.
-- **Expected:** Timestamped log lines; eventual **Completed** (or clear error).
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 6.1 — Launching a Cloud Agent. We have about 25 min for this lab.
 
@@ -11686,133 +9106,21 @@ The full lab guide is in slide-exercises/module-06/exercise-6.1-launching-a-clou
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Navigate to Cloud Agents.
-
-Terminal: PowerShell — `Ctrl+ `` in Cursor.
-
-Copy this into the Agent chat: "# Cursor Editor: cloud icon or View → Cloud Agents open https://cursor.com/agents"
+Step 1: Open Cloud Agents.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.1 — Steps 1–2.
+The slide title is: Exercise 6.1 — Step 1.
 
-You will also see the heading: Cursor Editor: cloud icon or View → Cloud Agents.
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell `Ctrl+ ` (Git Bash/WSL for .sh` scripts).
+Bullet 1 on the slide: In Cursor, open Cloud Agents. Also open [cursor.com/agents](https://cursor.com/agents) in your browser.
 
-The code on the slide reads: # Cursor Editor: cloud icon or View → Cloud Agents open https://cursor.com/agents.
+Bullet 2 on the slide: Expected: Empty list or previous runs; + New (or New Agent) is visible.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 6.1 — Steps 1–2 (Part 2)
-
-**Step 2:** Click **"+ New"** and fill out:
-```
-Repository: https://github.com/YOUR_ORG/YOUR_REPO
-Branch: main
-Prompt: Read README and main source files. Summarize:
-  - What this project does
-  - Key dependencies · How to run locally · Common issues
-Model: claude-4.6-sonnet
-Auto-create PR: ☐
-```
-
-<!--
-Now for Steps 1–2 (Part 2).
-
-Step 2: Click "+ New" and fill out:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "Repository: https://github.com/YOUR_ORG/YOUR_REPO Branch: main Prompt: Read README and main source files. Summarize: - What this project does - Key dependencies · How to run locally · Common issues Model: claude-4.6-sonnet Auto-create PR: ☐"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 6.1 — Steps 1–2 (Part 2).
-
-Bullet 1 on the slide: What this project does.
-
-Bullet 2 on the slide: Key dependencies · How to run locally · Common issues.
-
-The code on the slide reads: Repository: https://github.com/YOUR_ORG/YOUR_REPO Branch: main Prompt: Read README and main source files. Summarize:   - What this project does   - Key dependencies · How to run locally · Common issues Model: claude-4.6-sonnet Auto-create PR: ☐.
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
-
-PR stands for Pull Request — a proposed code change others review before it merges.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 6.1 — Steps 3–4
-
-**Step 3:** Monitor live log in real time:
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-```
-[10:45:01] Agent starting...
-[10:45:02] Cloning repository...
-[10:45:15] Repository cloned
-[10:45:16] Reading README.md
-[10:45:40] Generating summary...
-```
-
-<!--
-Now for Steps 3–4.
-
-Step 3: Monitor live log in real time:.
-
-Where: Agent panel — `Ctrl+I`.
-
-Copy this into the Agent chat: "[10:45:01] Agent starting... [10:45:02] Cloning repository... [10:45:15] Repository cloned [10:45:16] Reading README.md [10:45:40] Generating summary..."
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 6.1 — Steps 3–4.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
-The code on the slide reads: [10:45:01] Agent starting... [10:45:02] Cloning repository... [10:45:15] Repository cloned [10:45:16] Reading README.md [10:45:40] Generating summary....
-
-Terms on this slide — quick definitions for the room:
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 -->
@@ -11820,61 +9128,91 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 6.1 — Step 2 (cont.)
 
+**Step 2:** Create a new agent
+- Click **+ New** and fill in: | Field | Example | |-------|---------| | Repository | `https://github.com/YOUR_ORG/YOUR_REPO` | | Branch | `main` | | Prompt | See below | | Model | `claude-4.6-sonnet` (
+```
+Read README and main source files. Summarize:
+- What this project does
+- Key dependencies
+- How to run locally
+- Common issues
+```
+- **Expected:** Agent status **Running**; log lines appear (clone repo, read files, etc.).
 
+<!--
+Now for Step 2 (cont.).
 
+Copy this into the Agent chat: "Read README and main source files. Summarize: - What this project does - Key dependencies - How to run locally - Common issues"
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 6.1 — Step 2 (cont.).
 
+Step 2: Create a new agent.
 
+Bullet 1 on the slide: Click + New and fill in: | Field | Example | |-------|---------| | Repository | https://github.com/YOUR_ORG/YOUR_REPO | | Branch | main | | Prompt | See below | | Model | claude-4.6-sonnet (.
 
+Bullet 2 on the slide: What this project does.
+
+Bullet 3 on the slide: Key dependencies.
+
+Bullet 4 on the slide: How to run locally.
+
+Bullet 5 on the slide: Common issues.
+
+Bullet 6 on the slide: Expected: Agent status Running; log lines appear (clone repo, read files, etc.).
+
+The code on the slide reads: Read README and main source files. Summarize: - What this project does - Key dependencies - How to run locally - Common issues.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+-->
+
+---
 
 
 <!-- _class: fit-sm -->
 
-## Exercise 6.1 — Steps 3–4 (Part 2)
+## Exercise 6.1 — Steps 3–4 (cont.)
 
-**Step 4:** Configure settings (gear icon):
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
+**Step 3:** Watch the live log
+- Keep the run page open 2–5 minutes.
+- **Expected:** Timestamped log lines; eventual **Completed** (or clear error).
 
-| Setting | Purpose |
-|---------|---------|
-| Default Model | Preferred model for new agents |
-| Auto-create PR | Create PRs on completion |
-| Notification Email | Completion notifications |
-| Webhook URL | POST completion events |
-| Max Run Time | 5 min – 24 hrs |
+**Step 4:** Review settings (gear icon)
+- Open settings and note: default model, auto-PR, notifications, webhook URL, max runtime.
+- **Expected:** You know where to change defaults for the next run.
 
 <!--
-Now for Steps 3–4 (Part 2).
+Now for Steps 3–4 (cont.).
 
-Step 4: Configure settings (gear icon):.
+Step 3: Watch the live log.
 
-Where: Agent panel — `Ctrl+I`.
+Step 4: Review settings (gear icon).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.1 — Steps 3–4 (Part 2).
+The slide title is: Exercise 6.1 — Steps 3–4 (cont.).
 
-The table header columns are: Setting, Purpose.
+Bullet 1 on the slide: Keep the run page open 2–5 minutes.
 
-In the table, Default Model: Preferred model for new agents.
+Bullet 2 on the slide: Expected: Timestamped log lines; eventual Completed (or clear error).
 
-In the table, Auto-create PR: Create PRs on completion.
+Bullet 3 on the slide: Open settings and note: default model, auto-PR, notifications, webhook URL, max runtime.
 
-In the table, Notification Email: Completion notifications.
-
-In the table, Webhook URL: POST completion events.
-
-In the table, Max Run Time: 5 min – 24 hrs.
+Bullet 4 on the slide: Expected: You know where to change defaults for the next run.
 
 Terms on this slide — quick definitions for the room:
 
 A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 
 PR stands for Pull Request — a proposed code change others review before it merges.
@@ -11883,46 +9221,33 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
-## Exercise 6.1 — Steps 5–6
+## Exercise 6.1 — Step 5 (cont.)
 
-**Step 5:** Launch with PR creation:
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
+**Step 5:** Optional: run with auto-PR
+- New agent with **Auto-create PR** on and prompt:
 ```
-Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style
-Auto-create PR: ✅ Yes
-Branch prefix: docs/contributing
+Add CONTRIBUTING.md with dev setup, tests, PR process, and code style
 ```
+- **Expected:** Completed run may show a PR link on the dashboard.
 
 <!--
-Now for Steps 5–6.
+Now for Step 5 (cont.).
 
-Step 5: Launch with PR creation:.
-
-Where: Agent panel — `Ctrl+I`.
-
-Copy this into the Agent chat: "Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style Auto-create PR: ✅ Yes Branch prefix: docs/contributing"
+Copy this into the Agent chat: "Add CONTRIBUTING.md with dev setup, tests, PR process, and code style"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.1 — Steps 5–6.
+The slide title is: Exercise 6.1 — Step 5 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Step 5: Optional: run with auto-PR.
 
-The code on the slide reads: Prompt: Add CONTRIBUTING.md with dev setup, tests, PR process, code style Auto-create PR: ✅ Yes Branch prefix: docs/contributing.
+Bullet 1 on the slide: New agent with Auto-create PR on and prompt:.
+
+Bullet 2 on the slide: Expected: Completed run may show a PR link on the dashboard.
+
+The code on the slide reads: Add CONTRIBUTING.md with dev setup, tests, PR process, and code style.
 
 Terms on this slide — quick definitions for the room:
 
@@ -11934,40 +9259,26 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 6.1 — Step 6 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 6.1 — Steps 5–6 (Part 2)
-
-**Step 6:** Share agent URL with team:
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-```
-https://cursor.com/agents/agt_abc123def456
-```
+**Step 6:** Share the run URL
+- Copy the agent URL from the browser address bar for a teammate.
+- **Expected:** URL format like `https://cursor.com/agents/agt_...` opens the same run when signed in.
 
 <!--
-Now for Steps 5–6 (Part 2).
-
-Step 6: Share agent URL with team:.
-
-Where: Agent panel — `Ctrl+I`.
-
-Copy this into the Agent chat: "https://cursor.com/agents/agt_abc123def456"
+Now for Step 6 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.1 — Steps 5–6 (Part 2).
+The slide title is: Exercise 6.1 — Step 6 (cont.).
 
-The code on the slide reads: https://cursor.com/agents/agt_abc123def456.
+Step 6: Share the run URL.
+
+Bullet 1 on the slide: Copy the agent URL from the browser address bar for a teammate.
+
+Bullet 2 on the slide: Expected: URL format like https://cursor.com/agents/agt_... opens the same run when signed in.
 
 Terms on this slide — quick definitions for the room:
 
@@ -11981,11 +9292,29 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 6.1 — Success criteria
 
+**Check:** Launched agent · watched log · understand settings · optional PR run
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 6.1 — Success criteria.
+
+The slide says: Check: Launched agent · watched log · understand settings · optional PR run.
+
+Terms on this slide — quick definitions for the room:
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+PR stands for Pull Request — a proposed code change others review before it merges.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -12025,17 +9354,6 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -12086,17 +9404,6 @@ JSON stands for JavaScript Object Notation — a text format for structured data
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Artifact Storage
 
 - Stored for **30 days**
@@ -12127,30 +9434,24 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 ---
 
 
+<!-- _class: fit-sm -->
 
-
-
-## Exercise 6.2 — Steps 1–2
+## Exercise 6.2 — Step 1
 
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
-**Follow along (Windows) — key steps:**
+**Step 1:** Launch an agent that creates artifacts
+- New Cloud Agent with this prompt:
+```
+Generate:
+1. api_documentation.md — API-style docs for main endpoints
+2. test_report.json — test summary (real or plausible for demo)
+3. dependencies.txt — packages and versions
 
-**Step 1 — Launch an agent that creates artifacts**
-- **Do:** New Cloud Agent with this prompt:  Generate: 1. api_documentation.md — API-style docs for main endpoints 2. test_report.json — test summary (real or plausible for demo) 3. dependencies.txt — packages and versions Plac
+Place all files in an artifacts/ folder in the repo.
+```
 - **Expected:** Run completes; **Artifacts** tab or section lists files.
 
-**Step 2 — Download from the UI**
-- **Do:** On the completed run: download **one file**, then try **Download All (zip)** if shown.
-- **Expected:** Files save to your **Downloads** folder; zip opens in File Explorer.
-
-**Step 3 — Preview in browser**
-- **Do:** Open `.md` / `.json` from the UI preview if available.
-- **Expected:** Markdown renders; JSON is readable.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 6.2 — Cloud Agent Artifacts. We have about 25 min for this lab.
 
@@ -12160,27 +9461,27 @@ The full lab guide is in slide-exercises/module-06/exercise-6.2-cloud-agent-arti
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Launch agent that generates artifacts:.
+Step 1: Launch an agent that creates artifacts.
 
-Where: Agent panel — `Ctrl+I`.
-
-Copy this into the Agent chat: "Generate: 1. api_documentation.md — OpenAPI-style docs for all endpoints 2. test_report.json — test suite summary 3. screenshot.png — main UI screenshot (if applicable) 4. dependencies.txt — all packages and versions Place all in artifacts/ directory."
+Copy this into the Agent chat: "Generate: 1. api_documentation.md — API-style docs for main endpoints 2. test_report.json — test summary (real or plausible for demo) 3. dependencies.txt — packages and versions Place all files in an artifacts/ folder in the repo."
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.2 — Steps 1–2.
+The slide title is: Exercise 6.2 — Step 1.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-The code on the slide reads: Generate: 1. api_documentation.md — OpenAPI-style docs for all endpoints 2. test_report.json — test suite summary 3. screenshot.png — main UI screenshot (if applicable) 4. dependencies.txt — all packages and versions Place all in artifacts/ directory..
+Bullet 1 on the slide: New Cloud Agent with this prompt:.
+
+Bullet 2 on the slide: Expected: Run completes; Artifacts tab or section lists files.
+
+The code on the slide reads: Generate: 1. api_documentation.md — API-style docs for main endpoints 2. test_report.json — test summary (real or plausible for demo) 3. dependencies.txt — packages and versions Place all files in an artifacts/ folder in the repo..
 
 Terms on this slide — quick definitions for the room:
 
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-OpenAPI is the Open API Specification — a machine-readable description of REST endpoints.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
@@ -12190,128 +9491,36 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 6.2 — Steps 2–3 (cont.)
 
+**Step 2:** Download from the UI
+- On the completed run: download **one file**, then try **Download All (zip)** if shown.
+- **Expected:** Files save to your **Downloads** folder; zip opens in File Explorer.
 
-
-
-
-
-
-
-
-
-## Exercise 6.2 — Steps 1–2 (Part 2)
-
-**Step 2:** After completion, view artifact list in UI with Download buttons and **Download All (zip)**
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
+**Step 3:** Preview in browser
+- Open `.md` / `.json` from the UI preview if available.
+- **Expected:** Markdown renders; JSON is readable.
 
 <!--
-Now for Steps 1–2 (Part 2).
+Now for Steps 2–3 (cont.).
 
-Step 2: After completion, view artifact list in UI with Download buttons and Download All (zip).
+Step 2: Download from the UI.
 
-Where: Agent panel — `Ctrl+I`.
+Step 3: Preview in browser.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.2 — Steps 1–2 (Part 2).
+The slide title is: Exercise 6.2 — Steps 2–3 (cont.).
 
-Terms on this slide — quick definitions for the room:
+Bullet 1 on the slide: On the completed run: download one file, then try Download All (zip) if shown.
 
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+Bullet 2 on the slide: Expected: Files save to your Downloads folder; zip opens in File Explorer.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
--->
+Bullet 3 on the slide: Open .md / .json from the UI preview if available.
 
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 6.2 — Steps 3–5
-
-**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
-
-
-**Step 3:** Download individual artifacts
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-**Step 4:** Download all as zip
-**Where:** Cursor **Agent** panel (`Ctrl+I`)
-
-<!--
-Now for Steps 3–5.
-
-Step 3: Download individual artifacts.
-
-Where: Agent panel — `Ctrl+I`.
-
-Step 4: Download all as zip.
-
-Where: Agent panel — `Ctrl+I`.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 6.2 — Steps 3–5.
-
-Environment note on the slide: Demonstration (Windows): Agent `Ctrl+I` · PowerShell · Browser for dashboards.
-
-Terms on this slide — quick definitions for the room:
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 6.2 — Steps 3–5 (Part 2)
-
-**Step 5:** Preview in browser:
-**Where:** Web browser (Edge or Chrome)
-
-- Markdown → rendered HTML
-- Images → inline preview
-- JSON → formatted tree view
-
-<!--
-Now for Steps 3–5 (Part 2).
-
-Step 5: Preview in browser:.
-
-Where: Web browser — Edge or Chrome.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 6.2 — Steps 3–5 (Part 2).
-
-Bullet 1 on the slide: Markdown → rendered HTML.
-
-Bullet 2 on the slide: Images → inline preview.
-
-Bullet 3 on the slide: JSON → formatted tree view.
+Bullet 4 on the slide: Expected: Markdown renders; JSON is readable.
 
 Terms on this slide — quick definitions for the room:
 
@@ -12321,56 +9530,33 @@ JSON stands for JavaScript Object Notation — a text format for structured data
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 6.2 — Step 4 (cont.)
 
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 6.2 — API Access
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
+**Step 4:** List artifacts via API (PowerShell)
+- Set IDs from the dashboard, then:
 ```powershell
-# List artifacts
-curl -s -u "$CURSOR_USER_API_KEY:" \
-  "https://api.cursor.com/v1/agents/$AGENT_ID/artifacts" | jq '.'
-
-# Download specific artifact
-DOWNLOAD_URL=$(curl -s -u "$CURSOR_USER_API_KEY:" \
-  ".../artifacts/download?path=artifacts/report.md" | jq -r '.url')
-curl -L -o report.md "$DOWNLOAD_URL"
+$env:AGENT_ID = "your_agent_id_here"
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts"
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-Create `bin/process-artifacts.sh` to batch-download all artifacts for an agent ID.
+- **Expected:** JSON listing artifact paths (use `ConvertFrom-Json` if helpful).
 
 <!--
-Now for API Access.
+Now for Step 4 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.2 — API Access.
+The slide title is: Exercise 6.2 — Step 4 (cont.).
 
-You will also see the heading: List artifacts.
+Step 4: List artifacts via API (PowerShell).
 
-You will also see the heading: Download specific artifact.
+Bullet 1 on the slide: Set IDs from the dashboard, then:.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Bullet 2 on the slide: Expected: JSON listing artifact paths (use ConvertFrom-Json if helpful).
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
-
-The slide says: Create bin/process-artifacts.sh to batch-download all artifacts for an agent ID.
-
-The code on the slide reads: # List artifacts curl -s -u "$CURSOR_USER_API_KEY:" \   "https://api.cursor.com/v1/agents/$AGENT_ID/artifacts" | jq '.' # Download specific artifact DOWNLOAD_URL=$(curl -s -u "$CURSOR_USER_API_KEY:" \   ".../artifacts/download?path=artifacts/report.md" | jq -r '.url') curl -L -o report.md "$DOWNLOAD_URL".
+The code on the slide reads: $env:AGENT_ID = "your_agent_id_here" curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts".
 
 Terms on this slide — quick definitions for the room:
 
@@ -12378,7 +9564,38 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 6.2 — Step 5 (cont.)
+
+**Step 5:** Download one artifact via API (optional)
+- Follow the lab guide’s presigned-URL pattern with `curl.exe -L -o filename ...`.
+- **Expected:** File saved locally; matches UI download.
+
+<!--
+Now for Step 5 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 6.2 — Step 5 (cont.).
+
+Step 5: Download one artifact via API (optional).
+
+Bullet 1 on the slide: Follow the lab guide’s presigned-URL pattern with curl.exe -L -o filename .
+
+Bullet 2 on the slide: Expected: File saved locally; matches UI download.
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
@@ -12388,69 +9605,29 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 6.2 — Success criteria
 
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 6.2 — CI/CD Integration
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```yaml
-# GitHub Actions — download test results from completed agent
-- name: Download Cloud Agent artifacts
-  run: |
-    curl -s -u "${{ secrets.CURSOR_API_KEY }}:" \
-      ".../artifacts/download?path=test_results.xml" > test_results.xml
-```
-
-**Success Criteria:** Generated artifacts · downloaded single + zip · accessed via API
+**Check:** Artifacts created · downloaded in UI · listed via API
 
 <!--
-Now for CI/CD Integration.
+Now for Success criteria.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 6.2 — CI/CD Integration.
+The slide title is: Exercise 6.2 — Success criteria.
 
-You will also see the heading: GitHub Actions — download test results from completed agent.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-Success criteria listed: Generated artifacts · downloaded single + zip · accessed via API.
-
-Bullet 1 on the slide: name: Download Cloud Agent artifacts.
-
-The code on the slide reads: # GitHub Actions — download test results from completed agent - name: Download Cloud Agent artifacts   run: |     curl -s -u "${{ secrets.CURSOR_API_KEY }}:" \       ".../artifacts/download?path=test_results.xml" > test_results.xml.
+The slide says: Check: Artifacts created · downloaded in UI · listed via API.
 
 Terms on this slide — quick definitions for the room:
 
-A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
-
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-CI/CD stands for Continuous Integration and Continuous Deployment — automated build, test, and release pipelines.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -12476,17 +9653,6 @@ The note on screen reads: Concept · 10 min · Demonstration.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -12530,17 +9696,6 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Messaging Integration Architecture
@@ -12556,17 +9711,6 @@ The figure on this slide is titled: Messaging Integration Architecture.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -12627,17 +9771,6 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Demo: Slack Usage
@@ -12684,17 +9817,6 @@ PR stands for Pull Request — a proposed code change others review before it me
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -12745,17 +9867,6 @@ PR stands for Pull Request — a proposed code change others review before it me
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Demo: Discord Integration
@@ -12790,17 +9901,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -12856,17 +9956,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 7 — Cursor API Foundations' -->
 
 <!-- _class: lead -->
@@ -12892,17 +9981,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -12941,19 +10019,28 @@ In the table, **Prerequisites**: Cursor account, basic API familiarity, Python 3
 
 In the table, **Module Goal**: Understand the Cursor API ecosystem, authenticate securely, handle errors, and optimize requests.
 
+The table header columns are: Lesson, Topic, Time.
+
+In the table, 7.1 — The Cursor API Landscape. Use case on slide: 10 min.
+
+In the table, 7.2 — Authentication. Use case on slide: 20 min.
+
+In the table, 7.3 — Rate Limits and Error Handling. Use case on slide: 20 min.
+
+In the table, 7.4 — ETag Caching. Use case on slide: 18 min.
+
+In the table, 7.5 — Listing Available Models. Use case on slide: 10 min.
+
 Terms on this slide — quick definitions for the room:
+
+ETag caching sends If-None-Match on repeat requests — if nothing changed, the server returns 304 and you skip re-downloading the body.
+
+A rate limit caps how many API requests you can make in a time window — exceed it and you get HTTP 429.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -12979,17 +10066,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -13029,17 +10105,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -13087,17 +10152,6 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## When to Use Which API
 
 - **Call a model directly** → Chat Completions API (OpenAI-compatible)
@@ -13126,17 +10180,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -13178,13 +10221,6 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 7.2
@@ -13216,17 +10252,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -13271,17 +10296,6 @@ CLI stands for Command-Line Interface — running Cursor or other tools from a t
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -13333,17 +10347,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Security Best Practices
@@ -13381,17 +10384,6 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -13452,30 +10444,16 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.2 — Step 1
 
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-## Exercise 7.2 — Steps 1–2
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Create a User API key (UI)**
-- **Do:** **Cursor** → **Settings** → **API Keys** (or team dashboard per your plan) → **Generate** → copy the key once.
+**Step 1:** Create a User API key (UI)
+- **Cursor** → **Settings** → **API Keys** (or team dashboard per your plan) → **Generate** → copy the key once.
 - **Expected:** Key string starting with `cursor_...` (you cannot view it again later).
 
-**Step 2 — Store in PowerShell session**
-- **Do:** powershell $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here" $env:CURSOR_USER_API_KEY.Substring(0, 12) + "..."
-- **Expected:** First line sets variable; second prints a short prefix (not the full secret).
-
-**Step 3 — Test with curl.exe**
-- **Do:** powershell curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
-- **Expected:** JSON with model names (or `items` array). Not `401 Unauthorized`.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 7.2 — Generate and Test API Keys. We have about 15 min for this lab.
 
@@ -13489,13 +10467,17 @@ A 401 usually means the wrong key type — Admin versus User — not a bad copy-
 
 Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
 
-Step 1: Generate User API Key — Where: Cursor app → Settings → API Keys → Generate New Key (copy the key; you will not see it again).
+Step 1: Create a User API key (UI).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.2 — Steps 1–3.
+The slide title is: Exercise 7.2 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
+
+Bullet 1 on the slide: Cursor → Settings → API Keys (or team dashboard per your plan) → Generate → copy the key once.
+
+Bullet 2 on the slide: Expected: Key string starting with cursor_... (you cannot view it again later).
 
 Terms on this slide — quick definitions for the room:
 
@@ -13505,32 +10487,21 @@ A User API Key is scoped to your account — for launching agents and calling us
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.2 — Step 2 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 7.2 — Steps 1–3 (Part 2)
-
-**Step 2:** Set environment variable — **Terminal:** **PowerShell** (``Ctrl+` ``)
-
+**Step 2:** Store in PowerShell session
 ```powershell
-$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
-$env:CURSOR_USER_API_KEY
+$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+$env:CURSOR_USER_API_KEY.Substring(0, 12) + "..."
 ```
+- **Expected:** First line sets variable; second prints a short prefix (not the full secret).
 
 <!--
-Now for Steps 1–3 (Part 2).
+Now for Step 2 (cont.).
 
-Step 2: Set environment variable — Terminal: PowerShell (`Ctrl+ ``).
-
-Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx" $env:CURSOR_USER_API_KEY"
+Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here" $env:CURSOR_USER_API_KEY.Substring(0, 12) + "...""
 
 A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
@@ -13538,9 +10509,13 @@ Once you see a 200 with the expected JSON, you are ready for the rest of today's
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.2 — Steps 1–3 (Part 2).
+The slide title is: Exercise 7.2 — Step 2 (cont.).
 
-The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx" $env:CURSOR_USER_API_KEY.
+Step 2: Store in PowerShell session.
+
+Bullet 1 on the slide: Expected: First line sets variable; second prints a short prefix (not the full secret).
+
+The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here" $env:CURSOR_USER_API_KEY.Substring(0, 12) + "...".
 
 Terms on this slide — quick definitions for the room:
 
@@ -13548,89 +10523,20 @@ API stands for Application Programming Interface — a defined way for programs 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 7.2 — Steps 1–3 (Part 3)
-
-**Step 3:** Test with curl — **Terminal:** **PowerShell**
-
-```powershell
-curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
-  https://api.cursor.com/v1/models | Select-Object -First 20
-```
-
-<!--
-Now for Steps 1–3 (Part 3).
-
-Step 3: Test with curl — Terminal: PowerShell.
-
-A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
-
-Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.2 — Steps 1–3 (Part 3).
-
-The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `   https://api.cursor.com/v1/models | Select-Object -First 20.
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Exercise 7.2 — Steps 4–5
+## Exercise 7.2 — Step 3 (cont.)
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-
-**Step 4:** Test with Python requests:
-**Terminal:** **PowerShell** — save as `test_models.py`, then `python test_models.py` — ``Ctrl+L``
-
-```python
-response = requests.get(
-    "https://api.cursor.com/v1/models",
-    auth=(API_KEY, "")  # Empty password
-)
+**Step 3:** Test with curl.exe
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
 ```
+- **Expected:** JSON with model names (or `items` array). Not `401 Unauthorized`.
 
 <!--
-Now for Steps 4–5.
-
-Step 4: Test with Python requests:.
-
-Terminal: PowerShell — save as test_models.py, then python test_models.py — `Ctrl+L`.
-
-Copy this into the Agent chat: "response = requests.get( "https://api.cursor.com/v1/models", auth=(API_KEY, "") # Empty password )"
+Now for Step 3 (cont.).
 
 A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
@@ -13638,113 +10544,85 @@ Once you see a 200 with the expected JSON, you are ready for the rest of today's
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.2 — Steps 4–5.
+The slide title is: Exercise 7.2 — Step 3 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Step 3: Test with curl.exe.
 
-The code on the slide reads: response = requests.get(     "https://api.cursor.com/v1/models",     auth=(API_KEY, "")  # Empty password ).
+Bullet 1 on the slide: Expected: JSON with model names (or items array). Not 401 Unauthorized.
 
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 7.2 — Steps 4–5 (Part 2)
-
-**Step 5:** Test with OpenAI SDK:
-**Terminal:** **PowerShell** — `python test_openai_sdk.py` — ``Ctrl+L``
-
-```python
-client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY)
-response = client.chat.completions.create(
-    model="gpt-5-mini",
-    messages=[{"role": "user", "content": "Say 'API works!'"}],
-    max_tokens=10
-)
-```
-
-<!--
-Now for Steps 4–5 (Part 2).
-
-Step 5: Test with OpenAI SDK:.
-
-Terminal: PowerShell — python test_openai_sdk.py — `Ctrl+L`.
-
-Copy this into the Agent chat: "client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY) response = client.chat.completions.create( model="gpt-5-mini", messages=[{"role": "user", "content": "Say 'API works!'"}], max_tokens=10 )"
-
-A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
-
-Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.2 — Steps 4–5 (Part 2).
-
-The code on the slide reads: client = OpenAI(base_url="https://api.cursor.com/v1", api_key=API_KEY) response = client.chat.completions.create(     model="gpt-5-mini",     messages=[{"role": "user", "content": "Say 'API works!'"}],     max_tokens=10 ).
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-SDK stands for Software Development Kit — a library and helpers for calling an API from your language of choice.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Exercise 7.2 — Steps 6–7
+## Exercise 7.2 — Step 4 (cont.)
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+**Step 4:** Test with Python (optional)
+- Save `test_models.py`: Run: `python test_models.py`
+```
+import os, requests
+key = os.environ["CURSOR_USER_API_KEY"]
+r = requests.get("https://api.cursor.com/v1/models", auth=(key, ""), timeout=30)
+print(r.status_code, r.text[:500])
+```
+- **Expected:** Status `200` and JSON body.
+
+<!--
+Now for Step 4 (cont.).
+
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
+
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.2 — Step 4 (cont.).
+
+Step 4: Test with Python (optional).
+
+Bullet 1 on the slide: Save test_models.py: Run: python test_models.py.
+
+Bullet 2 on the slide: Expected: Status 200 and JSON body.
+
+The code on the slide reads: import os, requests key = os.environ["CURSOR_USER_API_KEY"] r = requests.get("https://api.cursor.com/v1/models", auth=(key, ""), timeout=30) print(r.status_code, r.text[:500]).
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
 
 
-**Step 6:** Generate and test Admin API Key:
+<!-- _class: fit-md -->
+
+## Exercise 7.2 — Step 5 (cont.)
+
+**Step 5:** Admin key (Enterprise only)
+- Generate **Admin API key** in dashboard →:
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  https://api.cursor.com/v1/teams/members
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/members
 ```
+- **Expected:** `200` with team data, or clear message if your plan lacks Admin API.
 
 <!--
-Now for Steps 6–7.
-
-Step 6: Generate and test Admin API Key:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
+Now for Step 5 (cont.).
 
 A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
@@ -13752,46 +10630,36 @@ Once you see a 200 with the expected JSON, you are ready for the rest of today's
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.2 — Steps 6–7.
+The slide title is: Exercise 7.2 — Step 5 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Step 5: Admin key (Enterprise only).
 
-The code on the slide reads: export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx" curl -s -u "$CURSOR_ADMIN_API_KEY:" \   https://api.cursor.com/v1/admin/organization | jq '.'.
+Bullet 1 on the slide: Generate Admin API key in dashboard →:.
+
+Bullet 2 on the slide: Expected: 200 with team data, or clear message if your plan lacks Admin API.
+
+The code on the slide reads: $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here" curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" https://api.cursor.com/v1/teams/members.
 
 Terms on this slide — quick definitions for the room:
 
 An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.2 — Step 6 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 7.2 — Steps 6–7 (Part 2)
-
-**Step 7:** Revoke compromised keys via API or Settings → API Keys → Revoke
-**Success Criteria:** Generated keys · tested curl, Python, OpenAI SDK · tested Admin key
+**Step 6:** Revocation (know how)
+- In **Settings → API Keys**, find **Revoke** for a test key (only if instructor allows).
+- **Expected:** Old key returns `401` on next API call.
 
 <!--
-Now for Steps 6–7 (Part 2).
-
-Step 7: Revoke compromised keys via API or Settings → API Keys → Revoke.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
+Now for Step 6 (cont.).
 
 A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
@@ -13799,27 +10667,43 @@ Once you see a 200 with the expected JSON, you are ready for the rest of today's
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.2 — Steps 6–7 (Part 2).
+The slide title is: Exercise 7.2 — Step 6 (cont.).
 
-Success criteria listed: Generated keys · tested curl, Python, OpenAI SDK · tested Admin key.
+Step 6: Revocation (know how).
+
+Bullet 1 on the slide: In Settings → API Keys, find Revoke for a test key (only if instructor allows).
+
+Bullet 2 on the slide: Expected: Old key returns 401 on next API call.
 
 Terms on this slide — quick definitions for the room:
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-SDK stands for Software Development Kit — a library and helpers for calling an API from your language of choice.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.2 — Success criteria
 
+**Check:** User key works in curl · optional Admin key · keys only in `$env:`, not in git
 
+<!--
+Now for Success criteria.
 
+A 401 usually means the wrong key type — Admin versus User — not a bad copy-paste.
 
+Once you see a 200 with the expected JSON, you are ready for the rest of today's API labs.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.2 — Success criteria.
+
+The slide says: Check: User key works in curl · optional Admin key · keys only in $env:, not in git.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -13855,17 +10739,6 @@ A rate limit caps how many API requests you can make in a time window — exceed
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -13913,17 +10786,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## HTTP Status Codes to Handle
@@ -13966,17 +10828,6 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
 ## Rate Limit Headers
@@ -14013,47 +10864,18 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.3 — Step 1
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Make one successful call**
-- **Do:** powershell curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" ` https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit"
-- **Expected:** `HTTP/1.1 200` and rate-limit headers if present.
-
-**Step 2 — Read rate-limit headers**
-- **Do:** Run the call again and note `X-RateLimit-Limit`, `Remaining`, `Reset` (names may vary slightly).
-- **Expected:** You can state how many calls remain in the window.
-
-**Step 3 — Add retry logic (Python)**
-- **Do:** Save `retry_demo.py` from the slide deck / lab guide pattern: retry on `429` and `5xx`, honor `Retry-After`, do **not** retry most `4xx`. Run against `/v1/models` with your user key.
-- **Expected:** Script exits cleanly on `200`; on forced errors, backs off instead of crashing.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-xs -->
-
-## Exercise 7.3 — Exponential Backoff
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def call_with_retry(url, max_retries=5, base_delay=1.0):
-    for attempt in range(max_retries):
-        response = requests.get(url, auth=AUTH)
-        if response.status_code == 200:
-            return response.json()
-        if 400 <= response.status_code < 500:
-            return None  # Don't retry client errors
-        if response.status_code in [429, 500, 502, 503, 504]:
-            delay = int(response.headers.get('Retry-After',
-                      min(base_delay * (2 ** attempt), 60)))
-            time.sleep(delay)
-    return None
+**Step 1:** Make one successful call
+```powershell
+curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit"
 ```
+- **Expected:** `HTTP/1.1 200` and rate-limit headers if present.
 
 <!--
 We are starting Exercise 7.3 — Rate Limits and Error Handling. We have about 15 min for this lab.
@@ -14064,83 +10886,117 @@ The full lab guide is in slide-exercises/module-07/exercise-7.3-rate-limits-and-
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Make one successful call.
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.3 — Exponential Backoff.
+The slide title is: Exercise 7.3 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The code on the slide begins: def call_with_retry(url, max_retries=5, base_delay=1.0):     for attempt in range(max_retries):         response = requests.get(url, auth=AUTH)         if response.status_code == 200:             return response.json()         if 400 <= response.status_code < 500:. The rest of the block continues on the slide.
+Bullet 1 on the slide: Expected: HTTP/1.1 200 and rate-limit headers if present.
+
+The code on the slide reads: curl.exe -s -D - -o NUL -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members 2>&1 | Select-String -Pattern "HTTP/|X-RateLimit".
 
 Terms on this slide — quick definitions for the room:
 
-Exponential backoff means waiting longer after each failed retry — standard practice when APIs return 429 or 5xx errors.
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 7.3 — Steps 2–3 (cont.)
 
+**Step 2:** Read rate-limit headers
+- Run the call again and note `X-RateLimit-Limit`, `Remaining`, `Reset` (names may vary slightly).
+- **Expected:** You can state how many calls remain in the window.
 
-
-
-
-
-
-
-
-
-## Exercise 7.3 — Rate Limiter & Client
-
-**Monitor headers:** warn when `X-RateLimit-Remaining` < 10% of limit
-
-**Token bucket rate limiter:** space requests evenly across the minute window
-
-**CursorAPIClient:** combines rate limiting, retries on 429/5xx, timeout handling, and typed methods like `get_models()` and `create_agent()`
-
-**Success Criteria:** Backoff · header monitoring · rate limiter · robust client class
+**Step 3:** Add retry logic (Python)
+- Save `retry_demo.py` from the slide deck / lab guide pattern: retry on `429` and `5xx`, honor `Retry-After`, do **not** retry most `4xx`. Run against `/v1/models` with your user key.
+- **Expected:** Script exits cleanly on `200`; on forced errors, backs off instead of crashing.
 
 <!--
-Now for Rate Limiter & Client.
+Now for Steps 2–3 (cont.).
+
+Step 2: Read rate-limit headers.
+
+Step 3: Add retry logic (Python).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.3 — Rate Limiter & Client.
+The slide title is: Exercise 7.3 — Steps 2–3 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Bullet 1 on the slide: Run the call again and note X-RateLimit-Limit, Remaining, Reset (names may vary slightly).
 
-The slide says: Monitor headers: warn when X-RateLimit-Remaining < 10% of limit.
+Bullet 2 on the slide: Expected: You can state how many calls remain in the window.
 
-The slide says: Token bucket rate limiter: space requests evenly across the minute window.
+Bullet 3 on the slide: Save retry_demo.py from the slide deck / lab guide pattern: retry on 429 and 5xx, honor Retry-After, do not retry most 4xx. Run against /v1/models with your user key.
 
-The slide says: CursorAPIClient: combines rate limiting, retries on 429/5xx, timeout handling, and typed methods like get_models() and create_agent().
-
-Success criteria listed: Backoff · header monitoring · rate limiter · robust client class.
-
-Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
-
-Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
+Bullet 4 on the slide: Expected: Script exits cleanly on 200; on forced errors, backs off instead of crashing.
 -->
 
 ---
 
 
+<!-- _class: fit-sm -->
+
+## Exercise 7.3 — Steps 4–5 (cont.)
+
+**Step 4:** Discuss client errors
+- With a partner, explain why `401` should not be retried with the same key.
+- **Expected:** One-sentence rule: fix auth, then call again.
+
+**Step 5:** Optional: slow down requests
+- Add `Start-Sleep -Seconds 3` between five curl calls in a loop.
+- **Expected:** No `429` during normal class pacing.
+
+<!--
+Now for Steps 4–5 (cont.).
+
+Step 4: Discuss client errors.
+
+Step 5: Optional: slow down requests.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.3 — Steps 4–5 (cont.).
+
+Bullet 1 on the slide: With a partner, explain why 401 should not be retried with the same key.
+
+Bullet 2 on the slide: Expected: One-sentence rule: fix auth, then call again.
+
+Bullet 3 on the slide: Add Start-Sleep -Seconds 3 between five curl calls in a loop.
+
+Bullet 4 on the slide: Expected: No 429 during normal class pacing.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.3 — Success criteria
 
+**Check:** Saw headers · retry on 429/5xx · no infinite retry on 401
 
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.3 — Success criteria.
+
+The slide says: Check: Saw headers · retry on 429/5xx · no infinite retry on 401.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -14176,17 +11032,6 @@ ETag caching sends If-None-Match on repeat requests — if nothing changed, the 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## What Are ETags?
@@ -14234,17 +11079,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## ETag Flow
@@ -14266,17 +11100,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -14318,43 +11141,19 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.4 — Step 1
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — First request (no cache)**
-- **Do:** powershell curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" ` https://api.cursor.com/v1/teams/members Select-String -Path headers.txt -Pattern "ETag|HTTP/"
-- **Expected:** `200` and an `ETag:` header value in `headers.txt`.
-
-**Step 2 — Second request with If-None-Match**
-- **Do:** Copy the ETag value (without quotes issues), then: powershell $etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim() curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_A
-- **Expected:** Often `304 Not Modified` (smaller/faster); same data as before.
-
-**Step 3 — Python ETag helper (optional)**
-- **Do:** Implement `get_with_etag(url, previous_etag)` from the slides in a short script; call twice.
-- **Expected:** Second call returns `None` for body on `304` and reuses cached JSON in code.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-xs -->
-
-## Exercise 7.4 — Basic ETag Usage
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def get_with_etag(url, previous_etag=None):
-    headers = {'If-None-Match': previous_etag} if previous_etag else {}
-    response = requests.get(url, auth=AUTH, headers=headers)
-
-    if response.status_code == 304:
-        return None, response.headers.get('ETag')  # Use cached data
-    if response.status_code == 200:
-        return response.json(), response.headers.get('ETag')
+**Step 1:** First request (no cache)
+```powershell
+curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  https://api.cursor.com/v1/teams/members
+Select-String -Path headers.txt -Pattern "ETag|HTTP/"
 ```
+- **Expected:** `200` and an `ETag:` header value in `headers.txt`.
 
 <!--
 We are starting Exercise 7.4 — ETag Caching. We have about 18 min for this lab.
@@ -14365,104 +11164,151 @@ The full lab guide is in slide-exercises/module-07/exercise-7.4-etag-caching.md 
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: First request (no cache).
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.4 — Basic ETag Usage.
+The slide title is: Exercise 7.4 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The code on the slide reads: def get_with_etag(url, previous_etag=None):     headers = {'If-None-Match': previous_etag} if previous_etag else {}     response = requests.get(url, auth=AUTH, headers=headers)     if response.status_code == 304:         return None, response.headers.get('ETag')  # Use cached data     if response.status_code == 200:         return response.json(), response.headers.get('ETag').
+Bullet 1 on the slide: Expected: 200 and an ETag: header value in headers.txt.
+
+The code on the slide reads: curl.exe -s -D headers.txt -o body.json -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members Select-String -Path headers.txt -Pattern "ETag|HTTP/".
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 7.4 — Step 2 (cont.)
+
+**Step 2:** Second request with If-None-Match
+- Copy the ETag value (without quotes issues), then:
+```powershell
+$etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim()
+curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  -H "If-None-Match: $etag" https://api.cursor.com/v1/teams/members
+Select-String -Path headers2.txt -Pattern "HTTP/"
+```
+- **Expected:** Often `304 Not Modified` (smaller/faster); same data as before.
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.4 — Step 2 (cont.).
+
+Step 2: Second request with If-None-Match.
+
+Bullet 1 on the slide: Copy the ETag value (without quotes issues), then:.
+
+Bullet 2 on the slide: Expected: Often 304 Not Modified (smaller/faster); same data as before.
+
+The code on the slide reads: $etag = (Select-String -Path headers.txt -Pattern "^ETag:").Line.Split(":",2)[1].Trim() curl.exe -s -D headers2.txt -o body2.json -u "$($env:CURSOR_ADMIN_API_KEY):" `   -H "If-None-Match: $etag" https://api.cursor.com/v1/teams/members Select-String -Path headers2.txt -Pattern "HTTP/".
 
 Terms on this slide — quick definitions for the room:
 
 HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
 
 If-None-Match is an HTTP header carrying your cached ETag — the server uses it to decide whether data changed.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 7.4 — Steps 3–4 (cont.)
+
+**Step 3:** Python ETag helper (optional)
+- Implement `get_with_etag(url, previous_etag)` from the slides in a short script; call twice.
+- **Expected:** Second call returns `None` for body on `304` and reuses cached JSON in code.
+
+**Step 4:** When to use ETags
+- Name one Analytics or Admin poll that should use ETags (daily usage, member list).
+- **Expected:** You save bandwidth on unchanged responses.
+
+<!--
+Now for Steps 3–4 (cont.).
+
+Step 3: Python ETag helper (optional).
+
+Step 4: When to use ETags.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.4 — Steps 3–4 (cont.).
+
+Bullet 1 on the slide: Implement get_with_etag(url, previous_etag) from the slides in a short script; call twice.
+
+Bullet 2 on the slide: Expected: Second call returns None for body on 304 and reuses cached JSON in code.
+
+Bullet 3 on the slide: Name one Analytics or Admin poll that should use ETags (daily usage, member list).
+
+Bullet 4 on the slide: Expected: You save bandwidth on unchanged responses.
+
+Terms on this slide — quick definitions for the room:
+
+HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
 
 ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
 
 JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
-
-Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.4 — Success criteria
 
-
-
-
-
-
-
-
-
-
-## Exercise 7.4 — ETagCache & CachedClient
-
-**ETagCache:** persistent pickle-based cache keyed by URL hash
-
-**CachedCursorClient:**
-- Check local cache → send `If-None-Match`
-- On 304 → return cached data (Cache HIT)
-- On 200 → update cache (Cache MISS)
-
-**Batch analytics:** fetch 30 days of usage — unchanged days return 304 instantly
-
-**Success Criteria:** Basic ETag request · persistent cache · analytics workload caching
+**Check:** Captured ETag · got 200 then 304 · explained use case
 
 <!--
-Now for ETagCache & CachedClient.
+Now for Success criteria.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.4 — ETagCache & CachedClient.
+The slide title is: Exercise 7.4 — Success criteria.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
-The slide says: ETagCache: persistent pickle-based cache keyed by URL hash.
-
-The slide says: CachedCursorClient:.
-
-The slide says: Batch analytics: fetch 30 days of usage — unchanged days return 304 instantly.
-
-Success criteria listed: Basic ETag request · persistent cache · analytics workload caching.
-
-Bullet 1 on the slide: Check local cache → send If-None-Match.
-
-Bullet 2 on the slide: On 304 → return cached data (Cache HIT).
-
-Bullet 3 on the slide: On 200 → update cache (Cache MISS).
+The slide says: Check: Captured ETag · got 200 then 304 · explained use case.
 
 Terms on this slide — quick definitions for the room:
 
 HTTP 304 Not Modified means your cached copy is still current — no response body, so you save bandwidth and time.
 
-If-None-Match is an HTTP header carrying your cached ETag — the server uses it to decide whether data changed.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
 ETag stands for Entity Tag — a version fingerprint the server returns so clients can ask whether data changed.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
-
-Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -14492,17 +11338,6 @@ The slide says: Lab guide: [`Exercise 7.5](../slide-exercises/module-07/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -14551,30 +11386,18 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.5 — Step 1
 
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-## Exercise 7.5 — Steps 1–2
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — List models with curl.exe**
-- **Do:** powershell curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
+**Step 1:** List models with curl.exe
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models
+```
 - **Expected:** JSON listing model IDs (shape may be `items` or `data` — inspect once).
 
-**Step 2 — Pretty-print in PowerShell**
-- **Do:** powershell curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models | ConvertFrom-Json | ConvertTo-Json -Depth 5
-- **Expected:** Readable list in the console.
-
-**Step 3 — Python table (optional)**
-- **Do:** Loop models and print columns: ID, context window, pricing if present.
-- **Expected:** Table of at least 3 models.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 7.5 — List Available Models. We have about 10 min for this lab.
 
@@ -14584,271 +11407,122 @@ The full lab guide is in slide-exercises/module-07/exercise-7.5-list-available-m
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: List with curl:.
-
-Terminal: PowerShell — `Ctrl+ `` in Cursor.
+Step 1: List models with curl.exe.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 7.5 — Steps 1–2.
+The slide title is: Exercise 7.5 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The code on the slide reads: curl -s -u "$CURSOR_USER_API_KEY:" \   https://api.cursor.com/v1/models \   | jq '.data[] | {id: .id, context: .context_window, input_price: .pricing.input}'.
+Bullet 1 on the slide: Expected: JSON listing model IDs (shape may be items or data — inspect once).
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 7.5 — Steps 1–2 (Part 2)
-
-**Step 2:** Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support
-**Terminal:** **PowerShell** — `python script.py`
-
-<!--
-Now for Steps 1–2 (Part 2).
-
-Step 2: Format with Python tabulate — Model ID, Context, Input/Output Price, Vision support.
-
-Terminal: PowerShell — python script.py.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.5 — Steps 1–2 (Part 2).
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 7.5 — Steps 3–4
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-
-**Step 3:** Filter models:
-```python
-# Models with 100k+ context
-large_context = [m for m in models if m.get('context_window', 0) >= 100000]
-
-# Cheapest by input price
-cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]
-```
-
-<!--
-Now for Steps 3–4.
-
-Step 3: Filter models:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "# Models with 100k+ context large_context = [m for m in models if m.get('context_window', 0) >= 100000] # Cheapest by input price cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5]"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.5 — Steps 3–4.
-
-You will also see the heading: Models with 100k+ context.
-
-You will also see the heading: Cheapest by input price.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-The code on the slide reads: # Models with 100k+ context large_context = [m for m in models if m.get('context_window', 0) >= 100000] # Cheapest by input price cheapest = sorted(models, key=lambda x: x['pricing']['input'])[:5].
-
-Terms on this slide — quick definitions for the room:
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 7.5 — Steps 3–4 (Part 2)
-
-**Step 4:** Model selection helper:
-```python
-select_model("code_review", "balanced")  # → claude-4.6-sonnet
-select_model("simple_fix", "low")        # → gpt-5-mini
-select_model("frontend_ui", "high")      # → gemini-3.1-pro
-```
-
-<!--
-Now for Steps 3–4 (Part 2).
-
-Step 4: Model selection helper:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "select_model("code_review", "balanced") # → claude-4.6-sonnet select_model("simple_fix", "low") # → gpt-5-mini select_model("frontend_ui", "high") # → gemini-3.1-pro"
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 7.5 — Steps 3–4 (Part 2).
-
-The code on the slide reads: select_model("code_review", "balanced")  # → claude-4.6-sonnet select_model("simple_fix", "low")        # → gpt-5-mini select_model("frontend_ui", "high")      # → gemini-3.1-pro.
-
-Terms on this slide — quick definitions for the room:
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _header: 'Module 8 — Cloud Agents API and Webhooks' -->
-
-<!-- _class: lead -->
-
-# Cloud Agents API and Webhooks
-
-## Module 8 · Day 2 (Hands-On)
-
-Cursor Training Program · ~60 min
-
-<!--
-Module 8 wires Cloud Agents programmatically: create runs, stream events, and verify webhooks.
-
-Cloud Agents keep working when your laptop is closed — long tasks, parallel runs, handoffs from local sessions.
-
-When the PR comes back, the same review discipline applies.
-
-Production API work comes down to auth, retries, caching, and verified webhooks. On Windows we use environment variables and curl.exe — details are in the lab steps on screen.
-
-The slide title is: Cloud Agents API and Webhooks.
-
-You will also see the heading: Module 8 · Day 2 (Hands-On).
-
-The slide says: Cursor Training Program · ~60 min.
-
-Terms on this slide — quick definitions for the room:
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Module Overview
+## Exercise 7.5 — Step 2 (cont.)
 
-| Aspect | Details |
-|--------|---------|
-| **Duration** | ~60 minutes |
-| **Format** | Hands-on exercise |
-| **Prerequisites** | User API key (Module 7), Python 3.8+, ngrok installed, GitHub repository |
-| **Module Goal** | Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications |
-
-### Lessons
-
-| Lesson | Topic | Time |
-|--------|-------|------|
-| 8.1 | Creating a Cloud Agent Programmatically | 15 min |
-| 8.2 | Streaming Agent Responses (SSE) | 15 min |
-| 8.3 | Listing and Downloading Artifacts | 15 min |
-| 8.4 | Creating a Webhook Endpoint | 15 min |
-| 8.5 | Testing Webhooks Locally with ngrok | 13 min |
-| 8.6 | End-to-End Automated Agent Workflow | 17 min |
+**Step 2:** Pretty-print in PowerShell
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |
+  ConvertFrom-Json | ConvertTo-Json -Depth 5
+```
+- **Expected:** Readable list in the console.
 
 <!--
-Here is the overview for Module 8.
+Now for Step 2 (cont.).
 
-The slide title is: Module Overview.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The table header columns are: Aspect, Details.
+The slide title is: Exercise 7.5 — Step 2 (cont.).
 
-In the table, **Duration**: ~60 minutes.
+Step 2: Pretty-print in PowerShell.
 
-In the table, **Format**: Hands-on exercise.
+Bullet 1 on the slide: Expected: Readable list in the console.
 
-In the table, **Prerequisites**: User API key (Module 7), Python 3.8+, ngrok installed, GitHub repository.
-
-In the table, **Module Goal**: Programmatically create, stream, and manage Cloud Agents, and set up webhook notifications.
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" https://api.cursor.com/v1/models |   ConvertFrom-Json | ConvertTo-Json -Depth 5.
 
 Terms on this slide — quick definitions for the room:
 
-A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
-ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
 
 
+<!-- _class: fit-sm -->
+
+## Exercise 7.5 — Steps 3–4 (cont.)
+
+**Step 3:** Python table (optional)
+- Loop models and print columns: ID, context window, pricing if present.
+- **Expected:** Table of at least 3 models.
+
+**Step 4:** Pick a model for a task
+- Choose one model for “quick fix” and one for “hard refactor”; say why (speed vs quality).
+- **Expected:** Two model names + one-line rationale each.
+
+<!--
+Now for Steps 3–4 (cont.).
+
+Step 3: Python table (optional).
+
+Step 4: Pick a model for a task.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.5 — Steps 3–4 (cont.).
+
+Bullet 1 on the slide: Loop models and print columns: ID, context window, pricing if present.
+
+Bullet 2 on the slide: Expected: Table of at least 3 models.
+
+Bullet 3 on the slide: Choose one model for “quick fix” and one for “hard refactor”; say why (speed vs quality).
+
+Bullet 4 on the slide: Expected: Two model names + one-line rationale each.
+
+Terms on this slide — quick definitions for the room:
+
+Context window is the maximum amount of text the model can consider at once — when you exceed it, older content drops off.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 7.5 — Success criteria
 
+**Check:** Listed models · formatted output · reasoned selection
 
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 7.5 — Success criteria.
+
+The slide says: Check: Listed models · formatted output · reasoned selection.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -14890,17 +11564,6 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Agent + Runs
 
 | Concept | Description |
@@ -14929,17 +11592,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Request Fields
@@ -14976,17 +11628,6 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -15047,55 +11688,17 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.1 — Step 1
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Set User API key**
-- **Do:** powershell $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+**Step 1:** Set User API key
+```powershell
+$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here"
+```
 - **Expected:** Variable set for this PowerShell session.
-
-**Step 2 — Create agent (POST)**
-- **Do:** Replace `YOUR_ORG/YOUR_REPO` with a repo you are allowed to use: powershell $body = @{ prompt = @{ text = "Add a README.md with setup instructions" } repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startin
-- **Expected:** JSON with `agent.id` and `run.id`; dashboard shows **Running**.
-
-**Step 3 — Confirm on dashboard**
-- **Do:** Open the printed URL in the browser.
-- **Expected:** Same agent ID; log activity visible.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-xs -->
-
-## Exercise 8.1 — Create with curl
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**Step 1 — set API key · Terminal:** **PowerShell**
-
-```powershell
-$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx"
-```
-
-**Step 2 — create agent · Terminal:** **PowerShell**
-
-```powershell
-curl.exe -X POST https://api.cursor.com/v1/agents `
-  -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Content-Type: application/json" `
-  -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' `
-  | ConvertFrom-Json
-```
-
-**Terminal (alternative):** **Git Bash** / **WSL** — bash block below.
-
-```powershell
-export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx"
-curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'
-```
 
 <!--
 We are starting Exercise 8.1 — Create a Cloud Agent via API. We have about 15 min for this lab.
@@ -15106,180 +11709,114 @@ The full lab guide is in slide-exercises/module-08/exercise-8.1-create-a-cloud-a
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1 — set API key · Terminal: PowerShell.
+Step 1: Set User API key.
 
-Step 2 — create agent · Terminal: PowerShell.
-
-Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx""
+Copy this into the Agent chat: "$env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.1 — Create with curl.
+The slide title is: Exercise 8.1 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: Terminal (alternative): Git Bash / WSL — bash block below.
+Bullet 1 on the slide: Expected: Variable set for this PowerShell session.
 
-The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_xxxxxxxxxxxx".
-
-The code on the slide reads: curl.exe -X POST https://api.cursor.com/v1/agents `   -u "$($env:CURSOR_USER_API_KEY):" `   -H "Content-Type: application/json" `   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' `   | ConvertFrom-Json.
-
-The code on the slide reads: export CURSOR_USER_API_KEY="cursor_xxxxxxxxxxxx" curl -X POST https://api.cursor.com/v1/agents   -u "$CURSOR_USER_API_KEY:"   -H "Content-Type: application/json"   -d '{"prompt":{"text":"Add a README.md file with setup instructions"},"repos":[{"url":"https://github.com/YOUR_ORG/YOUR_REPO","startingRef":"main"}],"autoCreatePR":true}' | jq '.'.
+The code on the slide reads: $env:CURSOR_USER_API_KEY = "cursor_paste_your_key_here".
 
 Terms on this slide — quick definitions for the room:
 
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
+A User API Key is scoped to your account — for launching agents and calling user-level endpoints.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-sm -->
-
-## Exercise 8.1 — Capture IDs
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-
-**Step 1:** Save the JSON from the create-agent call — **Terminal:** **PowerShell**
-
-```powershell
-$response = curl.exe ... | ConvertFrom-Json   # reuse create-agent command
-$env:AGENT_ID = $response.agent.id
-$env:RUN_ID = $response.run.id
-Write-Host "Agent ID: $($env:AGENT_ID)"
-Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)"
-```
-
-<!--
-Now for Capture IDs.
-
-Step 1: Save the JSON from the create-agent call — Terminal: PowerShell.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.1 — Capture IDs.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-The code on the slide reads: $response = curl.exe ... | ConvertFrom-Json   # reuse create-agent command $env:AGENT_ID = $response.agent.id $env:RUN_ID = $response.run.id Write-Host "Agent ID: $($env:AGENT_ID)" Write-Host "Dashboard: https://cursor.com/agents/$($env:AGENT_ID)".
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 8.1 — Capture IDs (Part 2)
-
-**Step 2:** Optional model override in create payload — **Where:** edit JSON before POST (any terminal)
-
-Create with specific model: `"model": {"id": "claude-4.7-opus"}`
-
-<!--
-Now for Capture IDs (Part 2).
-
-Step 2: Optional model override in create payload — Where: edit JSON before POST (any terminal).
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.1 — Capture IDs (Part 2).
-
-The slide says: Create with specific model: "model": {"id": "claude-4.7-opus"}.
-
-Terms on this slide — quick definitions for the room:
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
 
-## Exercise 8.1 — Python Helper
+## Exercise 8.1 — Step 2 (cont.)
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+**Step 2:** Create agent (POST)
+- Replace `YOUR_ORG/YOUR_REPO` with a repo you are allowed to use:
+```powershell
+$body = @{
+  prompt = @{ text = "Add a README.md with setup instructions" }
+  repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startingRef = "main" })
+  autoCreatePR = $true
+} | ConvertTo-Json -Depth 5
 
-```python
-def create_agent(prompt, repo_url, auto_create_pr=False, model=None):
-    payload = {
-        "prompt": {"text": prompt},
-        "repos": [{"url": repo_url}],
-        "autoCreatePR": auto_create_pr
-    }
-    if model:
-        payload["model"] = {"id": model}
-    response = requests.post(f"{BASE_URL}/agents", auth=AUTH, json=payload)
-    data = response.json()
-    return data["agent"]["id"], data["run"]["id"]
+$response = curl.exe -s -X POST https://api.cursor.com/v1/agents `
+  -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Content-Type: application/json" `
+  -d $body | ConvertFrom-Json
+
+$env:AGENT_ID = $response.agent.id
+$env:RUN_ID = $response.run.id
+Write-Host "Agent ID: $($env:AGENT_ID)"
+Write-Host "Open: https://cursor.com/agents/$($env:AGENT_ID)"
 ```
-
-**Success Criteria:** Agent created · IDs captured · appears in dashboard · Python function works
+- **Expected:** JSON with `agent.id` and `run.id`; dashboard shows **Running**.
 
 <!--
-Now for Python Helper.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.1 — Python Helper.
+The slide title is: Exercise 8.1 — Step 2 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Step 2: Create agent (POST).
 
-Success criteria listed: Agent created · IDs captured · appears in dashboard · Python function works.
+Bullet 1 on the slide: Replace YOUR_ORG/YOUR_REPO with a repo you are allowed to use:.
 
-The code on the slide begins: def create_agent(prompt, repo_url, auto_create_pr=False, model=None):     payload = {         "prompt": {"text": prompt},         "repos": [{"url": repo_url}],         "autoCreatePR": auto_create_pr     }. The rest of the block continues on the slide.
+Bullet 2 on the slide: Expected: JSON with agent.id and run.id; dashboard shows Running.
+
+The code on the slide begins: $body = @{   prompt = @{ text = "Add a README.md with setup instructions" }   repos = @(@{ url = "https://github.com/YOUR_ORG/YOUR_REPO"; startingRef = "main" })   autoCreatePR = $true } | ConvertTo-Json -Depth 5 $response = curl.exe -s -X POST https://api.cursor.com/v1/agents `. The rest of the block continues on the slide.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+-->
+
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 8.1 — Steps 3–4 (cont.)
+
+**Step 3:** Confirm on dashboard
+- Open the printed URL in the browser.
+- **Expected:** Same agent ID; log activity visible.
+
+**Step 4:** Optional model in JSON
+- Add `"model": @{ id = "claude-4.6-sonnet" }` to `$body` and create a second test agent.
+- **Expected:** Run uses the named model (or API error explaining restriction).
+
+<!--
+Now for Steps 3–4 (cont.).
+
+Step 3: Confirm on dashboard.
+
+Step 4: Optional model in JSON.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.1 — Steps 3–4 (cont.).
+
+Bullet 1 on the slide: Open the printed URL in the browser.
+
+Bullet 2 on the slide: Expected: Same agent ID; log activity visible.
+
+Bullet 3 on the slide: Add "model": @{ id = "claude-4.6-sonnet" } to $body and create a second test agent.
+
+Bullet 4 on the slide: Expected: Run uses the named model (or API error explaining restriction).
 
 Terms on this slide — quick definitions for the room:
 
@@ -15290,18 +11827,28 @@ JSON stands for JavaScript Object Notation — a text format for structured data
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
-
-PR stands for Pull Request — a proposed code change others review before it merges.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.1 — Success criteria
 
+**Check:** POST succeeded · IDs saved · visible on cursor.com/agents
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 8.1 — Success criteria.
+
+The slide says: Check: POST succeeded · IDs saved · visible on cursor.com/agents.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -15339,17 +11886,6 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -15397,17 +11933,6 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Resume Support
 
 SSE streams support the **`Last-Event-ID`** header — if your connection drops, resume from the last received event.
@@ -15429,46 +11954,18 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 ---
 
 
-
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Set IDs from Exercise 8.1**
-- **Do:** powershell $env:AGENT_ID = "paste_agent_id" $env:RUN_ID = "paste_run_id"
-- **Expected:** Both variables set (from create-agent response or dashboard).
-
-**Step 2 — Stream events (curl.exe)**
-- **Do:** powershell curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" ` -H "Accept: text/event-stream" ` "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream"
-- **Expected:** Lines starting with `event:` and `data:` scroll in the terminal until the run finishes.
-
-**Step 3 — Read the stream**
-- **Do:** Identify at least: one **assistant** text chunk, one **tool** or status event, and a **completed** or **failed** event.
-- **Expected:** You can narrate what the agent did from the log alone.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
 <!-- _class: fit-md -->
 
-## Exercise 8.2 — Stream with curl
+## Exercise 8.2 — Step 1
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-**Terminal:** **PowerShell**
-
+**Step 1:** Set IDs from Exercise 8.1
 ```powershell
-curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
-  -H "Accept: text/event-stream" `
-  "https://api.cursor.com/v1/agents/$env:AGENT_ID/runs/$env:RUN_ID/stream"
+$env:AGENT_ID = "paste_agent_id"
+$env:RUN_ID = "paste_run_id"
 ```
-
-Set IDs first: `$env:AGENT_ID = "..."` · `$env:RUN_ID = "..."`
-
-**Terminal (alternative):** **Git Bash** / **WSL** — bash `curl -N` block above.
-
-Parse lines starting with `event:` and `data:` — print assistant text, tool calls, and result status.
+- **Expected:** Both variables set (from create-agent response or dashboard).
 
 <!--
 We are starting Exercise 8.2 — Stream Agent Responses (SSE). We have about 15 min for this lab.
@@ -15479,122 +11976,95 @@ The full lab guide is in slide-exercises/module-08/exercise-8.2-stream-agent-res
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Terminal: PowerShell.
+Step 1: Set IDs from Exercise 8.1.
+
+Copy this into the Agent chat: "$env:AGENT_ID = "paste_agent_id" $env:RUN_ID = "paste_run_id""
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.2 — Stream with curl.
+The slide title is: Exercise 8.2 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: Set IDs first: $env:AGENT_ID = "..." · $env:RUN_ID = "...".
+Bullet 1 on the slide: Expected: Both variables set (from create-agent response or dashboard).
 
-The slide says: Terminal (alternative): Git Bash / WSL — bash curl -N block above.
+The code on the slide reads: $env:AGENT_ID = "paste_agent_id" $env:RUN_ID = "paste_run_id".
 
-The slide says: Parse lines starting with event: and data: — print assistant text, tool calls, and result status.
+Terms on this slide — quick definitions for the room:
 
-The code on the slide reads: curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `   -H "Accept: text/event-stream" `   "https://api.cursor.com/v1/agents/$env:AGENT_ID/runs/$env:RUN_ID/stream".
+In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 8.2 — Step 2 (cont.)
+
+**Step 2:** Stream events (curl.exe)
+```powershell
+curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `
+  -H "Accept: text/event-stream" `
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream"
+```
+- **Expected:** Lines starting with `event:` and `data:` scroll in the terminal until the run finishes.
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.2 — Step 2 (cont.).
+
+Step 2: Stream events (curl.exe).
+
+Bullet 1 on the slide: Expected: Lines starting with event: and data: scroll in the terminal until the run finishes.
+
+The code on the slide reads: curl.exe -N -u "$($env:CURSOR_USER_API_KEY):" `   -H "Accept: text/event-stream" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/runs/$($env:RUN_ID)/stream".
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 8.2 — Steps 3–4 (cont.)
 
+**Step 3:** Read the stream
+- Identify at least: one **assistant** text chunk, one **tool** or status event, and a **completed** or **failed** event.
+- **Expected:** You can narrate what the agent did from the log alone.
 
-
-
-
-
-
-
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 8.2 — Python SSE Client
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def stream_agent_response(agent_id, run_id, on_event=None):
-    url = f"{BASE_URL}/agents/{agent_id}/runs/{run_id}/stream"
-    response = requests.get(url, auth=AUTH, stream=True)
-    for line in response.iter_lines():
-        if line.startswith(b'event:'):
-            current_event = line[6:].strip().decode()
-        elif line.startswith(b'data:'):
-            data = json.loads(line[5:].strip())
-            if on_event:
-                on_event(current_event, data)
-```
+**Step 4:** Resume with Last-Event-ID (concept)
+- Note an `id:` line from the stream; discuss reconnecting with header `Last-Event-ID` (see lab guide).
+- **Expected:** You understand SSE resume after network drop.
 
 <!--
-Now for Python SSE Client.
+Now for Steps 3–4 (cont.).
+
+Step 3: Read the stream.
+
+Step 4: Resume with Last-Event-ID (concept).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.2 — Python SSE Client.
+The slide title is: Exercise 8.2 — Steps 3–4 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Bullet 1 on the slide: Identify at least: one assistant text chunk, one tool or status event, and a completed or failed event.
 
-The code on the slide reads: def stream_agent_response(agent_id, run_id, on_event=None):     url = f"{BASE_URL}/agents/{agent_id}/runs/{run_id}/stream"     response = requests.get(url, auth=AUTH, stream=True)     for line in response.iter_lines():         if line.startswith(b'event:'):             current_event = line[6:].strip().decode()         elif line.startswith(b'data:'):             data = json.loads(line[5:].strip())             if on_event:                 on_event(current_event, data).
+Bullet 2 on the slide: Expected: You can narrate what the agent did from the log alone.
 
-Terms on this slide — quick definitions for the room:
+Bullet 3 on the slide: Note an id: line from the stream; discuss reconnecting with header Last-Event-ID (see lab guide).
 
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 8.2 — ResumableSSEClient
-
-Track `last_event_id` from `id:` lines → send as `Last-Event-ID` header on reconnect
-
-**Also:** `stream_to_file()` saves full SSE log for later review
-
-**Success Criteria:** Stream connected · received events · Python client works · resume implemented
-
-<!--
-Now for ResumableSSEClient.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.2 — ResumableSSEClient.
-
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
-The slide says: Track last_event_id from id: lines → send as Last-Event-ID header on reconnect.
-
-The slide says: Also: stream_to_file() saves full SSE log for later review.
-
-Success criteria listed: Stream connected · received events · Python client works · resume implemented.
+Bullet 4 on the slide: Expected: You understand SSE resume after network drop.
 
 Terms on this slide — quick definitions for the room:
 
@@ -15608,11 +12078,23 @@ SSE stands for Server-Sent Events — a way the server pushes live updates over 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.2 — Success criteria
 
+**Check:** Stream connected · parsed event types · IDs were set first
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 8.2 — Success criteria.
+
+The slide says: Check: Stream connected · parsed event types · IDs were set first.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -15648,17 +12130,6 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Key Endpoints
 
 | Endpoint | Method | Purpose |
@@ -15691,45 +12162,18 @@ An artifact is a downloadable output from a Cloud Agent run — logs, patches, o
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.3 — Step 1
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Use a completed agent ID**
-- **Do:** Pick a **Completed** cloud agent from the dashboard (yours or demo). powershell $env:AGENT_ID = "paste_completed_agent_id"
-- **Expected:** Agent is not still running (artifacts ready).
-
-**Step 2 — Poll status (optional)**
-- **Do:** Call status endpoint until `completed` (see lab guide Python `wait_for_completion`).
-- **Expected:** You know how to wait programmatically.
-
-**Step 3 — List artifacts**
-- **Do:** powershell curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" ` "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts" | ConvertFrom-Json
-- **Expected:** List of paths or artifact objects.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-xs -->
-
-## Exercise 8.3 — Wait & List
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def wait_for_completion(agent_id, timeout=300, poll_interval=5):
-    while time.time() - start < timeout:
-        status = get_agent_status(agent_id).get('status')
-        if status == 'FINISHED': return True
-        elif status == 'ERROR': return False
-        time.sleep(poll_interval)
-
-def list_artifacts(agent_id):
-    response = requests.get(f"{BASE_URL}/agents/{agent_id}/artifacts", auth=AUTH)
-    return response.json().get('items', [])
+**Step 1:** Use a completed agent ID
+- Pick a **Completed** cloud agent from the dashboard (yours or demo).
+```powershell
+$env:AGENT_ID = "paste_completed_agent_id"
 ```
+- **Expected:** Agent is not still running (artifacts ready).
 
 <!--
 We are starting Exercise 8.3 — List and Download Artifacts. We have about 15 min for this lab.
@@ -15740,19 +12184,126 @@ The full lab guide is in slide-exercises/module-08/exercise-8.3-list-and-downloa
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Use a completed agent ID.
+
+Copy this into the Agent chat: "$env:AGENT_ID = "paste_completed_agent_id""
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.3 — Wait & List.
+The slide title is: Exercise 8.3 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The code on the slide reads: def wait_for_completion(agent_id, timeout=300, poll_interval=5):     while time.time() - start < timeout:         status = get_agent_status(agent_id).get('status')         if status == 'FINISHED': return True         elif status == 'ERROR': return False         time.sleep(poll_interval) def list_artifacts(agent_id):     response = requests.get(f"{BASE_URL}/agents/{agent_id}/artifacts", auth=AUTH)     return response.json().get('items', []).
+Bullet 1 on the slide: Pick a Completed cloud agent from the dashboard (yours or demo).
+
+Bullet 2 on the slide: Expected: Agent is not still running (artifacts ready).
+
+The code on the slide reads: $env:AGENT_ID = "paste_completed_agent_id".
+
+Terms on this slide — quick definitions for the room:
+
+A Cloud Agent is a Cursor agent that runs on Cursor's infrastructure against a GitHub repository — you can launch it from the web UI or API.
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 8.3 — Step 2 (cont.)
+
+**Step 2:** Poll status (optional)
+- Call status endpoint until `completed` (see lab guide Python `wait_for_completion`).
+- **Expected:** You know how to wait programmatically.
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.3 — Step 2 (cont.).
+
+Step 2: Poll status (optional).
+
+Bullet 1 on the slide: Call status endpoint until completed (see lab guide Python wait_for_completion).
+
+Bullet 2 on the slide: Expected: You know how to wait programmatically.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 8.3 — Step 3 (cont.)
+
+**Step 3:** List artifacts
+```powershell
+curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `
+  "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts" | ConvertFrom-Json
+```
+- **Expected:** List of paths or artifact objects.
+
+<!--
+Now for Step 3 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.3 — Step 3 (cont.).
+
+Step 3: List artifacts.
+
+Bullet 1 on the slide: Expected: List of paths or artifact objects.
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_USER_API_KEY):" `   "https://api.cursor.com/v1/agents/$($env:AGENT_ID)/artifacts" | ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
 JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 8.3 — Step 4 (cont.)
+
+**Step 4:** Download one file
+- Request download URL for one path (per API docs in lab guide), then:
+```powershell
+curl.exe -L -o downloaded_file.txt "PASTE_PRESIGNED_URL"
+```
+- **Expected:** File on disk matches artifact from UI.
+
+<!--
+Now for Step 4 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.3 — Step 4 (cont.).
+
+Step 4: Download one file.
+
+Bullet 1 on the slide: Request download URL for one path (per API docs in lab guide), then:.
+
+Bullet 2 on the slide: Expected: File on disk matches artifact from UI.
+
+The code on the slide reads: curl.exe -L -o downloaded_file.txt "PASTE_PRESIGNED_URL".
+
+Terms on this slide — quick definitions for the room:
+
+An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
@@ -15762,123 +12313,27 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 8.3 — Download
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**Single artifact:**
-
-```python
-response = requests.get(
-    f"{BASE_URL}/agents/{agent_id}/artifacts/download",
-    auth=AUTH, params={"path": artifact_path}
-)
-download_url = response.json().get('url')
-# curl download_url → save to disk
-```
-
-**All artifacts:** loop items, create subdirs, download each via presigned URL
-
-<!--
-Now for Download.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.3 — Download.
-
-You will also see the heading: curl download_url → save to disk.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-The slide says: Single artifact:.
-
-The slide says: All artifacts: loop items, create subdirs, download each via presigned URL.
-
-The code on the slide reads: response = requests.get(     f"{BASE_URL}/agents/{agent_id}/artifacts/download",     auth=AUTH, params={"path": artifact_path} ) download_url = response.json().get('url') # curl download_url → save to disk.
-
-Terms on this slide — quick definitions for the room:
-
-A presigned URL is a time-limited download link — common for Cloud Agent artifacts that expire after a short window.
-
-An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
-## Exercise 8.3 — CI Integration
+## Exercise 8.3 — Success criteria
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```python
-def process_test_results(agent_id):
-    wait_for_completion(agent_id, timeout=600)
-    download_artifact(agent_id, "artifacts/junit.xml", "test_results.xml")
-    # Parse XML → exit 1 if failures/errors, else exit 0
-```
-
-**Success Criteria:** Listed artifacts · downloaded single + all · CI workflow integration
+**Check:** Listed artifacts · downloaded one file · understand wait/list/download order
 
 <!--
-Now for CI Integration.
+Now for Success criteria.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.3 — CI Integration.
+The slide title is: Exercise 8.3 — Success criteria.
 
-You will also see the heading: Parse XML → exit 1 if failures/errors, else exit 0.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-Success criteria listed: Listed artifacts · downloaded single + all · CI workflow integration.
-
-The code on the slide reads: def process_test_results(agent_id):     wait_for_completion(agent_id, timeout=600)     download_artifact(agent_id, "artifacts/junit.xml", "test_results.xml")     # Parse XML → exit 1 if failures/errors, else exit 0.
+The slide says: Check: Listed artifacts · downloaded one file · understand wait/list/download order.
 
 Terms on this slide — quick definitions for the room:
 
 An artifact is a downloadable output from a Cloud Agent run — logs, patches, or generated files.
-
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -15918,17 +12373,6 @@ HMAC stands for Hash-based Message Authentication Code — a signed digest that 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Webhook Headers
 
 | Header | Description |
@@ -15960,17 +12404,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -16007,43 +12440,19 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 ---
 
 
-
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Understand the webhook flow**
-- **Do:** Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
-- **Expected:** You can explain why returning 200 quickly matters.
-
-**Step 2 — Review verify_signature (Python)**
-- **Do:** Open the `verify_signature` snippet in the lab guide; identify: raw body, header name, secret.
-- **Expected:** You know tampering breaks the HMAC match.
-
-**Step 3 — Create agent with webhook URL (when server ready)**
-- **Do:** After Exercise 8.5 tunnel exists, POST agent JSON including `webhookUrl` (PowerShell `curl.exe` like 8.1).
-- **Expected:** Agent accepts URL (or validation error you can fix).
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
 <!-- _class: fit-sm -->
 
-## Exercise 8.4 — HMAC Verification
+## Exercise 8.4 — Steps 1–2
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-```python
-def verify_signature(raw_body, signature_header):
-    received = signature_header[7:]  # strip "sha256="
-    expected = hmac.new(
-        WEBHOOK_SECRET.encode(), raw_body, hashlib.sha256
-    ).hexdigest()
-    return hmac.compare_digest(expected, received)
-```
+**Step 1:** Understand the webhook flow
+- Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
+- **Expected:** You can explain why returning 200 quickly matters.
 
-Flask route: verify signature → parse payload → handle FINISHED/ERROR
+**Step 2:** Review verify_signature (Python)
+- Open the `verify_signature` snippet in the lab guide; identify: raw body, header name, secret.
+- **Expected:** You know tampering breaks the HMAC match.
 
 <!--
 We are starting Exercise 8.4 — Webhooks and HMAC Verification. We have about 15 min for this lab.
@@ -16054,17 +12463,29 @@ The full lab guide is in slide-exercises/module-08/exercise-8.4-webhooks-and-hma
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Understand the webhook flow.
+
+Step 2: Review verify_signature (Python).
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.4 — HMAC Verification.
+The slide title is: Exercise 8.4 — Steps 1–2.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: Flask route: verify signature → parse payload → handle FINISHED/ERROR.
+Bullet 1 on the slide: Draw or describe: Cursor → HTTPS POST → your server → verify HMAC → return 200.
 
-The code on the slide reads: def verify_signature(raw_body, signature_header):     received = signature_header[7:]  # strip "sha256="     expected = hmac.new(         WEBHOOK_SECRET.encode(), raw_body, hashlib.sha256     ).hexdigest()     return hmac.compare_digest(expected, received).
+Bullet 2 on the slide: Expected: You can explain why returning 200 quickly matters.
+
+Bullet 3 on the slide: Open the verify_signature snippet in the lab guide; identify: raw body, header name, secret.
+
+Bullet 4 on the slide: Expected: You know tampering breaks the HMAC match.
 
 Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
 HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
 
@@ -16074,54 +12495,36 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 8.4 — Steps 3–4 (cont.)
 
+**Step 3:** Create agent with webhook URL (when server ready)
+- After Exercise 8.5 tunnel exists, POST agent JSON including `webhookUrl` (PowerShell `curl.exe` like 8.1).
+- **Expected:** Agent accepts URL (or validation error you can fix).
 
-
-
-
-
-
-
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 8.4 — Configure Agent
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```powershell
-curl -X POST https://api.cursor.com/v1/agents \
-  -u "$CURSOR_USER_API_KEY:" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "prompt": {"text": "Add a CONTRIBUTING.md file"},
-    "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO"}],
-    "webhookUrl": "https://your-domain.com/webhook/cursor",
-    "webhookSecret": "your-secret-here",
-    "autoCreatePR": true
-  }'
-```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-**Success Criteria:** Server running · signature verified · payload parsed · agent configured
+**Step 4:** Security rules
+- List three checks: HTTPS, HMAC verify, idempotent handler.
+- **Expected:** Checklist you would use in code review.
 
 <!--
-Now for Configure Agent.
+Now for Steps 3–4 (cont.).
+
+Step 3: Create agent with webhook URL (when server ready).
+
+Step 4: Security rules.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.4 — Configure Agent.
+The slide title is: Exercise 8.4 — Steps 3–4 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Bullet 1 on the slide: After Exercise 8.5 tunnel exists, POST agent JSON including webhookUrl (PowerShell curl.exe like 8.1).
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Bullet 2 on the slide: Expected: Agent accepts URL (or validation error you can fix).
 
-Success criteria listed: Server running · signature verified · payload parsed · agent configured.
+Bullet 3 on the slide: List three checks: HTTPS, HMAC verify, idempotent handler.
 
-The code on the slide reads: curl -X POST https://api.cursor.com/v1/agents \   -u "$CURSOR_USER_API_KEY:" \   -H "Content-Type: application/json" \   -d '{     "prompt": {"text": "Add a CONTRIBUTING.md file"},     "repos": [{"url": "https://github.com/YOUR_ORG/YOUR_REPO"}],     "webhookUrl": "https://your-domain.com/webhook/cursor",     "webhookSecret": "your-secret-here",     "autoCreatePR": true   }'.
+Bullet 4 on the slide: Expected: Checklist you would use in code review.
 
 Terms on this slide — quick definitions for the room:
 
@@ -16131,9 +12534,9 @@ HTTPS is HTTP secured with TLS encryption — required for production APIs and w
 
 In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
-JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
@@ -16141,11 +12544,29 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.4 — Success criteria
 
+**Check:** Explained flow · understand HMAC · ready for ngrok test in 8.5
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 8.4 — Success criteria.
+
+The slide says: Check: Explained flow · understand HMAC · ready for ngrok test in 8.5.
+
+Terms on this slide — quick definitions for the room:
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -16185,17 +12606,6 @@ ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhook
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## What Is ngrok?
 
 Creates a secure tunnel from a public URL to your local server.
@@ -16226,30 +12636,16 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.5 — Step 0
 
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-## Exercise 8.5 — Steps 1–2
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-**Follow along (Windows) — key steps:**
-
-**Step 0 — Prerequisites**
-- **Do:** Complete webhook receiver setup from 8.4 (Flask/FastAPI on port **5000**). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or `winget install ngrok.ngrok`.
+**Step 0:** Prerequisites
+- Complete webhook receiver setup from 8.4 (Flask/FastAPI on port **5000**). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or `winget install ngrok.ngrok`.
 - **Expected:** Local server responds on `http://127.0.0.1:5000/health` (or your route).
 
-**Step 1 — Terminal A: run your webhook server**
-- **Do:** In PowerShell: powershell cd D:/path/to/your/webhook-project python -m flask run --port 5000
-- **Expected:** Server listening on port 5000.
-
-**Step 2 — Terminal B: start ngrok**
-- **Do:** New PowerShell window: powershell ngrok http 5000
-- **Expected:** Line like `Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000`.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-**On the next slides:** remaining steps for this exercise. **Lab guide:** lesson divider slide.
 <!--
 We are starting Exercise 8.5 — Test Webhooks with ngrok. We have about 15 min for this lab.
 
@@ -16259,23 +12655,21 @@ The full lab guide is in slide-exercises/module-08/exercise-8.5-test-webhooks-wi
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
-Step 1: Start tunnel:.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Copy this into the Agent chat: "ngrok http 5000 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000"
+Step 0: Prerequisites.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.5 — Steps 1–3.
+The slide title is: Exercise 8.5 — Step 0.
 
-You will also see the heading: Forwarding: https://abc123.ngrok.io -> http://localhost:5000.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Bullet 1 on the slide: Complete webhook receiver setup from 8.4 (Flask/FastAPI on port 5000). Install ngrok: [ngrok.com/download](https://ngrok.com/download) or winget install ngrok.ngrok.
 
-The code on the slide reads: ngrok http 5000 # Forwarding: https://abc123.ngrok.io -> http://localhost:5000.
+Bullet 2 on the slide: Expected: Local server responds on http://127.0.0.1:5000/health (or your route).
 
 Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
@@ -16284,81 +12678,116 @@ ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhook
 HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.5 — Step 1 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 8.5 — Steps 1–3 (Part 2)
-
-**Step 2:** Copy HTTPS URL
-<!--
-Now for Steps 1–3 (Part 2).
-
-Step 2: Copy HTTPS URL.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 8.5 — Steps 1–3 (Part 2).
-
-Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 8.5 — Steps 1–3 (Part 3)
-
-**Step 3:** Create agent with ngrok URL:
-```powershell
-curl -X POST https://api.cursor.com/v1/agents ... \
-  -d '{"webhookUrl": "https://abc123.ngrok.io/webhook/cursor", ...}'
+**Step 1:** Terminal A: run your webhook server
+- In PowerShell:
 ```
+cd D:/path/to/your/webhook-project
+python -m flask run --port 5000
+```
+- **Expected:** Server listening on port 5000.
 
 <!--
-Now for Steps 1–3 (Part 3).
+Now for Step 1 (cont.).
 
-Step 3: Create agent with ngrok URL:.
-
-Terminal: PowerShell — `Ctrl+ `` in Cursor.
+Copy this into the Agent chat: "cd D:/path/to/your/webhook-project python -m flask run --port 5000"
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.5 — Steps 1–3 (Part 3).
+The slide title is: Exercise 8.5 — Step 1 (cont.).
 
-The code on the slide reads: curl -X POST https://api.cursor.com/v1/agents ... \   -d '{"webhookUrl": "https://abc123.ngrok.io/webhook/cursor", ...}'.
+Step 1: Terminal A: run your webhook server.
+
+Bullet 1 on the slide: In PowerShell:.
+
+Bullet 2 on the slide: Expected: Server listening on port 5000.
+
+The code on the slide reads: cd D:/path/to/your/webhook-project python -m flask run --port 5000.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 8.5 — Step 2 (cont.)
+
+**Step 2:** Terminal B: start ngrok
+- New PowerShell window:
+```
+ngrok http 5000
+```
+- **Expected:** Line like `Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000`.
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.5 — Step 2 (cont.).
+
+Step 2: Terminal B: start ngrok.
+
+Bullet 1 on the slide: New PowerShell window:.
+
+Bullet 2 on the slide: Expected: Line like Forwarding https://xxxx.ngrok-free.app -> http://localhost:5000.
+
+The code on the slide reads: ngrok http 5000.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+
+HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
+-->
+
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 8.5 — Steps 3–4 (cont.)
+
+**Step 3:** Copy HTTPS URL
+- Copy the `https://....ngrok-free.app` URL; append your path, e.g. `/webhook/cursor`.
+- **Expected:** Full webhook URL ready for agent create JSON.
+
+**Step 4:** Create agent with webhook
+- POST `/v1/agents` with `webhookUrl` set to your ngrok URL (use `curl.exe` pattern from 8.1).
+- **Expected:** Agent starts; your Flask terminal prints an incoming POST.
+
+<!--
+Now for Steps 3–4 (cont.).
+
+Step 3: Copy HTTPS URL.
+
+Step 4: Create agent with webhook.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 8.5 — Steps 3–4 (cont.).
+
+Bullet 1 on the slide: Copy the https://....ngrok-free.app URL; append your path, e.g. /webhook/cursor.
+
+Bullet 2 on the slide: Expected: Full webhook URL ready for agent create JSON.
+
+Bullet 3 on the slide: POST /v1/agents with webhookUrl set to your ngrok URL (use curl.exe pattern from 8.1).
+
+Bullet 4 on the slide: Expected: Agent starts; your Flask terminal prints an incoming POST.
 
 Terms on this slide — quick definitions for the room:
 
@@ -16370,7 +12799,7 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 
 ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
 -->
@@ -16378,67 +12807,60 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.5 — Step 5 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 8.5 — Inspect & Replay
-
-**Demonstration (Windows):** Agent ``Ctrl+I`` · **PowerShell** · Browser for dashboards
-
-**Step 4:** Inspect requests at `http://127.0.0.1:4040`
-**Step 5:** Replay failed webhooks (ngrok premium) — inspect raw body and headers
-**Terminal:** **Git Bash** or **Ubuntu (WSL)** — bash syntax required
-
-**Success Criteria:** Tunnel established · webhook received · signature verified · inspected in ngrok UI
+**Step 5:** Inspect in ngrok UI
+- Open [http://127.0.0.1:4040](http://127.0.0.1:4040) in the browser.
+- **Expected:** Request list shows POST body and headers (including signature header).
 
 <!--
-Now for Inspect & Replay.
-
-Step 4: Inspect requests at http://127.0.0.1:4040.
-
-Terminal: PowerShell — unless step notes Git Bash or WSL.
-
-Step 5: Replay failed webhooks (ngrok premium) — inspect raw body and headers.
-
-Terminal: Git Bash or Ubuntu (WSL) — bash syntax required.
+Now for Step 5 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 8.5 — Inspect & Replay.
+The slide title is: Exercise 8.5 — Step 5 (cont.).
 
-Environment note on the slide: Demonstration (Windows): Agent `Ctrl+I` · PowerShell · Browser for dashboards.
+Step 5: Inspect in ngrok UI.
 
-Success criteria listed: Tunnel established · webhook received · signature verified · inspected in ngrok UI.
+Bullet 1 on the slide: Open [http://127.0.0.1:4040](http://127.0.0.1:4040) in the browser.
+
+Bullet 2 on the slide: Expected: Request list shows POST body and headers (including signature header).
 
 Terms on this slide — quick definitions for the room:
-
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
 
 HTTP stands for Hypertext Transfer Protocol — the request/response protocol browsers and APIs use.
-
-WSL stands for Windows Subsystem for Linux — a way to run Linux tools on Windows.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 8.5 — Success criteria
 
+**Check:** Tunnel up · webhook received · verified or logged signature · inspected in ngrok UI
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 8.5 — Success criteria.
+
+The slide says: Check: Tunnel up · webhook received · verified or logged signature · inspected in ngrok UI.
+
+Terms on this slide — quick definitions for the room:
+
+A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+
+ngrok creates a public HTTPS tunnel to your laptop so Cursor can deliver webhooks to a local dev server.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -16464,17 +12886,6 @@ In Cursor, the Agent is the AI assistant that can use tools, edit files, and run
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## The Capstone Integration
@@ -16523,17 +12934,6 @@ URL stands for Uniform Resource Locator — the web address you paste into a bro
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Workflow Architecture
@@ -16549,17 +12949,6 @@ The figure on this slide is titled: Workflow Architecture.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-xs -->
@@ -16597,17 +12986,6 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Workflow Output
@@ -16642,17 +13020,6 @@ A webhook is an HTTP callback — when an event happens, the service POSTs a pay
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 9 — Admin and Analytics APIs' -->
 
 <!-- _class: lead -->
@@ -16674,17 +13041,6 @@ The slide says: Cursor Training Program · ~75 min.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -16726,19 +13082,32 @@ In the table, **Prerequisites**: Admin API key (not User key), Python 3.8+, Modu
 
 In the table, **Module Goal**: Master team management, usage analytics, cost governance, and safe admin operations.
 
+The table header columns are: Lesson, Topic, Time, Type.
+
+Table row: 9.1, Listing Team Members, 13 min, Exercise.
+
+Table row: 9.2, Daily Usage Data, 15 min, Exercise.
+
+Table row: 9.3, Setting User Spend Limits, 13 min, Exercise.
+
+Table row: 9.4, Model Usage Analytics, 13 min, Exercise.
+
+Table row: 9.5, Daily Active Users, 10 min, Exercise.
+
+Table row: 9.6, Leaderboards, 11 min, Exercise.
+
+Table row: 9.7, Conversation Insights, 6 min, Demo.
+
+Table row: 9.8, Destructive Admin Operations, 6 min, Demo.
+
 Terms on this slide — quick definitions for the room:
 
 An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -16768,17 +13137,6 @@ The slide says: Lab guide: [`Exercise 9.1](../slide-exercises/module-09/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -16822,17 +13180,6 @@ Production API work comes down to auth, retries, caching, and verified webhooks.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -16893,40 +13240,17 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.1 — Step 1
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Set Admin API key**
-- **Do:** powershell $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
-- **Expected:** Key set for this session only.
-
-**Step 2 — List team members**
-- **Do:** powershell curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" ` https://api.cursor.com/v1/teams/members | ConvertFrom-Json
-- **Expected:** `200` and member records (emails, roles, etc.).
-
-**Step 3 — Pagination**
-- **Do:** powershell curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" ` "https://api.cursor.com/v1/teams/members?limit=10&offset=0"
-- **Expected:** First page of members; note if more pages needed.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-xs -->
-
-## Exercise 9.1 — Setup & List
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
+**Step 1:** Set Admin API key
 ```powershell
 $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here"
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  https://api.cursor.com/v1/teams/members
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+- **Expected:** Key set for this session only.
 
 <!--
 We are starting Exercise 9.1 — List Team Members. We have about 13 min for this lab.
@@ -16937,23 +13261,57 @@ The full lab guide is in slide-exercises/module-09/exercise-9.1-list-team-member
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Set Admin API key.
+
+Copy this into the Agent chat: "$env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here""
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.1 — Setup & List.
+The slide title is: Exercise 9.1 — Step 1.
 
-You will also see the heading: Verify admin access.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-You will also see the heading: List all team members.
+Bullet 1 on the slide: Expected: Key set for this session only.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The code on the slide reads: $env:CURSOR_ADMIN_API_KEY = "cursor_admin_paste_here".
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Terms on this slide — quick definitions for the room:
 
-The code on the slide reads: export CURSOR_ADMIN_API_KEY="cursor_admin_xxxxxxxxxxxx" # Verify admin access curl -s -u "$CURSOR_ADMIN_API_KEY:" \   https://api.cursor.com/v1/admin/organization | jq '.' # List all team members curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/members" | jq '.'.
+An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 9.1 — Step 2 (cont.)
+
+**Step 2:** List team members
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  https://api.cursor.com/v1/teams/members | ConvertFrom-Json
+```
+- **Expected:** `200` and member records (emails, roles, etc.).
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.1 — Step 2 (cont.).
+
+Step 2: List team members.
+
+Bullet 1 on the slide: Expected: 200 and member records (emails, roles, etc.).
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   https://api.cursor.com/v1/teams/members | ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -16961,58 +13319,29 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-md -->
 
-## Exercise 9.1 — Pagination & Export
+## Exercise 9.1 — Step 3 (cont.)
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**Pagination:**
-
+**Step 3:** Pagination
 ```powershell
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/members?limit=10&offset=0"
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/teams/members?limit=10&offset=0"
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-**Python:** loop with offset until empty → export to `team_roster.csv` (email, role, status, joined, lastActiveAt)
-
-**Helper:** `get_user_id_by_email(email)` for downstream admin calls
-
-**Success Criteria:** Authenticated · listed members · handled pagination · exported CSV
+- **Expected:** First page of members; note if more pages needed.
 
 <!--
-Now for Pagination & Export.
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.1 — Pagination & Export.
+The slide title is: Exercise 9.1 — Step 3 (cont.).
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Step 3: Pagination.
 
-The slide says: Pagination:.
+Bullet 1 on the slide: Expected: First page of members; note if more pages needed.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
-
-The slide says: Python: loop with offset until empty → export to team_roster.csv (email, role, status, joined, lastActiveAt).
-
-The slide says: Helper: get_user_id_by_email(email) for downstream admin calls.
-
-Success criteria listed: Authenticated · listed members · handled pagination · exported CSV.
-
-The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/members?limit=10&offset=0".
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/teams/members?limit=10&offset=0".
 
 Terms on this slide — quick definitions for the room:
 
@@ -17021,6 +13350,33 @@ Pagination splits large result sets into pages — you walk them with offset and
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 9.1 — Step 4 (cont.)
+
+**Step 4:** Export to CSV (optional)
+- Use lab guide Python to write `team_roster.csv`.
+- **Expected:** CSV opens in Excel with columns you chose.
+
+<!--
+Now for Step 4 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.1 — Step 4 (cont.).
+
+Step 4: Export to CSV (optional).
+
+Bullet 1 on the slide: Use lab guide Python to write team_roster.csv.
+
+Bullet 2 on the slide: Expected: CSV opens in Excel with columns you chose.
+
+Terms on this slide — quick definitions for the room:
 
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
@@ -17028,11 +13384,27 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.1 — Success criteria
 
+**Check:** Admin auth works · listed members · tried pagination
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 9.1 — Success criteria.
+
+The slide says: Check: Admin auth works · listed members · tried pagination.
+
+Terms on this slide — quick definitions for the room:
+
+Pagination splits large result sets into pages — you walk them with offset and limit or cursor parameters.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -17062,17 +13434,6 @@ The slide says: Lab guide: [`Exercise 9.2](../slide-exercises/module-09/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Key Endpoint
@@ -17108,43 +13469,19 @@ Output tokens are the text the model generates — explanations and code — and
 ---
 
 
-
-
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
-
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Date range in PowerShell**
-- **Do:** powershell $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "Start: $start End: $end"
-- **Expected:** Seven-day window printed (not bash `date -d`).
-
-**Step 2 — Fetch daily usage**
-- **Do:** Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape: powershell curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" ` "https://api.cursor.com/v1/teams/daily-usage-data?start
-- **Expected:** JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
-
-**Step 3 — Interpret one day**
-- **Do:** Pick one date and read tokens, requests, or cost fields shown.
-- **Expected:** You can explain one day’s usage in plain language.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
 <!-- _class: fit-md -->
 
-## Exercise 9.2 — Weekly Usage
+## Exercise 9.2 — Step 1
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
+**Step 1:** Date range in PowerShell
 ```powershell
-END=$(date +%Y-%m-%d)
-START=$(date -d "7 days ago" +%Y-%m-%d)
-
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/analytics/usage/daily?startDate=$START&endDate=$END" \
-  | jq '.daily[] | {date: .date, cost: .cost, tokens: .totalTokens, users: .activeUsers}'
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
+Write-Host "Start: $start End: $end"
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+- **Expected:** Seven-day window printed (not bash `date -d`).
 
 <!--
 We are starting Exercise 9.2 — Daily Usage Data. We have about 15 min for this lab.
@@ -17155,21 +13492,21 @@ The full lab guide is in slide-exercises/module-09/exercise-9.2-daily-usage-data
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Date range in PowerShell.
+
+Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "Start: $start End: $end""
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.2 — Weekly Usage.
+The slide title is: Exercise 9.2 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Bullet 1 on the slide: Expected: Seven-day window printed (not bash date -d).
 
-The code on the slide reads: END=$(date +%Y-%m-%d) START=$(date -d "7 days ago" +%Y-%m-%d) curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/analytics/usage/daily?startDate=$START&endDate=$END" \   | jq '.daily[] | {date: .date, cost: .cost, tokens: .totalTokens, users: .activeUsers}'.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") Write-Host "Start: $start End: $end".
 
 Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -17177,52 +13514,80 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.2 — Step 2 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 9.2 — Cost Report
-
-Python `generate_cost_report()` for last 30 days:
-
-- Total cost · total tokens · average daily cost/users
-- Week-over-week change · top 5 costliest days
-- Daily breakdown table (last 14 days)
-- Budget alerts at $300 / $500 thresholds
-
-**Success Criteria:** Retrieved date range · calculated trends · generated readable report
+**Step 2:** Fetch daily usage
+- Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape:
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/teams/daily-usage-data?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+- **Expected:** JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
 
 <!--
-Now for Cost Report.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.2 — Cost Report.
+The slide title is: Exercise 9.2 — Step 2 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Step 2: Fetch daily usage.
 
-The slide says: Python generate_cost_report() for last 30 days:.
+Bullet 1 on the slide: Use the endpoint from your lab guide / course slides (Admin or Analytics daily usage). Example shape:.
 
-Success criteria listed: Retrieved date range · calculated trends · generated readable report.
+Bullet 2 on the slide: Expected: JSON with per-day usage fields; adjust URL if instructor provides the canonical path.
 
-Bullet 1 on the slide: Total cost · total tokens · average daily cost/users.
-
-Bullet 2 on the slide: Week-over-week change · top 5 costliest days.
-
-Bullet 3 on the slide: Daily breakdown table (last 14 days).
-
-Bullet 4 on the slide: Budget alerts at $300 / $500 thresholds.
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/teams/daily-usage-data?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+-->
+
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 9.2 — Steps 3–4 (cont.)
+
+**Step 3:** Interpret one day
+- Pick one date and read tokens, requests, or cost fields shown.
+- **Expected:** You can explain one day’s usage in plain language.
+
+**Step 4:** Optional report script
+- Sketch `generate_cost_report()` outputs (totals, top users) per lab guide.
+- **Expected:** List of metrics you would show a manager.
+
+<!--
+Now for Steps 3–4 (cont.).
+
+Step 3: Interpret one day.
+
+Step 4: Optional report script.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.2 — Steps 3–4 (cont.).
+
+Bullet 1 on the slide: Pick one date and read tokens, requests, or cost fields shown.
+
+Bullet 2 on the slide: Expected: You can explain one day’s usage in plain language.
+
+Bullet 3 on the slide: Sketch generate_cost_report() outputs (totals, top users) per lab guide.
+
+Bullet 4 on the slide: Expected: List of metrics you would show a manager.
+
+Terms on this slide — quick definitions for the room:
 
 A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 -->
@@ -17230,11 +13595,27 @@ A token is the billing and processing unit for LLMs — smaller than a sentence,
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.2 — Success criteria
 
+**Check:** Windows dates · API returned data · explained one day
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 9.2 — Success criteria.
+
+The slide says: Check: Windows dates · API returned data · explained one day.
+
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -17270,17 +13651,6 @@ A spend limit is a monthly cap on a user's Cursor usage — can alert or block w
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Key Endpoint
 
 `PATCH /v1/admin/policies/users/{userId}/limits`
@@ -17307,46 +13677,18 @@ In the table, `block`: Prevent any further requests for the month.
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.3 — Step 1
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Get a user ID**
-- **Do:** From 9.1 member list, copy one `userId` or email identifier. powershell $env:TARGET_USER_ID = "paste_user_id"
-- **Expected:** ID stored in a variable.
-
-**Step 2 — Set spend limit**
-- **Do:** Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
-- **Expected:** `200`/`204` or clear validation message.
-
-**Step 3 — Verify in dashboard**
-- **Do:** Open team admin UI → member → spending limit.
-- **Expected:** UI matches the limit you set (may take a minute).
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-sm -->
-
-## Exercise 9.3 — Set Limits
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
+**Step 1:** Get a user ID
+- From 9.1 member list, copy one `userId` or email identifier.
 ```powershell
-USER_ID=$(curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  "https://api.cursor.com/v1/admin/members?email=developer@company.com" \
-  | jq -r '.members[0].id')
-
-curl -X PATCH ".../policies/users/$USER_ID/limits" \
-  -u "$CURSOR_ADMIN_API_KEY:" \
-  -d '{"monthlyLimit": 50.00, "exceedanceAction": "block"}'
+$env:TARGET_USER_ID = "paste_user_id"
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-Check current limit: `GET .../policies/users/{userId}/limits`
+- **Expected:** ID stored in a variable.
 
 <!--
 We are starting Exercise 9.3 — Set User Spend Limits. We have about 13 min for this lab.
@@ -17357,21 +13699,23 @@ The full lab guide is in slide-exercises/module-09/exercise-9.3-set-user-spend-l
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Get a user ID.
+
+Copy this into the Agent chat: "$env:TARGET_USER_ID = "paste_user_id""
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.3 — Set Limits.
+The slide title is: Exercise 9.3 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Bullet 1 on the slide: From 9.1 member list, copy one userId or email identifier.
 
-The slide says: Check current limit: GET .../policies/users/{userId}/limits.
+Bullet 2 on the slide: Expected: ID stored in a variable.
 
-The code on the slide reads: USER_ID=$(curl -s -u "$CURSOR_ADMIN_API_KEY:" \   "https://api.cursor.com/v1/admin/members?email=developer@company.com" \   | jq -r '.members[0].id') curl -X PATCH ".../policies/users/$USER_ID/limits" \   -u "$CURSOR_ADMIN_API_KEY:" \   -d '{"monthlyLimit": 50.00, "exceedanceAction": "block"}'.
+The code on the slide reads: $env:TARGET_USER_ID = "paste_user_id".
 
 Terms on this slide — quick definitions for the room:
-
-HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -17379,55 +13723,69 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 9.3 — Steps 2–3 (cont.)
 
+**Step 2:** Set spend limit
+- Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
+- **Expected:** `200`/`204` or clear validation message.
 
+**Step 3:** Verify in dashboard
+- Open team admin UI → member → spending limit.
+- **Expected:** UI matches the limit you set (may take a minute).
 
+<!--
+Now for Steps 2–3 (cont.).
 
+Step 2: Set spend limit.
 
+Step 3: Verify in dashboard.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 9.3 — Steps 2–3 (cont.).
 
+Bullet 1 on the slide: Call the spend-limit endpoint from the lab guide (POST/PATCH per current API docs), e.g. monthly cap in dollars.
+
+Bullet 2 on the slide: Expected: 200/204 or clear validation message.
+
+Bullet 3 on the slide: Open team admin UI → member → spending limit.
+
+Bullet 4 on the slide: Expected: UI matches the limit you set (may take a minute).
+
+Terms on this slide — quick definitions for the room:
+
+A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
 
 
 <!-- _class: fit-md -->
 
-## Exercise 9.3 — Bulk Limits
+## Exercise 9.3 — Step 4 (cont.)
 
-**CSV bulk set:** `email, monthly_limit, action`
-
-```csv
-intern@company.com,20,block
-contractor@company.com,50,alert
-lead@company.com,200,alert
-```
-
-**Find heavy users:** query `/analytics/usage/users` for current month → filter cost > threshold
-
-**Success Criteria:** Retrieved user ID · set limit · verified · bulk setting implemented
+**Step 4:** Bulk CSV format (discussion)
+- Review CSV columns: `email, monthly_limit_usd` from slides.
+- **Expected:** You could automate onboarding limits from HR export.
 
 <!--
-Now for Bulk Limits.
-
-Copy this into the Agent chat: "intern@company.com,20,block contractor@company.com,50,alert lead@company.com,200,alert"
+Now for Step 4 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.3 — Bulk Limits.
+The slide title is: Exercise 9.3 — Step 4 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Step 4: Bulk CSV format (discussion).
 
-The slide says: CSV bulk set: email, monthly_limit, action.
+Bullet 1 on the slide: Review CSV columns: email, monthly_limit_usd from slides.
 
-The slide says: Find heavy users: query /analytics/usage/users for current month → filter cost > threshold.
-
-Success criteria listed: Retrieved user ID · set limit · verified · bulk setting implemented.
-
-The code on the slide reads: intern@company.com,20,block contractor@company.com,50,alert lead@company.com,200,alert.
+Bullet 2 on the slide: Expected: You could automate onboarding limits from HR export.
 
 Terms on this slide — quick definitions for the room:
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
 
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
@@ -17435,11 +13793,23 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.3 — Success criteria
 
+**Check:** Set one limit · verified · understand bulk pattern
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 9.3 — Success criteria.
+
+The slide says: Check: Set one limit · verified · understand bulk pattern.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -17471,17 +13841,6 @@ The slide says: Lab guide: [`Exercise 9.4](../slide-exercises/module-09/exercise
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Key Endpoint
 
 `GET /v1/admin/analytics/usage/models`
@@ -17501,57 +13860,31 @@ The slide says: GET /v1/admin/analytics/usage/models.
 ---
 
 
-
-
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
+<!--
+Let's look at Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Follow along (Windows) — key steps:**
+The slide title is: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Step 1 — Date range
-
-```powershell
-$end = Get-Date -Format "yyyy-MM-dd"
-$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
-```
-
-**Expected result:** 30-day window for analytics.
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
+-->
 
 ---
 
 
-### Step 2 — Fetch model usage**
-- **Do:** Call team model-usage endpoint from lab guide: powershell curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" ` "https://api.cursor.com/v1/analytics/team/models?startDate=$start&endDate=$end" | ConvertFrom-Json
-- **Expected:** Per-model token or cost breakdown (field names per API response).
+<!-- _class: fit-md -->
 
-**Step 3 — Find top model**
-- **Do:** Identify highest-cost or highest-token model.
-- **Expected:** One model name + number you can cite.
+## Exercise 9.4 — Step 1
 
-**Step 4 — Optimization idea**
-- **Do:** Write two bullets: what to change if costs are too high.
-- **Expected:** Actionable suggestions (cheaper model for simple tasks, etc.). **Success criteria:** Retrieved analytics · named top model · one optimization
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-xs -->
-
-## Exercise 9.4 — Model Breakdown
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
+**Step 1:** Date range
 ```powershell
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/usage/models?startDate=$START&endDate=$END" \
-  | jq '.models[] | {model: .modelId, cost: .cost, requests: .requestCount}'
-
-# Find Opus overuse per user
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/usage/users?startDate=$START&endDate=$END" \
-  | jq '.users[] | select(.modelBreakdown."claude-4.7-opus" != null)'
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+- **Expected:** 30-day window for analytics.
 
 <!--
 We are starting Exercise 9.4 — Model Usage Analytics. We have about 13 min for this lab.
@@ -17562,17 +13895,21 @@ The full lab guide is in slide-exercises/module-09/exercise-9.4-model-usage-anal
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Date range.
+
+Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")"
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.4 — Model Breakdown.
+The slide title is: Exercise 9.4 — Step 1.
 
-You will also see the heading: Find Opus overuse per user.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+Step 1: Date range.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Bullet 1 on the slide: Expected: 30-day window for analytics.
 
-The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/usage/models?startDate=$START&endDate=$END" \   | jq '.models[] | {model: .modelId, cost: .cost, requests: .requestCount}' # Find Opus overuse per user curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/usage/users?startDate=$START&endDate=$END" \   | jq '.users[] | select(.modelBreakdown."claude-4.7-opus" != null)'.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd").
 
 Terms on this slide — quick definitions for the room:
 
@@ -17582,62 +13919,104 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.4 — Step 2 (cont.)
 
-
-
-
-
-
-
-
-
-
-## Exercise 9.4 — Optimization Report
-
-`generate_optimization_report()`:
-
-- Model cost breakdown (% of total)
-- Users on Claude Opus → suggest Sonnet for non-critical tasks
-- High Sonnet usage → suggest GPT-5.3 Codex (40% savings)
-- Estimated monthly savings if guidelines applied
-
-**Success Criteria:** Retrieved model breakdown · identified expensive users · generated recommendations
+**Step 2:** Fetch model usage
+- Call team model-usage endpoint from lab guide:
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/team/models?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+- **Expected:** Per-model token or cost breakdown (field names per API response).
 
 <!--
-Now for Optimization Report.
+Now for Step 2 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.4 — Optimization Report.
+The slide title is: Exercise 9.4 — Step 2 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Step 2: Fetch model usage.
 
-The slide says: generate_optimization_report():.
+Bullet 1 on the slide: Call team model-usage endpoint from lab guide:.
 
-Success criteria listed: Retrieved model breakdown · identified expensive users · generated recommendations.
+Bullet 2 on the slide: Expected: Per-model token or cost breakdown (field names per API response).
 
-Bullet 1 on the slide: Model cost breakdown (% of total).
-
-Bullet 2 on the slide: Users on Claude Opus → suggest Sonnet for non-critical tasks.
-
-Bullet 3 on the slide: High Sonnet usage → suggest GPT-5.3 Codex (40% savings).
-
-Bullet 4 on the slide: Estimated monthly savings if guidelines applied.
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/models?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
 
 ---
 
 
+<!-- _class: fit-sm -->
+
+## Exercise 9.4 — Steps 3–4 (cont.)
+
+**Step 3:** Find top model
+- Identify highest-cost or highest-token model.
+- **Expected:** One model name + number you can cite.
+
+**Step 4:** Optimization idea
+- Write two bullets: what to change if costs are too high.
+- **Expected:** Actionable suggestions (cheaper model for simple tasks, etc.).
+
+<!--
+Now for Steps 3–4 (cont.).
+
+Step 3: Find top model.
+
+Step 4: Optimization idea.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.4 — Steps 3–4 (cont.).
+
+Bullet 1 on the slide: Identify highest-cost or highest-token model.
+
+Bullet 2 on the slide: Expected: One model name + number you can cite.
+
+Bullet 3 on the slide: Write two bullets: what to change if costs are too high.
+
+Bullet 4 on the slide: Expected: Actionable suggestions (cheaper model for simple tasks, etc.).
+
+Terms on this slide — quick definitions for the room:
+
+A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.4 — Success criteria
 
+**Check:** Retrieved analytics · named top model · one optimization
 
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.4 — Success criteria.
+
+The slide says: Check: Retrieved analytics · named top model · one optimization.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -17673,17 +14052,6 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Why DAU Matters
 
 - Track adoption after rollout
@@ -17716,19 +14084,15 @@ DAU stands for Daily Active Users — the count of distinct people who used the 
 ---
 
 
-
-
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
+<!--
+Let's look at Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Follow along (Windows) — key steps:**
+The slide title is: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Step 1 — Date range (7 days)
-
-```powershell
-$end = Get-Date -Format "yyyy-MM-dd"
-$start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
-```
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
+-->
 
 ---
 
@@ -17743,36 +14107,38 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 
 **Expected result:** Daily active user counts per day.
 
+<!--
+The slide title is: Step 2 — Fetch DAU Expected result: Daily active user counts per day..
+
+The slide says: Expected result: Daily active user counts per day.
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |   ConvertFrom-Json.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+-->
+
 ---
 
 
-### Step 3 — Trend**
-- **Do:** State whether DAU went up, down, or flat across the week.
-- **Expected:** One-sentence trend for leadership. **Success criteria:** DAU data retrieved · trend stated
+<!-- _class: fit-md -->
 
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
+## Exercise 9.5 — Step 1
 
-<!-- _class: fit-sm -->
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-## Exercise 9.5 — DAU Report
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
+**Step 1:** Date range (7 days)
 ```powershell
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/usage/daily?startDate=$START&endDate=$END" \
-  | jq '{avg_weekly: ([.daily[-7:] | .[].activeUsers] | add / length),
-         peak: ([.daily[] | .activeUsers] | max)}'
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-**Python leadership report:**
-- Average/median/peak DAU · adoption rate (% of team)
-- WoW growth rate · weekly averages
-- Health assessment: >80% excellent · >50% good · <30% investigate
-
-**Success Criteria:** Calculated DAU · adoption metrics · leadership-ready report
 
 <!--
 We are starting Exercise 9.5 — Daily Active Users (DAU). We have about 10 min for this lab.
@@ -17783,43 +14149,115 @@ The full lab guide is in slide-exercises/module-09/exercise-9.5-daily-active-use
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Date range (7 days).
+
+Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")"
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.5 — DAU Report.
+The slide title is: Exercise 9.5 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
-
-The slide says: Python leadership report:.
-
-Success criteria listed: Calculated DAU · adoption metrics · leadership-ready report.
-
-Bullet 1 on the slide: Average/median/peak DAU · adoption rate (% of team).
-
-Bullet 2 on the slide: WoW growth rate · weekly averages.
-
-Bullet 3 on the slide: Health assessment: >80% excellent · >50% good · <30% investigate.
-
-The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/usage/daily?startDate=$START&endDate=$END" \   | jq '{avg_weekly: ([.daily[-7:] | .[].activeUsers] | add / length),          peak: ([.daily[] | .activeUsers] | max)}'.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd").
 
 Terms on this slide — quick definitions for the room:
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
-DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
-
-WoW stands for Week over Week — comparing this week's metric to last week's.
 -->
 
 ---
 
 
+<!-- _class: fit-md -->
+
+## Exercise 9.5 — Step 2 (cont.)
+
+**Step 2:** Fetch DAU
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+- **Expected:** Daily active user counts per day.
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.5 — Step 2 (cont.).
+
+Step 2: Fetch DAU.
+
+Bullet 1 on the slide: Expected: Daily active user counts per day.
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/dau?startDate=$start&endDate=$end" |   ConvertFrom-Json.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
+
+## Exercise 9.5 — Step 3 (cont.)
+
+**Step 3:** Trend
+- State whether DAU went up, down, or flat across the week.
+- **Expected:** One-sentence trend for leadership.
+
+<!--
+Now for Step 3 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.5 — Step 3 (cont.).
+
+Step 3: Trend.
+
+Bullet 1 on the slide: State whether DAU went up, down, or flat across the week.
+
+Bullet 2 on the slide: Expected: One-sentence trend for leadership.
+
+Terms on this slide — quick definitions for the room:
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.5 — Success criteria
+
+**Check:** DAU data retrieved · trend stated
+
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.5 — Success criteria.
+
+The slide says: Check: DAU data retrieved · trend stated.
+
+Terms on this slide — quick definitions for the room:
+
+DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -17849,17 +14287,6 @@ The slide says: Lab guide: [`Exercise 9.6](../slide-exercises/module-09/exercise
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -17892,15 +14319,26 @@ In the table, **Include context**: Show team size, role differences.
 ---
 
 
-
-
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
+<!--
+Let's look at Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Follow along (Windows) — key steps:**
+The slide title is: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Step 1 — Fetch leaderboard
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
+-->
 
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 9.6 — Step 1
+
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
+
+**Step 1:** Fetch leaderboard
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
@@ -17908,41 +14346,7 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/team/leaderboard?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
-
-**Expected result:** Ranked users by chosen metric (tokens, accepts, etc.).
-
----
-
-
-### Step 2 — Privacy**
-- **Do:** Discuss anonymizing emails before showing leaderboard company-wide.
-- **Expected:** Policy: hash or redact emails in exported reports.
-
-**Step 3 — Use case**
-- **Do:** One appropriate use (adoption champion) and one inappropriate use (public shaming).
-- **Expected:** Two clear examples. **Success criteria:** Leaderboard data · privacy discussion · use cases
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-md -->
-
-## Exercise 9.6 — Three Leaderboards
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-**1. Engagement leaderboard** — rank by request count (anonymized emails)
-
-**2. Efficiency leaderboard** — tokens per dollar spent
-
-**3. Savings leaderboard** — users who saved by choosing efficient models over Opus
-
-```python
-def anonymize_email(email):
-    local = email.split('@')[0]
-    return local[:2] + "..." + local[-2:]
-```
-
-**Success Criteria:** Anonymized · efficiency-focused · savings-focused leaderboards
+- **Expected:** Ranked users by chosen metric (tokens, accepts, etc.).
 
 <!--
 We are starting Exercise 9.6 — Leaderboards. We have about 11 min for this lab.
@@ -17953,25 +14357,25 @@ The full lab guide is in slide-exercises/module-09/exercise-9.6-leaderboards.md 
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Fetch leaderboard.
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 9.6 — Three Leaderboards.
+The slide title is: Exercise 9.6 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: 1. Engagement leaderboard — rank by request count (anonymized emails).
+Bullet 1 on the slide: Expected: Ranked users by chosen metric (tokens, accepts, etc.).
 
-The slide says: 2. Efficiency leaderboard — tokens per dollar spent.
-
-The slide says: 3. Savings leaderboard — users who saved by choosing efficient models over Opus.
-
-Success criteria listed: Anonymized · efficiency-focused · savings-focused leaderboards.
-
-The code on the slide reads: def anonymize_email(email):     local = email.split('@')[0]     return local[:2] + "..." + local[-2:].
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/team/leaderboard?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
 A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -17979,11 +14383,62 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-sm -->
+
+## Exercise 9.6 — Steps 2–3 (cont.)
+
+**Step 2:** Privacy
+- Discuss anonymizing emails before showing leaderboard company-wide.
+- **Expected:** Policy: hash or redact emails in exported reports.
+
+**Step 3:** Use case
+- One appropriate use (adoption champion) and one inappropriate use (public shaming).
+- **Expected:** Two clear examples.
+
+<!--
+Now for Steps 2–3 (cont.).
+
+Step 2: Privacy.
+
+Step 3: Use case.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.6 — Steps 2–3 (cont.).
+
+Step 2: Privacy.
+
+Step 3: Use case.
+
+Bullet 1 on the slide: Discuss anonymizing emails before showing leaderboard company-wide.
+
+Bullet 2 on the slide: Expected: Policy: hash or redact emails in exported reports.
+
+Bullet 3 on the slide: One appropriate use (adoption champion) and one inappropriate use (public shaming).
+
+Bullet 4 on the slide: Expected: Two clear examples.
+-->
+
+---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 9.6 — Success criteria
 
+**Check:** Leaderboard data · privacy discussion · use cases
 
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 9.6 — Success criteria.
+
+The slide says: Check: Leaderboard data · privacy discussion · use cases.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -18005,17 +14460,6 @@ The note on screen reads: 6 min total · Concept · 6 min · Demonstration.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## What Conversation Insights Reveal
@@ -18046,17 +14490,6 @@ Bullet 4 on the slide: Which models perform best for which task types.
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-sm -->
 
 ## Demo: Intent Analysis
@@ -18074,17 +14507,6 @@ The figure on this slide is titled: Demo: Intent Analysis.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Demo: Complexity & Categories
@@ -18122,13 +14544,6 @@ Bullet 2 on the slide: backend 40% · frontend 29% · database 15% · devops 10%
 ---
 
 
-
-
-
-
-
-
-
 <!-- _class: lead -->
 
 # Lesson 9.8
@@ -18148,17 +14563,6 @@ The note on screen reads: 6 min total · Concept · 6 min · Demonstration.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Safe Removal Playbook
@@ -18210,17 +14614,6 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _class: fit-xs -->
 
 ## Demo: SafeRemovalDemo Workflow
@@ -18252,17 +14645,6 @@ Hard delete permanently removes a user and associated data — irreversible and 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- _header: 'Module 10 — AI Code Tracking and Reporting' -->
 
 <!-- _class: lead -->
@@ -18284,17 +14666,6 @@ The slide says: Cursor Training Program · ~20 min + take-home.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
@@ -18332,21 +14703,30 @@ In the table, **Prerequisites**: Admin API key, Git repository access, Modules 8
 
 In the table, **Module Goal**: Track AI vs. human contributions, export metrics to BI tools, build compliance dashboards.
 
+The table header columns are: Lesson, Topic, Time.
+
+In the table, 10.1 — AI Commit Metrics. Use case on slide: 8 min.
+
+In the table, 10.2 — Bulk Export via CSV Streaming. Use case on slide: 7 min.
+
+In the table, 10.3 — Granular AI Change Events. Use case on slide: 7 min.
+
+In the table, 10.4 — Reporting Dashboard Architecture. Use case on slide: 4 min + take-home.
+
 Terms on this slide — quick definitions for the room:
 
+AI commit metrics track how much committed code came from AI assistance versus human-only edits.
+
 An Admin API Key is org-wide — for team membership, usage analytics, and spend limits.
+
+Streaming means events arrive incrementally over SSE instead of waiting for one complete response at the end.
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 
 BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -18380,17 +14760,6 @@ AI commit metrics track how much committed code came from AI assistance versus h
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Key Endpoint
@@ -18429,17 +14798,6 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-sm -->
@@ -18500,19 +14858,15 @@ npm is the Node Package Manager — the default registry and tool for JavaScript
 ---
 
 
-
-
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
+<!--
+Let's look at Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Follow along (Windows) — key steps:**
+The slide title is: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Step 1 — Date range (30 days)
-
-```powershell
-$end = Get-Date -Format "yyyy-MM-dd"
-$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
-```
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
+-->
 
 ---
 
@@ -18527,35 +14881,36 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
 
 **Expected result:** Summary with AI vs human commit stats (field names per response).
 
+<!--
+The slide title is: Step 2 — Fetch commit metrics Expected result: Summary with AI vs human commit s….
+
+The slide says: Expected result: Summary with AI vs human commit stats (field names per response).
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |   ConvertFrom-Json.
+
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
 ---
 
 
-### Step 3 — Calculate AI percentage**
-- **Do:** Compute `(ai_commits / total_commits) * 100` from summary fields.
-- **Expected:** One percentage you can state aloud.
-
-**Step 4 — ROI discussion**
-- **Do:** List inputs for ROI: lines saved, hourly cost, API spend (qualitative OK).
-- **Expected:** Simple ROI story for a manager. **Success criteria:** Metrics fetched · AI % calculated · ROI narrative
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
 <!-- _class: fit-md -->
 
-## Exercise 10.1 — Fetch Metrics
+## Exercise 10.1 — Step 1
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
+**Step 1:** Date range (30 days)
 ```powershell
-END=$(date +%Y-%m-%d)
-START=$(date -d "30 days ago" +%Y-%m-%d)
-
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/commits?startDate=$START&endDate=$END&repo=https://github.com/YOUR_ORG/YOUR_REPO" \
-  | jq '.'
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
 
 <!--
 We are starting Exercise 10.1 — AI Commit Metrics. We have about 8 min for this lab.
@@ -18566,70 +14921,56 @@ The full lab guide is in slide-exercises/module-10/exercise-10.1-ai-commit-metri
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Date range (30 days).
+
+Copy this into the Agent chat: "$end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")"
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.1 — Fetch Metrics.
+The slide title is: Exercise 10.1 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd").
 
-The code on the slide reads: END=$(date +%Y-%m-%d) START=$(date -d "30 days ago" +%Y-%m-%d) curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/commits?startDate=$START&endDate=$END&repo=https://github.com/YOUR_ORG/YOUR_REPO" \   | jq '.'.
+Terms on this slide — quick definitions for the room:
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 10.1 — Step 2 (cont.)
+
+**Step 2:** Fetch commit metrics
+```powershell
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |
+  ConvertFrom-Json
+```
+- **Expected:** Summary with AI vs human commit stats (field names per response).
+
+<!--
+Now for Step 2 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.1 — Step 2 (cont.).
+
+Step 2: Fetch commit metrics.
+
+Bullet 1 on the slide: Expected: Summary with AI vs human commit stats (field names per response).
+
+The code on the slide reads: curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/commits?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
 Terms on this slide — quick definitions for the room:
 
 HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- _class: fit-xs -->
-
-## Exercise 10.1 — AI Contribution %
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```powershell
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/commits?startDate=$START&endDate=$END" \
-  | jq '{
-      total_commits: .summary.totalCommits,
-      ai_commits: .summary.aiAuthoredCommits,
-      ai_percentage: (.summary.aiAuthoredCommits / .summary.totalCommits * 100),
-      lines_saved: .summary.aiGeneratedLines
-    }'
-```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-<!--
-Now for AI Contribution %.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 10.1 — AI Contribution %.
-
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
-
-The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/commits?startDate=$START&endDate=$END" \   | jq '{       total_commits: .summary.totalCommits,       ai_commits: .summary.aiAuthoredCommits,       ai_percentage: (.summary.aiAuthoredCommits / .summary.totalCommits * 100),       lines_saved: .summary.aiGeneratedLines     }'.
-
-Terms on this slide — quick definitions for the room:
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 -->
@@ -18637,56 +14978,40 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 10.1 — Steps 3–4 (cont.)
 
+**Step 3:** Calculate AI percentage
+- Compute `(ai_commits / total_commits) * 100` from summary fields.
+- **Expected:** One percentage you can state aloud.
 
-
-
-
-
-
-
-
-
-<!-- _class: fit-md -->
-
-## Exercise 10.1 — ROI Analysis
-
-Python `calculate_ai_roi()`:
-
-```
-AI-generated lines vs. human-written lines (%)
-Estimated time saved (10 lines/min assumption)
-Estimated cost saved ($100/hr developer cost)
-AI usage cost → Net ROI
-```
-
-`contributor_breakdown()` — AI %, AI lines, commits per developer
-
-**Success Criteria:** Retrieved metrics · calculated AI % · generated ROI analysis
+**Step 4:** ROI discussion
+- List inputs for ROI: lines saved, hourly cost, API spend (qualitative OK).
+- **Expected:** Simple ROI story for a manager.
 
 <!--
-Now for ROI Analysis.
+Now for Steps 3–4 (cont.).
 
-Copy this into the Agent chat: "AI-generated lines vs. human-written lines (%) Estimated time saved (10 lines/min assumption) Estimated cost saved ($100/hr developer cost) AI usage cost → Net ROI"
+Step 3: Calculate AI percentage.
+
+Step 4: ROI discussion.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.1 — ROI Analysis.
+The slide title is: Exercise 10.1 — Steps 3–4 (cont.).
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
+Bullet 1 on the slide: Compute (ai_commits / total_commits) * 100 from summary fields.
 
-The slide says: Python calculate_ai_roi():.
+Bullet 2 on the slide: Expected: One percentage you can state aloud.
 
-The slide says: contributor_breakdown() — AI %, AI lines, commits per developer.
+Bullet 3 on the slide: List inputs for ROI: lines saved, hourly cost, API spend (qualitative OK).
 
-Success criteria listed: Retrieved metrics · calculated AI % · generated ROI analysis.
-
-The code on the slide reads: AI-generated lines vs. human-written lines (%) Estimated time saved (10 lines/min assumption) Estimated cost saved ($100/hr developer cost) AI usage cost → Net ROI.
+Bullet 4 on the slide: Expected: Simple ROI story for a manager.
 
 Terms on this slide — quick definitions for the room:
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
 ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
 -->
@@ -18694,11 +15019,27 @@ ROI stands for Return on Investment — whether tool spend pays back in saved ti
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 10.1 — Success criteria
 
+**Check:** Metrics fetched · AI % calculated · ROI narrative
 
+<!--
+Now for Success criteria.
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 10.1 — Success criteria.
+
+The slide says: Check: Metrics fetched · AI % calculated · ROI narrative.
+
+Terms on this slide — quick definitions for the room:
+
+ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
+-->
+
+---
 
 
 <!-- _class: lead -->
@@ -18736,17 +15077,6 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Key Endpoint
 
 `GET /v1/admin/analytics/export/csv` (streaming)
@@ -18778,24 +15108,15 @@ BI stands for Business Intelligence — dashboards and reports built from export
 ---
 
 
-
-
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
+<!--
+Let's look at Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Follow along (Windows) — key steps:**
+The slide title is: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Step 1 — Stream CSV download
-
-```powershell
-$end = Get-Date -Format "yyyy-MM-dd"
-$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
-curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
-  "https://api.cursor.com/v1/analytics/ai-code/commits.csv?startDate=$start&endDate=$end" `
-  -o cursor_commits_export.csv
-```
-
-**Expected result:** File `cursor_commits_export.csv` created in current directory.
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
+-->
 
 ---
 
@@ -18808,30 +15129,36 @@ Get-Content .\cursor_commits_export.csv -Head 10
 
 **Expected result:** Header row + data rows visible in PowerShell.
 
+<!--
+The slide title is: Step 2 — Preview rows Expected result: Header row + data rows visible in PowerSh….
+
+The slide says: Expected result: Header row + data rows visible in PowerShell.
+
+The code on the slide reads: Get-Content .\cursor_commits_export.csv -Head 10.
+
+Terms on this slide — quick definitions for the room:
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+-->
+
 ---
 
 
-### Step 3 — Open in Excel**
-- **Do:** Double-click CSV or **Open with** Excel.
-- **Expected:** Columns sortable; suitable for pivot tables. **Success criteria:** CSV downloaded · previewed · opened in spreadsheet tool
+<!-- _class: fit-sm -->
 
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
+## Exercise 10.2 — Step 1
 
-<!-- _class: fit-md -->
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-## Exercise 10.2 — Stream to File
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
+**Step 1:** Stream CSV download
 ```powershell
-curl -N -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/export/csv?startDate=$START&endDate=$END&type=commits" \
+$end = Get-Date -Format "yyyy-MM-dd"
+$start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
+  "https://api.cursor.com/v1/analytics/ai-code/commits.csv?startDate=$start&endDate=$end" `
   -o cursor_commits_export.csv
-
-head -10 cursor_commits_export.csv
 ```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
+- **Expected:** File `cursor_commits_export.csv` created in current directory.
 
 <!--
 We are starting Exercise 10.2 — Bulk Export via CSV Streaming. We have about 7 min for this lab.
@@ -18842,17 +15169,21 @@ The full lab guide is in slide-exercises/module-10/exercise-10.2-bulk-export-via
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Stream CSV download.
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.2 — Stream to File.
+The slide title is: Exercise 10.2 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Bullet 1 on the slide: Expected: File cursor_commits_export.csv created in current directory.
 
-The code on the slide reads: curl -N -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/export/csv?startDate=$START&endDate=$END&type=commits" \   -o cursor_commits_export.csv head -10 cursor_commits_export.csv.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/commits.csv?startDate=$start&endDate=$end" `   -o cursor_commits_export.csv.
 
 Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
@@ -18862,72 +15193,70 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 10.2 — Steps 2–3 (cont.)
 
+**Step 2:** Preview rows
+```
+Get-Content .\cursor_commits_export.csv -Head 10
+```
+- **Expected:** Header row + data rows visible in PowerShell.
 
+**Step 3:** Open in Excel
+- Double-click CSV or **Open with** Excel.
+- **Expected:** Columns sortable; suitable for pivot tables.
 
+<!--
+Now for Steps 2–3 (cont.).
 
+Step 2: Preview rows.
 
+Step 3: Open in Excel.
 
+Copy this into the Agent chat: "Get-Content .\cursor_commits_export.csv -Head 10"
 
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
+The slide title is: Exercise 10.2 — Steps 2–3 (cont.).
+
+Bullet 1 on the slide: Expected: Header row + data rows visible in PowerShell.
+
+Bullet 2 on the slide: Double-click CSV or Open with Excel.
+
+Bullet 3 on the slide: Expected: Columns sortable; suitable for pivot tables.
+
+The code on the slide reads: Get-Content .\cursor_commits_export.csv -Head 10.
+
+Terms on this slide — quick definitions for the room:
+
+CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+-->
+
+---
 
 
 <!-- _class: fit-md -->
 
-## Exercise 10.2 — BI Integration
+## Exercise 10.2 — Success criteria
 
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-Python `stream_to_dataframe()` → pandas DataFrame:
-
-```python
-export_for_bi():
-  bi_commits.csv   # commit data
-  bi_events.csv    # event data
-  bi_usage.csv     # usage data
-```
-
-Upload to Metabase, PowerBI, or Tableau via CSV import
-
-**Success Criteria:** Streamed CSV · loaded into DataFrame · created BI-ready files
+**Check:** CSV downloaded · previewed · opened in spreadsheet tool
 
 <!--
-Now for BI Integration.
-
-Copy this into the Agent chat: "export_for_bi(): bi_commits.csv # commit data bi_events.csv # event data bi_usage.csv # usage data"
+Now for Success criteria.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.2 — BI Integration.
+The slide title is: Exercise 10.2 — Success criteria.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
-
-The slide says: Python stream_to_dataframe() → pandas DataFrame:.
-
-The slide says: Upload to Metabase, PowerBI, or Tableau via CSV import.
-
-Success criteria listed: Streamed CSV · loaded into DataFrame · created BI-ready files.
-
-The code on the slide reads: export_for_bi():   bi_commits.csv   # commit data   bi_events.csv    # event data   bi_usage.csv     # usage data.
+The slide says: Check: CSV downloaded · previewed · opened in spreadsheet tool.
 
 Terms on this slide — quick definitions for the room:
 
-API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
-
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
-
-BI stands for Business Intelligence — dashboards and reports built from exported usage data.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -18957,17 +15286,6 @@ The slide says: Lab guide: [`Exercise 10.3](../slide-exercises/module-10/exercis
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## Key Endpoint
@@ -19005,15 +15323,26 @@ ISO refers to International Organization for Standardization frameworks — audi
 ---
 
 
-
-
 **Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
 
+<!--
+Let's look at Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Follow along (Windows) — key steps:**
+The slide title is: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
 
-**Step 1 — Fetch change events
+The slide says: Windows: Use PowerShell in Cursor (`Ctrl+ `` → PowerShell).
+-->
 
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 10.3 — Step 1
+
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
+
+**Step 1:** Fetch change events
 ```powershell
 $end = Get-Date -Format "yyyy-MM-dd"
 $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd")
@@ -19021,35 +15350,7 @@ curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `
   "https://api.cursor.com/v1/analytics/ai-code/changes?startDate=$start&endDate=$end" |
   ConvertFrom-Json
 ```
-
-**Expected result:** List of granular edit events (file, lines, model, accepted flag).
-
----
-
-
-### Step 2 — Acceptance rate**
-- **Do:** From one page of data, estimate accepted vs rejected ratio.
-- **Expected:** Rough acceptance percentage.
-
-**Step 3 — Compliance use case**
-- **Do:** Name one audit question this API can answer.
-- **Expected:** e.g. “Which AI model edited file X on date Y?” **Success criteria:** Events retrieved · acceptance discussed · compliance example
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-## Exercise 10.3 — Query Events
-
-**Platform:** Windows 10/11 · **PowerShell** for API · `$env:VAR` · `curl.exe`
-
-```powershell
-curl -s -u "$CURSOR_ADMIN_API_KEY:" \
-  ".../analytics/events?startDate=$START&endDate=$END&limit=100" \
-  | jq '.events[] | {user: .user.email, file: .filePath, model: .modelId, accepted: .accepted}'
-```
-
-**PowerShell (Windows):** Same steps in **PowerShell** — use `$env:NAME = "value"` instead of `export`, and `curl.exe` instead of `curl`.
-
-Acceptance rate by model: group events → total vs. accepted per model
+- **Expected:** List of granular edit events (file, lines, model, accepted flag).
 
 <!--
 We are starting Exercise 10.3 — Granular AI Change Events. We have about 7 min for this lab.
@@ -19060,17 +15361,60 @@ The full lab guide is in slide-exercises/module-10/exercise-10.3-granular-ai-cha
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Fetch change events.
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.3 — Query Events.
+The slide title is: Exercise 10.3 — Step 1.
 
-Environment note on the slide: Platform: Windows 10/11 · PowerShell for API · $env:VAR · curl.exe.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-The slide says: PowerShell (Windows): Same steps in PowerShell — use $env:NAME = "value" instead of export, and curl.exe instead of curl.
+Bullet 1 on the slide: Expected: List of granular edit events (file, lines, model, accepted flag).
 
-The slide says: Acceptance rate by model: group events → total vs. accepted per model.
+The code on the slide reads: $end = Get-Date -Format "yyyy-MM-dd" $start = (Get-Date).AddDays(-7).ToString("yyyy-MM-dd") curl.exe -s -u "$($env:CURSOR_ADMIN_API_KEY):" `   "https://api.cursor.com/v1/analytics/ai-code/changes?startDate=$start&endDate=$end" |   ConvertFrom-Json.
 
-The code on the slide reads: curl -s -u "$CURSOR_ADMIN_API_KEY:" \   ".../analytics/events?startDate=$START&endDate=$END&limit=100" \   | jq '.events[] | {user: .user.email, file: .filePath, model: .modelId, accepted: .accepted}'.
+Terms on this slide — quick definitions for the room:
+
+HTTPS is HTTP secured with TLS encryption — required for production APIs and webhooks.
+
+JSON stands for JavaScript Object Notation — a text format for structured data that APIs commonly return.
+
+API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
+-->
+
+---
+
+
+<!-- _class: fit-sm -->
+
+## Exercise 10.3 — Steps 2–3 (cont.)
+
+**Step 2:** Acceptance rate
+- From one page of data, estimate accepted vs rejected ratio.
+- **Expected:** Rough acceptance percentage.
+
+**Step 3:** Compliance use case
+- Name one audit question this API can answer.
+- **Expected:** e.g. “Which AI model edited file X on date Y?”
+
+<!--
+Now for Steps 2–3 (cont.).
+
+Step 2: Acceptance rate.
+
+Step 3: Compliance use case.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.3 — Steps 2–3 (cont.).
+
+Bullet 1 on the slide: From one page of data, estimate accepted vs rejected ratio.
+
+Bullet 2 on the slide: Expected: Rough acceptance percentage.
+
+Bullet 3 on the slide: Name one audit question this API can answer.
+
+Bullet 4 on the slide: Expected: e.g. “Which AI model edited file X on date Y?”.
 
 Terms on this slide — quick definitions for the room:
 
@@ -19082,66 +15426,23 @@ API stands for Application Programming Interface — a defined way for programs 
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 10.3 — Success criteria
 
-
-
-
-
-
-
-
-
-
-## Exercise 10.3 — Compliance Report
-
-`generate_compliance_report()` for last 90 days:
-
-- Acceptance rate by model (table)
-- Top 10 files with most AI changes (needs review)
-- Export `compliance_export.csv` for auditors:
-  - timestamp, user_email, model_id, file_path, line_start, line_end, accepted
-
-**Success Criteria:** Retrieved events · calculated acceptance rates · compliance export
+**Check:** Events retrieved · acceptance discussed · compliance example
 
 <!--
-Now for Compliance Report.
+Now for Success criteria.
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.3 — Compliance Report.
+The slide title is: Exercise 10.3 — Success criteria.
 
-Environment note on the slide: Demonstration (Windows): PowerShell terminal (`Ctrl+ `) · Agent panel Ctrl+I` · shortcuts use Ctrl.
-
-The slide says: generate_compliance_report() for last 90 days:.
-
-Success criteria listed: Retrieved events · calculated acceptance rates · compliance export.
-
-Bullet 1 on the slide: Acceptance rate by model (table).
-
-Bullet 2 on the slide: Top 10 files with most AI changes (needs review).
-
-Bullet 3 on the slide: Export compliance_export.csv for auditors:.
-
-Bullet 4 on the slide: timestamp, user_email, model_id, file_path, line_start, line_end, accepted.
-
-Terms on this slide — quick definitions for the room:
-
-Acceptance rate is the share of AI-suggested edits a developer accepted versus rejected.
-
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
+The slide says: Check: Events retrieved · acceptance discussed · compliance example.
 -->
 
 ---
-
-
-
-
-
-
-
 
 
 <!-- _class: lead -->
@@ -19177,38 +15478,20 @@ The slide says: Lab guide: [Exercise 10.4](../slide-exercises/module-10/exercise
 ---
 
 
+<!-- _class: fit-sm -->
 
+## Exercise 10.4 — Steps 1–2
 
-**Windows:** Use **PowerShell** in Cursor (``Ctrl+` `` → **PowerShell**)
+**Windows:** PowerShell · `$env:…` API keys · **`curl.exe`** for API calls
 
-
-**Follow along (Windows) — key steps:**
-
-**Step 1 — Review architecture options**
-- **Do:** Read the slide table: Streamlit vs Metabase vs custom frontend.
+**Step 1:** Review architecture options
+- Read the slide table: Streamlit vs Metabase vs custom frontend.
 - **Expected:** You pick one option and justify for a small team.
 
-**Step 2 — Define five panels**
-- **Do:** List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
+**Step 2:** Define five panels
+- List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
 - **Expected:** Each panel maps to an API from modules 9–10.
 
-**Step 3 — Data flow**
-- **Do:** Sketch: nightly CSV export → database → dashboard refresh.
-- **Expected:** One diagram or bullet pipeline.
-
-_Full lab guide with every command: see **Lab guide** on the lesson divider slide._
-
-<!-- _class: fit-md -->
-
-## Exercise 10.4 — Dashboard Components
-
-| Component | Data Source | Purpose |
-|-----------|-------------|---------|
-| Usage Overview | Usage API | Cost, tokens, active users |
-| AI Contribution | Commits API | ROI, adoption metrics |
-| Model Performance | Events API | Acceptance rates, efficiency |
-| Team Activity | Members API | Onboarding, licensing |
-| Compliance | Events + Audit | Audit trail, security |
 <!--
 We are starting Exercise 10.4 — Reporting Dashboard Architecture. We have about Take-home for this lab.
 
@@ -19218,143 +15501,56 @@ The full lab guide is in slide-exercises/module-10/exercise-10.4-reporting-dashb
 
 On Windows: PowerShell in the integrated terminal — Ctrl+backtick — and the Agent panel — Ctrl+I. Open the repo folder with File → Open Folder.
 
+Step 1: Review architecture options.
+
+Step 2: Define five panels.
+
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.4 — Dashboard Components.
+The slide title is: Exercise 10.4 — Steps 1–2.
 
-The table header columns are: Component, Data Source, Purpose.
+The slide says: Windows: PowerShell · $env:… API keys · curl.exe for API calls.
 
-In the table, Usage Overview — Usage API. Use case on slide: Cost, tokens, active users.
+Bullet 1 on the slide: Read the slide table: Streamlit vs Metabase vs custom frontend.
 
-In the table, AI Contribution — Commits API. Use case on slide: ROI, adoption metrics.
+Bullet 2 on the slide: Expected: You pick one option and justify for a small team.
 
-In the table, Model Performance — Events API. Use case on slide: Acceptance rates, efficiency.
+Bullet 3 on the slide: List five dashboard panels (DAU, model mix, AI %, spend, leaderboard).
 
-In the table, Team Activity — Members API. Use case on slide: Onboarding, licensing.
-
-In the table, Compliance — Events + Audit. Use case on slide: Audit trail, security.
+Bullet 4 on the slide: Expected: Each panel maps to an API from modules 9–10.
 
 Terms on this slide — quick definitions for the room:
-
-A token is the billing and processing unit for LLMs — smaller than a sentence, often a word fragment or symbol.
 
 API stands for Application Programming Interface — a defined way for programs to request data or actions from another service.
 
-ROI stands for Return on Investment — whether tool spend pays back in saved time or shipped work.
--->
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Exercise 10.4 — Streamlit Dashboard
-
-Run with: `streamlit run cursor_dashboard.py`
-
-**5 panels:**
-1. **Executive Summary** — cost, DAU, AI %, team size
-2. **Usage Analytics** — daily cost trend (Plotly line chart)
-3. **AI Code Impact** — AI vs human bar chart + acceptance by model
-4. **Team Management** — member table
-5. **Compliance Export** — download events CSV
-
-<!--
-Now for Streamlit Dashboard.
-
-I'll give you a few minutes to work — raise your hand if you get stuck.
-
-The slide title is: Exercise 10.4 — Streamlit Dashboard.
-
-The slide says: Run with: streamlit run cursor_dashboard.py.
-
-The slide says: 5 panels:.
-
-The slide says: 1. Executive Summary — cost, DAU, AI %, team size.
-
-The slide says: 2. Usage Analytics — daily cost trend (Plotly line chart).
-
-The slide says: 3. AI Code Impact — AI vs human bar chart + acceptance by model.
-
-The slide says: 4. Team Management — member table.
-
-The slide says: 5. Compliance Export — download events CSV.
-
-Number 1 on the slide: Executive Summary — cost, DAU, AI %, team size.
-
-Number 2 on the slide: Usage Analytics — daily cost trend (Plotly line chart).
-
-Number 3 on the slide: AI Code Impact — AI vs human bar chart + acceptance by model.
-
-Number 4 on the slide: Team Management — member table.
-
-Number 5 on the slide: Compliance Export — download events CSV.
-
-Terms on this slide — quick definitions for the room:
-
 DAU stands for Daily Active Users — the count of distinct people who used the product on a given day.
-
-CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
 
 ---
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- _class: fit-md -->
 
-## Exercise 10.4 — Deliverables
+## Exercise 10.4 — Step 3 (cont.)
 
-| Deliverable | Description |
-|-------------|-------------|
-| **Working dashboard** | Streamlit, Metabase, or custom frontend |
-| **Documentation** | Setup instructions and data source descriptions |
-| **One insight** | Key finding from your team's data |
-| **Export script** | Automated CSV export for compliance |
-
-**Bonus:** cost alerts · spend limit UI · model A/B comparison · cloud deployment
+**Step 3:** Data flow
+- Sketch: nightly CSV export → database → dashboard refresh.
+- **Expected:** One diagram or bullet pipeline.
 
 <!--
-Now for Deliverables.
+Now for Step 3 (cont.).
 
 I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The slide title is: Exercise 10.4 — Deliverables.
+The slide title is: Exercise 10.4 — Step 3 (cont.).
 
-The slide says: Bonus: cost alerts · spend limit UI · model A/B comparison · cloud deployment.
+Step 3: Data flow.
 
-The table header columns are: Deliverable, Description.
+Bullet 1 on the slide: Sketch: nightly CSV export → database → dashboard refresh.
 
-In the table, **Working dashboard**: Streamlit, Metabase, or custom frontend.
-
-In the table, **Documentation**: Setup instructions and data source descriptions.
-
-In the table, **One insight**: Key finding from your team's data.
-
-In the table, **Export script**: Automated CSV export for compliance.
+Bullet 2 on the slide: Expected: One diagram or bullet pipeline.
 
 Terms on this slide — quick definitions for the room:
-
-A spend limit is a monthly cap on a user's Cursor usage — can alert or block when exceeded.
 
 CSV stands for Comma-Separated Values — a simple tabular export format spreadsheets and BI tools can ingest.
 -->
@@ -19362,68 +15558,79 @@ CSV stands for Comma-Separated Values — a simple tabular export format spreads
 ---
 
 
+<!-- _class: fit-md -->
 
+## Exercise 10.4 — Step 4 (cont.)
 
-
-
-
-
-
-
-
-
-
-<!-- _header: "" -->
-<!-- _class: lead fit-sm -->
-
-# Course Complete
-
-## Cursor Training Program — Day 2
-
-**You can now:**
-- Create and manage Cloud Agents programmatically
-- Stream agent responses with SSE · Webhooks with HMAC verification
-- Administer teams and enforce spending policies
-- Analyze usage, model adoption, and AI contribution
-- Track AI vs. human code changes per commit
-- Build reporting dashboards for leadership
-
-**Next steps:** Complete take-home dashboard · set up scheduled exports · implement cost alerts
-
-*End of Module 10 — End of Day 2 Training Program*
+**Step 4:** Windows setup for Streamlit (take-home)
+```
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install streamlit pandas requests
+streamlit run dashboard.py
+```
+- **Expected:** Local dashboard URL opens in browser (when `dashboard.py` exists).
 
 <!--
-This slide lists key points under Course Complete.
+Now for Step 4 (cont.).
 
-The slide title is: Course Complete.
+Copy this into the Agent chat: "python -m venv .venv .\.venv\Scripts\Activate.ps1 pip install streamlit pandas requests streamlit run dashboard.py"
 
-You will also see the heading: Cursor Training Program — Day 2.
+I'll give you a few minutes to work — raise your hand if you get stuck.
 
-The note on screen reads: End of Module 10 — End of Day 2 Training Program.
+The slide title is: Exercise 10.4 — Step 4 (cont.).
 
-The slide says: You can now:.
+Step 4: Windows setup for Streamlit (take-home).
 
-The slide says: Next steps: Complete take-home dashboard · set up scheduled exports · implement cost alerts.
+Bullet 1 on the slide: Expected: Local dashboard URL opens in browser (when dashboard.py exists).
 
-Bullet 1 on the slide: Create and manage Cloud Agents programmatically.
-
-Bullet 2 on the slide: Stream agent responses with SSE · Webhooks with HMAC verification.
-
-Bullet 3 on the slide: Administer teams and enforce spending policies.
-
-Bullet 4 on the slide: Analyze usage, model adoption, and AI contribution.
-
-Bullet 5 on the slide: Track AI vs. human code changes per commit.
-
-Bullet 6 on the slide: Build reporting dashboards for leadership.
+The code on the slide reads: python -m venv .venv .\.venv\Scripts\Activate.ps1 pip install streamlit pandas requests streamlit run dashboard.py.
 
 Terms on this slide — quick definitions for the room:
 
-A webhook is an HTTP callback — when an event happens, the service POSTs a payload to your URL.
+URL stands for Uniform Resource Locator — the web address you paste into a browser or API client.
+-->
 
-In Cursor, the Agent is the AI assistant that can use tools, edit files, and run terminal commands — not just answer questions in chat.
+---
 
-HMAC stands for Hash-based Message Authentication Code — a signed digest that proves a webhook payload was not tampered with.
 
-SSE stands for Server-Sent Events — a way the server pushes live updates over one long HTTP connection.
+<!-- _class: fit-md -->
+
+## Exercise 10.4 — Step 5 (cont.)
+
+**Step 5:** Deliverables checklist
+- Note deliverables: working demo, setup doc, one insight, export script.
+- **Expected:** Take-home scope is clear.
+
+<!--
+Now for Step 5 (cont.).
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.4 — Step 5 (cont.).
+
+Step 5: Deliverables checklist.
+
+Bullet 1 on the slide: Note deliverables: working demo, setup doc, one insight, export script.
+
+Bullet 2 on the slide: Expected: Take-home scope is clear.
+-->
+
+---
+
+
+<!-- _class: fit-md -->
+
+## Exercise 10.4 — Success criteria
+
+**Check:** Architecture choice · five panels · data flow · optional Streamlit run
+
+<!--
+Now for Success criteria.
+
+I'll give you a few minutes to work — raise your hand if you get stuck.
+
+The slide title is: Exercise 10.4 — Success criteria.
+
+The slide says: Check: Architecture choice · five panels · data flow · optional Streamlit run.
 -->

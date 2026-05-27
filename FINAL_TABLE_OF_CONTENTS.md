@@ -17,6 +17,7 @@ Complete reference for all **10 modules**, **52 lessons**, and **40 hands-on sli
 | **Core exercises** | 25 optional hands-on labs in `core-exercises/` |
 | **Slide deck (present)** | [`slides/course-complete-marp-with-notes.html`](slides/course-complete-marp-with-notes.html) |
 | **Slide deck (source)** | [`slides/course-complete-marp-with-notes.md`](slides/course-complete-marp-with-notes.md) |
+| **Cheatsheet** | [`COURSE-CHEATSHEET.md`](COURSE-CHEATSHEET.md) — acronyms and definitions by module |
 
 ### Day 1 — Cursor Editor and Agent Fluency
 
