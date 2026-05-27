@@ -3,3 +3,10 @@ core-exercises/cursor-training-exercises-index.md
 
 __pycache__/
 *.pyc
+
+# Export / scratch artifacts
+*.zip
+_bullet-test.pptx
+slides/_step-audit.txt
+scripts_patch/
+scripts/flat-gaia.css
